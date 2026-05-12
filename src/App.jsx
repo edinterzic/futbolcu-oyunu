@@ -1,6 +1,25 @@
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
+import { createClient } from "@supabase/supabase-js";
 
 const WINNING_SCORE = 3;
+
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
+const supabase = supabaseUrl && supabaseAnonKey ? createClient(supabaseUrl, supabaseAnonKey) : null;
+
+function makeRoomCode() {
+  const chars = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
+  let code = "";
+  for (let i = 0; i < 6; i += 1) {
+    code += chars[Math.floor(Math.random() * chars.length)];
+  }
+  return code;
+}
+
+function makeClientId() {
+  return `${Date.now()}-${Math.random().toString(16).slice(2)}`;
+}
+
 
 const TEAMS = [
   "Ajax",
@@ -245,6 +264,7 @@ function runSelfTests() {
 
 runSelfTests();
 
+
 function StatusMessage({ message }) {
   if (!message) return null;
 
@@ -263,7 +283,18 @@ function StatusMessage({ message }) {
 }
 
 export default function App() {
-  const [screen, setScreen] = useState("setup");
+  const clientIdRef = useRef(makeClientId());
+  const channelRef = useRef(null);
+  const stateRef = useRef(null);
+
+  const [screen, setScreen] = useState("home");
+  const [connectionStatus, setConnectionStatus] = useState("offline");
+  const [playerName, setPlayerName] = useState("Oyuncu");
+  const [roomInput, setRoomInput] = useState("");
+  const [roomCode, setRoomCode] = useState("");
+  const [playerIndex, setPlayerIndex] = useState(null);
+  const [isHost, setIsHost] = useState(false);
+
   const [playerNames, setPlayerNames] = useState(["Oyuncu 1", "Oyuncu 2"]);
   const [scores, setScores] = useState([0, 0]);
   const [round, setRound] = useState(() => getRandomRound());
@@ -277,24 +308,235 @@ export default function App() {
   const suggestions = useMemo(() => inputs.map((input) => getPlayerSuggestions(input)), [inputs]);
   const correctPlayers = useMemo(() => getCorrectPlayersForRound(round), [round]);
 
-  const startGame = () => {
-    const firstRound = getRandomRound([]);
-    setScores([0, 0]);
-    setUsedRoundKeys([getRoundKey(firstRound)]);
-    setRound(firstRound);
+  useEffect(() => {
+    stateRef.current = {
+      screen,
+      playerNames,
+      scores,
+      round,
+      usedRoundKeys,
+      inputs,
+      message,
+      winner,
+      showAnswers,
+      roundLocked
+    };
+  }, [screen, playerNames, scores, round, usedRoundKeys, inputs, message, winner, showAnswers, roundLocked]);
+
+  const applyGameState = (gameState) => {
+    if (!gameState) return;
+
+    setScreen(gameState.screen || "game");
+    setPlayerNames(gameState.playerNames || ["Oyuncu 1", "Oyuncu 2"]);
+    setScores(gameState.scores || [0, 0]);
+    setRound(gameState.round || getRandomRound());
+    setUsedRoundKeys(gameState.usedRoundKeys || []);
     setInputs(["", ""]);
-    setMessage(null);
+    setMessage(gameState.message || null);
+    setWinner(gameState.winner ?? null);
+    setShowAnswers(Boolean(gameState.showAnswers));
+    setRoundLocked(Boolean(gameState.roundLocked));
+  };
+
+  const sendRoomEvent = async (payload) => {
+    if (!channelRef.current) return;
+
+    await channelRef.current.send({
+      type: "broadcast",
+      event: "game",
+      payload: {
+        ...payload,
+        senderId: clientIdRef.current
+      }
+    });
+  };
+
+  const buildGameState = (overrides = {}) => ({
+    screen,
+    playerNames,
+    scores,
+    round,
+    usedRoundKeys,
+    message,
+    winner,
+    showAnswers,
+    roundLocked,
+    ...overrides
+  });
+
+  const broadcastGameState = async (overrides = {}) => {
+    await sendRoomEvent({
+      type: "STATE_SYNC",
+      gameState: buildGameState(overrides)
+    });
+  };
+
+  useEffect(() => {
+    if (!roomCode || !supabase) return;
+
+    setConnectionStatus("connecting");
+
+    const channel = supabase.channel(`football-room-${roomCode}`, {
+      config: {
+        broadcast: { self: false }
+      }
+    });
+
+    channelRef.current = channel;
+
+    channel.on("broadcast", { event: "game" }, async ({ payload }) => {
+      if (!payload || payload.senderId === clientIdRef.current) return;
+
+      if (payload.type === "PLAYER_JOINED") {
+        if (!stateRef.current) return;
+
+        setPlayerNames((current) => {
+          const next = [...current];
+          next[1] = payload.name || "Oyuncu 2";
+
+          sendRoomEvent({
+            type: "STATE_SYNC",
+            gameState: {
+              ...stateRef.current,
+              playerNames: next,
+              message: { type: "info", text: `${payload.name || "Oyuncu 2"} odaya katıldı.` }
+            }
+          });
+
+          return next;
+        });
+      }
+
+      if (payload.type === "REQUEST_STATE") {
+        if (playerIndex === 0 && stateRef.current) {
+          await sendRoomEvent({
+            type: "STATE_SYNC",
+            gameState: stateRef.current
+          });
+        }
+      }
+
+      if (payload.type === "STATE_SYNC") {
+        applyGameState(payload.gameState);
+      }
+    });
+
+    channel.subscribe(async (status) => {
+      if (status === "SUBSCRIBED") {
+        setConnectionStatus("online");
+
+        if (playerIndex === 1) {
+          await sendRoomEvent({ type: "PLAYER_JOINED", name: playerName || "Oyuncu 2" });
+          await sendRoomEvent({ type: "REQUEST_STATE" });
+        }
+
+        if (playerIndex === 0) {
+          await broadcastGameState();
+        }
+      }
+    });
+
+    return () => {
+      try {
+        supabase.removeChannel(channel);
+      } catch {
+        // ignore cleanup errors
+      }
+      channelRef.current = null;
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [roomCode]);
+
+  const createRoom = () => {
+    if (!supabase) {
+      setMessage({ type: "error", text: "Supabase ayarları eksik. .env.local dosyasını kontrol et." });
+      return;
+    }
+
+    const code = makeRoomCode();
+    const firstRound = getRandomRound([]);
+    const name = playerName.trim() || "Oyuncu 1";
+
+    setRoomCode(code);
+    setRoomInput(code);
+    setPlayerIndex(0);
+    setIsHost(true);
+    setPlayerNames([name, "Rakip bekleniyor"]);
+    setScores([0, 0]);
+    setRound(firstRound);
+    setUsedRoundKeys([getRoundKey(firstRound)]);
+    setInputs(["", ""]);
     setWinner(null);
     setShowAnswers(false);
     setRoundLocked(false);
+    setMessage({ type: "info", text: `Oda oluşturuldu: ${code}. Linki arkadaşına gönder.` });
     setScreen("game");
   };
 
-  const nextRound = () => {
+  const joinRoom = () => {
+    if (!supabase) {
+      setMessage({ type: "error", text: "Supabase ayarları eksik. .env.local dosyasını kontrol et." });
+      return;
+    }
+
+    const code = roomInput.trim().toUpperCase();
+
+    if (!code) {
+      setMessage({ type: "error", text: "Odaya katılmak için oda kodu yazmalısın." });
+      return;
+    }
+
+    const name = playerName.trim() || "Oyuncu 2";
+
+    setRoomCode(code);
+    setPlayerIndex(1);
+    setIsHost(false);
+    setPlayerNames(["Oyuncu 1", name]);
+    setInputs(["", ""]);
+    setMessage({ type: "info", text: `${code} odasına bağlanılıyor...` });
+    setScreen("game");
+  };
+
+  const copyInvite = async () => {
+    const url = `${window.location.origin}?room=${roomCode}`;
+    try {
+      await navigator.clipboard.writeText(url);
+      setMessage({ type: "success", text: "Davet linki kopyalandı." });
+    } catch {
+      setMessage({ type: "info", text: `Davet linki: ${url}` });
+    }
+  };
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const roomFromUrl = params.get("room");
+    if (roomFromUrl) {
+      setRoomInput(roomFromUrl.toUpperCase());
+    }
+  }, []);
+
+  const nextRound = async () => {
+    if (playerIndex !== 0) {
+      setMessage({ type: "info", text: "Sonraki turu oda sahibi başlatabilir." });
+      return;
+    }
+
     const next = getRandomRound(usedRoundKeys);
     const nextKey = getRoundKey(next);
     const playableCount = getPlayableTeamPairs().length;
     const nextUsed = usedRoundKeys.length >= playableCount ? [nextKey] : [...usedRoundKeys, nextKey];
+
+    const nextState = {
+      screen: "game",
+      playerNames,
+      scores,
+      round: next,
+      usedRoundKeys: nextUsed,
+      message: null,
+      winner: null,
+      showAnswers: false,
+      roundLocked: false
+    };
 
     setRound(next);
     setUsedRoundKeys(nextUsed);
@@ -302,46 +544,61 @@ export default function App() {
     setMessage(null);
     setShowAnswers(false);
     setRoundLocked(false);
+    setWinner(null);
+
+    await sendRoomEvent({ type: "STATE_SYNC", gameState: nextState });
   };
 
-  const resetGame = () => {
-    setScreen("setup");
+  const resetGame = async () => {
+    const firstRound = getRandomRound([]);
+    const nextState = {
+      screen: "game",
+      playerNames,
+      scores: [0, 0],
+      round: firstRound,
+      usedRoundKeys: [getRoundKey(firstRound)],
+      message: { type: "info", text: "Oyun yeniden başlatıldı." },
+      winner: null,
+      showAnswers: false,
+      roundLocked: false
+    };
+
     setScores([0, 0]);
-    setWinner(null);
-    setMessage(null);
+    setRound(firstRound);
+    setUsedRoundKeys([getRoundKey(firstRound)]);
     setInputs(["", ""]);
+    setMessage(nextState.message);
+    setWinner(null);
     setShowAnswers(false);
     setRoundLocked(false);
-    setUsedRoundKeys([]);
-  };
+    setScreen("game");
 
-  const updatePlayerName = (index, value) => {
-    const next = [...playerNames];
-    next[index] = value || `Oyuncu ${index + 1}`;
-    setPlayerNames(next);
+    await sendRoomEvent({ type: "STATE_SYNC", gameState: nextState });
   };
 
   const updateInput = (index, value) => {
-    if (roundLocked) return;
+    if (roundLocked || index !== playerIndex) return;
     const next = [...inputs];
     next[index] = value;
     setInputs(next);
   };
 
-  const selectSuggestion = (index, playerName) => {
-    if (roundLocked) return;
+  const selectSuggestion = (index, playerNameValue) => {
+    if (roundLocked || index !== playerIndex) return;
     const next = [...inputs];
-    next[index] = playerName;
+    next[index] = playerNameValue;
     setInputs(next);
   };
 
-  const checkAnswer = (playerIndex) => {
+  const checkAnswer = async (playerIndexToCheck) => {
+    if (playerIndexToCheck !== playerIndex) return;
+
     if (roundLocked) {
       setMessage({ type: "info", text: "Bu tur bitti. Devam etmek için Sonraki Tur'a basın." });
       return;
     }
 
-    const raw = inputs[playerIndex];
+    const raw = inputs[playerIndexToCheck];
     const normalized = normalizeText(raw);
 
     if (!normalized) {
@@ -351,21 +608,37 @@ export default function App() {
 
     if (isCorrectAnswer(round, raw)) {
       const newScores = [...scores];
-      newScores[playerIndex] += 1;
+      newScores[playerIndexToCheck] += 1;
+
+      const hasWinner = newScores[playerIndexToCheck] >= WINNING_SCORE;
+      const nextMessage = {
+        type: "success",
+        text: `${playerNames[playerIndexToCheck]} doğru bildi: ${raw}. Tur bitti, 1 puan aldı!`
+      };
+
+      const nextState = {
+        screen: hasWinner ? "winner" : "game",
+        playerNames,
+        scores: newScores,
+        round,
+        usedRoundKeys,
+        message: nextMessage,
+        winner: hasWinner ? playerIndexToCheck : null,
+        showAnswers: true,
+        roundLocked: true
+      };
+
       setScores(newScores);
       setRoundLocked(true);
       setShowAnswers(true);
+      setMessage(nextMessage);
 
-      if (newScores[playerIndex] >= WINNING_SCORE) {
-        setWinner(playerIndex);
+      if (hasWinner) {
+        setWinner(playerIndexToCheck);
         setScreen("winner");
-        return;
       }
 
-      setMessage({
-        type: "success",
-        text: `${playerNames[playerIndex]} doğru bildi: ${raw}. Tur bitti, 1 puan aldı!`
-      });
+      await sendRoomEvent({ type: "STATE_SYNC", gameState: nextState });
       return;
     }
 
@@ -377,11 +650,32 @@ export default function App() {
     setMessage({ type: "error", text: errorText });
   };
 
-  const skipRound = () => {
+  const skipRound = async () => {
+    if (playerIndex !== 0) {
+      setMessage({ type: "info", text: "Cevapları sadece oda sahibi gösterebilir." });
+      return;
+    }
+
     if (roundLocked) return;
-    setMessage({ type: "info", text: "Tur geçildi. Cevapları aşağıda görebilirsin." });
+
+    const nextMessage = { type: "info", text: "Tur geçildi. Cevapları aşağıda görebilirsin." };
+    const nextState = {
+      screen: "game",
+      playerNames,
+      scores,
+      round,
+      usedRoundKeys,
+      message: nextMessage,
+      winner: null,
+      showAnswers: true,
+      roundLocked: true
+    };
+
+    setMessage(nextMessage);
     setShowAnswers(true);
     setRoundLocked(true);
+
+    await sendRoomEvent({ type: "STATE_SYNC", gameState: nextState });
   };
 
   return (
@@ -390,162 +684,173 @@ export default function App() {
 
       <main className="game-container">
         <header className="hero">
-          <div className="badge">🛡️ Ortak Futbolcu Kapışması</div>
+          <div className="badge">🌍 Online Futbolcu Kapışması</div>
           <h1>İki Takım, Tek Futbolcu</h1>
           <p>
-            Aynı anda iki takım çıkar. İki takımda da oynamış futbolcuyu ilk yazan puanı alır.
-            {" "}
-            {WINNING_SCORE} puana ulaşan kazanır.
+            Oda oluştur, linki arkadaşına gönder, iki kişi farklı cihazlardan aynı anda oynayın.
           </p>
         </header>
 
-        {screen === "setup" && (
+        {screen === "home" && (
           <section className="panel">
-            <div className="players-grid">
-              {[0, 1].map((index) => (
-                <div key={index} className="input-card">
-                  <label>👤 Oyuncu {index + 1}</label>
-                  <input value={playerNames[index]} onChange={(event) => updatePlayerName(index, event.target.value)} />
-                </div>
-              ))}
+            <div className="input-card room-card">
+              <label>👤 Oyuncu adın</label>
+              <input value={playerName} onChange={(event) => setPlayerName(event.target.value)} placeholder="Örn. İsmet" />
             </div>
 
-            <div className="rules">
-              <h2>Kurallar</h2>
-              <ul>
-                <li>Doğru futbolcu adı yazan oyuncu 1 puan alır ve tur hemen biter.</li>
-                <li>Tur bittikten sonra diğer oyuncu aynı turda cevap veremez.</li>
-                <li>Toplam {WINNING_SCORE} puana ulaşan oyuncu oyunu kazanır.</li>
-                <li>Türkçe karakter kullanmasan bile cevap kabul edilir.</li>
-                <li>Soyadı veya bilinen kısa adı yazınca da cevap kontrolünde kabul edilir.</li>
-                <li>Öneri kutusu tüm oyuncu havuzundan çalışır; sadece doğru cevapları göstermez.</li>
-              </ul>
+            <div className="room-actions">
+              <button type="button" onClick={createRoom} className="primary-button big">
+                Oda Oluştur
+              </button>
+
+              <div className="join-box">
+                <input
+                  value={roomInput}
+                  onChange={(event) => setRoomInput(event.target.value.toUpperCase())}
+                  placeholder="Oda kodu"
+                />
+                <button type="button" onClick={joinRoom} className="light-button big">
+                  Odaya Katıl
+                </button>
+              </div>
             </div>
 
-            <button type="button" onClick={startGame} className="primary-button full-width">
-              ▶️ Oyunu Başlat
-            </button>
+            {!supabase && (
+              <div className="setup-warning">
+                Supabase bağlantısı yok. Önce <strong>.env.local</strong> dosyasına URL ve anon key eklenmeli.
+              </div>
+            )}
+
+            <StatusMessage message={message} />
           </section>
         )}
 
-        {screen === "game" && (
+        {(screen === "game" || screen === "winner") && (
           <section className="game-area">
+            <div className="online-bar">
+              <span>Oda: <strong>{roomCode}</strong></span>
+              <span>Durum: <strong>{connectionStatus === "online" ? "Online" : "Bağlanıyor"}</strong></span>
+              <span>Sen: <strong>{playerIndex === 0 ? "Oyuncu 1" : "Oyuncu 2"}</strong></span>
+              <button type="button" onClick={copyInvite} className="mini-button">Linki Kopyala</button>
+            </div>
+
             <div className="score-grid">
               {[0, 1].map((index) => (
-                <div key={index} className="score-card">
+                <div key={index} className={`score-card ${index === playerIndex ? "me" : ""}`}>
                   <span>{playerNames[index]}</span>
                   <strong>{scores[index]}</strong>
                 </div>
               ))}
             </div>
 
-            <div className="panel">
-              <div className="top-row">
-                <div className="round-pill">⏱️ {roundLocked ? "Tur bitti" : `Tur #${usedRoundKeys.length || 1}`}</div>
-                <button type="button" onClick={resetGame} className="light-button">
-                  ↩️ Baştan Başlat
-                </button>
-              </div>
+            {screen === "winner" && winner !== null ? (
+              <section className="panel winner-panel">
+                <div className="trophy">🏆</div>
+                <h2>Kazanan: {playerNames[winner]}</h2>
+                <p>
+                  Final skor: {playerNames[0]} {scores[0]} - {scores[1]} {playerNames[1]}
+                </p>
 
-              <div className="teams-grid">
-                <div className="team-card">
-                  <span>Takım 1</span>
-                  <strong>{round.teams[0]}</strong>
+                <div className="winner-actions">
+                  <button type="button" onClick={resetGame} className="primary-button big">
+                    Yeni Maç
+                  </button>
+                </div>
+              </section>
+            ) : (
+              <div className="panel">
+                <div className="top-row">
+                  <div className="round-pill">⏱️ {roundLocked ? "Tur bitti" : `Tur #${usedRoundKeys.length || 1}`}</div>
+                  <button type="button" onClick={resetGame} className="light-button">
+                    ↩️ Baştan Başlat
+                  </button>
                 </div>
 
-                <div className="versus">VS</div>
+                <div className="teams-grid">
+                  <div className="team-card">
+                    <span>Takım 1</span>
+                    <strong>{round.teams[0]}</strong>
+                  </div>
 
-                <div className="team-card">
-                  <span>Takım 2</span>
-                  <strong>{round.teams[1]}</strong>
+                  <div className="versus">VS</div>
+
+                  <div className="team-card">
+                    <span>Takım 2</span>
+                    <strong>{round.teams[1]}</strong>
+                  </div>
                 </div>
-              </div>
 
-              <div className="answer-grid">
-                {[0, 1].map((index) => (
-                  <div key={index} className="input-card answer-card">
-                    <label>{playerNames[index]} cevabı</label>
-                    <div className="answer-row">
-                      <div className="autocomplete-wrap">
-                        <input
-                          value={inputs[index]}
-                          disabled={roundLocked}
-                          onChange={(event) => updateInput(index, event.target.value)}
-                          onKeyDown={(event) => {
-                            if (event.key === "Enter") checkAnswer(index);
-                          }}
-                          placeholder="Futbolcu adı yaz... örn. Suarez, Messi, Quaresma"
-                        />
+                <div className="answer-grid">
+                  {[0, 1].map((index) => (
+                    <div key={index} className={`input-card answer-card ${index !== playerIndex ? "locked-card" : ""}`}>
+                      <label>{playerNames[index]} cevabı {index === playerIndex ? "(sen)" : ""}</label>
+                      <div className="answer-row">
+                        <div className="autocomplete-wrap">
+                          <input
+                            value={inputs[index]}
+                            disabled={roundLocked || index !== playerIndex}
+                            onChange={(event) => updateInput(index, event.target.value)}
+                            onKeyDown={(event) => {
+                              if (event.key === "Enter") checkAnswer(index);
+                            }}
+                            placeholder={index === playerIndex ? "Futbolcu adı yaz... Suarez, Messi, Quaresma" : "Rakibin cevap alanı"}
+                          />
 
-                        {!roundLocked && suggestions[index].length > 0 && (
-                          <div className="suggestions">
-                            {suggestions[index].map((player) => (
-                              <button
-                                key={player.name}
-                                type="button"
-                                onClick={() => selectSuggestion(index, player.name)}
-                              >
-                                {player.name}
-                              </button>
-                            ))}
-                          </div>
-                        )}
+                          {!roundLocked && index === playerIndex && suggestions[index].length > 0 && (
+                            <div className="suggestions">
+                              {suggestions[index].map((player) => (
+                                <button
+                                  key={player.name}
+                                  type="button"
+                                  onClick={() => selectSuggestion(index, player.name)}
+                                >
+                                  {player.name}
+                                </button>
+                              ))}
+                            </div>
+                          )}
+                        </div>
+
+                        <button
+                          type="button"
+                          disabled={roundLocked || index !== playerIndex}
+                          onClick={() => checkAnswer(index)}
+                          className="primary-button"
+                        >
+                          Kontrol
+                        </button>
                       </div>
+                    </div>
+                  ))}
+                </div>
 
-                      <button
-                        type="button"
-                        disabled={roundLocked}
-                        onClick={() => checkAnswer(index)}
-                        className="primary-button"
-                      >
-                        Kontrol
-                      </button>
+                <StatusMessage message={message} />
+
+                {showAnswers && (
+                  <div className="answers-box">
+                    <strong>Bu tur için kabul edilen oyuncular:</strong>
+                    <div className="answer-tags">
+                      {correctPlayers.map((player) => (
+                        <span key={player.name}>{player.name}</span>
+                      ))}
                     </div>
                   </div>
-                ))}
-              </div>
+                )}
 
-              <StatusMessage message={message} />
-
-              {showAnswers && (
-                <div className="answers-box">
-                  <strong>Bu tur için kabul edilen oyuncular:</strong>
-                  <div className="answer-tags">
-                    {correctPlayers.map((player) => (
-                      <span key={player.name}>{player.name}</span>
-                    ))}
-                  </div>
+                <div className="bottom-actions">
+                  <button type="button" disabled={roundLocked || playerIndex !== 0} onClick={skipRound} className="light-button big">
+                    Cevapları Göster
+                  </button>
+                  <button type="button" disabled={playerIndex !== 0} onClick={nextRound} className="light-button big strong">
+                    Sonraki Tur
+                  </button>
                 </div>
-              )}
 
-              <div className="bottom-actions">
-                <button type="button" disabled={roundLocked} onClick={skipRound} className="light-button big">
-                  Cevapları Göster
-                </button>
-                <button type="button" onClick={nextRound} className="light-button big strong">
-                  Sonraki Tur
-                </button>
+                {playerIndex !== 0 && (
+                  <p className="host-note">Not: Sonraki turu oda sahibi başlatır.</p>
+                )}
               </div>
-            </div>
-          </section>
-        )}
-
-        {screen === "winner" && winner !== null && (
-          <section className="panel winner-panel">
-            <div className="trophy">🏆</div>
-            <h2>Kazanan: {playerNames[winner]}</h2>
-            <p>
-              Final skor: {playerNames[0]} {scores[0]} - {scores[1]} {playerNames[1]}
-            </p>
-
-            <div className="winner-actions">
-              <button type="button" onClick={startGame} className="primary-button big">
-                Yeni Maç
-              </button>
-              <button type="button" onClick={resetGame} className="light-button big">
-                Oyuncuları Değiştir
-              </button>
-            </div>
+            )}
           </section>
         )}
       </main>
@@ -659,7 +964,8 @@ input:disabled {
   font-weight: 700;
 }
 
-.input-card input {
+.input-card input,
+.join-box input {
   width: 100%;
   border: none;
   border-radius: 14px;
@@ -669,32 +975,14 @@ input:disabled {
   background: white;
 }
 
-.input-card input:focus {
+.input-card input:focus,
+.join-box input:focus {
   box-shadow: 0 0 0 4px rgba(52, 211, 153, 0.35);
 }
 
-.rules {
-  margin: 18px 0;
-  border: 1px solid rgba(110, 231, 183, 0.22);
-  background: rgba(52, 211, 153, 0.10);
-  border-radius: 20px;
-  padding: 18px;
-}
-
-.rules h2 {
-  margin: 0 0 10px;
-  font-size: 19px;
-}
-
-.rules ul {
-  margin: 0;
-  padding-left: 20px;
-  color: rgba(236, 253, 245, 0.93);
-  line-height: 1.7;
-}
-
 .primary-button,
-.light-button {
+.light-button,
+.mini-button {
   border: none;
   border-radius: 16px;
   font-weight: 900;
@@ -712,20 +1000,16 @@ input:disabled {
   transform: translateY(-1px);
 }
 
-.light-button {
+.light-button,
+.mini-button {
   background: rgba(255, 255, 255, 0.94);
   color: #0f172a;
 }
 
-.light-button:hover:not(:disabled) {
+.light-button:hover:not(:disabled),
+.mini-button:hover:not(:disabled) {
   background: #ecfdf5;
   transform: translateY(-1px);
-}
-
-.full-width {
-  width: 100%;
-  font-size: 18px;
-  padding: 18px;
 }
 
 .big {
@@ -734,6 +1018,53 @@ input:disabled {
 
 .strong {
   font-weight: 950;
+}
+
+.room-card {
+  margin-bottom: 18px;
+}
+
+.room-actions {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 14px;
+}
+
+.join-box {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 10px;
+}
+
+.setup-warning {
+  margin-top: 16px;
+  border-radius: 16px;
+  background: rgba(248, 113, 113, 0.16);
+  border: 1px solid rgba(252, 165, 165, 0.34);
+  padding: 14px;
+}
+
+.online-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  background: rgba(0, 0, 0, 0.24);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 18px;
+  padding: 12px;
+}
+
+.online-bar span {
+  color: #d1fae5;
+  background: rgba(255, 255, 255, 0.08);
+  padding: 8px 10px;
+  border-radius: 999px;
+}
+
+.mini-button {
+  padding: 8px 12px;
+  margin-left: auto;
 }
 
 .game-area {
@@ -747,6 +1078,10 @@ input:disabled {
   border-radius: 24px;
   text-align: center;
   padding: 20px;
+}
+
+.score-card.me {
+  outline: 3px solid rgba(16, 185, 129, 0.7);
 }
 
 .score-card span {
@@ -858,6 +1193,10 @@ input:disabled {
   background: #d1fae5;
 }
 
+.locked-card {
+  opacity: 0.72;
+}
+
 .status-message {
   margin-top: 18px;
   border-radius: 18px;
@@ -923,6 +1262,12 @@ input:disabled {
   flex: 1;
 }
 
+.host-note {
+  margin: 14px 0 0;
+  color: rgba(209, 250, 229, 0.8);
+  text-align: center;
+}
+
 .winner-panel {
   text-align: center;
 }
@@ -953,7 +1298,7 @@ input:disabled {
 
 .winner-actions {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: 12px;
 }
 
@@ -970,7 +1315,12 @@ input:disabled {
   .players-grid,
   .score-grid,
   .answer-grid,
+  .room-actions,
   .winner-actions {
+    grid-template-columns: 1fr;
+  }
+
+  .join-box {
     grid-template-columns: 1fr;
   }
 
@@ -994,6 +1344,11 @@ input:disabled {
   .bottom-actions {
     flex-direction: column;
     align-items: stretch;
+  }
+
+  .mini-button {
+    margin-left: 0;
+    width: 100%;
   }
 }
 `;
