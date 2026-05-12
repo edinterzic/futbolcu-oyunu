@@ -300,6 +300,7 @@ export default function App() {
   const [round, setRound] = useState(() => getRandomRound());
   const [usedRoundKeys, setUsedRoundKeys] = useState([]);
   const [inputs, setInputs] = useState(["", ""]);
+  const [focusedInput, setFocusedInput] = useState(null);
   const [message, setMessage] = useState(null);
   const [winner, setWinner] = useState(null);
   const [showAnswers, setShowAnswers] = useState(false);
@@ -493,6 +494,7 @@ export default function App() {
     setIsHost(false);
     setPlayerNames(["Oyuncu 1", name]);
     setInputs(["", ""]);
+    setFocusedInput(null);
     setMessage({ type: "info", text: `${code} odasına bağlanılıyor...` });
     setScreen("game");
   };
@@ -541,6 +543,7 @@ export default function App() {
     setRound(next);
     setUsedRoundKeys(nextUsed);
     setInputs(["", ""]);
+    setFocusedInput(null);
     setMessage(null);
     setShowAnswers(false);
     setRoundLocked(false);
@@ -567,6 +570,7 @@ export default function App() {
     setRound(firstRound);
     setUsedRoundKeys([getRoundKey(firstRound)]);
     setInputs(["", ""]);
+    setFocusedInput(null);
     setMessage(nextState.message);
     setWinner(null);
     setShowAnswers(false);
@@ -581,6 +585,7 @@ export default function App() {
     const next = [...inputs];
     next[index] = value;
     setInputs(next);
+    setFocusedInput(index);
   };
 
   const selectSuggestion = (index, playerNameValue) => {
@@ -588,10 +593,12 @@ export default function App() {
     const next = [...inputs];
     next[index] = playerNameValue;
     setInputs(next);
+    setFocusedInput(null);
   };
 
   const checkAnswer = async (playerIndexToCheck) => {
     if (playerIndexToCheck !== playerIndex) return;
+    setFocusedInput(null);
 
     if (roundLocked) {
       setMessage({ type: "info", text: "Bu tur bitti. Devam etmek için Sonraki Tur'a basın." });
@@ -789,6 +796,14 @@ export default function App() {
                           <input
                             value={inputs[index]}
                             disabled={roundLocked || index !== playerIndex}
+                            onFocus={() => {
+                              if (!roundLocked && index === playerIndex && inputs[index]) {
+                                setFocusedInput(index);
+                              }
+                            }}
+                            onBlur={() => {
+                              setTimeout(() => setFocusedInput(null), 120);
+                            }}
                             onChange={(event) => updateInput(index, event.target.value)}
                             onKeyDown={(event) => {
                               if (event.key === "Enter") checkAnswer(index);
@@ -796,12 +811,16 @@ export default function App() {
                             placeholder={index === playerIndex ? "Futbolcu adı yaz... Suarez, Messi, Quaresma" : "Rakibin cevap alanı"}
                           />
 
-                          {!roundLocked && index === playerIndex && suggestions[index].length > 0 && (
+                          {!roundLocked && focusedInput === index && index === playerIndex && suggestions[index].length > 0 && (
                             <div className="suggestions">
                               {suggestions[index].map((player) => (
                                 <button
                                   key={player.name}
                                   type="button"
+                                  onMouseDown={(event) => {
+                                    event.preventDefault();
+                                    selectSuggestion(index, player.name);
+                                  }}
                                   onClick={() => selectSuggestion(index, player.name)}
                                 >
                                   {player.name}
@@ -1176,6 +1195,8 @@ input:disabled {
   background: white;
   color: #0f172a;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.28);
+  max-height: 220px;
+  overflow-y: auto;
 }
 
 .suggestions button {
