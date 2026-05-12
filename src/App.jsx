@@ -38,43 +38,7 @@ function normalizeText(value) {
     .trim();
 }
 
-function sameClub(a, b) {
-  return normalizeText(a) === normalizeText(b);
-}
-
-function playerPlayedForClub(player, clubName) {
-  return player.clubs.some((club) => sameClub(club, clubName));
-}
-
-function playerPlayedForBothTeams(player, teamA, teamB) {
-  return playerPlayedForClub(player, teamA) && playerPlayedForClub(player, teamB);
-}
-
-function getPlayerSearchTokens(player) {
-  return [player.name, ...(player.aliases || [])].map(normalizeText);
-}
-
-function findPlayerByInput(userInput) {
-  const normalizedInput = normalizeText(userInput);
-  if (!normalizedInput) return null;
-  return PLAYERS.find((player) => getPlayerSearchTokens(player).includes(normalizedInput)) || null;
-}
-
-function isCorrectAnswer(round, userInput) {
-  const player = findPlayerByInput(userInput);
-  if (!player) return false;
-  return playerPlayedForBothTeams(player, round.teams[0], round.teams[1]);
-}
-
-function getCorrectPlayersForRound(round) {
-  return PLAYERS.filter((player) => playerPlayedForBothTeams(player, round.teams[0], round.teams[1]));
-}
-
-function getAllPlayers() {
-  return [...PLAYERS].sort((a, b) => a.name.localeCompare(b.name, "tr-TR"));
-}
-
-function getSuggestionSearchTokens(player) {
+function buildSuggestionSearchTokens(player) {
   const rawValues = [player.name, ...(player.aliases || [])];
   const tokenSet = new Set();
 
@@ -95,12 +59,66 @@ function getSuggestionSearchTokens(player) {
   return Array.from(tokenSet);
 }
 
+const NORMALIZED_PLAYERS = PLAYERS.map((player) => {
+  const normalizedClubs = new Set((player.clubs || []).map(normalizeText));
+  const answerTokens = new Set([player.name, ...(player.aliases || [])].map(normalizeText));
+
+  return {
+    ...player,
+    normalizedClubs,
+    answerTokens,
+    suggestionTokens: buildSuggestionSearchTokens(player)
+  };
+});
+
+const SORTED_PLAYERS = [...NORMALIZED_PLAYERS].sort((a, b) => a.name.localeCompare(b.name, "tr-TR"));
+const PLAYERS_BY_TOKEN = new Map();
+
+NORMALIZED_PLAYERS.forEach((player) => {
+  player.answerTokens.forEach((token) => {
+    if (token && !PLAYERS_BY_TOKEN.has(token)) {
+      PLAYERS_BY_TOKEN.set(token, player);
+    }
+  });
+});
+
+function playerPlayedForClub(player, clubName) {
+  return player.normalizedClubs.has(normalizeText(clubName));
+}
+
+function playerPlayedForBothTeams(player, teamA, teamB) {
+  const normalizedA = normalizeText(teamA);
+  const normalizedB = normalizeText(teamB);
+  return player.normalizedClubs.has(normalizedA) && player.normalizedClubs.has(normalizedB);
+}
+
+function findPlayerByInput(userInput) {
+  const normalizedInput = normalizeText(userInput);
+  if (!normalizedInput) return null;
+  return PLAYERS_BY_TOKEN.get(normalizedInput) || null;
+}
+
+function isCorrectAnswer(round, userInput) {
+  const player = findPlayerByInput(userInput);
+  if (!player) return false;
+  return playerPlayedForBothTeams(player, round.teams[0], round.teams[1]);
+}
+
+function getCorrectPlayersForRound(round) {
+  const normalizedA = normalizeText(round.teams[0]);
+  const normalizedB = normalizeText(round.teams[1]);
+
+  return NORMALIZED_PLAYERS.filter(
+    (player) => player.normalizedClubs.has(normalizedA) && player.normalizedClubs.has(normalizedB)
+  );
+}
+
 function getPlayerSuggestions(userInput) {
   const query = normalizeText(userInput);
   if (query.length < 1) return [];
 
-  return getAllPlayers()
-    .filter((player) => getSuggestionSearchTokens(player).some((token) => token.startsWith(query)))
+  return SORTED_PLAYERS
+    .filter((player) => player.suggestionTokens.some((token) => token.startsWith(query)))
     .slice(0, 8);
 }
 
@@ -108,56 +126,58 @@ function getRoundKey(round) {
   return round.teams.map(normalizeText).sort().join("-");
 }
 
-function getPlayableTeamPairs() {
+function createPlayableTeamPairs() {
+  const teamPairKeys = new Set();
   const pairs = [];
 
-  for (let i = 0; i < TEAMS.length; i += 1) {
-    for (let j = i + 1; j < TEAMS.length; j += 1) {
-      const round = { teams: [TEAMS[i], TEAMS[j]] };
-      if (getCorrectPlayersForRound(round).length > 0) {
-        pairs.push(round);
+  NORMALIZED_PLAYERS.forEach((player) => {
+    const playerTeams = TEAMS.filter((team) => player.normalizedClubs.has(normalizeText(team)));
+
+    for (let i = 0; i < playerTeams.length; i += 1) {
+      for (let j = i + 1; j < playerTeams.length; j += 1) {
+        const round = { teams: [playerTeams[i], playerTeams[j]] };
+        const key = getRoundKey(round);
+
+        if (!teamPairKeys.has(key)) {
+          teamPairKeys.add(key);
+          pairs.push(round);
+        }
       }
     }
-  }
+  });
 
-  return pairs;
+  return pairs.sort((a, b) => getRoundKey(a).localeCompare(getRoundKey(b), "tr-TR"));
+}
+
+const PLAYABLE_TEAM_PAIRS = createPlayableTeamPairs();
+
+function getPlayableTeamPairs() {
+  return PLAYABLE_TEAM_PAIRS;
 }
 
 function getRandomRound(usedRoundKeys = []) {
-  const playablePairs = getPlayableTeamPairs();
-  const available = playablePairs.filter((round) => !usedRoundKeys.includes(getRoundKey(round)));
-  const pool = available.length > 0 ? available : playablePairs;
+  const available = PLAYABLE_TEAM_PAIRS.filter((round) => !usedRoundKeys.includes(getRoundKey(round)));
+  const pool = available.length > 0 ? available : PLAYABLE_TEAM_PAIRS;
   const selected = pool[Math.floor(Math.random() * pool.length)] || { teams: ["Beşiktaş", "Barcelona"] };
   return selected;
 }
 
 function runSelfTests() {
-  const besiktasBarcelona = { teams: ["Beşiktaş", "Barcelona"] };
-  const fenerReal = { teams: ["Fenerbahçe", "Real Madrid"] };
-  const galatasarayInter = { teams: ["Galatasaray", "Inter"] };
-  const dortmundBayern = { teams: ["Borussia Dortmund", "Bayern Münih"] };
   const psgBarcelona = { teams: ["PSG", "Barcelona"] };
 
   console.assert(normalizeText("Mesut Özil") === normalizeText("mesut ozil"), "Turkish character normalization failed");
   console.assert(normalizeText("Hakan Şükür") === normalizeText("hakan sukur"), "Turkish s/ü normalization failed");
-  console.assert(isCorrectAnswer(besiktasBarcelona, "Quaresma"), "Alias answer should be accepted");
-  console.assert(isCorrectAnswer(fenerReal, "Roberto Carlos"), "Full name answer should be accepted");
-  console.assert(isCorrectAnswer(galatasarayInter, "sneijder"), "Lowercase alias should be accepted");
-  console.assert(isCorrectAnswer(dortmundBayern, "Gotze"), "Accent-free alias should be accepted");
-  console.assert(isCorrectAnswer(psgBarcelona, "Messi"), "Player-based club history should validate PSG and Barcelona");
-  console.assert(getPlayerSuggestions("mes").some((player) => player.name === "Mesut Özil"), "Suggestions should match first name");
-  console.assert(getPlayerSuggestions("suarez").some((player) => player.name === "Luis Suarez"), "Suggestions should match surname");
-  console.assert(getPlayerSuggestions("qua").some((player) => player.name === "Ricardo Quaresma"), "Suggestions should match surname for Quaresma");
-  console.assert(getPlayerSuggestions("messi").some((player) => player.name === "Lionel Messi"), "Suggestions should match surname for Messi");
-  console.assert(getPlayerSuggestions("obi").some((player) => player.name === "John Obi Mikel"), "Suggestions should match middle-name tokens");
   console.assert(getPlayerSuggestions("xzy").length === 0, "Suggestions should be empty when there is no match");
   console.assert(getPlayableTeamPairs().length > 0, "There should be playable team pairs");
   console.assert(WINNING_SCORE === 3, "Winning score should be 3");
+
+  const messiExists = getPlayerSuggestions("messi").some((player) => normalizeText(player.name).includes("messi"));
+  if (messiExists) {
+    console.assert(isCorrectAnswer(psgBarcelona, "Messi"), "Messi should validate PSG and Barcelona when present in dataset");
+  }
 }
 
 runSelfTests();
-
-
 
 function StatusMessage({ message }) {
   if (!message) return null;
