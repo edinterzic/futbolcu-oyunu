@@ -287,6 +287,8 @@ export default function App() {
   const [preRoundLeft, setPreRoundLeft] = useState(ROUND_REVEAL_SECONDS);
   const [wrongAttempts, setWrongAttempts] = useState([0, 0]);
   const [lastAction, setLastAction] = useState(null);
+  const [lastWrongReport, setLastWrongReport] = useState(null);
+  const [reportStatus, setReportStatus] = useState(null);
 
   const [challengeScore, setChallengeScore] = useState(0);
   const [challengeBest, setChallengeBest] = useState(() => {
@@ -306,6 +308,8 @@ export default function App() {
   const [challengeTimeLeft, setChallengeTimeLeft] = useState(ROUND_SECONDS);
   const [challengePreRoundLeft, setChallengePreRoundLeft] = useState(ROUND_REVEAL_SECONDS);
   const [challengeLastAction, setChallengeLastAction] = useState(null);
+  const [challengeLastWrongReport, setChallengeLastWrongReport] = useState(null);
+  const [challengeReportStatus, setChallengeReportStatus] = useState(null);
 
   const suggestions = useMemo(() => getPlayerSuggestions(answerInput), [answerInput]);
   const correctPlayers = useMemo(() => getCorrectPlayersForRound(round), [round]);
@@ -534,6 +538,8 @@ export default function App() {
     setPreRoundLeft(ROUND_REVEAL_SECONDS);
     setWrongAttempts([0, 0]);
     setLastAction(null);
+    setLastWrongReport(null);
+    setReportStatus(null);
     setMessage({ type: "info", text: `Oda oluşturuldu: ${code}. Rakip bağlanana kadar takımlar gizli kalacak.` });
     setScreen("game");
   };
@@ -567,6 +573,8 @@ export default function App() {
     setPreRoundLeft(ROUND_REVEAL_SECONDS);
     setWrongAttempts([0, 0]);
     setLastAction(null);
+    setLastWrongReport(null);
+    setReportStatus(null);
     setMessage({ type: "info", text: `${code} odasına bağlanılıyor...` });
     setScreen("game");
   };
@@ -641,6 +649,8 @@ export default function App() {
     setPreRoundLeft(ROUND_REVEAL_SECONDS);
     setWrongAttempts([0, 0]);
     setLastAction(null);
+    setLastWrongReport(null);
+    setReportStatus(null);
     setMessage(nextMessage);
 
     await sendRoomEvent({ type: "STATE_SYNC", gameState: nextState });
@@ -691,6 +701,8 @@ export default function App() {
     setPreRoundLeft(ROUND_REVEAL_SECONDS);
     setWrongAttempts([0, 0]);
     setLastAction(null);
+    setLastWrongReport(null);
+    setReportStatus(null);
     setWinner(null);
 
     await sendRoomEvent({ type: "STATE_SYNC", gameState: nextState });
@@ -735,6 +747,8 @@ export default function App() {
     setPreRoundLeft(ROUND_REVEAL_SECONDS);
     setWrongAttempts([0, 0]);
     setLastAction(null);
+    setLastWrongReport(null);
+    setReportStatus(null);
     setScreen("game");
 
     await sendRoomEvent({ type: "STATE_SYNC", gameState: nextState });
@@ -824,6 +838,8 @@ export default function App() {
       setPreRoundEndsAt(null);
       setTimeLeft(0);
       setLastAction({ type: "correct", playerIndex });
+      setLastWrongReport(null);
+      setReportStatus(null);
       setMessage(nextMessage);
       setAnswerInput("");
 
@@ -869,6 +885,16 @@ export default function App() {
 
     setWrongAttempts(newWrongAttempts);
     setLastAction({ type: "wrong", playerIndex });
+    setLastWrongReport({
+      mode: "online",
+      teamA: round.teams[0],
+      teamB: round.teams[1],
+      answer: raw,
+      feedback: nextMessage.text,
+      roomCode,
+      playerName: playerNames[playerIndex] || playerName || "Oyuncu"
+    });
+    setReportStatus(null);
     setMessage(nextMessage);
     setAnswerInput("");
 
@@ -1056,6 +1082,8 @@ export default function App() {
     setChallengeTimeLeft(ROUND_SECONDS);
     setChallengePreRoundLeft(ROUND_REVEAL_SECONDS);
     setChallengeLastAction(null);
+    setChallengeLastWrongReport(null);
+    setChallengeReportStatus(null);
     setScreen("challenge");
   };
 
@@ -1098,7 +1126,7 @@ export default function App() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [screen, challengeRoundLocked, challengePreRoundEndsAt, challengeRoundEndsAt]);
 
-  const endChallenge = (reasonText) => {
+  const endChallenge = (reasonText, reportAnswer = null, reportRound = challengeRound) => {
     const finalScore = challengeScore;
     const nextBest = Math.max(challengeBest, finalScore);
 
@@ -1113,6 +1141,18 @@ export default function App() {
     setChallengeTimeLeft(0);
     setChallengeFocused(false);
     setChallengeLastAction({ type: "wrong" });
+    if (reportAnswer) {
+      setChallengeLastWrongReport({
+        mode: "challenge",
+        teamA: reportRound.teams[0],
+        teamB: reportRound.teams[1],
+        answer: reportAnswer,
+        feedback: `${reasonText} Seri bitti. Üst üste doğru sayın: ${finalScore}.`,
+        roomCode: null,
+        playerName: playerName || "Oyuncu"
+      });
+      setChallengeReportStatus(null);
+    }
     setChallengeMessage({
       type: "error",
       text: `${reasonText} Seri bitti. Üst üste doğru sayın: ${finalScore}.`
@@ -1197,11 +1237,47 @@ export default function App() {
       setChallengeTimeLeft(ROUND_SECONDS);
       setChallengePreRoundLeft(ROUND_REVEAL_SECONDS);
       setChallengeLastAction({ type: "correct" });
+      setChallengeLastWrongReport(null);
+      setChallengeReportStatus(null);
       setChallengeMessage({ type: "success", text: `Doğru! Seri: ${nextScore}. Yeni tur 3 saniye sonra açılacak.` });
       return;
     }
 
-    endChallenge(getWrongAnswerExplanation(challengeRound, raw));
+    endChallenge(getWrongAnswerExplanation(challengeRound, raw), raw, challengeRound);
+  };
+
+
+  const submitAnswerReport = async (report, setStatus, clearReport) => {
+    if (!report) return;
+
+    if (!supabase) {
+      setStatus({ type: "error", text: "Supabase bağlantısı yok. Bildirim kaydedilemedi." });
+      return;
+    }
+
+    setStatus({ type: "info", text: "Bildirim gönderiliyor..." });
+
+    const payload = {
+      mode: report.mode,
+      team_a: report.teamA,
+      team_b: report.teamB,
+      answer: report.answer,
+      feedback: report.feedback,
+      room_code: report.roomCode,
+      player_name: report.playerName,
+      page_url: window.location.href,
+      user_agent: window.navigator.userAgent
+    };
+
+    const { error } = await supabase.from("answer_reports").insert(payload);
+
+    if (error) {
+      setStatus({ type: "error", text: `Bildirim kaydedilemedi: ${error.message}` });
+      return;
+    }
+
+    setStatus({ type: "success", text: "Bildirim alındı. Bu cevabı data düzeltme listesine ekledik." });
+    clearReport();
   };
 
   return (
@@ -1393,6 +1469,21 @@ export default function App() {
                 </div>
 
                 <StatusMessage message={challengeMessage} />
+
+                {challengeLastWrongReport && (
+                  <div className="report-box">
+                    <span>Bu cevabın doğru olduğunu düşünüyorsan bildirebilirsin.</span>
+                    <button
+                      type="button"
+                      onClick={() => submitAnswerReport(challengeLastWrongReport, setChallengeReportStatus, () => setChallengeLastWrongReport(null))}
+                      className="light-button"
+                    >
+                      Bu cevap doğru olmalıydı
+                    </button>
+                  </div>
+                )}
+
+                <StatusMessage message={challengeReportStatus} />
 
                 {challengeShowAnswers && (
                   <div className="answers-box">
@@ -1612,6 +1703,21 @@ export default function App() {
                 </div>
 
                 <StatusMessage message={message} />
+
+                {lastWrongReport && (
+                  <div className="report-box">
+                    <span>Bu cevabın doğru olduğunu düşünüyorsan bildirebilirsin.</span>
+                    <button
+                      type="button"
+                      onClick={() => submitAnswerReport(lastWrongReport, setReportStatus, () => setLastWrongReport(null))}
+                      className="light-button"
+                    >
+                      Bu cevap doğru olmalıydı
+                    </button>
+                  </div>
+                )}
+
+                <StatusMessage message={reportStatus} />
 
                 {showAnswers && (
                   <div className="answers-box">
@@ -2191,6 +2297,27 @@ input:disabled {
   line-height: 1;
 }
 
+.report-box {
+  margin-top: 18px;
+  border: 1px solid rgba(251, 191, 36, 0.35);
+  background: rgba(251, 191, 36, 0.12);
+  border-radius: 18px;
+  padding: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.report-box span {
+  color: #fffbeb;
+  font-weight: 800;
+}
+
+.report-box button {
+  white-space: nowrap;
+}
+
 .answers-box {
   margin-top: 18px;
   border: 1px solid rgba(255, 255, 255, 0.14);
@@ -2459,7 +2586,8 @@ input:disabled {
   }
 
   .top-row,
-  .bottom-actions {
+  .bottom-actions,
+  .report-box {
     flex-direction: column;
     align-items: stretch;
   }
