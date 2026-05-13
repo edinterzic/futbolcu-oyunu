@@ -14,8 +14,8 @@ export const TEAM_LOGOS = {
   "Atletico Madrid": {
     "initials": "ATM",
     "primary": "#c8102e",
-    "secondary": "#ffffff",
-    "logo": ""
+    "secondary": "#1f4aa8",
+    "logo": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Atletico%20Madrid%20Logo%202024.svg"
   },
   "Sevilla": {
     "initials": "SEV",
@@ -51,7 +51,7 @@ export const TEAM_LOGOS = {
     "initials": "PSG",
     "primary": "#004170",
     "secondary": "#da291c",
-    "logo": ""
+    "logo": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Paris%20Saint-Germain%20Logo.svg"
   },
   "Lyon": {
     "initials": "LYO",
@@ -111,13 +111,13 @@ export const TEAM_LOGOS = {
     "initials": "BJK",
     "primary": "#000000",
     "secondary": "#ffffff",
-    "logo": ""
+    "logo": "https://commons.wikimedia.org/wiki/Special:Redirect/file/BesiktasJK-Logo.svg"
   },
   "Fenerbahçe": {
     "initials": "FB",
     "primary": "#002d72",
     "secondary": "#fedd00",
-    "logo": ""
+    "logo": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Fenerbahce%20Spor%20Kulubu.svg"
   },
   "Galatasaray": {
     "initials": "GS",
@@ -135,7 +135,7 @@ export const TEAM_LOGOS = {
     "initials": "IBFK",
     "primary": "#f58220",
     "secondary": "#003b79",
-    "logo": ""
+    "logo": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Logo%20%C4%B0stanbul%20Ba%C5%9Fak%C5%9Fehir%20FK.svg"
   },
   "Sivasspor": {
     "initials": "SIV",

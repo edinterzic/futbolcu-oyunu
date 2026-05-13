@@ -227,29 +227,43 @@ function StatusMessage({ message }) {
 }
 
 
+
 function TeamLogo({ teamName }) {
   const data = TEAM_LOGOS[teamName] || {};
+  const [logoError, setLogoError] = useState(false);
+
   const initials = data.initials || teamName
     .split(" ")
     .map((part) => part[0])
     .join("")
-    .slice(0, 3)
+    .slice(0, 4)
     .toUpperCase();
+
+  const showImage = Boolean(data.logo) && !logoError;
 
   return (
     <div
-      className="team-logo"
+      className={`team-logo ${showImage ? "has-image" : "fallback"}`}
       style={{
         "--team-primary": data.primary || "#10b981",
         "--team-secondary": data.secondary || "#ffffff"
       }}
       aria-label={`${teamName} logosu`}
     >
-      {data.logo ? (
-        <img src={data.logo} alt={`${teamName} logo`} />
-      ) : (
-        <span>{initials}</span>
-      )}
+      <div className="team-logo__ring">
+        <div className="team-logo__inner">
+          {showImage ? (
+            <img
+              src={data.logo}
+              alt={`${teamName} logo`}
+              loading="lazy"
+              onError={() => setLogoError(true)}
+            />
+          ) : (
+            <span>{initials}</span>
+          )}
+        </div>
+      </div>
     </div>
   );
 }
@@ -2590,6 +2604,7 @@ input:disabled {
   text-align: center;
   padding: 26px 18px;
   box-shadow: 0 18px 45px rgba(0, 0, 0, 0.22);
+  backdrop-filter: blur(10px);
 }
 
 .team-card span {
@@ -2600,30 +2615,72 @@ input:disabled {
 }
 
 .team-logo {
-  width: 82px;
-  height: 82px;
-  margin: 8px auto 12px;
-  border-radius: 24px;
+  width: 110px;
+  height: 110px;
+  margin: 10px auto 14px;
+  border-radius: 32px;
   background:
-    linear-gradient(135deg, var(--team-primary), var(--team-secondary));
-  border: 4px solid rgba(15, 23, 42, 0.08);
-  box-shadow: 0 14px 28px rgba(15, 23, 42, 0.16);
+    radial-gradient(circle at 30% 25%, rgba(255, 255, 255, 0.35), transparent 34%),
+    linear-gradient(145deg, var(--team-primary), var(--team-secondary));
+  padding: 7px;
+  box-shadow:
+    0 18px 34px rgba(15, 23, 42, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  position: relative;
+}
+
+.team-logo::after {
+  content: "";
+  position: absolute;
+  inset: 7px;
+  border-radius: 26px;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  pointer-events: none;
+}
+
+.team-logo__ring {
+  width: 100%;
+  height: 100%;
+  border-radius: 26px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(241, 245, 249, 0.92));
   display: flex;
   align-items: center;
   justify-content: center;
+  box-shadow:
+    inset 0 2px 8px rgba(255, 255, 255, 0.6),
+    inset 0 -6px 12px rgba(15, 23, 42, 0.08);
+}
+
+.team-logo__inner {
+  width: 78px;
+  height: 78px;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.96);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow:
+    0 8px 18px rgba(15, 23, 42, 0.12),
+    inset 0 0 0 1px rgba(15, 23, 42, 0.05);
   overflow: hidden;
+  padding: 10px;
+}
+
+.team-logo.has-image .team-logo__inner {
+  background: white;
 }
 
 .team-logo img {
-  width: 76%;
-  height: 76%;
+  width: 100%;
+  height: 100%;
   object-fit: contain;
   display: block;
+  filter: drop-shadow(0 3px 5px rgba(15, 23, 42, 0.08));
 }
 
 .team-logo span {
   color: #0f172a;
-  font-size: 23px;
+  font-size: 24px;
   line-height: 1;
   font-weight: 950;
   letter-spacing: -0.04em;
@@ -3180,13 +3237,29 @@ input:disabled {
   }
 
   .team-logo {
-    width: 70px;
-    height: 70px;
+    width: 88px;
+    height: 88px;
+    border-radius: 26px;
+  }
+
+  .team-logo::after {
+    inset: 6px;
     border-radius: 20px;
   }
 
+  .team-logo__ring {
+    border-radius: 20px;
+  }
+
+  .team-logo__inner {
+    width: 62px;
+    height: 62px;
+    border-radius: 18px;
+    padding: 8px;
+  }
+
   .team-logo span {
-    font-size: 20px;
+    font-size: 19px;
   }
 
   .summary-grid {
