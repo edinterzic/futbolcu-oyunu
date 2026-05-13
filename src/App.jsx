@@ -342,12 +342,87 @@ function MatchSummary({ playerNames, scores, winner, targetScore, seriesWins, ma
 }
 
 
+
+function playTone({ frequencies = [440], duration = 0.18, type = "sine", volume = 0.08 }) {
+  try {
+    const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+    if (!AudioContextClass) return;
+
+    const audioContext = new AudioContextClass();
+    const now = audioContext.currentTime;
+    const gain = audioContext.createGain();
+
+    gain.gain.setValueAtTime(0.0001, now);
+    gain.gain.exponentialRampToValueAtTime(volume, now + 0.02);
+    gain.gain.exponentialRampToValueAtTime(0.0001, now + duration);
+
+    gain.connect(audioContext.destination);
+
+    frequencies.forEach((frequency, index) => {
+      const oscillator = audioContext.createOscillator();
+      oscillator.type = type;
+      oscillator.frequency.setValueAtTime(frequency, now + index * 0.06);
+      oscillator.connect(gain);
+      oscillator.start(now + index * 0.06);
+      oscillator.stop(now + duration + index * 0.06);
+    });
+
+    window.setTimeout(() => {
+      audioContext.close?.();
+    }, Math.ceil((duration + frequencies.length * 0.06) * 1000) + 80);
+  } catch {
+    // Sound is optional; ignore browser autoplay/audio errors.
+  }
+}
+
+function playGameSound(soundName) {
+  if (typeof window === "undefined") return;
+  if (window.localStorage.getItem("footballGameMuted") === "true") return;
+
+  const soundMap = {
+    ownGoal: {
+      frequencies: [523.25, 659.25, 783.99, 1046.5],
+      duration: 0.34,
+      type: "triangle",
+      volume: 0.09
+    },
+    opponentGoal: {
+      frequencies: [392, 349.23, 293.66],
+      duration: 0.34,
+      type: "sawtooth",
+      volume: 0.055
+    },
+    wrong: {
+      frequencies: [180, 130],
+      duration: 0.28,
+      type: "square",
+      volume: 0.045
+    },
+    matchEnd: {
+      frequencies: [392, 523.25, 659.25, 783.99, 1046.5],
+      duration: 0.48,
+      type: "triangle",
+      volume: 0.085
+    },
+    countdown: {
+      frequencies: [440],
+      duration: 0.08,
+      type: "sine",
+      volume: 0.035
+    }
+  };
+
+  playTone(soundMap[soundName] || soundMap.countdown);
+}
+
+
 export default function App() {
   const clientIdRef = useRef(makeClientId());
   const channelRef = useRef(null);
   const stateRef = useRef(null);
 
   const [screen, setScreen] = useState("home");
+  const [soundEnabled, setSoundEnabled] = useState(() => window.localStorage.getItem("footballGameMuted") !== "true");
   const [connectionStatus, setConnectionStatus] = useState("offline");
   const [playerName, setPlayerName] = useState("Oyuncu");
   const [roomInput, setRoomInput] = useState("");
@@ -409,6 +484,44 @@ export default function App() {
   const challengeCorrectPlayers = useMemo(() => getCorrectPlayersForRound(challengeRound), [challengeRound]);
   const challengeIsPreRound = Boolean(challengePreRoundEndsAt && !challengeRoundEndsAt && !challengeRoundLocked);
   const challengeCanAnswer = screen === "challenge" && !challengeIsPreRound && !challengeRoundLocked;
+
+  useEffect(() => {
+    if (!lastAction) return;
+
+    if (lastAction.type === "correct") {
+      if (lastAction.playerIndex === playerIndex) {
+        playGameSound("ownGoal");
+      } else {
+        playGameSound("opponentGoal");
+      }
+    }
+
+    if (lastAction.type === "wrong" && lastAction.playerIndex === playerIndex) {
+      playGameSound("wrong");
+    }
+
+    if (lastAction.type === "timeout") {
+      playGameSound("wrong");
+    }
+  }, [lastAction, playerIndex]);
+
+  useEffect(() => {
+    if (!challengeLastAction) return;
+
+    if (challengeLastAction.type === "correct") {
+      playGameSound("ownGoal");
+    }
+
+    if (challengeLastAction.type === "wrong") {
+      playGameSound("wrong");
+    }
+  }, [challengeLastAction]);
+
+  useEffect(() => {
+    if (screen === "winner" && winner !== null) {
+      playGameSound("matchEnd");
+    }
+  }, [screen, winner]);
 
   useEffect(() => {
     stateRef.current = {
@@ -1115,6 +1228,12 @@ export default function App() {
   };
 
   useEffect(() => {
+    if (preRoundLeft > 0 && preRoundLeft <= ROUND_REVEAL_SECONDS && screen === "game") {
+      playGameSound("countdown");
+    }
+  }, [preRoundLeft, screen]);
+
+  useEffect(() => {
     if (!gameStarted || roundLocked || !preRoundEndsAt || screen !== "game") {
       return;
     }
@@ -1235,6 +1354,12 @@ export default function App() {
     setChallengeMessage(null);
     setChallengeLastAction(null);
   };
+
+  useEffect(() => {
+    if (challengePreRoundLeft > 0 && challengePreRoundLeft <= ROUND_REVEAL_SECONDS && screen === "challenge") {
+      playGameSound("countdown");
+    }
+  }, [challengePreRoundLeft, screen]);
 
   useEffect(() => {
     if (screen !== "challenge" || challengeRoundLocked || !challengePreRoundEndsAt) {
@@ -1515,6 +1640,22 @@ export default function App() {
     clearReport();
   };
 
+
+  const toggleSound = () => {
+    setSoundEnabled((current) => {
+      const next = !current;
+      window.localStorage.setItem("footballGameMuted", next ? "false" : "true");
+      if (next) {
+        playGameSound("countdown");
+      }
+      return next;
+    });
+  };
+
+  useEffect(() => {
+    window.localStorage.setItem("footballGameMuted", soundEnabled ? "false" : "true");
+  }, [soundEnabled]);
+
   return (
     <div className="app-shell">
       <style>{css}</style>
@@ -1526,6 +1667,9 @@ export default function App() {
           <p>
             Oda oluştur, linki arkadaşına gönder, iki kişi hazır olunca aynı anda oyuna başlayın.
           </p>
+          <button type="button" onClick={toggleSound} className="sound-toggle">
+            {soundEnabled ? "🔊 Ses açık" : "🔇 Ses kapalı"}
+          </button>
         </header>
 
         {screen === "home" && (
@@ -2179,6 +2323,23 @@ input:disabled {
 
 .strong {
   font-weight: 950;
+}
+
+
+
+.sound-toggle {
+  margin: 16px auto 0;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.12);
+  color: white;
+  border-radius: 999px;
+  padding: 10px 14px;
+  font-weight: 850;
+  cursor: pointer;
+}
+
+.sound-toggle:hover {
+  background: rgba(255, 255, 255, 0.18);
 }
 
 
