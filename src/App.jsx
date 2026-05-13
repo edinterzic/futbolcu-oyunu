@@ -254,6 +254,94 @@ function TeamLogo({ teamName }) {
   );
 }
 
+
+function AcceptedPlayersBox({ title = "Kabul edilen oyuncular", players, actualAnswer, onReportPlayer }) {
+  if (!players?.length) return null;
+
+  const normalizedActual = normalizeText(actualAnswer);
+  const otherPlayers = players.filter((player) => normalizeText(player.name) !== normalizedActual);
+  const visiblePlayers = otherPlayers.length ? otherPlayers : players;
+
+  return (
+    <div className="answers-box improved">
+      <strong>{title}</strong>
+      <p>Bu eşleşmede kabul edilen diğer oyuncular. Hatalı olduğunu düşündüğün oyuncuyu bildirebilirsin.</p>
+      <div className="answer-tags clickable">
+        {visiblePlayers.slice(0, 18).map((player) => (
+          <button key={player.name} type="button" onClick={() => onReportPlayer?.(player)}>
+            <span>{player.name}</span>
+            <em>Hatalı olabilir</em>
+          </button>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function WrongExplanationCard({ report, onReport }) {
+  if (!report) return null;
+
+  return (
+    <div className="wrong-explanation-card">
+      <div className="wrong-icon">🧐</div>
+      <div>
+        <strong>Cevap kontrolü</strong>
+        <p>{report.feedback}</p>
+        <button type="button" className="light-button compact" onClick={onReport}>
+          Bu cevap doğru olmalıydı
+        </button>
+      </div>
+    </div>
+  );
+}
+
+function MatchSummary({ playerNames, scores, winner, targetScore, seriesWins, matchHistory }) {
+  if (winner === null || winner === undefined) return null;
+
+  const loser = winner === 0 ? 1 : 0;
+  const lastMatches = (matchHistory || []).slice(-5).reverse();
+
+  return (
+    <div className="match-summary-card">
+      <h3>Maç Özeti</h3>
+      <div className="summary-grid">
+        <div>
+          <span>Kazanan</span>
+          <strong>{playerNames[winner]}</strong>
+        </div>
+        <div>
+          <span>Maç skoru</span>
+          <strong>{scores[0]} - {scores[1]}</strong>
+        </div>
+        <div>
+          <span>Hedef</span>
+          <strong>{targetScore} puan</strong>
+        </div>
+        <div>
+          <span>Seri durumu</span>
+          <strong>{seriesWins[0]} - {seriesWins[1]}</strong>
+        </div>
+      </div>
+
+      <p className="summary-line">
+        {playerNames[winner]} bu maçı aldı. {playerNames[loser]} rövanşta durumu eşitlemeye çalışacak.
+      </p>
+
+      {lastMatches.length > 0 && (
+        <div className="match-history">
+          <strong>Son maçlar</strong>
+          {lastMatches.map((match, index) => (
+            <span key={`${match.finishedAt}-${index}`}>
+              {match.winnerName}: {match.score?.[0]} - {match.score?.[1]}
+            </span>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
+
 export default function App() {
   const clientIdRef = useRef(makeClientId());
   const channelRef = useRef(null);
@@ -289,6 +377,8 @@ export default function App() {
   const [lastAction, setLastAction] = useState(null);
   const [lastWrongReport, setLastWrongReport] = useState(null);
   const [reportStatus, setReportStatus] = useState(null);
+  const [seriesWins, setSeriesWins] = useState([0, 0]);
+  const [matchHistory, setMatchHistory] = useState([]);
 
   const [challengeScore, setChallengeScore] = useState(0);
   const [challengeBest, setChallengeBest] = useState(() => {
@@ -310,6 +400,8 @@ export default function App() {
   const [challengeLastAction, setChallengeLastAction] = useState(null);
   const [challengeLastWrongReport, setChallengeLastWrongReport] = useState(null);
   const [challengeReportStatus, setChallengeReportStatus] = useState(null);
+  const [challengeJokerUsed, setChallengeJokerUsed] = useState(false);
+  const [challengeJokerHint, setChallengeJokerHint] = useState(null);
 
   const suggestions = useMemo(() => getPlayerSuggestions(answerInput), [answerInput]);
   const correctPlayers = useMemo(() => getCorrectPlayersForRound(round), [round]);
@@ -336,7 +428,9 @@ export default function App() {
       roundEndsAt,
       preRoundEndsAt,
       wrongAttempts,
-      lastAction
+      lastAction,
+      seriesWins,
+      matchHistory
     };
   }, [
     screen,
@@ -355,7 +449,9 @@ export default function App() {
     roundEndsAt,
     preRoundEndsAt,
     wrongAttempts,
-    lastAction
+    lastAction,
+    seriesWins,
+    matchHistory
   ]);
 
   const applyGameState = (gameState) => {
@@ -382,6 +478,8 @@ export default function App() {
     setPreRoundLeft(gameState.preRoundEndsAt ? Math.max(0, Math.ceil((gameState.preRoundEndsAt - Date.now()) / 1000)) : ROUND_REVEAL_SECONDS);
     setWrongAttempts(gameState.wrongAttempts || [0, 0]);
     setLastAction(gameState.lastAction || null);
+    setSeriesWins(gameState.seriesWins || [0, 0]);
+    setMatchHistory(gameState.matchHistory || []);
   };
 
   const sendRoomEvent = async (payload) => {
@@ -415,6 +513,8 @@ export default function App() {
     preRoundEndsAt,
     wrongAttempts,
     lastAction,
+    seriesWins,
+    matchHistory,
     ...overrides
   });
 
@@ -459,6 +559,8 @@ export default function App() {
           roundEndsAt: null,
           wrongAttempts: [0, 0],
           lastAction: null,
+          seriesWins,
+          matchHistory,
           message: { type: "info", text: `${joinedName} odaya katıldı. Oyunu başlatmak için iki oyuncu da hazır olmalı.` }
         };
 
@@ -638,7 +740,9 @@ export default function App() {
       roundEndsAt: null,
       preRoundEndsAt: nextPreRoundEndsAt,
       wrongAttempts: [0, 0],
-      lastAction: null
+      lastAction: null,
+      seriesWins,
+      matchHistory
     };
 
     setPlayersReady(nextReady);
@@ -685,7 +789,9 @@ export default function App() {
       roundEndsAt: null,
       preRoundEndsAt: nextPreRoundEndsAt,
       wrongAttempts: [0, 0],
-      lastAction: null
+      lastAction: null,
+      seriesWins,
+      matchHistory
     };
 
     setRound(next);
@@ -727,7 +833,9 @@ export default function App() {
       roundEndsAt: null,
       preRoundEndsAt: null,
       wrongAttempts: [0, 0],
-      lastAction: null
+      lastAction: null,
+      seriesWins: [0, 0],
+      matchHistory: []
     };
 
     setScores([0, 0]);
@@ -806,6 +914,19 @@ export default function App() {
       newScores[playerIndex] += 1;
 
       const hasWinner = newScores[playerIndex] >= targetScore;
+      const nextSeriesWins = [...seriesWins];
+      const nextMatchHistory = [...matchHistory];
+
+      if (hasWinner) {
+        nextSeriesWins[playerIndex] += 1;
+        nextMatchHistory.push({
+          winnerIndex: playerIndex,
+          winnerName: playerNames[playerIndex],
+          score: newScores,
+          finishedAt: new Date().toISOString()
+        });
+      }
+
       const nextMessage = {
         type: "success",
         text: `${playerNames[playerIndex]} doğru bildi: ${raw}. Tur bitti, 1 puan aldı!`
@@ -828,7 +949,9 @@ export default function App() {
         roundEndsAt: null,
         preRoundEndsAt: null,
         wrongAttempts,
-        lastAction: { type: "correct", playerIndex }
+        lastAction: { type: "correct", playerIndex, answer: raw },
+        seriesWins: nextSeriesWins,
+        matchHistory: nextMatchHistory
       };
 
       setScores(newScores);
@@ -880,11 +1003,13 @@ export default function App() {
       roundEndsAt: bothPlayersUsedWrong ? null : roundEndsAt,
       preRoundEndsAt: null,
       wrongAttempts: newWrongAttempts,
-      lastAction: { type: "wrong", playerIndex }
+      lastAction: { type: "wrong", playerIndex, answer: raw },
+      seriesWins,
+      matchHistory
     };
 
     setWrongAttempts(newWrongAttempts);
-    setLastAction({ type: "wrong", playerIndex });
+    setLastAction({ type: "wrong", playerIndex, answer: raw });
     setLastWrongReport({
       mode: "online",
       teamA: round.teams[0],
@@ -934,7 +1059,9 @@ export default function App() {
       roundEndsAt: null,
       preRoundEndsAt: null,
       wrongAttempts,
-      lastAction: { type: "timeout" }
+      lastAction: { type: "timeout" },
+      seriesWins,
+      matchHistory
     };
 
     setMessage(nextMessage);
@@ -1029,7 +1156,9 @@ export default function App() {
       roundEndsAt: null,
       preRoundEndsAt: null,
       wrongAttempts,
-      lastAction: { type: "timeout" }
+      lastAction: { type: "timeout" },
+      seriesWins,
+      matchHistory
     };
 
     setMessage(nextMessage);
@@ -1084,6 +1213,8 @@ export default function App() {
     setChallengeLastAction(null);
     setChallengeLastWrongReport(null);
     setChallengeReportStatus(null);
+    setChallengeJokerUsed(false);
+    setChallengeJokerHint(null);
     setScreen("challenge");
   };
 
@@ -1140,7 +1271,7 @@ export default function App() {
     setChallengePreRoundEndsAt(null);
     setChallengeTimeLeft(0);
     setChallengeFocused(false);
-    setChallengeLastAction({ type: "wrong" });
+    setChallengeLastAction({ type: "wrong", answer: reportAnswer });
     if (reportAnswer) {
       setChallengeLastWrongReport({
         mode: "challenge",
@@ -1192,6 +1323,48 @@ export default function App() {
     setChallengeFocused(false);
   };
 
+
+  const useChallengeJoker = () => {
+    if (challengeJokerUsed) {
+      setChallengeMessage({ type: "info", text: "Joker hakkını bu challenge içinde zaten kullandın." });
+      return;
+    }
+
+    if (challengeIsPreRound || challengeRoundLocked) {
+      setChallengeMessage({ type: "info", text: "Jokeri sadece aktif turda kullanabilirsin." });
+      return;
+    }
+
+    const first = challengeCorrectPlayers[0];
+
+    if (!first) {
+      setChallengeMessage({ type: "info", text: "Bu tur için joker üretilemedi." });
+      return;
+    }
+
+    const parts = first.name.split(" ").filter(Boolean);
+    const last = parts[parts.length - 1] || first.name;
+    const hint = `${first.name[0]?.toUpperCase() || "?"} ile başlıyor, soyadı ${last[0]?.toUpperCase() || "?"} ile başlıyor.`;
+
+    setChallengeJokerUsed(true);
+    setChallengeJokerHint(hint);
+    setChallengeMessage({ type: "info", text: `Joker kullanıldı: ${hint}` });
+  };
+
+  const revealChallengeAnswerAndEnd = () => {
+    const first = challengeCorrectPlayers[0];
+    const reason = first
+      ? `Cevap gösterildi. Örnek doğru cevap: ${first.name}.`
+      : "Cevap gösterildi ancak bu tur için kayıtlı doğru cevap bulunamadı.";
+
+    endChallenge(reason, null, challengeRound);
+    setChallengeShowAnswers(true);
+    setChallengeMessage({
+      type: "info",
+      text: `${reason} Seri bitti. Üst üste doğru sayın: ${challengeScore}.`
+    });
+  };
+
   const submitChallengeAnswer = () => {
     setChallengeFocused(false);
 
@@ -1236,9 +1409,10 @@ export default function App() {
       setChallengePreRoundEndsAt(Date.now() + ROUND_REVEAL_SECONDS * 1000);
       setChallengeTimeLeft(ROUND_SECONDS);
       setChallengePreRoundLeft(ROUND_REVEAL_SECONDS);
-      setChallengeLastAction({ type: "correct" });
+      setChallengeLastAction({ type: "correct", answer: raw });
       setChallengeLastWrongReport(null);
       setChallengeReportStatus(null);
+      setChallengeJokerHint(null);
       setChallengeMessage({ type: "success", text: `Doğru! Seri: ${nextScore}. Yeni tur 3 saniye sonra açılacak.` });
       return;
     }
@@ -1246,6 +1420,67 @@ export default function App() {
     endChallenge(getWrongAnswerExplanation(challengeRound, raw), raw, challengeRound);
   };
 
+
+
+  const startRematch = async () => {
+    const next = getRandomRound([]);
+    const nextState = {
+      screen: "game",
+      playerNames,
+      playersReady: [false, false],
+      opponentJoined: true,
+      gameStarted: false,
+      targetScore,
+      scores: [0, 0],
+      round: next,
+      usedRoundKeys: [getRoundKey(next)],
+      message: { type: "info", text: "Rövanş hazır. İki oyuncu da Oyunu Başlat'a basınca maç başlayacak." },
+      winner: null,
+      showAnswers: false,
+      roundLocked: false,
+      roundEndsAt: null,
+      preRoundEndsAt: null,
+      wrongAttempts: [0, 0],
+      lastAction: null,
+      seriesWins,
+      matchHistory
+    };
+
+    setScreen("game");
+    setPlayersReady([false, false]);
+    setGameStarted(false);
+    setScores([0, 0]);
+    setRound(next);
+    setUsedRoundKeys([getRoundKey(next)]);
+    setMessage(nextState.message);
+    setWinner(null);
+    setShowAnswers(false);
+    setRoundLocked(false);
+    setRoundEndsAt(null);
+    setPreRoundEndsAt(null);
+    setWrongAttempts([0, 0]);
+    setLastAction(null);
+
+    await sendRoomEvent({ type: "STATE_SYNC", gameState: nextState });
+  };
+
+  const reportAcceptedPlayer = (mode, reportRound, player) => {
+    const report = {
+      mode,
+      teamA: reportRound.teams[0],
+      teamB: reportRound.teams[1],
+      answer: player.name,
+      feedback: `${player.name} kabul edilen cevaplar listesinde görünüyor ama hatalı olabilir.`,
+      roomCode: mode === "online" ? roomCode : null,
+      playerName: playerName || "Oyuncu"
+    };
+
+    if (mode === "challenge") {
+      submitAnswerReport(report, setChallengeReportStatus, () => {});
+    } else {
+      submitAnswerReport(report, setReportStatus, () => {});
+    }
+  };
 
   const submitAnswerReport = async (report, setStatus, clearReport) => {
     if (!report) return;
@@ -1390,6 +1625,19 @@ export default function App() {
                   <em>saniye</em>
                 </div>
 
+                <div className="challenge-tools">
+                  <button type="button" className="light-button compact" onClick={useChallengeJoker} disabled={!challengeCanAnswer || challengeJokerUsed}>
+                    🃏 Joker {challengeJokerUsed ? "kullanıldı" : "kullan"}
+                  </button>
+                  <button type="button" className="light-button compact danger" onClick={revealChallengeAnswerAndEnd} disabled={challengeIsPreRound || challengeRoundLocked}>
+                    👀 Cevabı göster ve bitir
+                  </button>
+                </div>
+
+                {challengeJokerHint && (
+                  <div className="joker-hint">🃏 {challengeJokerHint}</div>
+                )}
+
                 <div className="teams-grid">
                   <div className="team-card">
                     <span>Takım 1</span>
@@ -1469,6 +1717,13 @@ export default function App() {
                 </div>
 
                 <StatusMessage message={challengeMessage} />
+                <WrongExplanationCard
+                  report={challengeLastWrongReport}
+                  onReport={() =>
+                    submitAnswerReport(challengeLastWrongReport, setChallengeReportStatus, () => setChallengeLastWrongReport(null))
+                  }
+                />
+                <StatusMessage message={challengeReportStatus} />
 
                 {challengeLastWrongReport && (
                   <div className="report-box">
@@ -1486,14 +1741,12 @@ export default function App() {
                 <StatusMessage message={challengeReportStatus} />
 
                 {challengeShowAnswers && (
-                  <div className="answers-box">
-                    <strong>Bu tur için kabul edilen oyuncular:</strong>
-                    <div className="answer-tags">
-                      {challengeCorrectPlayers.map((player) => (
-                        <span key={player.name}>{player.name}</span>
-                      ))}
-                    </div>
-                  </div>
+                  <AcceptedPlayersBox
+                    title="Bu tur için kabul edilen oyuncular"
+                    players={challengeCorrectPlayers}
+                    actualAnswer={challengeLastAction?.answer}
+                    onReportPlayer={(player) => reportAcceptedPlayer("challenge", challengeRound, player)}
+                  />
                 )}
 
                 {challengeRoundLocked && (
@@ -1530,6 +1783,11 @@ export default function App() {
               ))}
             </div>
 
+            <div className="series-bar">
+              <span>Seri durumu</span>
+              <strong>{playerNames[0]} {seriesWins[0]} - {seriesWins[1]} {playerNames[1]}</strong>
+            </div>
+
             {screen === "winner" && winner !== null ? (
               <section className="panel winner-panel">
                 <div className="trophy">🏆</div>
@@ -1538,9 +1796,21 @@ export default function App() {
                   Final skor: {playerNames[0]} {scores[0]} - {scores[1]} {playerNames[1]}
                 </p>
 
+                <MatchSummary
+                  playerNames={playerNames}
+                  scores={scores}
+                  winner={winner}
+                  targetScore={targetScore}
+                  seriesWins={seriesWins}
+                  matchHistory={matchHistory}
+                />
+
                 <div className="winner-actions">
-                  <button type="button" onClick={resetGame} className="primary-button big">
-                    Yeni Maç
+                  <button type="button" onClick={startRematch} className="primary-button big">
+                    Rövanş Başlat
+                  </button>
+                  <button type="button" onClick={resetGame} className="light-button big">
+                    Seriyi Sıfırla
                   </button>
                 </div>
               </section>
@@ -1704,30 +1974,20 @@ export default function App() {
 
                 <StatusMessage message={message} />
 
-                {lastWrongReport && (
-                  <div className="report-box">
-                    <span>Bu cevabın doğru olduğunu düşünüyorsan bildirebilirsin.</span>
-                    <button
-                      type="button"
-                      onClick={() => submitAnswerReport(lastWrongReport, setReportStatus, () => setLastWrongReport(null))}
-                      className="light-button"
-                    >
-                      Bu cevap doğru olmalıydı
-                    </button>
-                  </div>
-                )}
+                <WrongExplanationCard
+                  report={lastWrongReport}
+                  onReport={() => submitAnswerReport(lastWrongReport, setReportStatus, () => setLastWrongReport(null))}
+                />
 
                 <StatusMessage message={reportStatus} />
 
                 {showAnswers && (
-                  <div className="answers-box">
-                    <strong>Bu tur için kabul edilen oyuncular:</strong>
-                    <div className="answer-tags">
-                      {correctPlayers.map((player) => (
-                        <span key={player.name}>{player.name}</span>
-                      ))}
-                    </div>
-                  </div>
+                  <AcceptedPlayersBox
+                    title="Bu tur için kabul edilen oyuncular"
+                    players={correctPlayers}
+                    actualAnswer={lastAction?.answer}
+                    onReportPlayer={(player) => reportAcceptedPlayer("online", round, player)}
+                  />
                 )}
 
                 <div className="bottom-actions">
@@ -2547,6 +2807,167 @@ input:disabled {
 }
 
 
+
+.series-bar {
+  margin: 0 0 18px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+  border-radius: 18px;
+  padding: 12px 16px;
+  background: rgba(15, 23, 42, 0.18);
+  color: rgba(209, 250, 229, 0.9);
+}
+
+.series-bar strong {
+  color: white;
+}
+
+.answers-box.improved p {
+  margin: 7px 0 12px;
+  color: rgba(209, 250, 229, 0.82);
+  font-size: 14px;
+}
+
+.answer-tags.clickable button {
+  border: 0;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.14);
+  color: white;
+  padding: 8px 10px;
+  display: inline-flex;
+  flex-direction: column;
+  gap: 2px;
+  align-items: flex-start;
+  cursor: pointer;
+}
+
+.answer-tags.clickable button:hover {
+  background: rgba(16, 185, 129, 0.24);
+}
+
+.answer-tags.clickable em {
+  font-size: 10px;
+  color: rgba(209, 250, 229, 0.78);
+  font-style: normal;
+}
+
+.wrong-explanation-card {
+  margin: 14px 0;
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  background: rgba(251, 113, 133, 0.16);
+  border: 1px solid rgba(251, 113, 133, 0.35);
+  border-radius: 22px;
+  padding: 15px;
+  color: white;
+}
+
+.wrong-explanation-card p {
+  margin: 5px 0 12px;
+  color: rgba(255, 255, 255, 0.86);
+}
+
+.wrong-icon {
+  width: 44px;
+  height: 44px;
+  flex: 0 0 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.18);
+  font-size: 24px;
+}
+
+.light-button.compact {
+  padding: 9px 12px;
+  min-height: auto;
+}
+
+.light-button.danger {
+  color: #fecaca;
+  border-color: rgba(248, 113, 113, 0.45);
+}
+
+.challenge-tools {
+  margin: 14px 0 0;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.joker-hint {
+  margin: 12px auto 0;
+  max-width: 520px;
+  border-radius: 18px;
+  background: rgba(250, 204, 21, 0.18);
+  border: 1px solid rgba(250, 204, 21, 0.32);
+  padding: 12px 14px;
+  text-align: center;
+  color: #fef9c3;
+  font-weight: 800;
+}
+
+.match-summary-card {
+  margin: 18px auto;
+  max-width: 720px;
+  border-radius: 26px;
+  background: rgba(15, 23, 42, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  padding: 18px;
+  text-align: left;
+}
+
+.match-summary-card h3 {
+  margin: 0 0 14px;
+  text-align: center;
+}
+
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.summary-grid div {
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.12);
+  padding: 12px;
+  text-align: center;
+}
+
+.summary-grid span,
+.match-history span {
+  display: block;
+  color: rgba(209, 250, 229, 0.82);
+  font-size: 12px;
+}
+
+.summary-grid strong {
+  display: block;
+  margin-top: 4px;
+  color: white;
+}
+
+.summary-line {
+  margin: 14px 0 0;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.86);
+}
+
+.match-history {
+  margin-top: 14px;
+  display: grid;
+  gap: 6px;
+  text-align: center;
+}
+
+
 @media (max-width: 760px) {
   .app-shell {
     padding: 18px 12px;
@@ -2605,6 +3026,14 @@ input:disabled {
 
   .team-logo span {
     font-size: 20px;
+  }
+
+  .summary-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .challenge-tools {
+    flex-direction: column;
   }
 
   .goal-scene {
