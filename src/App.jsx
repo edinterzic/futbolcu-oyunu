@@ -259,8 +259,31 @@ export default function App() {
   const [wrongAttempts, setWrongAttempts] = useState([0, 0]);
   const [lastAction, setLastAction] = useState(null);
 
+  const [challengeScore, setChallengeScore] = useState(0);
+  const [challengeBest, setChallengeBest] = useState(() => {
+    const stored = window.localStorage.getItem("footballChallengeBest");
+    return stored ? Number(stored) || 0 : 0;
+  });
+  const [challengeLastScore, setChallengeLastScore] = useState(null);
+  const [challengeRound, setChallengeRound] = useState(() => getRandomRound([]));
+  const [challengeUsedRoundKeys, setChallengeUsedRoundKeys] = useState([]);
+  const [challengeInput, setChallengeInput] = useState("");
+  const [challengeFocused, setChallengeFocused] = useState(false);
+  const [challengeMessage, setChallengeMessage] = useState(null);
+  const [challengeRoundLocked, setChallengeRoundLocked] = useState(false);
+  const [challengeShowAnswers, setChallengeShowAnswers] = useState(false);
+  const [challengeRoundEndsAt, setChallengeRoundEndsAt] = useState(null);
+  const [challengePreRoundEndsAt, setChallengePreRoundEndsAt] = useState(null);
+  const [challengeTimeLeft, setChallengeTimeLeft] = useState(ROUND_SECONDS);
+  const [challengePreRoundLeft, setChallengePreRoundLeft] = useState(ROUND_REVEAL_SECONDS);
+  const [challengeLastAction, setChallengeLastAction] = useState(null);
+
   const suggestions = useMemo(() => getPlayerSuggestions(answerInput), [answerInput]);
   const correctPlayers = useMemo(() => getCorrectPlayersForRound(round), [round]);
+  const challengeSuggestions = useMemo(() => getPlayerSuggestions(challengeInput), [challengeInput]);
+  const challengeCorrectPlayers = useMemo(() => getCorrectPlayersForRound(challengeRound), [challengeRound]);
+  const challengeIsPreRound = Boolean(challengePreRoundEndsAt && !challengeRoundEndsAt && !challengeRoundLocked);
+  const challengeCanAnswer = screen === "challenge" && !challengeIsPreRound && !challengeRoundLocked;
 
   useEffect(() => {
     stateRef.current = {
@@ -987,6 +1010,171 @@ export default function App() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [gameStarted, roundLocked, roundEndsAt, screen]);
 
+
+  const startChallenge = () => {
+    const firstRound = getRandomRound([]);
+    setChallengeScore(0);
+    setChallengeLastScore(null);
+    setChallengeRound(firstRound);
+    setChallengeUsedRoundKeys([getRoundKey(firstRound)]);
+    setChallengeInput("");
+    setChallengeFocused(false);
+    setChallengeMessage({ type: "info", text: "Kişisel challenge başladı. 3 saniye sonra ilk takımlar görünecek." });
+    setChallengeRoundLocked(false);
+    setChallengeShowAnswers(false);
+    setChallengeRoundEndsAt(null);
+    setChallengePreRoundEndsAt(Date.now() + ROUND_REVEAL_SECONDS * 1000);
+    setChallengeTimeLeft(ROUND_SECONDS);
+    setChallengePreRoundLeft(ROUND_REVEAL_SECONDS);
+    setChallengeLastAction(null);
+    setScreen("challenge");
+  };
+
+  const backToHomeFromChallenge = () => {
+    setChallengeRoundEndsAt(null);
+    setChallengePreRoundEndsAt(null);
+    setChallengeFocused(false);
+    setScreen("home");
+  };
+
+  const startChallengeAnswerPhase = () => {
+    if (screen !== "challenge" || challengeRoundLocked || !challengePreRoundEndsAt || challengeRoundEndsAt) return;
+
+    setChallengeRoundEndsAt(Date.now() + ROUND_SECONDS * 1000);
+    setChallengePreRoundEndsAt(null);
+    setChallengeTimeLeft(ROUND_SECONDS);
+    setChallengePreRoundLeft(0);
+    setChallengeMessage(null);
+    setChallengeLastAction(null);
+  };
+
+  useEffect(() => {
+    if (screen !== "challenge" || challengeRoundLocked || !challengePreRoundEndsAt) {
+      return;
+    }
+
+    const updatePreRoundTimer = () => {
+      const remaining = Math.max(0, Math.ceil((challengePreRoundEndsAt - Date.now()) / 1000));
+      setChallengePreRoundLeft(remaining);
+
+      if (remaining <= 0) {
+        startChallengeAnswerPhase();
+      }
+    };
+
+    updatePreRoundTimer();
+    const intervalId = window.setInterval(updatePreRoundTimer, 200);
+
+    return () => window.clearInterval(intervalId);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [screen, challengeRoundLocked, challengePreRoundEndsAt, challengeRoundEndsAt]);
+
+  const endChallenge = (reasonText) => {
+    const finalScore = challengeScore;
+    const nextBest = Math.max(challengeBest, finalScore);
+
+    setChallengeLastScore(finalScore);
+    setChallengeBest(nextBest);
+    window.localStorage.setItem("footballChallengeBest", String(nextBest));
+    setChallengeScore(0);
+    setChallengeRoundLocked(true);
+    setChallengeShowAnswers(true);
+    setChallengeRoundEndsAt(null);
+    setChallengePreRoundEndsAt(null);
+    setChallengeTimeLeft(0);
+    setChallengeFocused(false);
+    setChallengeLastAction({ type: "wrong" });
+    setChallengeMessage({
+      type: "error",
+      text: `${reasonText} Seri bitti. Üst üste doğru sayın: ${finalScore}.`
+    });
+  };
+
+  useEffect(() => {
+    if (screen !== "challenge" || challengeRoundLocked || !challengeRoundEndsAt) {
+      return;
+    }
+
+    const updateTimer = () => {
+      const remaining = Math.max(0, Math.ceil((challengeRoundEndsAt - Date.now()) / 1000));
+      setChallengeTimeLeft(remaining);
+
+      if (remaining <= 0) {
+        endChallenge("Süre doldu.");
+      }
+    };
+
+    updateTimer();
+    const intervalId = window.setInterval(updateTimer, 250);
+
+    return () => window.clearInterval(intervalId);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [screen, challengeRoundLocked, challengeRoundEndsAt, challengeScore]);
+
+  const updateChallengeInput = (value) => {
+    if (!challengeCanAnswer) return;
+    setChallengeInput(value);
+    setChallengeFocused(true);
+  };
+
+  const selectChallengeSuggestion = (playerNameValue) => {
+    if (!challengeCanAnswer) return;
+    setChallengeInput(playerNameValue);
+    setChallengeFocused(false);
+  };
+
+  const submitChallengeAnswer = () => {
+    setChallengeFocused(false);
+
+    if (challengeIsPreRound) {
+      setChallengeMessage({ type: "info", text: "Takımlar açılmadan cevap veremezsin." });
+      return;
+    }
+
+    if (challengeRoundLocked) {
+      setChallengeMessage({ type: "info", text: "Challenge bitti. Yeni challenge başlatabilirsin." });
+      return;
+    }
+
+    const raw = challengeInput;
+    const normalized = normalizeText(raw);
+
+    if (!normalized) {
+      setChallengeMessage({ type: "error", text: "Önce bir futbolcu adı yazmalısın." });
+      return;
+    }
+
+    if (isCorrectAnswer(challengeRound, raw)) {
+      const nextScore = challengeScore + 1;
+      const nextRound = getRandomRound(challengeUsedRoundKeys);
+      const nextKey = getRoundKey(nextRound);
+      const playableCount = getPlayableTeamPairs().length;
+      const nextUsed = challengeUsedRoundKeys.length >= playableCount ? [nextKey] : [...challengeUsedRoundKeys, nextKey];
+
+      setChallengeScore(nextScore);
+      setChallengeBest((currentBest) => {
+        const nextBest = Math.max(currentBest, nextScore);
+        window.localStorage.setItem("footballChallengeBest", String(nextBest));
+        return nextBest;
+      });
+      setChallengeRound(nextRound);
+      setChallengeUsedRoundKeys(nextUsed);
+      setChallengeInput("");
+      setChallengeFocused(false);
+      setChallengeRoundLocked(false);
+      setChallengeShowAnswers(false);
+      setChallengeRoundEndsAt(null);
+      setChallengePreRoundEndsAt(Date.now() + ROUND_REVEAL_SECONDS * 1000);
+      setChallengeTimeLeft(ROUND_SECONDS);
+      setChallengePreRoundLeft(ROUND_REVEAL_SECONDS);
+      setChallengeLastAction({ type: "correct" });
+      setChallengeMessage({ type: "success", text: `Doğru! Seri: ${nextScore}. Yeni tur 3 saniye sonra açılacak.` });
+      return;
+    }
+
+    endChallenge(getWrongAnswerExplanation(challengeRound, raw));
+  };
+
   return (
     <div className="app-shell">
       <style>{css}</style>
@@ -1002,6 +1190,20 @@ export default function App() {
 
         {screen === "home" && (
           <section className="panel">
+            <div className="mode-grid">
+              <button type="button" className="mode-card active">
+                <span>🌍</span>
+                <strong>Online Kapışma</strong>
+                <small>Oda kur, arkadaşınla karşılıklı oyna.</small>
+              </button>
+
+              <button type="button" onClick={startChallenge} className="mode-card">
+                <span>🔥</span>
+                <strong>Kişisel Challenge</strong>
+                <small>Tek başına üst üste kaç doğru yapabildiğini gör.</small>
+              </button>
+            </div>
+
             <div className="input-card room-card">
               <label>👤 Oyuncu adın</label>
               <input value={playerName} onChange={(event) => setPlayerName(event.target.value)} placeholder="Örn. İsmet" />
@@ -1048,6 +1250,141 @@ export default function App() {
             )}
 
             <StatusMessage message={message} />
+          </section>
+        )}
+
+
+        {screen === "challenge" && (
+          <section className="game-area">
+            <div className="online-bar">
+              <span>Mod: <strong>Kişisel Challenge</strong></span>
+              <span>Seri: <strong>{challengeScore}</strong></span>
+              <span>En iyi: <strong>{challengeBest}</strong></span>
+              <button type="button" onClick={backToHomeFromChallenge} className="mini-button">Ana Menü</button>
+            </div>
+
+            {challengeIsPreRound ? (
+              <section className="panel waiting-panel">
+                <div className="waiting-icon">⏱️</div>
+                <h2>Takımlar hazırlanıyor</h2>
+                <p>Takımlar {challengePreRoundLeft} saniye sonra görünecek.</p>
+                <div className="pre-round-count">{challengePreRoundLeft}</div>
+              </section>
+            ) : (
+              <div className="panel">
+                <div className="top-row">
+                  <div className="round-pill">🔥 Seri: {challengeScore}</div>
+                  <button type="button" onClick={startChallenge} className="light-button">
+                    ↻ Challenge Sıfırla
+                  </button>
+                </div>
+
+                <div className={challengeTimeLeft <= 3 && !challengeRoundLocked ? "timer-box urgent" : "timer-box"}>
+                  <span>Kalan süre</span>
+                  <strong>{challengeTimeLeft}</strong>
+                  <em>saniye</em>
+                </div>
+
+                <div className="teams-grid">
+                  <div className="team-card">
+                    <span>Takım 1</span>
+                    <strong>{challengeRound.teams[0]}</strong>
+                  </div>
+
+                  <div className="versus">VS</div>
+
+                  <div className="team-card">
+                    <span>Takım 2</span>
+                    <strong>{challengeRound.teams[1]}</strong>
+                  </div>
+                </div>
+
+                {challengeLastAction && (
+                  <div className={challengeLastAction.type === "correct" ? "goal-animation" : "wrong-animation"}>
+                    <div className="goal-scene">
+                      <span className="ball">⚽</span>
+                      <span className="goal-net">🥅</span>
+                    </div>
+                    <strong>{challengeLastAction.type === "correct" ? "GOOOL!" : "Challenge bitti!"}</strong>
+                  </div>
+                )}
+
+                <div className="single-answer-card">
+                  <label>Senin cevabın</label>
+                  <div className="answer-row">
+                    <div className="autocomplete-wrap">
+                      <input
+                        value={challengeInput}
+                        disabled={!challengeCanAnswer}
+                        onFocus={() => {
+                          if (challengeCanAnswer && challengeInput) {
+                            setChallengeFocused(true);
+                          }
+                        }}
+                        onBlur={() => {
+                          setTimeout(() => setChallengeFocused(false), 120);
+                        }}
+                        onChange={(event) => updateChallengeInput(event.target.value)}
+                        onKeyDown={(event) => {
+                          if (event.key === "Enter") submitChallengeAnswer();
+                        }}
+                        placeholder="Futbolcu adı yaz... Suarez, Messi, Quaresma"
+                      />
+
+                      {challengeCanAnswer && challengeFocused && challengeSuggestions.length > 0 && (
+                        <div className="suggestions">
+                          {challengeSuggestions.map((player) => (
+                            <button
+                              key={player.name}
+                              type="button"
+                              onMouseDown={(event) => {
+                                event.preventDefault();
+                                selectChallengeSuggestion(player.name);
+                              }}
+                              onClick={() => selectChallengeSuggestion(player.name)}
+                            >
+                              {player.name}
+                            </button>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+
+                    <button
+                      type="button"
+                      disabled={!challengeCanAnswer}
+                      onClick={submitChallengeAnswer}
+                      className="primary-button"
+                    >
+                      Kontrol
+                    </button>
+                  </div>
+                </div>
+
+                <StatusMessage message={challengeMessage} />
+
+                {challengeShowAnswers && (
+                  <div className="answers-box">
+                    <strong>Bu tur için kabul edilen oyuncular:</strong>
+                    <div className="answer-tags">
+                      {challengeCorrectPlayers.map((player) => (
+                        <span key={player.name}>{player.name}</span>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {challengeRoundLocked && (
+                  <div className="challenge-result">
+                    <strong>Son seri: {challengeLastScore ?? 0}</strong>
+                    <span>En iyi seri: {challengeBest}</span>
+                    <button type="button" onClick={startChallenge} className="primary-button big">
+                      Yeni Challenge Başlat
+                    </button>
+                  </div>
+                )}
+              </div>
+            )}
           </section>
         )}
 
@@ -1444,6 +1781,69 @@ input:disabled {
 .strong {
   font-weight: 950;
 }
+
+
+.mode-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.mode-card {
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(0, 0, 0, 0.22);
+  color: white;
+  border-radius: 22px;
+  padding: 18px;
+  text-align: left;
+}
+
+.mode-card.active {
+  outline: 3px solid rgba(16, 185, 129, 0.45);
+}
+
+.mode-card span {
+  display: block;
+  font-size: 30px;
+  margin-bottom: 8px;
+}
+
+.mode-card strong {
+  display: block;
+  font-size: 19px;
+  margin-bottom: 5px;
+}
+
+.mode-card small {
+  display: block;
+  color: rgba(209, 250, 229, 0.82);
+  line-height: 1.4;
+}
+
+.mode-card:hover {
+  background: rgba(16, 185, 129, 0.14);
+}
+
+.challenge-result {
+  margin-top: 18px;
+  display: grid;
+  gap: 10px;
+  border: 1px solid rgba(110, 231, 183, 0.22);
+  background: rgba(52, 211, 153, 0.10);
+  border-radius: 20px;
+  padding: 16px;
+  text-align: center;
+}
+
+.challenge-result strong {
+  font-size: 22px;
+}
+
+.challenge-result span {
+  color: rgba(209, 250, 229, 0.88);
+}
+
 
 .room-card {
   margin-bottom: 18px;
@@ -1968,7 +2368,8 @@ input:disabled {
   .score-grid,
   .room-actions,
   .winner-actions,
-  .ready-grid {
+  .ready-grid,
+  .mode-grid {
     grid-template-columns: 1fr;
   }
 
