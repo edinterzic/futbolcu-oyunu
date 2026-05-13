@@ -4,7 +4,8 @@ import { PLAYERS } from "./data/players";
 import { TEAMS } from "./data/teams";
 
 const WINNING_SCORE = 3;
-const ROUND_SECONDS = 10;
+const ROUND_SECONDS = 15;
+const ROUND_REVEAL_SECONDS = 3;
 
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
 const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
@@ -252,7 +253,11 @@ export default function App() {
   const [showAnswers, setShowAnswers] = useState(false);
   const [roundLocked, setRoundLocked] = useState(false);
   const [roundEndsAt, setRoundEndsAt] = useState(null);
+  const [preRoundEndsAt, setPreRoundEndsAt] = useState(null);
   const [timeLeft, setTimeLeft] = useState(ROUND_SECONDS);
+  const [preRoundLeft, setPreRoundLeft] = useState(ROUND_REVEAL_SECONDS);
+  const [wrongAttempts, setWrongAttempts] = useState([0, 0]);
+  const [lastAction, setLastAction] = useState(null);
 
   const suggestions = useMemo(() => getPlayerSuggestions(answerInput), [answerInput]);
   const correctPlayers = useMemo(() => getCorrectPlayersForRound(round), [round]);
@@ -272,7 +277,10 @@ export default function App() {
       winner,
       showAnswers,
       roundLocked,
-      roundEndsAt
+      roundEndsAt,
+      preRoundEndsAt,
+      wrongAttempts,
+      lastAction
     };
   }, [
     screen,
@@ -288,7 +296,10 @@ export default function App() {
     winner,
     showAnswers,
     roundLocked,
-    roundEndsAt
+    roundEndsAt,
+    preRoundEndsAt,
+    wrongAttempts,
+    lastAction
   ]);
 
   const applyGameState = (gameState) => {
@@ -297,7 +308,7 @@ export default function App() {
     setScreen(gameState.screen || "game");
     setPlayerNames(gameState.playerNames || ["Oyuncu 1", "Oyuncu 2"]);
     setPlayersReady(gameState.playersReady || [false, false]);
-    setOpponentJoined(Boolean(gameState.opponentJoined));
+    setOpponentJoined(Boolean(gameState.opponentJoined) || playerIndex === 1);
     setGameStarted(Boolean(gameState.gameStarted));
     setTargetScore(gameState.targetScore || 3);
     setScores(gameState.scores || [0, 0]);
@@ -310,7 +321,11 @@ export default function App() {
     setShowAnswers(Boolean(gameState.showAnswers));
     setRoundLocked(Boolean(gameState.roundLocked));
     setRoundEndsAt(gameState.roundEndsAt || null);
+    setPreRoundEndsAt(gameState.preRoundEndsAt || null);
     setTimeLeft(gameState.roundEndsAt ? Math.max(0, Math.ceil((gameState.roundEndsAt - Date.now()) / 1000)) : ROUND_SECONDS);
+    setPreRoundLeft(gameState.preRoundEndsAt ? Math.max(0, Math.ceil((gameState.preRoundEndsAt - Date.now()) / 1000)) : ROUND_REVEAL_SECONDS);
+    setWrongAttempts(gameState.wrongAttempts || [0, 0]);
+    setLastAction(gameState.lastAction || null);
   };
 
   const sendRoomEvent = async (payload) => {
@@ -341,6 +356,9 @@ export default function App() {
     showAnswers,
     roundLocked,
     roundEndsAt,
+    preRoundEndsAt,
+    wrongAttempts,
+    lastAction,
     ...overrides
   });
 
@@ -381,6 +399,10 @@ export default function App() {
           opponentJoined: true,
           playersReady: [false, false],
           gameStarted: false,
+          preRoundEndsAt: null,
+          roundEndsAt: null,
+          wrongAttempts: [0, 0],
+          lastAction: null,
           message: { type: "info", text: `${joinedName} odaya katıldı. Oyunu başlatmak için iki oyuncu da hazır olmalı.` }
         };
 
@@ -455,7 +477,11 @@ export default function App() {
     setShowAnswers(false);
     setRoundLocked(false);
     setRoundEndsAt(null);
+    setPreRoundEndsAt(null);
     setTimeLeft(ROUND_SECONDS);
+    setPreRoundLeft(ROUND_REVEAL_SECONDS);
+    setWrongAttempts([0, 0]);
+    setLastAction(null);
     setMessage({ type: "info", text: `Oda oluşturuldu: ${code}. Rakip bağlanana kadar takımlar gizli kalacak.` });
     setScreen("game");
   };
@@ -484,7 +510,11 @@ export default function App() {
     setAnswerInput("");
     setFocusedInput(false);
     setRoundEndsAt(null);
+    setPreRoundEndsAt(null);
     setTimeLeft(ROUND_SECONDS);
+    setPreRoundLeft(ROUND_REVEAL_SECONDS);
+    setWrongAttempts([0, 0]);
+    setLastAction(null);
     setMessage({ type: "info", text: `${code} odasına bağlanılıyor...` });
     setScreen("game");
   };
@@ -526,9 +556,9 @@ export default function App() {
     nextReady[playerIndex] = true;
 
     const bothReady = nextReady[0] && nextReady[1];
-    const nextRoundEndsAt = bothReady ? Date.now() + ROUND_SECONDS * 1000 : null;
+    const nextPreRoundEndsAt = bothReady ? Date.now() + ROUND_REVEAL_SECONDS * 1000 : null;
     const nextMessage = bothReady
-      ? { type: "success", text: "İki oyuncu da hazır. Oyun başladı!" }
+      ? { type: "success", text: "İki oyuncu da hazır. 3 saniye sonra takımlar açılacak!" }
       : { type: "info", text: `${playerNames[playerIndex]} oyunu başlattı. Diğer oyuncu bekleniyor.` };
 
     const nextState = {
@@ -545,13 +575,20 @@ export default function App() {
       winner: null,
       showAnswers: false,
       roundLocked: false,
-      roundEndsAt: nextRoundEndsAt
+      roundEndsAt: null,
+      preRoundEndsAt: nextPreRoundEndsAt,
+      wrongAttempts: [0, 0],
+      lastAction: null
     };
 
     setPlayersReady(nextReady);
     setGameStarted(bothReady);
-    setRoundEndsAt(nextRoundEndsAt);
+    setRoundEndsAt(null);
+    setPreRoundEndsAt(nextPreRoundEndsAt);
     setTimeLeft(ROUND_SECONDS);
+    setPreRoundLeft(ROUND_REVEAL_SECONDS);
+    setWrongAttempts([0, 0]);
+    setLastAction(null);
     setMessage(nextMessage);
 
     await sendRoomEvent({ type: "STATE_SYNC", gameState: nextState });
@@ -564,7 +601,7 @@ export default function App() {
     }
 
     const next = getRandomRound(usedRoundKeys);
-    const nextRoundEndsAt = Date.now() + ROUND_SECONDS * 1000;
+    const nextPreRoundEndsAt = Date.now() + ROUND_REVEAL_SECONDS * 1000;
     const nextKey = getRoundKey(next);
     const playableCount = getPlayableTeamPairs().length;
     const nextUsed = usedRoundKeys.length >= playableCount ? [nextKey] : [...usedRoundKeys, nextKey];
@@ -583,7 +620,10 @@ export default function App() {
       winner: null,
       showAnswers: false,
       roundLocked: false,
-      roundEndsAt: nextRoundEndsAt
+      roundEndsAt: null,
+      preRoundEndsAt: nextPreRoundEndsAt,
+      wrongAttempts: [0, 0],
+      lastAction: null
     };
 
     setRound(next);
@@ -593,8 +633,12 @@ export default function App() {
     setMessage(null);
     setShowAnswers(false);
     setRoundLocked(false);
-    setRoundEndsAt(nextRoundEndsAt);
+    setRoundEndsAt(null);
+    setPreRoundEndsAt(nextPreRoundEndsAt);
     setTimeLeft(ROUND_SECONDS);
+    setPreRoundLeft(ROUND_REVEAL_SECONDS);
+    setWrongAttempts([0, 0]);
+    setLastAction(null);
     setWinner(null);
 
     await sendRoomEvent({ type: "STATE_SYNC", gameState: nextState });
@@ -616,7 +660,10 @@ export default function App() {
       winner: null,
       showAnswers: false,
       roundLocked: false,
-      roundEndsAt: null
+      roundEndsAt: null,
+      preRoundEndsAt: null,
+      wrongAttempts: [0, 0],
+      lastAction: null
     };
 
     setScores([0, 0]);
@@ -631,20 +678,28 @@ export default function App() {
     setShowAnswers(false);
     setRoundLocked(false);
     setRoundEndsAt(null);
+    setPreRoundEndsAt(null);
     setTimeLeft(ROUND_SECONDS);
+    setPreRoundLeft(ROUND_REVEAL_SECONDS);
+    setWrongAttempts([0, 0]);
+    setLastAction(null);
     setScreen("game");
 
     await sendRoomEvent({ type: "STATE_SYNC", gameState: nextState });
   };
 
+  const isPreRound = Boolean(gameStarted && preRoundEndsAt && !roundEndsAt && !roundLocked);
+  const myWrongAttemptUsed = playerIndex !== null && wrongAttempts[playerIndex] >= 1;
+  const canAnswer = gameStarted && !isPreRound && !roundLocked && !myWrongAttemptUsed;
+
   const updateAnswerInput = (value) => {
-    if (roundLocked || !gameStarted) return;
+    if (!canAnswer) return;
     setAnswerInput(value);
     setFocusedInput(true);
   };
 
   const selectSuggestion = (playerNameValue) => {
-    if (roundLocked || !gameStarted) return;
+    if (!canAnswer) return;
     setAnswerInput(playerNameValue);
     setFocusedInput(false);
   };
@@ -659,6 +714,16 @@ export default function App() {
 
     if (roundLocked) {
       setMessage({ type: "info", text: "Bu tur bitti. Devam etmek için Sonraki Tur'a basın." });
+      return;
+    }
+
+    if (isPreRound) {
+      setMessage({ type: "info", text: "Takımlar açılmadan cevap veremezsin." });
+      return;
+    }
+
+    if (myWrongAttemptUsed) {
+      setMessage({ type: "info", text: "Bu turdaki yanlış hakkını kullandın. Rakibi bekle." });
       return;
     }
 
@@ -694,14 +759,19 @@ export default function App() {
         winner: hasWinner ? playerIndex : null,
         showAnswers: true,
         roundLocked: true,
-        roundEndsAt: null
+        roundEndsAt: null,
+        preRoundEndsAt: null,
+        wrongAttempts,
+        lastAction: { type: "correct", playerIndex }
       };
 
       setScores(newScores);
       setRoundLocked(true);
       setShowAnswers(true);
       setRoundEndsAt(null);
+      setPreRoundEndsAt(null);
       setTimeLeft(0);
+      setLastAction({ type: "correct", playerIndex });
       setMessage(nextMessage);
       setAnswerInput("");
 
@@ -714,7 +784,50 @@ export default function App() {
       return;
     }
 
-    setMessage({ type: "error", text: getWrongAnswerExplanation(round, raw) });
+    const newWrongAttempts = [...wrongAttempts];
+    newWrongAttempts[playerIndex] += 1;
+
+    const bothPlayersUsedWrong = newWrongAttempts[0] >= 1 && newWrongAttempts[1] >= 1;
+    const nextMessage = {
+      type: "error",
+      text: bothPlayersUsedWrong
+        ? `${getWrongAnswerExplanation(round, raw)} İki oyuncu da yanlış hakkını kullandı. Tur bitti.`
+        : `${getWrongAnswerExplanation(round, raw)} Bu turdaki yanlış hakkını kullandın.`
+    };
+
+    const nextState = {
+      screen: "game",
+      playerNames,
+      playersReady,
+      opponentJoined,
+      gameStarted,
+      targetScore,
+      scores,
+      round,
+      usedRoundKeys,
+      message: nextMessage,
+      winner: null,
+      showAnswers: bothPlayersUsedWrong,
+      roundLocked: bothPlayersUsedWrong,
+      roundEndsAt: bothPlayersUsedWrong ? null : roundEndsAt,
+      preRoundEndsAt: null,
+      wrongAttempts: newWrongAttempts,
+      lastAction: { type: "wrong", playerIndex }
+    };
+
+    setWrongAttempts(newWrongAttempts);
+    setLastAction({ type: "wrong", playerIndex });
+    setMessage(nextMessage);
+    setAnswerInput("");
+
+    if (bothPlayersUsedWrong) {
+      setShowAnswers(true);
+      setRoundLocked(true);
+      setRoundEndsAt(null);
+      setTimeLeft(0);
+    }
+
+    await sendRoomEvent({ type: "STATE_SYNC", gameState: nextState });
   };
 
   const skipRound = async () => {
@@ -740,19 +853,82 @@ export default function App() {
       winner: null,
       showAnswers: true,
       roundLocked: true,
-      roundEndsAt: null
+      roundEndsAt: null,
+      preRoundEndsAt: null,
+      wrongAttempts,
+      lastAction: { type: "timeout" }
     };
 
     setMessage(nextMessage);
     setShowAnswers(true);
     setRoundLocked(true);
     setRoundEndsAt(null);
+    setPreRoundEndsAt(null);
     setTimeLeft(0);
+    setLastAction({ type: "timeout" });
     setFocusedInput(false);
 
     await sendRoomEvent({ type: "STATE_SYNC", gameState: nextState });
   };
 
+
+  const startAnswerPhase = async () => {
+    if (!gameStarted || roundLocked || !preRoundEndsAt || roundEndsAt || screen !== "game") return;
+
+    const nextRoundEndsAt = Date.now() + ROUND_SECONDS * 1000;
+    const nextState = {
+      screen: "game",
+      playerNames,
+      playersReady,
+      opponentJoined,
+      gameStarted,
+      targetScore,
+      scores,
+      round,
+      usedRoundKeys,
+      message: null,
+      winner: null,
+      showAnswers: false,
+      roundLocked: false,
+      roundEndsAt: nextRoundEndsAt,
+      preRoundEndsAt: null,
+      wrongAttempts: [0, 0],
+      lastAction: null
+    };
+
+    setRoundEndsAt(nextRoundEndsAt);
+    setPreRoundEndsAt(null);
+    setTimeLeft(ROUND_SECONDS);
+    setPreRoundLeft(0);
+    setWrongAttempts([0, 0]);
+    setLastAction(null);
+    setMessage(null);
+
+    if (playerIndex === 0) {
+      await sendRoomEvent({ type: "STATE_SYNC", gameState: nextState });
+    }
+  };
+
+  useEffect(() => {
+    if (!gameStarted || roundLocked || !preRoundEndsAt || screen !== "game") {
+      return;
+    }
+
+    const updatePreRoundTimer = () => {
+      const remaining = Math.max(0, Math.ceil((preRoundEndsAt - Date.now()) / 1000));
+      setPreRoundLeft(remaining);
+
+      if (remaining <= 0) {
+        startAnswerPhase();
+      }
+    };
+
+    updatePreRoundTimer();
+    const intervalId = window.setInterval(updatePreRoundTimer, 200);
+
+    return () => window.clearInterval(intervalId);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [gameStarted, roundLocked, preRoundEndsAt, screen]);
 
   const handleTimeUp = async () => {
     if (!gameStarted || roundLocked || screen !== "game") return;
@@ -772,14 +948,19 @@ export default function App() {
       winner: null,
       showAnswers: true,
       roundLocked: true,
-      roundEndsAt: null
+      roundEndsAt: null,
+      preRoundEndsAt: null,
+      wrongAttempts,
+      lastAction: { type: "timeout" }
     };
 
     setMessage(nextMessage);
     setShowAnswers(true);
     setRoundLocked(true);
     setRoundEndsAt(null);
+    setPreRoundEndsAt(null);
     setTimeLeft(0);
+    setLastAction({ type: "timeout" });
     setFocusedInput(false);
 
     await sendRoomEvent({ type: "STATE_SYNC", gameState: nextState });
@@ -943,6 +1124,13 @@ export default function App() {
 
                 <StatusMessage message={message} />
               </section>
+            ) : isPreRound ? (
+              <section className="panel waiting-panel">
+                <div className="waiting-icon">⏱️</div>
+                <h2>Takımlar hazırlanıyor</h2>
+                <p>Takımlar {preRoundLeft} saniye sonra görünecek.</p>
+                <div className="pre-round-count">{preRoundLeft}</div>
+              </section>
             ) : (
               <div className="panel">
                 <div className="top-row">
@@ -972,15 +1160,44 @@ export default function App() {
                   </div>
                 </div>
 
+                {lastAction && (
+                  <div className={
+                    lastAction.type === "correct" && lastAction.playerIndex === playerIndex
+                      ? "goal-animation"
+                      : lastAction.type === "correct"
+                        ? "concede-animation"
+                        : lastAction.type === "wrong" && lastAction.playerIndex === playerIndex
+                          ? "wrong-animation"
+                          : "round-animation"
+                  }>
+                    <div className="goal-scene">
+                      <span className="ball">⚽</span>
+                      <span className="goal-net">🥅</span>
+                    </div>
+                    <strong>
+                      {lastAction.type === "correct" && lastAction.playerIndex === playerIndex
+                        ? "GOOOL!"
+                        : lastAction.type === "correct"
+                          ? "Gol yedin!"
+                          : lastAction.type === "wrong" && lastAction.playerIndex === playerIndex
+                            ? "Yanlış cevap!"
+                            : "Tur bitti"}
+                    </strong>
+                  </div>
+                )}
+
                 <div className="single-answer-card">
                   <label>Senin cevabın</label>
+                  <div className="wrong-right-info">
+                    Yanlış hakkı: <strong>{myWrongAttemptUsed ? 0 : 1}</strong>
+                  </div>
                   <div className="answer-row">
                     <div className="autocomplete-wrap">
                       <input
                         value={answerInput}
-                        disabled={roundLocked}
+                        disabled={!canAnswer}
                         onFocus={() => {
-                          if (!roundLocked && answerInput) {
+                          if (canAnswer && answerInput) {
                             setFocusedInput(true);
                           }
                         }}
@@ -994,7 +1211,7 @@ export default function App() {
                         placeholder="Futbolcu adı yaz... Suarez, Messi, Quaresma"
                       />
 
-                      {!roundLocked && focusedInput && suggestions.length > 0 && (
+                      {canAnswer && focusedInput && suggestions.length > 0 && (
                         <div className="suggestions">
                           {suggestions.map((player) => (
                             <button
@@ -1015,7 +1232,7 @@ export default function App() {
 
                     <button
                       type="button"
-                      disabled={roundLocked}
+                      disabled={!canAnswer}
                       onClick={checkAnswer}
                       className="primary-button"
                     >
@@ -1624,6 +1841,120 @@ input:disabled {
   gap: 12px;
 }
 
+
+.pre-round-count {
+  width: 120px;
+  height: 120px;
+  margin: 18px auto 0;
+  border-radius: 999px;
+  background: white;
+  color: #022c22;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 64px;
+  font-weight: 950;
+  box-shadow: 0 18px 55px rgba(0, 0, 0, 0.22);
+}
+
+.wrong-right-info {
+  display: inline-block;
+  margin-bottom: 10px;
+  color: rgba(209, 250, 229, 0.88);
+  background: rgba(255, 255, 255, 0.09);
+  border-radius: 999px;
+  padding: 7px 11px;
+  font-size: 14px;
+}
+
+.goal-animation,
+.concede-animation,
+.wrong-animation,
+.round-animation {
+  margin: 0 0 18px;
+  border-radius: 24px;
+  padding: 16px;
+  text-align: center;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.goal-animation {
+  background: rgba(16, 185, 129, 0.17);
+}
+
+.concede-animation,
+.wrong-animation {
+  background: rgba(248, 113, 113, 0.17);
+}
+
+.round-animation {
+  background: rgba(56, 189, 248, 0.14);
+}
+
+.goal-animation strong,
+.concede-animation strong,
+.wrong-animation strong,
+.round-animation strong {
+  display: block;
+  margin-top: 8px;
+  font-size: 22px;
+}
+
+.goal-scene {
+  position: relative;
+  height: 74px;
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+.ball {
+  position: absolute;
+  left: 8px;
+  top: 18px;
+  font-size: 34px;
+  animation: shootBall 1.15s ease-in-out both;
+}
+
+.goal-net {
+  position: absolute;
+  right: 12px;
+  top: 10px;
+  font-size: 48px;
+}
+
+.concede-animation .ball,
+.wrong-animation .ball {
+  animation: concedeBall 1.1s ease-in-out both;
+}
+
+@keyframes shootBall {
+  0% {
+    transform: translateX(0) translateY(0) rotate(0deg) scale(1);
+    opacity: 1;
+  }
+  70% {
+    transform: translateX(290px) translateY(-8px) rotate(520deg) scale(1.15);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(330px) translateY(2px) rotate(720deg) scale(0.9);
+    opacity: 0.95;
+  }
+}
+
+@keyframes concedeBall {
+  0% {
+    transform: translateX(330px) translateY(0) rotate(0deg) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(40px) translateY(8px) rotate(-720deg) scale(1.15);
+    opacity: 0.95;
+  }
+}
+
+
 @media (max-width: 760px) {
   .app-shell {
     padding: 18px 12px;
@@ -1670,6 +2001,32 @@ input:disabled {
   .mini-button {
     margin-left: 0;
     width: 100%;
+  }
+
+  .goal-scene {
+    max-width: 260px;
+  }
+
+  @keyframes shootBall {
+    0% {
+      transform: translateX(0) translateY(0) rotate(0deg) scale(1);
+      opacity: 1;
+    }
+    100% {
+      transform: translateX(190px) translateY(2px) rotate(650deg) scale(0.95);
+      opacity: 0.95;
+    }
+  }
+
+  @keyframes concedeBall {
+    0% {
+      transform: translateX(190px) translateY(0) rotate(0deg) scale(1);
+      opacity: 1;
+    }
+    100% {
+      transform: translateX(28px) translateY(8px) rotate(-650deg) scale(1.1);
+      opacity: 0.95;
+    }
   }
 }
 `;
