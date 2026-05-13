@@ -23,18 +23,6 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Aaron Ramsey",
-    "aliases": [
-      "Aaron",
-      "Ramsey"
-    ],
-    "clubs": [
-      "Arsenal",
-      "Juventus",
-      "Nice"
-    ]
-  },
-  {
     "name": "Abdoulay Konko",
     "aliases": [
       "Abdoulay",
@@ -114,6 +102,22 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Achraf Hakimi Mouh",
+    "aliases": [
+      "achraf",
+      "Achraf",
+      "hakimi",
+      "Hakimi",
+      "mouh",
+      "Mouh"
+    ],
+    "clubs": [
+      "Inter",
+      "PSG",
+      "Real Madrid"
+    ]
+  },
+  {
     "name": "Adam Carson",
     "aliases": [
       "Adam",
@@ -159,6 +163,22 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Adem Bojan Ljajić",
+    "aliases": [
+      "adem",
+      "Adem",
+      "bojan",
+      "Bojan",
+      "ljajic",
+      "Ljajić"
+    ],
+    "clubs": [
+      "Beşiktaş",
+      "Inter",
+      "Roma"
+    ]
+  },
+  {
     "name": "Adem Koçak",
     "aliases": [
       "Adem",
@@ -167,18 +187,6 @@ export const PLAYERS = [
     "clubs": [
       "Sivasspor",
       "Trabzonspor"
-    ]
-  },
-  {
-    "name": "Adem Ljajić",
-    "aliases": [
-      "Adem",
-      "Ljajić"
-    ],
-    "clubs": [
-      "Beşiktaş",
-      "Inter",
-      "Roma"
     ]
   },
   {
@@ -269,6 +277,26 @@ export const PLAYERS = [
       "Barcelona",
       "Beşiktaş",
       "Sevilla"
+    ]
+  },
+  {
+    "name": "Adrien Thibault Marie Rabiot-Provost",
+    "aliases": [
+      "adrien",
+      "Adrien",
+      "marie",
+      "Marie",
+      "provost",
+      "Provost",
+      "rabiot",
+      "Rabiot",
+      "thibault",
+      "Thibault"
+    ],
+    "clubs": [
+      "Juventus",
+      "Milan",
+      "PSG"
     ]
   },
   {
@@ -933,6 +961,26 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Alexander Mark David Oxlade-Chamberlain",
+    "aliases": [
+      "alexander",
+      "Alexander",
+      "chamberlain",
+      "Chamberlain",
+      "david",
+      "David",
+      "mark",
+      "Mark",
+      "oxlade",
+      "Oxlade"
+    ],
+    "clubs": [
+      "Arsenal",
+      "Beşiktaş",
+      "Liverpool"
+    ]
+  },
+  {
     "name": "Alexandre Lacazette",
     "aliases": [
       "Alexandre",
@@ -1226,6 +1274,23 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Allan Irénée Saint-Maximin",
+    "aliases": [
+      "allan",
+      "Allan",
+      "Irénée",
+      "irenee",
+      "maximin",
+      "Maximin",
+      "saint",
+      "Saint"
+    ],
+    "clubs": [
+      "Fenerbahçe",
+      "Nice"
+    ]
+  },
+  {
     "name": "Allenby Chilton",
     "aliases": [
       "Allenby",
@@ -1300,6 +1365,26 @@ export const PLAYERS = [
     ],
     "clubs": [
       "Liverpool",
+      "Real Madrid"
+    ]
+  },
+  {
+    "name": "Álvaro Borja Morata Martín",
+    "aliases": [
+      "alvaro",
+      "Álvaro",
+      "borja",
+      "Borja",
+      "martin",
+      "Martín",
+      "morata",
+      "Morata"
+    ],
+    "clubs": [
+      "Chelsea",
+      "Galatasaray",
+      "Juventus",
+      "Milan",
       "Real Madrid"
     ]
   },
@@ -1646,6 +1731,25 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Ángel Fabián Di María Hernández",
+    "aliases": [
+      "angel",
+      "Ángel",
+      "fabian",
+      "Fabián",
+      "hernandez",
+      "Hernández",
+      "maria",
+      "María"
+    ],
+    "clubs": [
+      "Juventus",
+      "Manchester United",
+      "PSG",
+      "Real Madrid"
+    ]
+  },
+  {
     "name": "Angelo Balbiani",
     "aliases": [
       "Angelo",
@@ -1932,10 +2036,13 @@ export const PLAYERS = [
   {
     "name": "Antonio Rüdiger",
     "aliases": [
+      "antonio",
       "Antonio",
+      "rudiger",
       "Rüdiger"
     ],
     "clubs": [
+      "Chelsea",
       "Real Madrid",
       "Roma"
     ]
@@ -2144,6 +2251,24 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Arturo Erasmo Vidal Pardo",
+    "aliases": [
+      "arturo",
+      "Arturo",
+      "erasmo",
+      "Erasmo",
+      "pardo",
+      "Pardo",
+      "vidal",
+      "Vidal"
+    ],
+    "clubs": [
+      "Barcelona",
+      "Inter",
+      "Juventus"
+    ]
+  },
+  {
     "name": "Ashley Cole",
     "aliases": [
       "Ashley",
@@ -2152,6 +2277,21 @@ export const PLAYERS = [
     "clubs": [
       "Arsenal",
       "Roma"
+    ]
+  },
+  {
+    "name": "Ashley Simon Young",
+    "aliases": [
+      "ashley",
+      "Ashley",
+      "simon",
+      "Simon",
+      "young",
+      "Young"
+    ],
+    "clubs": [
+      "Inter",
+      "Manchester United"
     ]
   },
   {
@@ -2969,19 +3109,6 @@ export const PLAYERS = [
     "name": "Burak Yılmaz",
     "aliases": [
       "Burak",
-      "Yılmaz"
-    ],
-    "clubs": [
-      "Antalyaspor",
-      "Beşiktaş",
-      "Galatasaray",
-      "Trabzonspor"
-    ]
-  },
-  {
-    "name": "Burak Yılmaz",
-    "aliases": [
-      "Burak",
       "Yılmaz",
       "Yilmaz"
     ],
@@ -3090,7 +3217,9 @@ export const PLAYERS = [
   {
     "name": "Caner Erkin",
     "aliases": [
+      "caner",
       "Caner",
+      "erkin",
       "Erkin"
     ],
     "clubs": [
@@ -3336,12 +3465,15 @@ export const PLAYERS = [
   {
     "name": "Cengiz Ünder",
     "aliases": [
+      "cengiz",
       "Cengiz",
+      "under",
       "Under",
       "Ünder"
     ],
     "clubs": [
       "Başakşehir",
+      "Beşiktaş",
       "Fenerbahçe",
       "Marseille",
       "Roma"
@@ -3395,7 +3527,9 @@ export const PLAYERS = [
   {
     "name": "Cenk Tosun",
     "aliases": [
+      "cenk",
       "Cenk",
+      "tosun",
       "Tosun"
     ],
     "clubs": [
@@ -3621,6 +3755,39 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Christian Dannemann Eriksen",
+    "aliases": [
+      "christian",
+      "Christian",
+      "dannemann",
+      "Dannemann",
+      "eriksen",
+      "Eriksen"
+    ],
+    "clubs": [
+      "Ajax",
+      "Inter",
+      "Manchester United",
+      "Tottenham"
+    ]
+  },
+  {
+    "name": "Christian Mate Pulišić",
+    "aliases": [
+      "christian",
+      "Christian",
+      "mate",
+      "Mate",
+      "pulisic",
+      "Pulisic",
+      "Pulišić"
+    ],
+    "clubs": [
+      "Chelsea",
+      "Milan"
+    ]
+  },
+  {
     "name": "Christian Panucci",
     "aliases": [
       "Christian",
@@ -3706,6 +3873,21 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Christopher Lloyd Smalling",
+    "aliases": [
+      "christopher",
+      "Christopher",
+      "lloyd",
+      "Lloyd",
+      "smalling",
+      "Smalling"
+    ],
+    "clubs": [
+      "Manchester United",
+      "Roma"
+    ]
+  },
+  {
     "name": "Christopher Ohen",
     "aliases": [
       "Christopher",
@@ -3771,6 +3953,20 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Ciro Immobile",
+    "aliases": [
+      "ciro",
+      "Ciro",
+      "Immobile",
+      "immobile"
+    ],
+    "clubs": [
+      "Beşiktaş",
+      "Juventus",
+      "Sevilla"
+    ]
+  },
+  {
     "name": "Clarence Seedorf",
     "aliases": [
       "Clarence",
@@ -3814,6 +4010,24 @@ export const PLAYERS = [
     "clubs": [
       "Lyon",
       "Roma"
+    ]
+  },
+  {
+    "name": "Clément Nicolas Laurent Lenglet",
+    "aliases": [
+      "clement",
+      "Clément",
+      "laurent",
+      "Laurent",
+      "lenglet",
+      "Lenglet",
+      "nicolas",
+      "Nicolas"
+    ],
+    "clubs": [
+      "Barcelona",
+      "Sevilla",
+      "Tottenham"
     ]
   },
   {
@@ -4010,6 +4224,25 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Cristiano Ronaldo dos Santos Aveiro",
+    "aliases": [
+      "aveiro",
+      "Aveiro",
+      "cristiano",
+      "Cristiano",
+      "dos",
+      "ronaldo",
+      "Ronaldo",
+      "santos",
+      "Santos"
+    ],
+    "clubs": [
+      "Juventus",
+      "Manchester United",
+      "Real Madrid"
+    ]
+  },
+  {
     "name": "Cristiano Scapolo",
     "aliases": [
       "Cristiano",
@@ -4102,7 +4335,9 @@ export const PLAYERS = [
   {
     "name": "Daley Blind",
     "aliases": [
+      "blind",
       "Blind",
+      "daley",
       "Daley"
     ],
     "clubs": [
@@ -4732,6 +4967,24 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Dazet Wilfried Armel Zaha",
+    "aliases": [
+      "armel",
+      "Armel",
+      "dazet",
+      "Dazet",
+      "wilfried",
+      "Wilfried",
+      "zaha",
+      "Zaha"
+    ],
+    "clubs": [
+      "Galatasaray",
+      "Lyon",
+      "Manchester United"
+    ]
+  },
+  {
     "name": "Dean Saunders",
     "aliases": [
       "Dean",
@@ -5008,17 +5261,6 @@ export const PLAYERS = [
       "Perotti"
     ],
     "clubs": [
-      "Roma",
-      "Sevilla"
-    ]
-  },
-  {
-    "name": "Diego Perotti",
-    "aliases": [
-      "Diego",
-      "Perotti"
-    ],
-    "clubs": [
       "Fenerbahçe",
       "Roma",
       "Sevilla"
@@ -5257,6 +5499,20 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Donny van de Beek",
+    "aliases": [
+      "beek",
+      "Beek",
+      "donny",
+      "Donny",
+      "van"
+    ],
+    "clubs": [
+      "Ajax",
+      "Manchester United"
+    ]
+  },
+  {
     "name": "Douglas",
     "aliases": [],
     "clubs": [
@@ -5291,7 +5547,9 @@ export const PLAYERS = [
   {
     "name": "Dušan Tadić",
     "aliases": [
+      "dusan",
       "Dušan",
+      "tadic",
       "Tadic",
       "Tadić"
     ],
@@ -5352,8 +5610,10 @@ export const PLAYERS = [
   {
     "name": "Edin Džeko",
     "aliases": [
+      "dzeko",
       "Dzeko",
       "Džeko",
+      "edin",
       "Edin"
     ],
     "clubs": [
@@ -5680,21 +5940,6 @@ export const PLAYERS = [
     "clubs": [
       "Arsenal",
       "Başakşehir",
-      "Kayserispor",
-      "Manchester City",
-      "Real Madrid",
-      "Tottenham"
-    ]
-  },
-  {
-    "name": "Emmanuel Adebayor",
-    "aliases": [
-      "Adebayor",
-      "Emmanuel"
-    ],
-    "clubs": [
-      "Arsenal",
-      "Başakşehir",
       "Manchester City",
       "Real Madrid",
       "Tottenham"
@@ -5743,19 +5988,6 @@ export const PLAYERS = [
     "clubs": [
       "Beşiktaş",
       "Galatasaray"
-    ]
-  },
-  {
-    "name": "Emre Belözoğlu",
-    "aliases": [
-      "Belözoğlu",
-      "Emre"
-    ],
-    "clubs": [
-      "Atletico Madrid",
-      "Başakşehir",
-      "Galatasaray",
-      "Inter"
     ]
   },
   {
@@ -6668,17 +6900,6 @@ export const PLAYERS = [
       "Fatih"
     ],
     "clubs": [
-      "Galatasaray",
-      "Trabzonspor"
-    ]
-  },
-  {
-    "name": "Fatih Akyel",
-    "aliases": [
-      "Akyel",
-      "Fatih"
-    ],
-    "clubs": [
       "Fenerbahçe",
       "Galatasaray",
       "Trabzonspor"
@@ -6753,7 +6974,9 @@ export const PLAYERS = [
   {
     "name": "Federico Chiesa",
     "aliases": [
+      "chiesa",
       "Chiesa",
+      "federico",
       "Federico"
     ],
     "clubs": [
@@ -6804,18 +7027,6 @@ export const PLAYERS = [
     "clubs": [
       "Inter",
       "Manchester City"
-    ]
-  },
-  {
-    "name": "Felipe Melo",
-    "aliases": [
-      "Felipe",
-      "Melo"
-    ],
-    "clubs": [
-      "Galatasaray",
-      "Inter",
-      "Juventus"
     ]
   },
   {
@@ -7045,6 +7256,19 @@ export const PLAYERS = [
     "clubs": [
       "Başakşehir",
       "Beşiktaş"
+    ]
+  },
+  {
+    "name": "Filip Kostić",
+    "aliases": [
+      "filip",
+      "Filip",
+      "kostic",
+      "Kostić"
+    ],
+    "clubs": [
+      "Fenerbahçe",
+      "Juventus"
     ]
   },
   {
@@ -7631,7 +7855,9 @@ export const PLAYERS = [
   {
     "name": "Frenkie de Jong",
     "aliases": [
+      "frenkie",
       "Frenkie",
+      "jong",
       "Jong"
     ],
     "clubs": [
@@ -7696,6 +7922,21 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Gabriel Fernando de Jesus",
+    "aliases": [
+      "fernando",
+      "Fernando",
+      "gabriel",
+      "Gabriel",
+      "jesus",
+      "Jesus"
+    ],
+    "clubs": [
+      "Arsenal",
+      "Manchester City"
+    ]
+  },
+  {
     "name": "Gabriel Heinze",
     "aliases": [
       "Gabriel",
@@ -7728,18 +7969,6 @@ export const PLAYERS = [
     "clubs": [
       "Liverpool",
       "Milan"
-    ]
-  },
-  {
-    "name": "Gaël Clichy",
-    "aliases": [
-      "Clichy",
-      "Gaël"
-    ],
-    "clubs": [
-      "Arsenal",
-      "Başakşehir",
-      "Manchester City"
     ]
   },
   {
@@ -7805,6 +8034,24 @@ export const PLAYERS = [
     "clubs": [
       "Manchester United",
       "Tottenham"
+    ]
+  },
+  {
+    "name": "Gary Alexis Medel Soto",
+    "aliases": [
+      "alexis",
+      "Alexis",
+      "gary",
+      "Gary",
+      "medel",
+      "Medel",
+      "soto",
+      "Soto"
+    ],
+    "clubs": [
+      "Beşiktaş",
+      "Inter",
+      "Sevilla"
     ]
   },
   {
@@ -8255,6 +8502,20 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Gianluigi Donnarumma",
+    "aliases": [
+      "donnarumma",
+      "Donnarumma",
+      "gianluigi",
+      "Gianluigi"
+    ],
+    "clubs": [
+      "Manchester City",
+      "Milan",
+      "PSG"
+    ]
+  },
+  {
     "name": "Gianni Comandini",
     "aliases": [
       "Comandini",
@@ -8500,6 +8761,21 @@ export const PLAYERS = [
     "clubs": [
       "Inter",
       "Juventus"
+    ]
+  },
+  {
+    "name": "Giuliano Victor de Paula",
+    "aliases": [
+      "giuliano",
+      "Giuliano",
+      "paula",
+      "Paula",
+      "victor",
+      "Victor"
+    ],
+    "clubs": [
+      "Başakşehir",
+      "Fenerbahçe"
     ]
   },
   {
@@ -8978,7 +9254,9 @@ export const PLAYERS = [
   {
     "name": "Hakan Çalhanoğlu",
     "aliases": [
+      "calhanoglu",
       "Çalhanoğlu",
+      "hakan",
       "Hakan"
     ],
     "clubs": [
@@ -9023,7 +9301,9 @@ export const PLAYERS = [
   {
     "name": "Hakim Ziyech",
     "aliases": [
+      "hakim",
       "Hakim",
+      "ziyech",
       "Ziyech"
     ],
     "clubs": [
@@ -9298,6 +9578,23 @@ export const PLAYERS = [
     "clubs": [
       "Barcelona",
       "Manchester United"
+    ]
+  },
+  {
+    "name": "Henrikh Hamlet Mkhitaryan",
+    "aliases": [
+      "hamlet",
+      "Hamlet",
+      "henrikh",
+      "Henrikh",
+      "mkhitaryan",
+      "Mkhitaryan"
+    ],
+    "clubs": [
+      "Arsenal",
+      "Inter",
+      "Manchester United",
+      "Roma"
     ]
   },
   {
@@ -9701,6 +9998,19 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Ivan Perišić",
+    "aliases": [
+      "Ivan",
+      "ivan",
+      "perisic",
+      "Perišić"
+    ],
+    "clubs": [
+      "Inter",
+      "Tottenham"
+    ]
+  },
+  {
     "name": "Ivan Rakitić",
     "aliases": [
       "Ivan",
@@ -9825,6 +10135,20 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "İlkay Gündoğan",
+    "aliases": [
+      "gundogan",
+      "Gündoğan",
+      "ilkay",
+      "İlkay"
+    ],
+    "clubs": [
+      "Barcelona",
+      "Galatasaray",
+      "Manchester City"
+    ]
+  },
+  {
     "name": "İlyas Kahraman",
     "aliases": [
       "İlyas",
@@ -9834,6 +10158,21 @@ export const PLAYERS = [
       "Antalyaspor",
       "Başakşehir",
       "Galatasaray"
+    ]
+  },
+  {
+    "name": "İrfan Can Kahveci",
+    "aliases": [
+      "can",
+      "Can",
+      "irfan",
+      "İrfan",
+      "kahveci",
+      "Kahveci"
+    ],
+    "clubs": [
+      "Başakşehir",
+      "Fenerbahçe"
     ]
   },
   {
@@ -11290,6 +11629,25 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Jorge Luiz Frello Filho",
+    "aliases": [
+      "filho",
+      "Filho",
+      "frello",
+      "Frello",
+      "jorge",
+      "Jorge",
+      "jorginho",
+      "Jorginho",
+      "luiz",
+      "Luiz"
+    ],
+    "clubs": [
+      "Arsenal",
+      "Chelsea"
+    ]
+  },
+  {
     "name": "Jorge Pulido",
     "aliases": [
       "Jorge",
@@ -11644,19 +12002,6 @@ export const PLAYERS = [
     "name": "José Sosa",
     "aliases": [
       "José",
-      "Sosa"
-    ],
-    "clubs": [
-      "Atletico Madrid",
-      "Beşiktaş",
-      "Milan",
-      "Trabzonspor"
-    ]
-  },
-  {
-    "name": "José Sosa",
-    "aliases": [
-      "José",
       "Jose Sosa",
       "Sosa"
     ],
@@ -11871,6 +12216,24 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Juan Manuel Mata García",
+    "aliases": [
+      "garcia",
+      "García",
+      "juan",
+      "Juan",
+      "manuel",
+      "Manuel",
+      "mata",
+      "Mata"
+    ],
+    "clubs": [
+      "Chelsea",
+      "Galatasaray",
+      "Manchester United"
+    ]
+  },
+  {
     "name": "Juan Marrero Pérez",
     "aliases": [
       "Juan",
@@ -11961,6 +12324,21 @@ export const PLAYERS = [
     "aliases": [
       "Jules",
       "Koundé"
+    ],
+    "clubs": [
+      "Barcelona",
+      "Sevilla"
+    ]
+  },
+  {
+    "name": "Jules Olivier Koundé",
+    "aliases": [
+      "jules",
+      "Jules",
+      "kounde",
+      "Koundé",
+      "olivier",
+      "Olivier"
     ],
     "clubs": [
       "Barcelona",
@@ -12162,6 +12540,21 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Kai Lukas Havertz",
+    "aliases": [
+      "havertz",
+      "Havertz",
+      "kai",
+      "Kai",
+      "lukas",
+      "Lukas"
+    ],
+    "clubs": [
+      "Arsenal",
+      "Chelsea"
+    ]
+  },
+  {
     "name": "Kaká",
     "aliases": [],
     "clubs": [
@@ -12196,6 +12589,21 @@ export const PLAYERS = [
     "aliases": [
       "Benzema",
       "Karim"
+    ],
+    "clubs": [
+      "Lyon",
+      "Real Madrid"
+    ]
+  },
+  {
+    "name": "Karim Mostafa Benzema",
+    "aliases": [
+      "benzema",
+      "Benzema",
+      "karim",
+      "Karim",
+      "mostafa",
+      "Mostafa"
     ],
     "clubs": [
       "Lyon",
@@ -12387,6 +12795,23 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Keylor Antonio Navas Gamboa",
+    "aliases": [
+      "antonio",
+      "Antonio",
+      "gamboa",
+      "Gamboa",
+      "keylor",
+      "Keylor",
+      "navas",
+      "Navas"
+    ],
+    "clubs": [
+      "PSG",
+      "Real Madrid"
+    ]
+  },
+  {
     "name": "Kiki Musampa",
     "aliases": [
       "Kiki",
@@ -12408,6 +12833,21 @@ export const PLAYERS = [
     "clubs": [
       "Arsenal",
       "Lyon"
+    ]
+  },
+  {
+    "name": "Kingsley Junior Coman",
+    "aliases": [
+      "coman",
+      "Coman",
+      "junior",
+      "Junior",
+      "kingsley",
+      "Kingsley"
+    ],
+    "clubs": [
+      "Juventus",
+      "PSG"
     ]
   },
   {
@@ -12716,6 +13156,21 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Leroy Aziz Sané",
+    "aliases": [
+      "aziz",
+      "Aziz",
+      "leroy",
+      "Leroy",
+      "sane",
+      "Sané"
+    ],
+    "clubs": [
+      "Galatasaray",
+      "Manchester City"
+    ]
+  },
+  {
     "name": "Les Ferdinand",
     "aliases": [
       "Ferdinand",
@@ -12783,6 +13238,23 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Lionel Andrés Messi Cuccittini",
+    "aliases": [
+      "andres",
+      "Andrés",
+      "cuccittini",
+      "Cuccittini",
+      "lionel",
+      "Lionel",
+      "messi",
+      "Messi"
+    ],
+    "clubs": [
+      "Barcelona",
+      "PSG"
+    ]
+  },
+  {
     "name": "Lionel Carole",
     "aliases": [
       "Carole",
@@ -12812,17 +13284,6 @@ export const PLAYERS = [
     ],
     "clubs": [
       "Nice",
-      "PSG"
-    ]
-  },
-  {
-    "name": "Lionel Messi",
-    "aliases": [
-      "Lionel",
-      "Messi"
-    ],
-    "clubs": [
-      "Barcelona",
       "PSG"
     ]
   },
@@ -13253,6 +13714,24 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Luis Alberto Suárez Díaz",
+    "aliases": [
+      "alberto",
+      "Alberto",
+      "diaz",
+      "Díaz",
+      "luis",
+      "Luis",
+      "suarez",
+      "Suárez"
+    ],
+    "clubs": [
+      "Ajax",
+      "Barcelona",
+      "Liverpool"
+    ]
+  },
+  {
     "name": "Luis Aragonés",
     "aliases": [
       "Aragonés",
@@ -13261,6 +13740,25 @@ export const PLAYERS = [
     "clubs": [
       "Atletico Madrid",
       "Real Madrid"
+    ]
+  },
+  {
+    "name": "Luís Carlos Almeida da Cunha",
+    "aliases": [
+      "almeida",
+      "Almeida",
+      "carlos",
+      "Carlos",
+      "cunha",
+      "Cunha",
+      "luis",
+      "Luís",
+      "nani",
+      "Nani"
+    ],
+    "clubs": [
+      "Fenerbahçe",
+      "Manchester United"
     ]
   },
   {
@@ -13385,17 +13883,6 @@ export const PLAYERS = [
     "name": "Luis Suárez",
     "aliases": [
       "Luis",
-      "Suárez"
-    ],
-    "clubs": [
-      "Barcelona",
-      "Inter"
-    ]
-  },
-  {
-    "name": "Luis Suárez",
-    "aliases": [
-      "Luis",
       "Suarez",
       "Suárez"
     ],
@@ -13441,6 +13928,20 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Luka Modrić",
+    "aliases": [
+      "luka",
+      "Luka",
+      "modric",
+      "Modrić"
+    ],
+    "clubs": [
+      "Milan",
+      "Real Madrid",
+      "Tottenham"
+    ]
+  },
+  {
     "name": "Lukas Podolski",
     "aliases": [
       "Lukas",
@@ -13454,10 +13955,14 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Lukas Podolski",
+    "name": "Łukasz Józef Podolski",
     "aliases": [
-      "Lukas",
-      "Podolski"
+      "jozef",
+      "Józef",
+      "Łukasz",
+      "podolski",
+      "Podolski",
+      "ukasz"
     ],
     "clubs": [
       "Antalyaspor",
@@ -14064,20 +14569,6 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Mario Balotelli",
-    "aliases": [
-      "Balotelli",
-      "Mario"
-    ],
-    "clubs": [
-      "Inter",
-      "Liverpool",
-      "Manchester City",
-      "Milan",
-      "Nice"
-    ]
-  },
-  {
     "name": "Mario Bandirali",
     "aliases": [
       "Bandirali",
@@ -14165,6 +14656,24 @@ export const PLAYERS = [
       "Atletico Madrid",
       "Juventus",
       "Milan"
+    ]
+  },
+  {
+    "name": "Mario René Junior Lemina",
+    "aliases": [
+      "junior",
+      "Junior",
+      "lemina",
+      "Lemina",
+      "mario",
+      "Mario",
+      "rene",
+      "René"
+    ],
+    "clubs": [
+      "Galatasaray",
+      "Juventus",
+      "Nice"
     ]
   },
   {
@@ -14324,6 +14833,19 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Martin Ødegaard",
+    "aliases": [
+      "degaard",
+      "martin",
+      "Martin",
+      "Ødegaard"
+    ],
+    "clubs": [
+      "Arsenal",
+      "Real Madrid"
+    ]
+  },
+  {
     "name": "Martin Petrov",
     "aliases": [
       "Martin",
@@ -14354,6 +14876,36 @@ export const PLAYERS = [
     "clubs": [
       "Manchester City",
       "Tottenham"
+    ]
+  },
+  {
+    "name": "Mason Tony Mount",
+    "aliases": [
+      "mason",
+      "Mason",
+      "mount",
+      "Mount",
+      "tony",
+      "Tony"
+    ],
+    "clubs": [
+      "Chelsea",
+      "Manchester United"
+    ]
+  },
+  {
+    "name": "Masour Ousmane Dembélé",
+    "aliases": [
+      "dembele",
+      "Dembélé",
+      "masour",
+      "Masour",
+      "ousmane",
+      "Ousmane"
+    ],
+    "clubs": [
+      "Barcelona",
+      "PSG"
     ]
   },
   {
@@ -14431,6 +14983,21 @@ export const PLAYERS = [
     "clubs": [
       "Atletico Madrid",
       "PSG"
+    ]
+  },
+  {
+    "name": "Mateo Kovačić",
+    "aliases": [
+      "kovacic",
+      "Kovačić",
+      "mateo",
+      "Mateo"
+    ],
+    "clubs": [
+      "Chelsea",
+      "Inter",
+      "Manchester City",
+      "Real Madrid"
     ]
   },
   {
@@ -14534,6 +15101,20 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Matteo Darmian",
+    "aliases": [
+      "darmian",
+      "Darmian",
+      "matteo",
+      "Matteo"
+    ],
+    "clubs": [
+      "Inter",
+      "Manchester United",
+      "Milan"
+    ]
+  },
+  {
     "name": "Matteo Deinite",
     "aliases": [
       "Deinite",
@@ -14554,6 +15135,20 @@ export const PLAYERS = [
       "Beşiktaş",
       "Inter",
       "Roma"
+    ]
+  },
+  {
+    "name": "Matthijs de Ligt",
+    "aliases": [
+      "ligt",
+      "Ligt",
+      "matthijs",
+      "Matthijs"
+    ],
+    "clubs": [
+      "Ajax",
+      "Juventus",
+      "Manchester United"
     ]
   },
   {
@@ -14667,6 +15262,24 @@ export const PLAYERS = [
     "clubs": [
       "Milan",
       "Roma"
+    ]
+  },
+  {
+    "name": "Mauro Emanuel Icardi Rivero",
+    "aliases": [
+      "emanuel",
+      "Emanuel",
+      "Icardi",
+      "icardi",
+      "mauro",
+      "Mauro",
+      "rivero",
+      "Rivero"
+    ],
+    "clubs": [
+      "Galatasaray",
+      "Inter",
+      "PSG"
     ]
   },
   {
@@ -14792,19 +15405,6 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Mehmet Aurelio",
-    "aliases": [
-      "Aurelio",
-      "Marco Aurelio",
-      "Mehmet"
-    ],
-    "clubs": [
-      "Beşiktaş",
-      "Fenerbahçe",
-      "Trabzonspor"
-    ]
-  },
-  {
     "name": "Mehmet Aurélio",
     "aliases": [
       "Aurélio",
@@ -14870,18 +15470,6 @@ export const PLAYERS = [
     "clubs": [
       "Antalyaspor",
       "Beşiktaş"
-    ]
-  },
-  {
-    "name": "Mehmet Topal",
-    "aliases": [
-      "Mehmet",
-      "Topal"
-    ],
-    "clubs": [
-      "Başakşehir",
-      "Beşiktaş",
-      "Galatasaray"
     ]
   },
   {
@@ -15210,6 +15798,23 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Michy Batshuayi-Atunga",
+    "aliases": [
+      "atunga",
+      "Atunga",
+      "batshuayi",
+      "Batshuayi",
+      "michy",
+      "Michy"
+    ],
+    "clubs": [
+      "Beşiktaş",
+      "Chelsea",
+      "Fenerbahçe",
+      "Galatasaray"
+    ]
+  },
+  {
     "name": "Mick McCarthy",
     "aliases": [
       "McCarthy",
@@ -15370,6 +15975,20 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Milan Škriniar",
+    "aliases": [
+      "milan",
+      "Milan",
+      "skriniar",
+      "Škriniar"
+    ],
+    "clubs": [
+      "Fenerbahçe",
+      "Inter",
+      "PSG"
+    ]
+  },
+  {
     "name": "Milos Kerkez",
     "aliases": [
       "Kerkez",
@@ -15399,20 +16018,6 @@ export const PLAYERS = [
       "Barcelona",
       "Real Madrid",
       "Sevilla"
-    ]
-  },
-  {
-    "name": "Miralem Pjanić",
-    "aliases": [
-      "Miralem",
-      "Pjanić"
-    ],
-    "clubs": [
-      "Barcelona",
-      "Beşiktaş",
-      "Juventus",
-      "Lyon",
-      "Roma"
     ]
   },
   {
@@ -16025,6 +16630,23 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Neymar da Silva Santos Júnior",
+    "aliases": [
+      "junior",
+      "Júnior",
+      "neymar",
+      "Neymar",
+      "santos",
+      "Santos",
+      "silva",
+      "Silva"
+    ],
+    "clubs": [
+      "Barcelona",
+      "PSG"
+    ]
+  },
+  {
     "name": "Niall Quinn",
     "aliases": [
       "Niall",
@@ -16098,21 +16720,6 @@ export const PLAYERS = [
     ],
     "clubs": [
       "Arsenal",
-      "Juventus",
-      "Liverpool",
-      "Manchester City",
-      "PSG",
-      "Real Madrid"
-    ]
-  },
-  {
-    "name": "Nicolas Anelka",
-    "aliases": [
-      "Anelka",
-      "Nicolas"
-    ],
-    "clubs": [
-      "Arsenal",
       "Chelsea",
       "Fenerbahçe",
       "Juventus",
@@ -16148,12 +16755,16 @@ export const PLAYERS = [
   {
     "name": "Nicolò Zaniolo",
     "aliases": [
+      "nicolo",
       "Nicolò",
       "Nicolo Zaniolo",
+      "nicolozaniolo",
+      "zaniolo",
       "Zaniolo"
     ],
     "clubs": [
       "Galatasaray",
+      "Inter",
       "Roma"
     ]
   },
@@ -16266,18 +16877,6 @@ export const PLAYERS = [
     "clubs": [
       "Ajax",
       "Sivasspor"
-    ]
-  },
-  {
-    "name": "Nuri Şahin",
-    "aliases": [
-      "Nuri",
-      "Şahin"
-    ],
-    "clubs": [
-      "Antalyaspor",
-      "Liverpool",
-      "Real Madrid"
     ]
   },
   {
@@ -16446,7 +17045,9 @@ export const PLAYERS = [
   {
     "name": "Oleksandr Zinchenko",
     "aliases": [
+      "oleksandr",
       "Oleksandr",
+      "zinchenko",
       "Zinchenko"
     ],
     "clubs": [
@@ -16478,6 +17079,22 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Olivier Jonathan Giroud",
+    "aliases": [
+      "giroud",
+      "Giroud",
+      "jonathan",
+      "Jonathan",
+      "olivier",
+      "Olivier"
+    ],
+    "clubs": [
+      "Arsenal",
+      "Chelsea",
+      "Milan"
+    ]
+  },
+  {
     "name": "Oliviero Mascheroni",
     "aliases": [
       "Mascheroni",
@@ -16487,6 +17104,21 @@ export const PLAYERS = [
       "Inter",
       "Milan",
       "Roma"
+    ]
+  },
+  {
+    "name": "Oluwafikayomi Oluwadamilola Tomori",
+    "aliases": [
+      "oluwadamilola",
+      "Oluwadamilola",
+      "oluwafikayomi",
+      "Oluwafikayomi",
+      "tomori",
+      "Tomori"
+    ],
+    "clubs": [
+      "Chelsea",
+      "Milan"
     ]
   },
   {
@@ -16712,6 +17344,21 @@ export const PLAYERS = [
     "clubs": [
       "Liverpool",
       "Tottenham"
+    ]
+  },
+  {
+    "name": "Ozan Muhammed Kabak",
+    "aliases": [
+      "kabak",
+      "Kabak",
+      "muhammed",
+      "Muhammed",
+      "ozan",
+      "Ozan"
+    ],
+    "clubs": [
+      "Galatasaray",
+      "Liverpool"
     ]
   },
   {
@@ -17103,6 +17750,21 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Paul Labile Pogba",
+    "aliases": [
+      "labile",
+      "Labile",
+      "paul",
+      "Paul",
+      "pogba",
+      "Pogba"
+    ],
+    "clubs": [
+      "Juventus",
+      "Manchester United"
+    ]
+  },
+  {
     "name": "Paul Stewart",
     "aliases": [
       "Paul",
@@ -17132,6 +17794,21 @@ export const PLAYERS = [
     "clubs": [
       "Barcelona",
       "Tottenham"
+    ]
+  },
+  {
+    "name": "Paulo Exequiel Dybala",
+    "aliases": [
+      "dybala",
+      "Dybala",
+      "exequiel",
+      "Exequiel",
+      "paulo",
+      "Paulo"
+    ],
+    "clubs": [
+      "Juventus",
+      "Roma"
     ]
   },
   {
@@ -17346,6 +18023,22 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Philippe Coutinho Correia",
+    "aliases": [
+      "correia",
+      "Correia",
+      "coutinho",
+      "Coutinho",
+      "philippe",
+      "Philippe"
+    ],
+    "clubs": [
+      "Barcelona",
+      "Inter",
+      "Liverpool"
+    ]
+  },
+  {
     "name": "Philippe Mexès",
     "aliases": [
       "Mexès",
@@ -17455,6 +18148,27 @@ export const PLAYERS = [
     "clubs": [
       "Lyon",
       "PSG"
+    ]
+  },
+  {
+    "name": "Pierre-Emerick Emiliano Franço Aubameyang",
+    "aliases": [
+      "aubameyang",
+      "Aubameyang",
+      "emerick",
+      "Emerick",
+      "emiliano",
+      "Emiliano",
+      "franco",
+      "Franço",
+      "pierre",
+      "Pierre"
+    ],
+    "clubs": [
+      "Arsenal",
+      "Barcelona",
+      "Chelsea",
+      "Milan"
     ]
   },
   {
@@ -17606,6 +18320,24 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Radamel Falcao García Zárate",
+    "aliases": [
+      "falcao",
+      "Falcao",
+      "garcia",
+      "García",
+      "radamel",
+      "Radamel",
+      "zarate",
+      "Zárate"
+    ],
+    "clubs": [
+      "Chelsea",
+      "Galatasaray",
+      "Manchester United"
+    ]
+  },
+  {
     "name": "Radja Nainggolan",
     "aliases": [
       "Nainggolan",
@@ -17694,6 +18426,23 @@ export const PLAYERS = [
     "clubs": [
       "Kayserispor",
       "Trabzonspor"
+    ]
+  },
+  {
+    "name": "Raheem Shaquille Sterling",
+    "aliases": [
+      "raheem",
+      "Raheem",
+      "shaquille",
+      "Shaquille",
+      "sterling",
+      "Sterling"
+    ],
+    "clubs": [
+      "Arsenal",
+      "Chelsea",
+      "Liverpool",
+      "Manchester City"
     ]
   },
   {
@@ -18013,18 +18762,6 @@ export const PLAYERS = [
     "clubs": [
       "Barcelona",
       "Beşiktaş",
-      "Inter"
-    ]
-  },
-  {
-    "name": "Ricardo Quaresma",
-    "aliases": [
-      "Quaresma",
-      "Ricardo"
-    ],
-    "clubs": [
-      "Barcelona",
-      "Beşiktaş",
       "Chelsea",
       "Inter"
     ]
@@ -18288,17 +19025,6 @@ export const PLAYERS = [
       "Soldado"
     ],
     "clubs": [
-      "Real Madrid",
-      "Tottenham"
-    ]
-  },
-  {
-    "name": "Roberto Soldado",
-    "aliases": [
-      "Roberto",
-      "Soldado"
-    ],
-    "clubs": [
       "Fenerbahçe",
       "Real Madrid",
       "Tottenham",
@@ -18332,18 +19058,6 @@ export const PLAYERS = [
     "aliases": [
       "Persie",
       "Robin",
-      "van"
-    ],
-    "clubs": [
-      "Arsenal",
-      "Manchester United"
-    ]
-  },
-  {
-    "name": "Robin van Persie",
-    "aliases": [
-      "Persie",
-      "Robin",
       "van",
       "Van Persie"
     ],
@@ -18351,17 +19065,6 @@ export const PLAYERS = [
       "Arsenal",
       "Fenerbahçe",
       "Manchester United"
-    ]
-  },
-  {
-    "name": "Robinho",
-    "aliases": [],
-    "clubs": [
-      "Başakşehir",
-      "Manchester City",
-      "Milan",
-      "Real Madrid",
-      "Sivasspor"
     ]
   },
   {
@@ -18469,6 +19172,25 @@ export const PLAYERS = [
     "clubs": [
       "Ajax",
       "Barcelona"
+    ]
+  },
+  {
+    "name": "Romelu Menama Lukaku Bolingoli",
+    "aliases": [
+      "bolingoli",
+      "Bolingoli",
+      "lukaku",
+      "Lukaku",
+      "menama",
+      "Menama",
+      "romelu",
+      "Romelu"
+    ],
+    "clubs": [
+      "Chelsea",
+      "Inter",
+      "Manchester United",
+      "Roma"
     ]
   },
   {
@@ -18650,18 +19372,6 @@ export const PLAYERS = [
   {
     "name": "Rüştü Reçber",
     "aliases": [
-      "Reçber",
-      "Rüştü"
-    ],
-    "clubs": [
-      "Antalyaspor",
-      "Barcelona",
-      "Beşiktaş"
-    ]
-  },
-  {
-    "name": "Rüştü Reçber",
-    "aliases": [
       "Recber",
       "Reçber",
       "Rustu",
@@ -18671,19 +19381,6 @@ export const PLAYERS = [
       "Barcelona",
       "Beşiktaş",
       "Fenerbahçe"
-    ]
-  },
-  {
-    "name": "Ryan Babel",
-    "aliases": [
-      "Babel",
-      "Ryan"
-    ],
-    "clubs": [
-      "Ajax",
-      "Beşiktaş",
-      "Galatasaray",
-      "Liverpool"
     ]
   },
   {
@@ -18770,11 +19467,16 @@ export const PLAYERS = [
   {
     "name": "Salih Uçan",
     "aliases": [
+      "salih",
       "Salih",
+      "Salih Ucan",
+      "salihucan",
+      "ucan",
       "Ucan",
       "Uçan"
     ],
     "clubs": [
+      "Başakşehir",
       "Beşiktaş",
       "Fenerbahçe",
       "Roma"
@@ -18860,19 +19562,6 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Samir Nasri",
-    "aliases": [
-      "Nasri",
-      "Samir"
-    ],
-    "clubs": [
-      "Antalyaspor",
-      "Arsenal",
-      "Manchester City",
-      "Sevilla"
-    ]
-  },
-  {
     "name": "Sammy McIlroy",
     "aliases": [
       "McIlroy",
@@ -18892,19 +19581,6 @@ export const PLAYERS = [
     "clubs": [
       "Nice",
       "PSG"
-    ]
-  },
-  {
-    "name": "Samuel Eto'o",
-    "aliases": [
-      "Eto'o",
-      "Samuel"
-    ],
-    "clubs": [
-      "Antalyaspor",
-      "Barcelona",
-      "Inter",
-      "Real Madrid"
     ]
   },
   {
@@ -19264,18 +19940,6 @@ export const PLAYERS = [
     "name": "Sergen Yalçın",
     "aliases": [
       "Sergen",
-      "Yalçın"
-    ],
-    "clubs": [
-      "Beşiktaş",
-      "Galatasaray",
-      "Trabzonspor"
-    ]
-  },
-  {
-    "name": "Sergen Yalçın",
-    "aliases": [
-      "Sergen",
       "Yalcin",
       "Yalçın"
     ],
@@ -19401,6 +20065,22 @@ export const PLAYERS = [
     "name": "Sergio Ramos",
     "aliases": [
       "Ramos",
+      "Sergio"
+    ],
+    "clubs": [
+      "PSG",
+      "Real Madrid",
+      "Sevilla"
+    ]
+  },
+  {
+    "name": "Sergio Ramos García",
+    "aliases": [
+      "garcia",
+      "García",
+      "ramos",
+      "Ramos",
+      "sergio",
       "Sergio"
     ],
     "clubs": [
@@ -19780,6 +20460,19 @@ export const PLAYERS = [
     "clubs": [
       "Inter",
       "Roma"
+    ]
+  },
+  {
+    "name": "Sofyan Amrabat",
+    "aliases": [
+      "amrabat",
+      "Amrabat",
+      "sofyan",
+      "Sofyan"
+    ],
+    "clubs": [
+      "Fenerbahçe",
+      "Manchester United"
     ]
   },
   {
@@ -20227,6 +20920,23 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Tammy Bakumo-Abraham",
+    "aliases": [
+      "abraham",
+      "Abraham",
+      "bakumo",
+      "Bakumo",
+      "tammy",
+      "Tammy"
+    ],
+    "clubs": [
+      "Beşiktaş",
+      "Chelsea",
+      "Milan",
+      "Roma"
+    ]
+  },
+  {
     "name": "Taner Gülleri",
     "aliases": [
       "Gülleri",
@@ -20253,6 +20963,24 @@ export const PLAYERS = [
     "name": "Tanguy Ndombele",
     "aliases": [
       "Ndombele",
+      "Tanguy"
+    ],
+    "clubs": [
+      "Galatasaray",
+      "Lyon",
+      "Nice",
+      "Tottenham"
+    ]
+  },
+  {
+    "name": "Tanguy Ndombélé Alvaro",
+    "aliases": [
+      "alvaro",
+      "Alvaro",
+      "ndombele",
+      "Ndombele",
+      "Ndombélé",
+      "tanguy",
       "Tanguy"
     ],
     "clubs": [
@@ -20407,6 +21135,23 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Théo Bernard François Hernández",
+    "aliases": [
+      "bernard",
+      "Bernard",
+      "francois",
+      "François",
+      "hernandez",
+      "Hernández",
+      "theo",
+      "Théo"
+    ],
+    "clubs": [
+      "Milan",
+      "Real Madrid"
+    ]
+  },
+  {
     "name": "Thiago Alcântara",
     "aliases": [
       "Alcântara",
@@ -20460,6 +21205,23 @@ export const PLAYERS = [
     ],
     "clubs": [
       "Atletico Madrid",
+      "Real Madrid"
+    ]
+  },
+  {
+    "name": "Thibaut Nicolas Marc Courtois",
+    "aliases": [
+      "courtois",
+      "Courtois",
+      "marc",
+      "Marc",
+      "nicolas",
+      "Nicolas",
+      "thibaut",
+      "Thibaut"
+    ],
+    "clubs": [
+      "Chelsea",
       "Real Madrid"
     ]
   },
@@ -20568,6 +21330,19 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Timo Werner",
+    "aliases": [
+      "timo",
+      "Timo",
+      "werner",
+      "Werner"
+    ],
+    "clubs": [
+      "Chelsea",
+      "Tottenham"
+    ]
+  },
+  {
     "name": "Timothée Atouba",
     "aliases": [
       "Atouba",
@@ -20632,17 +21407,6 @@ export const PLAYERS = [
     ],
     "clubs": [
       "Galatasaray",
-      "Trabzonspor"
-    ]
-  },
-  {
-    "name": "Tolga Zengin",
-    "aliases": [
-      "Tolga",
-      "Zengin"
-    ],
-    "clubs": [
-      "Beşiktaş",
       "Trabzonspor"
     ]
   },
@@ -21547,20 +22311,6 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Wesley Sneijder",
-    "aliases": [
-      "Sneijder",
-      "Wesley"
-    ],
-    "clubs": [
-      "Ajax",
-      "Galatasaray",
-      "Inter",
-      "Nice",
-      "Real Madrid"
-    ]
-  },
-  {
     "name": "Wilf Woodcock",
     "aliases": [
       "Wilf",
@@ -21717,6 +22467,20 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Xherdan Shaqiri",
+    "aliases": [
+      "shaqiri",
+      "Shaqiri",
+      "xherdan",
+      "Xherdan"
+    ],
+    "clubs": [
+      "Inter",
+      "Liverpool",
+      "Lyon"
+    ]
+  },
+  {
     "name": "Yalçın Ayhan",
     "aliases": [
       "Ayhan",
@@ -21860,6 +22624,19 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Younès Belhanda",
+    "aliases": [
+      "belhanda",
+      "Belhanda",
+      "younes",
+      "Younès"
+    ],
+    "clubs": [
+      "Galatasaray",
+      "Nice"
+    ]
+  },
+  {
     "name": "Youri Djorkaeff",
     "aliases": [
       "Djorkaeff",
@@ -21868,6 +22645,19 @@ export const PLAYERS = [
     "clubs": [
       "Inter",
       "PSG"
+    ]
+  },
+  {
+    "name": "Youssef En-Nesyri",
+    "aliases": [
+      "nesyri",
+      "Nesyri",
+      "youssef",
+      "Youssef"
+    ],
+    "clubs": [
+      "Fenerbahçe",
+      "Sevilla"
     ]
   },
   {
@@ -21979,22 +22769,6 @@ export const PLAYERS = [
     "clubs": [
       "Juventus",
       "Real Madrid"
-    ]
-  },
-  {
-    "name": "Zlatan Ibrahimović",
-    "aliases": [
-      "Ibrahimović",
-      "Zlatan"
-    ],
-    "clubs": [
-      "Ajax",
-      "Barcelona",
-      "Inter",
-      "Juventus",
-      "Manchester United",
-      "Milan",
-      "PSG"
     ]
   },
   {

@@ -1,0 +1,306 @@
+[
+  {
+    "name": "Ricardo Quaresma",
+    "aliases": [
+      "Quaresma"
+    ]
+  },
+  {
+    "name": "Miralem Pjanić",
+    "aliases": [
+      "Pjanic",
+      "Pjanić"
+    ]
+  },
+  {
+    "name": "Salih Uçan",
+    "aliases": [
+      "Salih Ucan",
+      "Uçan"
+    ]
+  },
+  {
+    "name": "Caner Erkin",
+    "aliases": [
+      "Caner"
+    ]
+  },
+  {
+    "name": "Burak Yılmaz",
+    "aliases": [
+      "Burak Yilmaz",
+      "Yılmaz"
+    ]
+  },
+  {
+    "name": "Nicolas Anelka",
+    "aliases": [
+      "Anelka"
+    ]
+  },
+  {
+    "name": "Samuel Eto'o",
+    "aliases": [
+      "Etoo",
+      "Eto'o"
+    ]
+  },
+  {
+    "name": "Wesley Sneijder",
+    "aliases": [
+      "Sneijder"
+    ]
+  },
+  {
+    "name": "Mauro Icardi",
+    "aliases": [
+      "Icardi"
+    ]
+  },
+  {
+    "name": "Michy Batshuayi",
+    "aliases": [
+      "Batshuayi"
+    ]
+  },
+  {
+    "name": "Ivan Perišić",
+    "aliases": [
+      "Perisic",
+      "Perišić"
+    ]
+  },
+  {
+    "name": "Edin Džeko",
+    "aliases": [
+      "Dzeko",
+      "Džeko"
+    ]
+  },
+  {
+    "name": "Dušan Tadić",
+    "aliases": [
+      "Tadic",
+      "Tadić"
+    ]
+  },
+  {
+    "name": "Fred",
+    "aliases": [
+      "Frederico Rodrigues"
+    ]
+  },
+  {
+    "name": "Hakim Ziyech",
+    "aliases": [
+      "Ziyech"
+    ]
+  },
+  {
+    "name": "Wilfried Zaha",
+    "aliases": [
+      "Zaha"
+    ]
+  },
+  {
+    "name": "Tanguy Ndombele",
+    "aliases": [
+      "Ndombele"
+    ]
+  },
+  {
+    "name": "Nicolò Zaniolo",
+    "aliases": [
+      "Nicolo Zaniolo",
+      "Zaniolo"
+    ]
+  },
+  {
+    "name": "Ryan Babel",
+    "aliases": [
+      "Babel"
+    ]
+  },
+  {
+    "name": "Demba Ba",
+    "aliases": [
+      "Ba"
+    ]
+  },
+  {
+    "name": "Alex Oxlade-Chamberlain",
+    "aliases": [
+      "Oxlade",
+      "Chamberlain"
+    ]
+  },
+  {
+    "name": "Cenk Tosun",
+    "aliases": [
+      "Cenk"
+    ]
+  },
+  {
+    "name": "Rachid Ghezzal",
+    "aliases": [
+      "Ghezzal"
+    ]
+  },
+  {
+    "name": "Roberto Soldado",
+    "aliases": [
+      "Soldado"
+    ]
+  },
+  {
+    "name": "Dirk Kuyt",
+    "aliases": [
+      "Kuyt"
+    ]
+  },
+  {
+    "name": "Nani",
+    "aliases": [
+      "Luis Nani"
+    ]
+  },
+  {
+    "name": "Robin van Persie",
+    "aliases": [
+      "Van Persie"
+    ]
+  },
+  {
+    "name": "Emmanuel Adebayor",
+    "aliases": [
+      "Adebayor"
+    ]
+  },
+  {
+    "name": "Gaël Clichy",
+    "aliases": [
+      "Gael Clichy",
+      "Clichy"
+    ]
+  },
+  {
+    "name": "Robinho",
+    "aliases": [
+      "Robson de Souza"
+    ]
+  },
+  {
+    "name": "Lukas Podolski",
+    "aliases": [
+      "Podolski"
+    ]
+  },
+  {
+    "name": "Samir Nasri",
+    "aliases": [
+      "Nasri"
+    ]
+  },
+  {
+    "name": "Nuri Şahin",
+    "aliases": [
+      "Nuri Sahin",
+      "Şahin"
+    ]
+  },
+  {
+    "name": "Mario Balotelli",
+    "aliases": [
+      "Balotelli"
+    ]
+  },
+  {
+    "name": "Aaron Ramsey",
+    "aliases": [
+      "Ramsey"
+    ]
+  },
+  {
+    "name": "Memphis Depay",
+    "aliases": [
+      "Depay",
+      "Memphis"
+    ]
+  },
+  {
+    "name": "Alexandre Lacazette",
+    "aliases": [
+      "Lacazette"
+    ]
+  },
+  {
+    "name": "Karim Benzema",
+    "aliases": [
+      "Benzema"
+    ]
+  },
+  {
+    "name": "Cristiano Ronaldo",
+    "aliases": [
+      "Ronaldo",
+      "CR7"
+    ]
+  },
+  {
+    "name": "Lionel Messi",
+    "aliases": [
+      "Messi"
+    ]
+  },
+  {
+    "name": "Neymar",
+    "aliases": [
+      "Neymar Jr"
+    ]
+  },
+  {
+    "name": "Zlatan Ibrahimović",
+    "aliases": [
+      "Zlatan",
+      "Ibrahimovic"
+    ]
+  },
+  {
+    "name": "Luis Suárez",
+    "aliases": [
+      "Luis Suarez",
+      "Suarez"
+    ]
+  },
+  {
+    "name": "Ángel Di María",
+    "aliases": [
+      "Di Maria",
+      "Di María"
+    ]
+  },
+  {
+    "name": "Alex Telles",
+    "aliases": [
+      "Telles"
+    ]
+  },
+  {
+    "name": "Felipe Melo",
+    "aliases": [
+      "Melo"
+    ]
+  },
+  {
+    "name": "Didier Drogba",
+    "aliases": [
+      "Drogba"
+    ]
+  },
+  {
+    "name": "Fernando Muslera",
+    "aliases": [
+      "Muslera"
+    ]
+  }
+]
