@@ -2,6 +2,7 @@ import React, { useEffect, useMemo, useRef, useState } from "react";
 import { createClient } from "@supabase/supabase-js";
 import { PLAYERS } from "./data/players";
 import { TEAMS } from "./data/teams";
+import { TEAM_LOGOS } from "./data/teamLogos";
 
 const WINNING_SCORE = 3;
 const ROUND_SECONDS = 15;
@@ -221,6 +222,34 @@ function StatusMessage({ message }) {
     <div className={`status-message ${message.type}`}>
       <span className="status-icon">{iconByType[message.type] || "ℹ️"}</span>
       <span>{message.text}</span>
+    </div>
+  );
+}
+
+
+function TeamLogo({ teamName }) {
+  const data = TEAM_LOGOS[teamName] || {};
+  const initials = data.initials || teamName
+    .split(" ")
+    .map((part) => part[0])
+    .join("")
+    .slice(0, 3)
+    .toUpperCase();
+
+  return (
+    <div
+      className="team-logo"
+      style={{
+        "--team-primary": data.primary || "#10b981",
+        "--team-secondary": data.secondary || "#ffffff"
+      }}
+      aria-label={`${teamName} logosu`}
+    >
+      {data.logo ? (
+        <img src={data.logo} alt={`${teamName} logo`} />
+      ) : (
+        <span>{initials}</span>
+      )}
     </div>
   );
 }
@@ -1288,6 +1317,7 @@ export default function App() {
                 <div className="teams-grid">
                   <div className="team-card">
                     <span>Takım 1</span>
+                    <TeamLogo teamName={challengeRound.teams[0]} />
                     <strong>{challengeRound.teams[0]}</strong>
                   </div>
 
@@ -1295,6 +1325,7 @@ export default function App() {
 
                   <div className="team-card">
                     <span>Takım 2</span>
+                    <TeamLogo teamName={challengeRound.teams[1]} />
                     <strong>{challengeRound.teams[1]}</strong>
                   </div>
                 </div>
@@ -1486,6 +1517,7 @@ export default function App() {
                 <div className="teams-grid">
                   <div className="team-card">
                     <span>Takım 1</span>
+                    <TeamLogo teamName={round.teams[0]} />
                     <strong>{round.teams[0]}</strong>
                   </div>
 
@@ -1493,6 +1525,7 @@ export default function App() {
 
                   <div className="team-card">
                     <span>Takım 2</span>
+                    <TeamLogo teamName={round.teams[1]} />
                     <strong>{round.teams[1]}</strong>
                   </div>
                 </div>
@@ -2039,6 +2072,38 @@ input:disabled {
   margin-bottom: 6px;
 }
 
+.team-logo {
+  width: 82px;
+  height: 82px;
+  margin: 8px auto 12px;
+  border-radius: 24px;
+  background:
+    linear-gradient(135deg, var(--team-primary), var(--team-secondary));
+  border: 4px solid rgba(15, 23, 42, 0.08);
+  box-shadow: 0 14px 28px rgba(15, 23, 42, 0.16);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.team-logo img {
+  width: 76%;
+  height: 76%;
+  object-fit: contain;
+  display: block;
+}
+
+.team-logo span {
+  color: #0f172a;
+  font-size: 23px;
+  line-height: 1;
+  font-weight: 950;
+  letter-spacing: -0.04em;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.38);
+  margin: 0;
+}
+
 .team-card strong {
   display: block;
   font-size: clamp(26px, 4vw, 40px);
@@ -2402,6 +2467,16 @@ input:disabled {
   .mini-button {
     margin-left: 0;
     width: 100%;
+  }
+
+  .team-logo {
+    width: 70px;
+    height: 70px;
+    border-radius: 20px;
+  }
+
+  .team-logo span {
+    font-size: 20px;
   }
 
   .goal-scene {
