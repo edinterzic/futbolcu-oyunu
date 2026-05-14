@@ -1087,7 +1087,7 @@ export default function App() {
       setRoundEndsAt(null);
       setPreRoundEndsAt(null);
       setTimeLeft(0);
-      setLastAction({ type: "correct", playerIndex });
+      setLastAction({ type: "correct", playerIndex, answer: raw });
       setLastWrongReport(null);
       setReportStatus(null);
       setMessage(nextMessage);
@@ -1106,11 +1106,18 @@ export default function App() {
     newWrongAttempts[playerIndex] += 1;
 
     const bothPlayersUsedWrong = newWrongAttempts[0] >= 1 && newWrongAttempts[1] >= 1;
-    const nextMessage = {
+    const wrongExplanation = getWrongAnswerExplanation(round, raw);
+    const ownWrongMessage = {
       type: "error",
       text: bothPlayersUsedWrong
-        ? `${getWrongAnswerExplanation(round, raw)} İki oyuncu da yanlış hakkını kullandı. Tur bitti.`
-        : `${getWrongAnswerExplanation(round, raw)} Bu turdaki yanlış hakkını kullandın.`
+        ? `${wrongExplanation} İki oyuncu da yanlış hakkını kullandı. Tur bitti.`
+        : `${wrongExplanation} Bu turdaki yanlış hakkını kullandın. Rakibin süre bitene kadar cevap verebilir.`
+    };
+    const sharedWrongMessage = {
+      type: bothPlayersUsedWrong ? "error" : "info",
+      text: bothPlayersUsedWrong
+        ? `${wrongExplanation} İki oyuncu da yanlış hakkını kullandı. Tur bitti.`
+        : `${playerNames[playerIndex] || "Rakip"} yanlış cevap verdi. Diğer oyuncunun cevap hakkı devam ediyor.`
     };
 
     const nextState = {
@@ -1123,7 +1130,7 @@ export default function App() {
       scores,
       round,
       usedRoundKeys,
-      message: nextMessage,
+      message: sharedWrongMessage,
       winner: null,
       showAnswers: bothPlayersUsedWrong,
       roundLocked: bothPlayersUsedWrong,
@@ -1142,12 +1149,12 @@ export default function App() {
       teamA: round.teams[0],
       teamB: round.teams[1],
       answer: raw,
-      feedback: nextMessage.text,
+      feedback: ownWrongMessage.text,
       roomCode,
       playerName: playerNames[playerIndex] || playerName || "Oyuncu"
     });
     setReportStatus(null);
-    setMessage(nextMessage);
+    setMessage(ownWrongMessage);
     setAnswerInput("");
 
     if (bothPlayersUsedWrong) {
@@ -2055,7 +2062,7 @@ export default function App() {
                       ? "goal-animation"
                       : lastAction.type === "correct"
                         ? "concede-animation"
-                        : lastAction.type === "wrong" && lastAction.playerIndex === playerIndex
+                        : lastAction.type === "wrong"
                           ? "wrong-animation"
                           : "round-animation"
                   }>
@@ -2070,7 +2077,9 @@ export default function App() {
                           ? "Gol yedin!"
                           : lastAction.type === "wrong" && lastAction.playerIndex === playerIndex
                             ? "Yanlış cevap!"
-                            : "Tur bitti"}
+                            : lastAction.type === "wrong"
+                              ? "Rakip yanlış yaptı, cevap hakkı sende!"
+                              : "Tur bitti"}
                     </strong>
                   </div>
                 )}
