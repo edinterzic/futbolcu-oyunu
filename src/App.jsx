@@ -4418,4 +4418,269 @@ input:disabled {
 }
 
 
+
+
+/* v19 FIX: team cards must NOT stretch. Mobile active game fits one screen. */
+@media (max-width: 760px) {
+  .app-shell.game-screen {
+    height: 100svh !important;
+    max-height: 100svh !important;
+    overflow: hidden !important;
+    padding: 4px !important;
+  }
+
+  .game-screen .game-container,
+  .game-screen .game-area {
+    height: 100% !important;
+    max-height: 100% !important;
+    overflow: hidden !important;
+  }
+
+  .game-screen .online-bar,
+  .game-screen .series-bar {
+    display: none !important;
+  }
+
+  .game-screen .score-grid {
+    flex: 0 0 44px !important;
+    height: 44px !important;
+    min-height: 44px !important;
+    max-height: 44px !important;
+    margin: 0 !important;
+    gap: 5px !important;
+  }
+
+  .game-screen .score-card {
+    height: 44px !important;
+    min-height: 44px !important;
+    max-height: 44px !important;
+    padding: 5px 8px !important;
+  }
+
+  .game-screen .score-card strong {
+    font-size: 24px !important;
+  }
+
+  .game-screen .panel {
+    flex: 1 1 auto !important;
+    min-height: 0 !important;
+    overflow: hidden !important;
+    padding: 6px !important;
+    gap: 5px !important;
+  }
+
+  .game-screen .top-row {
+    flex: 0 0 36px !important;
+    height: 36px !important;
+    min-height: 36px !important;
+    max-height: 36px !important;
+    margin: 0 !important;
+    justify-content: center !important;
+  }
+
+  .game-screen .top-row .light-button {
+    min-height: 32px !important;
+    height: 32px !important;
+    padding: 5px 12px !important;
+    font-size: 13px !important;
+    border-radius: 14px !important;
+  }
+
+  .game-screen .round-pill {
+    min-height: 28px !important;
+    height: 28px !important;
+    padding: 5px 10px !important;
+    font-size: 11px !important;
+  }
+
+  .game-screen .timer-box {
+    flex: 0 0 30px !important;
+    height: 30px !important;
+    min-height: 30px !important;
+    max-height: 30px !important;
+    margin: 0 auto !important;
+    padding: 4px 8px !important;
+  }
+
+  .game-screen .timer-box strong {
+    font-size: 20px !important;
+  }
+
+  .game-screen .teams-grid {
+    flex: 0 0 104px !important;
+    height: 104px !important;
+    min-height: 104px !important;
+    max-height: 104px !important;
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) 26px minmax(0, 1fr) !important;
+    align-items: center !important;
+    gap: 6px !important;
+    margin: 2px 0 !important;
+    overflow: hidden !important;
+  }
+
+  .game-screen .team-card {
+    height: 96px !important;
+    min-height: 96px !important;
+    max-height: 96px !important;
+    width: 100% !important;
+    padding: 7px 5px !important;
+    border-radius: 18px !important;
+    display: grid !important;
+    grid-template-rows: 12px 36px 1fr !important;
+    justify-items: center !important;
+    align-items: center !important;
+    justify-content: initial !important;
+    overflow: hidden !important;
+  }
+
+  .game-screen .team-card span {
+    font-size: 9px !important;
+    line-height: 1 !important;
+    margin: 0 !important;
+  }
+
+  .game-screen .team-logo {
+    width: 34px !important;
+    height: 34px !important;
+    min-width: 34px !important;
+    min-height: 34px !important;
+    margin: 0 !important;
+    padding: 2px !important;
+    border-radius: 12px !important;
+  }
+
+  .game-screen .team-logo::after {
+    display: none !important;
+  }
+
+  .game-screen .team-logo__ring {
+    border-radius: 10px !important;
+  }
+
+  .game-screen .team-logo__inner {
+    width: 27px !important;
+    height: 27px !important;
+    padding: 2px !important;
+    border-radius: 9px !important;
+  }
+
+  .game-screen .team-card strong {
+    font-size: 14px !important;
+    line-height: 1.05 !important;
+    max-width: 100% !important;
+    text-align: center !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+  }
+
+  .game-screen .versus {
+    align-self: center !important;
+    font-size: 12px !important;
+    padding: 0 !important;
+  }
+
+  .game-screen .single-answer-card {
+    flex: 0 0 auto !important;
+    padding: 7px !important;
+    margin: 0 !important;
+    border-radius: 15px !important;
+  }
+
+  .game-screen .answer-row {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) 82px !important;
+    gap: 6px !important;
+  }
+
+  .game-screen .single-answer-card input,
+  .game-screen .answer-row .primary-button {
+    height: 42px !important;
+    min-height: 42px !important;
+  }
+
+  .game-screen .answer-row .primary-button {
+    width: 82px !important;
+    min-width: 82px !important;
+    padding: 6px !important;
+    font-size: 12px !important;
+  }
+
+  .game-screen .bottom-actions {
+    flex: 0 0 38px !important;
+    height: 38px !important;
+    min-height: 38px !important;
+    max-height: 38px !important;
+    margin: 0 !important;
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 6px !important;
+  }
+
+  .game-screen .bottom-actions .light-button {
+    height: 38px !important;
+    min-height: 38px !important;
+    padding: 5px !important;
+    font-size: 11px !important;
+    border-radius: 13px !important;
+  }
+
+  .game-screen .status-message,
+  .game-screen .wrong-explanation-card,
+  .game-screen .answers-box,
+  .game-screen .round-animation,
+  .game-screen .goal-animation,
+  .game-screen .concede-animation,
+  .game-screen .wrong-animation {
+    flex: 0 1 auto !important;
+    max-height: 76px !important;
+    overflow: auto !important;
+    margin: 0 !important;
+    padding: 7px !important;
+    font-size: 11px !important;
+  }
+}
+
+@media (max-width: 760px) and (max-height: 720px) {
+  .game-screen .score-grid {
+    display: none !important;
+  }
+
+  .game-screen .teams-grid {
+    flex-basis: 88px !important;
+    height: 88px !important;
+    min-height: 88px !important;
+    max-height: 88px !important;
+  }
+
+  .game-screen .team-card {
+    height: 82px !important;
+    min-height: 82px !important;
+    max-height: 82px !important;
+    grid-template-rows: 10px 28px 1fr !important;
+    padding: 5px !important;
+  }
+
+  .game-screen .team-logo {
+    width: 27px !important;
+    height: 27px !important;
+  }
+
+  .game-screen .team-logo__inner {
+    width: 21px !important;
+    height: 21px !important;
+  }
+
+  .game-screen .team-card strong {
+    font-size: 12px !important;
+  }
+
+  .game-screen .top-row,
+  .game-screen .timer-box {
+    display: none !important;
+  }
+}
+
 `;
