@@ -4683,4 +4683,488 @@ input:disabled {
   }
 }
 
+
+
+/* v20 balanced mobile layout: use the screen without giant cards */
+@media (max-width: 760px) {
+  .app-shell {
+    min-height: 100svh !important;
+    padding: 6px !important;
+    overflow-x: hidden !important;
+  }
+
+  .game-container {
+    max-width: 100% !important;
+  }
+
+  /* Home screen fits in one mobile viewport */
+  .home-screen .app-shell,
+  .app-shell.home-screen {
+    min-height: 100svh !important;
+    max-height: 100svh !important;
+    overflow: hidden !important;
+  }
+
+  .hero:not(.game-screen .hero) {
+    margin-bottom: 8px !important;
+  }
+
+  .badge {
+    font-size: 11px !important;
+    padding: 6px 10px !important;
+    margin-bottom: 6px !important;
+  }
+
+  .hero h1 {
+    font-size: 25px !important;
+    line-height: 1.02 !important;
+  }
+
+  .hero p {
+    display: none !important;
+  }
+
+  .sound-toggle {
+    margin-top: 7px !important;
+    padding: 7px 10px !important;
+    font-size: 12px !important;
+  }
+
+  .mode-grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 8px !important;
+  }
+
+  .mode-card {
+    min-height: 92px !important;
+    padding: 12px 8px !important;
+    border-radius: 18px !important;
+  }
+
+  .mode-card span {
+    font-size: 24px !important;
+    margin-bottom: 5px !important;
+  }
+
+  .mode-card strong {
+    font-size: 14px !important;
+    line-height: 1.12 !important;
+  }
+
+  .mode-card small {
+    display: none !important;
+  }
+
+  .input-card,
+  .score-select-box,
+  .room-card {
+    padding: 11px !important;
+    border-radius: 16px !important;
+    margin-top: 8px !important;
+  }
+
+  .input-card label,
+  .score-select-box label {
+    font-size: 12px !important;
+    margin-bottom: 5px !important;
+  }
+
+  .input-card input,
+  .join-box input {
+    min-height: 42px !important;
+    padding: 10px 12px !important;
+    font-size: 16px !important;
+    border-radius: 12px !important;
+  }
+
+  .score-options {
+    gap: 6px !important;
+  }
+
+  .score-options button {
+    min-height: 38px !important;
+    padding: 7px !important;
+    border-radius: 12px !important;
+    font-size: 13px !important;
+  }
+
+  .room-actions {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 8px !important;
+  }
+
+  .room-actions .primary-button,
+  .room-actions .light-button {
+    min-height: 42px !important;
+    padding: 8px !important;
+    font-size: 12px !important;
+    border-radius: 14px !important;
+  }
+
+  /* Active game screen */
+  .app-shell.game-screen {
+    min-height: 100svh !important;
+    height: 100svh !important;
+    max-height: 100svh !important;
+    overflow: hidden !important;
+    padding: 6px !important;
+  }
+
+  .game-screen .game-container,
+  .game-screen .game-area {
+    height: 100% !important;
+    max-height: 100% !important;
+    overflow: hidden !important;
+  }
+
+  .game-screen .game-area {
+    display: grid !important;
+    grid-template-rows: auto 1fr !important;
+    gap: 7px !important;
+  }
+
+  .game-screen .online-bar,
+  .game-screen .series-bar,
+  .game-screen .hero {
+    display: none !important;
+  }
+
+  .game-screen .score-grid {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 6px !important;
+    height: 54px !important;
+    min-height: 54px !important;
+    max-height: 54px !important;
+    margin: 0 !important;
+  }
+
+  .game-screen .score-card {
+    height: 54px !important;
+    min-height: 54px !important;
+    max-height: 54px !important;
+    padding: 7px 8px !important;
+    border-radius: 16px !important;
+  }
+
+  .game-screen .score-card span {
+    font-size: 11px !important;
+  }
+
+  .game-screen .score-card strong {
+    font-size: 28px !important;
+    line-height: 1 !important;
+  }
+
+  .game-screen .score-card em {
+    display: none !important;
+  }
+
+  .game-screen .panel {
+    height: 100% !important;
+    min-height: 0 !important;
+    overflow: hidden !important;
+    padding: 8px !important;
+    border-radius: 18px !important;
+    display: grid !important;
+    grid-template-rows: auto auto auto auto auto auto !important;
+    align-content: start !important;
+    gap: 8px !important;
+  }
+
+  .game-screen .top-row {
+    height: 42px !important;
+    min-height: 42px !important;
+    max-height: 42px !important;
+    margin: 0 !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+
+  .game-screen .top-row .light-button {
+    min-height: 38px !important;
+    height: 38px !important;
+    padding: 7px 16px !important;
+    border-radius: 16px !important;
+    font-size: 14px !important;
+  }
+
+  .game-screen .round-pill {
+    min-height: 34px !important;
+    height: 34px !important;
+    padding: 7px 12px !important;
+    font-size: 13px !important;
+  }
+
+  .game-screen .timer-box {
+    height: 34px !important;
+    min-height: 34px !important;
+    max-height: 34px !important;
+    max-width: 132px !important;
+    padding: 5px 10px !important;
+    border-radius: 14px !important;
+    margin: 0 auto !important;
+  }
+
+  .game-screen .timer-box span,
+  .game-screen .timer-box em {
+    display: none !important;
+  }
+
+  .game-screen .timer-box strong {
+    font-size: 23px !important;
+    line-height: 1 !important;
+  }
+
+  .game-screen .teams-grid {
+    height: 154px !important;
+    min-height: 154px !important;
+    max-height: 154px !important;
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) 30px minmax(0, 1fr) !important;
+    gap: 7px !important;
+    align-items: center !important;
+    margin: 0 !important;
+    overflow: hidden !important;
+  }
+
+  .game-screen .team-card {
+    height: 146px !important;
+    min-height: 146px !important;
+    max-height: 146px !important;
+    width: 100% !important;
+    padding: 10px 7px !important;
+    border-radius: 20px !important;
+    display: grid !important;
+    grid-template-rows: 15px 56px 1fr !important;
+    justify-items: center !important;
+    align-items: center !important;
+    overflow: hidden !important;
+    background: rgba(255, 255, 255, 0.96) !important;
+  }
+
+  .game-screen .team-card span {
+    font-size: 11px !important;
+    line-height: 1 !important;
+    margin: 0 !important;
+  }
+
+  .game-screen .team-logo {
+    width: 54px !important;
+    height: 54px !important;
+    min-width: 54px !important;
+    min-height: 54px !important;
+    margin: 0 !important;
+    padding: 4px !important;
+    border-radius: 16px !important;
+    box-shadow: 0 8px 14px rgba(15, 23, 42, 0.12) !important;
+  }
+
+  .game-screen .team-logo::after {
+    display: none !important;
+  }
+
+  .game-screen .team-logo__ring {
+    border-radius: 13px !important;
+  }
+
+  .game-screen .team-logo__inner {
+    width: 43px !important;
+    height: 43px !important;
+    padding: 4px !important;
+    border-radius: 12px !important;
+  }
+
+  .game-screen .team-logo span {
+    font-size: 14px !important;
+  }
+
+  .game-screen .team-card strong {
+    font-size: 20px !important;
+    line-height: 1.08 !important;
+    max-width: 100% !important;
+    text-align: center !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+  }
+
+  .game-screen .versus {
+    align-self: center !important;
+    font-size: 14px !important;
+    font-weight: 950 !important;
+    padding: 0 !important;
+  }
+
+  .game-screen .round-animation,
+  .game-screen .goal-animation,
+  .game-screen .concede-animation,
+  .game-screen .wrong-animation {
+    height: 78px !important;
+    min-height: 78px !important;
+    max-height: 78px !important;
+    margin: 0 !important;
+    padding: 8px !important;
+    border-radius: 16px !important;
+  }
+
+  .game-screen .single-answer-card {
+    padding: 9px !important;
+    border-radius: 17px !important;
+    margin: 0 !important;
+  }
+
+  .game-screen .single-answer-card label {
+    display: none !important;
+  }
+
+  .game-screen .wrong-right-info {
+    font-size: 11px !important;
+    padding: 5px 8px !important;
+    margin: 0 0 6px !important;
+  }
+
+  .game-screen .answer-row {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) 88px !important;
+    gap: 7px !important;
+    align-items: stretch !important;
+  }
+
+  .game-screen .single-answer-card input {
+    height: 46px !important;
+    min-height: 46px !important;
+    padding: 10px 12px !important;
+    border-radius: 14px !important;
+    font-size: 16px !important;
+  }
+
+  .game-screen .answer-row .primary-button {
+    width: 88px !important;
+    min-width: 88px !important;
+    height: 46px !important;
+    min-height: 46px !important;
+    padding: 7px !important;
+    border-radius: 14px !important;
+    font-size: 12px !important;
+  }
+
+  .game-screen .status-message {
+    max-height: 50px !important;
+    min-height: 38px !important;
+    margin: 0 !important;
+    padding: 8px 10px !important;
+    border-radius: 15px !important;
+    font-size: 12px !important;
+    overflow: hidden !important;
+  }
+
+  .game-screen .answers-box {
+    max-height: 82px !important;
+    min-height: 66px !important;
+    margin: 0 !important;
+    padding: 9px !important;
+    border-radius: 16px !important;
+    overflow: auto !important;
+  }
+
+  .game-screen .answers-box p {
+    display: none !important;
+  }
+
+  .game-screen .answer-tags {
+    gap: 6px !important;
+  }
+
+  .game-screen .answer-tags span,
+  .game-screen .answer-tags.clickable button {
+    padding: 6px 8px !important;
+    font-size: 11px !important;
+  }
+
+  .game-screen .bottom-actions {
+    height: 44px !important;
+    min-height: 44px !important;
+    max-height: 44px !important;
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 8px !important;
+    margin: 0 !important;
+  }
+
+  .game-screen .bottom-actions .light-button {
+    height: 44px !important;
+    min-height: 44px !important;
+    padding: 7px !important;
+    border-radius: 15px !important;
+    font-size: 12px !important;
+  }
+}
+
+@media (max-width: 760px) and (max-height: 720px) {
+  .game-screen .score-grid {
+    height: 44px !important;
+    min-height: 44px !important;
+    max-height: 44px !important;
+  }
+
+  .game-screen .score-card {
+    height: 44px !important;
+    min-height: 44px !important;
+    max-height: 44px !important;
+    padding: 5px !important;
+  }
+
+  .game-screen .score-card strong {
+    font-size: 23px !important;
+  }
+
+  .game-screen .top-row {
+    display: none !important;
+  }
+
+  .game-screen .teams-grid {
+    height: 124px !important;
+    min-height: 124px !important;
+    max-height: 124px !important;
+  }
+
+  .game-screen .team-card {
+    height: 118px !important;
+    min-height: 118px !important;
+    max-height: 118px !important;
+    grid-template-rows: 12px 42px 1fr !important;
+  }
+
+  .game-screen .team-logo {
+    width: 42px !important;
+    height: 42px !important;
+  }
+
+  .game-screen .team-logo__inner {
+    width: 32px !important;
+    height: 32px !important;
+  }
+
+  .game-screen .team-card strong {
+    font-size: 16px !important;
+  }
+
+  .game-screen .round-animation,
+  .game-screen .goal-animation,
+  .game-screen .concede-animation,
+  .game-screen .wrong-animation {
+    height: 58px !important;
+    min-height: 58px !important;
+    max-height: 58px !important;
+  }
+
+  .game-screen .answers-box {
+    max-height: 64px !important;
+    min-height: 52px !important;
+  }
+}
+
 `;
