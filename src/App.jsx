@@ -7038,4 +7038,409 @@ body,
   }
 }
 
+
+
+/* v26 polish: fix scoreboard, animation, accepted players size, waiting text, mobile timer */
+
+/* Desktop game screen improvements */
+@media (min-width: 761px) {
+  .game-screen .score-grid {
+    height: 84px !important;
+    min-height: 84px !important;
+    max-height: 84px !important;
+  }
+
+  .game-screen .score-card {
+    height: 84px !important;
+    min-height: 84px !important;
+    max-height: 84px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    gap: 4px !important;
+    padding: 10px 12px !important;
+  }
+
+  .game-screen .score-card span {
+    font-size: 12px !important;
+    line-height: 1.1 !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    max-width: 100% !important;
+  }
+
+  .game-screen .score-card strong {
+    font-size: 32px !important;
+    line-height: 1 !important;
+    margin: 0 !important;
+  }
+
+  .game-screen .score-card em {
+    font-size: 11px !important;
+    white-space: nowrap !important;
+  }
+
+  .game-screen .series-bar {
+    min-height: 32px !important;
+    height: 32px !important;
+    max-height: 32px !important;
+    font-size: 13px !important;
+  }
+
+  .game-screen .series-bar strong {
+    font-size: 15px !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    max-width: 100% !important;
+  }
+
+  .game-screen .panel.waiting-panel {
+    justify-content: center !important;
+    align-items: center !important;
+    text-align: center !important;
+    gap: 10px !important;
+    padding: 18px !important;
+  }
+
+  .game-screen .waiting-panel h2 {
+    font-size: 28px !important;
+    line-height: 1.08 !important;
+    margin: 0 !important;
+  }
+
+  .game-screen .waiting-panel p {
+    max-width: 760px !important;
+    font-size: 15px !important;
+    line-height: 1.3 !important;
+    margin: 0 !important;
+  }
+
+  .game-screen .room-code-large {
+    font-size: 28px !important;
+    line-height: 1 !important;
+    padding: 10px 16px !important;
+    border-radius: 16px !important;
+  }
+
+  .game-screen .ready-grid {
+    width: 100% !important;
+    max-width: 760px !important;
+    gap: 10px !important;
+  }
+
+  .game-screen .ready-card {
+    min-height: 84px !important;
+    padding: 12px !important;
+  }
+
+  .game-screen .ready-card strong {
+    font-size: 18px !important;
+  }
+
+  .game-screen .ready-card span {
+    font-size: 13px !important;
+  }
+
+  .game-screen .panel {
+    grid-template-rows: 40px 48px 146px auto auto auto !important;
+    gap: 6px !important;
+  }
+
+  .game-screen .timer-box {
+    height: 48px !important;
+    min-height: 48px !important;
+    max-height: 48px !important;
+    padding: 5px 10px !important;
+  }
+
+  .game-screen .timer-box strong {
+    font-size: 30px !important;
+  }
+
+  .game-screen .teams-grid {
+    height: 146px !important;
+    min-height: 146px !important;
+    max-height: 146px !important;
+  }
+
+  .game-screen .team-card {
+    height: 138px !important;
+    min-height: 138px !important;
+    max-height: 138px !important;
+    grid-template-rows: 16px 52px 1fr !important;
+  }
+
+  .game-screen .team-logo {
+    width: 50px !important;
+    height: 50px !important;
+  }
+
+  .game-screen .team-logo__inner {
+    width: 40px !important;
+    height: 40px !important;
+  }
+
+  .game-screen .team-card strong {
+    font-size: 25px !important;
+  }
+
+  .game-screen .round-animation,
+  .game-screen .goal-animation,
+  .game-screen .concede-animation,
+  .game-screen .wrong-animation {
+    height: 76px !important;
+    min-height: 76px !important;
+    max-height: 76px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 14px !important;
+    overflow: hidden !important;
+    padding: 8px 14px !important;
+  }
+
+  .game-screen .goal-scene {
+    width: 110px !important;
+    min-width: 110px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+  }
+
+  .game-screen .goal-animation .ball,
+  .game-screen .concede-animation .ball,
+  .game-screen .wrong-animation .ball {
+    font-size: 32px !important;
+  }
+
+  .game-screen .goal-net {
+    font-size: 34px !important;
+  }
+
+  .game-screen .goal-animation strong,
+  .game-screen .concede-animation strong,
+  .game-screen .wrong-animation strong,
+  .game-screen .round-animation strong {
+    font-size: 18px !important;
+    line-height: 1.15 !important;
+  }
+
+  .game-screen .single-answer-card {
+    min-height: 76px !important;
+  }
+
+  .game-screen .answers-box {
+    min-height: 112px !important;
+    max-height: 128px !important;
+    padding: 10px 12px !important;
+  }
+
+  .game-screen .answers-box strong {
+    font-size: 15px !important;
+    margin-bottom: 8px !important;
+  }
+
+  .game-screen .answer-tags {
+    gap: 8px !important;
+  }
+
+  .game-screen .answer-tags span,
+  .game-screen .answer-tags.clickable button {
+    padding: 7px 10px !important;
+    font-size: 12px !important;
+  }
+
+  .game-screen .host-note {
+    margin: 0 !important;
+    text-align: center !important;
+    font-size: 12px !important;
+  }
+}
+
+/* Shorter desktop screens */
+@media (min-width: 761px) and (max-height: 820px) {
+  .game-screen .score-grid {
+    height: 72px !important;
+    min-height: 72px !important;
+    max-height: 72px !important;
+  }
+
+  .game-screen .score-card {
+    height: 72px !important;
+    min-height: 72px !important;
+    max-height: 72px !important;
+    padding: 8px 10px !important;
+  }
+
+  .game-screen .score-card strong {
+    font-size: 28px !important;
+  }
+
+  .game-screen .series-bar {
+    min-height: 28px !important;
+    height: 28px !important;
+    max-height: 28px !important;
+  }
+
+  .game-screen .panel {
+    grid-template-rows: 36px 42px 126px auto auto auto !important;
+    gap: 5px !important;
+    padding: 8px !important;
+  }
+
+  .game-screen .top-row {
+    height: 36px !important;
+    min-height: 36px !important;
+    max-height: 36px !important;
+  }
+
+  .game-screen .round-pill,
+  .game-screen .top-row .light-button {
+    height: 30px !important;
+    min-height: 30px !important;
+    font-size: 12px !important;
+    padding: 5px 10px !important;
+  }
+
+  .game-screen .timer-box {
+    height: 42px !important;
+    min-height: 42px !important;
+    max-height: 42px !important;
+  }
+
+  .game-screen .timer-box strong {
+    font-size: 25px !important;
+  }
+
+  .game-screen .teams-grid {
+    height: 126px !important;
+    min-height: 126px !important;
+    max-height: 126px !important;
+  }
+
+  .game-screen .team-card {
+    height: 118px !important;
+    min-height: 118px !important;
+    max-height: 118px !important;
+    grid-template-rows: 14px 42px 1fr !important;
+  }
+
+  .game-screen .team-logo {
+    width: 40px !important;
+    height: 40px !important;
+  }
+
+  .game-screen .team-logo__inner {
+    width: 30px !important;
+    height: 30px !important;
+  }
+
+  .game-screen .team-card strong {
+    font-size: 22px !important;
+  }
+
+  .game-screen .round-animation,
+  .game-screen .goal-animation,
+  .game-screen .concede-animation,
+  .game-screen .wrong-animation {
+    height: 58px !important;
+    min-height: 58px !important;
+    max-height: 58px !important;
+  }
+
+  .game-screen .answers-box {
+    min-height: 90px !important;
+    max-height: 104px !important;
+  }
+
+  .game-screen .bottom-actions,
+  .game-screen .bottom-actions .light-button {
+    height: 38px !important;
+    min-height: 38px !important;
+  }
+}
+
+/* Mobile: timer should always be visible */
+@media (max-width: 760px) {
+  .game-screen .score-card span {
+    font-size: 10px !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+
+  .game-screen .score-card strong {
+    font-size: 24px !important;
+  }
+
+  .game-screen .timer-box {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    width: 100% !important;
+    max-width: none !important;
+    min-height: 38px !important;
+    height: 38px !important;
+    max-height: 38px !important;
+    margin: 2px 0 0 !important;
+    padding: 5px 8px !important;
+    border-radius: 12px !important;
+  }
+
+  .game-screen .timer-box span,
+  .game-screen .timer-box em {
+    display: inline !important;
+    font-size: 11px !important;
+    line-height: 1 !important;
+  }
+
+  .game-screen .timer-box strong {
+    font-size: 24px !important;
+    line-height: 1 !important;
+  }
+
+  .game-screen .round-animation,
+  .game-screen .goal-animation,
+  .game-screen .concede-animation,
+  .game-screen .wrong-animation {
+    min-height: 62px !important;
+    height: 62px !important;
+    max-height: 62px !important;
+    padding: 7px 10px !important;
+  }
+
+  .game-screen .goal-animation .ball,
+  .game-screen .concede-animation .ball,
+  .game-screen .wrong-animation .ball {
+    font-size: 26px !important;
+  }
+
+  .game-screen .goal-net {
+    font-size: 28px !important;
+  }
+
+  .game-screen .answers-box {
+    min-height: 104px !important;
+    height: 104px !important;
+    max-height: 118px !important;
+  }
+
+  .game-screen .waiting-panel h2 {
+    font-size: 22px !important;
+    line-height: 1.1 !important;
+  }
+
+  .game-screen .waiting-panel p {
+    font-size: 12px !important;
+    line-height: 1.28 !important;
+  }
+
+  .game-screen .room-code-large {
+    font-size: 22px !important;
+  }
+}
+
 `;
