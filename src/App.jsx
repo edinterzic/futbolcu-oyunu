@@ -855,11 +855,14 @@ function MatchSummary({ playerNames, scores, winner, targetScore, seriesWins, ma
   if (winner === null || winner === undefined) return null;
 
   const loser = winner === 0 ? 1 : 0;
+  const currentMatch = (matchHistory || [])[Math.max((matchHistory || []).length - 1, 0)] || {};
+  const correctRounds = currentMatch.correctRounds || [];
   const lastMatches = (matchHistory || []).slice(-5).reverse();
 
   return (
     <div className="match-summary-card">
       <h3>Maç Özeti</h3>
+
       <div className="summary-grid">
         <div>
           <span>Kazanan</span>
@@ -874,18 +877,34 @@ function MatchSummary({ playerNames, scores, winner, targetScore, seriesWins, ma
           <strong>{targetScore} puan</strong>
         </div>
         <div>
-          <span>Seri durumu</span>
+          <span>Seri</span>
           <strong>{seriesWins[0]} - {seriesWins[1]}</strong>
         </div>
       </div>
 
       <p className="summary-line">
-        {playerNames[winner]} bu maçı aldı. {playerNames[loser]} rövanşta durumu eşitlemeye çalışacak.
+        {playerNames[winner]} maçı aldı. {playerNames[loser]} rövanşta durumu eşitlemeye çalışacak.
       </p>
 
-      {lastMatches.length > 0 && (
+      {correctRounds.length > 0 && (
+        <div className="correct-rounds-summary">
+          <strong>Doğru cevaplanan turlar</strong>
+          <div className="correct-rounds-list">
+            {correctRounds.map((item, index) => (
+              <div className="correct-round-item" key={`${item.teamA}-${item.teamB}-${item.answer}-${index}`}>
+                <span className="round-no">#{index + 1}</span>
+                <span className="round-pair">{item.teamA} - {item.teamB}</span>
+                <span className="round-answer">{item.answer}</span>
+                <span className="round-player">{item.playerName}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {lastMatches.length > 1 && (
         <div className="match-history">
-          <strong>Son maçlar</strong>
+          <strong>Serideki maçlar</strong>
           {lastMatches.map((match, index) => (
             <span key={`${match.finishedAt}-${index}`}>
               {match.winnerName}: {match.score?.[0]} - {match.score?.[1]}
@@ -896,7 +915,6 @@ function MatchSummary({ playerNames, scores, winner, targetScore, seriesWins, ma
     </div>
   );
 }
-
 
 
 function playTone({ frequencies = [440], duration = 0.18, type = "sine", volume = 0.08 }) {
@@ -1010,6 +1028,7 @@ export default function App() {
   const [reportStatus, setReportStatus] = useState(null);
   const [seriesWins, setSeriesWins] = useState([0, 0]);
   const [matchHistory, setMatchHistory] = useState([]);
+  const [correctRounds, setCorrectRounds] = useState([]);
 
   const [challengeScore, setChallengeScore] = useState(0);
   const [challengeBest, setChallengeBest] = useState(() => {
@@ -1099,7 +1118,8 @@ export default function App() {
       wrongAttempts,
       lastAction,
       seriesWins,
-      matchHistory
+      matchHistory,
+      correctRounds
     };
   }, [
     screen,
@@ -1120,7 +1140,8 @@ export default function App() {
     wrongAttempts,
     lastAction,
     seriesWins,
-    matchHistory
+    matchHistory,
+    correctRounds
   ]);
 
   const applyGameState = (gameState) => {
@@ -1149,6 +1170,7 @@ export default function App() {
     setLastAction(gameState.lastAction || null);
     setSeriesWins(gameState.seriesWins || [0, 0]);
     setMatchHistory(gameState.matchHistory || []);
+    setCorrectRounds(gameState.correctRounds || []);
   };
 
   const sendRoomEvent = async (payload) => {
@@ -1184,6 +1206,7 @@ export default function App() {
     lastAction,
     seriesWins,
     matchHistory,
+    correctRounds,
     ...overrides
   });
 
@@ -1230,6 +1253,7 @@ export default function App() {
           lastAction: null,
           seriesWins,
           matchHistory,
+          correctRounds,
           message: { type: "info", text: `${joinedName} odaya katıldı. Oyunu başlatmak için iki oyuncu da hazır olmalı.` }
         };
 
@@ -1411,7 +1435,8 @@ export default function App() {
       wrongAttempts: [0, 0],
       lastAction: null,
       seriesWins,
-      matchHistory
+      matchHistory,
+      correctRounds
     };
 
     setPlayersReady(nextReady);
@@ -1460,7 +1485,8 @@ export default function App() {
       wrongAttempts: [0, 0],
       lastAction: null,
       seriesWins,
-      matchHistory
+      matchHistory,
+      correctRounds
     };
 
     setRound(next);
@@ -1504,7 +1530,8 @@ export default function App() {
       wrongAttempts: [0, 0],
       lastAction: null,
       seriesWins: [0, 0],
-      matchHistory: []
+      matchHistory: [],
+      correctRounds: []
     };
 
     setScores([0, 0]);
@@ -1584,6 +1611,16 @@ export default function App() {
 
       const hasWinner = newScores[playerIndex] >= targetScore;
       const nextSeriesWins = [...seriesWins];
+      const correctEntry = {
+        teamA: round.teams[0],
+        teamB: round.teams[1],
+        answer: raw,
+        playerIndex,
+        playerName: playerNames[playerIndex],
+        roundNumber: usedRoundKeys.length,
+        answeredAt: new Date().toISOString()
+      };
+      const nextCorrectRounds = [...correctRounds, correctEntry];
       const nextMatchHistory = [...matchHistory];
 
       if (hasWinner) {
@@ -1592,6 +1629,7 @@ export default function App() {
           winnerIndex: playerIndex,
           winnerName: playerNames[playerIndex],
           score: newScores,
+          correctRounds: nextCorrectRounds,
           finishedAt: new Date().toISOString()
         });
       }
@@ -1620,7 +1658,8 @@ export default function App() {
         wrongAttempts,
         lastAction: { type: "correct", playerIndex, answer: raw },
         seriesWins: nextSeriesWins,
-        matchHistory: nextMatchHistory
+        matchHistory: nextMatchHistory,
+        correctRounds: hasWinner ? [] : nextCorrectRounds
       };
 
       setScores(newScores);
@@ -1630,6 +1669,7 @@ export default function App() {
       setPreRoundEndsAt(null);
       setTimeLeft(0);
       setLastAction({ type: "correct", playerIndex, answer: raw });
+      setCorrectRounds(hasWinner ? [] : nextCorrectRounds);
       setLastWrongReport(null);
       setReportStatus(null);
       setMessage(nextMessage);
@@ -1681,7 +1721,8 @@ export default function App() {
       wrongAttempts: newWrongAttempts,
       lastAction: { type: "wrong", playerIndex, answer: raw },
       seriesWins,
-      matchHistory
+      matchHistory,
+      correctRounds: []
     };
 
     setWrongAttempts(newWrongAttempts);
@@ -1737,7 +1778,8 @@ export default function App() {
       wrongAttempts,
       lastAction: { type: "timeout" },
       seriesWins,
-      matchHistory
+      matchHistory,
+      correctRounds
     };
 
     setMessage(nextMessage);
@@ -2148,6 +2190,7 @@ export default function App() {
     setPreRoundEndsAt(null);
     setWrongAttempts([0, 0]);
     setLastAction(null);
+    setCorrectRounds([]);
 
     await sendRoomEvent({ type: "STATE_SYNC", gameState: nextState });
   };
@@ -5342,6 +5385,381 @@ input:disabled {
     min-height: 88px !important;
     height: 96px !important;
     max-height: 108px !important;
+  }
+}
+
+
+
+/* v22 desktop + mobile summary polish */
+@media (min-width: 761px) {
+  .app-shell {
+    padding: 16px 14px !important;
+  }
+
+  .game-container {
+    max-width: 980px !important;
+  }
+
+  .hero {
+    margin-bottom: 14px !important;
+  }
+
+  .hero h1 {
+    font-size: clamp(30px, 4.2vw, 46px) !important;
+  }
+
+  .hero p {
+    margin-top: 8px !important;
+    line-height: 1.35 !important;
+  }
+
+  .panel {
+    padding: 18px !important;
+    border-radius: 24px !important;
+  }
+
+  .mode-grid {
+    gap: 14px !important;
+  }
+
+  .mode-card {
+    padding: 18px !important;
+    min-height: 150px !important;
+  }
+
+  .input-card,
+  .single-answer-card,
+  .score-select-box {
+    padding: 12px !important;
+  }
+
+  .online-bar {
+    padding: 8px !important;
+  }
+
+  .score-card {
+    padding: 12px !important;
+  }
+
+  .teams-grid {
+    margin: 12px 0 !important;
+  }
+
+  .team-card {
+    padding: 16px 12px !important;
+  }
+
+  .team-logo {
+    width: 86px !important;
+    height: 86px !important;
+  }
+
+  .team-logo__inner {
+    width: 62px !important;
+    height: 62px !important;
+  }
+
+  .bottom-actions {
+    margin-top: 10px !important;
+  }
+
+  .match-summary-card {
+    max-width: 820px !important;
+    width: 100% !important;
+    margin: 14px auto !important;
+    padding: 16px !important;
+  }
+}
+
+.match-summary-card {
+  width: min(100%, 820px) !important;
+  overflow: visible !important;
+}
+
+.correct-rounds-summary {
+  margin-top: 14px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 12px;
+}
+
+.correct-rounds-summary > strong {
+  display: block;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.correct-rounds-list {
+  display: grid;
+  gap: 7px;
+}
+
+.correct-round-item {
+  display: grid;
+  grid-template-columns: 38px 1.4fr 1fr 0.9fr;
+  gap: 8px;
+  align-items: center;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.12);
+  padding: 9px 10px;
+}
+
+.round-no {
+  color: #bbf7d0;
+  font-weight: 950;
+}
+
+.round-pair {
+  color: white;
+  font-weight: 850;
+}
+
+.round-answer {
+  color: #d1fae5;
+  font-weight: 950;
+}
+
+.round-player {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 12px;
+  text-align: right;
+}
+
+@media (max-width: 760px) {
+  .app-shell.home-screen {
+    min-height: 100svh !important;
+    max-height: 100svh !important;
+    overflow: hidden !important;
+    padding: 8px !important;
+  }
+
+  .home-screen .hero {
+    display: block !important;
+    margin-bottom: 8px !important;
+  }
+
+  .home-screen .badge {
+    font-size: 11px !important;
+    padding: 5px 9px !important;
+    margin-bottom: 5px !important;
+  }
+
+  .home-screen .hero h1 {
+    font-size: 24px !important;
+  }
+
+  .home-screen .hero p {
+    display: none !important;
+  }
+
+  .home-screen .sound-toggle {
+    margin-top: 6px !important;
+    padding: 7px 10px !important;
+    font-size: 12px !important;
+  }
+
+  .home-screen .panel {
+    padding: 10px !important;
+    border-radius: 18px !important;
+  }
+
+  .home-screen .mode-grid {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 8px !important;
+  }
+
+  .home-screen .mode-card {
+    min-height: 86px !important;
+    padding: 10px 8px !important;
+    border-radius: 16px !important;
+  }
+
+  .home-screen .mode-card span {
+    font-size: 22px !important;
+    margin-bottom: 4px !important;
+  }
+
+  .home-screen .mode-card strong {
+    font-size: 13px !important;
+    line-height: 1.12 !important;
+  }
+
+  .home-screen .mode-card small {
+    display: none !important;
+  }
+
+  .home-screen .input-card,
+  .home-screen .score-select-box {
+    margin-top: 8px !important;
+    padding: 9px !important;
+    border-radius: 15px !important;
+  }
+
+  .home-screen .input-card label,
+  .home-screen .score-select-box label {
+    font-size: 11px !important;
+    margin-bottom: 5px !important;
+  }
+
+  .home-screen .input-card input {
+    height: 40px !important;
+    min-height: 40px !important;
+    padding: 8px 10px !important;
+    font-size: 16px !important;
+  }
+
+  .home-screen .score-options {
+    gap: 6px !important;
+  }
+
+  .home-screen .score-option {
+    min-height: 36px !important;
+    padding: 6px !important;
+    font-size: 13px !important;
+  }
+
+  .home-screen .room-actions {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 8px !important;
+  }
+
+  .home-screen .room-actions .primary-button,
+  .home-screen .room-actions .light-button {
+    min-height: 42px !important;
+    padding: 7px !important;
+    font-size: 12px !important;
+  }
+
+  .winner-panel {
+    justify-content: start !important;
+    gap: 8px !important;
+  }
+
+  .winner-panel .trophy {
+    width: 92px !important;
+    height: 92px !important;
+    font-size: 40px !important;
+    margin: 8px auto 4px !important;
+  }
+
+  .winner-panel h2 {
+    font-size: 25px !important;
+    margin: 4px 0 !important;
+  }
+
+  .winner-panel p {
+    margin: 4px 0 !important;
+    font-size: 14px !important;
+  }
+
+  .match-summary-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 8px auto !important;
+    padding: 10px !important;
+    border-radius: 18px !important;
+    overflow: visible !important;
+  }
+
+  .match-summary-card h3 {
+    margin-bottom: 8px !important;
+    font-size: 17px !important;
+  }
+
+  .summary-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    gap: 6px !important;
+  }
+
+  .summary-grid div {
+    padding: 7px 4px !important;
+    border-radius: 12px !important;
+    min-width: 0 !important;
+  }
+
+  .summary-grid span {
+    font-size: 9px !important;
+  }
+
+  .summary-grid strong {
+    font-size: 13px !important;
+    margin-top: 2px !important;
+    white-space: nowrap !important;
+  }
+
+  .summary-line {
+    margin: 8px 0 0 !important;
+    font-size: 12px !important;
+  }
+
+  .correct-rounds-summary {
+    margin-top: 8px !important;
+    padding: 8px !important;
+    border-radius: 14px !important;
+    max-height: none !important;
+    overflow: visible !important;
+  }
+
+  .correct-rounds-summary > strong {
+    margin-bottom: 6px !important;
+    font-size: 13px !important;
+  }
+
+  .correct-rounds-list {
+    gap: 5px !important;
+  }
+
+  .correct-round-item {
+    grid-template-columns: 24px 1fr auto !important;
+    grid-template-areas:
+      "no pair answer"
+      "no player player";
+    gap: 3px 6px !important;
+    padding: 6px 7px !important;
+    border-radius: 12px !important;
+  }
+
+  .round-no {
+    grid-area: no;
+    font-size: 11px !important;
+  }
+
+  .round-pair {
+    grid-area: pair;
+    font-size: 11px !important;
+    line-height: 1.1 !important;
+  }
+
+  .round-answer {
+    grid-area: answer;
+    font-size: 12px !important;
+    text-align: right !important;
+  }
+
+  .round-player {
+    grid-area: player;
+    font-size: 10px !important;
+    text-align: right !important;
+  }
+
+  .match-history {
+    display: none !important;
+  }
+
+  .winner-actions {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 8px !important;
+    margin-top: 8px !important;
+  }
+
+  .winner-actions .primary-button,
+  .winner-actions .light-button {
+    min-height: 42px !important;
+    padding: 7px !important;
+    font-size: 12px !important;
   }
 }
 
