@@ -5167,4 +5167,182 @@ input:disabled {
   }
 }
 
+
+
+/* v21 mobile polish: fix team label/logo overlap and expand accepted answers area */
+@media (max-width: 760px) {
+  .game-screen .panel {
+    grid-template-rows: auto auto auto auto auto auto !important;
+    align-content: start !important;
+    gap: 9px !important;
+  }
+
+  .game-screen .teams-grid {
+    height: 170px !important;
+    min-height: 170px !important;
+    max-height: 170px !important;
+    grid-template-columns: minmax(0, 1fr) 30px minmax(0, 1fr) !important;
+    gap: 8px !important;
+    margin: 0 !important;
+  }
+
+  .game-screen .team-card {
+    height: 162px !important;
+    min-height: 162px !important;
+    max-height: 162px !important;
+    padding: 11px 8px 10px !important;
+    border-radius: 22px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 7px !important;
+    overflow: hidden !important;
+  }
+
+  .game-screen .team-card > span {
+    order: 1 !important;
+    font-size: 11px !important;
+    line-height: 1 !important;
+    margin: 0 !important;
+    min-height: 12px !important;
+    color: #64748b !important;
+  }
+
+  .game-screen .team-logo {
+    order: 2 !important;
+    width: 58px !important;
+    height: 58px !important;
+    min-width: 58px !important;
+    min-height: 58px !important;
+    margin: 0 !important;
+    padding: 4px !important;
+    border-radius: 18px !important;
+    flex: 0 0 auto !important;
+  }
+
+  .game-screen .team-logo__ring {
+    border-radius: 14px !important;
+  }
+
+  .game-screen .team-logo__inner {
+    width: 46px !important;
+    height: 46px !important;
+    padding: 4px !important;
+    border-radius: 13px !important;
+  }
+
+  .game-screen .team-card strong {
+    order: 3 !important;
+    font-size: 20px !important;
+    line-height: 1.08 !important;
+    max-width: 100% !important;
+    min-height: 42px !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+    text-align: center !important;
+  }
+
+  .game-screen .round-animation,
+  .game-screen .goal-animation,
+  .game-screen .concede-animation,
+  .game-screen .wrong-animation {
+    height: 68px !important;
+    min-height: 68px !important;
+    max-height: 68px !important;
+    padding: 7px !important;
+  }
+
+  .game-screen .single-answer-card {
+    padding: 8px !important;
+  }
+
+  .game-screen .status-message {
+    min-height: 38px !important;
+    max-height: 46px !important;
+  }
+
+  .game-screen .answers-box {
+    min-height: 118px !important;
+    max-height: 150px !important;
+    height: 132px !important;
+    overflow-y: auto !important;
+    padding: 10px !important;
+    border-radius: 18px !important;
+  }
+
+  .game-screen .answers-box strong {
+    display: block !important;
+    margin-bottom: 8px !important;
+    font-size: 13px !important;
+  }
+
+  .game-screen .answer-tags {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-content: flex-start !important;
+    gap: 7px !important;
+    padding-bottom: 4px !important;
+  }
+
+  .game-screen .answer-tags span,
+  .game-screen .answer-tags.clickable button {
+    padding: 7px 10px !important;
+    font-size: 12px !important;
+    border-radius: 999px !important;
+  }
+
+  .game-screen .bottom-actions {
+    height: 46px !important;
+    min-height: 46px !important;
+    max-height: 46px !important;
+  }
+
+  .game-screen .bottom-actions .light-button {
+    height: 46px !important;
+    min-height: 46px !important;
+    font-size: 12px !important;
+  }
+}
+
+@media (max-width: 760px) and (max-height: 720px) {
+  .game-screen .teams-grid {
+    height: 140px !important;
+    min-height: 140px !important;
+    max-height: 140px !important;
+  }
+
+  .game-screen .team-card {
+    height: 134px !important;
+    min-height: 134px !important;
+    max-height: 134px !important;
+    gap: 5px !important;
+  }
+
+  .game-screen .team-logo {
+    width: 44px !important;
+    height: 44px !important;
+    min-width: 44px !important;
+    min-height: 44px !important;
+  }
+
+  .game-screen .team-logo__inner {
+    width: 34px !important;
+    height: 34px !important;
+  }
+
+  .game-screen .team-card strong {
+    font-size: 17px !important;
+    min-height: 36px !important;
+  }
+
+  .game-screen .answers-box {
+    min-height: 88px !important;
+    height: 96px !important;
+    max-height: 108px !important;
+  }
+}
+
 `;
