@@ -165,7 +165,121 @@ function getWrongAnswerExplanation(round, userInput) {
     return `${player.name}, bu veri havuzuna göre ne ${teamA} ne de ${teamB} takımında oynamadı.`;
   }
 
-  return `${player.name} bu eşleşme için doğru olmalıydı; veri kontrolü gerekiyor.`;
+  return `${player.name} bu eşleşme için doğru olmalıydı; veri kontrolü gerekiyor.
+
+/* v17 mobile: remove huge empty team cards */
+@media (max-width: 760px) {
+  .teams-grid {
+    grid-template-columns: minmax(0, 1fr) 28px minmax(0, 1fr) !important;
+    gap: 7px !important;
+    margin: 6px 0 8px !important;
+    align-items: stretch !important;
+  }
+
+  .team-card {
+    min-height: 92px !important;
+    height: 96px !important;
+    max-height: 96px !important;
+    padding: 8px 6px !important;
+    border-radius: 18px !important;
+    display: grid !important;
+    grid-template-rows: 14px 38px auto !important;
+    align-items: center !important;
+    justify-items: center !important;
+    overflow: hidden !important;
+  }
+
+  .team-card span {
+    font-size: 10px !important;
+    line-height: 1 !important;
+    margin: 0 !important;
+  }
+
+  .team-logo {
+    width: 38px !important;
+    height: 38px !important;
+    margin: 0 auto 2px !important;
+    border-radius: 14px !important;
+    padding: 3px !important;
+    box-shadow: 0 6px 12px rgba(15, 23, 42, 0.14) !important;
+  }
+
+  .team-logo::after {
+    inset: 3px !important;
+    border-radius: 10px !important;
+  }
+
+  .team-logo__ring {
+    border-radius: 10px !important;
+  }
+
+  .team-logo__inner {
+    width: 28px !important;
+    height: 28px !important;
+    border-radius: 9px !important;
+    padding: 3px !important;
+  }
+
+  .team-logo span {
+    font-size: 11px !important;
+  }
+
+  .team-card strong {
+    font-size: 15px !important;
+    line-height: 1.05 !important;
+    max-width: 100% !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+    text-align: center !important;
+  }
+
+  .versus {
+    font-size: 13px !important;
+    padding: 0 !important;
+    align-self: center !important;
+  }
+
+  .single-answer-card {
+    margin-top: 4px !important;
+  }
+
+  .bottom-actions {
+    margin-top: 6px !important;
+  }
+}
+
+@media (max-height: 740px) and (max-width: 760px) {
+  .team-card {
+    min-height: 78px !important;
+    height: 80px !important;
+    max-height: 80px !important;
+    grid-template-rows: 12px 30px auto !important;
+    padding: 6px 5px !important;
+  }
+
+  .team-logo {
+    width: 30px !important;
+    height: 30px !important;
+  }
+
+  .team-logo__inner {
+    width: 22px !important;
+    height: 22px !important;
+    padding: 2px !important;
+  }
+
+  .team-card strong {
+    font-size: 13px !important;
+  }
+
+  .team-card span {
+    font-size: 9px !important;
+  }
+}
+
+`;
 }
 
 function getCorrectPlayersForRound(round) {
