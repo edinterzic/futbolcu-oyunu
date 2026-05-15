@@ -1,0 +1,410 @@
+{
+  "summary": {
+    "team_count": 33,
+    "player_team_relation_count": 4421,
+    "active_player_count": 1840,
+    "playable_pair_count": 429,
+    "possible_pair_count": 528,
+    "empty_pair_count": 99,
+    "duplicate_relation_count": 0,
+    "invalid_team_count": 0
+  },
+  "empty_pairs": [
+    [
+      "Bor. Dortmund",
+      "Kayserispor"
+    ],
+    [
+      "Bor. Dortmund",
+      "Sivasspor"
+    ],
+    [
+      "Bor. Dortmund",
+      "Napoli"
+    ],
+    [
+      "Bor. Dortmund",
+      "Olymp. Lyon"
+    ],
+    [
+      "Bor. Dortmund",
+      "Sevilla"
+    ],
+    [
+      "Chelsea",
+      "Kayserispor"
+    ],
+    [
+      "Chelsea",
+      "Sivasspor"
+    ],
+    [
+      "Chelsea",
+      "Antalyaspor"
+    ],
+    [
+      "Chelsea",
+      "Denizlispor"
+    ],
+    [
+      "Chelsea",
+      "Sevilla"
+    ],
+    [
+      "Kayserispor",
+      "AC Milan"
+    ],
+    [
+      "Kayserispor",
+      "Liverpool"
+    ],
+    [
+      "Kayserispor",
+      "Bayern Munich"
+    ],
+    [
+      "Kayserispor",
+      "Olymp. Lyon"
+    ],
+    [
+      "Kayserispor",
+      "Sevilla"
+    ],
+    [
+      "Tottenham",
+      "Genclerbirligi"
+    ],
+    [
+      "Tottenham",
+      "Denizlispor"
+    ],
+    [
+      "Tottenham",
+      "Sevilla"
+    ],
+    [
+      "Juventus",
+      "Sivasspor"
+    ],
+    [
+      "Juventus",
+      "Konyaspor"
+    ],
+    [
+      "Juventus",
+      "Trabzonspor"
+    ],
+    [
+      "Juventus",
+      "Denizlispor"
+    ],
+    [
+      "Juventus",
+      "Sevilla"
+    ],
+    [
+      "Arsenal",
+      "Sivasspor"
+    ],
+    [
+      "Arsenal",
+      "Olymp. Lyon"
+    ],
+    [
+      "Arsenal",
+      "Sevilla"
+    ],
+    [
+      "Sivasspor",
+      "Atletico Madrid"
+    ],
+    [
+      "Sivasspor",
+      "PSG"
+    ],
+    [
+      "Sivasspor",
+      "Bayern Munich"
+    ],
+    [
+      "Sivasspor",
+      "Sevilla"
+    ],
+    [
+      "Konyaspor",
+      "Atletico Madrid"
+    ],
+    [
+      "Konyaspor",
+      "Napoli"
+    ],
+    [
+      "Konyaspor",
+      "Liverpool"
+    ],
+    [
+      "Konyaspor",
+      "Bayern Munich"
+    ],
+    [
+      "Konyaspor",
+      "Olymp. Lyon"
+    ],
+    [
+      "Konyaspor",
+      "Sevilla"
+    ],
+    [
+      "FC Porto",
+      "PSG"
+    ],
+    [
+      "FC Porto",
+      "Olymp. Lyon"
+    ],
+    [
+      "FC Porto",
+      "Sevilla"
+    ],
+    [
+      "Fenerbahçe",
+      "PSG"
+    ],
+    [
+      "Fenerbahçe",
+      "Sevilla"
+    ],
+    [
+      "Başakşehir",
+      "Denizlispor"
+    ],
+    [
+      "Başakşehir",
+      "PSG"
+    ],
+    [
+      "Başakşehir",
+      "Olymp. Lyon"
+    ],
+    [
+      "Başakşehir",
+      "Sevilla"
+    ],
+    [
+      "Trabzonspor",
+      "Real Madrid"
+    ],
+    [
+      "Trabzonspor",
+      "PSG"
+    ],
+    [
+      "Trabzonspor",
+      "Olymp. Lyon"
+    ],
+    [
+      "Trabzonspor",
+      "Sevilla"
+    ],
+    [
+      "Genclerbirligi",
+      "AC Milan"
+    ],
+    [
+      "Genclerbirligi",
+      "Atletico Madrid"
+    ],
+    [
+      "Genclerbirligi",
+      "Inter"
+    ],
+    [
+      "Genclerbirligi",
+      "Napoli"
+    ],
+    [
+      "Genclerbirligi",
+      "Liverpool"
+    ],
+    [
+      "Genclerbirligi",
+      "Bayern Munich"
+    ],
+    [
+      "Genclerbirligi",
+      "Sevilla"
+    ],
+    [
+      "Antalyaspor",
+      "Atletico Madrid"
+    ],
+    [
+      "Antalyaspor",
+      "Napoli"
+    ],
+    [
+      "Antalyaspor",
+      "Man Utd"
+    ],
+    [
+      "Antalyaspor",
+      "PSG"
+    ],
+    [
+      "Antalyaspor",
+      "Olymp. Lyon"
+    ],
+    [
+      "Antalyaspor",
+      "Sevilla"
+    ],
+    [
+      "Denizlispor",
+      "AC Milan"
+    ],
+    [
+      "Denizlispor",
+      "Atletico Madrid"
+    ],
+    [
+      "Denizlispor",
+      "AS Roma"
+    ],
+    [
+      "Denizlispor",
+      "Inter"
+    ],
+    [
+      "Denizlispor",
+      "Benfica"
+    ],
+    [
+      "Denizlispor",
+      "Liverpool"
+    ],
+    [
+      "Denizlispor",
+      "Man Utd"
+    ],
+    [
+      "Denizlispor",
+      "PSG"
+    ],
+    [
+      "Denizlispor",
+      "Bayern Munich"
+    ],
+    [
+      "Denizlispor",
+      "Olymp. Lyon"
+    ],
+    [
+      "Denizlispor",
+      "Sevilla"
+    ],
+    [
+      "Barcelona",
+      "PSG"
+    ],
+    [
+      "Barcelona",
+      "Sevilla"
+    ],
+    [
+      "Galatasaray",
+      "Olymp. Lyon"
+    ],
+    [
+      "Galatasaray",
+      "Sevilla"
+    ],
+    [
+      "Beşiktaş",
+      "PSG"
+    ],
+    [
+      "Beşiktaş",
+      "Sevilla"
+    ],
+    [
+      "AC Milan",
+      "Sevilla"
+    ],
+    [
+      "Atletico Madrid",
+      "Olymp. Lyon"
+    ],
+    [
+      "Atletico Madrid",
+      "Sevilla"
+    ],
+    [
+      "AS Roma",
+      "Sevilla"
+    ],
+    [
+      "Ajax",
+      "PSG"
+    ],
+    [
+      "Ajax",
+      "Olymp. Lyon"
+    ],
+    [
+      "Ajax",
+      "Sevilla"
+    ],
+    [
+      "Real Madrid",
+      "Sevilla"
+    ],
+    [
+      "Inter",
+      "Sevilla"
+    ],
+    [
+      "Napoli",
+      "PSG"
+    ],
+    [
+      "Napoli",
+      "Olymp. Lyon"
+    ],
+    [
+      "Napoli",
+      "Sevilla"
+    ],
+    [
+      "Benfica",
+      "Olymp. Lyon"
+    ],
+    [
+      "Benfica",
+      "Sevilla"
+    ],
+    [
+      "Liverpool",
+      "Olymp. Lyon"
+    ],
+    [
+      "Man Utd",
+      "Sevilla"
+    ],
+    [
+      "PSG",
+      "Sevilla"
+    ],
+    [
+      "Bayern Munich",
+      "Sevilla"
+    ],
+    [
+      "Man City",
+      "Sevilla"
+    ],
+    [
+      "Olymp. Lyon",
+      "Sevilla"
+    ]
+  ]
+}

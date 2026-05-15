@@ -1,10 +1,16 @@
+// Auto-generated from active_teams.csv and active_player_teams.csv
+// Team names must match exactly. Do not edit accents/spelling unless you update the CSV too.
+
 export const PLAYERS = [
   {
+    "name": "Aaron Anselmino",
+    "clubs": [
+      "Bor. Dortmund",
+      "Chelsea"
+    ]
+  },
+  {
     "name": "Aaron Lennon",
-    "aliases": [
-      "Aaron",
-      "Lennon"
-    ],
     "clubs": [
       "Kayserispor",
       "Tottenham"
@@ -12,856 +18,508 @@ export const PLAYERS = [
   },
   {
     "name": "Aaron Ramsey",
-    "aliases": [
-      "Aaron",
-      "Ramsey"
-    ],
-    "clubs": [
-      "Arsenal",
-      "Juventus",
-      "Nice"
-    ]
-  },
-  {
-    "name": "Abdoulay Konko",
-    "aliases": [
-      "Abdoulay",
-      "Konko"
-    ],
     "clubs": [
       "Juventus",
-      "Sevilla"
+      "Arsenal"
     ]
   },
   {
-    "name": "Abdul Kader Keïta",
-    "aliases": [
-      "Abdul",
-      "Kader",
-      "Keïta"
-    ],
+    "name": "Aatif Chahechouhe",
     "clubs": [
-      "Galatasaray",
-      "Lyon"
+      "Sivasspor",
+      "Fenerbahçe",
+      "Antalyaspor"
     ]
   },
   {
-    "name": "Abdulkadir Özgen",
-    "aliases": [
-      "Abdulkadir",
-      "Özgen"
-    ],
+    "name": "Abdou Traore",
+    "clubs": [
+      "Sivasspor",
+      "Konyaspor"
+    ]
+  },
+  {
+    "name": "Abdoulaye Ba",
+    "clubs": [
+      "FC Porto",
+      "Fenerbahçe"
+    ]
+  },
+  {
+    "name": "Abdulaziz Demircan",
     "clubs": [
       "Kayserispor",
-      "Sivasspor"
+      "Konyaspor"
     ]
   },
   {
-    "name": "Abdullah Ercan",
-    "aliases": [
-      "Abdullah",
-      "Ercan"
-    ],
-    "clubs": [
-      "Galatasaray",
-      "Trabzonspor"
-    ]
-  },
-  {
-    "name": "Abdülaziz Solmaz",
-    "aliases": [
-      "Abdülaziz",
-      "Solmaz"
-    ],
+    "name": "Abdulaziz Solmaz",
     "clubs": [
       "Başakşehir",
       "Trabzonspor"
     ]
   },
   {
-    "name": "Abe Hartley",
-    "aliases": [
-      "Abe",
-      "Hartley"
-    ],
+    "name": "Abdulkadir Parmak",
     "clubs": [
-      "Arsenal",
-      "Liverpool"
-    ]
-  },
-  {
-    "name": "Abel Xavier",
-    "aliases": [
-      "Abel",
-      "Xavier"
-    ],
-    "clubs": [
-      "Galatasaray",
-      "Liverpool",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Achraf Hakimi Mouh",
-    "aliases": [
-      "achraf",
-      "Achraf",
-      "hakimi",
-      "Hakimi",
-      "mouh",
-      "Mouh"
-    ],
-    "clubs": [
-      "Inter",
-      "PSG",
-      "Real Madrid"
-    ]
-  },
-  {
-    "name": "Adam Carson",
-    "aliases": [
-      "Adam",
-      "Carson"
-    ],
-    "clubs": [
-      "Liverpool",
-      "Manchester City",
-      "Manchester United"
-    ]
-  },
-  {
-    "name": "Adel Taarabt",
-    "aliases": [
-      "Adel",
-      "Taarabt"
-    ],
-    "clubs": [
-      "Milan",
-      "Tottenham"
-    ]
-  },
-  {
-    "name": "Adelio Moro",
-    "aliases": [
-      "Adelio",
-      "Moro"
-    ],
-    "clubs": [
-      "Inter",
-      "Milan"
-    ]
-  },
-  {
-    "name": "Adem Alkaşi",
-    "aliases": [
-      "Adem",
-      "Alkaşi"
-    ],
-    "clubs": [
-      "Antalyaspor",
-      "Başakşehir"
-    ]
-  },
-  {
-    "name": "Adem Bojan Ljajić",
-    "aliases": [
-      "adem",
-      "Adem",
-      "bojan",
-      "Bojan",
-      "ljajic",
-      "Ljajić"
-    ],
-    "clubs": [
-      "Beşiktaş",
-      "Inter",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Adem Koçak",
-    "aliases": [
-      "Adem",
-      "Koçak"
-    ],
-    "clubs": [
+      "Kayserispor",
       "Sivasspor",
       "Trabzonspor"
     ]
   },
   {
-    "name": "Adem Ljajić",
-    "aliases": [
-      "Adem",
-      "Ljajic",
-      "Ljajić"
-    ],
+    "name": "Abdullah Durak",
     "clubs": [
-      "Beşiktaş",
-      "Inter",
-      "Roma"
+      "Kayserispor",
+      "Genclerbirligi"
     ]
   },
   {
-    "name": "Adil Rami",
-    "aliases": [
-      "Adil",
-      "Rami"
-    ],
+    "name": "Abdullah Ercan",
     "clubs": [
-      "Milan",
-      "Sevilla"
-    ]
-  },
-  {
-    "name": "Adnan Januzaj",
-    "aliases": [
-      "Adnan",
-      "Januzaj"
-    ],
-    "clubs": [
-      "Başakşehir",
-      "Manchester United",
-      "Sevilla"
-    ]
-  },
-  {
-    "name": "Adrián Bernabé",
-    "aliases": [
-      "Adrián",
-      "Bernabé"
-    ],
-    "clubs": [
-      "Barcelona",
-      "Manchester City"
-    ]
-  },
-  {
-    "name": "Adrian Ilie",
-    "aliases": [
-      "Adrian",
-      "Ilie"
-    ],
-    "clubs": [
-      "Beşiktaş",
+      "Fenerbahçe",
+      "Trabzonspor",
       "Galatasaray"
     ]
   },
   {
-    "name": "Adrian Mutu",
-    "aliases": [
-      "Adrian",
-      "Mutu"
-    ],
+    "name": "Abdullah Yiğiter",
     "clubs": [
-      "Inter",
-      "Juventus"
+      "Fenerbahçe",
+      "Antalyaspor"
     ]
   },
   {
-    "name": "Adriano",
-    "aliases": [],
+    "name": "Abdulsamet Burak",
     "clubs": [
-      "Inter",
-      "Roma"
+      "Kayserispor",
+      "Antalyaspor"
     ]
   },
   {
-    "name": "Adriano Correia Claro",
-    "aliases": [
-      "Adriano",
-      "Claro",
-      "Correia"
-    ],
+    "name": "Abdurrahim Dursun",
     "clubs": [
-      "Barcelona",
-      "Beşiktaş",
-      "Sevilla"
+      "Trabzonspor",
+      "Genclerbirligi",
+      "Antalyaspor"
     ]
   },
   {
-    "name": "Adrien Thibault Marie Rabiot-Provost",
-    "aliases": [
-      "adrien",
-      "Adrien",
-      "marie",
-      "Marie",
-      "provost",
-      "Provost",
-      "rabiot",
-      "Rabiot",
-      "thibault",
-      "Thibault"
-    ],
-    "clubs": [
-      "Juventus",
-      "Milan",
-      "PSG"
-    ]
-  },
-  {
-    "name": "Agostinho",
-    "aliases": [],
-    "clubs": [
-      "PSG",
-      "Real Madrid",
-      "Sevilla"
-    ]
-  },
-  {
-    "name": "Agostino Di Bartolomei",
-    "aliases": [
-      "Agostino",
-      "Bartolomei"
-    ],
-    "clubs": [
-      "Milan",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Ahmed Barusso",
-    "aliases": [
-      "Ahmed",
-      "Barusso"
-    ],
-    "clubs": [
-      "Galatasaray",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Ahmet Aras",
-    "aliases": [
-      "Ahmet",
-      "Aras"
-    ],
+    "name": "Abdurrahman Ayhanoğlu",
     "clubs": [
       "Antalyaspor",
-      "Sivasspor"
+      "Denizlispor"
     ]
   },
   {
-    "name": "Ahmet Berman",
-    "aliases": [
-      "Ahmet",
-      "Berman"
-    ],
+    "name": "Abdülkadir Ömür",
+    "clubs": [
+      "Trabzonspor",
+      "Antalyaspor"
+    ]
+  },
+  {
+    "name": "Abdülkerim Bardakcı",
+    "clubs": [
+      "Konyaspor",
+      "Denizlispor",
+      "Galatasaray"
+    ]
+  },
+  {
+    "name": "Achraf Hakimi",
+    "clubs": [
+      "Bor. Dortmund",
+      "Real Madrid",
+      "Inter"
+    ]
+  },
+  {
+    "name": "Adama Traore",
+    "clubs": [
+      "Genclerbirligi",
+      "Barcelona"
+    ]
+  },
+  {
+    "name": "Adel Taarabt",
+    "clubs": [
+      "Tottenham",
+      "AC Milan",
+      "Benfica"
+    ]
+  },
+  {
+    "name": "Adem Akın",
+    "clubs": [
+      "Kayserispor",
+      "Konyaspor"
+    ]
+  },
+  {
+    "name": "Adem Büyük",
+    "clubs": [
+      "Galatasaray",
+      "Beşiktaş"
+    ]
+  },
+  {
+    "name": "Adem Dursun",
+    "clubs": [
+      "Genclerbirligi",
+      "Beşiktaş"
+    ]
+  },
+  {
+    "name": "Adem Eren Kabak",
+    "clubs": [
+      "Konyaspor",
+      "Genclerbirligi"
+    ]
+  },
+  {
+    "name": "Adem Ljajic",
     "clubs": [
       "Beşiktaş",
-      "Galatasaray",
-      "Sivasspor"
+      "AS Roma",
+      "Inter"
     ]
   },
   {
-    "name": "Ahmet Ceyhan",
-    "aliases": [
-      "Ahmet",
-      "Ceyhan"
-    ],
+    "name": "Adil Rami",
     "clubs": [
-      "Galatasaray",
+      "Fenerbahçe",
+      "AC Milan"
+    ]
+  },
+  {
+    "name": "Adnan Güngör",
+    "clubs": [
+      "Konyaspor",
       "Trabzonspor"
     ]
   },
   {
+    "name": "Adnan Januzaj",
+    "clubs": [
+      "Bor. Dortmund",
+      "Başakşehir",
+      "Man Utd"
+    ]
+  },
+  {
+    "name": "Adrian Lopez",
+    "clubs": [
+      "FC Porto",
+      "Atletico Madrid"
+    ]
+  },
+  {
+    "name": "Adriano",
+    "clubs": [
+      "FC Porto",
+      "Barcelona",
+      "Beşiktaş",
+      "AS Roma",
+      "Inter"
+    ]
+  },
+  {
+    "name": "Adrien Rabiot",
+    "clubs": [
+      "Juventus",
+      "AC Milan",
+      "Man City"
+    ]
+  },
+  {
+    "name": "Ahmed Barusso",
+    "clubs": [
+      "Galatasaray",
+      "AS Roma"
+    ]
+  },
+  {
+    "name": "Ahmed Kutucu",
+    "clubs": [
+      "Başakşehir",
+      "Galatasaray"
+    ]
+  },
+  {
+    "name": "Ahmet Aras",
+    "clubs": [
+      "Sivasspor",
+      "Antalyaspor"
+    ]
+  },
+  {
+    "name": "Ahmet Buğra Güven",
+    "clubs": [
+      "Fenerbahçe",
+      "Galatasaray"
+    ]
+  },
+  {
+    "name": "Ahmet Cebe",
+    "clubs": [
+      "Sivasspor",
+      "Denizlispor"
+    ]
+  },
+  {
     "name": "Ahmet Dursun",
-    "aliases": [
-      "Ahmet",
-      "Dursun"
-    ],
     "clubs": [
       "Antalyaspor",
       "Beşiktaş"
     ]
   },
   {
-    "name": "Ahmet Görkem Görk",
-    "aliases": [
-      "Ahmet",
-      "Görk",
-      "Görkem"
-    ],
+    "name": "Ahmet Oğuz",
     "clubs": [
-      "Galatasaray",
-      "Sivasspor"
+      "Sivasspor",
+      "Konyaspor",
+      "Genclerbirligi"
     ]
   },
   {
-    "name": "Ahmet Şahin",
-    "aliases": [
-      "Ahmet",
-      "Şahin"
-    ],
+    "name": "Ahmet Yıldırım",
     "clubs": [
-      "Başakşehir",
-      "Trabzonspor"
+      "Fenerbahçe",
+      "Galatasaray",
+      "Beşiktaş"
+    ]
+  },
+  {
+    "name": "Ahmet Çalık",
+    "clubs": [
+      "Konyaspor",
+      "Genclerbirligi",
+      "Galatasaray"
+    ]
+  },
+  {
+    "name": "Ahmet Özcan",
+    "clubs": [
+      "Kayserispor",
+      "Genclerbirligi"
+    ]
+  },
+  {
+    "name": "Ahmetcan Kaplan",
+    "clubs": [
+      "Trabzonspor",
+      "Ajax"
     ]
   },
   {
     "name": "Ainsley Maitland-Niles",
-    "aliases": [
-      "Ainsley",
-      "Maitland",
-      "Niles"
-    ],
     "clubs": [
       "Arsenal",
-      "Lyon",
-      "Roma"
+      "AS Roma"
     ]
   },
   {
-    "name": "Akande Ajide",
-    "aliases": [
-      "Ajide",
-      "Akande"
-    ],
+    "name": "Aksel Aktaş",
     "clubs": [
-      "Milan",
-      "Roma"
+      "Kayserispor",
+      "Genclerbirligi"
     ]
   },
   {
-    "name": "Ake Hjalmarsson",
-    "aliases": [
-      "Ake",
-      "Hjalmarsson"
-    ],
+    "name": "Alaaddin Okumuş",
     "clubs": [
-      "Lyon",
-      "Nice"
+      "Sivasspor",
+      "Genclerbirligi"
     ]
   },
   {
-    "name": "Alan Brazil",
-    "aliases": [
-      "Alan",
-      "Brazil"
-    ],
+    "name": "Alassane Ndao",
     "clubs": [
-      "Manchester United",
-      "Tottenham"
-    ]
-  },
-  {
-    "name": "Alan Harper",
-    "aliases": [
-      "Alan",
-      "Harper"
-    ],
-    "clubs": [
-      "Liverpool",
-      "Manchester City"
-    ]
-  },
-  {
-    "name": "Alassane Pléa",
-    "aliases": [
-      "Alassane",
-      "Pléa"
-    ],
-    "clubs": [
-      "Lyon",
-      "Nice"
+      "Konyaspor",
+      "Antalyaspor"
     ]
   },
   {
     "name": "Albert Celades",
-    "aliases": [
-      "Albert",
-      "Celades"
-    ],
     "clubs": [
       "Barcelona",
       "Real Madrid"
     ]
   },
   {
-    "name": "Albert Guðmundsson",
-    "aliases": [
-      "Albert",
-      "Guðmundsson"
-    ],
+    "name": "Albert Ferrer",
     "clubs": [
-      "Arsenal",
-      "Milan",
-      "Nice"
-    ]
-  },
-  {
-    "name": "Albert Luque",
-    "aliases": [
-      "Albert",
-      "Luque"
-    ],
-    "clubs": [
-      "Ajax",
+      "Chelsea",
       "Barcelona"
     ]
   },
   {
     "name": "Albert Riera",
-    "aliases": [
-      "Albert",
-      "Riera"
-    ],
     "clubs": [
       "Galatasaray",
       "Liverpool",
-      "Manchester City"
+      "Man City"
     ]
   },
   {
     "name": "Alberto Aquilani",
-    "aliases": [
-      "Alberto",
-      "Aquilani"
-    ],
     "clubs": [
       "Juventus",
-      "Liverpool",
-      "Milan",
-      "Roma"
+      "AC Milan",
+      "AS Roma",
+      "Liverpool"
     ]
   },
   {
-    "name": "Alberto Bertuccelli",
-    "aliases": [
-      "Alberto",
-      "Bertuccelli"
-    ],
+    "name": "Alberto Barazzetta",
     "clubs": [
-      "Juventus",
-      "Roma"
+      "AC Milan",
+      "Inter"
     ]
   },
   {
-    "name": "Alberto Gallinetta",
-    "aliases": [
-      "Alberto",
-      "Gallinetta"
-    ],
+    "name": "Alberto Bueno",
     "clubs": [
-      "Inter",
-      "Juventus"
-    ]
-  },
-  {
-    "name": "Alberto Maria Fontana",
-    "aliases": [
-      "Alberto",
-      "Fontana",
-      "Maria"
-    ],
-    "clubs": [
-      "Juventus",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Alberto Moreno",
-    "aliases": [
-      "Alberto",
-      "Moreno"
-    ],
-    "clubs": [
-      "Liverpool",
-      "Sevilla"
-    ]
-  },
-  {
-    "name": "Alberto Perea",
-    "aliases": [
-      "Alberto",
-      "Perea"
-    ],
-    "clubs": [
-      "Atletico Madrid",
-      "Barcelona"
-    ]
-  },
-  {
-    "name": "Alberto Piccinini",
-    "aliases": [
-      "Alberto",
-      "Piccinini"
-    ],
-    "clubs": [
-      "Juventus",
-      "Milan",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Alberto Reif",
-    "aliases": [
-      "Alberto",
-      "Reif"
-    ],
-    "clubs": [
-      "Inter",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Alcides Ghiggia",
-    "aliases": [
-      "Alcides",
-      "Ghiggia"
-    ],
-    "clubs": [
-      "Milan",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Aldo Bet",
-    "aliases": [
-      "Aldo",
-      "Bet"
-    ],
-    "clubs": [
-      "Inter",
-      "Milan",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Aldo Cevenini",
-    "aliases": [
-      "Aldo",
-      "Cevenini"
-    ],
-    "clubs": [
-      "Inter",
-      "Milan"
-    ]
-  },
-  {
-    "name": "Aldo Donati",
-    "aliases": [
-      "Aldo",
-      "Donati"
-    ],
-    "clubs": [
-      "Inter",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Aldo Maldera",
-    "aliases": [
-      "Aldo",
-      "Maldera"
-    ],
-    "clubs": [
-      "Milan",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Aldo Serena",
-    "aliases": [
-      "Aldo",
-      "Serena"
-    ],
-    "clubs": [
-      "Inter",
-      "Juventus",
-      "Milan"
-    ]
-  },
-  {
-    "name": "Aleix Vidal",
-    "aliases": [
-      "Aleix",
-      "Vidal"
-    ],
-    "clubs": [
-      "Barcelona",
-      "Real Madrid",
-      "Sevilla"
-    ]
-  },
-  {
-    "name": "Alejandro Rodríguez Apolinario",
-    "aliases": [
-      "Alejandro",
-      "Apolinario",
-      "Rodríguez"
-    ],
-    "clubs": [
-      "Barcelona",
+      "FC Porto",
       "Real Madrid"
     ]
   },
   {
-    "name": "Alejandro Scopelli",
-    "aliases": [
-      "Alejandro",
-      "Scopelli"
-    ],
+    "name": "Alberto Costa",
+    "clubs": [
+      "Juventus",
+      "FC Porto"
+    ]
+  },
+  {
+    "name": "Alberto Fontana",
     "clubs": [
       "Inter",
-      "Roma"
+      "Napoli"
     ]
   },
   {
-    "name": "Alejo Véliz",
-    "aliases": [
-      "Alejo",
-      "Véliz"
-    ],
+    "name": "Alcides",
     "clubs": [
-      "Sevilla",
-      "Tottenham"
+      "Chelsea",
+      "Benfica"
     ]
   },
   {
-    "name": "Aleksandar Aranđelović",
-    "aliases": [
-      "Aleksandar",
-      "Aranđelović"
-    ],
+    "name": "Alec Chamberlain",
     "clubs": [
-      "Atletico Madrid",
-      "Milan",
-      "Roma"
+      "Chelsea",
+      "Liverpool"
+    ]
+  },
+  {
+    "name": "Alejandro Garnacho",
+    "clubs": [
+      "Chelsea",
+      "Man Utd"
+    ]
+  },
+  {
+    "name": "Aleksandar Aleksandrov",
+    "clubs": [
+      "Kayserispor",
+      "Konyaspor"
     ]
   },
   {
     "name": "Aleksandar Kolarov",
-    "aliases": [
-      "Aleksandar",
-      "Kolarov"
-    ],
     "clubs": [
+      "AS Roma",
       "Inter",
-      "Manchester City",
-      "Roma"
+      "Man City"
     ]
   },
   {
-    "name": "Alessandro Altobelli",
-    "aliases": [
-      "Alessandro",
-      "Altobelli"
-    ],
+    "name": "Aleksandr Hleb",
     "clubs": [
-      "Inter",
-      "Juventus"
+      "Arsenal",
+      "Konyaspor",
+      "Genclerbirligi",
+      "Barcelona"
+    ]
+  },
+  {
+    "name": "Alen Halilovic",
+    "clubs": [
+      "Barcelona",
+      "AC Milan"
+    ]
+  },
+  {
+    "name": "Alessandro Citi",
+    "clubs": [
+      "Juventus",
+      "AC Milan"
     ]
   },
   {
     "name": "Alessandro Florenzi",
-    "aliases": [
-      "Alessandro",
-      "Florenzi"
-    ],
     "clubs": [
-      "Milan",
-      "PSG",
-      "Roma"
+      "AC Milan",
+      "AS Roma"
     ]
   },
   {
-    "name": "Alessandro Frau",
-    "aliases": [
-      "Alessandro",
-      "Frau"
-    ],
+    "name": "Alessandro Gamberini",
     "clubs": [
-      "Inter",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Alessandro Livi",
-    "aliases": [
-      "Alessandro",
-      "Livi"
-    ],
-    "clubs": [
-      "Inter",
-      "Milan"
+      "Juventus",
+      "Napoli"
     ]
   },
   {
     "name": "Alessandro Matri",
-    "aliases": [
-      "Alessandro",
-      "Matri"
-    ],
     "clubs": [
       "Juventus",
-      "Milan"
+      "AC Milan"
     ]
   },
   {
-    "name": "Alessandro Orlando",
-    "aliases": [
-      "Alessandro",
-      "Orlando"
-    ],
+    "name": "Alessandro Minelli",
     "clubs": [
       "Juventus",
-      "Milan"
-    ]
-  },
-  {
-    "name": "Alessandro Savelli",
-    "aliases": [
-      "Alessandro",
-      "Savelli"
-    ],
-    "clubs": [
-      "Inter",
-      "Milan"
-    ]
-  },
-  {
-    "name": "Alessandro Zagano",
-    "aliases": [
-      "Alessandro",
-      "Zagano"
-    ],
-    "clubs": [
-      "Juventus",
-      "Milan"
+      "Inter"
     ]
   },
   {
     "name": "Alessio Cerci",
-    "aliases": [
-      "Alessio",
-      "Cerci"
-    ],
     "clubs": [
+      "AC Milan",
       "Atletico Madrid",
-      "Milan",
-      "Roma"
+      "AS Roma"
     ]
   },
   {
-    "name": "Alex Forsyth",
-    "aliases": [
-      "Alex",
-      "Forsyth"
-    ],
+    "name": "Alessio Zerbin",
     "clubs": [
-      "Arsenal",
-      "Manchester United"
+      "Inter",
+      "Napoli"
+    ]
+  },
+  {
+    "name": "Alex",
+    "clubs": [
+      "Chelsea",
+      "FC Porto",
+      "Fenerbahçe",
+      "AC Milan",
+      "Benfica"
+    ]
+  },
+  {
+    "name": "Alex Jimenez",
+    "clubs": [
+      "AC Milan",
+      "Real Madrid"
     ]
   },
   {
     "name": "Alex Oxlade-Chamberlain",
-    "aliases": [
-      "Alex",
-      "Chamberlain",
-      "Oxlade",
-      "Oxlade-Chamberlain"
-    ],
     "clubs": [
       "Arsenal",
       "Beşiktaş",
@@ -869,1003 +527,571 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Alex Rodrigo Dias da Costa",
-    "aliases": [
-      "Alex",
-      "Costa",
-      "Dias",
-      "Rodrigo"
-    ],
+    "name": "Alex Pritchard",
+    "clubs": [
+      "Tottenham",
+      "Sivasspor"
+    ]
+  },
+  {
+    "name": "Alex Sandro",
     "clubs": [
       "Juventus",
-      "Milan",
-      "PSG"
+      "FC Porto"
     ]
   },
   {
     "name": "Alex Song",
-    "aliases": [
-      "Alex",
-      "Song"
-    ],
     "clubs": [
       "Arsenal",
       "Barcelona"
     ]
   },
   {
-    "name": "Alex Steel",
-    "aliases": [
-      "Alex",
-      "Steel"
-    ],
-    "clubs": [
-      "Manchester City",
-      "Tottenham"
-    ]
-  },
-  {
-    "name": "Alex Teixeira",
-    "aliases": [
-      "Alex",
-      "Teixeira"
-    ],
-    "clubs": [
-      "Inter",
-      "Liverpool"
-    ]
-  },
-  {
     "name": "Alex Telles",
-    "aliases": [
-      "Alex",
-      "Telles"
-    ],
     "clubs": [
+      "FC Porto",
       "Galatasaray",
       "Inter",
-      "Manchester United"
+      "Man Utd"
     ]
   },
   {
-    "name": "Alex Young",
-    "aliases": [
-      "Alex",
-      "Young"
-    ],
+    "name": "Alex Zahavi",
     "clubs": [
-      "Manchester City",
-      "Tottenham"
+      "Arsenal",
+      "Benfica"
     ]
   },
   {
     "name": "Alexander Büttner",
-    "aliases": [
-      "Alexander",
-      "Büttner"
-    ],
     "clubs": [
       "Ajax",
-      "Manchester United"
+      "Man Utd"
+    ]
+  },
+  {
+    "name": "Alexander Isak",
+    "clubs": [
+      "Bor. Dortmund",
+      "Liverpool"
     ]
   },
   {
     "name": "Alexander Manninger",
-    "aliases": [
-      "Alexander",
-      "Manninger"
-    ],
     "clubs": [
-      "Arsenal",
-      "Juventus"
-    ]
-  },
-  {
-    "name": "Alexander Mark David Oxlade-Chamberlain",
-    "aliases": [
-      "alexander",
-      "Alexander",
-      "chamberlain",
-      "Chamberlain",
-      "david",
-      "David",
-      "mark",
-      "Mark",
-      "oxlade",
-      "Oxlade"
-    ],
-    "clubs": [
-      "Arsenal",
-      "Beşiktaş",
-      "Liverpool"
-    ]
-  },
-  {
-    "name": "Alexandre Lacazette",
-    "aliases": [
-      "Alexandre",
-      "Lacazette"
-    ],
-    "clubs": [
-      "Arsenal",
-      "Lyon"
-    ]
-  },
-  {
-    "name": "Alexis Ruano Delgado",
-    "aliases": [
-      "Alexis",
-      "Delgado",
-      "Ruano"
-    ],
-    "clubs": [
-      "Beşiktaş",
-      "Sevilla"
-    ]
-  },
-  {
-    "name": "Alf Bellis",
-    "aliases": [
-      "Alf",
-      "Bellis"
-    ],
-    "clubs": [
-      "Manchester City",
-      "Manchester United"
-    ]
-  },
-  {
-    "name": "Alf Edge",
-    "aliases": [
-      "Alf",
-      "Edge"
-    ],
-    "clubs": [
-      "Manchester City",
-      "Manchester United"
-    ]
-  },
-  {
-    "name": "Alf Hanson",
-    "aliases": [
-      "Alf",
-      "Hanson"
-    ],
-    "clubs": [
-      "Liverpool",
-      "Manchester City"
-    ]
-  },
-  {
-    "name": "Alfio Fontana",
-    "aliases": [
-      "Alfio",
-      "Fontana"
-    ],
-    "clubs": [
-      "Milan",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Alfons Groenendijk",
-    "aliases": [
-      "Alfons",
-      "Groenendijk"
-    ],
-    "clubs": [
-      "Ajax",
-      "Manchester City"
-    ]
-  },
-  {
-    "name": "Alfonso Albéniz",
-    "aliases": [
-      "Albéniz",
-      "Alfonso"
-    ],
-    "clubs": [
-      "Barcelona",
-      "Real Madrid"
-    ]
-  },
-  {
-    "name": "Alfonso Navarro Perona",
-    "aliases": [
-      "Alfonso",
-      "Navarro",
-      "Perona"
-    ],
-    "clubs": [
-      "Barcelona",
-      "Real Madrid"
-    ]
-  },
-  {
-    "name": "Alfonso Pérez",
-    "aliases": [
-      "Alfonso",
-      "Pérez"
-    ],
-    "clubs": [
-      "Barcelona",
-      "Real Madrid"
-    ]
-  },
-  {
-    "name": "Alfred Thompson",
-    "aliases": [
-      "Alfred",
-      "Thompson"
-    ],
-    "clubs": [
+      "Juventus",
       "Arsenal",
       "Liverpool"
     ]
   },
   {
-    "name": "Alfredo Mazzoni",
-    "aliases": [
-      "Alfredo",
-      "Mazzoni"
-    ],
+    "name": "Alexander Sorloth",
     "clubs": [
+      "Trabzonspor",
+      "Atletico Madrid"
+    ]
+  },
+  {
+    "name": "Alexandre Pato",
+    "clubs": [
+      "Chelsea",
+      "AC Milan",
+      "Inter"
+    ]
+  },
+  {
+    "name": "Alexis Saelemaekers",
+    "clubs": [
+      "AC Milan",
+      "AS Roma"
+    ]
+  },
+  {
+    "name": "Alexis Sanchez",
+    "clubs": [
+      "Arsenal",
+      "Barcelona",
       "Inter",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Alfredo Santaelena",
-    "aliases": [
-      "Alfredo",
-      "Santaelena"
-    ],
-    "clubs": [
-      "Atletico Madrid",
-      "Sevilla"
-    ]
-  },
-  {
-    "name": "Ali Benarbia",
-    "aliases": [
-      "Ali",
-      "Benarbia"
-    ],
-    "clubs": [
-      "Manchester City",
-      "PSG"
-    ]
-  },
-  {
-    "name": "Ali Bilgin",
-    "aliases": [
-      "Ali",
-      "Bilgin"
-    ],
-    "clubs": [
-      "Antalyaspor",
-      "Kayserispor"
+      "Man Utd"
     ]
   },
   {
     "name": "Ali Cansun Begeçarslan",
-    "aliases": [
-      "Ali",
-      "Begeçarslan",
-      "Cansun"
-    ],
     "clubs": [
+      "Genclerbirligi",
       "Antalyaspor",
       "Beşiktaş"
     ]
   },
   {
-    "name": "Ali Çoban",
-    "aliases": [
-      "Ali",
-      "Çoban"
-    ],
-    "clubs": [
-      "Beşiktaş",
-      "Galatasaray"
-    ]
-  },
-  {
     "name": "Ali Eren Beşerler",
-    "aliases": [
-      "Ali",
-      "Beşerler",
-      "Eren"
-    ],
     "clubs": [
-      "Beşiktaş",
-      "Sivasspor"
+      "Sivasspor",
+      "Genclerbirligi",
+      "Beşiktaş"
     ]
   },
   {
-    "name": "Ali Gültiken",
-    "aliases": [
-      "Ali",
-      "Gültiken"
-    ],
+    "name": "Ali Güneş",
     "clubs": [
-      "Beşiktaş",
-      "Kayserispor"
-    ]
-  },
-  {
-    "name": "Ali Güzeldal",
-    "aliases": [
-      "Ali",
-      "Güzeldal"
-    ],
-    "clubs": [
-      "Başakşehir",
-      "Trabzonspor"
-    ]
-  },
-  {
-    "name": "Ali Kemal Denizci",
-    "aliases": [
-      "Ali",
-      "Denizci",
-      "Kemal"
-    ],
-    "clubs": [
-      "Beşiktaş",
-      "Trabzonspor"
+      "Fenerbahçe",
+      "Beşiktaş"
     ]
   },
   {
     "name": "Ali Tandoğan",
-    "aliases": [
-      "Ali",
-      "Tandoğan"
-    ],
     "clubs": [
+      "Genclerbirligi",
       "Antalyaspor",
+      "Denizlispor",
       "Beşiktaş"
     ]
   },
   {
     "name": "Ali Turan",
-    "aliases": [
-      "Ali",
-      "Turan"
-    ],
+    "clubs": [
+      "Kayserispor",
+      "Konyaspor",
+      "Antalyaspor",
+      "Galatasaray"
+    ]
+  },
+  {
+    "name": "Ali Yavuz Kol",
     "clubs": [
       "Antalyaspor",
-      "Galatasaray",
-      "Kayserispor"
+      "Denizlispor",
+      "Galatasaray"
     ]
   },
   {
-    "name": "Aliaksandr Hleb",
-    "aliases": [
-      "Aliaksandr",
-      "Hleb"
-    ],
+    "name": "Ali Zitouni",
     "clubs": [
-      "Arsenal",
-      "Barcelona"
+      "Konyaspor",
+      "Antalyaspor"
     ]
   },
   {
-    "name": "Alioum Saidou",
-    "aliases": [
-      "Alioum",
-      "Saidou"
-    ],
+    "name": "Alican Karadağ",
     "clubs": [
-      "Galatasaray",
-      "Kayserispor",
-      "Sivasspor"
+      "Sivasspor",
+      "Genclerbirligi"
     ]
   },
   {
-    "name": "Alioune Touré",
-    "aliases": [
-      "Alioune",
-      "Touré"
-    ],
+    "name": "Alihan Kubalas",
     "clubs": [
-      "Manchester City",
+      "Sivasspor",
+      "Fenerbahçe"
+    ]
+  },
+  {
+    "name": "Alim Emiroğlu",
+    "clubs": [
+      "Sivasspor",
+      "Denizlispor"
+    ]
+  },
+  {
+    "name": "Aliou Traore",
+    "clubs": [
+      "Man Utd",
       "PSG"
     ]
   },
   {
-    "name": "Allan Irénée Saint-Maximin",
-    "aliases": [
-      "allan",
-      "Allan",
-      "Irénée",
-      "irenee",
-      "maximin",
-      "Maximin",
-      "saint",
-      "Saint"
-    ],
+    "name": "Alisson",
     "clubs": [
-      "Fenerbahçe",
-      "Nice"
+      "AS Roma",
+      "Inter",
+      "Liverpool"
     ]
   },
   {
-    "name": "Allenby Chilton",
-    "aliases": [
-      "Allenby",
-      "Chilton"
-    ],
+    "name": "Allan",
     "clubs": [
-      "Liverpool",
-      "Manchester United"
-    ]
-  },
-  {
-    "name": "Ally Dick",
-    "aliases": [
-      "Ally",
-      "Dick"
-    ],
-    "clubs": [
-      "Ajax",
-      "Tottenham"
+      "Inter",
+      "Napoli",
+      "Liverpool"
     ]
   },
   {
     "name": "Alou Diarra",
-    "aliases": [
-      "Alou",
-      "Diarra"
-    ],
     "clubs": [
       "Liverpool",
-      "Lyon"
+      "Bayern Munich"
+    ]
+  },
+  {
+    "name": "Alp Küçükvardar",
+    "clubs": [
+      "Denizlispor",
+      "Galatasaray"
     ]
   },
   {
     "name": "Alparslan Erdem",
-    "aliases": [
-      "Alparslan",
-      "Erdem"
-    ],
     "clubs": [
       "Başakşehir",
-      "Galatasaray",
-      "Kayserispor"
+      "Genclerbirligi",
+      "Galatasaray"
+    ]
+  },
+  {
+    "name": "Alpaslan Kartal",
+    "clubs": [
+      "Kayserispor",
+      "Denizlispor"
+    ]
+  },
+  {
+    "name": "Alpay Çelebi",
+    "clubs": [
+      "Kayserispor",
+      "Fenerbahçe",
+      "Beşiktaş"
+    ]
+  },
+  {
+    "name": "Alpay Özalan",
+    "clubs": [
+      "Fenerbahçe",
+      "Beşiktaş"
     ]
   },
   {
     "name": "Alper Uludağ",
-    "aliases": [
-      "Alper",
-      "Uludağ"
-    ],
     "clubs": [
       "Kayserispor",
-      "Trabzonspor"
+      "Konyaspor",
+      "Trabzonspor",
+      "Genclerbirligi"
     ]
   },
   {
-    "name": "Alphonse Rolland",
-    "aliases": [
-      "Alphonse",
-      "Rolland"
-    ],
+    "name": "Alperen Babacan",
     "clubs": [
-      "Lyon",
-      "Nice"
+      "Genclerbirligi",
+      "Denizlispor"
     ]
   },
   {
-    "name": "Álvaro Arbeloa",
-    "aliases": [
-      "Álvaro",
-      "Arbeloa"
-    ],
+    "name": "Alperen Uysal",
     "clubs": [
-      "Liverpool",
+      "Antalyaspor",
+      "Galatasaray"
+    ]
+  },
+  {
+    "name": "Alphonse Areola",
+    "clubs": [
+      "Real Madrid",
+      "PSG"
+    ]
+  },
+  {
+    "name": "Altay Bayındır",
+    "clubs": [
+      "Fenerbahçe",
+      "Man Utd"
+    ]
+  },
+  {
+    "name": "Alvaro Arbeloa",
+    "clubs": [
+      "Real Madrid",
+      "Liverpool"
+    ]
+  },
+  {
+    "name": "Alvaro Carreras",
+    "clubs": [
+      "Real Madrid",
+      "Benfica",
+      "Man Utd"
+    ]
+  },
+  {
+    "name": "Alvaro Mejia",
+    "clubs": [
+      "Konyaspor",
       "Real Madrid"
     ]
   },
   {
-    "name": "Álvaro Borja Morata Martín",
-    "aliases": [
-      "alvaro",
-      "Álvaro",
-      "borja",
-      "Borja",
-      "martin",
-      "Martín",
-      "morata",
-      "Morata"
-    ],
+    "name": "Alvaro Morata",
     "clubs": [
       "Chelsea",
-      "Galatasaray",
       "Juventus",
-      "Milan",
-      "Real Madrid"
-    ]
-  },
-  {
-    "name": "Álvaro Domínguez",
-    "aliases": [
-      "Álvaro",
-      "Domínguez"
-    ],
-    "clubs": [
+      "Galatasaray",
+      "AC Milan",
       "Atletico Madrid",
       "Real Madrid"
     ]
   },
   {
-    "name": "Álvaro Negredo",
-    "aliases": [
-      "Álvaro",
-      "Negredo"
-    ],
+    "name": "Alvaro Negredo",
     "clubs": [
       "Beşiktaş",
-      "Manchester City",
       "Real Madrid",
-      "Sevilla"
+      "Man City"
+    ]
+  },
+  {
+    "name": "Alvaro Odriozola",
+    "clubs": [
+      "Real Madrid",
+      "Bayern Munich"
     ]
   },
   {
     "name": "Aly Cissokho",
-    "aliases": [
-      "Aly",
-      "Cissokho"
-    ],
     "clubs": [
-      "Liverpool",
-      "Lyon"
-    ]
-  },
-  {
-    "name": "Amador Lorenzo",
-    "aliases": [
-      "Amador",
-      "Lorenzo"
-    ],
-    "clubs": [
-      "Barcelona",
-      "Real Madrid"
-    ]
-  },
-  {
-    "name": "Amarildo Tavares da Silveira",
-    "aliases": [
-      "Amarildo",
-      "Silveira",
-      "Tavares"
-    ],
-    "clubs": [
-      "Milan",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Ambrogio Pelagalli",
-    "aliases": [
-      "Ambrogio",
-      "Pelagalli"
-    ],
-    "clubs": [
-      "Milan",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Amedeo Amadei",
-    "aliases": [
-      "Amadei",
-      "Amedeo"
-    ],
-    "clubs": [
-      "Inter",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Amedeo Mangone",
-    "aliases": [
-      "Amedeo",
-      "Mangone"
-    ],
-    "clubs": [
-      "Milan",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Amine Gouiri",
-    "aliases": [
-      "Amine",
-      "Gouiri"
-    ],
-    "clubs": [
-      "Lyon",
-      "Nice"
-    ]
-  },
-  {
-    "name": "Amos Cardarelli",
-    "aliases": [
-      "Amos",
-      "Cardarelli"
-    ],
-    "clubs": [
-      "Inter",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Amos Mariani",
-    "aliases": [
-      "Amos",
-      "Mariani"
-    ],
-    "clubs": [
-      "Juventus",
-      "Milan"
-    ]
-  },
-  {
-    "name": "Andie Newton",
-    "aliases": [
-      "Andie",
-      "Newton"
-    ],
-    "clubs": [
-      "Manchester City",
-      "Manchester United"
-    ]
-  },
-  {
-    "name": "Andre Blackman",
-    "aliases": [
-      "Andre",
-      "Blackman"
-    ],
-    "clubs": [
-      "Arsenal",
-      "Tottenham"
-    ]
-  },
-  {
-    "name": "André Ferri",
-    "aliases": [
-      "André",
-      "Ferri"
-    ],
-    "clubs": [
-      "Lyon",
-      "Nice"
-    ]
-  },
-  {
-    "name": "Andrea Bertolacci",
-    "aliases": [
-      "Andrea",
-      "Bertolacci"
-    ],
-    "clubs": [
-      "Milan",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Andrea Cesaro",
-    "aliases": [
-      "Andrea",
-      "Cesaro"
-    ],
-    "clubs": [
-      "Inter",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Andrea Mancini",
-    "aliases": [
-      "Andrea",
-      "Mancini"
-    ],
-    "clubs": [
-      "Inter",
-      "Manchester City"
-    ]
-  },
-  {
-    "name": "Andrea Pazzagli",
-    "aliases": [
-      "Andrea",
-      "Pazzagli"
-    ],
-    "clubs": [
-      "Milan",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Andrea Pirlo",
-    "aliases": [
-      "Andrea",
-      "Pirlo"
-    ],
-    "clubs": [
-      "Inter",
-      "Juventus",
-      "Milan"
-    ]
-  },
-  {
-    "name": "Andrea Poli",
-    "aliases": [
-      "Andrea",
-      "Poli"
-    ],
-    "clubs": [
+      "FC Porto",
       "Antalyaspor",
-      "Inter",
-      "Milan"
-    ]
-  },
-  {
-    "name": "Andreas Isaksson",
-    "aliases": [
-      "Andreas",
-      "Isaksson"
-    ],
-    "clubs": [
-      "Juventus",
-      "Manchester City"
-    ]
-  },
-  {
-    "name": "Andrei Kanchelskis",
-    "aliases": [
-      "Andrei",
-      "Kanchelskis"
-    ],
-    "clubs": [
-      "Manchester City",
-      "Manchester United"
-    ]
-  },
-  {
-    "name": "Andrés Guglielminpietro",
-    "aliases": [
-      "Andrés",
-      "Guglielminpietro"
-    ],
-    "clubs": [
-      "Inter",
-      "Milan"
-    ]
-  },
-  {
-    "name": "Andrew McCowie",
-    "aliases": [
-      "Andrew",
-      "McCowie"
-    ],
-    "clubs": [
-      "Arsenal",
       "Liverpool"
     ]
   },
   {
-    "name": "Andrew Swann",
-    "aliases": [
-      "Andrew",
-      "Swann"
-    ],
+    "name": "Amadou Diawara",
     "clubs": [
-      "Arsenal",
-      "Tottenham"
+      "AS Roma",
+      "Napoli"
+    ]
+  },
+  {
+    "name": "Amani Richards",
+    "clubs": [
+      "Chelsea",
+      "Arsenal"
+    ]
+  },
+  {
+    "name": "Amato Ciciretti",
+    "clubs": [
+      "AS Roma",
+      "Napoli"
+    ]
+  },
+  {
+    "name": "Amauri",
+    "clubs": [
+      "Juventus",
+      "Napoli"
+    ]
+  },
+  {
+    "name": "Amilton",
+    "clubs": [
+      "Konyaspor",
+      "Genclerbirligi",
+      "Antalyaspor"
+    ]
+  },
+  {
+    "name": "Amir Hadziahmetovic",
+    "clubs": [
+      "Konyaspor",
+      "Beşiktaş"
+    ]
+  },
+  {
+    "name": "Anderson",
+    "clubs": [
+      "FC Porto",
+      "Inter",
+      "Benfica",
+      "Man Utd"
+    ]
+  },
+  {
+    "name": "Andre Gomes",
+    "clubs": [
+      "FC Porto",
+      "Barcelona",
+      "Benfica"
+    ]
+  },
+  {
+    "name": "Andre Kona",
+    "clubs": [
+      "Genclerbirligi",
+      "Antalyaspor"
+    ]
+  },
+  {
+    "name": "Andre Moritz",
+    "clubs": [
+      "Kayserispor",
+      "Denizlispor"
+    ]
+  },
+  {
+    "name": "Andre Onana",
+    "clubs": [
+      "Trabzonspor",
+      "Ajax",
+      "Inter",
+      "Man Utd"
+    ]
+  },
+  {
+    "name": "Andre Santos",
+    "clubs": [
+      "FC Porto",
+      "Benfica"
+    ]
+  },
+  {
+    "name": "Andre Schürrle",
+    "clubs": [
+      "Bor. Dortmund",
+      "Chelsea"
+    ]
+  },
+  {
+    "name": "Andre Silva",
+    "clubs": [
+      "FC Porto",
+      "AC Milan",
+      "Inter"
+    ]
+  },
+  {
+    "name": "Andrea Belotti",
+    "clubs": [
+      "AS Roma",
+      "Benfica"
+    ]
+  },
+  {
+    "name": "Andrea Conti",
+    "clubs": [
+      "AC Milan",
+      "AS Roma"
+    ]
+  },
+  {
+    "name": "Andrea Dossena",
+    "clubs": [
+      "Napoli",
+      "Liverpool"
+    ]
+  },
+  {
+    "name": "Andrea Petagna",
+    "clubs": [
+      "AC Milan",
+      "Napoli"
+    ]
+  },
+  {
+    "name": "Andrea Pirlo",
+    "clubs": [
+      "Juventus",
+      "AC Milan",
+      "Inter"
+    ]
+  },
+  {
+    "name": "Andrea Poli",
+    "clubs": [
+      "Antalyaspor",
+      "AC Milan",
+      "Inter"
+    ]
+  },
+  {
+    "name": "Andreas Christensen",
+    "clubs": [
+      "Chelsea",
+      "Barcelona"
+    ]
+  },
+  {
+    "name": "Andrey Kanchelskis",
+    "clubs": [
+      "Man Utd",
+      "Man City"
+    ]
+  },
+  {
+    "name": "Andriy Shevchenko",
+    "clubs": [
+      "Chelsea",
+      "AC Milan"
+    ]
+  },
+  {
+    "name": "Andros Townsend",
+    "clubs": [
+      "Tottenham",
+      "Antalyaspor"
     ]
   },
   {
     "name": "Andy Cole",
-    "aliases": [
-      "Andy",
-      "Cole"
-    ],
     "clubs": [
       "Arsenal",
-      "Manchester City",
-      "Manchester United"
+      "Man Utd",
+      "Man City"
     ]
   },
   {
-    "name": "Andy Hill",
-    "aliases": [
-      "Andy",
-      "Hill"
-    ],
+    "name": "Andy Diouf",
     "clubs": [
-      "Manchester City",
-      "Manchester United"
+      "Inter",
+      "PSG"
     ]
   },
   {
     "name": "Andy van der Meyde",
-    "aliases": [
-      "Andy",
-      "der",
-      "Meyde",
-      "van"
-    ],
     "clubs": [
       "Ajax",
       "Inter"
     ]
   },
   {
-    "name": "Ángel Arocha",
-    "aliases": [
-      "Ángel",
-      "Arocha"
-    ],
-    "clubs": [
-      "Atletico Madrid",
-      "Barcelona"
-    ]
-  },
-  {
-    "name": "Ángel Di María",
-    "aliases": [
-      "Ángel",
-      "Di Maria",
-      "Di María",
-      "María"
-    ],
+    "name": "Angel Di Maria",
     "clubs": [
       "Juventus",
-      "Manchester United",
-      "PSG",
-      "Real Madrid"
+      "Real Madrid",
+      "Benfica",
+      "Man Utd"
     ]
   },
   {
-    "name": "Ángel Fabián Di María Hernández",
-    "aliases": [
-      "angel",
-      "Ángel",
-      "fabian",
-      "Fabián",
-      "hernandez",
-      "Hernández",
-      "maria",
-      "María"
-    ],
+    "name": "Angelino",
     "clubs": [
-      "Juventus",
-      "Manchester United",
-      "PSG",
-      "Real Madrid"
+      "Galatasaray",
+      "AS Roma",
+      "Man City"
     ]
   },
   {
-    "name": "Angelo Balbiani",
-    "aliases": [
-      "Angelo",
-      "Balbiani"
-    ],
+    "name": "Ante Rebic",
     "clubs": [
-      "Inter",
-      "Juventus"
+      "Beşiktaş",
+      "AC Milan"
     ]
   },
   {
-    "name": "Angelo Di Livio",
-    "aliases": [
-      "Angelo",
-      "Livio"
-    ],
+    "name": "Anthony Martial",
     "clubs": [
-      "Juventus",
-      "Roma"
+      "Man Utd",
+      "Olymp. Lyon"
     ]
   },
   {
-    "name": "Angelo Domenghini",
-    "aliases": [
-      "Angelo",
-      "Domenghini"
-    ],
+    "name": "Antoine Griezmann",
     "clubs": [
-      "Inter",
-      "Roma"
+      "Barcelona",
+      "Atletico Madrid"
     ]
   },
   {
-    "name": "Angelo Peruzzi",
-    "aliases": [
-      "Angelo",
-      "Peruzzi"
-    ],
-    "clubs": [
-      "Inter",
-      "Juventus",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Angelo Sormani",
-    "aliases": [
-      "Angelo",
-      "Sormani"
-    ],
-    "clubs": [
-      "Milan",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Anıl Taşdemir",
-    "aliases": [
-      "Anıl",
-      "Taşdemir"
-    ],
-    "clubs": [
-      "Kayserispor",
-      "Trabzonspor"
-    ]
-  },
-  {
-    "name": "Antar Yahia",
-    "aliases": [
-      "Antar",
-      "Yahia"
-    ],
-    "clubs": [
-      "Inter",
-      "Nice"
-    ]
-  },
-  {
-    "name": "Anthony Mounier",
-    "aliases": [
-      "Anthony",
-      "Mounier"
-    ],
-    "clubs": [
-      "Lyon",
-      "Nice"
-    ]
-  },
-  {
-    "name": "Antoine Bonifaci",
-    "aliases": [
-      "Antoine",
-      "Bonifaci"
-    ],
-    "clubs": [
-      "Inter",
-      "Nice"
-    ]
-  },
-  {
-    "name": "Anton Blackwood",
-    "aliases": [
-      "Anton",
-      "Blackwood"
-    ],
-    "clubs": [
-      "Arsenal",
-      "Tottenham"
-    ]
-  },
-  {
-    "name": "Antonio Adán",
-    "aliases": [
-      "Adán",
-      "Antonio"
-    ],
+    "name": "Antonio Adan",
     "clubs": [
       "Atletico Madrid",
       "Real Madrid"
@@ -1873,2282 +1099,1338 @@ export const PLAYERS = [
   },
   {
     "name": "Antonio Candreva",
-    "aliases": [
-      "Antonio",
-      "Candreva"
-    ],
     "clubs": [
-      "Inter",
-      "Juventus"
-    ]
-  },
-  {
-    "name": "Antônio Carlos Zago",
-    "aliases": [
-      "Antônio",
-      "Carlos",
-      "Zago"
-    ],
-    "clubs": [
-      "Beşiktaş",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Antonio Cassano",
-    "aliases": [
-      "Antonio",
-      "Cassano"
-    ],
-    "clubs": [
-      "Inter",
-      "Milan",
-      "Real Madrid",
-      "Roma"
+      "Juventus",
+      "Inter"
     ]
   },
   {
     "name": "Antonio Chimenti",
-    "aliases": [
-      "Antonio",
-      "Chimenti"
-    ],
     "clubs": [
       "Juventus",
-      "Roma"
+      "AS Roma"
     ]
   },
   {
-    "name": "Antonio Da Sacco",
-    "aliases": [
-      "Antonio",
-      "Sacco"
-    ],
-    "clubs": [
-      "Inter",
-      "Milan"
-    ]
-  },
-  {
-    "name": "Antonio Dalmonte",
-    "aliases": [
-      "Antonio",
-      "Dalmonte"
-    ],
-    "clubs": [
-      "Inter",
-      "Juventus"
-    ]
-  },
-  {
-    "name": "Antonio Gómez Pérez",
-    "aliases": [
-      "Antonio",
-      "Gómez",
-      "Pérez"
-    ],
-    "clubs": [
-      "Real Madrid",
-      "Sevilla"
-    ]
-  },
-  {
-    "name": "Antonio Jiménez Sistachs",
-    "aliases": [
-      "Antonio",
-      "Jiménez",
-      "Sistachs"
-    ],
-    "clubs": [
-      "Atletico Madrid",
-      "Barcelona"
-    ]
-  },
-  {
-    "name": "Antonio López Habas",
-    "aliases": [
-      "Antonio",
-      "Habas",
-      "López"
-    ],
-    "clubs": [
-      "Atletico Madrid",
-      "Sevilla"
-    ]
-  },
-  {
-    "name": "Antonio Mirante el flecheiro",
-    "aliases": [
-      "Antonio",
-      "flecheiro",
-      "Mirante"
-    ],
+    "name": "Antonio Mirante",
     "clubs": [
       "Juventus",
-      "Roma"
+      "AC Milan",
+      "AS Roma"
     ]
   },
   {
     "name": "Antonio Nocerino",
-    "aliases": [
-      "Antonio",
-      "Nocerino"
-    ],
     "clubs": [
       "Juventus",
-      "Milan"
+      "AC Milan"
     ]
   },
   {
-    "name": "Antonio Núñez",
-    "aliases": [
-      "Antonio",
-      "Núñez"
-    ],
+    "name": "Antonio Nunez",
     "clubs": [
-      "Liverpool",
-      "Real Madrid"
-    ]
-  },
-  {
-    "name": "Antonio Oviedo",
-    "aliases": [
-      "Antonio",
-      "Oviedo"
-    ],
-    "clubs": [
-      "Atletico Madrid",
       "Real Madrid",
-      "Sevilla"
-    ]
-  },
-  {
-    "name": "Antonio Payer",
-    "aliases": [
-      "Antonio",
-      "Payer"
-    ],
-    "clubs": [
-      "Inter",
-      "Juventus"
+      "Liverpool"
     ]
   },
   {
     "name": "Antonio Rüdiger",
-    "aliases": [
-      "antonio",
-      "Antonio",
-      "rudiger",
-      "Rüdiger"
-    ],
     "clubs": [
       "Chelsea",
-      "Real Madrid",
-      "Roma"
+      "AS Roma",
+      "Real Madrid"
     ]
   },
   {
-    "name": "Antonio Sanabria",
-    "aliases": [
-      "Antonio",
-      "Sanabria"
-    ],
+    "name": "Antony",
     "clubs": [
-      "Barcelona",
-      "Roma"
+      "Ajax",
+      "Man Utd"
     ]
   },
   {
-    "name": "Antonio Tempestilli",
-    "aliases": [
-      "Antonio",
-      "Tempestilli"
-    ],
+    "name": "Anıl Batın Aydın",
     "clubs": [
-      "Inter",
-      "Roma"
+      "Sivasspor",
+      "Galatasaray"
     ]
   },
   {
-    "name": "Antonio Valentín Angelillo",
-    "aliases": [
-      "Angelillo",
-      "Antonio",
-      "Valentín"
-    ],
+    "name": "Anıl Dilaver",
     "clubs": [
-      "Inter",
-      "Milan",
-      "Roma"
+      "Denizlispor",
+      "Galatasaray"
     ]
   },
   {
-    "name": "Aquilino Bonfanti",
-    "aliases": [
-      "Aquilino",
-      "Bonfanti"
-    ],
+    "name": "Anıl Karaer",
     "clubs": [
-      "Inter",
-      "Milan"
+      "Kayserispor",
+      "Genclerbirligi",
+      "Galatasaray"
+    ]
+  },
+  {
+    "name": "Anıl Taşdemir",
+    "clubs": [
+      "Kayserispor",
+      "Trabzonspor",
+      "Denizlispor"
     ]
   },
   {
     "name": "Aras Özbiliz",
-    "aliases": [
-      "Aras",
-      "Özbiliz"
-    ],
     "clubs": [
-      "Ajax",
-      "Beşiktaş"
+      "Beşiktaş",
+      "Ajax"
     ]
   },
   {
-    "name": "Arcadio Venturi",
-    "aliases": [
-      "Arcadio",
-      "Venturi"
-    ],
+    "name": "Arda Güler",
     "clubs": [
-      "Inter",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Archimede Nardi",
-    "aliases": [
-      "Archimede",
-      "Nardi"
-    ],
-    "clubs": [
-      "Inter",
-      "Roma"
+      "Fenerbahçe",
+      "Real Madrid"
     ]
   },
   {
     "name": "Arda Turan",
-    "aliases": [
-      "Arda",
-      "Turan"
-    ],
     "clubs": [
-      "Atletico Madrid",
-      "Barcelona",
       "Başakşehir",
-      "Galatasaray"
+      "Barcelona",
+      "Galatasaray",
+      "Atletico Madrid"
     ]
   },
   {
-    "name": "Aredio Gimona",
-    "aliases": [
-      "Aredio",
-      "Gimona"
-    ],
+    "name": "Argel Fuchs",
     "clubs": [
-      "Juventus",
-      "Milan"
-    ]
-  },
-  {
-    "name": "Aristide Coscia",
-    "aliases": [
-      "Aristide",
-      "Coscia"
-    ],
-    "clubs": [
+      "FC Porto",
       "Inter",
-      "Juventus",
-      "Roma"
+      "Benfica"
     ]
   },
   {
     "name": "Ariza Makukula",
-    "aliases": [
-      "Ariza",
-      "Makukula"
-    ],
     "clubs": [
       "Kayserispor",
-      "Sevilla"
+      "Benfica"
     ]
   },
   {
-    "name": "Armand Traoré",
-    "aliases": [
-      "Armand",
-      "Traoré"
-    ],
+    "name": "Arjen Robben",
     "clubs": [
-      "Arsenal",
-      "Juventus"
+      "Chelsea",
+      "Real Madrid",
+      "Bayern Munich"
     ]
   },
   {
-    "name": "Armando Diena",
-    "aliases": [
-      "Armando",
-      "Diena"
-    ],
+    "name": "Arkadiusz Milik",
+    "clubs": [
+      "Juventus",
+      "Ajax",
+      "Napoli"
+    ]
+  },
+  {
+    "name": "Armand Traore",
+    "clubs": [
+      "Juventus",
+      "Arsenal"
+    ]
+  },
+  {
+    "name": "Artem Kravets",
+    "clubs": [
+      "Kayserispor",
+      "Konyaspor"
+    ]
+  },
+  {
+    "name": "Arthur Melo",
+    "clubs": [
+      "Juventus",
+      "Barcelona",
+      "Liverpool"
+    ]
+  },
+  {
+    "name": "Artur Moraes",
+    "clubs": [
+      "AS Roma",
+      "Benfica"
+    ]
+  },
+  {
+    "name": "Arturo Di Napoli",
     "clubs": [
       "Inter",
-      "Juventus"
+      "Napoli"
     ]
   },
   {
-    "name": "Arnaldo Woelkel",
-    "aliases": [
-      "Arnaldo",
-      "Woelkel"
-    ],
+    "name": "Arturo Vidal",
     "clubs": [
-      "Inter",
-      "Milan"
-    ]
-  },
-  {
-    "name": "Arnold Mühren",
-    "aliases": [
-      "Arnold",
-      "Mühren"
-    ],
-    "clubs": [
-      "Ajax",
-      "Manchester United"
-    ]
-  },
-  {
-    "name": "Aron Winter",
-    "aliases": [
-      "Aron",
-      "Winter"
-    ],
-    "clubs": [
-      "Ajax",
-      "Inter"
-    ]
-  },
-  {
-    "name": "Arthur Elliott",
-    "aliases": [
-      "Arthur",
-      "Elliott"
-    ],
-    "clubs": [
-      "Arsenal",
-      "Tottenham"
-    ]
-  },
-  {
-    "name": "Arthur Goddard",
-    "aliases": [
-      "Arthur",
-      "Goddard"
-    ],
-    "clubs": [
-      "Liverpool",
-      "Manchester City"
-    ]
-  },
-  {
-    "name": "Arturo Erasmo Vidal Pardo",
-    "aliases": [
-      "arturo",
-      "Arturo",
-      "erasmo",
-      "Erasmo",
-      "pardo",
-      "Pardo",
-      "vidal",
-      "Vidal"
-    ],
-    "clubs": [
+      "Juventus",
       "Barcelona",
       "Inter",
-      "Juventus"
+      "Bayern Munich"
     ]
   },
   {
     "name": "Ashley Cole",
-    "aliases": [
-      "Ashley",
-      "Cole"
-    ],
     "clubs": [
+      "Chelsea",
       "Arsenal",
-      "Roma"
+      "AS Roma"
     ]
   },
   {
-    "name": "Ashley Simon Young",
-    "aliases": [
-      "ashley",
-      "Ashley",
-      "simon",
-      "Simon",
-      "young",
-      "Young"
-    ],
+    "name": "Ashley Grimes",
+    "clubs": [
+      "Man Utd",
+      "Man City"
+    ]
+  },
+  {
+    "name": "Ashley Young",
     "clubs": [
       "Inter",
-      "Manchester United"
+      "Man Utd"
     ]
   },
   {
-    "name": "Astutillo Malgioglio",
-    "aliases": [
-      "Astutillo",
-      "Malgioglio"
-    ],
+    "name": "Asmir Begovic",
     "clubs": [
-      "Inter",
-      "Roma"
+      "Chelsea",
+      "AC Milan"
     ]
   },
   {
-    "name": "Atilla Birlik",
-    "aliases": [
-      "Atilla",
-      "Birlik"
-    ],
+    "name": "Atabey Çiçek",
     "clubs": [
-      "Antalyaspor",
-      "Beşiktaş",
-      "Sivasspor"
+      "Başakşehir",
+      "Genclerbirligi"
+    ]
+  },
+  {
+    "name": "Atakan Üner",
+    "clubs": [
+      "Denizlispor",
+      "Beşiktaş"
+    ]
+  },
+  {
+    "name": "Atalay Babacan",
+    "clubs": [
+      "Denizlispor",
+      "Galatasaray"
+    ]
+  },
+  {
+    "name": "Atilla Koca",
+    "clubs": [
+      "Sivasspor",
+      "Fenerbahçe"
     ]
   },
   {
     "name": "Attila Filkor",
-    "aliases": [
-      "Attila",
-      "Filkor"
-    ],
     "clubs": [
-      "Inter",
-      "Milan"
+      "AC Milan",
+      "Inter"
     ]
   },
   {
-    "name": "Attilio Nicodemo",
-    "aliases": [
-      "Attilio",
-      "Nicodemo"
-    ],
-    "clubs": [
-      "Nice",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Augustus Beeby",
-    "aliases": [
-      "Augustus",
-      "Beeby"
-    ],
-    "clubs": [
-      "Liverpool",
-      "Manchester City"
-    ]
-  },
-  {
-    "name": "Aurélien Chedjou",
-    "aliases": [
-      "Aurélien",
-      "Chedjou"
-    ],
+    "name": "Aurelien Chedjou",
     "clubs": [
       "Başakşehir",
       "Galatasaray"
+    ]
+  },
+  {
+    "name": "Axel Tuanzebe",
+    "clubs": [
+      "Napoli",
+      "Man Utd"
+    ]
+  },
+  {
+    "name": "Axel Witsel",
+    "clubs": [
+      "Bor. Dortmund",
+      "Atletico Madrid",
+      "Benfica"
     ]
   },
   {
     "name": "Ayden Heaven",
-    "aliases": [
-      "Ayden",
-      "Heaven"
-    ],
     "clubs": [
       "Arsenal",
-      "Manchester United"
+      "Man Utd"
     ]
   },
   {
     "name": "Aydın Karabulut",
-    "aliases": [
-      "Aydın",
-      "Karabulut"
-    ],
     "clubs": [
-      "Beşiktaş",
-      "Sivasspor"
-    ]
-  },
-  {
-    "name": "Aydın Yılmaz",
-    "aliases": [
-      "Aydın",
-      "Yılmaz"
-    ],
-    "clubs": [
-      "Başakşehir",
-      "Galatasaray"
-    ]
-  },
-  {
-    "name": "Ayhan Akman",
-    "aliases": [
-      "Akman",
-      "Ayhan"
-    ],
-    "clubs": [
-      "Beşiktaş",
-      "Galatasaray"
-    ]
-  },
-  {
-    "name": "Ayhan Alemdaroğlu",
-    "aliases": [
-      "Alemdaroğlu",
-      "Ayhan"
-    ],
-    "clubs": [
-      "Başakşehir",
-      "Sivasspor"
-    ]
-  },
-  {
-    "name": "Bacary Sagna",
-    "aliases": [
-      "Bacary",
-      "Sagna"
-    ],
-    "clubs": [
-      "Arsenal",
-      "Manchester City"
-    ]
-  },
-  {
-    "name": "Bafétimbi Gomis",
-    "aliases": [
-      "Bafétimbi",
-      "Gomis"
-    ],
-    "clubs": [
-      "Galatasaray",
-      "Lyon"
-    ]
-  },
-  {
-    "name": "Bahattin Güneş",
-    "aliases": [
-      "Bahattin",
-      "Güneş"
-    ],
-    "clubs": [
-      "Başakşehir",
-      "Trabzonspor"
-    ]
-  },
-  {
-    "name": "Barış Özbek",
-    "aliases": [
-      "Barış",
-      "Özbek"
-    ],
-    "clubs": [
-      "Galatasaray",
-      "Kayserispor",
-      "Trabzonspor"
-    ]
-  },
-  {
-    "name": "Barney Daniels",
-    "aliases": [
-      "Barney",
-      "Daniels"
-    ],
-    "clubs": [
-      "Manchester City",
-      "Manchester United"
-    ]
-  },
-  {
-    "name": "Barry Venison",
-    "aliases": [
-      "Barry",
-      "Venison"
-    ],
-    "clubs": [
-      "Galatasaray",
-      "Liverpool"
-    ]
-  },
-  {
-    "name": "Batuhan Karadeniz",
-    "aliases": [
-      "Batuhan",
-      "Karadeniz"
-    ],
-    "clubs": [
-      "Beşiktaş",
       "Sivasspor",
-      "Trabzonspor"
-    ]
-  },
-  {
-    "name": "Bayram Bektaş",
-    "aliases": [
-      "Bayram",
-      "Bektaş"
-    ],
-    "clubs": [
-      "Antalyaspor",
-      "Beşiktaş",
-      "Trabzonspor"
-    ]
-  },
-  {
-    "name": "Bebé",
-    "aliases": [],
-    "clubs": [
-      "Beşiktaş",
-      "Manchester United"
-    ]
-  },
-  {
-    "name": "Bekir Gür",
-    "aliases": [
-      "Bekir",
-      "Gür"
-    ],
-    "clubs": [
-      "Başakşehir",
-      "Galatasaray"
-    ]
-  },
-  {
-    "name": "Ben Thatcher",
-    "aliases": [
-      "Ben",
-      "Thatcher"
-    ],
-    "clubs": [
-      "Manchester City",
-      "Tottenham"
-    ]
-  },
-  {
-    "name": "Benito Carbone",
-    "aliases": [
-      "Benito",
-      "Carbone"
-    ],
-    "clubs": [
-      "Inter",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Benjamin Stambouli",
-    "aliases": [
-      "Benjamin",
-      "Stambouli"
-    ],
-    "clubs": [
-      "PSG",
-      "Tottenham"
-    ]
-  },
-  {
-    "name": "Benoît Cauet",
-    "aliases": [
-      "Benoît",
-      "Cauet"
-    ],
-    "clubs": [
-      "Inter",
-      "PSG"
-    ]
-  },
-  {
-    "name": "Berk İsmail Ünsal",
-    "aliases": [
-      "Berk",
-      "İsmail",
-      "Ünsal"
-    ],
-    "clubs": [
-      "Antalyaspor",
-      "Galatasaray"
-    ]
-  },
-  {
-    "name": "Berk Neziroğluları",
-    "aliases": [
-      "Berk",
-      "Neziroğluları"
-    ],
-    "clubs": [
-      "Galatasaray",
-      "Sivasspor"
-    ]
-  },
-  {
-    "name": "Berkant Göktan",
-    "aliases": [
-      "Berkant",
-      "Göktan"
-    ],
-    "clubs": [
-      "Beşiktaş",
-      "Galatasaray"
-    ]
-  },
-  {
-    "name": "Bernardo Corradi",
-    "aliases": [
-      "Bernardo",
-      "Corradi"
-    ],
-    "clubs": [
-      "Inter",
-      "Manchester City"
-    ]
-  },
-  {
-    "name": "Bernardo Poli",
-    "aliases": [
-      "Bernardo",
-      "Poli"
-    ],
-    "clubs": [
-      "Inter",
-      "Milan"
-    ]
-  },
-  {
-    "name": "Bernd Schuster",
-    "aliases": [
-      "Bernd",
-      "Schuster"
-    ],
-    "clubs": [
-      "Atletico Madrid",
-      "Barcelona",
-      "Real Madrid"
-    ]
-  },
-  {
-    "name": "Bert Badger",
-    "aliases": [
-      "Badger",
-      "Bert"
-    ],
-    "clubs": [
-      "Arsenal",
-      "Tottenham"
-    ]
-  },
-  {
-    "name": "Bert Read",
-    "aliases": [
-      "Bert",
-      "Read"
-    ],
-    "clubs": [
-      "Manchester City",
-      "Manchester United"
-    ]
-  },
-  {
-    "name": "Bert Sproston",
-    "aliases": [
-      "Bert",
-      "Sproston"
-    ],
-    "clubs": [
-      "Manchester City",
-      "Tottenham"
-    ]
-  },
-  {
-    "name": "Biagio Bobbio",
-    "aliases": [
-      "Biagio",
-      "Bobbio"
-    ],
-    "clubs": [
-      "Juventus",
-      "Nice"
-    ]
-  },
-  {
-    "name": "Bill Berry",
-    "aliases": [
-      "Berry",
-      "Bill"
-    ],
-    "clubs": [
-      "Manchester United",
-      "Tottenham"
-    ]
-  },
-  {
-    "name": "Bill Dale",
-    "aliases": [
-      "Bill",
-      "Dale"
-    ],
-    "clubs": [
-      "Manchester City",
-      "Manchester United"
-    ]
-  },
-  {
-    "name": "Bill Gorman",
-    "aliases": [
-      "Bill",
-      "Gorman"
-    ],
-    "clubs": [
-      "Liverpool",
-      "Manchester United"
-    ]
-  },
-  {
-    "name": "Bill Julian",
-    "aliases": [
-      "Bill",
-      "Julian"
-    ],
-    "clubs": [
-      "Arsenal",
-      "Tottenham"
-    ]
-  },
-  {
-    "name": "Bill Kinghorn",
-    "aliases": [
-      "Bill",
-      "Kinghorn"
-    ],
-    "clubs": [
-      "Liverpool",
-      "Manchester City"
-    ]
-  },
-  {
-    "name": "Bill Ridding",
-    "aliases": [
-      "Bill",
-      "Ridding"
-    ],
-    "clubs": [
-      "Manchester City",
-      "Manchester United"
-    ]
-  },
-  {
-    "name": "Bill White",
-    "aliases": [
-      "Bill",
-      "White"
-    ],
-    "clubs": [
-      "Arsenal",
-      "Liverpool"
-    ]
-  },
-  {
-    "name": "Billy Blyth",
-    "aliases": [
-      "Billy",
-      "Blyth"
-    ],
-    "clubs": [
-      "Arsenal",
-      "Manchester City"
-    ]
-  },
-  {
-    "name": "Billy Felton",
-    "aliases": [
-      "Billy",
-      "Felton"
-    ],
-    "clubs": [
-      "Manchester City",
-      "Tottenham"
-    ]
-  },
-  {
-    "name": "Billy Koumetio",
-    "aliases": [
-      "Billy",
-      "Koumetio"
-    ],
-    "clubs": [
-      "Liverpool",
-      "Lyon"
-    ]
-  },
-  {
-    "name": "Billy Meredith",
-    "aliases": [
-      "Billy",
-      "Meredith"
-    ],
-    "clubs": [
-      "Manchester City",
-      "Manchester United"
-    ]
-  },
-  {
-    "name": "Billy Minter",
-    "aliases": [
-      "Billy",
-      "Minter"
-    ],
-    "clubs": [
-      "Arsenal",
-      "Tottenham"
-    ]
-  },
-  {
-    "name": "Billy Stewart",
-    "aliases": [
-      "Billy",
-      "Stewart"
-    ],
-    "clubs": [
-      "Barcelona",
-      "Liverpool"
-    ]
-  },
-  {
-    "name": "Billy Walsh",
-    "aliases": [
-      "Billy",
-      "Walsh"
-    ],
-    "clubs": [
-      "Manchester City",
-      "Manchester United"
-    ]
-  },
-  {
-    "name": "Blaise Matuidi",
-    "aliases": [
-      "Blaise",
-      "Matuidi"
-    ],
-    "clubs": [
-      "Juventus",
-      "PSG"
-    ]
-  },
-  {
-    "name": "Bob Milarvie",
-    "aliases": [
-      "Bob",
-      "Milarvie"
-    ],
-    "clubs": [
-      "Manchester City",
-      "Manchester United"
-    ]
-  },
-  {
-    "name": "Bobby Beale",
-    "aliases": [
-      "Beale",
-      "Bobby"
-    ],
-    "clubs": [
-      "Arsenal",
-      "Manchester United"
-    ]
-  },
-  {
-    "name": "Bobby Flavell",
-    "aliases": [
-      "Bobby",
-      "Flavell"
-    ],
-    "clubs": [
-      "Arsenal",
-      "Tottenham"
-    ]
-  },
-  {
-    "name": "Bobby Mimms",
-    "aliases": [
-      "Bobby",
-      "Mimms"
-    ],
-    "clubs": [
-      "Manchester City",
-      "Tottenham"
-    ]
-  },
-  {
-    "name": "Bogdan Lobonț",
-    "aliases": [
-      "Bogdan",
-      "Lobonț"
-    ],
-    "clubs": [
-      "Ajax",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Bojan Krkić",
-    "aliases": [
-      "Bojan",
-      "Krkić"
-    ],
-    "clubs": [
-      "Ajax",
-      "Barcelona",
-      "Milan",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Bora Öztürk",
-    "aliases": [
-      "Bora",
-      "Öztürk"
-    ],
-    "clubs": [
+      "Genclerbirligi",
       "Antalyaspor",
       "Beşiktaş"
     ]
   },
   {
-    "name": "Bora Sevim",
-    "aliases": [
-      "Bora",
-      "Sevim"
-    ],
+    "name": "Aykut Demir",
     "clubs": [
-      "Antalyaspor",
-      "Trabzonspor"
+      "Trabzonspor",
+      "Genclerbirligi"
     ]
   },
   {
-    "name": "Borja Mayoral",
-    "aliases": [
-      "Borja",
-      "Mayoral"
-    ],
-    "clubs": [
-      "Real Madrid",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Borja Valero",
-    "aliases": [
-      "Borja",
-      "Valero"
-    ],
-    "clubs": [
-      "Inter",
-      "Real Madrid"
-    ]
-  },
-  {
-    "name": "Boudewijn Zenden",
-    "aliases": [
-      "Boudewijn",
-      "Zenden"
-    ],
-    "clubs": [
-      "Barcelona",
-      "Liverpool"
-    ]
-  },
-  {
-    "name": "Brad Friedel",
-    "aliases": [
-      "Brad",
-      "Friedel"
-    ],
-    "clubs": [
-      "Galatasaray",
-      "Liverpool",
-      "Tottenham"
-    ]
-  },
-  {
-    "name": "Brian Jackson",
-    "aliases": [
-      "Brian",
-      "Jackson"
-    ],
-    "clubs": [
-      "Arsenal",
-      "Liverpool"
-    ]
-  },
-  {
-    "name": "Brian Kidd",
-    "aliases": [
-      "Brian",
-      "Kidd"
-    ],
-    "clubs": [
-      "Arsenal",
-      "Manchester City",
-      "Manchester United"
-    ]
-  },
-  {
-    "name": "Brian Laudrup",
-    "aliases": [
-      "Brian",
-      "Laudrup"
-    ],
-    "clubs": [
-      "Ajax",
-      "Milan"
-    ]
-  },
-  {
-    "name": "Bruno Génésio",
-    "aliases": [
-      "Bruno",
-      "Génésio"
-    ],
-    "clubs": [
-      "Lyon",
-      "Nice"
-    ]
-  },
-  {
-    "name": "Bruno Mazza",
-    "aliases": [
-      "Bruno",
-      "Mazza"
-    ],
-    "clubs": [
-      "Inter",
-      "Milan"
-    ]
-  },
-  {
-    "name": "Bruno Mora",
-    "aliases": [
-      "Bruno",
-      "Mora"
-    ],
-    "clubs": [
-      "Juventus",
-      "Milan"
-    ]
-  },
-  {
-    "name": "Bruno Ngotty",
-    "aliases": [
-      "Bruno",
-      "Ngotty"
-    ],
-    "clubs": [
-      "Lyon",
-      "Milan",
-      "PSG"
-    ]
-  },
-  {
-    "name": "Bruno Nicolè",
-    "aliases": [
-      "Bruno",
-      "Nicolè"
-    ],
-    "clubs": [
-      "Juventus",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Bryan Cristante",
-    "aliases": [
-      "Bryan",
-      "Cristante"
-    ],
-    "clubs": [
-      "Milan",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Bryan Rabello",
-    "aliases": [
-      "Bryan",
-      "Rabello"
-    ],
-    "clubs": [
-      "Real Madrid",
-      "Sevilla"
-    ]
-  },
-  {
-    "name": "Burak Akdiş",
-    "aliases": [
-      "Akdiş",
-      "Burak"
-    ],
-    "clubs": [
-      "Galatasaray",
-      "Sivasspor"
-    ]
-  },
-  {
-    "name": "Burak Yılmaz",
-    "aliases": [
-      "Burak",
-      "Yılmaz",
-      "Yilmaz"
-    ],
-    "clubs": [
-      "Beşiktaş",
-      "Fenerbahçe",
-      "Galatasaray",
-      "Lille",
-      "Trabzonspor"
-    ]
-  },
-  {
-    "name": "Bülent Ataman",
-    "aliases": [
-      "Ataman",
-      "Bülent"
-    ],
-    "clubs": [
-      "Beşiktaş",
-      "Trabzonspor"
-    ]
-  },
-  {
-    "name": "Bülent Uygun",
-    "aliases": [
-      "Bülent",
-      "Uygun"
-    ],
+    "name": "Aykut Öztürk",
     "clubs": [
       "Sivasspor",
-      "Trabzonspor"
+      "Konyaspor"
     ]
   },
   {
-    "name": "Caesar Jenkyns",
-    "aliases": [
-      "Caesar",
-      "Jenkyns"
-    ],
+    "name": "Ayman Abdelaziz",
+    "clubs": [
+      "Konyaspor",
+      "Trabzonspor",
+      "Genclerbirligi"
+    ]
+  },
+  {
+    "name": "Aytaç Kara",
+    "clubs": [
+      "Trabzonspor",
+      "Galatasaray"
+    ]
+  },
+  {
+    "name": "Aziz Behich",
+    "clubs": [
+      "Kayserispor",
+      "Başakşehir"
+    ]
+  },
+  {
+    "name": "Bacary Sagna",
     "clubs": [
       "Arsenal",
-      "Manchester United"
+      "Man City"
     ]
   },
   {
-    "name": "Cafer Aydın",
-    "aliases": [
-      "Aydın",
-      "Cafer"
-    ],
+    "name": "Badou Ndiaye",
     "clubs": [
-      "Antalyaspor",
-      "Kayserispor"
-    ]
-  },
-  {
-    "name": "Cafercan Aksu",
-    "aliases": [
-      "Aksu",
-      "Cafercan"
-    ],
-    "clubs": [
-      "Başakşehir",
+      "Trabzonspor",
       "Galatasaray"
     ]
   },
   {
-    "name": "Cafu",
-    "aliases": [],
+    "name": "Bahadır Güngördü",
     "clubs": [
-      "Milan",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Camille Abily",
-    "aliases": [
-      "Abily",
-      "Camille"
-    ],
-    "clubs": [
-      "Lyon",
-      "PSG"
-    ]
-  },
-  {
-    "name": "Can Arat",
-    "aliases": [
-      "Arat",
-      "Can"
-    ],
-    "clubs": [
-      "Antalyaspor",
-      "Başakşehir",
-      "Sivasspor"
-    ]
-  },
-  {
-    "name": "Canário",
-    "aliases": [],
-    "clubs": [
-      "Real Madrid",
-      "Sevilla"
-    ]
-  },
-  {
-    "name": "Caner Erkin",
-    "aliases": [
-      "caner",
-      "Caner",
-      "erkin",
-      "Erkin"
-    ],
-    "clubs": [
-      "Başakşehir",
-      "Beşiktaş",
-      "Fenerbahçe",
-      "Galatasaray",
-      "Inter"
-    ]
-  },
-  {
-    "name": "Carl Medjani",
-    "aliases": [
-      "Carl",
-      "Medjani"
-    ],
-    "clubs": [
-      "Liverpool",
+      "Konyaspor",
       "Trabzonspor"
     ]
   },
   {
-    "name": "Carlo Ancelotti",
-    "aliases": [
-      "Ancelotti",
-      "Carlo"
-    ],
+    "name": "Baki Mercimek",
     "clubs": [
-      "Milan",
-      "Roma"
+      "Genclerbirligi",
+      "Beşiktaş"
     ]
   },
   {
-    "name": "Carlo Ceresoli",
-    "aliases": [
-      "Carlo",
-      "Ceresoli"
-    ],
+    "name": "Baran Aksaka",
     "clubs": [
-      "Inter",
-      "Juventus"
+      "Genclerbirligi",
+      "Galatasaray"
     ]
   },
   {
-    "name": "Carlo Cevenini",
-    "aliases": [
-      "Carlo",
-      "Cevenini"
-    ],
+    "name": "Bartuğ Elmaz",
     "clubs": [
-      "Inter",
-      "Milan"
+      "Sivasspor",
+      "Fenerbahçe",
+      "Galatasaray"
     ]
   },
   {
-    "name": "Carlo Cudicini",
-    "aliases": [
-      "Carlo",
-      "Cudicini"
-    ],
-    "clubs": [
-      "Milan",
-      "Tottenham"
-    ]
-  },
-  {
-    "name": "Carlo Galli",
-    "aliases": [
-      "Carlo",
-      "Galli"
-    ],
-    "clubs": [
-      "Milan",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Carlo Hopf",
-    "aliases": [
-      "Carlo",
-      "Hopf"
-    ],
-    "clubs": [
-      "Inter",
-      "Milan"
-    ]
-  },
-  {
-    "name": "Carlo Payer",
-    "aliases": [
-      "Carlo",
-      "Payer"
-    ],
-    "clubs": [
-      "Inter",
-      "Juventus"
-    ]
-  },
-  {
-    "name": "Carlo Petrini",
-    "aliases": [
-      "Carlo",
-      "Petrini"
-    ],
-    "clubs": [
-      "Milan",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Carlo Villa",
-    "aliases": [
-      "Carlo",
-      "Villa"
-    ],
-    "clubs": [
-      "Inter",
-      "Milan"
-    ]
-  },
-  {
-    "name": "Carlos Antonio Muñoz Cobo",
-    "aliases": [
-      "Antonio",
-      "Carlos",
-      "Cobo",
-      "Muñoz"
-    ],
-    "clubs": [
-      "Atletico Madrid",
-      "Barcelona"
-    ]
-  },
-  {
-    "name": "Carlos Aranda",
-    "aliases": [
-      "Aranda",
-      "Carlos"
-    ],
-    "clubs": [
-      "Real Madrid",
-      "Sevilla"
-    ]
-  },
-  {
-    "name": "Carlos Gamarra",
-    "aliases": [
-      "Carlos",
-      "Gamarra"
-    ],
-    "clubs": [
-      "Atletico Madrid",
-      "Inter"
-    ]
-  },
-  {
-    "name": "Carlos Tevez",
-    "aliases": [
-      "Carlos",
-      "Tevez"
-    ],
-    "clubs": [
-      "Juventus",
-      "Manchester City",
-      "Manchester United"
-    ]
-  },
-  {
-    "name": "Casemiro",
-    "aliases": [],
-    "clubs": [
-      "Manchester United",
-      "Real Madrid"
-    ]
-  },
-  {
-    "name": "Celestino Celio",
-    "aliases": [
-      "Celestino",
-      "Celio"
-    ],
-    "clubs": [
-      "Inter",
-      "Milan",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Celso Battaia",
-    "aliases": [
-      "Battaia",
-      "Celso"
-    ],
-    "clubs": [
-      "Inter",
-      "Milan"
-    ]
-  },
-  {
-    "name": "Cem Can",
-    "aliases": [
-      "Can",
-      "Cem"
-    ],
+    "name": "Barış Bayram",
     "clubs": [
       "Kayserispor",
-      "Sivasspor"
+      "Antalyaspor"
     ]
   },
   {
-    "name": "Cem Karaca",
-    "aliases": [
-      "Cem",
-      "Karaca"
-    ],
+    "name": "Barış Sağır",
+    "clubs": [
+      "Konyaspor",
+      "Antalyaspor"
+    ]
+  },
+  {
+    "name": "Barış Özbek",
     "clubs": [
       "Kayserispor",
-      "Sivasspor"
+      "Trabzonspor",
+      "Galatasaray"
     ]
   },
   {
-    "name": "Cem Sultan",
-    "aliases": [
-      "Cem",
-      "Sultan"
-    ],
+    "name": "Bastian Schweinsteiger",
     "clubs": [
-      "Galatasaray",
-      "Kayserispor"
+      "Man Utd",
+      "Bayern Munich"
     ]
   },
   {
-    "name": "Cemil Canalioğlu",
-    "aliases": [
-      "Canalioğlu",
-      "Cemil"
-    ],
+    "name": "Batuhan Karadeniz",
     "clubs": [
+      "Sivasspor",
+      "Trabzonspor",
+      "Beşiktaş"
+    ]
+  },
+  {
+    "name": "Bayram Bektaş",
+    "clubs": [
+      "Konyaspor",
+      "Trabzonspor",
       "Antalyaspor",
+      "Beşiktaş"
+    ]
+  },
+  {
+    "name": "Bebe",
+    "clubs": [
+      "Beşiktaş",
+      "Benfica",
+      "Man Utd"
+    ]
+  },
+  {
+    "name": "Bekir Akın",
+    "clubs": [
+      "Fenerbahçe",
+      "Başakşehir"
+    ]
+  },
+  {
+    "name": "Bekir İrtegün",
+    "clubs": [
+      "Fenerbahçe",
+      "Başakşehir"
+    ]
+  },
+  {
+    "name": "Ben Davies",
+    "clubs": [
+      "Tottenham",
+      "Liverpool"
+    ]
+  },
+  {
+    "name": "Ben Rienstra",
+    "clubs": [
+      "Kayserispor",
+      "Ajax"
+    ]
+  },
+  {
+    "name": "Benik Afobe",
+    "clubs": [
+      "Arsenal",
       "Trabzonspor"
     ]
   },
   {
-    "name": "Cengiz Ünder",
-    "aliases": [
-      "cengiz",
-      "Cengiz",
-      "under",
-      "Under",
-      "Ünder"
-    ],
+    "name": "Benjamin Pavard",
     "clubs": [
-      "Başakşehir",
-      "Beşiktaş",
-      "Fenerbahçe",
-      "Marseille",
-      "Roma"
+      "Inter",
+      "Bayern Munich"
     ]
   },
   {
-    "name": "Cengizhan Hınçal",
-    "aliases": [
-      "Cengizhan",
-      "Hınçal"
-    ],
+    "name": "Benjamin Tahirovic",
+    "clubs": [
+      "AS Roma",
+      "Ajax"
+    ]
+  },
+  {
+    "name": "Benni McCarthy",
+    "clubs": [
+      "FC Porto",
+      "Ajax"
+    ]
+  },
+  {
+    "name": "Benny",
+    "clubs": [
+      "FC Porto",
+      "Benfica"
+    ]
+  },
+  {
+    "name": "Benny Carbone",
+    "clubs": [
+      "Inter",
+      "Napoli"
+    ]
+  },
+  {
+    "name": "Berat Özdemir",
+    "clubs": [
+      "Başakşehir",
+      "Trabzonspor",
+      "Genclerbirligi"
+    ]
+  },
+  {
+    "name": "Berk Can Yıldızlı",
     "clubs": [
       "Galatasaray",
-      "Kayserispor"
+      "Beşiktaş"
     ]
   },
   {
-    "name": "Cenk Ahmet Alkılıç",
-    "aliases": [
-      "Ahmet",
-      "Alkılıç",
-      "Cenk"
-    ],
-    "clubs": [
-      "Başakşehir",
-      "Galatasaray"
-    ]
-  },
-  {
-    "name": "Cenk Gönen",
-    "aliases": [
-      "Cenk",
-      "Gönen"
-    ],
-    "clubs": [
-      "Beşiktaş",
-      "Galatasaray"
-    ]
-  },
-  {
-    "name": "Cenk İşler",
-    "aliases": [
-      "Cenk",
-      "İşler"
-    ],
+    "name": "Berk Ünsal",
     "clubs": [
       "Antalyaspor",
       "Galatasaray"
     ]
   },
   {
-    "name": "Cenk Tosun",
-    "aliases": [
-      "cenk",
-      "Cenk",
-      "tosun",
-      "Tosun"
-    ],
+    "name": "Berkan Emir",
     "clubs": [
+      "Kayserispor",
+      "Beşiktaş"
+    ]
+  },
+  {
+    "name": "Berkay Değirmencioğlu",
+    "clubs": [
+      "Kayserispor",
+      "Fenerbahçe",
+      "Denizlispor"
+    ]
+  },
+  {
+    "name": "Berkay Sefa Kara",
+    "clubs": [
+      "Fenerbahçe",
+      "Trabzonspor"
+    ]
+  },
+  {
+    "name": "Bernard Mensah",
+    "clubs": [
+      "Kayserispor",
       "Beşiktaş",
-      "Everton",
+      "Atletico Madrid"
+    ]
+  },
+  {
+    "name": "Bernardo Corradi",
+    "clubs": [
+      "Inter",
+      "Man City"
+    ]
+  },
+  {
+    "name": "Bernardo Silva",
+    "clubs": [
+      "Benfica",
+      "Man City"
+    ]
+  },
+  {
+    "name": "Bertrand Traore",
+    "clubs": [
+      "Chelsea",
+      "Başakşehir",
+      "Ajax"
+    ]
+  },
+  {
+    "name": "Bertuğ Yıldırım",
+    "clubs": [
+      "Başakşehir",
+      "Antalyaspor"
+    ]
+  },
+  {
+    "name": "Beto",
+    "clubs": [
+      "FC Porto",
+      "Benfica"
+    ]
+  },
+  {
+    "name": "Beyhan Sümer",
+    "clubs": [
+      "Kayserispor",
+      "Genclerbirligi"
+    ]
+  },
+  {
+    "name": "Beykan Şimşek",
+    "clubs": [
+      "Sivasspor",
       "Fenerbahçe"
     ]
   },
   {
-    "name": "César Gómez",
-    "aliases": [
-      "César",
-      "Gómez"
-    ],
+    "name": "Bilal Aziz Özer",
     "clubs": [
-      "Real Madrid",
-      "Roma"
+      "Kayserispor",
+      "Konyaspor"
     ]
   },
   {
-    "name": "César Prates",
-    "aliases": [
-      "César",
-      "Prates"
-    ],
+    "name": "Bilal Bayazıt",
     "clubs": [
-      "Galatasaray",
+      "Kayserispor",
+      "Ajax"
+    ]
+  },
+  {
+    "name": "Bilal Başaçıkoğlu",
+    "clubs": [
+      "Kayserispor",
+      "Trabzonspor",
+      "Ajax"
+    ]
+  },
+  {
+    "name": "Bilal Kısa",
+    "clubs": [
+      "Fenerbahçe",
+      "Galatasaray"
+    ]
+  },
+  {
+    "name": "Billy Gilmour",
+    "clubs": [
+      "Chelsea",
+      "Napoli"
+    ]
+  },
+  {
+    "name": "Birol Demirhan",
+    "clubs": [
+      "Kayserispor",
+      "Konyaspor"
+    ]
+  },
+  {
+    "name": "Bobby Adekanye",
+    "clubs": [
+      "Ajax",
+      "Liverpool"
+    ]
+  },
+  {
+    "name": "Bobby Duncan",
+    "clubs": [
+      "Liverpool",
+      "Man City"
+    ]
+  },
+  {
+    "name": "BobÃ´",
+    "clubs": [
+      "Kayserispor",
+      "Beşiktaş"
+    ]
+  },
+  {
+    "name": "Bogdan Stancu",
+    "clubs": [
+      "Genclerbirligi",
+      "Galatasaray"
+    ]
+  },
+  {
+    "name": "Bojan Krkic",
+    "clubs": [
+      "Barcelona",
+      "AC Milan",
+      "AS Roma",
+      "Ajax"
+    ]
+  },
+  {
+    "name": "Boris Rapaic",
+    "clubs": [
+      "Fenerbahçe",
+      "Inter"
+    ]
+  },
+  {
+    "name": "Borja Mayoral",
+    "clubs": [
+      "AS Roma",
       "Real Madrid"
     ]
   },
   {
-    "name": "César Sánchez",
-    "aliases": [
-      "César",
-      "Sánchez"
-    ],
+    "name": "Borja Valero",
     "clubs": [
       "Real Madrid",
+      "Inter"
+    ]
+  },
+  {
+    "name": "Brad Friedel",
+    "clubs": [
+      "Tottenham",
+      "Galatasaray",
+      "Liverpool"
+    ]
+  },
+  {
+    "name": "Brahim Darri",
+    "clubs": [
+      "Denizlispor",
+      "Ajax"
+    ]
+  },
+  {
+    "name": "Brahim Diaz",
+    "clubs": [
+      "AC Milan",
+      "Real Madrid",
+      "Man City"
+    ]
+  },
+  {
+    "name": "Bright Arrey-Mbi",
+    "clubs": [
+      "Chelsea",
+      "Bayern Munich"
+    ]
+  },
+  {
+    "name": "Bruma",
+    "clubs": [
+      "Fenerbahçe",
+      "Galatasaray",
+      "Benfica"
+    ]
+  },
+  {
+    "name": "Bruno Alves",
+    "clubs": [
+      "FC Porto",
+      "Fenerbahçe"
+    ]
+  },
+  {
+    "name": "Bruno Costa",
+    "clubs": [
+      "FC Porto",
+      "Benfica"
+    ]
+  },
+  {
+    "name": "Bruno Peres",
+    "clubs": [
+      "Trabzonspor",
+      "AS Roma"
+    ]
+  },
+  {
+    "name": "Bruno Silva",
+    "clubs": [
+      "FC Porto",
+      "Ajax"
+    ]
+  },
+  {
+    "name": "Bruno Varela",
+    "clubs": [
+      "Ajax",
+      "Benfica"
+    ]
+  },
+  {
+    "name": "Bryan Cristante",
+    "clubs": [
+      "AC Milan",
+      "AS Roma",
+      "Benfica"
+    ]
+  },
+  {
+    "name": "Burak Akdiş",
+    "clubs": [
+      "Kayserispor",
+      "Sivasspor",
+      "Galatasaray"
+    ]
+  },
+  {
+    "name": "Burak Kapacak",
+    "clubs": [
+      "Kayserispor",
+      "Sivasspor",
+      "Fenerbahçe"
+    ]
+  },
+  {
+    "name": "Burak Karaduman",
+    "clubs": [
+      "Konyaspor",
+      "Denizlispor"
+    ]
+  },
+  {
+    "name": "Burak Yılmaz",
+    "clubs": [
+      "Fenerbahçe",
+      "Trabzonspor",
+      "Antalyaspor",
+      "Galatasaray",
+      "Beşiktaş"
+    ]
+  },
+  {
+    "name": "Burhan Eşer",
+    "clubs": [
+      "Sivasspor",
+      "Genclerbirligi"
+    ]
+  },
+  {
+    "name": "Buğra Çağıran",
+    "clubs": [
+      "Trabzonspor",
+      "Genclerbirligi"
+    ]
+  },
+  {
+    "name": "Bülent Bölükbaşı",
+    "clubs": [
+      "Kayserispor",
+      "Konyaspor"
+    ]
+  },
+  {
+    "name": "Bülent Karaman",
+    "clubs": [
+      "Kayserispor",
+      "Genclerbirligi"
+    ]
+  },
+  {
+    "name": "Cafu",
+    "clubs": [
+      "AC Milan",
+      "AS Roma",
+      "Benfica"
+    ]
+  },
+  {
+    "name": "Caio Ribeiro",
+    "clubs": [
+      "Inter",
+      "Napoli"
+    ]
+  },
+  {
+    "name": "Can Erdem",
+    "clubs": [
+      "Denizlispor",
+      "Beşiktaş"
+    ]
+  },
+  {
+    "name": "Caner Erkin",
+    "clubs": [
+      "Fenerbahçe",
+      "Başakşehir",
+      "Galatasaray",
+      "Beşiktaş",
+      "Inter"
+    ]
+  },
+  {
+    "name": "Caner Osmanpaşa",
+    "clubs": [
+      "Sivasspor",
+      "Trabzonspor",
+      "Denizlispor"
+    ]
+  },
+  {
+    "name": "Caner Yılmaz",
+    "clubs": [
+      "Sivasspor",
+      "Antalyaspor"
+    ]
+  },
+  {
+    "name": "Carl Medjani",
+    "clubs": [
+      "Sivasspor",
+      "Trabzonspor",
+      "Liverpool"
+    ]
+  },
+  {
+    "name": "Carles Perez",
+    "clubs": [
+      "Barcelona",
+      "AS Roma"
+    ]
+  },
+  {
+    "name": "Carlo Cudicini",
+    "clubs": [
+      "Chelsea",
       "Tottenham"
     ]
   },
   {
-    "name": "Cesare Cevenini",
-    "aliases": [
-      "Cesare",
-      "Cevenini"
-    ],
+    "name": "Carlos Forbs",
     "clubs": [
-      "Inter",
-      "Milan"
+      "Ajax",
+      "Man City"
     ]
   },
   {
-    "name": "Cesare Valinasso",
-    "aliases": [
-      "Cesare",
-      "Valinasso"
-    ],
+    "name": "Carlos Gamarra",
+    "clubs": [
+      "Atletico Madrid",
+      "Inter",
+      "Benfica"
+    ]
+  },
+  {
+    "name": "Carlos Sanchez",
+    "clubs": [
+      "Real Madrid",
+      "Liverpool"
+    ]
+  },
+  {
+    "name": "Carlos Tevez",
     "clubs": [
       "Juventus",
-      "Roma"
+      "Man Utd",
+      "Man City"
     ]
   },
   {
-    "name": "Cesc Fàbregas",
-    "aliases": [
-      "Cesc",
-      "Fàbregas"
-    ],
+    "name": "Carlos Vinicius",
     "clubs": [
+      "Tottenham",
+      "Galatasaray",
+      "Napoli",
+      "Benfica"
+    ]
+  },
+  {
+    "name": "Carney Chukwuemeka",
+    "clubs": [
+      "Bor. Dortmund",
+      "Chelsea"
+    ]
+  },
+  {
+    "name": "Casemiro",
+    "clubs": [
+      "FC Porto",
+      "Real Madrid",
+      "Man Utd"
+    ]
+  },
+  {
+    "name": "Cedric Soares",
+    "clubs": [
+      "Arsenal",
+      "Inter"
+    ]
+  },
+  {
+    "name": "Cedric van der Gun",
+    "clubs": [
+      "Bor. Dortmund",
+      "Ajax"
+    ]
+  },
+  {
+    "name": "Celaleddin Koçak",
+    "clubs": [
+      "Konyaspor",
+      "Trabzonspor"
+    ]
+  },
+  {
+    "name": "Cem Can",
+    "clubs": [
+      "Kayserispor",
+      "Sivasspor",
+      "Genclerbirligi"
+    ]
+  },
+  {
+    "name": "Cem Sultan",
+    "clubs": [
+      "Kayserispor",
+      "Galatasaray"
+    ]
+  },
+  {
+    "name": "Cemal Taşlı",
+    "clubs": [
+      "Antalyaspor",
+      "Galatasaray"
+    ]
+  },
+  {
+    "name": "Cemali Sertel",
+    "clubs": [
+      "Başakşehir",
+      "Antalyaspor"
+    ]
+  },
+  {
+    "name": "Cengiz Ünder",
+    "clubs": [
+      "Fenerbahçe",
+      "Başakşehir",
+      "Beşiktaş",
+      "AS Roma"
+    ]
+  },
+  {
+    "name": "Cenk Gönen",
+    "clubs": [
+      "Kayserispor",
+      "Denizlispor",
+      "Galatasaray",
+      "Beşiktaş"
+    ]
+  },
+  {
+    "name": "Cenk Tosun",
+    "clubs": [
+      "Fenerbahçe",
+      "Beşiktaş"
+    ]
+  },
+  {
+    "name": "Cenk Şahin",
+    "clubs": [
+      "Kayserispor",
+      "Başakşehir"
+    ]
+  },
+  {
+    "name": "Cesar Azpilicueta",
+    "clubs": [
+      "Chelsea",
+      "Atletico Madrid"
+    ]
+  },
+  {
+    "name": "Cesar Sanchez",
+    "clubs": [
+      "Tottenham",
+      "Real Madrid"
+    ]
+  },
+  {
+    "name": "Cesare Casadei",
+    "clubs": [
+      "Chelsea",
+      "Inter"
+    ]
+  },
+  {
+    "name": "Cesc FÃ bregas",
+    "clubs": [
+      "Chelsea",
       "Arsenal",
       "Barcelona"
     ]
   },
   {
     "name": "Ceyhun Eriş",
-    "aliases": [
-      "Ceyhun",
-      "Eriş"
-    ],
     "clubs": [
-      "Galatasaray",
       "Sivasspor",
-      "Trabzonspor"
-    ]
-  },
-  {
-    "name": "Ceyhun Gülselam",
-    "aliases": [
-      "Ceyhun",
-      "Gülselam"
-    ],
-    "clubs": [
-      "Galatasaray",
-      "Kayserispor",
-      "Trabzonspor"
-    ]
-  },
-  {
-    "name": "Charles Ambler",
-    "aliases": [
-      "Ambler",
-      "Charles"
-    ],
-    "clubs": [
-      "Arsenal",
-      "Tottenham"
-    ]
-  },
-  {
-    "name": "Charlie Hewitt",
-    "aliases": [
-      "Charlie",
-      "Hewitt"
-    ],
-    "clubs": [
-      "Liverpool",
-      "Tottenham"
-    ]
-  },
-  {
-    "name": "Charlie Satterthwaite",
-    "aliases": [
-      "Charlie",
-      "Satterthwaite"
-    ],
-    "clubs": [
-      "Arsenal",
-      "Liverpool"
-    ]
-  },
-  {
-    "name": "Charlie Williams",
-    "aliases": [
-      "Charlie",
-      "Williams"
-    ],
-    "clubs": [
-      "Arsenal",
-      "Manchester City",
-      "Tottenham"
-    ]
-  },
-  {
-    "name": "Chedric Seedorf",
-    "aliases": [
-      "Chedric",
-      "Seedorf"
-    ],
-    "clubs": [
-      "Ajax",
-      "Inter",
-      "Milan",
-      "Real Madrid"
-    ]
-  },
-  {
-    "name": "Chris Jones",
-    "aliases": [
-      "Chris",
-      "Jones"
-    ],
-    "clubs": [
-      "Manchester City",
-      "Tottenham"
-    ]
-  },
-  {
-    "name": "Chris Mavinga",
-    "aliases": [
-      "Chris",
-      "Mavinga"
-    ],
-    "clubs": [
-      "Liverpool",
-      "PSG"
-    ]
-  },
-  {
-    "name": "Chris McGrath",
-    "aliases": [
-      "Chris",
-      "McGrath"
-    ],
-    "clubs": [
-      "Manchester United",
-      "Tottenham"
-    ]
-  },
-  {
-    "name": "Christian Abbiati",
-    "aliases": [
-      "Abbiati",
-      "Christian"
-    ],
-    "clubs": [
-      "Atletico Madrid",
-      "Juventus",
-      "Milan"
-    ]
-  },
-  {
-    "name": "Christian Brüls",
-    "aliases": [
-      "Brüls",
-      "Christian"
-    ],
-    "clubs": [
-      "Nice",
-      "Trabzonspor"
-    ]
-  },
-  {
-    "name": "Christian Corrêa Dionisio",
-    "aliases": [
-      "Christian",
-      "Corrêa",
-      "Dionisio"
-    ],
-    "clubs": [
-      "Galatasaray",
-      "PSG"
-    ]
-  },
-  {
-    "name": "Christian Dannemann Eriksen",
-    "aliases": [
-      "christian",
-      "Christian",
-      "dannemann",
-      "Dannemann",
-      "eriksen",
-      "Eriksen"
-    ],
-    "clubs": [
-      "Ajax",
-      "Inter",
-      "Manchester United",
-      "Tottenham"
-    ]
-  },
-  {
-    "name": "Christian Mate Pulišić",
-    "aliases": [
-      "christian",
-      "Christian",
-      "mate",
-      "Mate",
-      "pulisic",
-      "Pulisic",
-      "Pulišić"
-    ],
-    "clubs": [
-      "Chelsea",
-      "Milan"
-    ]
-  },
-  {
-    "name": "Christian Panucci",
-    "aliases": [
-      "Christian",
-      "Panucci"
-    ],
-    "clubs": [
-      "Inter",
-      "Milan",
-      "Real Madrid",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Christian Poulsen",
-    "aliases": [
-      "Christian",
-      "Poulsen"
-    ],
-    "clubs": [
-      "Ajax",
-      "Juventus",
-      "Liverpool",
-      "Sevilla"
-    ]
-  },
-  {
-    "name": "Christian Vieri",
-    "aliases": [
-      "Christian",
-      "Vieri"
-    ],
-    "clubs": [
-      "Atletico Madrid",
-      "Inter",
-      "Juventus",
-      "Milan"
-    ]
-  },
-  {
-    "name": "Christian Ziege",
-    "aliases": [
-      "Christian",
-      "Ziege"
-    ],
-    "clubs": [
-      "Liverpool",
-      "Milan",
-      "Tottenham"
-    ]
-  },
-  {
-    "name": "Christophe Dugarry",
-    "aliases": [
-      "Christophe",
-      "Dugarry"
-    ],
-    "clubs": [
-      "Barcelona",
-      "Milan"
-    ]
-  },
-  {
-    "name": "Christophe Jallet",
-    "aliases": [
-      "Christophe",
-      "Jallet"
-    ],
-    "clubs": [
-      "Lyon",
-      "Nice",
-      "PSG"
-    ]
-  },
-  {
-    "name": "Christopher Kanu",
-    "aliases": [
-      "Christopher",
-      "Kanu"
-    ],
-    "clubs": [
-      "Ajax",
-      "Inter"
-    ]
-  },
-  {
-    "name": "Christopher Lloyd Smalling",
-    "aliases": [
-      "christopher",
-      "Christopher",
-      "lloyd",
-      "Lloyd",
-      "smalling",
-      "Smalling"
-    ],
-    "clubs": [
-      "Manchester United",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Christopher Ohen",
-    "aliases": [
-      "Christopher",
-      "Ohen"
-    ],
-    "clubs": [
-      "Beşiktaş",
-      "Real Madrid"
-    ]
-  },
-  {
-    "name": "Cicinho",
-    "aliases": [],
-    "clubs": [
-      "Real Madrid",
-      "Roma",
-      "Sivasspor"
-    ]
-  },
-  {
-    "name": "Cihan Haspolatlı",
-    "aliases": [
-      "Cihan",
-      "Haspolatlı"
-    ],
-    "clubs": [
-      "Başakşehir",
+      "Konyaspor",
+      "Fenerbahçe",
+      "Trabzonspor",
+      "Genclerbirligi",
+      "Denizlispor",
       "Galatasaray"
     ]
   },
   {
-    "name": "Cihat Arslan",
-    "aliases": [
-      "Arslan",
-      "Cihat"
-    ],
+    "name": "Ceyhun Gülselam",
     "clubs": [
-      "Başakşehir",
-      "Galatasaray",
-      "Kayserispor"
+      "Kayserispor",
+      "Trabzonspor",
+      "Galatasaray"
     ]
   },
   {
-    "name": "Cinzio Scagliotti",
-    "aliases": [
-      "Cinzio",
-      "Scagliotti"
-    ],
+    "name": "Charlie McNeill",
     "clubs": [
-      "Juventus",
-      "Milan"
+      "Liverpool",
+      "Man Utd",
+      "Man City"
     ]
   },
   {
-    "name": "Ciprian Tătărușanu",
-    "aliases": [
-      "Ciprian",
-      "Tătărușanu"
-    ],
-    "clubs": [
-      "Lyon",
-      "Milan"
-    ]
-  },
-  {
-    "name": "Ciro Immobile",
-    "aliases": [
-      "ciro",
-      "Ciro",
-      "Immobile",
-      "immobile"
-    ],
+    "name": "Cher Ndour",
     "clubs": [
       "Beşiktaş",
-      "Juventus",
-      "Sevilla"
+      "Benfica"
     ]
   },
   {
-    "name": "Clarence Seedorf",
-    "aliases": [
-      "Clarence",
-      "Seedorf"
-    ],
+    "name": "Chicharito",
     "clubs": [
+      "Real Madrid",
+      "Man Utd"
+    ]
+  },
+  {
+    "name": "Chico",
+    "clubs": [
+      "FC Porto",
+      "Antalyaspor"
+    ]
+  },
+  {
+    "name": "Chido Obi",
+    "clubs": [
+      "Arsenal",
+      "Man Utd"
+    ]
+  },
+  {
+    "name": "Chiquinho",
+    "clubs": [
+      "Inter",
+      "Benfica"
+    ]
+  },
+  {
+    "name": "Chris Smalling",
+    "clubs": [
+      "AS Roma",
+      "Man Utd"
+    ]
+  },
+  {
+    "name": "Christian Abbiati",
+    "clubs": [
+      "Juventus",
+      "AC Milan",
+      "Atletico Madrid"
+    ]
+  },
+  {
+    "name": "Christian Eriksen",
+    "clubs": [
+      "Tottenham",
       "Ajax",
       "Inter",
-      "Milan",
+      "Man Utd"
+    ]
+  },
+  {
+    "name": "Christian Luyindama",
+    "clubs": [
+      "Antalyaspor",
+      "Galatasaray"
+    ]
+  },
+  {
+    "name": "Christian Panucci",
+    "clubs": [
+      "Chelsea",
+      "AS Roma",
+      "Real Madrid",
+      "Inter"
+    ]
+  },
+  {
+    "name": "Christian Poulsen",
+    "clubs": [
+      "Juventus",
+      "Ajax",
+      "Liverpool"
+    ]
+  },
+  {
+    "name": "Christian Pulisic",
+    "clubs": [
+      "Bor. Dortmund",
+      "Chelsea",
+      "AC Milan"
+    ]
+  },
+  {
+    "name": "Christian Vieri",
+    "clubs": [
+      "Juventus",
+      "AC Milan",
+      "Atletico Madrid",
+      "Inter"
+    ]
+  },
+  {
+    "name": "Christopher Lungoyi",
+    "clubs": [
+      "Juventus",
+      "FC Porto"
+    ]
+  },
+  {
+    "name": "Christopher Nkunku",
+    "clubs": [
+      "Chelsea",
+      "AC Milan",
+      "PSG"
+    ]
+  },
+  {
+    "name": "Chuba Akpom",
+    "clubs": [
+      "Arsenal",
+      "Ajax"
+    ]
+  },
+  {
+    "name": "Cicinho",
+    "clubs": [
+      "Sivasspor",
+      "AS Roma",
       "Real Madrid"
     ]
   },
   {
-    "name": "Claude Makelélé",
-    "aliases": [
-      "Claude",
-      "Makelélé"
-    ],
+    "name": "Ciro Ferrara",
     "clubs": [
-      "PSG",
+      "Juventus",
+      "Napoli"
+    ]
+  },
+  {
+    "name": "Ciro Immobile",
+    "clubs": [
+      "Bor. Dortmund",
+      "Juventus",
+      "Beşiktaş"
+    ]
+  },
+  {
+    "name": "Clarence Seedorf",
+    "clubs": [
+      "AC Milan",
+      "Ajax",
+      "Real Madrid",
+      "Inter"
+    ]
+  },
+  {
+    "name": "Claude Makelele",
+    "clubs": [
+      "Chelsea",
       "Real Madrid"
     ]
   },
   {
     "name": "Claudio Bravo",
-    "aliases": [
-      "Bravo",
-      "Claudio"
-    ],
     "clubs": [
       "Barcelona",
-      "Manchester City"
+      "Man City"
     ]
   },
   {
-    "name": "Clément Grenier",
-    "aliases": [
-      "Clément",
-      "Grenier"
-    ],
+    "name": "Claudio Gomes",
     "clubs": [
-      "Lyon",
-      "Roma"
+      "PSG",
+      "Man City"
     ]
   },
   {
-    "name": "Clément Nicolas Laurent Lenglet",
-    "aliases": [
-      "clement",
-      "Clément",
-      "laurent",
-      "Laurent",
-      "lenglet",
-      "Lenglet",
-      "nicolas",
-      "Nicolas"
-    ],
+    "name": "Claudio Pizarro",
     "clubs": [
+      "Chelsea",
+      "Bayern Munich"
+    ]
+  },
+  {
+    "name": "Clement Grenier",
+    "clubs": [
+      "AS Roma",
+      "Olymp. Lyon"
+    ]
+  },
+  {
+    "name": "Clement Lenglet",
+    "clubs": [
+      "Tottenham",
       "Barcelona",
-      "Sevilla",
-      "Tottenham"
+      "Atletico Madrid"
     ]
   },
   {
-    "name": "Clinton Njie",
-    "aliases": [
-      "Clinton",
-      "Njie"
-    ],
+    "name": "Cole Palmer",
     "clubs": [
-      "Lyon",
-      "Sivasspor",
-      "Tottenham"
+      "Chelsea",
+      "Man City"
     ]
   },
   {
-    "name": "Clive Allen",
-    "aliases": [
-      "Allen",
-      "Clive"
-    ],
+    "name": "Colin Kazım-Richards",
     "clubs": [
       "Arsenal",
-      "Manchester City",
-      "Tottenham"
-    ]
-  },
-  {
-    "name": "Clive Wilson",
-    "aliases": [
-      "Clive",
-      "Wilson"
-    ],
-    "clubs": [
-      "Manchester City",
-      "Tottenham"
-    ]
-  },
-  {
-    "name": "Colin Kazim-Richards",
-    "aliases": [
-      "Colin",
-      "Kazım",
-      "Kazım Richards",
-      "Kazim",
-      "Kazim-Richards",
-      "Richards"
-    ],
-    "clubs": [
       "Fenerbahçe",
       "Galatasaray"
     ]
   },
   {
+    "name": "Conor Gallagher",
+    "clubs": [
+      "Chelsea",
+      "Atletico Madrid"
+    ]
+  },
+  {
     "name": "Corentin Tolisso",
-    "aliases": [
-      "Corentin",
-      "Tolisso"
-    ],
     "clubs": [
-      "Bayern Münih",
-      "Lyon"
+      "Bayern Munich",
+      "Olymp. Lyon"
     ]
   },
   {
-    "name": "Cosme Vázquez",
-    "aliases": [
-      "Cosme",
-      "Vázquez"
-    ],
+    "name": "Costel Pantilimon",
     "clubs": [
-      "Atletico Madrid",
-      "Real Madrid"
-    ]
-  },
-  {
-    "name": "Cosmin Contra",
-    "aliases": [
-      "Contra",
-      "Cosmin"
-    ],
-    "clubs": [
-      "Atletico Madrid",
-      "Milan"
-    ]
-  },
-  {
-    "name": "Coşkun Ekim",
-    "aliases": [
-      "Coşkun",
-      "Ekim"
-    ],
-    "clubs": [
-      "Tottenham",
-      "Trabzonspor"
+      "Denizlispor",
+      "Man City"
     ]
   },
   {
     "name": "Craig Bellamy",
-    "aliases": [
-      "Bellamy",
-      "Craig"
-    ],
     "clubs": [
       "Liverpool",
-      "Manchester City"
-    ]
-  },
-  {
-    "name": "Cris",
-    "aliases": [],
-    "clubs": [
-      "Galatasaray",
-      "Lyon"
+      "Man City"
     ]
   },
   {
     "name": "Cristian Ansaldi",
-    "aliases": [
-      "Ansaldi",
-      "Cristian"
-    ],
     "clubs": [
       "Atletico Madrid",
       "Inter"
@@ -4156,1008 +2438,595 @@ export const PLAYERS = [
   },
   {
     "name": "Cristian Brocchi",
-    "aliases": [
-      "Brocchi",
-      "Cristian"
-    ],
     "clubs": [
-      "Inter",
-      "Milan"
-    ]
-  },
-  {
-    "name": "Cristian Ceballos",
-    "aliases": [
-      "Ceballos",
-      "Cristian"
-    ],
-    "clubs": [
-      "Barcelona",
-      "Tottenham"
-    ]
-  },
-  {
-    "name": "Cristian Chivu",
-    "aliases": [
-      "Chivu",
-      "Cristian"
-    ],
-    "clubs": [
-      "Ajax",
-      "Inter",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Cristian Rodríguez",
-    "aliases": [
-      "Cristian",
-      "Rodríguez"
-    ],
-    "clubs": [
-      "Atletico Madrid",
-      "PSG"
-    ]
-  },
-  {
-    "name": "Cristian Zenoni",
-    "aliases": [
-      "Cristian",
-      "Zenoni"
-    ],
-    "clubs": [
-      "Juventus",
-      "Milan"
-    ]
-  },
-  {
-    "name": "Cristiano Ronaldo",
-    "aliases": [
-      "CR7",
-      "Cristiano",
-      "Ronaldo"
-    ],
-    "clubs": [
-      "Juventus",
-      "Manchester United",
-      "Real Madrid"
-    ]
-  },
-  {
-    "name": "Cristiano Ronaldo dos Santos Aveiro",
-    "aliases": [
-      "aveiro",
-      "Aveiro",
-      "cristiano",
-      "Cristiano",
-      "dos",
-      "ronaldo",
-      "Ronaldo",
-      "santos",
-      "Santos"
-    ],
-    "clubs": [
-      "Juventus",
-      "Manchester United",
-      "Real Madrid"
-    ]
-  },
-  {
-    "name": "Cristiano Scapolo",
-    "aliases": [
-      "Cristiano",
-      "Scapolo"
-    ],
-    "clubs": [
-      "Inter",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Cristiano Zanetti",
-    "aliases": [
-      "Cristiano",
-      "Zanetti"
-    ],
-    "clubs": [
-      "Inter",
-      "Juventus",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Cristóbal Parralo",
-    "aliases": [
-      "Cristóbal",
-      "Parralo"
-    ],
-    "clubs": [
-      "Barcelona",
-      "PSG"
-    ]
-  },
-  {
-    "name": "Curtis Alexander",
-    "aliases": [
-      "Alexander",
-      "Curtis"
-    ],
-    "clubs": [
-      "PSG",
-      "Tottenham"
-    ]
-  },
-  {
-    "name": "Cyril Domoraud",
-    "aliases": [
-      "Cyril",
-      "Domoraud"
-    ],
-    "clubs": [
-      "Inter",
-      "Milan"
-    ]
-  },
-  {
-    "name": "Çağdaş Atan",
-    "aliases": [
-      "Atan",
-      "Çağdaş"
-    ],
-    "clubs": [
-      "Beşiktaş",
-      "Trabzonspor"
-    ]
-  },
-  {
-    "name": "Çağlar Birinci",
-    "aliases": [
-      "Birinci",
-      "Çağlar"
-    ],
-    "clubs": [
-      "Galatasaray",
-      "Kayserispor",
-      "Trabzonspor"
-    ]
-  },
-  {
-    "name": "Çağrı Yarkın",
-    "aliases": [
-      "Çağrı",
-      "Yarkın"
-    ],
-    "clubs": [
-      "Antalyaspor",
-      "Galatasaray"
-    ]
-  },
-  {
-    "name": "Daley Blind",
-    "aliases": [
-      "blind",
-      "Blind",
-      "daley",
-      "Daley"
-    ],
-    "clubs": [
-      "Ajax",
-      "Manchester United"
-    ]
-  },
-  {
-    "name": "Damiano Tommasi",
-    "aliases": [
-      "Damiano",
-      "Tommasi"
-    ],
-    "clubs": [
-      "Inter",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Damien Plessis",
-    "aliases": [
-      "Damien",
-      "Plessis"
-    ],
-    "clubs": [
-      "Liverpool",
-      "Lyon"
-    ]
-  },
-  {
-    "name": "Dani Osvaldo",
-    "aliases": [
-      "Dani",
-      "Osvaldo"
-    ],
-    "clubs": [
-      "Inter",
-      "Juventus",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Dani Pacheco",
-    "aliases": [
-      "Dani",
-      "Pacheco"
-    ],
-    "clubs": [
-      "Atletico Madrid",
-      "Barcelona",
-      "Liverpool"
-    ]
-  },
-  {
-    "name": "Daniel Alves",
-    "aliases": [
-      "Alves",
-      "Daniel"
-    ],
-    "clubs": [
-      "Barcelona",
-      "Juventus",
-      "PSG",
-      "Sevilla"
-    ]
-  },
-  {
-    "name": "Daniel Ayala",
-    "aliases": [
-      "Ayala",
-      "Daniel"
-    ],
-    "clubs": [
-      "Liverpool",
-      "Sevilla"
-    ]
-  },
-  {
-    "name": "Daniel Bravo",
-    "aliases": [
-      "Bravo",
-      "Daniel"
-    ],
-    "clubs": [
-      "Lyon",
-      "Nice",
-      "PSG"
-    ]
-  },
-  {
-    "name": "Daniel da Cruz Carvalho",
-    "aliases": [
-      "Carvalho",
-      "Cruz",
-      "Daniel"
-    ],
-    "clubs": [
-      "Ajax",
-      "Atletico Madrid"
-    ]
-  },
-  {
-    "name": "Daniel Fonseca",
-    "aliases": [
-      "Daniel",
-      "Fonseca"
-    ],
-    "clubs": [
-      "Juventus",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Daniel García Lara",
-    "aliases": [
-      "Daniel",
-      "García",
-      "Lara"
-    ],
-    "clubs": [
-      "Barcelona",
-      "Real Madrid"
-    ]
-  },
-  {
-    "name": "Daniel Hurst",
-    "aliases": [
-      "Daniel",
-      "Hurst"
-    ],
-    "clubs": [
-      "Manchester City",
-      "Manchester United"
-    ]
-  },
-  {
-    "name": "Daniel Opare",
-    "aliases": [
-      "Daniel",
-      "Opare"
-    ],
-    "clubs": [
-      "Beşiktaş",
-      "Real Madrid"
-    ]
-  },
-  {
-    "name": "Daniel Sanchez",
-    "aliases": [
-      "Daniel",
-      "Sanchez"
-    ],
-    "clubs": [
-      "Nice",
-      "PSG"
-    ]
-  },
-  {
-    "name": "Daniel Sturridge",
-    "aliases": [
-      "Daniel",
-      "Sturridge"
-    ],
-    "clubs": [
-      "Liverpool",
-      "Manchester City",
-      "Trabzonspor"
-    ]
-  },
-  {
-    "name": "Daniel Xuereb",
-    "aliases": [
-      "Daniel",
-      "Xuereb"
-    ],
-    "clubs": [
-      "Lyon",
-      "PSG"
-    ]
-  },
-  {
-    "name": "Daniele Massaro",
-    "aliases": [
-      "Daniele",
-      "Massaro"
-    ],
-    "clubs": [
-      "Milan",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Daniele Padelli",
-    "aliases": [
-      "Daniele",
-      "Padelli"
-    ],
-    "clubs": [
-      "Inter",
-      "Liverpool"
-    ]
-  },
-  {
-    "name": "Danijel Ljuboja",
-    "aliases": [
-      "Danijel",
-      "Ljuboja"
-    ],
-    "clubs": [
-      "Nice",
-      "PSG"
-    ]
-  },
-  {
-    "name": "Danilo Sousa Campos",
-    "aliases": [
-      "Campos",
-      "Danilo",
-      "Sousa"
-    ],
-    "clubs": [
-      "Ajax",
-      "Antalyaspor"
-    ]
-  },
-  {
-    "name": "Danny Guthrie",
-    "aliases": [
-      "Danny",
-      "Guthrie"
-    ],
-    "clubs": [
-      "Liverpool",
-      "Manchester United"
-    ]
-  },
-  {
-    "name": "Danny Murphy",
-    "aliases": [
-      "Danny",
-      "Murphy"
-    ],
-    "clubs": [
-      "Liverpool",
-      "Tottenham"
-    ]
-  },
-  {
-    "name": "Dante",
-    "aliases": [
-      "Dante Bonfim"
-    ],
-    "clubs": [
-      "Bayern Münih",
-      "Nice"
-    ]
-  },
-  {
-    "name": "Dany Nounkeu",
-    "aliases": [
-      "Dany",
-      "Nounkeu"
-    ],
-    "clubs": [
-      "Beşiktaş",
-      "Galatasaray"
-    ]
-  },
-  {
-    "name": "Dario Barluzzi",
-    "aliases": [
-      "Barluzzi",
-      "Dario"
-    ],
-    "clubs": [
-      "Inter",
-      "Milan"
-    ]
-  },
-  {
-    "name": "Dario Bonetti",
-    "aliases": [
-      "Bonetti",
-      "Dario"
-    ],
-    "clubs": [
-      "Juventus",
-      "Milan",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Darío Cvitanich",
-    "aliases": [
-      "Cvitanich",
-      "Darío"
-    ],
-    "clubs": [
-      "Ajax",
-      "Nice"
-    ]
-  },
-  {
-    "name": "Dario Šimić",
-    "aliases": [
-      "Dario",
-      "Šimić"
-    ],
-    "clubs": [
-      "Inter",
-      "Milan"
-    ]
-  },
-  {
-    "name": "Dave Bacuzzi",
-    "aliases": [
-      "Bacuzzi",
-      "Dave"
-    ],
-    "clubs": [
-      "Arsenal",
-      "Manchester City"
-    ]
-  },
-  {
-    "name": "Dave Halliday",
-    "aliases": [
-      "Dave",
-      "Halliday"
-    ],
-    "clubs": [
-      "Arsenal",
-      "Manchester City"
-    ]
-  },
-  {
-    "name": "David Beckham",
-    "aliases": [
-      "Beckham",
-      "David"
-    ],
-    "clubs": [
-      "Manchester United",
-      "Milan",
-      "PSG",
-      "Real Madrid"
-    ]
-  },
-  {
-    "name": "David Bellion",
-    "aliases": [
-      "Bellion",
-      "David"
-    ],
-    "clubs": [
-      "Manchester United",
-      "Nice"
-    ]
-  },
-  {
-    "name": "David Bentley",
-    "aliases": [
-      "Bentley",
-      "David"
-    ],
-    "clubs": [
-      "Arsenal",
-      "Tottenham"
-    ]
-  },
-  {
-    "name": "David Black",
-    "aliases": [
-      "Black",
-      "David"
-    ],
-    "clubs": [
-      "Arsenal",
-      "Tottenham"
-    ]
-  },
-  {
-    "name": "David Cobeño",
-    "aliases": [
-      "Cobeño",
-      "David"
-    ],
-    "clubs": [
-      "Real Madrid",
-      "Sevilla"
-    ]
-  },
-  {
-    "name": "David Cordón",
-    "aliases": [
-      "Cordón",
-      "David"
-    ],
-    "clubs": [
-      "Atletico Madrid",
-      "Sevilla"
-    ]
-  },
-  {
-    "name": "David Ginola",
-    "aliases": [
-      "David",
-      "Ginola"
-    ],
-    "clubs": [
-      "Nice",
-      "PSG",
-      "Tottenham"
-    ]
-  },
-  {
-    "name": "David Hannah",
-    "aliases": [
-      "David",
-      "Hannah"
-    ],
-    "clubs": [
-      "Arsenal",
-      "Liverpool"
-    ]
-  },
-  {
-    "name": "David Hellebuyck",
-    "aliases": [
-      "David",
-      "Hellebuyck"
-    ],
-    "clubs": [
-      "Lyon",
-      "Nice",
-      "PSG"
-    ]
-  },
-  {
-    "name": "David Herd",
-    "aliases": [
-      "David",
-      "Herd"
-    ],
-    "clubs": [
-      "Arsenal",
-      "Manchester United"
-    ]
-  },
-  {
-    "name": "David James",
-    "aliases": [
-      "David",
-      "James"
-    ],
-    "clubs": [
-      "Liverpool",
-      "Manchester City"
-    ]
-  },
-  {
-    "name": "David Jenkins",
-    "aliases": [
-      "David",
-      "Jenkins"
-    ],
-    "clubs": [
-      "Arsenal",
-      "Tottenham"
-    ]
-  },
-  {
-    "name": "David Johnson",
-    "aliases": [
-      "David",
-      "Johnson"
-    ],
-    "clubs": [
-      "Liverpool",
-      "Manchester City"
-    ]
-  },
-  {
-    "name": "David Linde i Sales",
-    "aliases": [
-      "David",
-      "Linde",
-      "Sales"
-    ],
-    "clubs": [
-      "Barcelona",
-      "Sevilla"
-    ]
-  },
-  {
-    "name": "David Nelson",
-    "aliases": [
-      "David",
-      "Nelson"
-    ],
-    "clubs": [
-      "Arsenal",
-      "Tottenham"
-    ]
-  },
-  {
-    "name": "David Ngog",
-    "aliases": [
-      "David",
-      "Ngog"
-    ],
-    "clubs": [
-      "Liverpool",
-      "PSG"
-    ]
-  },
-  {
-    "name": "David Pizarro",
-    "aliases": [
-      "David",
-      "Pizarro"
-    ],
-    "clubs": [
-      "Inter",
-      "Manchester City",
-      "Roma"
-    ]
-  },
-  {
-    "name": "David Platt",
-    "aliases": [
-      "David",
-      "Platt"
-    ],
-    "clubs": [
-      "Arsenal",
-      "Juventus"
-    ]
-  },
-  {
-    "name": "David Rocastle",
-    "aliases": [
-      "David",
-      "Rocastle"
-    ],
-    "clubs": [
-      "Arsenal",
-      "Manchester City"
-    ]
-  },
-  {
-    "name": "David Seaman",
-    "aliases": [
-      "David",
-      "Seaman"
-    ],
-    "clubs": [
-      "Arsenal",
-      "Manchester City"
-    ]
-  },
-  {
-    "name": "David Soria",
-    "aliases": [
-      "David",
-      "Soria"
-    ],
-    "clubs": [
-      "Real Madrid",
-      "Sevilla"
-    ]
-  },
-  {
-    "name": "David Villa",
-    "aliases": [
-      "David",
-      "Villa"
-    ],
-    "clubs": [
-      "Atletico Madrid",
-      "Barcelona"
-    ]
-  },
-  {
-    "name": "Davide Astori",
-    "aliases": [
-      "Astori",
-      "Davide"
-    ],
-    "clubs": [
-      "Milan",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Davide Cordone",
-    "aliases": [
-      "Cordone",
-      "Davide"
-    ],
-    "clubs": [
-      "Inter",
-      "Milan"
-    ]
-  },
-  {
-    "name": "Davide Santon",
-    "aliases": [
-      "Davide",
-      "Santon"
-    ],
-    "clubs": [
-      "Inter",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Davor Šuker",
-    "aliases": [
-      "Davor",
-      "Šuker"
-    ],
-    "clubs": [
-      "Arsenal",
-      "Real Madrid",
-      "Sevilla"
-    ]
-  },
-  {
-    "name": "Dazet Wilfried Armel Zaha",
-    "aliases": [
-      "armel",
-      "Armel",
-      "dazet",
-      "Dazet",
-      "wilfried",
-      "Wilfried",
-      "zaha",
-      "Zaha"
-    ],
-    "clubs": [
-      "Galatasaray",
-      "Lyon",
-      "Manchester United"
-    ]
-  },
-  {
-    "name": "Dean Saunders",
-    "aliases": [
-      "Dean",
-      "Saunders"
-    ],
-    "clubs": [
-      "Galatasaray",
-      "Liverpool"
-    ]
-  },
-  {
-    "name": "Dejan Kulusevski",
-    "aliases": [
-      "Dejan",
-      "Kulusevski"
-    ],
-    "clubs": [
-      "Juventus",
-      "Tottenham"
-    ]
-  },
-  {
-    "name": "Dejan Petković",
-    "aliases": [
-      "Dejan",
-      "Petković"
-    ],
-    "clubs": [
-      "Real Madrid",
-      "Sevilla"
-    ]
-  },
-  {
-    "name": "Dele Alli",
-    "aliases": [
-      "Alli",
-      "Dele"
-    ],
-    "clubs": [
-      "Beşiktaş",
-      "Tottenham"
-    ]
-  },
-  {
-    "name": "Delfí Geli",
-    "aliases": [
-      "Delfí",
-      "Geli"
-    ],
-    "clubs": [
-      "Atletico Madrid",
-      "Barcelona"
-    ]
-  },
-  {
-    "name": "Demba Ba",
-    "aliases": [
-      "Ba",
-      "Demba"
-    ],
-    "clubs": [
-      "Başakşehir",
-      "Beşiktaş",
-      "Chelsea"
-    ]
-  },
-  {
-    "name": "Demetrio Albertini",
-    "aliases": [
-      "Albertini",
-      "Demetrio"
-    ],
-    "clubs": [
-      "Atletico Madrid",
-      "Barcelona",
-      "Milan"
-    ]
-  },
-  {
-    "name": "Denis Law",
-    "aliases": [
-      "Denis",
-      "Law"
-    ],
-    "clubs": [
-      "Manchester City",
-      "Manchester United"
-    ]
-  },
-  {
-    "name": "Dennis Bergkamp",
-    "aliases": [
-      "Bergkamp",
-      "Dennis"
-    ],
-    "clubs": [
-      "Ajax",
-      "Arsenal",
+      "AC Milan",
       "Inter"
     ]
   },
   {
-    "name": "Dennis Fidler",
-    "aliases": [
-      "Dennis",
-      "Fidler"
-    ],
+    "name": "Cristian Rodriguez",
     "clubs": [
-      "Manchester City",
-      "Manchester United"
+      "FC Porto",
+      "Atletico Madrid",
+      "Benfica"
     ]
   },
   {
-    "name": "Detlef Müller",
-    "aliases": [
-      "Detlef",
-      "Müller"
-    ],
+    "name": "Cristian Romero",
     "clubs": [
-      "Antalyaspor",
-      "Trabzonspor"
+      "Tottenham",
+      "Juventus"
     ]
   },
   {
-    "name": "Di Jones",
-    "aliases": [
-      "Jones"
-    ],
+    "name": "Cristian SÄƒpunaru",
     "clubs": [
-      "Manchester City",
-      "Manchester United"
+      "Kayserispor",
+      "FC Porto",
+      "Denizlispor"
     ]
   },
   {
-    "name": "Dick van Dijk",
-    "aliases": [
-      "Dick",
-      "Dijk",
-      "van"
-    ],
+    "name": "Cristian Tello",
+    "clubs": [
+      "FC Porto",
+      "Barcelona"
+    ]
+  },
+  {
+    "name": "Cristiano Ronaldo",
+    "clubs": [
+      "Juventus",
+      "Real Madrid",
+      "Man Utd"
+    ]
+  },
+  {
+    "name": "Cristiano Zanetti",
+    "clubs": [
+      "Juventus",
+      "AS Roma",
+      "Inter"
+    ]
+  },
+  {
+    "name": "Cristovao Ramos",
+    "clubs": [
+      "Konyaspor",
+      "FC Porto"
+    ]
+  },
+  {
+    "name": "Cyril Domoraud",
+    "clubs": [
+      "Konyaspor",
+      "AC Milan",
+      "Inter"
+    ]
+  },
+  {
+    "name": "CÃ¢ndido Costa",
+    "clubs": [
+      "FC Porto",
+      "Benfica"
+    ]
+  },
+  {
+    "name": "Daishawn Redan",
+    "clubs": [
+      "Chelsea",
+      "Ajax"
+    ]
+  },
+  {
+    "name": "Daley Blind",
     "clubs": [
       "Ajax",
-      "Nice"
+      "Man Utd",
+      "Bayern Munich"
     ]
   },
   {
-    "name": "Didié Angan",
-    "aliases": [
-      "Angan",
-      "Didié"
-    ],
+    "name": "Dan-Axel Zagadou",
     "clubs": [
-      "Nice",
+      "Bor. Dortmund",
       "PSG"
     ]
   },
   {
-    "name": "Didier Digard",
-    "aliases": [
-      "Didier",
-      "Digard"
-    ],
+    "name": "Dani Alves",
     "clubs": [
-      "Nice",
-      "PSG"
+      "Juventus",
+      "Barcelona"
+    ]
+  },
+  {
+    "name": "Dani Ceballos",
+    "clubs": [
+      "Arsenal",
+      "Real Madrid"
+    ]
+  },
+  {
+    "name": "Dani Garcia",
+    "clubs": [
+      "Denizlispor",
+      "Barcelona",
+      "Real Madrid"
+    ]
+  },
+  {
+    "name": "Dani Pacheco",
+    "clubs": [
+      "Atletico Madrid",
+      "Liverpool"
+    ]
+  },
+  {
+    "name": "Daniel Avramovski",
+    "clubs": [
+      "Kayserispor",
+      "Sivasspor"
+    ]
+  },
+  {
+    "name": "Daniel Ayala",
+    "clubs": [
+      "Liverpool",
+      "Sevilla"
+    ]
+  },
+  {
+    "name": "Daniel Candeias",
+    "clubs": [
+      "FC Porto",
+      "Genclerbirligi",
+      "Benfica"
+    ]
+  },
+  {
+    "name": "Daniel Opare",
+    "clubs": [
+      "FC Porto",
+      "Beşiktaş"
+    ]
+  },
+  {
+    "name": "Daniel Osvaldo",
+    "clubs": [
+      "Juventus",
+      "FC Porto",
+      "AS Roma",
+      "Inter"
+    ]
+  },
+  {
+    "name": "Daniel Sturridge",
+    "clubs": [
+      "Chelsea",
+      "Trabzonspor",
+      "Liverpool",
+      "Man City"
+    ]
+  },
+  {
+    "name": "Daniel Wass",
+    "clubs": [
+      "Atletico Madrid",
+      "Benfica"
+    ]
+  },
+  {
+    "name": "Daniele Padelli",
+    "clubs": [
+      "Inter",
+      "Liverpool"
+    ]
+  },
+  {
+    "name": "Daniele Rugani",
+    "clubs": [
+      "Juventus",
+      "Ajax"
+    ]
+  },
+  {
+    "name": "Danijel Aleksic",
+    "clubs": [
+      "Konyaspor",
+      "Başakşehir"
+    ]
+  },
+  {
+    "name": "Danilo",
+    "clubs": [
+      "Juventus",
+      "FC Porto",
+      "Antalyaspor",
+      "Ajax",
+      "Real Madrid",
+      "Man City"
+    ]
+  },
+  {
+    "name": "Danilo Pereira",
+    "clubs": [
+      "FC Porto",
+      "Benfica"
+    ]
+  },
+  {
+    "name": "Danny Drinkwater",
+    "clubs": [
+      "Chelsea",
+      "Man Utd"
+    ]
+  },
+  {
+    "name": "Danny Granville",
+    "clubs": [
+      "Chelsea",
+      "Man City"
+    ]
+  },
+  {
+    "name": "Danny Murphy",
+    "clubs": [
+      "Tottenham",
+      "Liverpool"
+    ]
+  },
+  {
+    "name": "Danny Rose",
+    "clubs": [
+      "Tottenham",
+      "Man Utd",
+      "Man City"
+    ]
+  },
+  {
+    "name": "Danny Welbeck",
+    "clubs": [
+      "Arsenal",
+      "Man Utd"
+    ]
+  },
+  {
+    "name": "Dany Nounkeu",
+    "clubs": [
+      "Galatasaray",
+      "Beşiktaş"
+    ]
+  },
+  {
+    "name": "Dario Baccin",
+    "clubs": [
+      "Juventus",
+      "Napoli"
+    ]
+  },
+  {
+    "name": "Dario Simic",
+    "clubs": [
+      "AC Milan",
+      "Inter"
+    ]
+  },
+  {
+    "name": "Darwin Nunez",
+    "clubs": [
+      "Benfica",
+      "Liverpool"
+    ]
+  },
+  {
+    "name": "David Alaba",
+    "clubs": [
+      "Real Madrid",
+      "Bayern Munich"
+    ]
+  },
+  {
+    "name": "David Beckham",
+    "clubs": [
+      "AC Milan",
+      "Real Madrid",
+      "Man Utd"
+    ]
+  },
+  {
+    "name": "David Bentley",
+    "clubs": [
+      "Tottenham",
+      "Arsenal"
+    ]
+  },
+  {
+    "name": "David Carmo",
+    "clubs": [
+      "FC Porto",
+      "Benfica"
+    ]
+  },
+  {
+    "name": "David de Gea",
+    "clubs": [
+      "Atletico Madrid",
+      "Man Utd"
+    ]
+  },
+  {
+    "name": "David James",
+    "clubs": [
+      "Liverpool",
+      "Man City"
+    ]
+  },
+  {
+    "name": "David Jurasek",
+    "clubs": [
+      "Beşiktaş",
+      "Benfica"
+    ]
+  },
+  {
+    "name": "David Luiz",
+    "clubs": [
+      "Chelsea",
+      "Arsenal",
+      "Benfica"
+    ]
+  },
+  {
+    "name": "David Neres",
+    "clubs": [
+      "Ajax",
+      "Napoli",
+      "Benfica"
+    ]
+  },
+  {
+    "name": "David Ospina",
+    "clubs": [
+      "Arsenal",
+      "Napoli"
+    ]
+  },
+  {
+    "name": "David Pizarro",
+    "clubs": [
+      "AS Roma",
+      "Inter",
+      "Man City"
+    ]
+  },
+  {
+    "name": "David Silva",
+    "clubs": [
+      "FC Porto",
+      "Man City"
+    ]
+  },
+  {
+    "name": "David Suazo",
+    "clubs": [
+      "Inter",
+      "Benfica"
+    ]
+  },
+  {
+    "name": "David Villa",
+    "clubs": [
+      "Barcelona",
+      "Atletico Madrid"
+    ]
+  },
+  {
+    "name": "Davide Astori",
+    "clubs": [
+      "AC Milan",
+      "AS Roma"
+    ]
+  },
+  {
+    "name": "Davide Frattesi",
+    "clubs": [
+      "AS Roma",
+      "Inter"
+    ]
+  },
+  {
+    "name": "Davide Santon",
+    "clubs": [
+      "AS Roma",
+      "Inter"
+    ]
+  },
+  {
+    "name": "Davide Zappacosta",
+    "clubs": [
+      "Chelsea",
+      "AS Roma"
+    ]
+  },
+  {
+    "name": "Davinson Sanchez",
+    "clubs": [
+      "Tottenham",
+      "Galatasaray",
+      "Ajax"
+    ]
+  },
+  {
+    "name": "Davor Suker",
+    "clubs": [
+      "Arsenal",
+      "Real Madrid"
+    ]
+  },
+  {
+    "name": "Davy Klaassen",
+    "clubs": [
+      "Ajax",
+      "Inter"
+    ]
+  },
+  {
+    "name": "Dean Huijsen",
+    "clubs": [
+      "Juventus",
+      "AS Roma",
+      "Real Madrid"
+    ]
+  },
+  {
+    "name": "DeAndre Yedlin",
+    "clubs": [
+      "Tottenham",
+      "Galatasaray"
+    ]
+  },
+  {
+    "name": "Declan Rice",
+    "clubs": [
+      "Chelsea",
+      "Arsenal"
+    ]
+  },
+  {
+    "name": "Deco",
+    "clubs": [
+      "Chelsea",
+      "FC Porto",
+      "Barcelona",
+      "Benfica"
+    ]
+  },
+  {
+    "name": "Dejan Kulusevski",
+    "clubs": [
+      "Tottenham",
+      "Juventus"
+    ]
+  },
+  {
+    "name": "Dele Alli",
+    "clubs": [
+      "Tottenham",
+      "Beşiktaş"
+    ]
+  },
+  {
+    "name": "Demba Ba",
+    "clubs": [
+      "Chelsea",
+      "Başakşehir",
+      "Beşiktaş"
+    ]
+  },
+  {
+    "name": "Deni Milosevic",
+    "clubs": [
+      "Konyaspor",
+      "Antalyaspor"
+    ]
+  },
+  {
+    "name": "Denis Suarez",
+    "clubs": [
+      "Arsenal",
+      "Barcelona",
+      "Man City"
+    ]
+  },
+  {
+    "name": "Denis Zakaria",
+    "clubs": [
+      "Chelsea",
+      "Juventus"
+    ]
+  },
+  {
+    "name": "Deniz Barış",
+    "clubs": [
+      "Fenerbahçe",
+      "Genclerbirligi",
+      "Antalyaspor"
+    ]
+  },
+  {
+    "name": "Deniz Mehmet",
+    "clubs": [
+      "Kayserispor",
+      "Man Utd"
+    ]
+  },
+  {
+    "name": "Deniz Türüç",
+    "clubs": [
+      "Kayserispor",
+      "Fenerbahçe",
+      "Başakşehir"
+    ]
+  },
+  {
+    "name": "Deniz Yılmaz",
+    "clubs": [
+      "Trabzonspor",
+      "Genclerbirligi"
+    ]
+  },
+  {
+    "name": "Dennis Gentenaar",
+    "clubs": [
+      "Bor. Dortmund",
+      "Ajax"
+    ]
+  },
+  {
+    "name": "Derley",
+    "clubs": [
+      "Kayserispor",
+      "Benfica"
+    ]
+  },
+  {
+    "name": "Devis Vasquez",
+    "clubs": [
+      "AC Milan",
+      "AS Roma"
+    ]
+  },
+  {
+    "name": "Devran Ayhan",
+    "clubs": [
+      "Sivasspor",
+      "Beşiktaş"
+    ]
+  },
+  {
+    "name": "Devyne Rensch",
+    "clubs": [
+      "AS Roma",
+      "Ajax"
+    ]
+  },
+  {
+    "name": "Diant Ramaj",
+    "clubs": [
+      "Bor. Dortmund",
+      "Ajax"
+    ]
+  },
+  {
+    "name": "Dida",
+    "clubs": [
+      "AC Milan",
+      "Benfica"
     ]
   },
   {
     "name": "Didier Drogba",
-    "aliases": [
-      "Didier",
-      "Drogba"
-    ],
     "clubs": [
       "Chelsea",
       "Galatasaray"
@@ -5165,767 +3034,588 @@ export const PLAYERS = [
   },
   {
     "name": "Didier Zokora",
-    "aliases": [
-      "Didier",
-      "Zokora"
-    ],
     "clubs": [
-      "Sevilla",
       "Tottenham",
       "Trabzonspor"
     ]
   },
   {
+    "name": "Diego",
+    "clubs": [
+      "Juventus",
+      "FC Porto",
+      "Fenerbahçe",
+      "Atletico Madrid"
+    ]
+  },
+  {
+    "name": "Diego Angelo",
+    "clubs": [
+      "Kayserispor",
+      "Genclerbirligi",
+      "Antalyaspor"
+    ]
+  },
+  {
     "name": "Diego Biseswar",
-    "aliases": [
-      "Biseswar",
-      "Diego"
-    ],
     "clubs": [
-      "Ajax",
-      "Kayserispor"
+      "Kayserispor",
+      "Ajax"
     ]
   },
   {
-    "name": "Diego Capel",
-    "aliases": [
-      "Capel",
-      "Diego"
-    ],
+    "name": "Diego Costa",
     "clubs": [
-      "Barcelona",
-      "Sevilla"
+      "Chelsea",
+      "Atletico Madrid"
     ]
   },
   {
-    "name": "Diego Forlán",
-    "aliases": [
-      "Diego",
-      "Forlán"
-    ],
+    "name": "Diego Forlan",
     "clubs": [
       "Atletico Madrid",
       "Inter",
-      "Manchester United"
+      "Man Utd"
     ]
   },
   {
-    "name": "Diego Fuser",
-    "aliases": [
-      "Diego",
-      "Fuser"
-    ],
-    "clubs": [
-      "Milan",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Diego Godín",
-    "aliases": [
-      "Diego",
-      "Godín"
-    ],
+    "name": "Diego Godin",
     "clubs": [
       "Atletico Madrid",
       "Inter"
     ]
   },
   {
-    "name": "Diego López",
-    "aliases": [
-      "Diego",
-      "López"
-    ],
+    "name": "Diego Laxalt",
     "clubs": [
-      "Milan",
-      "Real Madrid",
-      "Sevilla"
+      "AC Milan",
+      "Inter"
     ]
   },
   {
-    "name": "Diego Maradona",
-    "aliases": [
-      "Diego",
-      "Maradona"
-    ],
+    "name": "Diego Llorente",
     "clubs": [
-      "Barcelona",
-      "Sevilla"
-    ]
-  },
-  {
-    "name": "Diego Perotti",
-    "aliases": [
-      "Diego",
-      "Perotti"
-    ],
-    "clubs": [
-      "Fenerbahçe",
-      "Roma",
-      "Sevilla"
-    ]
-  },
-  {
-    "name": "Diego Ribas da Cunha",
-    "aliases": [
-      "Cunha",
-      "Diego",
-      "Ribas"
-    ],
-    "clubs": [
-      "Atletico Madrid",
-      "Juventus"
-    ]
-  },
-  {
-    "name": "Diego Simeone",
-    "aliases": [
-      "Diego",
-      "Simeone"
-    ],
-    "clubs": [
-      "Atletico Madrid",
-      "Inter",
-      "Sevilla"
-    ]
-  },
-  {
-    "name": "Dietmar Hamann",
-    "aliases": [
-      "Dietmar",
-      "Hamann"
-    ],
-    "clubs": [
-      "Liverpool",
-      "Manchester City"
-    ]
-  },
-  {
-    "name": "Dilâver Satılmış",
-    "aliases": [
-      "Dilâver",
-      "Satılmış"
-    ],
-    "clubs": [
-      "Antalyaspor",
-      "Trabzonspor"
-    ]
-  },
-  {
-    "name": "Dimitar Berbatov",
-    "aliases": [
-      "Berbatov",
-      "Dimitar"
-    ],
-    "clubs": [
-      "Manchester United",
-      "Tottenham"
-    ]
-  },
-  {
-    "name": "Dimitris Eleftheropoulos",
-    "aliases": [
-      "Dimitris",
-      "Eleftheropoulos"
-    ],
-    "clubs": [
-      "Milan",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Dino Baggio",
-    "aliases": [
-      "Baggio",
-      "Dino"
-    ],
-    "clubs": [
-      "Inter",
-      "Juventus"
-    ]
-  },
-  {
-    "name": "Dino da Costa",
-    "aliases": [
-      "Costa",
-      "Dino"
-    ],
-    "clubs": [
-      "Juventus",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Dinu Sânmărtean",
-    "aliases": [
-      "Dinu",
-      "Sânmărtean"
-    ],
-    "clubs": [
-      "Manchester City",
+      "AS Roma",
       "Real Madrid"
     ]
   },
   {
-    "name": "Diogo Dalot",
-    "aliases": [
-      "Dalot",
-      "Diogo"
-    ],
+    "name": "Diego Lopes",
     "clubs": [
-      "Manchester United",
-      "Milan"
+      "Kayserispor",
+      "Benfica"
+    ]
+  },
+  {
+    "name": "Diego Lopez",
+    "clubs": [
+      "AC Milan",
+      "Real Madrid"
+    ]
+  },
+  {
+    "name": "Diego Moreira",
+    "clubs": [
+      "Chelsea",
+      "Benfica"
+    ]
+  },
+  {
+    "name": "Diego Perotti",
+    "clubs": [
+      "Fenerbahçe",
+      "AS Roma"
+    ]
+  },
+  {
+    "name": "Diego Reyes",
+    "clubs": [
+      "FC Porto",
+      "Fenerbahçe"
+    ]
+  },
+  {
+    "name": "Dillon Hoogewerf",
+    "clubs": [
+      "Ajax",
+      "Man Utd"
+    ]
+  },
+  {
+    "name": "Dimitar Berbatov",
+    "clubs": [
+      "Tottenham",
+      "Man Utd"
+    ]
+  },
+  {
+    "name": "Dimitar Rangelov",
+    "clubs": [
+      "Bor. Dortmund",
+      "Konyaspor"
+    ]
+  },
+  {
+    "name": "Dimitrios Goutas",
+    "clubs": [
+      "Sivasspor",
+      "Genclerbirligi"
+    ]
+  },
+  {
+    "name": "Dimitrios Pelkas",
+    "clubs": [
+      "Fenerbahçe",
+      "Başakşehir"
+    ]
+  },
+  {
+    "name": "Diogo Barbosa",
+    "clubs": [
+      "FC Porto",
+      "Benfica"
+    ]
+  },
+  {
+    "name": "Diogo Dalot",
+    "clubs": [
+      "FC Porto",
+      "AC Milan",
+      "Man Utd"
     ]
   },
   {
     "name": "Diogo Jota",
-    "aliases": [
-      "Diogo",
-      "Jota"
-    ],
     "clubs": [
+      "FC Porto",
       "Atletico Madrid",
       "Liverpool"
     ]
   },
   {
     "name": "Dirk Kuyt",
-    "aliases": [
-      "Dirk",
-      "Kuyt"
-    ],
     "clubs": [
       "Fenerbahçe",
-      "Feyenoord",
       "Liverpool"
     ]
   },
   {
-    "name": "Divock Origi kolman",
-    "aliases": [
-      "Divock",
-      "kolman",
-      "Origi"
-    ],
+    "name": "Divock Origi",
     "clubs": [
-      "Liverpool",
-      "Milan"
+      "AC Milan",
+      "Liverpool"
     ]
   },
   {
-    "name": "Djamel Belmadi",
-    "aliases": [
-      "Belmadi",
-      "Djamel"
-    ],
+    "name": "Djalma",
     "clubs": [
-      "Manchester City",
-      "PSG"
+      "Konyaspor",
+      "FC Porto",
+      "Genclerbirligi"
     ]
   },
   {
-    "name": "Doğa Kaya",
-    "aliases": [
-      "Doğa",
-      "Kaya"
-    ],
+    "name": "Djaniny",
     "clubs": [
-      "Antalyaspor",
-      "Sivasspor"
+      "Trabzonspor",
+      "Benfica"
     ]
   },
   {
-    "name": "Domenico Maggiora",
-    "aliases": [
-      "Domenico",
-      "Maggiora"
-    ],
+    "name": "DodÃ´",
     "clubs": [
-      "Juventus",
-      "Roma"
+      "AS Roma",
+      "Inter"
     ]
   },
   {
-    "name": "Domenico Morfeo",
-    "aliases": [
-      "Domenico",
-      "Morfeo"
-    ],
+    "name": "Domingos Quina",
     "clubs": [
-      "Inter",
-      "Milan"
+      "Chelsea",
+      "Benfica"
     ]
   },
   {
-    "name": "Domenico Penzo",
-    "aliases": [
-      "Domenico",
-      "Penzo"
-    ],
+    "name": "Dominic Solanke",
     "clubs": [
-      "Juventus",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Dominique Baratelli",
-    "aliases": [
-      "Baratelli",
-      "Dominique"
-    ],
-    "clubs": [
-      "Nice",
-      "PSG"
-    ]
-  },
-  {
-    "name": "Dominique Casagrande",
-    "aliases": [
-      "Casagrande",
-      "Dominique"
-    ],
-    "clubs": [
-      "PSG",
-      "Sevilla"
+      "Chelsea",
+      "Tottenham",
+      "Liverpool"
     ]
   },
   {
     "name": "Doni",
-    "aliases": [],
     "clubs": [
-      "Liverpool",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Donny van de Beek",
-    "aliases": [
-      "beek",
-      "Beek",
-      "donny",
-      "Donny",
-      "van"
-    ],
-    "clubs": [
-      "Ajax",
-      "Manchester United"
-    ]
-  },
-  {
-    "name": "Douglas",
-    "aliases": [],
-    "clubs": [
-      "Barcelona",
-      "Beşiktaş",
-      "Sivasspor"
-    ]
-  },
-  {
-    "name": "Douglas Pereira",
-    "aliases": [
-      "Douglas",
-      "Pereira"
-    ],
-    "clubs": [
-      "Barcelona",
-      "Beşiktaş",
-      "Sivasspor"
-    ]
-  },
-  {
-    "name": "Dražen Brnčić",
-    "aliases": [
-      "Brnčić",
-      "Dražen"
-    ],
-    "clubs": [
-      "Inter",
-      "Milan"
-    ]
-  },
-  {
-    "name": "Dušan Tadić",
-    "aliases": [
-      "dusan",
-      "Dušan",
-      "tadic",
-      "Tadic",
-      "Tadić"
-    ],
-    "clubs": [
-      "Ajax",
-      "Fenerbahçe"
-    ]
-  },
-  {
-    "name": "Eddie McGoldrick",
-    "aliases": [
-      "Eddie",
-      "McGoldrick"
-    ],
-    "clubs": [
-      "Arsenal",
-      "Manchester City"
-    ]
-  },
-  {
-    "name": "Ederson Honorato Campos",
-    "aliases": [
-      "Campos",
-      "Ederson",
-      "Honorato"
-    ],
-    "clubs": [
-      "Lyon",
-      "Nice"
-    ]
-  },
-  {
-    "name": "Edgar Davids",
-    "aliases": [
-      "Davids",
-      "Edgar"
-    ],
-    "clubs": [
-      "Ajax",
-      "Barcelona",
-      "Inter",
-      "Juventus",
-      "Milan",
-      "Tottenham"
-    ]
-  },
-  {
-    "name": "Edgar Ié",
-    "aliases": [
-      "Edgar"
-    ],
-    "clubs": [
-      "Barcelona",
-      "Başakşehir",
-      "Trabzonspor"
-    ]
-  },
-  {
-    "name": "Edin Džeko",
-    "aliases": [
-      "dzeko",
-      "Dzeko",
-      "Džeko",
-      "edin",
-      "Edin"
-    ],
-    "clubs": [
-      "Fenerbahçe",
-      "Inter",
-      "Manchester City",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Edinson Cavani",
-    "aliases": [
-      "Cavani",
-      "Edinson"
-    ],
-    "clubs": [
-      "Manchester United",
-      "PSG"
-    ]
-  },
-  {
-    "name": "Edmílson",
-    "aliases": [],
-    "clubs": [
-      "Barcelona",
-      "Lyon"
-    ]
-  },
-  {
-    "name": "Edmondo Della Valle",
-    "aliases": [
-      "Della",
-      "Edmondo",
-      "Valle"
-    ],
-    "clubs": [
-      "Juventus",
-      "Nice"
-    ]
-  },
-  {
-    "name": "Edmund Hottor",
-    "aliases": [
-      "Edmund",
-      "Hottor"
-    ],
-    "clubs": [
-      "Inter",
-      "Milan"
-    ]
-  },
-  {
-    "name": "Édouard Cissé",
-    "aliases": [
-      "Cissé",
-      "Édouard"
-    ],
-    "clubs": [
-      "Beşiktaş",
-      "PSG"
-    ]
-  },
-  {
-    "name": "Eduardo Endériz",
-    "aliases": [
-      "Eduardo",
-      "Endériz"
-    ],
-    "clubs": [
-      "Barcelona",
-      "Sevilla"
-    ]
-  },
-  {
-    "name": "Eduardo Ordoñez",
-    "aliases": [
-      "Eduardo",
-      "Ordoñez"
-    ],
-    "clubs": [
-      "Atletico Madrid",
-      "Real Madrid"
-    ]
-  },
-  {
-    "name": "Eduardo Ricagni",
-    "aliases": [
-      "Eduardo",
-      "Ricagni"
-    ],
-    "clubs": [
-      "Juventus",
-      "Milan"
-    ]
-  },
-  {
-    "name": "Edwin van der Sar",
-    "aliases": [
-      "der",
-      "Edwin",
-      "Sar",
-      "van"
-    ],
-    "clubs": [
-      "Juventus",
-      "Manchester United"
-    ]
-  },
-  {
-    "name": "Efraín Juárez",
-    "aliases": [
-      "Efraín",
-      "Juárez"
-    ],
-    "clubs": [
-      "Barcelona",
-      "Real Madrid"
-    ]
-  },
-  {
-    "name": "Egemen Korkmaz",
-    "aliases": [
-      "Egemen",
-      "Korkmaz"
-    ],
-    "clubs": [
-      "Beşiktaş",
-      "Trabzonspor"
-    ]
-  },
-  {
-    "name": "Egidio Calloni",
-    "aliases": [
-      "Calloni",
-      "Egidio"
-    ],
-    "clubs": [
-      "Inter",
-      "Milan"
-    ]
-  },
-  {
-    "name": "Egidio Micheloni",
-    "aliases": [
-      "Egidio",
-      "Micheloni"
-    ],
-    "clubs": [
-      "Juventus",
-      "Milan"
-    ]
-  },
-  {
-    "name": "Egidio Morbello",
-    "aliases": [
-      "Egidio",
-      "Morbello"
-    ],
-    "clubs": [
-      "Inter",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Egisto Pandolfini",
-    "aliases": [
-      "Egisto",
-      "Pandolfini"
-    ],
-    "clubs": [
-      "Inter",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Eiður Guðjohnsen",
-    "aliases": [
-      "Eiður",
-      "Guðjohnsen"
-    ],
-    "clubs": [
-      "Barcelona",
-      "Tottenham"
-    ]
-  },
-  {
-    "name": "Elano",
-    "aliases": [],
-    "clubs": [
-      "Galatasaray",
-      "Manchester City"
-    ]
-  },
-  {
-    "name": "Eljero Elia",
-    "aliases": [
-      "Elia",
-      "Eljero"
-    ],
-    "clubs": [
-      "Ajax",
-      "Başakşehir",
-      "Juventus"
-    ]
-  },
-  {
-    "name": "Elpidio Coppa",
-    "aliases": [
-      "Coppa",
-      "Elpidio"
-    ],
-    "clubs": [
-      "Inter",
-      "Milan"
-    ]
-  },
-  {
-    "name": "Elvir Balić",
-    "aliases": [
-      "Balic",
-      "Balić",
-      "Elvir"
-    ],
-    "clubs": [
-      "Fenerbahçe",
-      "Galatasaray",
-      "Real Madrid"
-    ]
-  },
-  {
-    "name": "Elvir Baljić",
-    "aliases": [
-      "Baljić",
-      "Elvir"
-    ],
-    "clubs": [
-      "Galatasaray",
-      "Real Madrid"
-    ]
-  },
-  {
-    "name": "Emerson",
-    "aliases": [],
-    "clubs": [
-      "Juventus",
-      "Milan",
-      "Real Madrid",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Émile Antonio",
-    "aliases": [
-      "Antonio",
-      "Émile"
-    ],
-    "clubs": [
-      "Lyon",
-      "Nice"
-    ]
-  },
-  {
-    "name": "Emiliano Insúa",
-    "aliases": [
-      "Emiliano",
-      "Insúa"
-    ],
-    "clubs": [
-      "Atletico Madrid",
-      "Galatasaray",
+      "AS Roma",
       "Liverpool"
     ]
   },
   {
-    "name": "Emiliano Viviano",
-    "aliases": [
-      "Emiliano",
-      "Viviano"
-    ],
+    "name": "Donny van de Beek",
+    "clubs": [
+      "Ajax",
+      "Man Utd"
+    ]
+  },
+  {
+    "name": "Donyell Malen",
+    "clubs": [
+      "Bor. Dortmund",
+      "Arsenal",
+      "Ajax"
+    ]
+  },
+  {
+    "name": "Dorukhan Toköz",
+    "clubs": [
+      "Kayserispor",
+      "Trabzonspor",
+      "Beşiktaş"
+    ]
+  },
+  {
+    "name": "Douglas",
+    "clubs": [
+      "Sivasspor",
+      "Trabzonspor",
+      "Barcelona",
+      "Beşiktaş",
+      "Benfica"
+    ]
+  },
+  {
+    "name": "Douglas Costa",
+    "clubs": [
+      "Juventus",
+      "Bayern Munich"
+    ]
+  },
+  {
+    "name": "Douglas Luiz",
+    "clubs": [
+      "Juventus",
+      "Man City"
+    ]
+  },
+  {
+    "name": "Doğa Kaya",
+    "clubs": [
+      "Kayserispor",
+      "Sivasspor",
+      "Genclerbirligi",
+      "Antalyaspor"
+    ]
+  },
+  {
+    "name": "Doğan Alemdar",
+    "clubs": [
+      "Kayserispor",
+      "Başakşehir"
+    ]
+  },
+  {
+    "name": "Doğukan Özkan",
+    "clubs": [
+      "Antalyaspor",
+      "Beşiktaş"
+    ]
+  },
+  {
+    "name": "Dries Mertens",
+    "clubs": [
+      "Galatasaray",
+      "Napoli"
+    ]
+  },
+  {
+    "name": "Dursun Karaman",
+    "clubs": [
+      "Fenerbahçe",
+      "Antalyaspor"
+    ]
+  },
+  {
+    "name": "Dusan Tadic",
+    "clubs": [
+      "Fenerbahçe",
+      "Ajax"
+    ]
+  },
+  {
+    "name": "Dusko Tosic",
+    "clubs": [
+      "Genclerbirligi",
+      "Beşiktaş"
+    ]
+  },
+  {
+    "name": "Eddie Nketiah",
+    "clubs": [
+      "Chelsea",
+      "Arsenal"
+    ]
+  },
+  {
+    "name": "Eddy Gnahore",
+    "clubs": [
+      "Napoli",
+      "Man City"
+    ]
+  },
+  {
+    "name": "Eden Hazard",
+    "clubs": [
+      "Chelsea",
+      "Real Madrid"
+    ]
+  },
+  {
+    "name": "Eder Militao",
+    "clubs": [
+      "FC Porto",
+      "Real Madrid"
+    ]
+  },
+  {
+    "name": "Ederson",
+    "clubs": [
+      "Fenerbahçe",
+      "Benfica",
+      "Man City"
+    ]
+  },
+  {
+    "name": "Edgar",
+    "clubs": [
+      "Real Madrid",
+      "Benfica"
+    ]
+  },
+  {
+    "name": "Edgar Davids",
+    "clubs": [
+      "Tottenham",
+      "Juventus",
+      "Barcelona",
+      "Ajax",
+      "Inter"
+    ]
+  },
+  {
+    "name": "Edgar Ie",
+    "clubs": [
+      "Başakşehir",
+      "Trabzonspor"
+    ]
+  },
+  {
+    "name": "Edin Dzeko",
+    "clubs": [
+      "Fenerbahçe",
+      "AS Roma",
+      "Inter",
+      "Man City"
+    ]
+  },
+  {
+    "name": "Edin Visca",
+    "clubs": [
+      "Başakşehir",
+      "Trabzonspor"
+    ]
+  },
+  {
+    "name": "Edinson Cavani",
+    "clubs": [
+      "Napoli",
+      "Man Utd"
+    ]
+  },
+  {
+    "name": "Edmund Hottor",
+    "clubs": [
+      "AC Milan",
+      "Inter"
+    ]
+  },
+  {
+    "name": "Edson Alvarez",
+    "clubs": [
+      "Fenerbahçe",
+      "Ajax"
+    ]
+  },
+  {
+    "name": "Edson Sousa",
+    "clubs": [
+      "Tottenham",
+      "Benfica"
+    ]
+  },
+  {
+    "name": "Eduardo",
+    "clubs": [
+      "Arsenal",
+      "FC Porto"
+    ]
+  },
+  {
+    "name": "Eduardo Salvio",
+    "clubs": [
+      "Atletico Madrid",
+      "Benfica"
+    ]
+  },
+  {
+    "name": "Edwin van der Sar",
+    "clubs": [
+      "Juventus",
+      "Ajax",
+      "Man Utd"
+    ]
+  },
+  {
+    "name": "Efe Özarslan",
+    "clubs": [
+      "Kayserispor",
+      "Genclerbirligi"
+    ]
+  },
+  {
+    "name": "Egemen Korkmaz",
+    "clubs": [
+      "Fenerbahçe",
+      "Başakşehir",
+      "Trabzonspor",
+      "Beşiktaş"
+    ]
+  },
+  {
+    "name": "Eidur Gudjohnsen",
+    "clubs": [
+      "Chelsea",
+      "Tottenham",
+      "Barcelona"
+    ]
+  },
+  {
+    "name": "Eldor Shomurodov",
+    "clubs": [
+      "Başakşehir",
+      "AS Roma"
+    ]
+  },
+  {
+    "name": "Elijah Dixon-Bonner",
+    "clubs": [
+      "Arsenal",
+      "Liverpool"
+    ]
+  },
+  {
+    "name": "Eljero Elia",
+    "clubs": [
+      "Juventus",
+      "Başakşehir",
+      "Ajax"
+    ]
+  },
+  {
+    "name": "Eljif Elmas",
+    "clubs": [
+      "Fenerbahçe",
+      "Napoli"
+    ]
+  },
+  {
+    "name": "Emanuele Belardi",
+    "clubs": [
+      "Juventus",
+      "Napoli"
+    ]
+  },
+  {
+    "name": "Emanuele Giaccherini",
+    "clubs": [
+      "Juventus",
+      "Napoli"
+    ]
+  },
+  {
+    "name": "Emerson",
+    "clubs": [
+      "Chelsea",
+      "AS Roma"
+    ]
+  },
+  {
+    "name": "Emerson Conceiçao",
+    "clubs": [
+      "Trabzonspor",
+      "Benfica"
+    ]
+  },
+  {
+    "name": "Emerson Royal",
+    "clubs": [
+      "Tottenham",
+      "Barcelona",
+      "AC Milan"
+    ]
+  },
+  {
+    "name": "Emerson Thome",
+    "clubs": [
+      "Chelsea",
+      "Inter",
+      "Benfica"
+    ]
+  },
+  {
+    "name": "Emil Audero",
+    "clubs": [
+      "Juventus",
+      "Inter"
+    ]
+  },
+  {
+    "name": "Emiliano Insua",
+    "clubs": [
+      "Galatasaray",
+      "Atletico Madrid",
+      "Liverpool"
+    ]
+  },
+  {
+    "name": "Emiliano Martinez",
     "clubs": [
       "Arsenal",
       "Inter"
     ]
   },
   {
-    "name": "Emilio Gattoronchieri",
-    "aliases": [
-      "Emilio",
-      "Gattoronchieri"
-    ],
+    "name": "Emiliano Viviano",
     "clubs": [
-      "Inter",
-      "Milan"
+      "Arsenal",
+      "Inter"
     ]
   },
   {
-    "name": "Emilio Guerra",
-    "aliases": [
-      "Emilio",
-      "Guerra"
-    ],
+    "name": "Emir Tintiş",
     "clubs": [
-      "Atletico Madrid",
-      "Barcelona"
+      "Galatasaray",
+      "Beşiktaş"
+    ]
+  },
+  {
+    "name": "Emircan Altıntaş",
+    "clubs": [
+      "Başakşehir",
+      "Beşiktaş"
     ]
   },
   {
     "name": "Emirhan İlkhan",
-    "aliases": [
-      "Emirhan",
-      "İlkhan"
-    ],
     "clubs": [
       "Başakşehir",
       "Beşiktaş"
@@ -5933,1052 +3623,699 @@ export const PLAYERS = [
   },
   {
     "name": "Emmanuel Adebayor",
-    "aliases": [
-      "Adebayor",
-      "Emmanuel"
-    ],
     "clubs": [
+      "Kayserispor",
+      "Tottenham",
       "Arsenal",
       "Başakşehir",
-      "Manchester City",
       "Real Madrid",
-      "Tottenham"
+      "Man City"
     ]
   },
   {
-    "name": "Emmanuel Eboué",
-    "aliases": [
-      "Eboué",
-      "Emmanuel"
-    ],
+    "name": "Emmanuel Eboue",
     "clubs": [
       "Arsenal",
       "Galatasaray"
     ]
   },
   {
-    "name": "Emmanuel Petit",
-    "aliases": [
-      "Emmanuel",
-      "Petit"
-    ],
+    "name": "Emrah Başsan",
     "clubs": [
-      "Arsenal",
-      "Barcelona",
-      "Real Madrid"
-    ]
-  },
-  {
-    "name": "Emrah Eren",
-    "aliases": [
-      "Emrah",
-      "Eren"
-    ],
-    "clubs": [
-      "Galatasaray",
-      "Trabzonspor"
-    ]
-  },
-  {
-    "name": "Emre Aşık",
-    "aliases": [
-      "Aşık",
-      "Emre"
-    ],
-    "clubs": [
-      "Beşiktaş",
-      "Galatasaray"
-    ]
-  },
-  {
-    "name": "Emre Belözoğlu",
-    "aliases": [
-      "Belozoglu",
-      "Belözoğlu",
-      "Emre"
-    ],
-    "clubs": [
-      "Atletico Madrid",
-      "Başakşehir",
-      "Fenerbahçe",
-      "Galatasaray",
-      "Inter"
-    ]
-  },
-  {
-    "name": "Emre Çolak",
-    "aliases": [
-      "Çolak",
-      "Emre"
-    ],
-    "clubs": [
-      "Başakşehir",
-      "Galatasaray"
-    ]
-  },
-  {
-    "name": "Emre Güngör",
-    "aliases": [
-      "Emre",
-      "Güngör"
-    ],
-    "clubs": [
+      "Kayserispor",
+      "Sivasspor",
       "Antalyaspor",
       "Galatasaray"
     ]
   },
   {
-    "name": "Emre Güral",
-    "aliases": [
-      "Emre",
-      "Güral"
-    ],
+    "name": "Emrah Eren",
     "clubs": [
+      "Konyaspor",
+      "Trabzonspor",
+      "Denizlispor",
+      "Galatasaray"
+    ]
+  },
+  {
+    "name": "Emre Aygün",
+    "clubs": [
+      "Trabzonspor",
+      "Genclerbirligi"
+    ]
+  },
+  {
+    "name": "Emre Belözoğlu",
+    "clubs": [
+      "Fenerbahçe",
+      "Başakşehir",
       "Galatasaray",
-      "Trabzonspor"
-    ]
-  },
-  {
-    "name": "Engin Baytar",
-    "aliases": [
-      "Baytar",
-      "Engin"
-    ],
-    "clubs": [
-      "Galatasaray",
-      "Trabzonspor"
-    ]
-  },
-  {
-    "name": "Enrico Boniforti",
-    "aliases": [
-      "Boniforti",
-      "Enrico"
-    ],
-    "clubs": [
-      "Juventus",
-      "Milan"
-    ]
-  },
-  {
-    "name": "Enrico Candiani",
-    "aliases": [
-      "Candiani",
-      "Enrico"
-    ],
-    "clubs": [
-      "Inter",
-      "Juventus",
-      "Milan"
-    ]
-  },
-  {
-    "name": "Enrico Canfari",
-    "aliases": [
-      "Canfari",
-      "Enrico"
-    ],
-    "clubs": [
-      "Juventus",
-      "Milan"
-    ]
-  },
-  {
-    "name": "Enrico Rivolta",
-    "aliases": [
-      "Enrico",
-      "Rivolta"
-    ],
-    "clubs": [
-      "Inter",
-      "Milan"
-    ]
-  },
-  {
-    "name": "Enrique Mateos",
-    "aliases": [
-      "Enrique",
-      "Mateos"
-    ],
-    "clubs": [
-      "Real Madrid",
-      "Sevilla"
-    ]
-  },
-  {
-    "name": "Enrique Morán",
-    "aliases": [
-      "Enrique",
-      "Morán"
-    ],
-    "clubs": [
       "Atletico Madrid",
-      "Barcelona"
+      "Inter"
     ]
   },
   {
-    "name": "Enrique Normand Faurie",
-    "aliases": [
-      "Enrique",
-      "Faurie",
-      "Normand"
-    ],
+    "name": "Emre Can",
     "clubs": [
-      "Barcelona",
-      "Real Madrid"
+      "Bor. Dortmund",
+      "Juventus",
+      "Liverpool",
+      "Bayern Munich"
     ]
   },
   {
-    "name": "Enzo Maresca",
-    "aliases": [
-      "Enzo",
-      "Maresca"
-    ],
+    "name": "Emre Demir",
+    "clubs": [
+      "Kayserispor",
+      "Fenerbahçe"
+    ]
+  },
+  {
+    "name": "Emre Güral",
+    "clubs": [
+      "Trabzonspor",
+      "Antalyaspor"
+    ]
+  },
+  {
+    "name": "Emre Kılınç",
+    "clubs": [
+      "Sivasspor",
+      "Galatasaray"
+    ]
+  },
+  {
+    "name": "Emre Mor",
+    "clubs": [
+      "Bor. Dortmund",
+      "Fenerbahçe",
+      "Galatasaray"
+    ]
+  },
+  {
+    "name": "Emre Taşdemir",
+    "clubs": [
+      "Kayserispor",
+      "Galatasaray"
+    ]
+  },
+  {
+    "name": "Emre Toraman",
+    "clubs": [
+      "Konyaspor",
+      "Trabzonspor",
+      "Genclerbirligi"
+    ]
+  },
+  {
+    "name": "Emre Yüksektepe",
+    "clubs": [
+      "Konyaspor",
+      "Galatasaray"
+    ]
+  },
+  {
+    "name": "Emre Çolak",
+    "clubs": [
+      "Başakşehir",
+      "Galatasaray"
+    ]
+  },
+  {
+    "name": "Emrecan Uzunhan",
+    "clubs": [
+      "Antalyaspor",
+      "Galatasaray",
+      "Beşiktaş"
+    ]
+  },
+  {
+    "name": "Emrehan Gedikli",
+    "clubs": [
+      "Konyaspor",
+      "Trabzonspor"
+    ]
+  },
+  {
+    "name": "Emrullah Şalk",
+    "clubs": [
+      "Konyaspor",
+      "Genclerbirligi"
+    ]
+  },
+  {
+    "name": "Enes Durmuş",
+    "clubs": [
+      "Fenerbahçe",
+      "Beşiktaş"
+    ]
+  },
+  {
+    "name": "Enes Subaşı",
+    "clubs": [
+      "Başakşehir",
+      "Galatasaray"
+    ]
+  },
+  {
+    "name": "Engin Bekdemir",
+    "clubs": [
+      "Kayserispor",
+      "FC Porto",
+      "Genclerbirligi"
+    ]
+  },
+  {
+    "name": "Enis Bardhi",
+    "clubs": [
+      "Konyaspor",
+      "Trabzonspor"
+    ]
+  },
+  {
+    "name": "Ensar Kemaloğlu",
+    "clubs": [
+      "Trabzonspor",
+      "Genclerbirligi"
+    ]
+  },
+  {
+    "name": "Enzo Barrenechea",
     "clubs": [
       "Juventus",
-      "Sevilla"
+      "Benfica"
     ]
   },
   {
-    "name": "Enzo Matteucci",
-    "aliases": [
-      "Enzo",
-      "Matteucci"
-    ],
+    "name": "Enzo Crivelli",
     "clubs": [
-      "Inter",
-      "Roma"
+      "Başakşehir",
+      "Antalyaspor"
     ]
   },
   {
-    "name": "Enzo Menegotti",
-    "aliases": [
-      "Enzo",
-      "Menegotti"
-    ],
+    "name": "Enzo Fernandez",
     "clubs": [
-      "Milan",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Enzo Robotti",
-    "aliases": [
-      "Enzo",
-      "Robotti"
-    ],
-    "clubs": [
-      "Juventus",
-      "Roma"
+      "Chelsea",
+      "Benfica"
     ]
   },
   {
     "name": "Enzo Zidane",
-    "aliases": [
-      "Enzo",
-      "Zidane"
-    ],
     "clubs": [
       "Juventus",
       "Real Madrid"
     ]
   },
   {
-    "name": "Erdinç Yavuz",
-    "aliases": [
-      "Erdinç",
-      "Yavuz"
-    ],
+    "name": "Ercan Ünal",
+    "clubs": [
+      "Antalyaspor",
+      "Denizlispor"
+    ]
+  },
+  {
+    "name": "Erdal Kilicaslan",
+    "clubs": [
+      "Konyaspor",
+      "Genclerbirligi"
+    ]
+  },
+  {
+    "name": "Erdal Rakip",
+    "clubs": [
+      "Antalyaspor",
+      "Benfica"
+    ]
+  },
+  {
+    "name": "Erdal Öztürk",
     "clubs": [
       "Kayserispor",
+      "Genclerbirligi"
+    ]
+  },
+  {
+    "name": "Erdem Özgenç",
+    "clubs": [
+      "Fenerbahçe",
+      "Genclerbirligi"
+    ]
+  },
+  {
+    "name": "Erdinç Yavuz",
+    "clubs": [
+      "Kayserispor",
+      "Konyaspor",
       "Trabzonspor"
     ]
   },
   {
     "name": "Eren Albayrak",
-    "aliases": [
-      "Albayrak",
-      "Eren"
-    ],
     "clubs": [
+      "Konyaspor",
       "Başakşehir",
-      "Trabzonspor"
+      "Trabzonspor",
+      "Antalyaspor"
     ]
   },
   {
-    "name": "Eren Aydın",
-    "aliases": [
-      "Aydın",
-      "Eren"
-    ],
+    "name": "Eren Elmalı",
     "clubs": [
-      "Başakşehir",
-      "Sivasspor"
-    ]
-  },
-  {
-    "name": "Ergün Acuner",
-    "aliases": [
-      "Acuner",
-      "Ergün"
-    ],
-    "clubs": [
-      "Beşiktaş",
+      "Trabzonspor",
       "Galatasaray"
     ]
   },
   {
-    "name": "Ergün Teber",
-    "aliases": [
-      "Ergün",
-      "Teber"
-    ],
+    "name": "Ergin Keleş",
     "clubs": [
-      "Antalyaspor",
-      "Kayserispor"
-    ]
-  },
-  {
-    "name": "Erhan Güven",
-    "aliases": [
-      "Erhan",
-      "Güven"
-    ],
-    "clubs": [
-      "Antalyaspor",
-      "Beşiktaş",
-      "Sivasspor"
-    ]
-  },
-  {
-    "name": "Erhan Kırcı",
-    "aliases": [
-      "Erhan",
-      "Kırcı"
-    ],
-    "clubs": [
-      "Kayserispor",
+      "Sivasspor",
       "Trabzonspor"
+    ]
+  },
+  {
+    "name": "Erhan Albayrak",
+    "clubs": [
+      "Konyaspor",
+      "Fenerbahçe"
+    ]
+  },
+  {
+    "name": "Erhan Erentürk",
+    "clubs": [
+      "Sivasspor",
+      "Konyaspor",
+      "Genclerbirligi"
     ]
   },
   {
     "name": "Erhan Namlı",
-    "aliases": [
-      "Erhan",
-      "Namlı"
-    ],
     "clubs": [
-      "Galatasaray",
-      "Trabzonspor"
+      "Trabzonspor",
+      "Denizlispor",
+      "Galatasaray"
     ]
   },
   {
-    "name": "Eric Abidal",
-    "aliases": [
-      "Abidal",
-      "Eric"
-    ],
+    "name": "Eric Bailly",
+    "clubs": [
+      "Beşiktaş",
+      "Man Utd"
+    ]
+  },
+  {
+    "name": "Eric Dier",
+    "clubs": [
+      "Tottenham",
+      "Bayern Munich"
+    ]
+  },
+  {
+    "name": "Eric Garcia",
     "clubs": [
       "Barcelona",
-      "Lyon"
-    ]
-  },
-  {
-    "name": "Eric Cantona",
-    "aliases": [
-      "Cantona",
-      "Eric"
-    ],
-    "clubs": [
-      "Manchester United",
-      "PSG"
-    ]
-  },
-  {
-    "name": "Eric Castel",
-    "aliases": [
-      "Castel",
-      "Eric"
-    ],
-    "clubs": [
-      "Barcelona",
-      "Inter",
-      "PSG"
-    ]
-  },
-  {
-    "name": "Éric Cubilier",
-    "aliases": [
-      "Cubilier",
-      "Éric"
-    ],
-    "clubs": [
-      "Nice",
-      "PSG"
-    ]
-  },
-  {
-    "name": "Eric Eastwood",
-    "aliases": [
-      "Eastwood",
-      "Eric"
-    ],
-    "clubs": [
-      "Manchester City",
-      "Manchester United"
-    ]
-  },
-  {
-    "name": "Eric García",
-    "aliases": [
-      "Eric",
-      "García"
-    ],
-    "clubs": [
-      "Barcelona",
-      "Manchester City"
-    ]
-  },
-  {
-    "name": "Éric Roy",
-    "aliases": [
-      "Éric",
-      "Roy"
-    ],
-    "clubs": [
-      "Lyon",
-      "Nice"
-    ]
-  },
-  {
-    "name": "Eric Westwood",
-    "aliases": [
-      "Eric",
-      "Westwood"
-    ],
-    "clubs": [
-      "Manchester City",
-      "Manchester United"
+      "Man City"
     ]
   },
   {
     "name": "Erik Lamela",
-    "aliases": [
-      "Erik",
-      "Lamela"
-    ],
     "clubs": [
-      "Roma",
-      "Sevilla",
-      "Tottenham"
+      "Tottenham",
+      "AS Roma"
     ]
   },
   {
-    "name": "Erik Regtop",
-    "aliases": [
-      "Erik",
-      "Regtop"
-    ],
+    "name": "Erkam Reşmen",
     "clubs": [
-      "Ajax",
-      "Nice"
+      "Kayserispor",
+      "Antalyaspor",
+      "Beşiktaş"
+    ]
+  },
+  {
+    "name": "Erkan Eyibil",
+    "clubs": [
+      "Genclerbirligi",
+      "Antalyaspor"
     ]
   },
   {
     "name": "Erkan Kaş",
-    "aliases": [
-      "Erkan",
-      "Kaş"
-    ],
     "clubs": [
-      "Beşiktaş",
-      "Sivasspor"
+      "Kayserispor",
+      "Sivasspor",
+      "Beşiktaş"
     ]
   },
   {
     "name": "Erkan Sekman",
-    "aliases": [
-      "Erkan",
-      "Sekman"
-    ],
     "clubs": [
+      "Konyaspor",
       "Antalyaspor",
+      "Denizlispor",
       "Beşiktaş"
     ]
   },
   {
     "name": "Erkan Zengin",
-    "aliases": [
-      "Erkan",
-      "Zengin"
-    ],
     "clubs": [
-      "Beşiktaş",
+      "Trabzonspor",
+      "Beşiktaş"
+    ]
+  },
+  {
+    "name": "Erling Haaland",
+    "clubs": [
+      "Bor. Dortmund",
+      "Man City"
+    ]
+  },
+  {
+    "name": "Erman Güraçar",
+    "clubs": [
+      "Trabzonspor",
+      "Denizlispor",
+      "Beşiktaş"
+    ]
+  },
+  {
+    "name": "Erman Kılıç",
+    "clubs": [
+      "Sivasspor",
+      "Antalyaspor",
+      "Galatasaray"
+    ]
+  },
+  {
+    "name": "Erman Özgür",
+    "clubs": [
+      "Konyaspor",
       "Trabzonspor"
     ]
   },
   {
-    "name": "Erkut Şentürk",
-    "aliases": [
-      "Erkut",
-      "Şentürk"
-    ],
+    "name": "Erminio Rullo",
+    "clubs": [
+      "Inter",
+      "Napoli"
+    ]
+  },
+  {
+    "name": "Ernest Muci",
+    "clubs": [
+      "Trabzonspor",
+      "Beşiktaş"
+    ]
+  },
+  {
+    "name": "Erol Kapusuz",
+    "clubs": [
+      "Kayserispor",
+      "Antalyaspor"
+    ]
+  },
+  {
+    "name": "Ersan Gülüm",
     "clubs": [
       "Antalyaspor",
       "Beşiktaş"
     ]
   },
   {
-    "name": "Erman Güraçar",
-    "aliases": [
-      "Erman",
-      "Güraçar"
-    ],
-    "clubs": [
-      "Beşiktaş",
-      "Trabzonspor"
-    ]
-  },
-  {
-    "name": "Erman Kılıç",
-    "aliases": [
-      "Erman",
-      "Kılıç"
-    ],
-    "clubs": [
-      "Antalyaspor",
-      "Başakşehir",
-      "Galatasaray",
-      "Sivasspor"
-    ]
-  },
-  {
-    "name": "Ermanno Alloni",
-    "aliases": [
-      "Alloni",
-      "Ermanno"
-    ],
-    "clubs": [
-      "Inter",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Erminio Favalli",
-    "aliases": [
-      "Erminio",
-      "Favalli"
-    ],
-    "clubs": [
-      "Inter",
-      "Juventus"
-    ]
-  },
-  {
-    "name": "Ernesto Boglietti",
-    "aliases": [
-      "Boglietti",
-      "Ernesto"
-    ],
-    "clubs": [
-      "Inter",
-      "Juventus"
-    ]
-  },
-  {
-    "name": "Ernesto Borel",
-    "aliases": [
-      "Borel",
-      "Ernesto"
-    ],
-    "clubs": [
-      "Juventus",
-      "Nice"
-    ]
-  },
-  {
-    "name": "Ernesto Tomasi",
-    "aliases": [
-      "Ernesto",
-      "Tomasi"
-    ],
-    "clubs": [
-      "Juventus",
-      "Nice",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Ernie Goldthorpe",
-    "aliases": [
-      "Ernie",
-      "Goldthorpe"
-    ],
-    "clubs": [
-      "Manchester United",
-      "Tottenham"
-    ]
-  },
-  {
-    "name": "Ersen Martin",
-    "aliases": [
-      "Ersen",
-      "Martin"
-    ],
-    "clubs": [
-      "Beşiktaş",
-      "Sivasspor",
-      "Trabzonspor"
-    ]
-  },
-  {
     "name": "Ertuğrul Arslan",
-    "aliases": [
-      "Arslan",
-      "Ertuğrul"
-    ],
-    "clubs": [
-      "Antalyaspor",
-      "Kayserispor",
-      "Sivasspor"
-    ]
-  },
-  {
-    "name": "Ertuğrul Taşkıran",
-    "aliases": [
-      "Ertuğrul",
-      "Taşkıran"
-    ],
     "clubs": [
       "Kayserispor",
-      "Sivasspor"
-    ]
-  },
-  {
-    "name": "Esteban Andrés Suárez",
-    "aliases": [
-      "Andrés",
-      "Esteban",
-      "Suárez"
-    ],
-    "clubs": [
-      "Atletico Madrid",
-      "Sevilla"
-    ]
-  },
-  {
-    "name": "Esteban Cambiasso",
-    "aliases": [
-      "Cambiasso",
-      "Esteban"
-    ],
-    "clubs": [
-      "Inter",
-      "Real Madrid"
-    ]
-  },
-  {
-    "name": "Etzaz Hussain",
-    "aliases": [
-      "Etzaz",
-      "Hussain"
-    ],
-    "clubs": [
-      "Manchester United",
-      "Sivasspor"
-    ]
-  },
-  {
-    "name": "Eugenio Negri",
-    "aliases": [
-      "Eugenio",
-      "Negri"
-    ],
-    "clubs": [
-      "Inter",
-      "Milan"
-    ]
-  },
-  {
-    "name": "Eugenio Rizzolini",
-    "aliases": [
-      "Eugenio",
-      "Rizzolini"
-    ],
-    "clubs": [
-      "Inter",
-      "Milan"
-    ]
-  },
-  {
-    "name": "Eulogio Martínez",
-    "aliases": [
-      "Eulogio",
-      "Martínez"
-    ],
-    "clubs": [
-      "Atletico Madrid",
-      "Barcelona"
-    ]
-  },
-  {
-    "name": "Eusebio Sacristán",
-    "aliases": [
-      "Eusebio",
-      "Sacristán"
-    ],
-    "clubs": [
-      "Atletico Madrid",
-      "Barcelona"
-    ]
-  },
-  {
-    "name": "Evaristo de Macedo",
-    "aliases": [
-      "Evaristo",
-      "Macedo"
-    ],
-    "clubs": [
-      "Barcelona",
-      "Real Madrid"
-    ]
-  },
-  {
-    "name": "Éver Banega",
-    "aliases": [
-      "Banega",
-      "Éver"
-    ],
-    "clubs": [
-      "Atletico Madrid",
-      "Inter",
-      "Sevilla"
-    ]
-  },
-  {
-    "name": "Everson Pereira da Silva",
-    "aliases": [
-      "Everson",
-      "Pereira",
-      "Silva"
-    ],
-    "clubs": [
-      "Nice",
-      "PSG"
-    ]
-  },
-  {
-    "name": "Eyong Enoh",
-    "aliases": [
-      "Enoh",
-      "Eyong"
-    ],
-    "clubs": [
-      "Ajax",
+      "Sivasspor",
+      "Konyaspor",
       "Antalyaspor"
     ]
   },
   {
-    "name": "Eyüp Kadri Ataoğlu",
-    "aliases": [
-      "Ataoğlu",
-      "Eyüp",
-      "Kadri"
-    ],
+    "name": "Ertuğrul Çetin",
+    "clubs": [
+      "Fenerbahçe",
+      "Genclerbirligi"
+    ]
+  },
+  {
+    "name": "Eser Yağmur",
+    "clubs": [
+      "Konyaspor",
+      "Denizlispor",
+      "Beşiktaş"
+    ]
+  },
+  {
+    "name": "Esteban Cambiasso",
+    "clubs": [
+      "Real Madrid",
+      "Inter"
+    ]
+  },
+  {
+    "name": "Etzaz Hussain",
     "clubs": [
       "Sivasspor",
-      "Trabzonspor"
+      "Man Utd"
     ]
   },
   {
-    "name": "Eyüp Kaymakçı",
-    "aliases": [
-      "Eyüp",
-      "Kaymakçı"
-    ],
+    "name": "Evandro Brandao",
     "clubs": [
-      "Antalyaspor",
-      "Başakşehir",
-      "Galatasaray"
+      "Benfica",
+      "Man Utd"
     ]
   },
   {
-    "name": "Fabián Carini",
-    "aliases": [
-      "Carini",
-      "Fabián"
-    ],
-    "clubs": [
-      "Inter",
-      "Juventus"
-    ]
-  },
-  {
-    "name": "Fabiano Eller",
-    "aliases": [
-      "Eller",
-      "Fabiano"
-    ],
+    "name": "Ever Banega",
     "clubs": [
       "Atletico Madrid",
-      "Trabzonspor"
+      "Inter"
     ]
   },
   {
-    "name": "Fabio Borini",
-    "aliases": [
-      "Borini",
-      "Fabio"
-    ],
+    "name": "Eyong Enoh",
     "clubs": [
-      "Liverpool",
-      "Milan",
-      "Roma"
+      "Antalyaspor",
+      "Ajax"
+    ]
+  },
+  {
+    "name": "Ezequiel Garay",
+    "clubs": [
+      "Real Madrid",
+      "Benfica"
+    ]
+  },
+  {
+    "name": "Fabian Carini",
+    "clubs": [
+      "Juventus",
+      "Inter"
+    ]
+  },
+  {
+    "name": "Fabiano",
+    "clubs": [
+      "Fenerbahçe",
+      "Denizlispor"
+    ]
+  },
+  {
+    "name": "Fabinho",
+    "clubs": [
+      "FC Porto",
+      "Benfica",
+      "Liverpool"
+    ]
+  },
+  {
+    "name": "Fabio Bilica",
+    "clubs": [
+      "Sivasspor",
+      "Fenerbahçe"
     ]
   },
   {
     "name": "Fabio Cannavaro",
-    "aliases": [
-      "Cannavaro",
-      "Fabio"
-    ],
-    "clubs": [
-      "Inter",
-      "Juventus",
-      "Real Madrid"
-    ]
-  },
-  {
-    "name": "Fabio Capello",
-    "aliases": [
-      "Capello",
-      "Fabio"
-    ],
     "clubs": [
       "Juventus",
-      "Milan",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Fabio Cinetti",
-    "aliases": [
-      "Cinetti",
-      "Fabio"
-    ],
-    "clubs": [
+      "Real Madrid",
       "Inter",
-      "Nice"
+      "Napoli"
     ]
   },
   {
-    "name": "Fabio Cudicini",
-    "aliases": [
-      "Cudicini",
-      "Fabio"
-    ],
+    "name": "Fabio Cardoso",
     "clubs": [
-      "Milan",
-      "Roma"
+      "FC Porto",
+      "Benfica"
     ]
   },
   {
-    "name": "Fabio Di Sauro",
-    "aliases": [
-      "Fabio",
-      "Sauro"
-    ],
+    "name": "Fabio Carvalho",
     "clubs": [
-      "Inter",
-      "Milan"
+      "Benfica",
+      "Liverpool"
+    ]
+  },
+  {
+    "name": "Fabio Coentrao",
+    "clubs": [
+      "Real Madrid",
+      "Benfica"
     ]
   },
   {
     "name": "Fabio Grosso",
-    "aliases": [
-      "Fabio",
-      "Grosso"
-    ],
     "clubs": [
-      "Inter",
       "Juventus",
-      "Lyon"
+      "Inter"
     ]
   },
   {
-    "name": "Fabrice Abriel",
-    "aliases": [
-      "Abriel",
-      "Fabrice"
-    ],
+    "name": "Fabio Nunes",
     "clubs": [
-      "Nice",
-      "PSG"
+      "FC Porto",
+      "Benfica"
     ]
   },
   {
-    "name": "Fabrice Fiorèse",
-    "aliases": [
-      "Fabrice",
-      "Fiorèse"
-    ],
+    "name": "Fabio Quagliarella",
     "clubs": [
-      "Lyon",
-      "PSG"
+      "Juventus",
+      "Napoli"
     ]
   },
   {
-    "name": "Fabrice Poullain",
-    "aliases": [
-      "Fabrice",
-      "Poullain"
-    ],
+    "name": "Fabio Silva",
     "clubs": [
-      "Nice",
-      "PSG"
+      "Bor. Dortmund",
+      "FC Porto",
+      "Benfica"
+    ]
+  },
+  {
+    "name": "Fabio Vieira",
+    "clubs": [
+      "Arsenal",
+      "FC Porto"
     ]
   },
   {
     "name": "Fabricio Coloccini",
-    "aliases": [
-      "Coloccini",
-      "Fabricio"
-    ],
     "clubs": [
-      "Atletico Madrid",
-      "Milan"
+      "AC Milan",
+      "Atletico Madrid"
     ]
   },
   {
-    "name": "Fabrizio Ferron",
-    "aliases": [
-      "Fabrizio",
-      "Ferron"
-    ],
+    "name": "Fabrizio Caligara",
     "clubs": [
-      "Inter",
-      "Milan"
-    ]
-  },
-  {
-    "name": "Fabrizio Lorieri",
-    "aliases": [
-      "Fabrizio",
-      "Lorieri"
-    ],
-    "clubs": [
-      "Inter",
-      "Roma"
+      "Juventus",
+      "Inter"
     ]
   },
   {
     "name": "Fabrizio Miccoli",
-    "aliases": [
-      "Fabrizio",
-      "Miccoli"
-    ],
     "clubs": [
       "Juventus",
-      "Milan"
+      "AC Milan",
+      "Benfica"
     ]
   },
   {
-    "name": "Fani Madida",
-    "aliases": [
-      "Fani",
-      "Madida"
-    ],
+    "name": "Fahri Tatan",
     "clubs": [
-      "Antalyaspor",
+      "Konyaspor",
+      "Fenerbahçe",
+      "Denizlispor",
+      "Beşiktaş"
+    ]
+  },
+  {
+    "name": "Fatih Aksoy",
+    "clubs": [
+      "Sivasspor",
       "Beşiktaş"
     ]
   },
   {
     "name": "Fatih Akyel",
-    "aliases": [
-      "Akyel",
-      "Fatih"
-    ],
     "clubs": [
       "Fenerbahçe",
-      "Galatasaray",
-      "Trabzonspor"
-    ]
-  },
-  {
-    "name": "Fatih Atik",
-    "aliases": [
-      "Atik",
-      "Fatih"
-    ],
-    "clubs": [
-      "Sivasspor",
-      "Trabzonspor"
+      "Trabzonspor",
+      "Genclerbirligi",
+      "Galatasaray"
     ]
   },
   {
     "name": "Fatih Ceylan",
-    "aliases": [
-      "Ceylan",
-      "Fatih"
-    ],
     "clubs": [
+      "Kayserispor",
       "Antalyaspor",
-      "Kayserispor"
+      "Denizlispor"
+    ]
+  },
+  {
+    "name": "Fatih Egedik",
+    "clubs": [
+      "Konyaspor",
+      "Denizlispor"
+    ]
+  },
+  {
+    "name": "Fatih Sezer",
+    "clubs": [
+      "Kayserispor",
+      "Konyaspor",
+      "Antalyaspor"
     ]
   },
   {
     "name": "Fatih Tekke",
-    "aliases": [
-      "Fatih",
-      "Tekke"
-    ],
     "clubs": [
-      "Beşiktaş",
-      "Trabzonspor"
+      "Trabzonspor",
+      "Beşiktaş"
     ]
   },
   {
-    "name": "Fatih Uraz",
-    "aliases": [
-      "Fatih",
-      "Uraz"
-    ],
+    "name": "Fatih Öztürk",
     "clubs": [
-      "Beşiktaş",
-      "Kayserispor"
+      "Trabzonspor",
+      "Galatasaray"
     ]
   },
   {
-    "name": "Fausto Landini",
-    "aliases": [
-      "Fausto",
-      "Landini"
-    ],
+    "name": "Fausto Pizzi",
     "clubs": [
-      "Juventus",
-      "Roma"
+      "Inter",
+      "Napoli"
+    ]
+  },
+  {
+    "name": "Fazlı Ulusal",
+    "clubs": [
+      "Antalyaspor",
+      "Beşiktaş"
+    ]
+  },
+  {
+    "name": "Fazlı Ulusoy",
+    "clubs": [
+      "Kayserispor",
+      "Galatasaray"
     ]
   },
   {
     "name": "Federico Balzaretti",
-    "aliases": [
-      "Balzaretti",
-      "Federico"
-    ],
     "clubs": [
       "Juventus",
-      "Roma"
+      "AS Roma"
     ]
   },
   {
     "name": "Federico Chiesa",
-    "aliases": [
-      "chiesa",
-      "Chiesa",
-      "federico",
-      "Federico"
-    ],
     "clubs": [
       "Juventus",
       "Liverpool"
@@ -6986,3550 +4323,1802 @@ export const PLAYERS = [
   },
   {
     "name": "Federico Fazio",
-    "aliases": [
-      "Fazio",
-      "Federico"
-    ],
     "clubs": [
-      "Roma",
-      "Sevilla",
-      "Tottenham"
+      "Tottenham",
+      "AS Roma"
     ]
   },
   {
-    "name": "Federico Giunti",
-    "aliases": [
-      "Federico",
-      "Giunti"
-    ],
+    "name": "Fedor Kudryashov",
     "clubs": [
-      "Beşiktaş",
-      "Milan"
+      "Başakşehir",
+      "Antalyaspor"
     ]
   },
   {
-    "name": "Federico Magallanes",
-    "aliases": [
-      "Federico",
-      "Magallanes"
-    ],
+    "name": "Felipe",
     "clubs": [
-      "Real Madrid",
-      "Sevilla"
+      "FC Porto",
+      "Atletico Madrid",
+      "Inter"
     ]
   },
   {
     "name": "Felipe Caicedo",
-    "aliases": [
-      "Caicedo",
-      "Felipe"
-    ],
     "clubs": [
       "Inter",
-      "Manchester City"
+      "Man City"
     ]
   },
   {
     "name": "Felipe Melo",
-    "aliases": [
-      "Felipe",
-      "Melo"
-    ],
     "clubs": [
+      "Juventus",
       "Galatasaray",
-      "Inter",
-      "Juventus"
+      "Inter"
     ]
   },
   {
-    "name": "Félix de los Heros",
-    "aliases": [
-      "Félix",
-      "Heros",
-      "los"
-    ],
+    "name": "Felix Correia",
     "clubs": [
-      "Barcelona",
-      "Sevilla"
+      "Juventus",
+      "Man City"
     ]
   },
   {
-    "name": "Félix Huete",
-    "aliases": [
-      "Félix",
-      "Huete"
-    ],
+    "name": "Felix Nmecha",
     "clubs": [
-      "Atletico Madrid",
-      "Real Madrid"
-    ]
-  },
-  {
-    "name": "Félix Pérez Marcos",
-    "aliases": [
-      "Félix",
-      "Marcos",
-      "Pérez"
-    ],
-    "clubs": [
-      "Atletico Madrid",
-      "Real Madrid"
+      "Bor. Dortmund",
+      "Man City"
     ]
   },
   {
     "name": "Ferhat Öztorun",
-    "aliases": [
-      "Ferhat",
-      "Öztorun"
-    ],
     "clubs": [
+      "Konyaspor",
       "Başakşehir",
-      "Galatasaray",
-      "Trabzonspor"
+      "Trabzonspor",
+      "Galatasaray"
     ]
   },
   {
-    "name": "Fernand Goyvaerts",
-    "aliases": [
-      "Fernand",
-      "Goyvaerts"
-    ],
+    "name": "Feridun Sungur",
     "clubs": [
-      "Barcelona",
-      "Nice",
-      "Real Madrid"
+      "Trabzonspor",
+      "Denizlispor"
     ]
   },
   {
-    "name": "Fernando Argila",
-    "aliases": [
-      "Argila",
-      "Fernando"
-    ],
-    "clubs": [
-      "Atletico Madrid",
-      "Barcelona"
-    ]
-  },
-  {
-    "name": "Fernando Gago",
-    "aliases": [
-      "Fernando",
-      "Gago"
-    ],
+    "name": "Ferland Mendy",
     "clubs": [
       "Real Madrid",
-      "Roma"
+      "PSG"
+    ]
+  },
+  {
+    "name": "Fernando",
+    "clubs": [
+      "FC Porto",
+      "Antalyaspor",
+      "Galatasaray",
+      "Real Madrid",
+      "Man City"
+    ]
+  },
+  {
+    "name": "Fernando Andrade",
+    "clubs": [
+      "Sivasspor",
+      "FC Porto"
     ]
   },
   {
     "name": "Fernando Llorente",
-    "aliases": [
-      "Fernando",
-      "Llorente"
-    ],
     "clubs": [
+      "Tottenham",
       "Juventus",
-      "Sevilla",
-      "Tottenham"
+      "Napoli"
+    ]
+  },
+  {
+    "name": "Fernando Meira",
+    "clubs": [
+      "Galatasaray",
+      "Benfica"
     ]
   },
   {
     "name": "Fernando Morientes",
-    "aliases": [
-      "Fernando",
-      "Morientes"
-    ],
     "clubs": [
-      "Liverpool",
-      "Real Madrid"
-    ]
-  },
-  {
-    "name": "Fernando Muñoz",
-    "aliases": [
-      "Fernando",
-      "Muñoz"
-    ],
-    "clubs": [
-      "Barcelona",
       "Real Madrid",
-      "Sevilla"
-    ]
-  },
-  {
-    "name": "Fernando Muslera",
-    "aliases": [
-      "Fernando",
-      "Muslera"
-    ],
-    "clubs": [
-      "Galatasaray",
-      "Lazio"
-    ]
-  },
-  {
-    "name": "Fernando Navarro",
-    "aliases": [
-      "Fernando",
-      "Navarro"
-    ],
-    "clubs": [
-      "Barcelona",
-      "Sevilla"
+      "Liverpool"
     ]
   },
   {
     "name": "Fernando Redondo",
-    "aliases": [
-      "Fernando",
-      "Redondo"
-    ],
     "clubs": [
-      "Milan",
+      "AC Milan",
       "Real Madrid"
     ]
   },
   {
     "name": "Fernando Torres",
-    "aliases": [
-      "Fernando",
-      "Torres"
-    ],
     "clubs": [
+      "Chelsea",
+      "AC Milan",
       "Atletico Madrid",
-      "Liverpool",
-      "Milan"
+      "Liverpool"
     ]
   },
   {
-    "name": "Ferran Ferrús i Ezquerra",
-    "aliases": [
-      "Ezquerra",
-      "Ferran",
-      "Ferrús"
-    ],
+    "name": "Ferran Torres",
     "clubs": [
       "Barcelona",
-      "Real Madrid"
-    ]
-  },
-  {
-    "name": "Fetı Okuroğlu",
-    "aliases": [
-      "Fetı",
-      "Okuroğlu"
-    ],
-    "clubs": [
-      "Galatasaray",
-      "Trabzonspor"
+      "Man City"
     ]
   },
   {
     "name": "Fevzi Elmas",
-    "aliases": [
-      "Elmas",
-      "Fevzi"
-    ],
     "clubs": [
       "Antalyaspor",
       "Galatasaray"
     ]
   },
   {
-    "name": "Feyyaz Uçar",
-    "aliases": [
-      "Feyyaz",
-      "Uçar"
-    ],
+    "name": "Fikayo Tomori",
     "clubs": [
-      "Antalyaspor",
-      "Beşiktaş"
+      "Chelsea",
+      "AC Milan"
     ]
   },
   {
-    "name": "Filip Hološko",
-    "aliases": [
-      "Filip",
-      "Hološko"
-    ],
+    "name": "Filip Kostic",
     "clubs": [
-      "Başakşehir",
-      "Beşiktaş"
+      "Juventus",
+      "Fenerbahçe"
     ]
   },
   {
-    "name": "Filip Kostić",
-    "aliases": [
-      "filip",
-      "Filip",
-      "kostic",
-      "Kostić"
-    ],
+    "name": "Filipe Luis",
     "clubs": [
-      "Fenerbahçe",
-      "Juventus"
-    ]
-  },
-  {
-    "name": "Filipe Luís",
-    "aliases": [
-      "Filipe",
-      "Luís"
-    ],
-    "clubs": [
-      "Ajax",
-      "Atletico Madrid"
-    ]
-  },
-  {
-    "name": "Filippo Cavalli",
-    "aliases": [
-      "Cavalli",
-      "Filippo"
-    ],
-    "clubs": [
-      "Inter",
-      "Juventus"
+      "Chelsea",
+      "Atletico Madrid",
+      "Ajax"
     ]
   },
   {
     "name": "Filippo Inzaghi",
-    "aliases": [
-      "Filippo",
-      "Inzaghi"
-    ],
     "clubs": [
       "Juventus",
-      "Milan"
+      "AC Milan"
     ]
   },
   {
-    "name": "Filippo Mancini",
-    "aliases": [
-      "Filippo",
-      "Mancini"
-    ],
-    "clubs": [
-      "Inter",
-      "Manchester City"
-    ]
-  },
-  {
-    "name": "Flávio Conceição",
-    "aliases": [
-      "Conceição",
-      "Flávio"
-    ],
-    "clubs": [
-      "Galatasaray",
-      "Real Madrid"
-    ]
-  },
-  {
-    "name": "Florent Balmont",
-    "aliases": [
-      "Balmont",
-      "Florent"
-    ],
-    "clubs": [
-      "Lyon",
-      "Nice"
-    ]
-  },
-  {
-    "name": "Florent Malouda",
-    "aliases": [
-      "Florent",
-      "Malouda"
-    ],
-    "clubs": [
-      "Lyon",
-      "Trabzonspor"
-    ]
-  },
-  {
-    "name": "Florent Sinama Pongolle",
-    "aliases": [
-      "Florent",
-      "Pongolle",
-      "Sinama"
-    ],
+    "name": "Florent Sinama-Pongolle",
     "clubs": [
       "Atletico Madrid",
       "Liverpool"
     ]
   },
   {
-    "name": "Florian Maurice",
-    "aliases": [
-      "Florian",
-      "Maurice"
-    ],
+    "name": "Fode Ballo-Toure",
     "clubs": [
-      "Lyon",
+      "AC Milan",
       "PSG"
     ]
   },
   {
-    "name": "Foster Hedley",
-    "aliases": [
-      "Foster",
-      "Hedley"
-    ],
+    "name": "Fode Koita",
     "clubs": [
-      "Manchester City",
-      "Tottenham"
+      "Sivasspor",
+      "Trabzonspor"
+    ]
+  },
+  {
+    "name": "Fousseni Diabate",
+    "clubs": [
+      "Sivasspor",
+      "Trabzonspor"
     ]
   },
   {
     "name": "Fraizer Campbell",
-    "aliases": [
-      "Campbell",
-      "Fraizer"
-    ],
     "clubs": [
-      "Manchester United",
-      "Tottenham"
+      "Tottenham",
+      "Man Utd"
     ]
   },
   {
-    "name": "Fran Mérida",
-    "aliases": [
-      "Fran",
-      "Mérida"
-    ],
+    "name": "Fran Merida",
     "clubs": [
       "Arsenal",
-      "Atletico Madrid",
-      "Barcelona"
+      "Atletico Madrid"
     ]
   },
   {
-    "name": "Francesco Anacoura",
-    "aliases": [
-      "Anacoura",
-      "Francesco"
-    ],
+    "name": "Francesco Acerbi",
     "clubs": [
-      "Inter",
-      "Juventus"
-    ]
-  },
-  {
-    "name": "Francesco Antonioli",
-    "aliases": [
-      "Antonioli",
-      "Francesco"
-    ],
-    "clubs": [
-      "Milan",
-      "Roma"
+      "AC Milan",
+      "Inter"
     ]
   },
   {
     "name": "Francesco Coco",
-    "aliases": [
-      "Coco",
-      "Francesco"
-    ],
     "clubs": [
       "Barcelona",
-      "Inter",
-      "Milan"
+      "Inter"
     ]
   },
   {
-    "name": "Francesco Colonnese",
-    "aliases": [
-      "Colonnese",
-      "Francesco"
-    ],
+    "name": "Francis Obeng",
     "clubs": [
-      "Inter",
-      "Roma"
+      "AS Roma",
+      "Napoli"
     ]
   },
   {
-    "name": "Francesco Moriero",
-    "aliases": [
-      "Francesco",
-      "Moriero"
-    ],
-    "clubs": [
-      "Inter",
-      "Milan",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Francesco Rier",
-    "aliases": [
-      "Francesco",
-      "Rier"
-    ],
+    "name": "Francisco Barido(1231248)",
     "clubs": [
       "Juventus",
-      "Nice"
+      "Napoli"
     ]
   },
   {
-    "name": "Francesco Soldera",
-    "aliases": [
-      "Francesco",
-      "Soldera"
-    ],
+    "name": "Francisco Conceiçao",
     "clubs": [
-      "Inter",
-      "Milan"
+      "Juventus",
+      "FC Porto",
+      "Ajax"
     ]
   },
   {
-    "name": "Francesco Toldo",
-    "aliases": [
-      "Francesco",
-      "Toldo"
-    ],
+    "name": "Francisco Trincao",
     "clubs": [
-      "Inter",
-      "Milan"
+      "FC Porto",
+      "Barcelona"
     ]
   },
   {
-    "name": "Francesco Vincenzi",
-    "aliases": [
-      "Francesco",
-      "Vincenzi"
-    ],
+    "name": "Franck Kessie",
     "clubs": [
-      "Milan",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Francisco Buyo",
-    "aliases": [
-      "Buyo",
-      "Francisco"
-    ],
-    "clubs": [
-      "Real Madrid",
-      "Sevilla"
-    ]
-  },
-  {
-    "name": "Francisco Llorente Gento",
-    "aliases": [
-      "Francisco",
-      "Gento",
-      "Llorente"
-    ],
-    "clubs": [
-      "Atletico Madrid",
-      "Real Madrid"
-    ]
-  },
-  {
-    "name": "Franck Dja Djédjé",
-    "aliases": [
-      "Dja",
-      "Djédjé",
-      "Franck"
-    ],
-    "clubs": [
-      "Nice",
-      "PSG"
-    ]
-  },
-  {
-    "name": "Franck Gava",
-    "aliases": [
-      "Franck",
-      "Gava"
-    ],
-    "clubs": [
-      "Lyon",
-      "PSG"
-    ]
-  },
-  {
-    "name": "Franck Vandecasteele",
-    "aliases": [
-      "Franck",
-      "Vandecasteele"
-    ],
-    "clubs": [
-      "Nice",
-      "PSG"
-    ]
-  },
-  {
-    "name": "Franco Bontadini",
-    "aliases": [
-      "Bontadini",
-      "Franco"
-    ],
-    "clubs": [
-      "Inter",
-      "Milan"
-    ]
-  },
-  {
-    "name": "Franco Causio",
-    "aliases": [
-      "Causio",
-      "Franco"
-    ],
-    "clubs": [
-      "Inter",
-      "Juventus"
-    ]
-  },
-  {
-    "name": "Franco Cordova",
-    "aliases": [
-      "Cordova",
-      "Franco"
-    ],
-    "clubs": [
-      "Inter",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Franco Selvaggi",
-    "aliases": [
-      "Franco",
-      "Selvaggi"
-    ],
-    "clubs": [
-      "Inter",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Franco Tancredi",
-    "aliases": [
-      "Franco",
-      "Tancredi"
-    ],
-    "clubs": [
-      "Milan",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Franco Zaglio",
-    "aliases": [
-      "Franco",
-      "Zaglio"
-    ],
-    "clubs": [
-      "Inter",
-      "Roma"
-    ]
-  },
-  {
-    "name": "François Brisson",
-    "aliases": [
-      "Brisson",
-      "François"
-    ],
-    "clubs": [
-      "Lyon",
-      "PSG"
-    ]
-  },
-  {
-    "name": "François Clerc",
-    "aliases": [
-      "Clerc",
-      "François"
-    ],
-    "clubs": [
-      "Lyon",
-      "Nice"
-    ]
-  },
-  {
-    "name": "François Lemasson",
-    "aliases": [
-      "François",
-      "Lemasson"
-    ],
-    "clubs": [
-      "Lyon",
-      "PSG"
-    ]
-  },
-  {
-    "name": "Frank Barrett",
-    "aliases": [
-      "Barrett",
-      "Frank"
-    ],
-    "clubs": [
-      "Manchester City",
-      "Manchester United"
-    ]
-  },
-  {
-    "name": "Frank Buckley",
-    "aliases": [
-      "Buckley",
-      "Frank"
-    ],
-    "clubs": [
-      "Manchester City",
-      "Manchester United"
-    ]
-  },
-  {
-    "name": "Frank de Boer",
-    "aliases": [
-      "Boer",
-      "Frank"
-    ],
-    "clubs": [
-      "Ajax",
       "Barcelona",
-      "Galatasaray"
+      "AC Milan"
     ]
   },
   {
-    "name": "Frank Knowles",
-    "aliases": [
-      "Frank",
-      "Knowles"
-    ],
+    "name": "Franck Ribery",
     "clubs": [
-      "Manchester City",
-      "Manchester United"
+      "Galatasaray",
+      "Bayern Munich"
     ]
   },
   {
-    "name": "Frank Mann",
-    "aliases": [
-      "Frank",
-      "Mann"
-    ],
+    "name": "Franco Tongya",
     "clubs": [
-      "Manchester City",
-      "Manchester United"
+      "Juventus",
+      "Genclerbirligi"
     ]
   },
   {
-    "name": "Frank Rijkaard",
-    "aliases": [
-      "Frank",
-      "Rijkaard"
-    ],
+    "name": "Frank Lampard",
     "clubs": [
-      "Ajax",
-      "Milan"
-    ]
-  },
-  {
-    "name": "Frank Stapleton",
-    "aliases": [
-      "Frank",
-      "Stapleton"
-    ],
-    "clubs": [
-      "Ajax",
-      "Arsenal",
-      "Manchester United"
-    ]
-  },
-  {
-    "name": "Frank Swift",
-    "aliases": [
-      "Frank",
-      "Swift"
-    ],
-    "clubs": [
-      "Liverpool",
-      "Manchester City"
+      "Chelsea",
+      "Man City"
     ]
   },
   {
     "name": "Fred",
-    "aliases": [
-      "Frederico Rodrigues"
-    ],
     "clubs": [
       "Fenerbahçe",
-      "Manchester United"
+      "Man Utd"
     ]
   },
   {
-    "name": "Fred Hopkin",
-    "aliases": [
-      "Fred",
-      "Hopkin"
-    ],
+    "name": "Frederic Veseli",
     "clubs": [
-      "Liverpool",
-      "Manchester United",
-      "Tottenham"
+      "Man Utd",
+      "Man City"
     ]
   },
   {
-    "name": "Fred Howe",
-    "aliases": [
-      "Fred",
-      "Howe"
-    ],
+    "name": "Fredy Guarin",
     "clubs": [
-      "Liverpool",
-      "Manchester City"
-    ]
-  },
-  {
-    "name": "Fred Pagnam",
-    "aliases": [
-      "Fred",
-      "Pagnam"
-    ],
-    "clubs": [
-      "Arsenal",
-      "Liverpool"
-    ]
-  },
-  {
-    "name": "Fred Williams",
-    "aliases": [
-      "Fred",
-      "Williams"
-    ],
-    "clubs": [
-      "Manchester City",
-      "Manchester United"
-    ]
-  },
-  {
-    "name": "Freddie Cox",
-    "aliases": [
-      "Cox",
-      "Freddie"
-    ],
-    "clubs": [
-      "Arsenal",
-      "Tottenham"
-    ]
-  },
-  {
-    "name": "Frédéric Déhu",
-    "aliases": [
-      "Déhu",
-      "Frédéric"
-    ],
-    "clubs": [
-      "Barcelona",
-      "PSG"
-    ]
-  },
-  {
-    "name": "Frédéric Kanouté",
-    "aliases": [
-      "Frédéric",
-      "Kanouté"
-    ],
-    "clubs": [
-      "Lyon",
-      "Sevilla",
-      "Tottenham"
-    ]
-  },
-  {
-    "name": "Frédéric Veseli",
-    "aliases": [
-      "Frédéric",
-      "Veseli"
-    ],
-    "clubs": [
-      "Manchester City",
-      "Manchester United"
+      "FC Porto",
+      "Inter"
     ]
   },
   {
     "name": "Frenkie de Jong",
-    "aliases": [
-      "frenkie",
-      "Frenkie",
-      "jong",
-      "Jong"
-    ],
     "clubs": [
-      "Ajax",
-      "Barcelona"
+      "Barcelona",
+      "Ajax"
     ]
   },
   {
-    "name": "Fulvio Bernardini",
-    "aliases": [
-      "Bernardini",
-      "Fulvio"
-    ],
+    "name": "Furkan Korkut",
     "clubs": [
-      "Inter",
-      "Roma"
+      "Genclerbirligi",
+      "Galatasaray"
     ]
   },
   {
-    "name": "Fulvio Collovati",
-    "aliases": [
-      "Collovati",
-      "Fulvio"
-    ],
+    "name": "Furkan Soyalp",
     "clubs": [
-      "Inter",
-      "Milan",
-      "Roma"
+      "Kayserispor",
+      "Başakşehir"
     ]
   },
   {
     "name": "Furkan Özçal",
-    "aliases": [
-      "Furkan",
-      "Özçal"
-    ],
     "clubs": [
-      "Galatasaray",
-      "Kayserispor"
+      "Kayserispor",
+      "Galatasaray"
     ]
   },
   {
-    "name": "Gabri García",
-    "aliases": [
-      "Gabri",
-      "García"
-    ],
+    "name": "Furkan Şeker",
     "clubs": [
-      "Ajax",
-      "Barcelona"
+      "Genclerbirligi",
+      "Denizlispor",
+      "Beşiktaş"
     ]
   },
   {
-    "name": "Gabriel Batistuta",
-    "aliases": [
-      "Batistuta",
-      "Gabriel"
-    ],
+    "name": "Fırat Akkoyun",
+    "clubs": [
+      "Kayserispor",
+      "Konyaspor"
+    ]
+  },
+  {
+    "name": "Fıratcan Üzüm",
+    "clubs": [
+      "Trabzonspor",
+      "Genclerbirligi"
+    ]
+  },
+  {
+    "name": "Gabri",
+    "clubs": [
+      "Barcelona",
+      "Ajax"
+    ]
+  },
+  {
+    "name": "Gabriel",
+    "clubs": [
+      "AC Milan",
+      "Napoli"
+    ]
+  },
+  {
+    "name": "Gabriel Barbosa",
     "clubs": [
       "Inter",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Gabriel Fernando de Jesus",
-    "aliases": [
-      "fernando",
-      "Fernando",
-      "gabriel",
-      "Gabriel",
-      "jesus",
-      "Jesus"
-    ],
-    "clubs": [
-      "Arsenal",
-      "Manchester City"
+      "Benfica"
     ]
   },
   {
     "name": "Gabriel Heinze",
-    "aliases": [
-      "Gabriel",
-      "Heinze"
-    ],
     "clubs": [
-      "Manchester United",
-      "PSG",
+      "AS Roma",
       "Real Madrid",
-      "Roma"
+      "Man Utd"
     ]
   },
   {
-    "name": "Gabriel Moya",
-    "aliases": [
-      "Gabriel",
-      "Moya"
-    ],
+    "name": "Gabriel Jesus",
     "clubs": [
-      "Atletico Madrid",
-      "Sevilla"
+      "Arsenal",
+      "Man City"
     ]
   },
   {
     "name": "Gabriel Paletta",
-    "aliases": [
-      "Gabriel",
-      "Paletta"
-    ],
     "clubs": [
-      "Liverpool",
-      "Milan"
+      "AC Milan",
+      "Liverpool"
     ]
   },
   {
-    "name": "Gaël Clichy",
-    "aliases": [
-      "Clichy",
-      "Gaël",
-      "Gael Clichy"
-    ],
+    "name": "Gabriel Paulista",
     "clubs": [
       "Arsenal",
-      "Başakşehir",
-      "Manchester City"
+      "Beşiktaş",
+      "Atletico Madrid"
     ]
   },
   {
-    "name": "Gaetano Salvemini",
-    "aliases": [
-      "Gaetano",
-      "Salvemini"
-    ],
+    "name": "Gabriel Pires",
     "clubs": [
-      "Inter",
-      "Milan"
+      "Juventus",
+      "Benfica"
     ]
   },
   {
-    "name": "Gai Assulin",
-    "aliases": [
-      "Assulin",
-      "Gai"
-    ],
+    "name": "Gabriel Torje",
     "clubs": [
-      "Barcelona",
-      "Manchester City"
+      "Sivasspor",
+      "Konyaspor",
+      "Genclerbirligi"
     ]
   },
   {
-    "name": "Gallego",
-    "aliases": [],
+    "name": "Galip Güzel",
     "clubs": [
-      "Barcelona",
-      "Sevilla"
+      "Sivasspor",
+      "Galatasaray"
+    ]
+  },
+  {
+    "name": "Garcia Calvo",
+    "clubs": [
+      "Atletico Madrid",
+      "Real Madrid"
     ]
   },
   {
     "name": "Gareth Bale",
-    "aliases": [
-      "Bale",
-      "Gareth"
-    ],
     "clubs": [
-      "Real Madrid",
-      "Tottenham"
+      "Tottenham",
+      "Real Madrid"
     ]
   },
   {
-    "name": "Garth Crooks",
-    "aliases": [
-      "Crooks",
-      "Garth"
-    ],
+    "name": "Garry Rodrigues",
     "clubs": [
-      "Manchester United",
-      "Tottenham"
-    ]
-  },
-  {
-    "name": "Gary Alexis Medel Soto",
-    "aliases": [
-      "alexis",
-      "Alexis",
-      "gary",
-      "Gary",
-      "medel",
-      "Medel",
-      "soto",
-      "Soto"
-    ],
-    "clubs": [
-      "Beşiktaş",
-      "Inter",
-      "Sevilla"
-    ]
-  },
-  {
-    "name": "Gary Lineker",
-    "aliases": [
-      "Gary",
-      "Lineker"
-    ],
-    "clubs": [
-      "Barcelona",
-      "Tottenham"
+      "Sivasspor",
+      "Fenerbahçe",
+      "Galatasaray"
     ]
   },
   {
     "name": "Gary Medel",
-    "aliases": [
-      "Gary",
-      "Medel"
-    ],
     "clubs": [
       "Beşiktaş",
-      "Inter",
-      "Sevilla"
+      "Inter"
     ]
   },
   {
-    "name": "Gaspar Rubio",
-    "aliases": [
-      "Gaspar",
-      "Rubio"
-    ],
+    "name": "GaÃ«l Clichy",
     "clubs": [
-      "Atletico Madrid",
-      "Real Madrid"
-    ]
-  },
-  {
-    "name": "Gastone Prendato",
-    "aliases": [
-      "Gastone",
-      "Prendato"
-    ],
-    "clubs": [
-      "Juventus",
-      "Roma"
+      "Arsenal",
+      "Başakşehir",
+      "Man City"
     ]
   },
   {
     "name": "Gedson Fernandes",
-    "aliases": [
-      "Fernandes",
-      "Gedson"
-    ],
     "clubs": [
+      "Tottenham",
+      "Galatasaray",
       "Beşiktaş",
-      "Galatasaray"
-    ]
-  },
-  {
-    "name": "Geoff Strong",
-    "aliases": [
-      "Geoff",
-      "Strong"
-    ],
-    "clubs": [
-      "Arsenal",
-      "Liverpool"
+      "Benfica"
     ]
   },
   {
     "name": "Geoffrey Kondogbia",
-    "aliases": [
-      "Geoffrey",
-      "Kondogbia"
-    ],
+    "clubs": [
+      "Atletico Madrid",
+      "Inter"
+    ]
+  },
+  {
+    "name": "Georginio Wijnaldum",
+    "clubs": [
+      "AS Roma",
+      "Liverpool"
+    ]
+  },
+  {
+    "name": "Georgios Karagounis",
     "clubs": [
       "Inter",
-      "Sevilla"
+      "Benfica"
     ]
   },
   {
-    "name": "George Albinson",
-    "aliases": [
-      "Albinson",
-      "George"
-    ],
+    "name": "Geovanne Martins",
     "clubs": [
-      "Manchester City",
-      "Manchester United"
+      "FC Porto",
+      "Benfica"
     ]
   },
   {
-    "name": "George Graham",
-    "aliases": [
-      "George",
-      "Graham"
-    ],
-    "clubs": [
-      "Arsenal",
-      "Manchester United"
-    ]
-  },
-  {
-    "name": "George Hicks",
-    "aliases": [
-      "George",
-      "Hicks"
-    ],
-    "clubs": [
-      "Manchester City",
-      "Manchester United"
-    ]
-  },
-  {
-    "name": "George Hunt",
-    "aliases": [
-      "George",
-      "Hunt"
-    ],
-    "clubs": [
-      "Arsenal",
-      "Liverpool",
-      "Tottenham"
-    ]
-  },
-  {
-    "name": "George Livingstone",
-    "aliases": [
-      "George",
-      "Livingstone"
-    ],
-    "clubs": [
-      "Liverpool",
-      "Manchester City",
-      "Manchester United"
-    ]
-  },
-  {
-    "name": "George Travers",
-    "aliases": [
-      "George",
-      "Travers"
-    ],
-    "clubs": [
-      "Manchester United",
-      "Tottenham"
-    ]
-  },
-  {
-    "name": "George Weah",
-    "aliases": [
-      "George",
-      "Weah"
-    ],
-    "clubs": [
-      "Manchester City",
-      "Milan",
-      "PSG"
-    ]
-  },
-  {
-    "name": "Georgi Kinkladze",
-    "aliases": [
-      "Georgi",
-      "Kinkladze"
-    ],
-    "clubs": [
-      "Ajax",
-      "Manchester City"
-    ]
-  },
-  {
-    "name": "Geovanni Deiberson Maurício",
-    "aliases": [
-      "Deiberson",
-      "Geovanni",
-      "Maurício"
-    ],
+    "name": "Geovanni",
     "clubs": [
       "Barcelona",
-      "Manchester City"
+      "Benfica",
+      "Man City"
+    ]
+  },
+  {
+    "name": "Geovany Quenda",
+    "clubs": [
+      "Chelsea",
+      "Benfica"
     ]
   },
   {
     "name": "Gerard Deulofeu",
-    "aliases": [
-      "Deulofeu",
-      "Gerard"
-    ],
     "clubs": [
       "Barcelona",
-      "Sevilla"
+      "AC Milan"
     ]
   },
   {
-    "name": "Gerard Piqué",
-    "aliases": [
-      "Gerard",
-      "Piqué"
-    ],
+    "name": "Gerard Pique",
     "clubs": [
       "Barcelona",
-      "Manchester United"
+      "Man Utd"
     ]
   },
   {
-    "name": "Germán Pacheco",
-    "aliases": [
-      "Germán",
-      "Pacheco"
-    ],
-    "clubs": [
-      "Atletico Madrid",
-      "Milan"
-    ]
-  },
-  {
-    "name": "Gerrit Keizer",
-    "aliases": [
-      "Gerrit",
-      "Keizer"
-    ],
+    "name": "Geronimo Rulli",
     "clubs": [
       "Ajax",
-      "Arsenal"
+      "Man City"
     ]
   },
   {
     "name": "Gervinho",
-    "aliases": [],
     "clubs": [
       "Arsenal",
-      "Roma",
-      "Trabzonspor"
+      "Trabzonspor",
+      "AS Roma"
     ]
   },
   {
-    "name": "Gheorghe Constantin",
-    "aliases": [
-      "Constantin",
-      "Gheorghe"
-    ],
+    "name": "Giacomo Lucarini",
     "clubs": [
-      "Fenerbahçe",
-      "Kayserispor"
+      "AC Milan",
+      "Inter"
     ]
   },
   {
-    "name": "Gheorghe Hagi",
-    "aliases": [
-      "Gheorghe",
-      "Hagi"
-    ],
+    "name": "Giacomo Raspadori",
     "clubs": [
-      "Barcelona",
-      "Galatasaray",
-      "Real Madrid"
-    ]
-  },
-  {
-    "name": "Gheorghe Popescu",
-    "aliases": [
-      "Gheorghe",
-      "Popescu"
-    ],
-    "clubs": [
-      "Barcelona",
-      "Galatasaray",
-      "Tottenham"
-    ]
-  },
-  {
-    "name": "Giacomo Chinellato",
-    "aliases": [
-      "Chinellato",
-      "Giacomo"
-    ],
-    "clubs": [
-      "Juventus",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Giacomo Neri",
-    "aliases": [
-      "Giacomo",
-      "Neri"
-    ],
-    "clubs": [
-      "Inter",
-      "Juventus"
-    ]
-  },
-  {
-    "name": "Giammarco Frezza",
-    "aliases": [
-      "Frezza",
-      "Giammarco"
-    ],
-    "clubs": [
-      "Inter",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Giampaolo Menichelli",
-    "aliases": [
-      "Giampaolo",
-      "Menichelli"
-    ],
-    "clubs": [
-      "Inter",
-      "Juventus",
-      "Roma"
+      "Atletico Madrid",
+      "Napoli"
     ]
   },
   {
     "name": "Giampaolo Pazzini",
-    "aliases": [
-      "Giampaolo",
-      "Pazzini"
-    ],
     "clubs": [
-      "Inter",
-      "Milan"
+      "AC Milan",
+      "Inter"
     ]
   },
   {
-    "name": "Giampiero Maini",
-    "aliases": [
-      "Giampiero",
-      "Maini"
-    ],
+    "name": "Gianfranco Zola",
     "clubs": [
-      "Milan",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Gianangelo Barzan",
-    "aliases": [
-      "Barzan",
-      "Gianangelo"
-    ],
-    "clubs": [
-      "Milan",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Giancarlo Bacci",
-    "aliases": [
-      "Bacci",
-      "Giancarlo"
-    ],
-    "clubs": [
-      "Milan",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Giancarlo Filippini",
-    "aliases": [
-      "Filippini",
-      "Giancarlo"
-    ],
-    "clubs": [
-      "Milan",
-      "Nice"
-    ]
-  },
-  {
-    "name": "Giancarlo Pasinato",
-    "aliases": [
-      "Giancarlo",
-      "Pasinato"
-    ],
-    "clubs": [
-      "Inter",
-      "Milan"
-    ]
-  },
-  {
-    "name": "Gianfranco Zigoni",
-    "aliases": [
-      "Gianfranco",
-      "Zigoni"
-    ],
-    "clubs": [
-      "Juventus",
-      "Roma"
+      "Chelsea",
+      "Napoli"
     ]
   },
   {
     "name": "Gianluca Caprari",
-    "aliases": [
-      "Caprari",
-      "Gianluca"
-    ],
     "clubs": [
-      "Inter",
-      "Roma"
+      "AS Roma",
+      "Inter"
     ]
   },
   {
     "name": "Gianluca Festa",
-    "aliases": [
-      "Festa",
-      "Gianluca"
-    ],
     "clubs": [
-      "Inter",
-      "Roma"
+      "AS Roma",
+      "Inter"
     ]
   },
   {
-    "name": "Gianluca Pessotto",
-    "aliases": [
-      "Gianluca",
-      "Pessotto"
-    ],
+    "name": "Gianluca Lapadula",
     "clubs": [
       "Juventus",
-      "Milan"
+      "AC Milan"
+    ]
+  },
+  {
+    "name": "Gianluca Luppi",
+    "clubs": [
+      "Juventus",
+      "Napoli"
     ]
   },
   {
     "name": "Gianluca Zambrotta",
-    "aliases": [
-      "Gianluca",
-      "Zambrotta"
-    ],
     "clubs": [
+      "Juventus",
       "Barcelona",
-      "Juventus",
-      "Milan"
-    ]
-  },
-  {
-    "name": "Gianluigi Buffon",
-    "aliases": [
-      "Buffon",
-      "Gianluigi"
-    ],
-    "clubs": [
-      "Juventus",
-      "PSG"
+      "AC Milan"
     ]
   },
   {
     "name": "Gianluigi Donnarumma",
-    "aliases": [
-      "donnarumma",
-      "Donnarumma",
-      "gianluigi",
-      "Gianluigi"
-    ],
     "clubs": [
-      "Manchester City",
-      "Milan",
-      "PSG"
+      "AC Milan",
+      "Man City"
     ]
   },
   {
-    "name": "Gianni Comandini",
-    "aliases": [
-      "Comandini",
-      "Gianni"
-    ],
+    "name": "Gil Dias",
     "clubs": [
+      "FC Porto",
+      "Benfica"
+    ]
+  },
+  {
+    "name": "Gilberto",
+    "clubs": [
+      "Tottenham",
       "Inter",
-      "Milan"
+      "Benfica"
     ]
   },
   {
-    "name": "Gilbert Bonvin",
-    "aliases": [
-      "Bonvin",
-      "Gilbert"
-    ],
+    "name": "Giorgio Venturin",
     "clubs": [
-      "Lyon",
-      "Nice"
-    ]
-  },
-  {
-    "name": "Gilberto da Silva Melo",
-    "aliases": [
-      "Gilberto",
-      "Melo",
-      "Silva"
-    ],
-    "clubs": [
-      "Inter",
-      "Tottenham"
-    ]
-  },
-  {
-    "name": "Gilberto Noletti",
-    "aliases": [
-      "Gilberto",
-      "Noletti"
-    ],
-    "clubs": [
-      "Juventus",
-      "Milan"
-    ]
-  },
-  {
-    "name": "Giordano Colausig",
-    "aliases": [
-      "Colausig",
-      "Giordano"
-    ],
-    "clubs": [
-      "Inter",
-      "Juventus",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Giorgio Barbolini",
-    "aliases": [
-      "Barbolini",
-      "Giorgio"
-    ],
-    "clubs": [
-      "Inter",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Giorgio Bernardin",
-    "aliases": [
-      "Bernardin",
-      "Giorgio"
-    ],
-    "clubs": [
-      "Inter",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Giorgio Braglia",
-    "aliases": [
-      "Braglia",
-      "Giorgio"
-    ],
-    "clubs": [
-      "Milan",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Giorgio Chiellini",
-    "aliases": [
-      "Chiellini",
-      "Giorgio"
-    ],
-    "clubs": [
-      "Juventus",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Giorgio Frezzolini",
-    "aliases": [
-      "Frezzolini",
-      "Giorgio"
-    ],
-    "clubs": [
-      "Inter",
-      "Milan"
-    ]
-  },
-  {
-    "name": "Giorgio Ghezzi",
-    "aliases": [
-      "Ghezzi",
-      "Giorgio"
-    ],
-    "clubs": [
-      "Inter",
-      "Milan"
-    ]
-  },
-  {
-    "name": "Giorgio Morini",
-    "aliases": [
-      "Giorgio",
-      "Morini"
-    ],
-    "clubs": [
-      "Inter",
-      "Milan",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Giorgio Rossano",
-    "aliases": [
-      "Giorgio",
-      "Rossano"
-    ],
-    "clubs": [
-      "Juventus",
-      "Milan"
-    ]
-  },
-  {
-    "name": "Giovane Élber",
-    "aliases": [
-      "Élber",
-      "Giovane"
-    ],
-    "clubs": [
-      "Lyon",
-      "Milan"
+      "Atletico Madrid",
+      "Napoli"
     ]
   },
   {
     "name": "Giovani dos Santos",
-    "aliases": [
-      "dos",
-      "Giovani",
-      "Santos"
-    ],
     "clubs": [
+      "Tottenham",
       "Barcelona",
-      "Galatasaray",
-      "Tottenham"
-    ]
-  },
-  {
-    "name": "Giovanni Bolzoni",
-    "aliases": [
-      "Bolzoni",
-      "Giovanni"
-    ],
-    "clubs": [
-      "Inter",
-      "Milan"
-    ]
-  },
-  {
-    "name": "Giovanni Ferrari",
-    "aliases": [
-      "Ferrari",
-      "Giovanni"
-    ],
-    "clubs": [
-      "Inter",
-      "Juventus"
-    ]
-  },
-  {
-    "name": "Giovanni Pasquale",
-    "aliases": [
-      "Giovanni",
-      "Pasquale"
-    ],
-    "clubs": [
-      "Inter",
-      "Juventus"
+      "Galatasaray"
     ]
   },
   {
     "name": "Giovanni van Bronckhorst",
-    "aliases": [
-      "Bronckhorst",
-      "Giovanni",
-      "van"
-    ],
     "clubs": [
       "Arsenal",
       "Barcelona"
     ]
   },
   {
-    "name": "Giray Kaçar",
-    "aliases": [
-      "Giray",
-      "Kaçar"
-    ],
+    "name": "Giuliano",
     "clubs": [
-      "Antalyaspor",
-      "Trabzonspor"
-    ]
-  },
-  {
-    "name": "Giuliano Musiello",
-    "aliases": [
-      "Giuliano",
-      "Musiello"
-    ],
-    "clubs": [
-      "Juventus",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Giuliano Sarti",
-    "aliases": [
-      "Giuliano",
-      "Sarti"
-    ],
-    "clubs": [
-      "Inter",
-      "Juventus"
-    ]
-  },
-  {
-    "name": "Giuliano Victor de Paula",
-    "aliases": [
-      "giuliano",
-      "Giuliano",
-      "paula",
-      "Paula",
-      "victor",
-      "Victor"
-    ],
-    "clubs": [
-      "Başakşehir",
-      "Fenerbahçe"
-    ]
-  },
-  {
-    "name": "Giulio Balestrini",
-    "aliases": [
-      "Balestrini",
-      "Giulio"
-    ],
-    "clubs": [
-      "Inter",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Giulio Rossi",
-    "aliases": [
-      "Giulio",
-      "Rossi"
-    ],
-    "clubs": [
-      "Juventus",
-      "Milan"
-    ]
-  },
-  {
-    "name": "Giuseppe Favalli",
-    "aliases": [
-      "Favalli",
-      "Giuseppe"
-    ],
-    "clubs": [
-      "Inter",
-      "Milan"
-    ]
-  },
-  {
-    "name": "Giuseppe Galderisi",
-    "aliases": [
-      "Galderisi",
-      "Giuseppe"
-    ],
-    "clubs": [
-      "Juventus",
-      "Milan"
-    ]
-  },
-  {
-    "name": "Giuseppe Meazza",
-    "aliases": [
-      "Giuseppe",
-      "Meazza"
-    ],
-    "clubs": [
-      "Inter",
-      "Juventus",
-      "Milan"
-    ]
-  },
-  {
-    "name": "Giuseppe Peruchetti",
-    "aliases": [
-      "Giuseppe",
-      "Peruchetti"
-    ],
-    "clubs": [
-      "Inter",
-      "Juventus"
-    ]
-  },
-  {
-    "name": "Giuseppe Rizzi",
-    "aliases": [
-      "Giuseppe",
-      "Rizzi"
-    ],
-    "clubs": [
-      "Inter",
-      "Milan"
-    ]
-  },
-  {
-    "name": "Giuseppe Secchi",
-    "aliases": [
-      "Giuseppe",
-      "Secchi"
-    ],
-    "clubs": [
-      "Milan",
-      "Roma"
+      "Fenerbahçe",
+      "Başakşehir"
     ]
   },
   {
     "name": "Giuseppe Ticli",
-    "aliases": [
-      "Giuseppe",
-      "Ticli"
-    ],
     "clubs": [
-      "Inter",
-      "Milan"
+      "AC Milan",
+      "Inter"
     ]
   },
   {
-    "name": "Giuseppe Torriani",
-    "aliases": [
-      "Giuseppe",
-      "Torriani"
-    ],
+    "name": "Glen Johnson",
     "clubs": [
+      "Chelsea",
+      "Liverpool"
+    ]
+  },
+  {
+    "name": "Gonzalo Higuain",
+    "clubs": [
+      "Chelsea",
       "Juventus",
-      "Milan"
+      "AC Milan",
+      "Real Madrid",
+      "Napoli"
     ]
   },
   {
-    "name": "Giuseppe Viani",
-    "aliases": [
-      "Giuseppe",
-      "Viani"
-    ],
+    "name": "Gonçalo Borges",
     "clubs": [
-      "Inter",
-      "Juventus"
-    ]
-  },
-  {
-    "name": "Goku Román",
-    "aliases": [
-      "Goku",
-      "Román"
-    ],
-    "clubs": [
-      "Barcelona",
-      "Manchester City"
-    ]
-  },
-  {
-    "name": "Gonzalo Díaz Beitia",
-    "aliases": [
-      "Beitia",
-      "Díaz",
-      "Gonzalo"
-    ],
-    "clubs": [
-      "Atletico Madrid",
-      "Barcelona"
-    ]
-  },
-  {
-    "name": "Gonzalo Higuaín",
-    "aliases": [
-      "Gonzalo",
-      "Higuaín"
-    ],
-    "clubs": [
-      "Juventus",
-      "Milan",
-      "Real Madrid"
+      "FC Porto",
+      "Benfica"
     ]
   },
   {
     "name": "Goran Pandev",
-    "aliases": [
-      "Goran",
-      "Pandev"
-    ],
     "clubs": [
       "Galatasaray",
-      "Inter"
-    ]
-  },
-  {
-    "name": "Gökhan Bozkaya",
-    "aliases": [
-      "Bozkaya",
-      "Gökhan"
-    ],
-    "clubs": [
-      "Antalyaspor",
-      "Sivasspor"
-    ]
-  },
-  {
-    "name": "Gökhan Gönül",
-    "aliases": [
-      "Gokhan",
-      "Gonul",
-      "Gökhan",
-      "Gönül"
-    ],
-    "clubs": [
-      "Beşiktaş",
-      "Fenerbahçe"
-    ]
-  },
-  {
-    "name": "Gökhan Karadeniz",
-    "aliases": [
-      "Gökhan",
-      "Karadeniz"
-    ],
-    "clubs": [
-      "Antalyaspor",
-      "Trabzonspor"
-    ]
-  },
-  {
-    "name": "Gökhan Süzen",
-    "aliases": [
-      "Gökhan",
-      "Süzen"
-    ],
-    "clubs": [
-      "Başakşehir",
-      "Beşiktaş",
-      "Sivasspor"
-    ]
-  },
-  {
-    "name": "Gökhan Ünal",
-    "aliases": [
-      "Gökhan",
-      "Ünal"
-    ],
-    "clubs": [
-      "Başakşehir",
-      "Kayserispor",
-      "Trabzonspor"
-    ]
-  },
-  {
-    "name": "Gökhan Zan",
-    "aliases": [
-      "Gökhan",
-      "Zan"
-    ],
-    "clubs": [
-      "Beşiktaş",
-      "Galatasaray"
-    ]
-  },
-  {
-    "name": "Göksel Gencer",
-    "aliases": [
-      "Gencer",
-      "Göksel"
-    ],
-    "clubs": [
-      "Antalyaspor",
-      "Beşiktaş"
-    ]
-  },
-  {
-    "name": "Graeme Souness",
-    "aliases": [
-      "Graeme",
-      "Souness"
-    ],
-    "clubs": [
-      "Liverpool",
-      "Tottenham"
-    ]
-  },
-  {
-    "name": "Grégoire Puel",
-    "aliases": [
-      "Grégoire",
-      "Puel"
-    ],
-    "clubs": [
-      "Lyon",
-      "Nice"
-    ]
-  },
-  {
-    "name": "Grégory Coupet",
-    "aliases": [
-      "Coupet",
-      "Grégory"
-    ],
-    "clubs": [
-      "Atletico Madrid",
-      "Lyon",
-      "PSG"
-    ]
-  },
-  {
-    "name": "Grégory Paisley",
-    "aliases": [
-      "Grégory",
-      "Paisley"
-    ],
-    "clubs": [
-      "Nice",
-      "PSG"
+      "Inter",
+      "Napoli"
     ]
   },
   {
     "name": "Gregory van der Wiel",
-    "aliases": [
-      "der",
-      "Gregory",
-      "van",
-      "Wiel"
-    ],
     "clubs": [
-      "Ajax",
-      "PSG"
+      "Fenerbahçe",
+      "Ajax"
     ]
   },
   {
-    "name": "Guglielmo Borgo",
-    "aliases": [
-      "Borgo",
-      "Guglielmo"
-    ],
+    "name": "Guglielmo Stendardo",
     "clubs": [
       "Juventus",
-      "Milan"
-    ]
-  },
-  {
-    "name": "Guglielmo Gajani",
-    "aliases": [
-      "Gajani",
-      "Guglielmo"
-    ],
-    "clubs": [
-      "Inter",
-      "Milan"
-    ]
-  },
-  {
-    "name": "Guido Gianfardoni",
-    "aliases": [
-      "Gianfardoni",
-      "Guido"
-    ],
-    "clubs": [
-      "Inter",
-      "Juventus"
+      "Napoli"
     ]
   },
   {
     "name": "Guilherme Siqueira",
-    "aliases": [
-      "Guilherme",
-      "Siqueira"
-    ],
     "clubs": [
       "Atletico Madrid",
-      "Inter"
-    ]
-  },
-  {
-    "name": "Guillermo Varela",
-    "aliases": [
-      "Guillermo",
-      "Varela"
-    ],
-    "clubs": [
-      "Manchester United",
-      "Real Madrid"
-    ]
-  },
-  {
-    "name": "Gunnar Nordahl",
-    "aliases": [
-      "Gunnar",
-      "Nordahl"
-    ],
-    "clubs": [
-      "Milan",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Gustavo Carrer",
-    "aliases": [
-      "Carrer",
-      "Gustavo"
-    ],
-    "clubs": [
       "Inter",
-      "Milan"
+      "Benfica"
+    ]
+  },
+  {
+    "name": "Guillaume Warmuz",
+    "clubs": [
+      "Bor. Dortmund",
+      "Arsenal"
+    ]
+  },
+  {
+    "name": "Gustavo Assunçao",
+    "clubs": [
+      "FC Porto",
+      "Galatasaray"
+    ]
+  },
+  {
+    "name": "Gustavo Poyet",
+    "clubs": [
+      "Chelsea",
+      "Tottenham"
+    ]
+  },
+  {
+    "name": "Gustavo Schneider",
+    "clubs": [
+      "FC Porto",
+      "Benfica"
     ]
   },
   {
     "name": "Guti",
-    "aliases": [],
     "clubs": [
       "Beşiktaş",
       "Real Madrid"
     ]
   },
   {
-    "name": "Guy Delhumeau",
-    "aliases": [
-      "Delhumeau",
-      "Guy"
-    ],
+    "name": "Guy Demel",
     "clubs": [
-      "Nice",
-      "PSG"
+      "Bor. Dortmund",
+      "Arsenal"
     ]
   },
   {
-    "name": "Guy Ipoua",
-    "aliases": [
-      "Guy",
-      "Ipoua"
-    ],
+    "name": "Gyliano van Velzen",
     "clubs": [
-      "Atletico Madrid",
-      "Sevilla"
+      "Ajax",
+      "Man Utd"
     ]
   },
   {
-    "name": "Gündüz Gürol Azer",
-    "aliases": [
-      "Azer",
-      "Gündüz",
-      "Gürol"
-    ],
+    "name": "Gökay Keleş",
     "clubs": [
-      "Galatasaray",
-      "Sivasspor"
-    ]
-  },
-  {
-    "name": "Gürhan Gürsoy",
-    "aliases": [
-      "Gürhan",
-      "Gürsoy"
-    ],
-    "clubs": [
-      "Antalyaspor",
-      "Sivasspor"
-    ]
-  },
-  {
-    "name": "Güven Önüt",
-    "aliases": [
-      "Güven",
-      "Önüt"
-    ],
-    "clubs": [
-      "Beşiktaş",
+      "Sivasspor",
       "Trabzonspor"
     ]
   },
   {
-    "name": "Hakan Arıkan",
-    "aliases": [
-      "Arıkan",
-      "Hakan"
-    ],
+    "name": "Gökhan Bozkaya",
     "clubs": [
-      "Antalyaspor",
-      "Beşiktaş",
-      "Kayserispor",
-      "Trabzonspor"
-    ]
-  },
-  {
-    "name": "Hakan Canbazoğlu",
-    "aliases": [
-      "Canbazoğlu",
-      "Hakan"
-    ],
-    "clubs": [
-      "Başakşehir",
-      "Galatasaray",
-      "Sivasspor"
-    ]
-  },
-  {
-    "name": "Hakan Çalhanoğlu",
-    "aliases": [
-      "calhanoglu",
-      "Çalhanoğlu",
-      "hakan",
-      "Hakan"
-    ],
-    "clubs": [
-      "Inter",
-      "Milan"
-    ]
-  },
-  {
-    "name": "Hakan Özmert",
-    "aliases": [
-      "Hakan",
-      "Özmert"
-    ],
-    "clubs": [
-      "Antalyaspor",
-      "Başakşehir",
-      "Sivasspor"
-    ]
-  },
-  {
-    "name": "Hakan Şükür",
-    "aliases": [
-      "Hakan",
-      "Şükür"
-    ],
-    "clubs": [
-      "Galatasaray",
-      "Inter"
-    ]
-  },
-  {
-    "name": "Hakan Yakın",
-    "aliases": [
-      "Hakan",
-      "Yakın"
-    ],
-    "clubs": [
-      "Galatasaray",
-      "PSG"
-    ]
-  },
-  {
-    "name": "Hakim Ziyech",
-    "aliases": [
-      "hakim",
-      "Hakim",
-      "ziyech",
-      "Ziyech"
-    ],
-    "clubs": [
-      "Ajax",
-      "Chelsea",
-      "Galatasaray"
-    ]
-  },
-  {
-    "name": "Hamit Altıntop",
-    "aliases": [
-      "Altıntop",
-      "Hamit"
-    ],
-    "clubs": [
-      "Galatasaray",
-      "Real Madrid"
-    ]
-  },
-  {
-    "name": "Hans Mayer Heuberger",
-    "aliases": [
-      "Hans",
-      "Heuberger",
-      "Mayer"
-    ],
-    "clubs": [
-      "Juventus",
-      "Milan"
-    ]
-  },
-  {
-    "name": "Harry Bradshaw",
-    "aliases": [
-      "Bradshaw",
-      "Harry"
-    ],
-    "clubs": [
-      "Liverpool",
-      "Tottenham"
-    ]
-  },
-  {
-    "name": "Harry Erentz",
-    "aliases": [
-      "Erentz",
-      "Harry"
-    ],
-    "clubs": [
-      "Manchester United",
-      "Tottenham"
-    ]
-  },
-  {
-    "name": "Harry Kewell",
-    "aliases": [
-      "Harry",
-      "Kewell"
-    ],
-    "clubs": [
-      "Galatasaray",
-      "Liverpool"
-    ]
-  },
-  {
-    "name": "Harry McShane",
-    "aliases": [
-      "Harry",
-      "McShane"
-    ],
-    "clubs": [
-      "Manchester City",
-      "Manchester United"
-    ]
-  },
-  {
-    "name": "Harry Rowley",
-    "aliases": [
-      "Harry",
-      "Rowley"
-    ],
-    "clubs": [
-      "Manchester City",
-      "Manchester United"
-    ]
-  },
-  {
-    "name": "Harry Storer, Sr.",
-    "aliases": [
-      "Harry",
-      "Sr.",
-      "Storer,"
-    ],
-    "clubs": [
-      "Arsenal",
-      "Liverpool"
-    ]
-  },
-  {
-    "name": "Haruna Babangida",
-    "aliases": [
-      "Babangida",
-      "Haruna"
-    ],
-    "clubs": [
-      "Ajax",
-      "Barcelona"
-    ]
-  },
-  {
-    "name": "Harvey Esajas",
-    "aliases": [
-      "Esajas",
-      "Harvey"
-    ],
-    "clubs": [
-      "Ajax",
-      "Milan"
-    ]
-  },
-  {
-    "name": "Hasan Kabze",
-    "aliases": [
-      "Hasan",
-      "Kabze"
-    ],
-    "clubs": [
-      "Galatasaray",
-      "Sivasspor"
-    ]
-  },
-  {
-    "name": "Hasan Özer",
-    "aliases": [
-      "Hasan",
-      "Özer"
-    ],
-    "clubs": [
-      "Antalyaspor",
-      "Trabzonspor"
-    ]
-  },
-  {
-    "name": "Hasan Sönmez",
-    "aliases": [
-      "Hasan",
-      "Sönmez"
-    ],
-    "clubs": [
-      "Kayserispor",
-      "Trabzonspor"
-    ]
-  },
-  {
-    "name": "Hasan Vezir",
-    "aliases": [
-      "Hasan",
-      "Vezir"
-    ],
-    "clubs": [
-      "Galatasaray",
-      "Trabzonspor"
-    ]
-  },
-  {
-    "name": "Hatem Ben Arfa",
-    "aliases": [
-      "Arfa",
-      "Ben",
-      "Hatem"
-    ],
-    "clubs": [
-      "Lyon",
-      "Nice",
-      "PSG"
-    ]
-  },
-  {
-    "name": "Hatem Trabelsi",
-    "aliases": [
-      "Hatem",
-      "Trabelsi"
-    ],
-    "clubs": [
-      "Ajax",
-      "Manchester City"
-    ]
-  },
-  {
-    "name": "Héctor Bellerín",
-    "aliases": [
-      "Bellerín",
-      "Héctor"
-    ],
-    "clubs": [
-      "Arsenal",
-      "Barcelona"
-    ]
-  },
-  {
-    "name": "Hector Maison",
-    "aliases": [
-      "Hector",
-      "Maison"
-    ],
-    "clubs": [
-      "Lyon",
-      "Nice"
-    ]
-  },
-  {
-    "name": "Héctor Scarone",
-    "aliases": [
-      "Héctor",
-      "Scarone"
-    ],
-    "clubs": [
-      "Barcelona",
-      "Inter"
-    ]
-  },
-  {
-    "name": "Hedwiges Maduro",
-    "aliases": [
-      "Hedwiges",
-      "Maduro"
-    ],
-    "clubs": [
-      "Ajax",
-      "Sevilla"
-    ]
-  },
-  {
-    "name": "Helge Bronée",
-    "aliases": [
-      "Bronée",
-      "Helge"
-    ],
-    "clubs": [
-      "Juventus",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Henning Jensen",
-    "aliases": [
-      "Henning",
-      "Jensen"
-    ],
-    "clubs": [
-      "Ajax",
-      "Real Madrid"
-    ]
-  },
-  {
-    "name": "Henri Zambelli",
-    "aliases": [
-      "Henri",
-      "Zambelli"
-    ],
-    "clubs": [
-      "Lyon",
-      "Nice"
-    ]
-  },
-  {
-    "name": "Henrik Larsson",
-    "aliases": [
-      "Henrik",
-      "Larsson"
-    ],
-    "clubs": [
-      "Barcelona",
-      "Manchester United"
-    ]
-  },
-  {
-    "name": "Henrikh Hamlet Mkhitaryan",
-    "aliases": [
-      "hamlet",
-      "Hamlet",
-      "henrikh",
-      "Henrikh",
-      "mkhitaryan",
-      "Mkhitaryan"
-    ],
-    "clubs": [
-      "Arsenal",
-      "Inter",
-      "Manchester United",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Henrikh Mkhitaryan",
-    "aliases": [
-      "Henrikh",
-      "Mkhitaryan"
-    ],
-    "clubs": [
-      "Arsenal",
-      "Inter",
-      "Manchester United",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Henry Boyd",
-    "aliases": [
-      "Boyd",
-      "Henry"
-    ],
-    "clubs": [
-      "Arsenal",
-      "Manchester United"
-    ]
-  },
-  {
-    "name": "Henry Race",
-    "aliases": [
-      "Henry",
-      "Race"
-    ],
-    "clubs": [
-      "Liverpool",
-      "Manchester City"
-    ]
-  },
-  {
-    "name": "Herbert Broomfield",
-    "aliases": [
-      "Broomfield",
-      "Herbert"
-    ],
-    "clubs": [
-      "Manchester City",
-      "Manchester United"
-    ]
-  },
-  {
-    "name": "Herbert Burgess",
-    "aliases": [
-      "Burgess",
-      "Herbert"
-    ],
-    "clubs": [
-      "Manchester City",
-      "Manchester United"
-    ]
-  },
-  {
-    "name": "Herbert Kilpin",
-    "aliases": [
-      "Herbert",
-      "Kilpin"
-    ],
-    "clubs": [
-      "Inter",
-      "Milan"
-    ]
-  },
-  {
-    "name": "Herbert Prohaska",
-    "aliases": [
-      "Herbert",
-      "Prohaska"
-    ],
-    "clubs": [
-      "Inter",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Herbert Rothwell",
-    "aliases": [
-      "Herbert",
-      "Rothwell"
-    ],
-    "clubs": [
-      "Manchester City",
-      "Manchester United"
-    ]
-  },
-  {
-    "name": "Hernán Crespo",
-    "aliases": [
-      "Crespo",
-      "Hernán"
-    ],
-    "clubs": [
-      "Inter",
-      "Milan"
-    ]
-  },
-  {
-    "name": "Hernanes",
-    "aliases": [],
-    "clubs": [
-      "Inter",
-      "Juventus"
-    ]
-  },
-  {
-    "name": "Hervé Tum",
-    "aliases": [
-      "Hervé",
-      "Tum"
-    ],
-    "clubs": [
-      "Başakşehir",
-      "Sivasspor"
-    ]
-  },
-  {
-    "name": "Horace Blew",
-    "aliases": [
-      "Blew",
-      "Horace"
-    ],
-    "clubs": [
-      "Manchester City",
-      "Manchester United"
-    ]
-  },
-  {
-    "name": "Houssine Kharja",
-    "aliases": [
-      "Houssine",
-      "Kharja"
-    ],
-    "clubs": [
-      "Inter",
-      "PSG",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Hugh Morgan",
-    "aliases": [
-      "Hugh",
-      "Morgan"
-    ],
-    "clubs": [
-      "Manchester City",
-      "Manchester United"
-    ]
-  },
-  {
-    "name": "Hughie Clifford",
-    "aliases": [
-      "Clifford",
-      "Hughie"
-    ],
-    "clubs": [
-      "Liverpool",
-      "Manchester City"
-    ]
-  },
-  {
-    "name": "Hugo Ekitike",
-    "aliases": [
-      "Ekitike",
-      "Hugo"
-    ],
-    "clubs": [
-      "Liverpool",
-      "PSG"
-    ]
-  },
-  {
-    "name": "Hugo Leal",
-    "aliases": [
-      "Hugo",
-      "Leal"
-    ],
-    "clubs": [
-      "Atletico Madrid",
-      "PSG"
-    ]
-  },
-  {
-    "name": "Hugo Sánchez",
-    "aliases": [
-      "Hugo",
-      "Sánchez"
-    ],
-    "clubs": [
-      "Atletico Madrid",
-      "Real Madrid"
-    ]
-  },
-  {
-    "name": "Hussein Yasser",
-    "aliases": [
-      "Hussein",
-      "Yasser"
-    ],
-    "clubs": [
-      "Manchester City",
-      "Manchester United"
-    ]
-  },
-  {
-    "name": "Hüseyin Altuğ Taş",
-    "aliases": [
-      "Altuğ",
-      "Hüseyin",
-      "Taş"
-    ],
-    "clubs": [
-      "Başakşehir",
-      "Galatasaray"
-    ]
-  },
-  {
-    "name": "Hüseyin Çimşir",
-    "aliases": [
-      "Çimşir",
-      "Hüseyin"
-    ],
-    "clubs": [
-      "Antalyaspor",
-      "Trabzonspor"
-    ]
-  },
-  {
-    "name": "Iago Falque",
-    "aliases": [
-      "Falque",
-      "Iago"
-    ],
-    "clubs": [
-      "Barcelona",
-      "Juventus",
-      "Roma",
-      "Tottenham"
-    ]
-  },
-  {
-    "name": "Ian Rush",
-    "aliases": [
-      "Ian",
-      "Rush"
-    ],
-    "clubs": [
-      "Juventus",
-      "Liverpool"
-    ]
-  },
-  {
-    "name": "Ian Ure",
-    "aliases": [
-      "Ian",
-      "Ure"
-    ],
-    "clubs": [
-      "Arsenal",
-      "Manchester United"
-    ]
-  },
-  {
-    "name": "Ignasi Miquel",
-    "aliases": [
-      "Ignasi",
-      "Miquel"
-    ],
-    "clubs": [
-      "Arsenal",
-      "Barcelona"
-    ]
-  },
-  {
-    "name": "Ilie Dumitrescu",
-    "aliases": [
-      "Dumitrescu",
-      "Ilie"
-    ],
-    "clubs": [
-      "Sevilla",
-      "Tottenham"
-    ]
-  },
-  {
-    "name": "Iñaki Peña",
-    "aliases": [
-      "Iñaki",
-      "Peña"
-    ],
-    "clubs": [
-      "Barcelona",
-      "Galatasaray"
-    ]
-  },
-  {
-    "name": "Isaac Becerra",
-    "aliases": [
-      "Becerra",
-      "Isaac"
-    ],
-    "clubs": [
-      "Barcelona",
-      "Real Madrid"
-    ]
-  },
-  {
-    "name": "Isaac Cuenca",
-    "aliases": [
-      "Cuenca",
-      "Isaac"
-    ],
-    "clubs": [
-      "Ajax",
-      "Barcelona"
-    ]
-  },
-  {
-    "name": "Isaac Promise",
-    "aliases": [
-      "Isaac",
-      "Promise"
-    ],
-    "clubs": [
-      "Antalyaspor",
-      "Trabzonspor"
-    ]
-  },
-  {
-    "name": "Ishak Belfodil",
-    "aliases": [
-      "Belfodil",
-      "Ishak"
-    ],
-    "clubs": [
-      "Inter",
-      "Lyon"
-    ]
-  },
-  {
-    "name": "Ismaël Bennacer",
-    "aliases": [
-      "Bennacer",
-      "Ismaël"
-    ],
-    "clubs": [
-      "Arsenal",
-      "Milan"
-    ]
-  },
-  {
-    "name": "Ismael Urzaiz",
-    "aliases": [
-      "Ismael",
-      "Urzaiz"
-    ],
-    "clubs": [
-      "Ajax",
-      "Real Madrid"
-    ]
-  },
-  {
-    "name": "Ismaïl Aissati",
-    "aliases": [
-      "Aissati",
-      "Ismaïl"
-    ],
-    "clubs": [
-      "Ajax",
+      "Sivasspor",
+      "Fenerbahçe",
       "Antalyaspor"
     ]
   },
   {
-    "name": "István Nyers",
-    "aliases": [
-      "István",
-      "Nyers"
-    ],
-    "clubs": [
-      "Barcelona",
-      "Inter",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Iván Helguera",
-    "aliases": [
-      "Helguera",
-      "Iván"
-    ],
-    "clubs": [
-      "Real Madrid",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Ivan Perišić",
-    "aliases": [
-      "Ivan",
-      "ivan",
-      "perisic",
-      "Perišić"
-    ],
-    "clubs": [
-      "Inter",
-      "Tottenham"
-    ]
-  },
-  {
-    "name": "Ivan Rakitić",
-    "aliases": [
-      "Ivan",
-      "Rakitić"
-    ],
-    "clubs": [
-      "Barcelona",
-      "Sevilla"
-    ]
-  },
-  {
-    "name": "Iván Zamorano",
-    "aliases": [
-      "Iván",
-      "Zamorano"
-    ],
-    "clubs": [
-      "Inter",
-      "Real Madrid",
-      "Sevilla"
-    ]
-  },
-  {
-    "name": "iago Aspas",
-    "aliases": [
-      "Aspas",
-      "iago"
-    ],
-    "clubs": [
-      "Liverpool",
-      "Sevilla"
-    ]
-  },
-  {
-    "name": "İbrahim Akın",
-    "aliases": [
-      "Akın",
-      "İbrahim"
-    ],
-    "clubs": [
-      "Başakşehir",
-      "Beşiktaş",
-      "Sivasspor"
-    ]
-  },
-  {
-    "name": "İbrahim Dağaşan",
-    "aliases": [
-      "Dağaşan",
-      "İbrahim"
-    ],
-    "clubs": [
-      "Antalyaspor",
-      "Kayserispor",
-      "Sivasspor"
-    ]
-  },
-  {
-    "name": "İbrahim Karimov",
-    "aliases": [
-      "İbrahim",
-      "Karimov"
-    ],
-    "clubs": [
-      "Beşiktaş",
-      "Galatasaray"
-    ]
-  },
-  {
-    "name": "İbrahim Öztürk",
-    "aliases": [
-      "İbrahim",
-      "Öztürk"
-    ],
+    "name": "Gökhan Emreciksin",
     "clubs": [
       "Kayserispor",
-      "Sivasspor"
-    ]
-  },
-  {
-    "name": "İbrahim Toraman",
-    "aliases": [
-      "İbrahim",
-      "Toraman"
-    ],
-    "clubs": [
-      "Beşiktaş",
-      "Sivasspor"
-    ]
-  },
-  {
-    "name": "İbrahim Tusder",
-    "aliases": [
-      "İbrahim",
-      "Tusder"
-    ],
-    "clubs": [
-      "Beşiktaş",
-      "Galatasaray"
-    ]
-  },
-  {
-    "name": "İbrahim Yavuz",
-    "aliases": [
-      "İbrahim",
-      "Yavuz"
-    ],
-    "clubs": [
-      "Galatasaray",
-      "Kayserispor"
-    ]
-  },
-  {
-    "name": "İlhan Şahin",
-    "aliases": [
-      "İlhan",
-      "Şahin"
-    ],
-    "clubs": [
-      "Başakşehir",
-      "Beşiktaş"
-    ]
-  },
-  {
-    "name": "İlkay Gündoğan",
-    "aliases": [
-      "gundogan",
-      "Gündoğan",
-      "ilkay",
-      "İlkay"
-    ],
-    "clubs": [
-      "Barcelona",
-      "Galatasaray",
-      "Manchester City"
-    ]
-  },
-  {
-    "name": "İlyas Kahraman",
-    "aliases": [
-      "İlyas",
-      "Kahraman"
-    ],
-    "clubs": [
-      "Antalyaspor",
-      "Başakşehir",
-      "Galatasaray"
-    ]
-  },
-  {
-    "name": "İrfan Can Kahveci",
-    "aliases": [
-      "can",
-      "Can",
-      "irfan",
-      "İrfan",
-      "kahveci",
-      "Kahveci"
-    ],
-    "clubs": [
-      "Başakşehir",
+      "Konyaspor",
       "Fenerbahçe"
     ]
   },
   {
-    "name": "İsmail Şenyüz",
-    "aliases": [
-      "İsmail",
-      "Şenyüz"
-    ],
+    "name": "Gökhan Gönül",
+    "clubs": [
+      "Fenerbahçe",
+      "Genclerbirligi",
+      "Beşiktaş"
+    ]
+  },
+  {
+    "name": "Gökhan Güleç",
+    "clubs": [
+      "Denizlispor",
+      "Beşiktaş"
+    ]
+  },
+  {
+    "name": "Gökhan Inler",
+    "clubs": [
+      "Başakşehir",
+      "Beşiktaş",
+      "Napoli"
+    ]
+  },
+  {
+    "name": "Gökhan Karadeniz",
+    "clubs": [
+      "Trabzonspor",
+      "Antalyaspor"
+    ]
+  },
+  {
+    "name": "Gökhan Süzen",
+    "clubs": [
+      "Sivasspor",
+      "Denizlispor",
+      "Galatasaray",
+      "Beşiktaş"
+    ]
+  },
+  {
+    "name": "Gökhan Tokgöz",
+    "clubs": [
+      "Konyaspor",
+      "Genclerbirligi"
+    ]
+  },
+  {
+    "name": "Gökhan Töre",
+    "clubs": [
+      "Chelsea",
+      "Konyaspor",
+      "Beşiktaş"
+    ]
+  },
+  {
+    "name": "Gökhan Zan",
+    "clubs": [
+      "Galatasaray",
+      "Beşiktaş"
+    ]
+  },
+  {
+    "name": "Gökhan Ünal",
+    "clubs": [
+      "Kayserispor",
+      "Fenerbahçe",
+      "Trabzonspor",
+      "Genclerbirligi"
+    ]
+  },
+  {
+    "name": "Göksel Akıncı",
+    "clubs": [
+      "Genclerbirligi",
+      "Denizlispor"
+    ]
+  },
+  {
+    "name": "Göktan Gürpüz",
+    "clubs": [
+      "Trabzonspor",
+      "Genclerbirligi"
+    ]
+  },
+  {
+    "name": "Günay Güvenç",
+    "clubs": [
+      "Galatasaray",
+      "Beşiktaş"
+    ]
+  },
+  {
+    "name": "Gündüz Gürol Azer",
+    "clubs": [
+      "Sivasspor",
+      "Galatasaray"
+    ]
+  },
+  {
+    "name": "Güray Vural",
+    "clubs": [
+      "Kayserispor",
+      "Trabzonspor",
+      "Antalyaspor",
+      "Denizlispor"
+    ]
+  },
+  {
+    "name": "Gürhan Gürsoy",
+    "clubs": [
+      "Sivasspor",
+      "Fenerbahçe",
+      "Antalyaspor"
+    ]
+  },
+  {
+    "name": "Hakan Arıkan",
+    "clubs": [
+      "Kayserispor",
+      "Trabzonspor",
+      "Genclerbirligi",
+      "Antalyaspor",
+      "Beşiktaş"
+    ]
+  },
+  {
+    "name": "Hakan Aslantas",
+    "clubs": [
+      "Kayserispor",
+      "Konyaspor",
+      "Genclerbirligi"
+    ]
+  },
+  {
+    "name": "Hakan Bayraktar",
+    "clubs": [
+      "Sivasspor",
+      "Fenerbahçe"
+    ]
+  },
+  {
+    "name": "Hakan Canbazoğlu",
+    "clubs": [
+      "Sivasspor",
+      "Galatasaray"
+    ]
+  },
+  {
+    "name": "Hakan Demir",
+    "clubs": [
+      "Genclerbirligi",
+      "Antalyaspor"
+    ]
+  },
+  {
+    "name": "Hakan Çalhanoğlu",
+    "clubs": [
+      "AC Milan",
+      "Inter"
+    ]
+  },
+  {
+    "name": "Hakan Çinemre",
+    "clubs": [
+      "Fenerbahçe",
+      "Denizlispor"
+    ]
+  },
+  {
+    "name": "Hakan Özmert",
+    "clubs": [
+      "Sivasspor",
+      "Başakşehir",
+      "Antalyaspor"
+    ]
+  },
+  {
+    "name": "Hakan Şükür",
+    "clubs": [
+      "Galatasaray",
+      "Inter"
+    ]
+  },
+  {
+    "name": "Hakim Ziyech",
+    "clubs": [
+      "Chelsea",
+      "Galatasaray",
+      "Ajax"
+    ]
+  },
+  {
+    "name": "Hakkı Daş",
+    "clubs": [
+      "Kayserispor",
+      "Trabzonspor"
+    ]
+  },
+  {
+    "name": "Halil İbrahim Sönmez",
+    "clubs": [
+      "Konyaspor",
+      "Trabzonspor"
+    ]
+  },
+  {
+    "name": "Hamit Altıntop",
+    "clubs": [
+      "Galatasaray",
+      "Real Madrid",
+      "Bayern Munich"
+    ]
+  },
+  {
+    "name": "Hans Jörg Butt",
+    "clubs": [
+      "Benfica",
+      "Bayern Munich"
+    ]
+  },
+  {
+    "name": "Haris Seferovic",
+    "clubs": [
+      "Galatasaray",
+      "Benfica"
+    ]
+  },
+  {
+    "name": "Harrison Parker",
+    "clubs": [
+      "Arsenal",
+      "Man Utd",
+      "Man City"
+    ]
+  },
+  {
+    "name": "Harry Kane",
+    "clubs": [
+      "Tottenham",
+      "Arsenal",
+      "Bayern Munich"
+    ]
+  },
+  {
+    "name": "Harry Kewell",
+    "clubs": [
+      "Galatasaray",
+      "Liverpool"
+    ]
+  },
+  {
+    "name": "Harun Kaya",
+    "clubs": [
+      "Galatasaray",
+      "Beşiktaş"
+    ]
+  },
+  {
+    "name": "Harvey Esajas",
+    "clubs": [
+      "AC Milan",
+      "Ajax"
+    ]
+  },
+  {
+    "name": "Harvey Neville",
+    "clubs": [
+      "Man Utd",
+      "Man City"
+    ]
+  },
+  {
+    "name": "Hasan Ali Kaldırım",
+    "clubs": [
+      "Kayserispor",
+      "Fenerbahçe",
+      "Başakşehir"
+    ]
+  },
+  {
+    "name": "Hasan Gültang",
+    "clubs": [
+      "Kayserispor",
+      "Genclerbirligi"
+    ]
+  },
+  {
+    "name": "Hasan Kabze",
+    "clubs": [
+      "Sivasspor",
+      "Konyaspor",
+      "Galatasaray"
+    ]
+  },
+  {
+    "name": "Hasan Salihamidzic",
+    "clubs": [
+      "Juventus",
+      "Bayern Munich"
+    ]
+  },
+  {
+    "name": "Hasan Sönmez",
+    "clubs": [
+      "Kayserispor",
+      "Trabzonspor",
+      "Genclerbirligi",
+      "Antalyaspor"
+    ]
+  },
+  {
+    "name": "Hassan Yebda",
+    "clubs": [
+      "Napoli",
+      "Benfica"
+    ]
+  },
+  {
+    "name": "Hector Bellerin",
+    "clubs": [
+      "Arsenal",
+      "Barcelona"
+    ]
+  },
+  {
+    "name": "Hector Herrera",
+    "clubs": [
+      "FC Porto",
+      "Atletico Madrid"
+    ]
+  },
+  {
+    "name": "Heitor",
+    "clubs": [
+      "FC Porto",
+      "Inter"
+    ]
+  },
+  {
+    "name": "Helder Postiga",
+    "clubs": [
+      "Tottenham",
+      "FC Porto"
+    ]
+  },
+  {
+    "name": "Helton Leite",
     "clubs": [
       "Antalyaspor",
+      "Benfica"
+    ]
+  },
+  {
+    "name": "Henrik Larsson",
+    "clubs": [
+      "Barcelona",
+      "Man Utd"
+    ]
+  },
+  {
+    "name": "Henrikh Mkhitaryan",
+    "clubs": [
+      "Bor. Dortmund",
+      "Arsenal",
+      "AS Roma",
+      "Inter",
+      "Man Utd"
+    ]
+  },
+  {
+    "name": "Henrique",
+    "clubs": [
+      "Barcelona",
+      "Napoli"
+    ]
+  },
+  {
+    "name": "Henry Onyekuru",
+    "clubs": [
+      "Genclerbirligi",
+      "Galatasaray"
+    ]
+  },
+  {
+    "name": "Hernan Crespo",
+    "clubs": [
+      "Chelsea",
+      "AC Milan",
+      "Inter"
+    ]
+  },
+  {
+    "name": "Hernanes",
+    "clubs": [
+      "Juventus",
+      "Inter"
+    ]
+  },
+  {
+    "name": "Herve Tum",
+    "clubs": [
+      "Sivasspor",
+      "Genclerbirligi"
+    ]
+  },
+  {
+    "name": "Hilario",
+    "clubs": [
+      "Chelsea",
+      "FC Porto"
+    ]
+  },
+  {
+    "name": "Houssem Aouar",
+    "clubs": [
+      "AS Roma",
+      "Olymp. Lyon"
+    ]
+  },
+  {
+    "name": "Houssine Kharja",
+    "clubs": [
+      "AS Roma",
+      "Inter"
+    ]
+  },
+  {
+    "name": "Hubert Graczyk",
+    "clubs": [
+      "Arsenal",
+      "Man Utd"
+    ]
+  },
+  {
+    "name": "Hugo Campagnaro",
+    "clubs": [
+      "Inter",
+      "Napoli"
+    ]
+  },
+  {
+    "name": "Hugo Felix",
+    "clubs": [
+      "FC Porto",
+      "Benfica"
+    ]
+  },
+  {
+    "name": "Hugo Leal",
+    "clubs": [
+      "FC Porto",
+      "Atletico Madrid",
+      "Benfica"
+    ]
+  },
+  {
+    "name": "Hugo Rodallega",
+    "clubs": [
+      "Trabzonspor",
+      "Denizlispor"
+    ]
+  },
+  {
+    "name": "Hulk",
+    "clubs": [
+      "FC Porto",
+      "Benfica"
+    ]
+  },
+  {
+    "name": "Hyun-jun Suk",
+    "clubs": [
+      "FC Porto",
+      "Trabzonspor",
+      "Ajax"
+    ]
+  },
+  {
+    "name": "Hüseyin Türkmen",
+    "clubs": [
+      "Trabzonspor",
+      "Antalyaspor"
+    ]
+  },
+  {
+    "name": "Hüseyin Çimşir",
+    "clubs": [
+      "Trabzonspor",
+      "Antalyaspor"
+    ]
+  },
+  {
+    "name": "Iago Falque",
+    "clubs": [
+      "Tottenham",
+      "Juventus",
+      "AS Roma"
+    ]
+  },
+  {
+    "name": "Ian Maatsen",
+    "clubs": [
+      "Bor. Dortmund",
+      "Chelsea"
+    ]
+  },
+  {
+    "name": "Ian Poveda",
+    "clubs": [
+      "Chelsea",
+      "Arsenal",
+      "Man City"
+    ]
+  },
+  {
+    "name": "Iasmin Latovlevici",
+    "clubs": [
+      "Genclerbirligi",
+      "Galatasaray"
+    ]
+  },
+  {
+    "name": "Ibrahima Bangoura",
+    "clubs": [
+      "Konyaspor",
+      "Denizlispor"
+    ]
+  },
+  {
+    "name": "Ignazio Abate",
+    "clubs": [
+      "AC Milan",
+      "Napoli"
+    ]
+  },
+  {
+    "name": "Iker Casillas",
+    "clubs": [
+      "FC Porto",
+      "Real Madrid"
+    ]
+  },
+  {
+    "name": "Ilqar Qurbanov",
+    "clubs": [
+      "Sivasspor",
+      "Fenerbahçe"
+    ]
+  },
+  {
+    "name": "Inaki Pena",
+    "clubs": [
+      "Barcelona",
+      "Galatasaray"
+    ]
+  },
+  {
+    "name": "Isaac Christie-Davies",
+    "clubs": [
+      "Chelsea",
+      "Liverpool"
+    ]
+  },
+  {
+    "name": "Isaac Cuenca",
+    "clubs": [
+      "Barcelona",
+      "Ajax"
+    ]
+  },
+  {
+    "name": "Isaac Promise",
+    "clubs": [
+      "Trabzonspor",
+      "Genclerbirligi",
+      "Antalyaspor"
+    ]
+  },
+  {
+    "name": "Ishak Belfodil",
+    "clubs": [
+      "Inter",
+      "PSG",
+      "Olymp. Lyon"
+    ]
+  },
+  {
+    "name": "Ismael Bangoura",
+    "clubs": [
+      "Inter",
+      "Napoli"
+    ]
+  },
+  {
+    "name": "Ismail Aissati",
+    "clubs": [
+      "Antalyaspor",
+      "Denizlispor",
+      "Ajax"
+    ]
+  },
+  {
+    "name": "IsmaÃ«l Bennacer",
+    "clubs": [
+      "Arsenal",
+      "AC Milan"
+    ]
+  },
+  {
+    "name": "Issa Kabore",
+    "clubs": [
+      "Benfica",
+      "Man City"
+    ]
+  },
+  {
+    "name": "Ivan Helguera",
+    "clubs": [
+      "AS Roma",
+      "Real Madrid"
+    ]
+  },
+  {
+    "name": "Ivan Lietava",
+    "clubs": [
+      "Konyaspor",
+      "Denizlispor"
+    ]
+  },
+  {
+    "name": "Ivan Marcano",
+    "clubs": [
+      "FC Porto",
+      "AS Roma"
+    ]
+  },
+  {
+    "name": "Ivan Perisic",
+    "clubs": [
+      "Bor. Dortmund",
+      "Tottenham",
+      "Inter",
+      "Bayern Munich"
+    ]
+  },
+  {
+    "name": "Ivan Radeljic",
+    "clubs": [
+      "Genclerbirligi",
+      "Antalyaspor"
+    ]
+  },
+  {
+    "name": "İbrahim Akdağ",
+    "clubs": [
+      "Kayserispor",
+      "Sivasspor",
+      "Başakşehir"
+    ]
+  },
+  {
+    "name": "İbrahim Akın",
+    "clubs": [
+      "Sivasspor",
+      "Beşiktaş"
+    ]
+  },
+  {
+    "name": "İbrahim Dağaşan",
+    "clubs": [
+      "Kayserispor",
+      "Sivasspor",
+      "Antalyaspor"
+    ]
+  },
+  {
+    "name": "İbrahim Ege",
+    "clubs": [
+      "Konyaspor",
+      "Trabzonspor",
+      "Denizlispor"
+    ]
+  },
+  {
+    "name": "İbrahim Toraman",
+    "clubs": [
+      "Sivasspor",
+      "Beşiktaş"
+    ]
+  },
+  {
+    "name": "İlhan Mansız",
+    "clubs": [
+      "Genclerbirligi",
+      "Beşiktaş"
+    ]
+  },
+  {
+    "name": "İlkay Durmuş",
+    "clubs": [
+      "Genclerbirligi",
+      "Antalyaspor"
+    ]
+  },
+  {
+    "name": "İlkay Gündoğan",
+    "clubs": [
+      "Bor. Dortmund",
+      "Barcelona",
+      "Galatasaray",
+      "Man City"
+    ]
+  },
+  {
+    "name": "İlker Avcıbay",
+    "clubs": [
+      "Konyaspor",
+      "Antalyaspor",
+      "Denizlispor"
+    ]
+  },
+  {
+    "name": "İlyas Kahraman",
+    "clubs": [
+      "Antalyaspor",
+      "Denizlispor",
+      "Galatasaray"
+    ]
+  },
+  {
+    "name": "İlyas Yılmazer",
+    "clubs": [
+      "Fenerbahçe",
+      "Antalyaspor"
+    ]
+  },
+  {
+    "name": "İrfan Can Kahveci",
+    "clubs": [
+      "Fenerbahçe",
+      "Başakşehir",
+      "Genclerbirligi"
+    ]
+  },
+  {
+    "name": "İsmail Doğan",
+    "clubs": [
+      "Kayserispor",
+      "Genclerbirligi",
+      "Denizlispor"
+    ]
+  },
+  {
+    "name": "İsmail Güldüren",
+    "clubs": [
+      "Konyaspor",
+      "Fenerbahçe",
+      "Genclerbirligi"
+    ]
+  },
+  {
+    "name": "İsmail Kayalı",
+    "clubs": [
+      "Fenerbahçe",
+      "Antalyaspor"
+    ]
+  },
+  {
+    "name": "İsmail Köybaşı",
+    "clubs": [
+      "Fenerbahçe",
+      "Trabzonspor",
+      "Beşiktaş"
+    ]
+  },
+  {
+    "name": "İsmail Çipe",
+    "clubs": [
+      "Kayserispor",
+      "Galatasaray"
+    ]
+  },
+  {
+    "name": "İzzet Akgül",
+    "clubs": [
+      "Denizlispor",
       "Galatasaray"
     ]
   },
   {
     "name": "Jaap Stam",
-    "aliases": [
-      "Jaap",
-      "Stam"
-    ],
     "clubs": [
+      "AC Milan",
       "Ajax",
-      "Manchester United",
-      "Milan"
+      "Man Utd"
     ]
   },
   {
-    "name": "Jack Breedon",
-    "aliases": [
-      "Breedon",
-      "Jack"
-    ],
+    "name": "Jack Fletcher",
     "clubs": [
-      "Manchester City",
-      "Manchester United"
+      "Man Utd",
+      "Man City"
     ]
   },
   {
-    "name": "Jack Crompton",
-    "aliases": [
-      "Crompton",
-      "Jack"
-    ],
-    "clubs": [
-      "Manchester City",
-      "Manchester United"
-    ]
-  },
-  {
-    "name": "Jack Diment",
-    "aliases": [
-      "Diment",
-      "Jack"
-    ],
-    "clubs": [
-      "Juventus",
-      "Milan"
-    ]
-  },
-  {
-    "name": "Jack Fitchett",
-    "aliases": [
-      "Fitchett",
-      "Jack"
-    ],
-    "clubs": [
-      "Manchester City",
-      "Manchester United"
-    ]
-  },
-  {
-    "name": "Jack Hall",
-    "aliases": [
-      "Hall",
-      "Jack"
-    ],
-    "clubs": [
-      "Manchester United",
-      "Tottenham"
-    ]
-  },
-  {
-    "name": "Jack Quinn",
-    "aliases": [
-      "Jack",
-      "Quinn"
-    ],
-    "clubs": [
-      "Manchester City",
-      "Manchester United"
-    ]
-  },
-  {
-    "name": "Jackie Sheldon",
-    "aliases": [
-      "Jackie",
-      "Sheldon"
-    ],
+    "name": "Jack Harrison",
     "clubs": [
       "Liverpool",
-      "Manchester United"
+      "Man Utd",
+      "Man City"
     ]
   },
   {
-    "name": "Jaime Lazcano Escolá",
-    "aliases": [
-      "Escolá",
-      "Jaime",
-      "Lazcano"
-    ],
+    "name": "Jackson Martinez",
     "clubs": [
-      "Atletico Madrid",
-      "Real Madrid"
+      "FC Porto",
+      "Atletico Madrid"
     ]
   },
   {
-    "name": "Jair da Costa",
-    "aliases": [
-      "Costa",
-      "Jair"
-    ],
+    "name": "Jadon Sancho",
     "clubs": [
-      "Inter",
-      "Roma"
+      "Bor. Dortmund",
+      "Chelsea",
+      "Man Utd",
+      "Man City"
     ]
   },
   {
-    "name": "Jajá Coelho",
-    "aliases": [
-      "Coelho",
-      "Jajá"
-    ],
+    "name": "Jailson",
+    "clubs": [
+      "Fenerbahçe",
+      "Benfica"
+    ]
+  },
+  {
+    "name": "Jaja",
     "clubs": [
       "Kayserispor",
       "Trabzonspor"
     ]
   },
   {
-    "name": "James Blair",
-    "aliases": [
-      "Blair",
-      "James"
-    ],
+    "name": "Jakub Kaluzinski",
+    "clubs": [
+      "Başakşehir",
+      "Antalyaspor"
+    ]
+  },
+  {
+    "name": "Jakub Kiwior",
     "clubs": [
       "Arsenal",
-      "Manchester City"
+      "FC Porto"
     ]
   },
   {
-    "name": "James Buchan",
-    "aliases": [
-      "Buchan",
-      "James"
-    ],
+    "name": "Jamal Musiala",
+    "clubs": [
+      "Chelsea",
+      "Bayern Munich"
+    ]
+  },
+  {
+    "name": "James Lawrence",
     "clubs": [
       "Arsenal",
-      "Manchester City"
+      "Ajax"
     ]
   },
   {
-    "name": "James Cairns",
-    "aliases": [
-      "Cairns",
-      "James"
-    ],
+    "name": "James Lea Siliki",
     "clubs": [
-      "Manchester City",
-      "Manchester United"
-    ]
-  },
-  {
-    "name": "James Debbah",
-    "aliases": [
-      "Debbah",
-      "James"
-    ],
-    "clubs": [
-      "Lyon",
-      "Nice",
+      "Genclerbirligi",
       "PSG"
     ]
   },
   {
-    "name": "James McBride",
-    "aliases": [
-      "James",
-      "McBride"
-    ],
+    "name": "James McConnell",
     "clubs": [
-      "Liverpool",
-      "Manchester City"
+      "Ajax",
+      "Liverpool"
     ]
   },
   {
-    "name": "James McNaught",
-    "aliases": [
-      "James",
-      "McNaught"
-    ],
+    "name": "James Milner",
     "clubs": [
-      "Manchester United",
-      "Tottenham"
+      "Liverpool",
+      "Man City"
+    ]
+  },
+  {
+    "name": "James Rodriguez",
+    "clubs": [
+      "FC Porto",
+      "Real Madrid",
+      "Bayern Munich"
+    ]
+  },
+  {
+    "name": "James Russell",
+    "clubs": [
+      "Chelsea",
+      "Arsenal"
     ]
   },
   {
     "name": "James Troisi",
-    "aliases": [
-      "James",
-      "Troisi"
-    ],
     "clubs": [
+      "Kayserispor",
       "Juventus",
-      "Kayserispor"
+      "Genclerbirligi"
     ]
   },
   {
-    "name": "Jamie O'Hara",
-    "aliases": [
-      "Jamie",
-      "O'Hara"
-    ],
+    "name": "Jamie Gittens",
     "clubs": [
-      "Arsenal",
-      "Tottenham"
+      "Bor. Dortmund",
+      "Chelsea",
+      "Man City"
     ]
   },
   {
     "name": "Jamie Redknapp",
-    "aliases": [
-      "Jamie",
-      "Redknapp"
-    ],
     "clubs": [
-      "Liverpool",
-      "Tottenham"
-    ]
-  },
-  {
-    "name": "Jan Mølby",
-    "aliases": [
-      "Jan",
-      "Mølby"
-    ],
-    "clubs": [
-      "Ajax",
+      "Tottenham",
       "Liverpool"
     ]
   },
   {
-    "name": "Jari Litmanen",
-    "aliases": [
-      "Jari",
-      "Litmanen"
-    ],
+    "name": "Jan Oblak",
     "clubs": [
+      "Atletico Madrid",
+      "Benfica"
+    ]
+  },
+  {
+    "name": "Jan Vertonghen",
+    "clubs": [
+      "Tottenham",
       "Ajax",
-      "Barcelona",
-      "Liverpool"
+      "Benfica"
     ]
   },
   {
     "name": "Jason Banton",
-    "aliases": [
-      "Banton",
-      "Jason"
-    ],
     "clubs": [
       "Arsenal",
-      "Liverpool",
-      "Tottenham"
+      "Liverpool"
     ]
   },
   {
     "name": "Jason Denayer",
-    "aliases": [
-      "Denayer",
-      "Jason"
-    ],
     "clubs": [
       "Galatasaray",
-      "Lyon",
-      "Manchester City"
+      "Man City"
     ]
   },
   {
-    "name": "Javi García",
-    "aliases": [
-      "García",
-      "Javi"
-    ],
+    "name": "Jason Sraha",
     "clubs": [
-      "Manchester City",
-      "Real Madrid"
+      "Chelsea",
+      "Arsenal"
     ]
   },
   {
-    "name": "Javi Guerrero",
-    "aliases": [
-      "Guerrero",
-      "Javi"
-    ],
+    "name": "Jasper Cillessen",
     "clubs": [
-      "Atletico Madrid",
-      "Real Madrid"
-    ]
-  },
-  {
-    "name": "Javi Moreno",
-    "aliases": [
-      "Javi",
-      "Moreno"
-    ],
-    "clubs": [
-      "Atletico Madrid",
       "Barcelona",
-      "Milan"
+      "Ajax"
+    ]
+  },
+  {
+    "name": "JavairÃ´ Dilrosun",
+    "clubs": [
+      "Ajax",
+      "Man City"
+    ]
+  },
+  {
+    "name": "Javi Garcia",
+    "clubs": [
+      "Real Madrid",
+      "Benfica",
+      "Man City"
+    ]
+  },
+  {
+    "name": "Javi Montero",
+    "clubs": [
+      "Beşiktaş",
+      "Atletico Madrid"
     ]
   },
   {
     "name": "Javier Balboa",
-    "aliases": [
-      "Balboa",
-      "Javier"
-    ],
     "clubs": [
-      "Barcelona",
-      "Real Madrid"
-    ]
-  },
-  {
-    "name": "Javier Casquero",
-    "aliases": [
-      "Casquero",
-      "Javier"
-    ],
-    "clubs": [
-      "Atletico Madrid",
-      "Sevilla"
-    ]
-  },
-  {
-    "name": "Javier Hernánde",
-    "aliases": [
-      "Hernánde",
-      "Javier"
-    ],
-    "clubs": [
-      "Manchester United",
       "Real Madrid",
-      "Sevilla"
+      "Benfica"
     ]
   },
   {
     "name": "Javier Manquillo",
-    "aliases": [
-      "Javier",
-      "Manquillo"
-    ],
     "clubs": [
       "Atletico Madrid",
       "Liverpool"
@@ -10537,4309 +6126,2007 @@ export const PLAYERS = [
   },
   {
     "name": "Javier Mascherano",
-    "aliases": [
-      "Javier",
-      "Mascherano"
-    ],
     "clubs": [
       "Barcelona",
       "Liverpool"
-    ]
-  },
-  {
-    "name": "Javier Pastore",
-    "aliases": [
-      "Javier",
-      "Pastore"
-    ],
-    "clubs": [
-      "PSG",
-      "Roma"
     ]
   },
   {
     "name": "Javier Saviola",
-    "aliases": [
-      "Javier",
-      "Saviola"
-    ],
     "clubs": [
       "Barcelona",
       "Real Madrid",
-      "Sevilla"
+      "Benfica"
     ]
   },
   {
-    "name": "Jay-Jay Okocha",
-    "aliases": [
-      "Jay",
-      "Okocha"
-    ],
-    "clubs": [
-      "Manchester United",
-      "PSG"
-    ]
-  },
-  {
-    "name": "Jean Belver",
-    "aliases": [
-      "Belver",
-      "Jean"
-    ],
-    "clubs": [
-      "Lyon",
-      "Nice"
-    ]
-  },
-  {
-    "name": "Jean Deloffre",
-    "aliases": [
-      "Deloffre",
-      "Jean"
-    ],
-    "clubs": [
-      "Nice",
-      "PSG"
-    ]
-  },
-  {
-    "name": "Jean Djorkaeff",
-    "aliases": [
-      "Djorkaeff",
-      "Jean"
-    ],
-    "clubs": [
-      "Lyon",
-      "PSG"
-    ]
-  },
-  {
-    "name": "Jean Luciano",
-    "aliases": [
-      "Jean",
-      "Luciano"
-    ],
-    "clubs": [
-      "Nice",
-      "Real Madrid"
-    ]
-  },
-  {
-    "name": "Jean Makoun",
-    "aliases": [
-      "Jean",
-      "Makoun"
-    ],
-    "clubs": [
-      "Antalyaspor",
-      "Lyon"
-    ]
-  },
-  {
-    "name": "Jean Seri",
-    "aliases": [
-      "Jean",
-      "Seri"
-    ],
-    "clubs": [
-      "Galatasaray",
-      "Nice"
-    ]
-  },
-  {
-    "name": "Jean-Alain Boumsong",
-    "aliases": [
-      "Alain",
-      "Boumsong",
-      "Jean"
-    ],
-    "clubs": [
-      "Juventus",
-      "Lyon"
-    ]
-  },
-  {
-    "name": "Jean-François Larios",
-    "aliases": [
-      "François",
-      "Jean",
-      "Larios"
-    ],
-    "clubs": [
-      "Atletico Madrid",
-      "Lyon",
-      "Nice"
-    ]
-  },
-  {
-    "name": "Jean-Louis Leonetti",
-    "aliases": [
-      "Jean",
-      "Leonetti",
-      "Louis"
-    ],
-    "clubs": [
-      "Nice",
-      "PSG"
-    ]
-  },
-  {
-    "name": "Jean-Luc Sassus",
-    "aliases": [
-      "Jean",
-      "Luc",
-      "Sassus"
-    ],
-    "clubs": [
-      "Lyon",
-      "PSG"
-    ]
-  },
-  {
-    "name": "Jean-Noël Huck",
-    "aliases": [
-      "Huck",
-      "Jean",
-      "Noël"
-    ],
-    "clubs": [
-      "Nice",
-      "PSG"
-    ]
-  },
-  {
-    "name": "Jean-Paul Bernad",
-    "aliases": [
-      "Bernad",
-      "Jean",
-      "Paul"
-    ],
-    "clubs": [
-      "Lyon",
-      "Nice"
-    ]
-  },
-  {
-    "name": "Jean-Paul Rostagni",
-    "aliases": [
-      "Jean",
-      "Paul",
-      "Rostagni"
-    ],
-    "clubs": [
-      "Nice",
-      "PSG"
-    ]
-  },
-  {
-    "name": "Jean-Pierre Adams",
-    "aliases": [
-      "Adams",
-      "Jean",
-      "Pierre"
-    ],
-    "clubs": [
-      "Nice",
-      "PSG"
-    ]
-  },
-  {
-    "name": "Jean-Pierre Bosser",
-    "aliases": [
-      "Bosser",
-      "Jean",
-      "Pierre"
-    ],
-    "clubs": [
-      "Nice",
-      "PSG"
-    ]
-  },
-  {
-    "name": "Jean-Pierre Teisseire",
-    "aliases": [
-      "Jean",
-      "Pierre",
-      "Teisseire"
-    ],
-    "clubs": [
-      "Lyon",
-      "Nice"
-    ]
-  },
-  {
-    "name": "Jeff Reine-Adélaïde",
-    "aliases": [
-      "Adélaïde",
-      "Jeff",
-      "Reine"
-    ],
-    "clubs": [
-      "Arsenal",
-      "Lyon"
-    ]
-  },
-  {
-    "name": "Jeffrey Hoogervorst",
-    "aliases": [
-      "Hoogervorst",
-      "Jeffrey"
-    ],
-    "clubs": [
-      "Barcelona",
-      "Real Madrid"
-    ]
-  },
-  {
-    "name": "Jens Lehmann",
-    "aliases": [
-      "Jens",
-      "Lehmann"
-    ],
-    "clubs": [
-      "Arsenal",
-      "Milan"
-    ]
-  },
-  {
-    "name": "Jérémie Bréchet",
-    "aliases": [
-      "Bréchet",
-      "Jérémie"
-    ],
-    "clubs": [
-      "Inter",
-      "Lyon"
-    ]
-  },
-  {
-    "name": "Jérémy Clément",
-    "aliases": [
-      "Clément",
-      "Jérémy"
-    ],
-    "clubs": [
-      "Lyon",
-      "PSG"
-    ]
-  },
-  {
-    "name": "Jérémy Ménez",
-    "aliases": [
-      "Jérémy",
-      "Ménez"
-    ],
-    "clubs": [
-      "Antalyaspor",
-      "Milan",
-      "PSG",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Jérémy Pied",
-    "aliases": [
-      "Jérémy",
-      "Pied"
-    ],
-    "clubs": [
-      "Lyon",
-      "Nice"
-    ]
-  },
-  {
-    "name": "Jermaine Pennant",
-    "aliases": [
-      "Jermaine",
-      "Pennant"
-    ],
-    "clubs": [
-      "Arsenal",
-      "Liverpool"
-    ]
-  },
-  {
-    "name": "Jérôme Alonzo",
-    "aliases": [
-      "Alonzo",
-      "Jérôme"
-    ],
-    "clubs": [
-      "Nice",
-      "PSG"
-    ]
-  },
-  {
-    "name": "Jérôme Boateng",
-    "aliases": [
-      "Boateng",
-      "Jérôme"
-    ],
-    "clubs": [
-      "Lyon",
-      "Manchester City"
-    ]
-  },
-  {
-    "name": "Jerzy Dudek",
-    "aliases": [
-      "Dudek",
-      "Jerzy"
-    ],
-    "clubs": [
-      "Liverpool",
-      "Real Madrid"
-    ]
-  },
-  {
-    "name": "Jesper Blomqvist",
-    "aliases": [
-      "Blomqvist",
-      "Jesper"
-    ],
-    "clubs": [
-      "Manchester United",
-      "Milan"
-    ]
-  },
-  {
-    "name": "Jesper Grønkjær",
-    "aliases": [
-      "Grønkjær",
-      "Jesper"
-    ],
+    "name": "Jayden Braaf",
     "clubs": [
       "Ajax",
-      "Atletico Madrid"
+      "Man City"
     ]
   },
   {
-    "name": "Jesper Olsen",
-    "aliases": [
-      "Jesper",
-      "Olsen"
-    ],
-    "clubs": [
-      "Ajax",
-      "Manchester United"
-    ]
-  },
-  {
-    "name": "Jesús Landáburu",
-    "aliases": [
-      "Jesús",
-      "Landáburu"
-    ],
-    "clubs": [
-      "Atletico Madrid",
-      "Barcelona"
-    ]
-  },
-  {
-    "name": "Jesús María Pereda",
-    "aliases": [
-      "Jesús",
-      "María",
-      "Pereda"
-    ],
+    "name": "Jean-Clair Todibo",
     "clubs": [
       "Barcelona",
-      "Real Madrid",
-      "Sevilla"
+      "Benfica"
     ]
   },
   {
-    "name": "Jesús Navas",
-    "aliases": [
-      "Jesús",
-      "Navas"
-    ],
+    "name": "Jefferson",
     "clubs": [
-      "Manchester City",
-      "Sevilla"
-    ]
-  },
-  {
-    "name": "Jim Brown",
-    "aliases": [
-      "Brown",
-      "Jim"
-    ],
-    "clubs": [
-      "Manchester United",
-      "Tottenham"
-    ]
-  },
-  {
-    "name": "Jim Furnell",
-    "aliases": [
-      "Furnell",
-      "Jim"
-    ],
-    "clubs": [
-      "Arsenal",
-      "Liverpool"
-    ]
-  },
-  {
-    "name": "Jim Leighton",
-    "aliases": [
-      "Jim",
-      "Leighton"
-    ],
-    "clubs": [
-      "Arsenal",
-      "Manchester United"
-    ]
-  },
-  {
-    "name": "Jimmy Bannister",
-    "aliases": [
-      "Bannister",
-      "Jimmy"
-    ],
-    "clubs": [
-      "Manchester City",
-      "Manchester United"
-    ]
-  },
-  {
-    "name": "Jimmy Brain",
-    "aliases": [
-      "Brain",
-      "Jimmy"
-    ],
-    "clubs": [
-      "Arsenal",
-      "Tottenham"
-    ]
-  },
-  {
-    "name": "Jimmy Broad",
-    "aliases": [
-      "Broad",
-      "Jimmy"
-    ],
-    "clubs": [
-      "Manchester City",
-      "Manchester United"
-    ]
-  },
-  {
-    "name": "Jimmy Bullock",
-    "aliases": [
-      "Bullock",
-      "Jimmy"
-    ],
-    "clubs": [
-      "Manchester City",
-      "Manchester United"
-    ]
-  },
-  {
-    "name": "Jimmy Carter",
-    "aliases": [
-      "Carter",
-      "Jimmy"
-    ],
-    "clubs": [
-      "Arsenal",
-      "Liverpool"
-    ]
-  },
-  {
-    "name": "Jimmy Greaves",
-    "aliases": [
-      "Greaves",
-      "Jimmy"
-    ],
-    "clubs": [
-      "Milan",
-      "Tottenham"
-    ]
-  },
-  {
-    "name": "Jimmy Rimmer",
-    "aliases": [
-      "Jimmy",
-      "Rimmer"
-    ],
-    "clubs": [
-      "Arsenal",
-      "Manchester United"
-    ]
-  },
-  {
-    "name": "Jimmy Robertson",
-    "aliases": [
-      "Jimmy",
-      "Robertson"
-    ],
-    "clubs": [
-      "Arsenal",
-      "Tottenham"
-    ]
-  },
-  {
-    "name": "Jimmy Ross",
-    "aliases": [
-      "Jimmy",
-      "Ross"
-    ],
-    "clubs": [
-      "Liverpool",
-      "Manchester City"
-    ]
-  },
-  {
-    "name": "Jimmy Whitehouse",
-    "aliases": [
-      "Jimmy",
-      "Whitehouse"
-    ],
-    "clubs": [
-      "Manchester City",
-      "Manchester United"
-    ]
-  },
-  {
-    "name": "Jô",
-    "aliases": [],
-    "clubs": [
-      "Galatasaray",
-      "Manchester City"
-    ]
-  },
-  {
-    "name": "Joan Josep Estella Salas",
-    "aliases": [
-      "Estella",
-      "Joan",
-      "Josep",
-      "Salas"
-    ],
-    "clubs": [
-      "Barcelona",
-      "Sevilla"
-    ]
-  },
-  {
-    "name": "Joaquín Correa",
-    "aliases": [
-      "Correa",
-      "Joaquín"
-    ],
-    "clubs": [
-      "Inter",
-      "Juventus",
-      "Sevilla"
-    ]
-  },
-  {
-    "name": "Joaquín Navarro Perona",
-    "aliases": [
-      "Joaquín",
-      "Navarro",
-      "Perona"
-    ],
-    "clubs": [
-      "Barcelona",
-      "Real Madrid"
-    ]
-  },
-  {
-    "name": "Joaquín Parra",
-    "aliases": [
-      "Joaquín",
-      "Parra"
-    ],
-    "clubs": [
-      "Atletico Madrid",
-      "Real Madrid"
-    ]
-  },
-  {
-    "name": "Joaquín Peiró",
-    "aliases": [
-      "Joaquín",
-      "Peiró"
-    ],
-    "clubs": [
-      "Atletico Madrid",
-      "Inter",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Jocelyn Angloma",
-    "aliases": [
-      "Angloma",
-      "Jocelyn"
-    ],
-    "clubs": [
-      "Inter",
-      "PSG"
-    ]
-  },
-  {
-    "name": "Jocelyn Rico",
-    "aliases": [
-      "Jocelyn",
-      "Rico"
-    ],
-    "clubs": [
-      "Nice",
-      "PSG"
-    ]
-  },
-  {
-    "name": "Joe Bacuzzi",
-    "aliases": [
-      "Bacuzzi",
-      "Joe"
-    ],
-    "clubs": [
-      "Arsenal",
-      "Manchester City"
-    ]
-  },
-  {
-    "name": "Joe Brough",
-    "aliases": [
-      "Brough",
-      "Joe"
-    ],
-    "clubs": [
-      "Liverpool",
-      "Tottenham"
-    ]
-  },
-  {
-    "name": "Joe Cassidy",
-    "aliases": [
-      "Cassidy",
-      "Joe"
-    ],
-    "clubs": [
-      "Manchester City",
-      "Manchester United"
-    ]
-  },
-  {
-    "name": "Joe Clare",
-    "aliases": [
-      "Clare",
-      "Joe"
-    ],
-    "clubs": [
-      "Arsenal",
-      "Manchester City"
-    ]
-  },
-  {
-    "name": "Joe Hart",
-    "aliases": [
-      "Hart",
-      "Joe"
-    ],
-    "clubs": [
-      "Manchester City",
-      "Tottenham"
-    ]
-  },
-  {
-    "name": "Joe Jordan",
-    "aliases": [
-      "Joe",
-      "Jordan"
-    ],
-    "clubs": [
-      "Manchester United",
-      "Milan"
-    ]
-  },
-  {
-    "name": "Joe Meek",
-    "aliases": [
-      "Joe",
-      "Meek"
-    ],
-    "clubs": [
-      "Liverpool",
-      "Tottenham"
-    ]
-  },
-  {
-    "name": "Joe Pritchard",
-    "aliases": [
-      "Joe",
-      "Pritchard"
-    ],
-    "clubs": [
-      "Liverpool",
-      "Tottenham"
-    ]
-  },
-  {
-    "name": "Joël Müller",
-    "aliases": [
-      "Joël",
-      "Müller"
-    ],
-    "clubs": [
-      "Lyon",
-      "Nice"
-    ]
-  },
-  {
-    "name": "Johan Cruyff",
-    "aliases": [
-      "Cruyff",
-      "Johan"
-    ],
-    "clubs": [
-      "Ajax",
-      "Barcelona"
-    ]
-  },
-  {
-    "name": "Johan Djourou",
-    "aliases": [
-      "Djourou",
-      "Johan"
-    ],
-    "clubs": [
-      "Antalyaspor",
-      "Arsenal"
-    ]
-  },
-  {
-    "name": "Johan Neeskens",
-    "aliases": [
-      "Johan",
-      "Neeskens"
-    ],
-    "clubs": [
-      "Ajax",
-      "Barcelona"
-    ]
-  },
-  {
-    "name": "John Arne Riise",
-    "aliases": [
-      "Arne",
-      "John",
-      "Riise"
-    ],
-    "clubs": [
-      "Liverpool",
-      "Roma"
-    ]
-  },
-  {
-    "name": "John Carew",
-    "aliases": [
-      "Carew",
-      "John"
-    ],
-    "clubs": [
-      "Beşiktaş",
-      "Lyon",
-      "Roma"
-    ]
-  },
-  {
-    "name": "John Charles",
-    "aliases": [
-      "Charles",
-      "John"
-    ],
-    "clubs": [
-      "Juventus",
-      "Roma"
-    ]
-  },
-  {
-    "name": "John Christie",
-    "aliases": [
-      "Christie",
-      "John"
-    ],
-    "clubs": [
-      "Manchester City",
-      "Manchester United"
-    ]
-  },
-  {
-    "name": "John Gidman",
-    "aliases": [
-      "Gidman",
-      "John"
-    ],
-    "clubs": [
-      "Liverpool",
-      "Manchester City",
-      "Manchester United"
-    ]
-  },
-  {
-    "name": "John Heitinga",
-    "aliases": [
-      "Heitinga",
-      "John"
-    ],
-    "clubs": [
-      "Ajax",
-      "Atletico Madrid"
-    ]
-  },
-  {
-    "name": "John Howarth",
-    "aliases": [
-      "Howarth",
-      "John"
-    ],
-    "clubs": [
-      "Manchester City",
-      "Manchester United"
-    ]
-  },
-  {
-    "name": "John Hunter",
-    "aliases": [
-      "Hunter",
-      "John"
-    ],
-    "clubs": [
-      "Arsenal",
-      "Liverpool"
-    ]
-  },
-  {
-    "name": "John Metgod",
-    "aliases": [
-      "John",
-      "Metgod"
-    ],
-    "clubs": [
-      "Real Madrid",
-      "Tottenham"
-    ]
-  },
-  {
-    "name": "John Moody",
-    "aliases": [
-      "John",
-      "Moody"
-    ],
-    "clubs": [
-      "Arsenal",
-      "Manchester United"
-    ]
-  },
-  {
-    "name": "John Ryan",
-    "aliases": [
-      "John",
-      "Ryan"
-    ],
-    "clubs": [
-      "Arsenal",
-      "Manchester City"
-    ]
-  },
-  {
-    "name": "John Scales",
-    "aliases": [
-      "John",
-      "Scales"
-    ],
-    "clubs": [
-      "Liverpool",
-      "Tottenham"
-    ]
-  },
-  {
-    "name": "Johnny Carey",
-    "aliases": [
-      "Carey",
-      "Johnny"
-    ],
-    "clubs": [
-      "Liverpool",
-      "Manchester City",
-      "Manchester United"
-    ]
-  },
-  {
-    "name": "Johnny Gorman",
-    "aliases": [
-      "Gorman",
-      "Johnny"
-    ],
-    "clubs": [
-      "Manchester City",
-      "Manchester United"
-    ]
-  },
-  {
-    "name": "Johnny Jordan",
-    "aliases": [
-      "Johnny",
-      "Jordan"
-    ],
-    "clubs": [
-      "Juventus",
-      "Tottenham"
-    ]
-  },
-  {
-    "name": "Jon Macken",
-    "aliases": [
-      "Jon",
-      "Macken"
-    ],
-    "clubs": [
-      "Manchester City",
-      "Manchester United"
-    ]
-  },
-  {
-    "name": "Jon Toral",
-    "aliases": [
-      "Jon",
-      "Toral"
-    ],
-    "clubs": [
-      "Arsenal",
-      "Barcelona"
-    ]
-  },
-  {
-    "name": "Jonatan Binotto",
-    "aliases": [
-      "Binotto",
-      "Jonatan"
-    ],
-    "clubs": [
-      "Inter",
-      "Juventus"
-    ]
-  },
-  {
-    "name": "Jonathan Biabiany",
-    "aliases": [
-      "Biabiany",
-      "Jonathan"
-    ],
-    "clubs": [
-      "Inter",
-      "Milan"
-    ]
-  },
-  {
-    "name": "Jonathan Carril",
-    "aliases": [
-      "Carril",
-      "Jonathan"
-    ],
-    "clubs": [
-      "Atletico Madrid",
-      "Barcelona"
-    ]
-  },
-  {
-    "name": "Jonathan Woodgate",
-    "aliases": [
-      "Jonathan",
-      "Woodgate"
-    ],
-    "clubs": [
-      "Real Madrid",
-      "Tottenham"
-    ]
-  },
-  {
-    "name": "Jonathan Zebina",
-    "aliases": [
-      "Jonathan",
-      "Zebina"
-    ],
-    "clubs": [
-      "Juventus",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Jordan Veretout",
-    "aliases": [
-      "Jordan",
-      "Veretout"
-    ],
-    "clubs": [
-      "Lyon",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Jordi Cruyff",
-    "aliases": [
-      "Cruyff",
-      "Jordi"
-    ],
-    "clubs": [
-      "Ajax",
-      "Barcelona",
-      "Manchester United"
-    ]
-  },
-  {
-    "name": "Jordi López",
-    "aliases": [
-      "Jordi",
-      "López"
-    ],
-    "clubs": [
-      "Barcelona",
-      "Real Madrid",
-      "Sevilla"
-    ]
-  },
-  {
-    "name": "Jordy Brouwer",
-    "aliases": [
-      "Brouwer",
-      "Jordy"
-    ],
-    "clubs": [
-      "Ajax",
-      "Liverpool"
-    ]
-  },
-  {
-    "name": "Jorge Alberto Mendonça",
-    "aliases": [
-      "Alberto",
-      "Jorge",
-      "Mendonça"
-    ],
-    "clubs": [
-      "Atletico Madrid",
-      "Barcelona"
-    ]
-  },
-  {
-    "name": "Jorge Luiz Frello Filho",
-    "aliases": [
-      "filho",
-      "Filho",
-      "frello",
-      "Frello",
-      "jorge",
-      "Jorge",
-      "jorginho",
-      "Jorginho",
-      "luiz",
-      "Luiz"
-    ],
-    "clubs": [
-      "Arsenal",
-      "Chelsea"
-    ]
-  },
-  {
-    "name": "Jorge Pulido",
-    "aliases": [
-      "Jorge",
-      "Pulido"
-    ],
-    "clubs": [
-      "Atletico Madrid",
-      "Real Madrid"
-    ]
-  },
-  {
-    "name": "José Altafini",
-    "aliases": [
-      "Altafini",
-      "José"
-    ],
-    "clubs": [
-      "Juventus",
-      "Milan"
-    ]
-  },
-  {
-    "name": "José Ángel Pozo",
-    "aliases": [
-      "Ángel",
-      "José",
-      "Pozo"
-    ],
-    "clubs": [
-      "Manchester City",
-      "Real Madrid"
-    ]
-  },
-  {
-    "name": "José Antonio García Calvo",
-    "aliases": [
-      "Antonio",
-      "Calvo",
-      "García",
-      "José"
-    ],
-    "clubs": [
-      "Atletico Madrid",
-      "Real Madrid"
-    ]
-  },
-  {
-    "name": "José Antonio Reyes",
-    "aliases": [
-      "Antonio",
-      "José",
-      "Reyes"
-    ],
-    "clubs": [
-      "Arsenal",
-      "Atletico Madrid",
-      "Real Madrid",
-      "Sevilla"
-    ]
-  },
-  {
-    "name": "José Antonio Salguero García",
-    "aliases": [
-      "Antonio",
-      "García",
-      "José",
-      "Salguero"
-    ],
-    "clubs": [
-      "Real Madrid",
-      "Sevilla"
-    ]
-  },
-  {
-    "name": "José Arana Goróstegui",
-    "aliases": [
-      "Arana",
-      "Goróstegui",
-      "José"
-    ],
-    "clubs": [
-      "Atletico Madrid",
-      "Barcelona"
-    ]
-  },
-  {
-    "name": "José Carlos Castillo García-Tudela",
-    "aliases": [
-      "Carlos",
-      "Castillo",
-      "García",
-      "José",
-      "Tudela"
-    ],
-    "clubs": [
-      "Atletico Madrid",
-      "Barcelona"
-    ]
-  },
-  {
-    "name": "José Chamot",
-    "aliases": [
-      "Chamot",
-      "José"
-    ],
-    "clubs": [
-      "Atletico Madrid",
-      "Milan"
-    ]
-  },
-  {
-    "name": "José Cobos",
-    "aliases": [
-      "Cobos",
-      "José"
-    ],
-    "clubs": [
-      "Nice",
-      "PSG"
-    ]
-  },
-  {
-    "name": "José de la Sagra Fermín",
-    "aliases": [
-      "Fermín",
-      "José",
-      "Sagra"
-    ],
-    "clubs": [
-      "Atletico Madrid",
-      "Barcelona"
-    ]
-  },
-  {
-    "name": "José García Castro",
-    "aliases": [
-      "Castro",
-      "García",
-      "José"
-    ],
-    "clubs": [
-      "Real Madrid",
-      "Sevilla"
-    ]
-  },
-  {
-    "name": "José Juan Luque",
-    "aliases": [
-      "José",
-      "Juan",
-      "Luque"
-    ],
-    "clubs": [
-      "Atletico Madrid",
-      "Sevilla"
-    ]
-  },
-  {
-    "name": "José Kléberson",
-    "aliases": [
-      "José",
-      "Kléberson"
-    ],
-    "clubs": [
-      "Beşiktaş",
-      "Manchester United"
-    ]
-  },
-  {
-    "name": "José Luis Caminero",
-    "aliases": [
-      "Caminero",
-      "José",
-      "Luis"
-    ],
-    "clubs": [
-      "Atletico Madrid",
-      "Real Madrid"
-    ]
-  },
-  {
-    "name": "José Luis Pérez-Paya",
-    "aliases": [
-      "José",
-      "Luis",
-      "Paya",
-      "Pérez"
-    ],
-    "clubs": [
-      "Atletico Madrid",
-      "Real Madrid"
-    ]
-  },
-  {
-    "name": "José Machín",
-    "aliases": [
-      "José",
-      "Machín"
-    ],
-    "clubs": [
-      "Barcelona",
-      "Roma"
-    ]
-  },
-  {
-    "name": "José Manuel Casado Bizcocho",
-    "aliases": [
-      "Bizcocho",
-      "Casado",
-      "José",
-      "Manuel"
-    ],
-    "clubs": [
-      "Barcelona",
-      "Sevilla"
-    ]
-  },
-  {
-    "name": "José Manuel Jurado",
-    "aliases": [
-      "José",
-      "Jurado",
-      "Manuel"
-    ],
-    "clubs": [
-      "Atletico Madrid",
-      "Real Madrid"
-    ]
-  },
-  {
-    "name": "José Mari",
-    "aliases": [
-      "José",
-      "Mari"
-    ],
-    "clubs": [
-      "Atletico Madrid",
-      "Milan",
-      "Sevilla"
-    ]
-  },
-  {
-    "name": "José María Cabo Puig",
-    "aliases": [
-      "Cabo",
-      "José",
-      "María",
-      "Puig"
-    ],
-    "clubs": [
-      "Atletico Madrid",
-      "Real Madrid"
-    ]
-  },
-  {
-    "name": "José María Martín Rodríguez",
-    "aliases": [
-      "José",
-      "María",
-      "Martín",
-      "Rodríguez"
-    ],
-    "clubs": [
-      "Atletico Madrid",
-      "Barcelona"
-    ]
-  },
-  {
-    "name": "José María Movilla",
-    "aliases": [
-      "José",
-      "María",
-      "Movilla"
-    ],
-    "clubs": [
-      "Atletico Madrid",
-      "Real Madrid"
-    ]
-  },
-  {
-    "name": "José María Quevedo",
-    "aliases": [
-      "José",
-      "María",
-      "Quevedo"
-    ],
-    "clubs": [
-      "Atletico Madrid",
-      "Sevilla"
-    ]
-  },
-  {
-    "name": "José María Sansinenea",
-    "aliases": [
-      "José",
-      "María",
-      "Sansinenea"
-    ],
-    "clubs": [
-      "Atletico Madrid",
-      "Real Madrid"
-    ]
-  },
-  {
-    "name": "José Padrón",
-    "aliases": [
-      "José",
-      "Padrón"
-    ],
-    "clubs": [
-      "Barcelona",
-      "Sevilla"
-    ]
-  },
-  {
-    "name": "José Quirante",
-    "aliases": [
-      "José",
-      "Quirante"
-    ],
-    "clubs": [
-      "Barcelona",
-      "Real Madrid"
-    ]
-  },
-  {
-    "name": "José Rodolfo Pires Ribeiro",
-    "aliases": [
-      "José",
-      "Pires",
-      "Ribeiro",
-      "Rodolfo"
-    ],
-    "clubs": [
-      "Inter",
-      "Roma"
-    ]
-  },
-  {
-    "name": "José Rodríguez Martínez",
-    "aliases": [
-      "José",
-      "Martínez",
-      "Rodríguez"
-    ],
-    "clubs": [
-      "Galatasaray",
-      "Real Madrid"
-    ]
-  },
-  {
-    "name": "José Sosa",
-    "aliases": [
-      "José",
-      "Jose Sosa",
-      "Sosa"
-    ],
-    "clubs": [
-      "Atletico Madrid",
-      "Beşiktaş",
-      "Fenerbahçe",
-      "Milan",
+      "Konyaspor",
       "Trabzonspor"
     ]
   },
   {
-    "name": "Josep Canal i Viñas",
-    "aliases": [
-      "Canal",
-      "Josep",
-      "Viñas"
-    ],
+    "name": "Jeison Murillo",
     "clubs": [
       "Barcelona",
-      "Real Madrid"
-    ]
-  },
-  {
-    "name": "Josep Samitier",
-    "aliases": [
-      "Josep",
-      "Samitier"
-    ],
-    "clubs": [
-      "Barcelona",
-      "Nice",
-      "Real Madrid"
-    ]
-  },
-  {
-    "name": "Joseph Dines",
-    "aliases": [
-      "Dines",
-      "Joseph"
-    ],
-    "clubs": [
-      "Arsenal",
-      "Liverpool"
-    ]
-  },
-  {
-    "name": "Joseph-Désiré Job",
-    "aliases": [
-      "Désiré",
-      "Job",
-      "Joseph"
-    ],
-    "clubs": [
-      "Lyon",
-      "Nice"
-    ]
-  },
-  {
-    "name": "Josephine Henning",
-    "aliases": [
-      "Henning",
-      "Josephine"
-    ],
-    "clubs": [
-      "Arsenal",
-      "Lyon",
-      "PSG"
-    ]
-  },
-  {
-    "name": "József Viola",
-    "aliases": [
-      "József",
-      "Viola"
-    ],
-    "clubs": [
-      "Inter",
-      "Juventus"
-    ]
-  },
-  {
-    "name": "Juan Alberto Schiaffino",
-    "aliases": [
-      "Alberto",
-      "Juan",
-      "Schiaffino"
-    ],
-    "clubs": [
-      "Milan",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Juan Antonio Ipiña",
-    "aliases": [
-      "Antonio",
-      "Ipiña",
-      "Juan"
-    ],
-    "clubs": [
-      "Atletico Madrid",
-      "Real Madrid"
-    ]
-  },
-  {
-    "name": "Juan Artola",
-    "aliases": [
-      "Artola",
-      "Juan"
-    ],
-    "clubs": [
-      "Real Madrid",
-      "Sevilla"
-    ]
-  },
-  {
-    "name": "Juan Bautista Agüero",
-    "aliases": [
-      "Agüero",
-      "Bautista",
-      "Juan"
-    ],
-    "clubs": [
-      "Real Madrid",
-      "Sevilla"
-    ]
-  },
-  {
-    "name": "Juan Carlos Carcedo",
-    "aliases": [
-      "Carcedo",
-      "Carlos",
-      "Juan"
-    ],
-    "clubs": [
-      "Atletico Madrid",
-      "Nice",
-      "PSG"
-    ]
-  },
-  {
-    "name": "Juan Carlos Rodríguez",
-    "aliases": [
-      "Carlos",
-      "Juan",
-      "Rodríguez"
-    ],
-    "clubs": [
-      "Atletico Madrid",
-      "Barcelona"
-    ]
-  },
-  {
-    "name": "Juan Carlos Unzué",
-    "aliases": [
-      "Carlos",
-      "Juan",
-      "Unzué"
-    ],
-    "clubs": [
-      "Barcelona",
-      "Sevilla"
-    ]
-  },
-  {
-    "name": "Juan Esnáider",
-    "aliases": [
-      "Esnáider",
-      "Juan"
-    ],
-    "clubs": [
-      "Atletico Madrid",
-      "Juventus",
-      "Real Madrid"
-    ]
-  },
-  {
-    "name": "Juan Francisco Rodríguez Herrera",
-    "aliases": [
-      "Francisco",
-      "Herrera",
-      "Juan",
-      "Rodríguez"
-    ],
-    "clubs": [
-      "Atletico Madrid",
-      "Sevilla"
-    ]
-  },
-  {
-    "name": "Juan Jesus",
-    "aliases": [
-      "Jesus",
-      "Juan"
-    ],
-    "clubs": [
-      "Inter",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Juan José Enríquez",
-    "aliases": [
-      "Enríquez",
-      "José",
-      "Juan"
-    ],
-    "clubs": [
-      "Atletico Madrid",
-      "Barcelona"
-    ]
-  },
-  {
-    "name": "Juan Manuel Mata García",
-    "aliases": [
-      "garcia",
-      "García",
-      "juan",
-      "Juan",
-      "manuel",
-      "Manuel",
-      "mata",
-      "Mata"
-    ],
-    "clubs": [
-      "Chelsea",
-      "Galatasaray",
-      "Manchester United"
-    ]
-  },
-  {
-    "name": "Juan Marrero Pérez",
-    "aliases": [
-      "Juan",
-      "Marrero",
-      "Pérez"
-    ],
-    "clubs": [
-      "Barcelona",
-      "Real Madrid"
-    ]
-  },
-  {
-    "name": "Juan Pablo Sorín",
-    "aliases": [
-      "Juan",
-      "Pablo",
-      "Sorín"
-    ],
-    "clubs": [
-      "Barcelona",
-      "Juventus",
-      "PSG"
-    ]
-  },
-  {
-    "name": "Juan Velasco Damas",
-    "aliases": [
-      "Damas",
-      "Juan",
-      "Velasco"
-    ],
-    "clubs": [
-      "Atletico Madrid",
-      "Sevilla"
-    ]
-  },
-  {
-    "name": "Juanfran",
-    "aliases": [],
-    "clubs": [
-      "Ajax",
-      "Beşiktaş"
-    ]
-  },
-  {
-    "name": "Juanfran Torres",
-    "aliases": [
-      "Juanfran",
-      "Torres"
-    ],
-    "clubs": [
-      "Atletico Madrid",
-      "Real Madrid"
-    ]
-  },
-  {
-    "name": "Juanito",
-    "aliases": [],
-    "clubs": [
-      "Atletico Madrid",
-      "Real Madrid"
-    ]
-  },
-  {
-    "name": "Julen Lopetegui",
-    "aliases": [
-      "Julen",
-      "Lopetegui"
-    ],
-    "clubs": [
-      "Barcelona",
-      "Real Madrid"
-    ]
-  },
-  {
-    "name": "Jules Bocandé",
-    "aliases": [
-      "Bocandé",
-      "Jules"
-    ],
-    "clubs": [
-      "Nice",
-      "PSG"
-    ]
-  },
-  {
-    "name": "Jules Koundé",
-    "aliases": [
-      "Jules",
-      "Koundé"
-    ],
-    "clubs": [
-      "Barcelona",
-      "Sevilla"
-    ]
-  },
-  {
-    "name": "Jules Olivier Koundé",
-    "aliases": [
-      "jules",
-      "Jules",
-      "kounde",
-      "Koundé",
-      "olivier",
-      "Olivier"
-    ],
-    "clubs": [
-      "Barcelona",
-      "Sevilla"
-    ]
-  },
-  {
-    "name": "Julián Rubio",
-    "aliases": [
-      "Julián",
-      "Rubio"
-    ],
-    "clubs": [
-      "Barcelona",
-      "Sevilla"
-    ]
-  },
-  {
-    "name": "Julián Ruete",
-    "aliases": [
-      "Julián",
-      "Ruete"
-    ],
-    "clubs": [
-      "Atletico Madrid",
-      "Real Madrid"
-    ]
-  },
-  {
-    "name": "Julien Escudé",
-    "aliases": [
-      "Escudé",
-      "Julien"
-    ],
-    "clubs": [
-      "Ajax",
-      "Beşiktaş",
-      "Sevilla"
-    ]
-  },
-  {
-    "name": "Julio Alberto",
-    "aliases": [
-      "Alberto",
-      "Julio"
-    ],
-    "clubs": [
-      "Atletico Madrid",
-      "Barcelona"
-    ]
-  },
-  {
-    "name": "Júlio Baptista",
-    "aliases": [
-      "Baptista",
-      "Júlio"
-    ],
-    "clubs": [
-      "Arsenal",
-      "Real Madrid",
-      "Roma",
-      "Sevilla"
-    ]
-  },
-  {
-    "name": "Julio Bavastro",
-    "aliases": [
-      "Bavastro",
-      "Julio"
-    ],
-    "clubs": [
-      "Inter",
-      "Milan"
-    ]
-  },
-  {
-    "name": "Júlio César Santos Correa",
-    "aliases": [
-      "César",
-      "Correa",
-      "Júlio",
-      "Santos"
-    ],
-    "clubs": [
-      "Milan",
-      "Real Madrid"
-    ]
-  },
-  {
-    "name": "Julio Pleguezuelo",
-    "aliases": [
-      "Julio",
-      "Pleguezuelo"
-    ],
-    "clubs": [
-      "Arsenal",
-      "Barcelona"
-    ]
-  },
-  {
-    "name": "Júlio Regufe Alves",
-    "aliases": [
-      "Alves",
-      "Júlio",
-      "Regufe"
-    ],
-    "clubs": [
-      "Atletico Madrid",
-      "Beşiktaş"
-    ]
-  },
-  {
-    "name": "Julio Salinas",
-    "aliases": [
-      "Julio",
-      "Salinas"
-    ],
-    "clubs": [
-      "Atletico Madrid",
-      "Barcelona"
-    ]
-  },
-  {
-    "name": "Junichi Inamoto",
-    "aliases": [
-      "Inamoto",
-      "Junichi"
-    ],
-    "clubs": [
-      "Arsenal",
-      "Galatasaray"
-    ]
-  },
-  {
-    "name": "Justo Tejada",
-    "aliases": [
-      "Justo",
-      "Tejada"
-    ],
-    "clubs": [
-      "Barcelona",
-      "Real Madrid"
-    ]
-  },
-  {
-    "name": "Jürgen Klinsmann",
-    "aliases": [
-      "Jürgen",
-      "Klinsmann"
-    ],
-    "clubs": [
-      "Inter",
-      "Tottenham"
-    ]
-  },
-  {
-    "name": "Kaba Diawara",
-    "aliases": [
-      "Diawara",
-      "Kaba"
-    ],
-    "clubs": [
-      "Arsenal",
-      "Nice",
-      "PSG"
-    ]
-  },
-  {
-    "name": "Kadir Bekmezci",
-    "aliases": [
-      "Bekmezci",
-      "Kadir"
-    ],
-    "clubs": [
-      "Antalyaspor",
-      "Sivasspor"
-    ]
-  },
-  {
-    "name": "Kadir Özcan",
-    "aliases": [
-      "Kadir",
-      "Özcan"
-    ],
-    "clubs": [
-      "Galatasaray",
-      "Trabzonspor"
-    ]
-  },
-  {
-    "name": "Kadri Aytaç",
-    "aliases": [
-      "Aytaç",
-      "Kadri"
-    ],
-    "clubs": [
-      "Fenerbahçe",
-      "Galatasaray"
-    ]
-  },
-  {
-    "name": "Kai Lukas Havertz",
-    "aliases": [
-      "havertz",
-      "Havertz",
-      "kai",
-      "Kai",
-      "lukas",
-      "Lukas"
-    ],
-    "clubs": [
-      "Arsenal",
-      "Chelsea"
-    ]
-  },
-  {
-    "name": "Kaká",
-    "aliases": [],
-    "clubs": [
-      "Milan",
-      "Real Madrid"
-    ]
-  },
-  {
-    "name": "Kamber Arslan",
-    "aliases": [
-      "Arslan",
-      "Kamber"
-    ],
-    "clubs": [
-      "Antalyaspor",
-      "Kayserispor"
-    ]
-  },
-  {
-    "name": "Kanfory Sylla",
-    "aliases": [
-      "Kanfory",
-      "Sylla"
-    ],
-    "clubs": [
-      "Başakşehir",
-      "Sivasspor"
-    ]
-  },
-  {
-    "name": "Karim Benzema",
-    "aliases": [
-      "Benzema",
-      "Karim"
-    ],
-    "clubs": [
-      "Lyon",
-      "Real Madrid"
-    ]
-  },
-  {
-    "name": "Karim Mostafa Benzema",
-    "aliases": [
-      "benzema",
-      "Benzema",
-      "karim",
-      "Karim",
-      "mostafa",
-      "Mostafa"
-    ],
-    "clubs": [
-      "Lyon",
-      "Real Madrid"
-    ]
-  },
-  {
-    "name": "Karl-Heinz Schnellinger",
-    "aliases": [
-      "Heinz",
-      "Karl",
-      "Schnellinger"
-    ],
-    "clubs": [
-      "Milan",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Kasper Dolberg",
-    "aliases": [
-      "Dolberg",
-      "Kasper"
-    ],
-    "clubs": [
-      "Ajax",
-      "Nice",
-      "Sevilla"
-    ]
-  },
-  {
-    "name": "Keivan Zarineh",
-    "aliases": [
-      "Keivan",
-      "Zarineh"
-    ],
-    "clubs": [
-      "Juventus",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Kelly Berville",
-    "aliases": [
-      "Berville",
-      "Kelly"
-    ],
-    "clubs": [
-      "Lyon",
-      "Nice"
-    ]
-  },
-  {
-    "name": "Kemal Kılıç",
-    "aliases": [
-      "Kemal",
-      "Kılıç"
-    ],
-    "clubs": [
-      "Beşiktaş",
-      "Kayserispor"
-    ]
-  },
-  {
-    "name": "Kenan Özer",
-    "aliases": [
-      "Kenan",
-      "Özer"
-    ],
-    "clubs": [
-      "Antalyaspor",
-      "Beşiktaş"
-    ]
-  },
-  {
-    "name": "Kenny Dyer",
-    "aliases": [
-      "Dyer",
-      "Kenny"
-    ],
-    "clubs": [
-      "Arsenal",
-      "Tottenham"
-    ]
-  },
-  {
-    "name": "Kenny Tete",
-    "aliases": [
-      "Kenny",
-      "Tete"
-    ],
-    "clubs": [
-      "Ajax",
-      "Lyon"
-    ]
-  },
-  {
-    "name": "Kerim Zengin",
-    "aliases": [
-      "Kerim",
-      "Zengin"
-    ],
-    "clubs": [
-      "Antalyaspor",
-      "Başakşehir",
-      "Sivasspor"
-    ]
-  },
-  {
-    "name": "Kerlon Moura Souza",
-    "aliases": [
-      "Kerlon",
-      "Moura",
-      "Souza"
-    ],
-    "clubs": [
-      "Ajax",
       "Inter"
     ]
   },
   {
-    "name": "Kevin Campbell",
-    "aliases": [
-      "Campbell",
-      "Kevin"
-    ],
+    "name": "Jens Lehmann",
     "clubs": [
-      "Arsenal",
-      "Trabzonspor"
+      "Bor. Dortmund",
+      "Arsenal"
     ]
   },
   {
-    "name": "Kévin Constant",
-    "aliases": [
-      "Constant",
-      "Kévin"
-    ],
+    "name": "Jeremain Lens",
     "clubs": [
-      "Milan",
-      "Trabzonspor"
+      "Fenerbahçe",
+      "Beşiktaş",
+      "Ajax"
     ]
   },
   {
-    "name": "Kevin Gameiro",
-    "aliases": [
-      "Gameiro",
-      "Kevin"
-    ],
-    "clubs": [
-      "Atletico Madrid",
-      "PSG",
-      "Sevilla"
-    ]
-  },
-  {
-    "name": "Kevin Stead",
-    "aliases": [
-      "Kevin",
-      "Stead"
-    ],
-    "clubs": [
-      "Arsenal",
-      "Tottenham"
-    ]
-  },
-  {
-    "name": "Kevin Stewart",
-    "aliases": [
-      "Kevin",
-      "Stewart"
-    ],
+    "name": "Jeremie Frimpong",
     "clubs": [
       "Liverpool",
-      "Tottenham"
+      "Man City"
     ]
   },
   {
-    "name": "Kevin-Prince Boateng",
-    "aliases": [
-      "Boateng",
-      "Kevin",
-      "Prince"
-    ],
+    "name": "Jeremy Menez",
     "clubs": [
-      "Barcelona",
-      "Beşiktaş",
-      "Milan",
-      "Tottenham"
+      "Antalyaspor",
+      "AC Milan",
+      "AS Roma"
     ]
   },
   {
-    "name": "Keylor Antonio Navas Gamboa",
-    "aliases": [
-      "antonio",
-      "Antonio",
-      "gamboa",
-      "Gamboa",
-      "keylor",
-      "Keylor",
-      "navas",
-      "Navas"
-    ],
-    "clubs": [
-      "PSG",
-      "Real Madrid"
-    ]
-  },
-  {
-    "name": "Kiki Musampa",
-    "aliases": [
-      "Kiki",
-      "Musampa"
-    ],
-    "clubs": [
-      "Ajax",
-      "Atletico Madrid",
-      "Manchester City",
-      "Trabzonspor"
-    ]
-  },
-  {
-    "name": "Kim Källström",
-    "aliases": [
-      "Källström",
-      "Kim"
-    ],
+    "name": "Jermaine Pennant",
     "clubs": [
       "Arsenal",
-      "Lyon"
+      "Liverpool"
     ]
   },
   {
-    "name": "Kingsley Junior Coman",
-    "aliases": [
-      "coman",
-      "Coman",
-      "junior",
-      "Junior",
-      "kingsley",
-      "Kingsley"
-    ],
+    "name": "Jerzy Dudek",
     "clubs": [
-      "Juventus",
-      "PSG"
+      "Real Madrid",
+      "Liverpool"
     ]
   },
   {
-    "name": "Klaas-Jan Huntelaar",
-    "aliases": [
-      "Huntelaar",
-      "Jan",
-      "Klaas"
-    ],
+    "name": "JerÃ´me Boateng",
     "clubs": [
-      "Ajax",
-      "Milan",
-      "Real Madrid"
+      "Bayern Munich",
+      "Man City"
     ]
   },
   {
-    "name": "Kolbeinn Sigþórsson",
-    "aliases": [
-      "Kolbeinn",
-      "Sigþórsson"
-    ],
+    "name": "Jes Högh",
     "clubs": [
-      "Ajax",
+      "Chelsea",
+      "Fenerbahçe"
+    ]
+  },
+  {
+    "name": "Jesper Gronkjaer",
+    "clubs": [
+      "Chelsea",
+      "Atletico Madrid",
+      "Ajax"
+    ]
+  },
+  {
+    "name": "Jesse Sekidika",
+    "clubs": [
+      "Konyaspor",
+      "Galatasaray",
+      "Benfica"
+    ]
+  },
+  {
+    "name": "Jimmy Durmaz",
+    "clubs": [
+      "Genclerbirligi",
       "Galatasaray"
     ]
   },
   {
-    "name": "Kolo Touré",
-    "aliases": [
-      "Kolo",
-      "Touré"
-    ],
+    "name": "Jimmy Floyd Hasselbaink",
     "clubs": [
-      "Arsenal",
-      "Liverpool",
-      "Manchester City"
+      "Chelsea",
+      "Atletico Madrid"
     ]
   },
   {
-    "name": "Korcan Çelikay",
-    "aliases": [
-      "Çelikay",
-      "Korcan"
-    ],
+    "name": "Joao Barros",
     "clubs": [
-      "Beşiktaş",
-      "Sivasspor"
+      "FC Porto",
+      "Benfica"
     ]
   },
   {
-    "name": "Köksal Yedek",
-    "aliases": [
-      "Köksal",
-      "Yedek"
-    ],
-    "clubs": [
-      "Antalyaspor",
-      "Kayserispor"
-    ]
-  },
-  {
-    "name": "Kurt Hamrin",
-    "aliases": [
-      "Hamrin",
-      "Kurt"
-    ],
+    "name": "Joao Cancelo",
     "clubs": [
       "Juventus",
-      "Milan"
+      "Barcelona",
+      "Inter",
+      "Benfica",
+      "Bayern Munich",
+      "Man City"
     ]
   },
   {
-    "name": "Kürşat Duymuş",
-    "aliases": [
-      "Duymuş",
-      "Kürşat"
-    ],
+    "name": "Joao Carlos Teixeira",
+    "clubs": [
+      "FC Porto",
+      "Liverpool"
+    ]
+  },
+  {
+    "name": "Joao da Silva",
+    "clubs": [
+      "Juventus",
+      "Benfica"
+    ]
+  },
+  {
+    "name": "Joao Felix",
+    "clubs": [
+      "Chelsea",
+      "FC Porto",
+      "Barcelona",
+      "AC Milan",
+      "Atletico Madrid",
+      "Benfica"
+    ]
+  },
+  {
+    "name": "Joao Fonseca",
+    "clubs": [
+      "Inter",
+      "Benfica"
+    ]
+  },
+  {
+    "name": "Joao Manuel Pinto",
+    "clubs": [
+      "FC Porto",
+      "Benfica"
+    ]
+  },
+  {
+    "name": "Joao Mario",
+    "clubs": [
+      "Juventus",
+      "FC Porto",
+      "Beşiktaş",
+      "Inter",
+      "Benfica"
+    ]
+  },
+  {
+    "name": "Joao Palhinha",
+    "clubs": [
+      "Tottenham",
+      "Bayern Munich"
+    ]
+  },
+  {
+    "name": "Joao Paulo",
+    "clubs": [
+      "FC Porto",
+      "Inter"
+    ]
+  },
+  {
+    "name": "Joao Pedro",
+    "clubs": [
+      "Chelsea",
+      "FC Porto",
+      "Fenerbahçe",
+      "Inter"
+    ]
+  },
+  {
+    "name": "Joao Pereira",
+    "clubs": [
+      "FC Porto",
+      "Trabzonspor",
+      "Benfica"
+    ]
+  },
+  {
+    "name": "Joao Queiros",
+    "clubs": [
+      "FC Porto",
+      "Benfica"
+    ]
+  },
+  {
+    "name": "Joao Tavares",
+    "clubs": [
+      "FC Porto",
+      "Inter",
+      "Benfica"
+    ]
+  },
+  {
+    "name": "Joao Teixeira",
+    "clubs": [
+      "FC Porto",
+      "Benfica"
+    ]
+  },
+  {
+    "name": "Joao Virginia",
+    "clubs": [
+      "Arsenal",
+      "Benfica"
+    ]
+  },
+  {
+    "name": "Joca",
+    "clubs": [
+      "FC Porto",
+      "Genclerbirligi"
+    ]
+  },
+  {
+    "name": "Joe Cole",
+    "clubs": [
+      "Chelsea",
+      "Liverpool"
+    ]
+  },
+  {
+    "name": "Joe Hart",
+    "clubs": [
+      "Tottenham",
+      "Man City"
+    ]
+  },
+  {
+    "name": "Joel Pereira",
+    "clubs": [
+      "FC Porto",
+      "Man Utd"
+    ]
+  },
+  {
+    "name": "Johan Djourou",
+    "clubs": [
+      "Arsenal",
+      "Antalyaspor"
+    ]
+  },
+  {
+    "name": "John Arne Riise",
+    "clubs": [
+      "AS Roma",
+      "Liverpool"
+    ]
+  },
+  {
+    "name": "John Carew",
     "clubs": [
       "Beşiktaş",
+      "AS Roma"
+    ]
+  },
+  {
+    "name": "John Heitinga",
+    "clubs": [
+      "Atletico Madrid",
+      "Ajax"
+    ]
+  },
+  {
+    "name": "John Moshoeu",
+    "clubs": [
+      "Fenerbahçe",
+      "Genclerbirligi"
+    ]
+  },
+  {
+    "name": "John Obi Mikel",
+    "clubs": [
+      "Chelsea",
       "Trabzonspor"
     ]
   },
   {
-    "name": "Kwadwo Asamoah",
-    "aliases": [
-      "Asamoah",
-      "Kwadwo"
-    ],
+    "name": "Johnny Cardoso",
     "clubs": [
-      "Inter",
-      "Juventus"
+      "Atletico Madrid",
+      "Inter"
     ]
   },
   {
-    "name": "Lamberto Leonardi",
-    "aliases": [
-      "Lamberto",
-      "Leonardi"
-    ],
+    "name": "Jon Macken",
+    "clubs": [
+      "Man Utd",
+      "Man City"
+    ]
+  },
+  {
+    "name": "Jonatan Binotto",
     "clubs": [
       "Juventus",
-      "Roma"
+      "Inter"
     ]
   },
   {
-    "name": "Lamine Diatta",
-    "aliases": [
-      "Diatta",
-      "Lamine"
-    ],
+    "name": "Jonatan Lucca",
     "clubs": [
-      "Beşiktaş",
-      "Lyon"
+      "AS Roma",
+      "Inter"
     ]
   },
   {
-    "name": "Lampros Choutos",
-    "aliases": [
-      "Choutos",
-      "Lampros"
-    ],
+    "name": "Jonathan Woodgate",
     "clubs": [
-      "Inter",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Larrys Mabiala",
-    "aliases": [
-      "Larrys",
-      "Mabiala"
-    ],
-    "clubs": [
-      "Kayserispor",
-      "Nice",
-      "PSG"
-    ]
-  },
-  {
-    "name": "Lassana Diarra",
-    "aliases": [
-      "Diarra",
-      "Lassana"
-    ],
-    "clubs": [
-      "Arsenal",
-      "PSG",
+      "Tottenham",
       "Real Madrid"
     ]
   },
   {
-    "name": "László Kaszás",
-    "aliases": [
-      "Kaszás",
-      "László"
-    ],
+    "name": "Jonathan Zebina",
+    "clubs": [
+      "Juventus",
+      "AS Roma"
+    ]
+  },
+  {
+    "name": "Jordan Henderson",
+    "clubs": [
+      "Ajax",
+      "Liverpool"
+    ]
+  },
+  {
+    "name": "Jorge Fucile",
+    "clubs": [
+      "FC Porto",
+      "Liverpool"
+    ]
+  },
+  {
+    "name": "Jorge Sanchez",
+    "clubs": [
+      "FC Porto",
+      "Ajax"
+    ]
+  },
+  {
+    "name": "Jorge Silva",
+    "clubs": [
+      "FC Porto",
+      "Benfica"
+    ]
+  },
+  {
+    "name": "Jorginho",
+    "clubs": [
+      "Chelsea",
+      "Arsenal",
+      "FC Porto",
+      "Napoli",
+      "Benfica"
+    ]
+  },
+  {
+    "name": "Jorrel Hato",
+    "clubs": [
+      "Chelsea",
+      "Ajax"
+    ]
+  },
+  {
+    "name": "Jose Antonio Reyes",
+    "clubs": [
+      "Arsenal",
+      "Atletico Madrid",
+      "Real Madrid",
+      "Benfica"
+    ]
+  },
+  {
+    "name": "Jose Callejon",
+    "clubs": [
+      "Real Madrid",
+      "Napoli"
+    ]
+  },
+  {
+    "name": "Jose Chamot",
+    "clubs": [
+      "AC Milan",
+      "Atletico Madrid"
+    ]
+  },
+  {
+    "name": "Jose Dominguez",
+    "clubs": [
+      "Tottenham",
+      "Benfica"
+    ]
+  },
+  {
+    "name": "Jose Manuel Jurado",
+    "clubs": [
+      "Atletico Madrid",
+      "Real Madrid"
+    ]
+  },
+  {
+    "name": "Jose Mari",
     "clubs": [
       "Barcelona",
+      "AC Milan",
+      "Atletico Madrid"
+    ]
+  },
+  {
+    "name": "Jose Monteiro",
+    "clubs": [
+      "FC Porto",
+      "Benfica"
+    ]
+  },
+  {
+    "name": "Jose Pozo",
+    "clubs": [
+      "Real Madrid",
+      "Man City"
+    ]
+  },
+  {
+    "name": "Jose Rodriguez",
+    "clubs": [
+      "Galatasaray",
+      "Real Madrid"
+    ]
+  },
+  {
+    "name": "Jose Sa",
+    "clubs": [
+      "FC Porto",
+      "Benfica"
+    ]
+  },
+  {
+    "name": "Jose Sosa",
+    "clubs": [
+      "Fenerbahçe",
+      "Trabzonspor",
+      "Beşiktaş",
+      "AC Milan",
+      "Atletico Madrid",
+      "Napoli",
+      "Bayern Munich"
+    ]
+  },
+  {
+    "name": "Joseph Attamah",
+    "clubs": [
+      "Kayserispor",
+      "Başakşehir"
+    ]
+  },
+  {
+    "name": "Joshua Zirkzee",
+    "clubs": [
+      "Man Utd",
+      "Bayern Munich"
+    ]
+  },
+  {
+    "name": "Josue",
+    "clubs": [
+      "FC Porto",
+      "Galatasaray"
+    ]
+  },
+  {
+    "name": "Josue Chibozo",
+    "clubs": [
+      "Juventus",
+      "Inter"
+    ]
+  },
+  {
+    "name": "Juan Bernat",
+    "clubs": [
+      "Benfica",
+      "Bayern Munich"
+    ]
+  },
+  {
+    "name": "Juan Familia-Castillo",
+    "clubs": [
+      "Chelsea",
+      "Ajax"
+    ]
+  },
+  {
+    "name": "Juan Iturbe",
+    "clubs": [
+      "FC Porto",
+      "AS Roma"
+    ]
+  },
+  {
+    "name": "Juan Jesus",
+    "clubs": [
+      "AS Roma",
+      "Inter",
+      "Napoli"
+    ]
+  },
+  {
+    "name": "Juan Mata",
+    "clubs": [
+      "Chelsea",
+      "Galatasaray",
+      "Real Madrid",
+      "Man Utd"
+    ]
+  },
+  {
+    "name": "Juan Sebastian Veron",
+    "clubs": [
+      "Chelsea",
+      "Inter",
+      "Man Utd"
+    ]
+  },
+  {
+    "name": "Juanfran",
+    "clubs": [
+      "Beşiktaş",
+      "Ajax"
+    ]
+  },
+  {
+    "name": "Juanfran Torres",
+    "clubs": [
+      "Atletico Madrid",
+      "Real Madrid"
+    ]
+  },
+  {
+    "name": "Jude Bellingham",
+    "clubs": [
+      "Bor. Dortmund",
+      "Real Madrid"
+    ]
+  },
+  {
+    "name": "Jude Soonsup-Bell",
+    "clubs": [
+      "Chelsea",
+      "Tottenham"
+    ]
+  },
+  {
+    "name": "Julian Alvarez",
+    "clubs": [
+      "Atletico Madrid",
+      "Man City"
+    ]
+  },
+  {
+    "name": "Julian Weigl",
+    "clubs": [
+      "Bor. Dortmund",
+      "Benfica"
+    ]
+  },
+  {
+    "name": "Julien Escude",
+    "clubs": [
+      "Beşiktaş",
+      "Ajax"
+    ]
+  },
+  {
+    "name": "Julio Baptista",
+    "clubs": [
+      "Arsenal",
+      "AS Roma",
+      "Real Madrid"
+    ]
+  },
+  {
+    "name": "Julio Cesar",
+    "clubs": [
+      "Inter",
+      "Benfica"
+    ]
+  },
+  {
+    "name": "Junichi Inamoto",
+    "clubs": [
+      "Arsenal",
+      "Galatasaray"
+    ]
+  },
+  {
+    "name": "Junior Tallo",
+    "clubs": [
+      "AS Roma",
+      "Inter"
+    ]
+  },
+  {
+    "name": "Juraj Kucka",
+    "clubs": [
+      "Trabzonspor",
+      "AC Milan"
+    ]
+  },
+  {
+    "name": "JurriÃ«n Timber",
+    "clubs": [
+      "Arsenal",
+      "Ajax"
+    ]
+  },
+  {
+    "name": "Justin Kluivert",
+    "clubs": [
+      "AS Roma",
+      "Ajax"
+    ]
+  },
+  {
+    "name": "JÃ´",
+    "clubs": [
+      "Galatasaray",
+      "Man City"
+    ]
+  },
+  {
+    "name": "Kadir Bekmezci",
+    "clubs": [
+      "Sivasspor",
+      "Antalyaspor"
+    ]
+  },
+  {
+    "name": "KahÃª",
+    "clubs": [
+      "Genclerbirligi",
+      "Denizlispor"
+    ]
+  },
+  {
+    "name": "Kai Havertz",
+    "clubs": [
+      "Chelsea",
+      "Arsenal"
+    ]
+  },
+  {
+    "name": "Kaka",
+    "clubs": [
+      "AC Milan",
+      "Real Madrid"
+    ]
+  },
+  {
+    "name": "Kamarni Ryan",
+    "clubs": [
+      "Chelsea",
+      "Arsenal"
+    ]
+  },
+  {
+    "name": "Kanfory Sylla",
+    "clubs": [
+      "Sivasspor",
+      "Konyaspor"
+    ]
+  },
+  {
+    "name": "Karim Benzema",
+    "clubs": [
+      "Real Madrid",
+      "Olymp. Lyon"
+    ]
+  },
+  {
+    "name": "Kartal Yılmaz",
+    "clubs": [
+      "Kayserispor",
+      "Beşiktaş"
+    ]
+  },
+  {
+    "name": "Keirrison",
+    "clubs": [
+      "Barcelona",
+      "Benfica"
+    ]
+  },
+  {
+    "name": "Keita Balde",
+    "clubs": [
+      "Sivasspor",
+      "Inter"
+    ]
+  },
+  {
+    "name": "Kemal Aslan",
+    "clubs": [
+      "Fenerbahçe",
+      "Denizlispor"
+    ]
+  },
+  {
+    "name": "Kemal Dulda",
+    "clubs": [
+      "Kayserispor",
+      "Konyaspor"
+    ]
+  },
+  {
+    "name": "Kenan Özer",
+    "clubs": [
+      "Konyaspor",
+      "Antalyaspor",
+      "Beşiktaş"
+    ]
+  },
+  {
+    "name": "Kenji Gorre",
+    "clubs": [
+      "Man Utd",
+      "Man City"
+    ]
+  },
+  {
+    "name": "Kepa Arrizabalaga",
+    "clubs": [
+      "Chelsea",
+      "Arsenal",
+      "Real Madrid"
+    ]
+  },
+  {
+    "name": "Kerem Aktürkoğlu",
+    "clubs": [
+      "Fenerbahçe",
+      "Başakşehir",
+      "Galatasaray",
+      "Benfica"
+    ]
+  },
+  {
+    "name": "Kerem Atakan Kesgin",
+    "clubs": [
+      "Sivasspor",
+      "Beşiktaş"
+    ]
+  },
+  {
+    "name": "Kerem Şen",
+    "clubs": [
+      "Trabzonspor",
+      "Galatasaray"
+    ]
+  },
+  {
+    "name": "Kerem Şeras",
+    "clubs": [
+      "Genclerbirligi",
+      "Antalyaspor"
+    ]
+  },
+  {
+    "name": "Kerim Avcı",
+    "clubs": [
+      "Sivasspor",
+      "Genclerbirligi"
+    ]
+  },
+  {
+    "name": "Kerim Frei",
+    "clubs": [
+      "Başakşehir",
+      "Beşiktaş"
+    ]
+  },
+  {
+    "name": "Kevin Amuneke",
+    "clubs": [
+      "FC Porto",
+      "Benfica"
+    ]
+  },
+  {
+    "name": "Kevin Campbell",
+    "clubs": [
+      "Arsenal",
+      "Trabzonspor"
+    ]
+  },
+  {
+    "name": "Kevin Constant",
+    "clubs": [
+      "Trabzonspor",
+      "AC Milan"
+    ]
+  },
+  {
+    "name": "Kevin Csoboth",
+    "clubs": [
+      "Genclerbirligi",
+      "Benfica"
+    ]
+  },
+  {
+    "name": "Kevin De Bruyne",
+    "clubs": [
+      "Chelsea",
+      "Napoli",
+      "Man City"
+    ]
+  },
+  {
+    "name": "Kevin GroÃŸkreutz",
+    "clubs": [
+      "Bor. Dortmund",
+      "Galatasaray"
+    ]
+  },
+  {
+    "name": "Kevin Koffi",
+    "clubs": [
+      "AS Roma",
+      "Napoli"
+    ]
+  },
+  {
+    "name": "Kevin Martins",
+    "clubs": [
+      "AC Milan",
+      "Inter"
+    ]
+  },
+  {
+    "name": "Kevin Stewart",
+    "clubs": [
+      "Tottenham",
+      "Liverpool"
+    ]
+  },
+  {
+    "name": "Kevin-Prince Boateng",
+    "clubs": [
+      "Bor. Dortmund",
+      "Tottenham",
+      "Barcelona",
+      "Beşiktaş",
+      "AC Milan"
+    ]
+  },
+  {
+    "name": "Khalid Boulahrouz",
+    "clubs": [
+      "Chelsea",
+      "Ajax"
+    ]
+  },
+  {
+    "name": "Ki-Jana Hoever",
+    "clubs": [
+      "Ajax",
+      "Liverpool"
+    ]
+  },
+  {
+    "name": "Kiernan Hughes-Mason",
+    "clubs": [
+      "Tottenham",
+      "Arsenal"
+    ]
+  },
+  {
+    "name": "Kiki Musampa",
+    "clubs": [
+      "Trabzonspor",
+      "Atletico Madrid",
+      "Ajax",
+      "Man City"
+    ]
+  },
+  {
+    "name": "Kingsley Coman",
+    "clubs": [
+      "Juventus",
+      "PSG",
+      "Bayern Munich"
+    ]
+  },
+  {
+    "name": "Kleberson",
+    "clubs": [
+      "Beşiktaş",
+      "Man Utd"
+    ]
+  },
+  {
+    "name": "Ko Itakura",
+    "clubs": [
+      "Ajax",
+      "Man City"
+    ]
+  },
+  {
+    "name": "Kolbeinn Sigthorsson",
+    "clubs": [
+      "Galatasaray",
+      "Ajax"
+    ]
+  },
+  {
+    "name": "Kolo Toure",
+    "clubs": [
+      "Arsenal",
+      "Liverpool",
+      "Man City"
+    ]
+  },
+  {
+    "name": "Koni De Winter",
+    "clubs": [
+      "Juventus",
+      "AC Milan"
+    ]
+  },
+  {
+    "name": "Konstantinos Manolas",
+    "clubs": [
+      "AS Roma",
+      "Napoli"
+    ]
+  },
+  {
+    "name": "Konstantinos Mitroglou",
+    "clubs": [
+      "Galatasaray",
+      "Benfica"
+    ]
+  },
+  {
+    "name": "Konstantinos Tsimikas",
+    "clubs": [
+      "AS Roma",
+      "Liverpool"
+    ]
+  },
+  {
+    "name": "Koray Avcı",
+    "clubs": [
+      "Genclerbirligi",
+      "Beşiktaş"
+    ]
+  },
+  {
+    "name": "Koray Günter",
+    "clubs": [
+      "Bor. Dortmund",
+      "Galatasaray"
+    ]
+  },
+  {
+    "name": "Koray Çölgeçen",
+    "clubs": [
+      "Kayserispor",
+      "Denizlispor"
+    ]
+  },
+  {
+    "name": "Korcan Çelikay",
+    "clubs": [
+      "Sivasspor",
+      "Beşiktaş"
+    ]
+  },
+  {
+    "name": "Korhan Öztürk",
+    "clubs": [
+      "Genclerbirligi",
+      "Antalyaspor"
+    ]
+  },
+  {
+    "name": "Krzysztof Piatek",
+    "clubs": [
+      "Başakşehir",
+      "AC Milan"
+    ]
+  },
+  {
+    "name": "Kwadwo Asamoah",
+    "clubs": [
+      "Juventus",
+      "Inter"
+    ]
+  },
+  {
+    "name": "Köksal Yedek",
+    "clubs": [
+      "Kayserispor",
+      "Antalyaspor"
+    ]
+  },
+  {
+    "name": "Kürşat Duymuş",
+    "clubs": [
+      "Trabzonspor",
+      "Beşiktaş"
+    ]
+  },
+  {
+    "name": "Landry Boni",
+    "clubs": [
+      "AC Milan",
+      "Napoli"
+    ]
+  },
+  {
+    "name": "Lassana Diarra",
+    "clubs": [
+      "Chelsea",
+      "Arsenal",
       "Real Madrid"
     ]
   },
   {
     "name": "Laurent Blanc",
-    "aliases": [
-      "Blanc",
-      "Laurent"
-    ],
     "clubs": [
       "Barcelona",
       "Inter",
-      "Manchester United"
-    ]
-  },
-  {
-    "name": "Laurent Fournier",
-    "aliases": [
-      "Fournier",
-      "Laurent"
-    ],
-    "clubs": [
-      "Lyon",
-      "PSG"
-    ]
-  },
-  {
-    "name": "Lauri Dalla Valle",
-    "aliases": [
-      "Dalla",
-      "Lauri",
-      "Valle"
-    ],
-    "clubs": [
-      "Inter",
-      "Liverpool"
-    ]
-  },
-  {
-    "name": "Laurie Brown",
-    "aliases": [
-      "Brown",
-      "Laurie"
-    ],
-    "clubs": [
-      "Arsenal",
-      "Tottenham"
-    ]
-  },
-  {
-    "name": "Laurie Cunningham",
-    "aliases": [
-      "Cunningham",
-      "Laurie"
-    ],
-    "clubs": [
-      "Manchester United",
-      "Real Madrid"
-    ]
-  },
-  {
-    "name": "Lautaro leguizamon",
-    "aliases": [
-      "Lautaro",
-      "leguizamon"
-    ],
-    "clubs": [
-      "Galatasaray",
-      "Real Madrid"
+      "Napoli",
+      "Man Utd"
     ]
   },
   {
     "name": "Lawrence Vigouroux",
-    "aliases": [
-      "Lawrence",
-      "Vigouroux"
-    ],
     "clubs": [
-      "Liverpool",
-      "Tottenham"
+      "Tottenham",
+      "Liverpool"
     ]
   },
   {
-    "name": "Lelio Colaneri",
-    "aliases": [
-      "Colaneri",
-      "Lelio"
-    ],
+    "name": "Lazar Markovic",
+    "clubs": [
+      "Fenerbahçe",
+      "Trabzonspor",
+      "Benfica",
+      "Liverpool"
+    ]
+  },
+  {
+    "name": "Leandrinho",
+    "clubs": [
+      "Sivasspor",
+      "Denizlispor",
+      "Napoli"
+    ]
+  },
+  {
+    "name": "Leandro Kappel",
+    "clubs": [
+      "Denizlispor",
+      "Ajax"
+    ]
+  },
+  {
+    "name": "Leandro Paredes",
     "clubs": [
       "Juventus",
-      "Roma"
+      "AS Roma"
     ]
   },
   {
-    "name": "Len Langford",
-    "aliases": [
-      "Langford",
-      "Len"
-    ],
+    "name": "Leandro Rinaudo",
     "clubs": [
-      "Manchester City",
-      "Manchester United"
+      "Juventus",
+      "Napoli"
     ]
   },
   {
-    "name": "Léo Duarte",
-    "aliases": [
-      "Duarte",
-      "Léo"
-    ],
+    "name": "Leo Duarte",
     "clubs": [
       "Başakşehir",
-      "Milan"
+      "AC Milan"
+    ]
+  },
+  {
+    "name": "Leo Dubois",
+    "clubs": [
+      "Başakşehir",
+      "Galatasaray"
     ]
   },
   {
     "name": "Leo Franco",
-    "aliases": [
-      "Franco",
-      "Leo"
-    ],
     "clubs": [
-      "Atletico Madrid",
-      "Galatasaray"
+      "Galatasaray",
+      "Atletico Madrid"
     ]
   },
   {
-    "name": "Leonardo Araújo",
-    "aliases": [
-      "Araújo",
-      "Leonardo"
-    ],
+    "name": "Leonardo",
     "clubs": [
-      "Milan",
-      "PSG"
+      "FC Porto",
+      "Ajax"
     ]
   },
   {
     "name": "Leonardo Bonucci",
-    "aliases": [
-      "Bonucci",
-      "Leonardo"
-    ],
     "clubs": [
-      "Inter",
       "Juventus",
-      "Milan"
+      "Fenerbahçe",
+      "AC Milan",
+      "Inter"
     ]
   },
   {
-    "name": "Leroy Aziz Sané",
-    "aliases": [
-      "aziz",
-      "Aziz",
-      "leroy",
-      "Leroy",
-      "sane",
-      "Sané"
-    ],
+    "name": "Leonardo Mancuso",
+    "clubs": [
+      "Juventus",
+      "AC Milan"
+    ]
+  },
+  {
+    "name": "Leonardo Rossi",
+    "clubs": [
+      "AC Milan",
+      "Napoli"
+    ]
+  },
+  {
+    "name": "Leonardo Spinazzola",
+    "clubs": [
+      "Juventus",
+      "AS Roma",
+      "Napoli"
+    ]
+  },
+  {
+    "name": "Leroy Sane",
     "clubs": [
       "Galatasaray",
-      "Manchester City"
+      "Bayern Munich",
+      "Man City"
     ]
   },
   {
-    "name": "Les Ferdinand",
-    "aliases": [
-      "Ferdinand",
-      "Les"
-    ],
+    "name": "Lewis Baker",
     "clubs": [
-      "Beşiktaş",
-      "Tottenham"
+      "Chelsea",
+      "Trabzonspor"
     ]
   },
   {
-    "name": "Liam Brady",
-    "aliases": [
-      "Brady",
-      "Liam"
-    ],
+    "name": "Liam Delap",
     "clubs": [
-      "Arsenal",
-      "Inter",
-      "Juventus"
-    ]
-  },
-  {
-    "name": "Liam Jacob",
-    "aliases": [
-      "Jacob",
-      "Liam"
-    ],
-    "clubs": [
-      "Liverpool",
-      "Manchester United"
-    ]
-  },
-  {
-    "name": "Liazid Sandjak",
-    "aliases": [
-      "Liazid",
-      "Sandjak"
-    ],
-    "clubs": [
-      "Nice",
-      "PSG"
+      "Chelsea",
+      "Man City"
     ]
   },
   {
     "name": "Lilian Thuram",
-    "aliases": [
-      "Lilian",
-      "Thuram"
-    ],
     "clubs": [
-      "Barcelona",
-      "Juventus"
-    ]
-  },
-  {
-    "name": "Lino Grava",
-    "aliases": [
-      "Grava",
-      "Lino"
-    ],
-    "clubs": [
-      "Inter",
-      "Milan"
-    ]
-  },
-  {
-    "name": "Lionel Andrés Messi Cuccittini",
-    "aliases": [
-      "andres",
-      "Andrés",
-      "cuccittini",
-      "Cuccittini",
-      "lionel",
-      "Lionel",
-      "messi",
-      "Messi"
-    ],
-    "clubs": [
-      "Barcelona",
-      "PSG"
-    ]
-  },
-  {
-    "name": "Lionel Carole",
-    "aliases": [
-      "Carole",
-      "Lionel"
-    ],
-    "clubs": [
-      "Galatasaray",
-      "Sevilla"
-    ]
-  },
-  {
-    "name": "Lionel Enguene",
-    "aliases": [
-      "Enguene",
-      "Lionel"
-    ],
-    "clubs": [
-      "Antalyaspor",
+      "Juventus",
       "Barcelona"
     ]
   },
   {
-    "name": "Lionel Letizi",
-    "aliases": [
-      "Letizi",
-      "Lionel"
-    ],
+    "name": "Lincoln",
     "clubs": [
-      "Nice",
-      "PSG"
-    ]
-  },
-  {
-    "name": "Lionel Messi",
-    "aliases": [
-      "Lionel",
-      "Messi"
-    ],
-    "clubs": [
-      "Barcelona",
-      "PSG"
-    ]
-  },
-  {
-    "name": "Lionello Manfredonia",
-    "aliases": [
-      "Lionello",
-      "Manfredonia"
-    ],
-    "clubs": [
-      "Juventus",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Lluís Carreras",
-    "aliases": [
-      "Carreras",
-      "Lluís"
-    ],
-    "clubs": [
-      "Atletico Madrid",
-      "Barcelona"
-    ]
-  },
-  {
-    "name": "Loïc Rémy",
-    "aliases": [
-      "Loïc",
-      "Rémy"
-    ],
-    "clubs": [
-      "Lyon",
-      "Nice"
-    ]
-  },
-  {
-    "name": "Lorenzo Bettini",
-    "aliases": [
-      "Bettini",
-      "Lorenzo"
-    ],
-    "clubs": [
-      "Inter",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Lorenzo Buffon",
-    "aliases": [
-      "Buffon",
-      "Lorenzo"
-    ],
-    "clubs": [
-      "Inter",
-      "Milan"
-    ]
-  },
-  {
-    "name": "Lorik Cana",
-    "aliases": [
-      "Cana",
-      "Lorik"
-    ],
-    "clubs": [
-      "Galatasaray",
-      "PSG"
-    ]
-  },
-  {
-    "name": "Louis Saha",
-    "aliases": [
-      "Louis",
-      "Saha"
-    ],
-    "clubs": [
-      "Manchester United",
-      "Tottenham"
-    ]
-  },
-  {
-    "name": "Luc Borrelli",
-    "aliases": [
-      "Borrelli",
-      "Luc"
-    ],
-    "clubs": [
-      "Lyon",
-      "PSG"
-    ]
-  },
-  {
-    "name": "Luca Ceccarelli",
-    "aliases": [
-      "Ceccarelli",
-      "Luca"
-    ],
-    "clubs": [
-      "Inter",
-      "Milan"
-    ]
-  },
-  {
-    "name": "Luca Santonocito",
-    "aliases": [
-      "Luca",
-      "Santonocito"
-    ],
-    "clubs": [
-      "Inter",
-      "Milan"
-    ]
-  },
-  {
-    "name": "Luca Toni",
-    "aliases": [
-      "Luca",
-      "Toni"
-    ],
-    "clubs": [
-      "Juventus",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Lucas Biglia",
-    "aliases": [
-      "Biglia",
-      "Lucas"
-    ],
-    "clubs": [
-      "Başakşehir",
-      "Milan"
-    ]
-  },
-  {
-    "name": "Lucas Digne",
-    "aliases": [
-      "Digne",
-      "Lucas"
-    ],
-    "clubs": [
-      "Barcelona",
-      "PSG",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Lucas Paquetá",
-    "aliases": [
-      "Lucas",
-      "Paquetá"
-    ],
-    "clubs": [
-      "Lyon",
-      "Milan"
-    ]
-  },
-  {
-    "name": "Lucas Torreira",
-    "aliases": [
-      "Lucas",
-      "Torreira"
-    ],
-    "clubs": [
-      "Arsenal",
-      "Atletico Madrid",
+      "Fenerbahçe",
       "Galatasaray"
     ]
   },
   {
-    "name": "Luciano Alghisi",
-    "aliases": [
-      "Alghisi",
-      "Luciano"
-    ],
-    "clubs": [
-      "Inter",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Luciano Bodini",
-    "aliases": [
-      "Bodini",
-      "Luciano"
-    ],
-    "clubs": [
-      "Inter",
-      "Juventus"
-    ]
-  },
-  {
-    "name": "Luciano Fabián Monzón",
-    "aliases": [
-      "Fabián",
-      "Luciano",
-      "Monzón"
-    ],
-    "clubs": [
-      "Lyon",
-      "Nice"
-    ]
-  },
-  {
-    "name": "Luciano Marangon",
-    "aliases": [
-      "Luciano",
-      "Marangon"
-    ],
-    "clubs": [
-      "Inter",
-      "Juventus",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Luciano Spinosi",
-    "aliases": [
-      "Luciano",
-      "Spinosi"
-    ],
-    "clubs": [
-      "Juventus",
-      "Milan",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Luciano Vietto",
-    "aliases": [
-      "Luciano",
-      "Vietto"
-    ],
-    "clubs": [
-      "Atletico Madrid",
-      "Sevilla"
-    ]
-  },
-  {
-    "name": "Lucien Mettomo",
-    "aliases": [
-      "Lucien",
-      "Mettomo"
-    ],
+    "name": "Lionel Carole",
     "clubs": [
       "Kayserispor",
-      "Manchester City"
+      "Galatasaray",
+      "Benfica"
     ]
   },
   {
-    "name": "Lucien Muller",
-    "aliases": [
-      "Lucien",
-      "Muller"
-    ],
+    "name": "Lisandro Lopez",
+    "clubs": [
+      "FC Porto",
+      "Inter",
+      "Benfica"
+    ]
+  },
+  {
+    "name": "Lisandro Martinez",
+    "clubs": [
+      "Ajax",
+      "Man Utd"
+    ]
+  },
+  {
+    "name": "Loic Remy",
+    "clubs": [
+      "Chelsea",
+      "Olymp. Lyon"
+    ]
+  },
+  {
+    "name": "Lorenzo Lucca",
+    "clubs": [
+      "Ajax",
+      "Napoli"
+    ]
+  },
+  {
+    "name": "Loris Karius",
+    "clubs": [
+      "Beşiktaş",
+      "Liverpool",
+      "Man City"
+    ]
+  },
+  {
+    "name": "Louie Moulden",
+    "clubs": [
+      "Liverpool",
+      "Man City"
+    ]
+  },
+  {
+    "name": "Louis Saha",
+    "clubs": [
+      "Tottenham",
+      "Man Utd"
+    ]
+  },
+  {
+    "name": "Luca Arena",
+    "clubs": [
+      "Juventus",
+      "Napoli"
+    ]
+  },
+  {
+    "name": "Luca Ceccarelli",
+    "clubs": [
+      "AC Milan",
+      "Inter"
+    ]
+  },
+  {
+    "name": "Luca Pellegrini",
+    "clubs": [
+      "Juventus",
+      "AS Roma"
+    ]
+  },
+  {
+    "name": "Luca Scapuzzi",
+    "clubs": [
+      "AC Milan",
+      "Man City"
+    ]
+  },
+  {
+    "name": "Lucas Digne",
     "clubs": [
       "Barcelona",
-      "Real Madrid"
+      "AS Roma"
     ]
   },
   {
-    "name": "Lúcio",
-    "aliases": [],
+    "name": "Lucas Hernandez",
     "clubs": [
-      "Inter",
-      "Juventus"
+      "Atletico Madrid",
+      "Bayern Munich"
     ]
   },
   {
-    "name": "Ludovic Giuly",
-    "aliases": [
-      "Giuly",
-      "Ludovic"
-    ],
+    "name": "Lucas Lima",
     "clubs": [
-      "Barcelona",
-      "Lyon",
-      "PSG",
-      "Roma"
+      "Başakşehir",
+      "Inter"
     ]
   },
   {
-    "name": "Luigi Allemandi",
-    "aliases": [
-      "Allemandi",
-      "Luigi"
-    ],
+    "name": "Lucas Ocampos",
     "clubs": [
-      "Inter",
-      "Juventus",
-      "Roma"
+      "AC Milan",
+      "Ajax"
     ]
   },
   {
-    "name": "Luigi Binda",
-    "aliases": [
-      "Binda",
-      "Luigi"
-    ],
+    "name": "Lucas Poletto",
     "clubs": [
-      "Inter",
-      "Milan"
+      "AC Milan",
+      "Inter"
     ]
   },
   {
-    "name": "Luigi Brunella",
-    "aliases": [
-      "Brunella",
-      "Luigi"
-    ],
+    "name": "Lucas Rosa",
     "clubs": [
       "Juventus",
-      "Roma"
+      "Ajax"
     ]
   },
   {
-    "name": "Luigi Cevenini",
-    "aliases": [
-      "Cevenini",
-      "Luigi"
-    ],
+    "name": "Lucas Torreira",
     "clubs": [
-      "Inter",
+      "Arsenal",
+      "Galatasaray",
+      "Atletico Madrid"
+    ]
+  },
+  {
+    "name": "Luciano Galletti",
+    "clubs": [
+      "Atletico Madrid",
+      "Napoli"
+    ]
+  },
+  {
+    "name": "Lucio",
+    "clubs": [
       "Juventus",
-      "Milan"
-    ]
-  },
-  {
-    "name": "Luigi De Agostini",
-    "aliases": [
-      "Agostini",
-      "Luigi"
-    ],
-    "clubs": [
       "Inter",
-      "Juventus"
+      "Bayern Munich"
     ]
   },
   {
     "name": "Luigi Di Biagio",
-    "aliases": [
-      "Biagio",
-      "Luigi"
-    ],
     "clubs": [
-      "Inter",
-      "Roma"
+      "AS Roma",
+      "Inter"
     ]
   },
   {
-    "name": "Luigi Ferrero",
-    "aliases": [
-      "Ferrero",
-      "Luigi"
-    ],
+    "name": "Luis Diaz",
     "clubs": [
-      "Inter",
-      "Juventus"
-    ]
-  },
-  {
-    "name": "Luigi Forlano",
-    "aliases": [
-      "Forlano",
-      "Luigi"
-    ],
-    "clubs": [
-      "Juventus",
-      "Milan"
-    ]
-  },
-  {
-    "name": "Luigi Giunta",
-    "aliases": [
-      "Giunta",
-      "Luigi"
-    ],
-    "clubs": [
-      "Juventus",
-      "Milan"
-    ]
-  },
-  {
-    "name": "Luigi Pasetti",
-    "aliases": [
-      "Luigi",
-      "Pasetti"
-    ],
-    "clubs": [
-      "Juventus",
-      "Milan"
-    ]
-  },
-  {
-    "name": "Luigi Sartor",
-    "aliases": [
-      "Luigi",
-      "Sartor"
-    ],
-    "clubs": [
-      "Inter",
-      "Juventus",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Luis Alberto",
-    "aliases": [
-      "Alberto",
-      "Luis"
-    ],
-    "clubs": [
-      "Barcelona",
+      "FC Porto",
       "Liverpool",
-      "Sevilla"
+      "Bayern Munich"
     ]
   },
   {
-    "name": "Luis Alberto Suárez Díaz",
-    "aliases": [
-      "alberto",
-      "Alberto",
-      "diaz",
-      "Díaz",
-      "luis",
-      "Luis",
-      "suarez",
-      "Suárez"
-    ],
+    "name": "Luis Figo",
     "clubs": [
-      "Ajax",
       "Barcelona",
+      "Real Madrid",
+      "Inter"
+    ]
+  },
+  {
+    "name": "Luis Filipe",
+    "clubs": [
+      "FC Porto",
+      "Benfica"
+    ]
+  },
+  {
+    "name": "Luis Garcia",
+    "clubs": [
+      "Barcelona",
+      "Atletico Madrid",
+      "Inter",
       "Liverpool"
     ]
   },
   {
-    "name": "Luis Aragonés",
-    "aliases": [
-      "Aragonés",
-      "Luis"
-    ],
-    "clubs": [
-      "Atletico Madrid",
-      "Real Madrid"
-    ]
-  },
-  {
-    "name": "Luís Carlos Almeida da Cunha",
-    "aliases": [
-      "almeida",
-      "Almeida",
-      "carlos",
-      "Carlos",
-      "cunha",
-      "Cunha",
-      "luis",
-      "Luís",
-      "nani",
-      "Nani"
-    ],
-    "clubs": [
-      "Fenerbahçe",
-      "Manchester United"
-    ]
-  },
-  {
-    "name": "Luis del Sol",
-    "aliases": [
-      "del",
-      "Luis",
-      "Sol"
-    ],
+    "name": "Luis Hasa",
     "clubs": [
       "Juventus",
-      "Real Madrid",
-      "Roma"
+      "Napoli"
     ]
   },
   {
-    "name": "Luis Enrique",
-    "aliases": [
-      "Enrique",
-      "Luis"
-    ],
+    "name": "Luis Martins",
+    "clubs": [
+      "FC Porto",
+      "Benfica"
+    ]
+  },
+  {
+    "name": "Luis Pedro Cavanda",
+    "clubs": [
+      "Trabzonspor",
+      "Galatasaray"
+    ]
+  },
+  {
+    "name": "Luis Suarez",
     "clubs": [
       "Barcelona",
-      "Real Madrid"
-    ]
-  },
-  {
-    "name": "Luís Figo",
-    "aliases": [
-      "Figo",
-      "Luís"
-    ],
-    "clubs": [
-      "Barcelona",
-      "Inter",
-      "Real Madrid"
-    ]
-  },
-  {
-    "name": "Luis García",
-    "aliases": [
-      "García",
-      "Luis"
-    ],
-    "clubs": [
       "Atletico Madrid",
-      "Barcelona",
-      "Liverpool"
-    ]
-  },
-  {
-    "name": "Luis Marín Sabater",
-    "aliases": [
-      "Luis",
-      "Marín",
-      "Sabater"
-    ],
-    "clubs": [
-      "Atletico Madrid",
-      "Real Madrid"
-    ]
-  },
-  {
-    "name": "Luis Miguel Ramis",
-    "aliases": [
-      "Luis",
-      "Miguel",
-      "Ramis"
-    ],
-    "clubs": [
-      "Real Madrid",
-      "Sevilla"
-    ]
-  },
-  {
-    "name": "Luis Milla",
-    "aliases": [
-      "Luis",
-      "Milla"
-    ],
-    "clubs": [
-      "Barcelona",
-      "Real Madrid"
-    ]
-  },
-  {
-    "name": "Luis Miranda Junco",
-    "aliases": [
-      "Junco",
-      "Luis",
-      "Miranda"
-    ],
-    "clubs": [
-      "Atletico Madrid",
-      "Barcelona"
-    ]
-  },
-  {
-    "name": "Luis Olaso",
-    "aliases": [
-      "Luis",
-      "Olaso"
-    ],
-    "clubs": [
-      "Atletico Madrid",
-      "Real Madrid"
-    ]
-  },
-  {
-    "name": "Luis Soto Valverde",
-    "aliases": [
-      "Luis",
-      "Soto",
-      "Valverde"
-    ],
-    "clubs": [
-      "Barcelona",
-      "Sevilla"
-    ]
-  },
-  {
-    "name": "Luis Suárez",
-    "aliases": [
-      "Luis",
-      "Suarez",
-      "Suárez"
-    ],
-    "clubs": [
       "Ajax",
-      "Atletico Madrid",
-      "Barcelona",
       "Liverpool"
-    ]
-  },
-  {
-    "name": "Luis Tevenet",
-    "aliases": [
-      "Luis",
-      "Tevenet"
-    ],
-    "clubs": [
-      "Atletico Madrid",
-      "Sevilla"
-    ]
-  },
-  {
-    "name": "Luis Valle Benítez",
-    "aliases": [
-      "Benítez",
-      "Luis",
-      "Valle"
-    ],
-    "clubs": [
-      "Nice",
-      "Real Madrid"
     ]
   },
   {
     "name": "Luiz Adriano",
-    "aliases": [
-      "Adriano",
-      "Luiz"
-    ],
     "clubs": [
       "Antalyaspor",
-      "Milan"
+      "AC Milan",
+      "Inter"
     ]
   },
   {
-    "name": "Luka Modrić",
-    "aliases": [
-      "luka",
-      "Luka",
-      "modric",
-      "Modrić"
-    ],
+    "name": "Luiz Gustavo",
     "clubs": [
-      "Milan",
+      "Fenerbahçe",
+      "Benfica",
+      "Bayern Munich"
+    ]
+  },
+  {
+    "name": "Luka Jovic",
+    "clubs": [
+      "AC Milan",
       "Real Madrid",
-      "Tottenham"
+      "Benfica"
+    ]
+  },
+  {
+    "name": "Luka Modric",
+    "clubs": [
+      "Tottenham",
+      "AC Milan",
+      "Real Madrid"
     ]
   },
   {
     "name": "Lukas Podolski",
-    "aliases": [
-      "Lukas",
-      "Podolski"
-    ],
     "clubs": [
-      "Antalyaspor",
       "Arsenal",
+      "Antalyaspor",
       "Galatasaray",
-      "Inter"
+      "Inter",
+      "Bayern Munich"
     ]
   },
   {
-    "name": "Łukasz Józef Podolski",
-    "aliases": [
-      "jozef",
-      "Józef",
-      "Łukasz",
-      "podolski",
-      "Podolski",
-      "ukasz"
-    ],
+    "name": "Luuk de Jong",
     "clubs": [
-      "Antalyaspor",
-      "Arsenal",
-      "Galatasaray",
-      "Inter"
+      "FC Porto",
+      "Barcelona"
     ]
   },
   {
     "name": "Maarten Stekelenburg",
-    "aliases": [
-      "Maarten",
-      "Stekelenburg"
-    ],
     "clubs": [
-      "Ajax",
-      "Roma"
+      "AS Roma",
+      "Ajax"
     ]
   },
   {
-    "name": "Mahamadou Diarra",
-    "aliases": [
-      "Diarra",
-      "Mahamadou"
-    ],
+    "name": "Mahmoud Trezeguet",
     "clubs": [
-      "Lyon",
-      "Real Madrid"
+      "Başakşehir",
+      "Trabzonspor"
+    ]
+  },
+  {
+    "name": "Mahmut Boz",
+    "clubs": [
+      "Sivasspor",
+      "Genclerbirligi"
+    ]
+  },
+  {
+    "name": "Mahmut Hanefi Erdoğdu",
+    "clubs": [
+      "Sivasspor",
+      "Fenerbahçe"
     ]
   },
   {
     "name": "Maicon",
-    "aliases": [],
     "clubs": [
+      "FC Porto",
+      "Galatasaray",
+      "AS Roma",
       "Inter",
-      "Manchester City",
-      "Roma"
+      "Man City"
+    ]
+  },
+  {
+    "name": "Malang Sarr",
+    "clubs": [
+      "Chelsea",
+      "FC Porto"
+    ]
+  },
+  {
+    "name": "Malcolm Ebiowei",
+    "clubs": [
+      "Chelsea",
+      "Arsenal"
+    ]
+  },
+  {
+    "name": "Malo Gusto",
+    "clubs": [
+      "Chelsea",
+      "Olymp. Lyon"
     ]
   },
   {
     "name": "Mamadou Sakho",
-    "aliases": [
-      "Mamadou",
-      "Sakho"
-    ],
     "clubs": [
       "Liverpool",
       "PSG"
     ]
   },
   {
-    "name": "Mame Thiam",
-    "aliases": [
-      "Mame",
-      "Thiam"
-    ],
+    "name": "Mame Adama Gueye",
     "clubs": [
+      "Antalyaspor",
+      "Denizlispor"
+    ]
+  },
+  {
+    "name": "Mame Diouf",
+    "clubs": [
+      "Konyaspor",
+      "Man Utd"
+    ]
+  },
+  {
+    "name": "Mani",
+    "clubs": [
+      "FC Porto",
+      "Benfica"
+    ]
+  },
+  {
+    "name": "Manolo Gabbiadini",
+    "clubs": [
+      "Juventus",
+      "Napoli"
+    ]
+  },
+  {
+    "name": "Manuel Akanji",
+    "clubs": [
+      "Bor. Dortmund",
       "Inter",
-      "Juventus"
-    ]
-  },
-  {
-    "name": "Mancini",
-    "aliases": [],
-    "clubs": [
-      "Inter",
-      "Milan",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Manel Expósito",
-    "aliases": [
-      "Expósito",
-      "Manel"
-    ],
-    "clubs": [
-      "Atletico Madrid",
-      "Barcelona"
-    ]
-  },
-  {
-    "name": "Maniche",
-    "aliases": [],
-    "clubs": [
-      "Atletico Madrid",
-      "Inter"
-    ]
-  },
-  {
-    "name": "Manuel Anatol",
-    "aliases": [
-      "Anatol",
-      "Manuel"
-    ],
-    "clubs": [
-      "Atletico Madrid",
-      "Real Madrid"
-    ]
-  },
-  {
-    "name": "Manuel Bueno Cabral",
-    "aliases": [
-      "Bueno",
-      "Cabral",
-      "Manuel"
-    ],
-    "clubs": [
-      "Real Madrid",
-      "Sevilla"
+      "Man City"
     ]
   },
   {
     "name": "Manuel da Costa",
-    "aliases": [
-      "Costa",
-      "Manuel"
-    ],
     "clubs": [
-      "Başakşehir",
       "Sivasspor",
+      "Başakşehir",
       "Trabzonspor"
-    ]
-  },
-  {
-    "name": "Manuel del Moral",
-    "aliases": [
-      "del",
-      "Manuel",
-      "Moral"
-    ],
-    "clubs": [
-      "Atletico Madrid",
-      "Sevilla"
     ]
   },
   {
     "name": "Manuel Fernandes",
-    "aliases": [
-      "Fernandes",
-      "Manuel"
-    ],
     "clubs": [
+      "Kayserispor",
       "Beşiktaş",
-      "Kayserispor"
-    ]
-  },
-  {
-    "name": "Manuel Fernández Valderrama",
-    "aliases": [
-      "Fernández",
-      "Manuel",
-      "Valderrama"
-    ],
-    "clubs": [
-      "Atletico Madrid",
-      "Real Madrid"
+      "Benfica"
     ]
   },
   {
     "name": "Manuel Locatelli",
-    "aliases": [
-      "Locatelli",
-      "Manuel"
-    ],
     "clubs": [
       "Juventus",
-      "Milan"
-    ]
-  },
-  {
-    "name": "Manuel Pazos",
-    "aliases": [
-      "Manuel",
-      "Pazos"
-    ],
-    "clubs": [
-      "Atletico Madrid",
-      "Real Madrid"
-    ]
-  },
-  {
-    "name": "Manuel Ruiz Sosa",
-    "aliases": [
-      "Manuel",
-      "Ruiz",
-      "Sosa"
-    ],
-    "clubs": [
-      "Atletico Madrid",
-      "Sevilla"
-    ]
-  },
-  {
-    "name": "Manuel Sanchís Martínez",
-    "aliases": [
-      "Manuel",
-      "Martínez",
-      "Sanchís"
-    ],
-    "clubs": [
-      "Barcelona",
-      "Real Madrid"
-    ]
-  },
-  {
-    "name": "Manuel Vidal Hermosa",
-    "aliases": [
-      "Hermosa",
-      "Manuel",
-      "Vidal"
-    ],
-    "clubs": [
-      "Atletico Madrid",
-      "Barcelona"
+      "AC Milan"
     ]
   },
   {
     "name": "Manuele Blasi",
-    "aliases": [
-      "Blasi",
-      "Manuele"
-    ],
     "clubs": [
       "Juventus",
-      "Roma"
+      "AS Roma",
+      "Napoli"
     ]
   },
   {
-    "name": "Mapou Yanga-Mbiwa",
-    "aliases": [
-      "Mapou",
-      "Mbiwa",
-      "Yanga"
-    ],
+    "name": "Marc Cucurella",
     "clubs": [
-      "Lyon",
-      "Roma"
+      "Chelsea",
+      "Barcelona"
     ]
   },
   {
-    "name": "Marc Bartra",
-    "aliases": [
-      "Bartra",
-      "Marc"
-    ],
+    "name": "Marc Janko",
     "clubs": [
-      "Barcelona",
+      "FC Porto",
       "Trabzonspor"
     ]
   },
   {
-    "name": "Marc Crosas",
-    "aliases": [
-      "Crosas",
-      "Marc"
-    ],
+    "name": "Marc Kibong Mbamba",
     "clubs": [
-      "Barcelona",
-      "Lyon"
+      "Konyaspor",
+      "Denizlispor"
     ]
   },
   {
-    "name": "Marc Gual",
-    "aliases": [
-      "Gual",
-      "Marc"
-    ],
+    "name": "Marcel Lavinier",
     "clubs": [
-      "Barcelona",
-      "Sevilla"
+      "Chelsea",
+      "Tottenham"
     ]
   },
   {
-    "name": "Marc Overmars",
-    "aliases": [
-      "Marc",
-      "Overmars"
-    ],
+    "name": "Marcel Sabitzer",
     "clubs": [
-      "Ajax",
-      "Arsenal",
-      "Barcelona"
+      "Bor. Dortmund",
+      "Man Utd",
+      "Bayern Munich"
     ]
   },
   {
-    "name": "Marc-Vivien Foé",
-    "aliases": [
-      "Foé",
-      "Marc",
-      "Vivien"
-    ],
+    "name": "Marcell Washington",
     "clubs": [
-      "Lyon",
-      "Manchester City"
+      "Chelsea",
+      "Arsenal"
     ]
   },
   {
-    "name": "Marcão",
-    "aliases": [],
-    "clubs": [
-      "Galatasaray",
-      "Sevilla"
-    ]
-  },
-  {
-    "name": "Marcel Aubour",
-    "aliases": [
-      "Aubour",
-      "Marcel"
-    ],
-    "clubs": [
-      "Lyon",
-      "Nice"
-    ]
-  },
-  {
-    "name": "Marcel Domingo",
-    "aliases": [
-      "Domingo",
-      "Marcel"
-    ],
-    "clubs": [
-      "Atletico Madrid",
-      "Nice"
-    ]
-  },
-  {
-    "name": "Marcello Mihalich",
-    "aliases": [
-      "Marcello",
-      "Mihalich"
-    ],
-    "clubs": [
-      "Inter",
-      "Juventus"
-    ]
-  },
-  {
-    "name": "Marcelo Antônio Guedes Filho",
-    "aliases": [
-      "Antônio",
-      "Filho",
-      "Guedes",
-      "Marcelo"
-    ],
+    "name": "Marcelo",
     "clubs": [
       "Beşiktaş",
-      "Lyon"
+      "Real Madrid"
+    ]
+  },
+  {
+    "name": "Marcelo Djalo(142022)",
+    "clubs": [
+      "Juventus",
+      "Real Madrid"
     ]
   },
   {
     "name": "Marcelo Zalayeta",
-    "aliases": [
-      "Marcelo",
-      "Zalayeta"
-    ],
     "clubs": [
-      "Juventus",
       "Kayserispor",
-      "Sevilla"
-    ]
-  },
-  {
-    "name": "Marcial Pina",
-    "aliases": [
-      "Marcial",
-      "Pina"
-    ],
-    "clubs": [
-      "Atletico Madrid",
-      "Barcelona"
-    ]
-  },
-  {
-    "name": "Marcin Bułka",
-    "aliases": [
-      "Bułka",
-      "Marcin"
-    ],
-    "clubs": [
-      "Nice",
-      "PSG"
-    ]
-  },
-  {
-    "name": "Márcio Nobre",
-    "aliases": [
-      "Márcio",
-      "Nobre"
-    ],
-    "clubs": [
-      "Beşiktaş",
-      "Kayserispor"
+      "Juventus",
+      "Napoli"
     ]
   },
   {
     "name": "Marco Amelia",
-    "aliases": [
-      "Amelia",
-      "Marco"
-    ],
     "clubs": [
-      "Milan",
-      "Roma"
+      "Chelsea",
+      "AC Milan",
+      "AS Roma"
     ]
   },
   {
     "name": "Marco Andreolli",
-    "aliases": [
-      "Andreolli",
-      "Marco"
-    ],
     "clubs": [
-      "Inter",
-      "Roma",
-      "Sevilla"
+      "AS Roma",
+      "Inter"
     ]
   },
   {
-    "name": "Marco Bonura",
-    "aliases": [
-      "Bonura",
-      "Marco"
-    ],
+    "name": "Marco Asensio",
     "clubs": [
-      "Inter",
-      "Milan"
+      "Fenerbahçe",
+      "Real Madrid"
     ]
   },
   {
     "name": "Marco Borriello",
-    "aliases": [
-      "Borriello",
-      "Marco"
-    ],
     "clubs": [
       "Juventus",
-      "Milan",
-      "Roma"
+      "AC Milan",
+      "AS Roma"
     ]
   },
   {
-    "name": "Marco Branca",
-    "aliases": [
-      "Branca",
-      "Marco"
-    ],
+    "name": "Marco Fossati",
     "clubs": [
-      "Inter",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Marco De Marchi",
-    "aliases": [
-      "Marchi",
-      "Marco"
-    ],
-    "clubs": [
-      "Juventus",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Marco Delvecchio",
-    "aliases": [
-      "Delvecchio",
-      "Marco"
-    ],
-    "clubs": [
-      "Inter",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Marco Grassi",
-    "aliases": [
-      "Grassi",
-      "Marco"
-    ],
-    "clubs": [
-      "Lyon",
-      "Nice"
+      "AC Milan",
+      "Inter"
     ]
   },
   {
     "name": "Marco Motta",
-    "aliases": [
-      "Marco",
-      "Motta"
-    ],
     "clubs": [
       "Juventus",
-      "Roma"
+      "AS Roma"
     ]
   },
   {
-    "name": "Marco Sala",
-    "aliases": [
-      "Marco",
-      "Sala"
-    ],
+    "name": "Marco Sansonetti",
     "clubs": [
       "Inter",
-      "Milan"
-    ]
-  },
-  {
-    "name": "Marco Simone",
-    "aliases": [
-      "Marco",
-      "Simone"
-    ],
-    "clubs": [
-      "Milan",
-      "Nice",
-      "PSG"
+      "Napoli"
     ]
   },
   {
     "name": "Marco Storari",
-    "aliases": [
-      "Marco",
-      "Storari"
-    ],
     "clubs": [
       "Juventus",
-      "Milan",
-      "Roma"
+      "AC Milan",
+      "Napoli"
     ]
   },
   {
-    "name": "Marco Tardelli",
-    "aliases": [
-      "Marco",
-      "Tardelli"
-    ],
+    "name": "Marco van Ginkel",
     "clubs": [
-      "Inter",
-      "Juventus"
+      "Chelsea",
+      "AC Milan"
     ]
   },
   {
-    "name": "Marco van Basten",
-    "aliases": [
-      "Basten",
-      "Marco",
-      "van"
-    ],
+    "name": "Marco Zamboni",
     "clubs": [
-      "Ajax",
-      "Milan"
+      "Juventus",
+      "Napoli"
     ]
   },
   {
-    "name": "Marco Varaldi",
-    "aliases": [
-      "Marco",
-      "Varaldi"
-    ],
+    "name": "Marcos Alonso",
     "clubs": [
-      "Inter",
-      "Milan"
-    ]
-  },
-  {
-    "name": "Marcos Alonso Peña",
-    "aliases": [
-      "Alonso",
-      "Marcos",
-      "Peña"
-    ],
-    "clubs": [
-      "Atletico Madrid",
+      "Chelsea",
       "Barcelona",
       "Real Madrid"
     ]
   },
   {
-    "name": "Mariano Ferreira Filho",
-    "aliases": [
-      "Ferreira",
-      "Filho",
-      "Mariano"
-    ],
+    "name": "Marcos Llorente",
     "clubs": [
-      "Galatasaray",
-      "Sevilla"
+      "Atletico Madrid",
+      "Real Madrid"
+    ]
+  },
+  {
+    "name": "Marcus Bettinelli",
+    "clubs": [
+      "Chelsea",
+      "Man City"
+    ]
+  },
+  {
+    "name": "Marcus Rashford",
+    "clubs": [
+      "Barcelona",
+      "Man Utd"
+    ]
+  },
+  {
+    "name": "Marek Cech",
+    "clubs": [
+      "FC Porto",
+      "Trabzonspor",
+      "Inter"
+    ]
+  },
+  {
+    "name": "Marek Hamsik",
+    "clubs": [
+      "Trabzonspor",
+      "Napoli"
+    ]
+  },
+  {
+    "name": "Marek Jankulovski",
+    "clubs": [
+      "AC Milan",
+      "Napoli"
+    ]
+  },
+  {
+    "name": "Mariano Gonzalez",
+    "clubs": [
+      "FC Porto",
+      "Inter"
+    ]
+  },
+  {
+    "name": "Marinho",
+    "clubs": [
+      "Beşiktaş",
+      "Inter"
     ]
   },
   {
     "name": "Mario Balotelli",
-    "aliases": [
-      "Balotelli",
-      "Mario"
-    ],
     "clubs": [
+      "AC Milan",
       "Inter",
       "Liverpool",
-      "Manchester City",
-      "Milan",
-      "Nice"
+      "Man City"
     ]
   },
   {
-    "name": "Mario Bandirali",
-    "aliases": [
-      "Bandirali",
-      "Mario"
-    ],
+    "name": "Mario Gomez",
     "clubs": [
-      "Juventus",
-      "Milan"
+      "Beşiktaş",
+      "Bayern Munich"
     ]
   },
   {
-    "name": "Mario Bò",
-    "aliases": [
-      "Mario"
-    ],
+    "name": "Mario Götze",
     "clubs": [
-      "Inter",
-      "Juventus"
+      "Bor. Dortmund",
+      "Bayern Munich"
     ]
   },
   {
-    "name": "Mario Bussich",
-    "aliases": [
-      "Bussich",
-      "Mario"
-    ],
-    "clubs": [
-      "Inter",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Mario Cevenini",
-    "aliases": [
-      "Cevenini",
-      "Mario"
-    ],
-    "clubs": [
-      "Inter",
-      "Milan"
-    ]
-  },
-  {
-    "name": "Mario David",
-    "aliases": [
-      "David",
-      "Mario"
-    ],
-    "clubs": [
-      "Milan",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Mario Hermoso Canseco",
-    "aliases": [
-      "Canseco",
-      "Hermoso",
-      "Mario"
-    ],
+    "name": "Mario Hermoso",
     "clubs": [
       "Atletico Madrid",
+      "AS Roma",
       "Real Madrid"
     ]
   },
   {
     "name": "Mario Lemina",
-    "aliases": [
-      "Lemina",
-      "Mario"
-    ],
     "clubs": [
-      "Galatasaray",
       "Juventus",
-      "Nice"
+      "Galatasaray"
     ]
   },
   {
-    "name": "Mario Mandžukić",
-    "aliases": [
-      "Mandžukić",
-      "Mario"
-    ],
+    "name": "Mario Mandzukic",
     "clubs": [
+      "Juventus",
+      "AC Milan",
       "Atletico Madrid",
-      "Juventus",
-      "Milan"
+      "Bayern Munich"
     ]
   },
   {
-    "name": "Mario René Junior Lemina",
-    "aliases": [
-      "junior",
-      "Junior",
-      "lemina",
-      "Lemina",
-      "mario",
-      "Mario",
-      "rene",
-      "René"
-    ],
+    "name": "Mario Melchiot",
     "clubs": [
-      "Galatasaray",
-      "Juventus",
-      "Nice"
+      "Chelsea",
+      "Ajax"
     ]
   },
   {
-    "name": "Mario Renosto",
-    "aliases": [
-      "Mario",
-      "Renosto"
-    ],
+    "name": "Mario Pasalic",
     "clubs": [
-      "Milan",
-      "Roma"
+      "Chelsea",
+      "AC Milan"
     ]
   },
   {
-    "name": "Mario Yepes",
-    "aliases": [
-      "Mario",
-      "Yepes"
-    ],
+    "name": "Mario Rui",
     "clubs": [
-      "Milan",
-      "PSG"
+      "AS Roma",
+      "Napoli",
+      "Benfica"
     ]
   },
   {
-    "name": "Mark Hughes",
-    "aliases": [
-      "Hughes",
-      "Mark"
-    ],
+    "name": "Mario Stanic",
     "clubs": [
-      "Barcelona",
-      "Manchester United"
+      "Chelsea",
+      "Benfica"
+    ]
+  },
+  {
+    "name": "Mark Bosnich",
+    "clubs": [
+      "Chelsea",
+      "Man Utd"
+    ]
+  },
+  {
+    "name": "Mark Howard",
+    "clubs": [
+      "Arsenal",
+      "Man Utd"
     ]
   },
   {
     "name": "Mark Kennedy",
-    "aliases": [
-      "Kennedy",
-      "Mark"
-    ],
     "clubs": [
       "Liverpool",
-      "Manchester City"
-    ]
-  },
-  {
-    "name": "Mark Redshaw",
-    "aliases": [
-      "Mark",
-      "Redshaw"
-    ],
-    "clubs": [
-      "Manchester City",
-      "Manchester United"
+      "Man City"
     ]
   },
   {
     "name": "Mark Robins",
-    "aliases": [
-      "Mark",
-      "Robins"
-    ],
     "clubs": [
-      "Manchester City",
-      "Manchester United"
+      "Man Utd",
+      "Man City"
     ]
   },
   {
-    "name": "Mark Seagraves",
-    "aliases": [
-      "Mark",
-      "Seagraves"
-    ],
+    "name": "Marko Grujic",
+    "clubs": [
+      "FC Porto",
+      "Liverpool"
+    ]
+  },
+  {
+    "name": "Markus Babbel",
     "clubs": [
       "Liverpool",
-      "Manchester City"
+      "Bayern Munich"
     ]
   },
   {
-    "name": "Mark van Bommel",
-    "aliases": [
-      "Bommel",
-      "Mark",
-      "van"
-    ],
+    "name": "Markus Feulner",
     "clubs": [
-      "Barcelona",
-      "Milan"
+      "Bor. Dortmund",
+      "Bayern Munich"
     ]
   },
   {
-    "name": "Marko Marin",
-    "aliases": [
-      "Marin",
-      "Marko"
-    ],
+    "name": "Marlon",
     "clubs": [
-      "Sevilla",
-      "Trabzonspor"
+      "Trabzonspor",
+      "Barcelona"
     ]
   },
   {
-    "name": "Marko Pantelić",
-    "aliases": [
-      "Marko",
-      "Pantelić"
-    ],
+    "name": "Marlos Moreno",
     "clubs": [
-      "Ajax",
-      "PSG"
+      "Konyaspor",
+      "Man City"
     ]
   },
   {
-    "name": "Martí Ventolrà",
-    "aliases": [
-      "Martí",
-      "Ventolrà"
-    ],
+    "name": "Marquinhos",
     "clubs": [
-      "Barcelona",
-      "Sevilla"
+      "Arsenal",
+      "AS Roma"
     ]
   },
   {
-    "name": "Martín Cáceres",
-    "aliases": [
-      "Cáceres",
-      "Martín"
-    ],
+    "name": "Martin Caceres",
     "clubs": [
-      "Barcelona",
       "Juventus",
-      "Sevilla"
+      "Barcelona"
     ]
   },
   {
-    "name": "Martín Demichelis",
-    "aliases": [
-      "Demichelis",
-      "Martín"
-    ],
+    "name": "Martin Demichelis",
     "clubs": [
       "Atletico Madrid",
-      "Manchester City"
+      "Bayern Munich",
+      "Man City"
     ]
   },
   {
-    "name": "Martín Montoya",
-    "aliases": [
-      "Martín",
-      "Montoya"
-    ],
+    "name": "Martin Montoya",
     "clubs": [
       "Barcelona",
       "Inter"
     ]
   },
   {
-    "name": "Martin Ødegaard",
-    "aliases": [
-      "degaard",
-      "martin",
-      "Martin",
-      "Ødegaard"
-    ],
+    "name": "Martin Odegaard",
     "clubs": [
       "Arsenal",
       "Real Madrid"
@@ -14847,481 +8134,260 @@ export const PLAYERS = [
   },
   {
     "name": "Martin Petrov",
-    "aliases": [
-      "Martin",
-      "Petrov"
-    ],
     "clubs": [
       "Atletico Madrid",
-      "Manchester City"
+      "Man City"
     ]
   },
   {
-    "name": "Martin Škrtel",
-    "aliases": [
-      "Martin",
-      "Škrtel"
-    ],
+    "name": "Martin Skrtel",
     "clubs": [
+      "Fenerbahçe",
       "Başakşehir",
       "Liverpool"
     ]
   },
   {
-    "name": "Márton Fülöp",
-    "aliases": [
-      "Fülöp",
-      "Márton"
-    ],
+    "name": "Marton Fülöp",
     "clubs": [
-      "Manchester City",
-      "Tottenham"
+      "Tottenham",
+      "Man City"
     ]
   },
   {
-    "name": "Mason Tony Mount",
-    "aliases": [
-      "mason",
-      "Mason",
-      "mount",
-      "Mount",
-      "tony",
-      "Tony"
-    ],
+    "name": "Marvin Bakalorz",
+    "clubs": [
+      "Bor. Dortmund",
+      "Denizlispor"
+    ]
+  },
+  {
+    "name": "Mason Mount",
     "clubs": [
       "Chelsea",
-      "Manchester United"
+      "Man Utd"
     ]
   },
   {
-    "name": "Masour Ousmane Dembélé",
-    "aliases": [
-      "dembele",
-      "Dembélé",
-      "masour",
-      "Masour",
-      "ousmane",
-      "Ousmane"
-    ],
-    "clubs": [
-      "Barcelona",
-      "PSG"
-    ]
-  },
-  {
-    "name": "Massimo Agostini",
-    "aliases": [
-      "Agostini",
-      "Massimo"
-    ],
-    "clubs": [
-      "Milan",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Massimo Ambrosini",
-    "aliases": [
-      "Ambrosini",
-      "Massimo"
-    ],
-    "clubs": [
-      "Milan",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Massimo Marazzina",
-    "aliases": [
-      "Marazzina",
-      "Massimo"
-    ],
-    "clubs": [
-      "Inter",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Massimo Orlando",
-    "aliases": [
-      "Massimo",
-      "Orlando"
-    ],
+    "name": "Massimiliano Vieri",
     "clubs": [
       "Juventus",
-      "Milan"
+      "Napoli"
     ]
   },
   {
-    "name": "Massimo Silva",
-    "aliases": [
-      "Massimo",
-      "Silva"
-    ],
+    "name": "Massimo Tarantino",
     "clubs": [
       "Inter",
-      "Milan"
+      "Napoli"
     ]
   },
   {
-    "name": "Massimo Taibi",
-    "aliases": [
-      "Massimo",
-      "Taibi"
-    ],
-    "clubs": [
-      "Manchester United",
-      "Milan"
-    ]
-  },
-  {
-    "name": "Mateja Kežman",
-    "aliases": [
-      "Kežman",
-      "Mateja"
-    ],
-    "clubs": [
-      "Atletico Madrid",
-      "PSG"
-    ]
-  },
-  {
-    "name": "Mateo Kovačić",
-    "aliases": [
-      "kovacic",
-      "Kovačić",
-      "mateo",
-      "Mateo"
-    ],
+    "name": "Mateo Kovacic",
     "clubs": [
       "Chelsea",
+      "Real Madrid",
       "Inter",
-      "Manchester City",
-      "Real Madrid"
+      "Man City"
+    ]
+  },
+  {
+    "name": "Matheus",
+    "clubs": [
+      "FC Porto",
+      "Ajax"
+    ]
+  },
+  {
+    "name": "Matheus Cunha",
+    "clubs": [
+      "Atletico Madrid",
+      "Man Utd"
     ]
   },
   {
     "name": "Mathew Ryan",
-    "aliases": [
-      "Mathew",
-      "Ryan"
-    ],
     "clubs": [
       "Arsenal",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Mathieu Bodmer",
-    "aliases": [
-      "Bodmer",
-      "Mathieu"
-    ],
-    "clubs": [
-      "Lyon",
-      "Nice",
-      "PSG"
+      "AS Roma"
     ]
   },
   {
     "name": "Mathieu Flamini",
-    "aliases": [
-      "Flamini",
-      "Mathieu"
-    ],
     "clubs": [
       "Arsenal",
-      "Milan"
+      "AC Milan"
     ]
   },
   {
-    "name": "Matías Almendra",
-    "aliases": [
-      "Almendra",
-      "Matías"
-    ],
+    "name": "Mathys Tel",
     "clubs": [
-      "Inter",
-      "Sevilla"
+      "Tottenham",
+      "Bayern Munich"
     ]
   },
   {
-    "name": "Matias Chiacchio",
-    "aliases": [
-      "Chiacchio",
-      "Matias"
-    ],
+    "name": "Matias Silvestre",
     "clubs": [
-      "Atletico Madrid",
-      "Lyon"
+      "AC Milan",
+      "Inter"
     ]
   },
   {
-    "name": "Matías Silvestre",
-    "aliases": [
-      "Matías",
-      "Silvestre"
-    ],
+    "name": "Matias Soule",
     "clubs": [
-      "Inter",
-      "Milan"
+      "Juventus",
+      "AS Roma"
     ]
   },
   {
-    "name": "Matt Busby",
-    "aliases": [
-      "Busby",
-      "Matt"
-    ],
+    "name": "Mats Hummels",
     "clubs": [
-      "Liverpool",
-      "Manchester City"
+      "Bor. Dortmund",
+      "AS Roma",
+      "Bayern Munich"
     ]
   },
   {
-    "name": "Matteo Bogani",
-    "aliases": [
-      "Bogani",
-      "Matteo"
-    ],
+    "name": "Matt Doherty",
     "clubs": [
-      "Inter",
-      "Milan"
+      "Tottenham",
+      "Atletico Madrid"
+    ]
+  },
+  {
+    "name": "Matt Smith",
+    "clubs": [
+      "Arsenal",
+      "Man City"
     ]
   },
   {
     "name": "Matteo Brighi",
-    "aliases": [
-      "Brighi",
-      "Matteo"
-    ],
     "clubs": [
       "Juventus",
-      "Roma"
+      "AS Roma"
     ]
   },
   {
     "name": "Matteo Darmian",
-    "aliases": [
-      "darmian",
-      "Darmian",
-      "matteo",
-      "Matteo"
-    ],
     "clubs": [
+      "AC Milan",
       "Inter",
-      "Manchester United",
-      "Milan"
+      "Man Utd"
     ]
   },
   {
-    "name": "Matteo Deinite",
-    "aliases": [
-      "Deinite",
-      "Matteo"
-    ],
+    "name": "Matteo Guendouzi",
     "clubs": [
-      "Inter",
-      "Milan"
+      "Arsenal",
+      "PSG"
     ]
   },
   {
-    "name": "Matteo Ferrari",
-    "aliases": [
-      "Ferrari",
-      "Matteo"
-    ],
+    "name": "Matteo Politano",
     "clubs": [
-      "Beşiktaş",
+      "AS Roma",
       "Inter",
-      "Roma"
+      "Napoli"
     ]
   },
   {
     "name": "Matthijs de Ligt",
-    "aliases": [
-      "ligt",
-      "Ligt",
-      "matthijs",
-      "Matthijs"
-    ],
     "clubs": [
-      "Ajax",
       "Juventus",
-      "Manchester United"
+      "Ajax",
+      "Man Utd",
+      "Bayern Munich"
     ]
   },
   {
     "name": "Mattia Caldara",
-    "aliases": [
-      "Caldara",
-      "Mattia"
-    ],
     "clubs": [
       "Juventus",
-      "Milan"
+      "AC Milan"
     ]
   },
   {
     "name": "Mattia De Sciglio",
-    "aliases": [
-      "Mattia",
-      "Sciglio"
-    ],
     "clubs": [
       "Juventus",
-      "Lyon",
-      "Milan"
+      "AC Milan"
     ]
   },
   {
     "name": "Mattia Desole",
-    "aliases": [
-      "Desole",
-      "Mattia"
-    ],
     "clubs": [
-      "Inter",
-      "Milan"
+      "AC Milan",
+      "Inter"
     ]
   },
   {
     "name": "Mattia Destro",
-    "aliases": [
-      "Destro",
-      "Mattia"
-    ],
     "clubs": [
-      "Inter",
-      "Milan",
-      "Roma"
+      "AC Milan",
+      "AS Roma",
+      "Inter"
+    ]
+  },
+  {
+    "name": "Mattia Graffiedi",
+    "clubs": [
+      "AC Milan",
+      "Napoli"
+    ]
+  },
+  {
+    "name": "Mauricio Isla",
+    "clubs": [
+      "Juventus",
+      "Fenerbahçe"
     ]
   },
   {
     "name": "Mauricio Pellegrino",
-    "aliases": [
-      "Mauricio",
-      "Pellegrino"
-    ],
     "clubs": [
       "Barcelona",
       "Liverpool"
     ]
   },
   {
-    "name": "Mauricio Pinilla",
-    "aliases": [
-      "Mauricio",
-      "Pinilla"
-    ],
-    "clubs": [
-      "Inter",
-      "Juventus",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Maurizio Ganz",
-    "aliases": [
-      "Ganz",
-      "Maurizio"
-    ],
-    "clubs": [
-      "Inter",
-      "Milan"
-    ]
-  },
-  {
-    "name": "Maurizio Gaudino",
-    "aliases": [
-      "Gaudino",
-      "Maurizio"
-    ],
-    "clubs": [
-      "Antalyaspor",
-      "Manchester City"
-    ]
-  },
-  {
-    "name": "Maurizio Iorio",
-    "aliases": [
-      "Iorio",
-      "Maurizio"
-    ],
-    "clubs": [
-      "Inter",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Maurizio Turone",
-    "aliases": [
-      "Maurizio",
-      "Turone"
-    ],
-    "clubs": [
-      "Milan",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Mauro Emanuel Icardi Rivero",
-    "aliases": [
-      "emanuel",
-      "Emanuel",
-      "Icardi",
-      "icardi",
-      "mauro",
-      "Mauro",
-      "rivero",
-      "Rivero"
-    ],
-    "clubs": [
-      "Galatasaray",
-      "Inter",
-      "PSG"
-    ]
-  },
-  {
     "name": "Mauro Icardi",
-    "aliases": [
-      "Icardi",
-      "Mauro"
-    ],
     "clubs": [
       "Galatasaray",
-      "Inter",
-      "PSG"
+      "Inter"
     ]
   },
   {
-    "name": "Max Tonetto",
-    "aliases": [
-      "Max",
-      "Tonetto"
-    ],
+    "name": "Mauro Milanese",
     "clubs": [
-      "Milan",
-      "Roma"
+      "Inter",
+      "Napoli"
     ]
   },
   {
-    "name": "Maxi López",
-    "aliases": [
-      "López",
-      "Maxi"
-    ],
+    "name": "Mauro Ribeiro",
+    "clubs": [
+      "FC Porto",
+      "Benfica"
+    ]
+  },
+  {
+    "name": "Maxi Lopez",
     "clubs": [
       "Barcelona",
-      "Milan"
+      "AC Milan"
+    ]
+  },
+  {
+    "name": "Maxi Pereira",
+    "clubs": [
+      "FC Porto",
+      "Benfica"
     ]
   },
   {
     "name": "Maxi Rodriguez",
-    "aliases": [
-      "Maxi",
-      "Rodriguez"
-    ],
     "clubs": [
       "Atletico Madrid",
       "Liverpool"
@@ -15329,4220 +8395,2854 @@ export const PLAYERS = [
   },
   {
     "name": "Maxime Gonalons",
-    "aliases": [
-      "Gonalons",
-      "Maxime"
-    ],
     "clubs": [
-      "Lyon",
-      "Roma",
-      "Sevilla"
-    ]
-  },
-  {
-    "name": "Maximiliano Cantera",
-    "aliases": [
-      "Cantera",
-      "Maximiliano"
-    ],
-    "clubs": [
-      "Barcelona",
-      "Real Madrid"
+      "AS Roma",
+      "Olymp. Lyon"
     ]
   },
   {
     "name": "Maxwell",
-    "aliases": [],
     "clubs": [
+      "Barcelona",
       "Ajax",
-      "PSG"
+      "Inter"
     ]
   },
   {
     "name": "Mbaye Diagne",
-    "aliases": [
-      "Diagne",
-      "Mbaye"
-    ],
     "clubs": [
-      "Galatasaray",
-      "Juventus"
+      "Juventus",
+      "Galatasaray"
     ]
   },
   {
-    "name": "Medhi Benatia",
-    "aliases": [
-      "Benatia",
-      "Medhi"
-    ],
+    "name": "Mehdi Bourabia",
     "clubs": [
-      "Juventus",
-      "Roma"
+      "Kayserispor",
+      "Konyaspor"
+    ]
+  },
+  {
+    "name": "Mehdi Taremi",
+    "clubs": [
+      "FC Porto",
+      "Inter"
     ]
   },
   {
     "name": "Mehmet Aksu",
-    "aliases": [
-      "Aksu",
-      "Mehmet"
-    ],
     "clubs": [
       "Antalyaspor",
-      "Beşiktaş",
-      "Galatasaray"
+      "Galatasaray",
+      "Beşiktaş"
     ]
   },
   {
-    "name": "Mehmet Ali Tunç",
-    "aliases": [
-      "Ali",
-      "Mehmet",
-      "Tunç"
-    ],
+    "name": "Mehmet Altıparmak",
     "clubs": [
-      "Başakşehir",
-      "Kayserispor"
+      "Genclerbirligi",
+      "Denizlispor"
     ]
   },
   {
-    "name": "Mehmet Aurélio",
-    "aliases": [
-      "Aurélio",
-      "Mehmet"
-    ],
+    "name": "Mehmet Aurelio",
     "clubs": [
-      "Beşiktaş",
-      "Trabzonspor"
+      "Fenerbahçe",
+      "Trabzonspor",
+      "Beşiktaş"
+    ]
+  },
+  {
+    "name": "Mehmet Ayaz",
+    "clubs": [
+      "Kayserispor",
+      "Konyaspor",
+      "Fenerbahçe"
     ]
   },
   {
     "name": "Mehmet Batdal",
-    "aliases": [
-      "Batdal",
-      "Mehmet"
-    ],
     "clubs": [
+      "Konyaspor",
       "Başakşehir",
       "Galatasaray"
     ]
   },
   {
-    "name": "Mehmet Duymazer",
-    "aliases": [
-      "Duymazer",
-      "Mehmet"
-    ],
-    "clubs": [
-      "Galatasaray",
-      "Kayserispor"
-    ]
-  },
-  {
-    "name": "Mehmet Ekşi",
-    "aliases": [
-      "Ekşi",
-      "Mehmet"
-    ],
-    "clubs": [
-      "Antalyaspor",
-      "Beşiktaş",
-      "Trabzonspor"
-    ]
-  },
-  {
     "name": "Mehmet Eren Boyraz",
-    "aliases": [
-      "Boyraz",
-      "Eren",
-      "Mehmet"
-    ],
     "clubs": [
-      "Antalyaspor",
-      "Kayserispor"
+      "Kayserispor",
+      "Antalyaspor"
+    ]
+  },
+  {
+    "name": "Mehmet Güven",
+    "clubs": [
+      "Konyaspor",
+      "Galatasaray"
+    ]
+  },
+  {
+    "name": "Mehmet Polat",
+    "clubs": [
+      "Genclerbirligi",
+      "Galatasaray"
     ]
   },
   {
     "name": "Mehmet Sedef",
-    "aliases": [
-      "Mehmet",
-      "Sedef"
-    ],
     "clubs": [
+      "Konyaspor",
+      "Genclerbirligi",
       "Antalyaspor",
       "Beşiktaş"
     ]
   },
   {
+    "name": "Mehmet Taş",
+    "clubs": [
+      "Genclerbirligi",
+      "Denizlispor"
+    ]
+  },
+  {
     "name": "Mehmet Topal",
-    "aliases": [
-      "Mehmet",
-      "Topal"
-    ],
     "clubs": [
-      "Başakşehir",
       "Fenerbahçe",
+      "Başakşehir",
       "Galatasaray",
-      "Valencia"
+      "Beşiktaş"
     ]
   },
   {
-    "name": "Mehmet Yıldız",
-    "aliases": [
-      "Mehmet",
-      "Yıldız"
-    ],
-    "clubs": [
-      "Antalyaspor",
-      "Sivasspor"
-    ]
-  },
-  {
-    "name": "Mehmet Yılmaz",
-    "aliases": [
-      "Mehmet",
-      "Yılmaz"
-    ],
-    "clubs": [
-      "Antalyaspor",
-      "Trabzonspor"
-    ]
-  },
-  {
-    "name": "Mehmet Yozgatlı",
-    "aliases": [
-      "Mehmet",
-      "Yozgatlı"
-    ],
-    "clubs": [
-      "Beşiktaş",
-      "Galatasaray"
-    ]
-  },
-  {
-    "name": "Memphis Depay",
-    "aliases": [
-      "Depay",
-      "Memphis"
-    ],
-    "clubs": [
-      "Atletico Madrid",
-      "Barcelona",
-      "Lyon",
-      "Manchester United"
-    ]
-  },
-  {
-    "name": "Mersad Kovačević",
-    "aliases": [
-      "Kovačević",
-      "Mersad"
-    ],
-    "clubs": [
-      "Beşiktaş",
-      "Galatasaray"
-    ]
-  },
-  {
-    "name": "Mert Korkmaz",
-    "aliases": [
-      "Korkmaz",
-      "Mert"
-    ],
-    "clubs": [
-      "Başakşehir",
-      "Galatasaray"
-    ]
-  },
-  {
-    "name": "Mert Nobre",
-    "aliases": [
-      "Mert",
-      "Nobre"
-    ],
-    "clubs": [
-      "Beşiktaş",
-      "Fenerbahçe",
-      "Kayserispor"
-    ]
-  },
-  {
-    "name": "Mesut Özil",
-    "aliases": [
-      "Mesut",
-      "Özil"
-    ],
-    "clubs": [
-      "Arsenal",
-      "Başakşehir",
-      "Real Madrid"
-    ]
-  },
-  {
-    "name": "Metin Aktaş",
-    "aliases": [
-      "Aktaş",
-      "Metin"
-    ],
-    "clubs": [
-      "Kayserispor",
-      "Trabzonspor"
-    ]
-  },
-  {
-    "name": "Metin Kurt",
-    "aliases": [
-      "Kurt",
-      "Metin"
-    ],
-    "clubs": [
-      "Galatasaray",
-      "Kayserispor"
-    ]
-  },
-  {
-    "name": "Michael Brown",
-    "aliases": [
-      "Brown",
-      "Michael"
-    ],
-    "clubs": [
-      "Manchester City",
-      "Tottenham"
-    ]
-  },
-  {
-    "name": "Michael Carrick",
-    "aliases": [
-      "Carrick",
-      "Michael"
-    ],
-    "clubs": [
-      "Manchester United",
-      "Tottenham"
-    ]
-  },
-  {
-    "name": "Michael Eneramo",
-    "aliases": [
-      "Eneramo",
-      "Michael"
-    ],
-    "clubs": [
-      "Başakşehir",
-      "Beşiktaş",
-      "Sivasspor"
-    ]
-  },
-  {
-    "name": "Michael Essien",
-    "aliases": [
-      "Essien",
-      "Michael"
-    ],
-    "clubs": [
-      "Lyon",
-      "Milan",
-      "Real Madrid"
-    ]
-  },
-  {
-    "name": "Michael Krohn-Dehli",
-    "aliases": [
-      "Dehli",
-      "Krohn",
-      "Michael"
-    ],
-    "clubs": [
-      "Ajax",
-      "Sevilla"
-    ]
-  },
-  {
-    "name": "Michael Laudrup",
-    "aliases": [
-      "Laudrup",
-      "Michael"
-    ],
-    "clubs": [
-      "Ajax",
-      "Barcelona",
-      "Juventus",
-      "Real Madrid"
-    ]
-  },
-  {
-    "name": "Michael Owen",
-    "aliases": [
-      "Michael",
-      "Owen"
-    ],
-    "clubs": [
-      "Liverpool",
-      "Manchester United",
-      "Real Madrid"
-    ]
-  },
-  {
-    "name": "Michael Petkovic",
-    "aliases": [
-      "Michael",
-      "Petkovic"
-    ],
+    "name": "Mehmet Yener",
     "clubs": [
       "Sivasspor",
       "Trabzonspor"
     ]
   },
   {
-    "name": "Michael Reiziger",
-    "aliases": [
-      "Michael",
-      "Reiziger"
-    ],
+    "name": "Mehmet Yozgatlı",
     "clubs": [
-      "Ajax",
+      "Fenerbahçe",
+      "Genclerbirligi",
+      "Galatasaray",
+      "Beşiktaş"
+    ]
+  },
+  {
+    "name": "Mehmet Yıldız",
+    "clubs": [
+      "Sivasspor",
+      "Antalyaspor"
+    ]
+  },
+  {
+    "name": "Mehmet Yılmaz",
+    "clubs": [
+      "Trabzonspor",
+      "Antalyaspor",
+      "Denizlispor"
+    ]
+  },
+  {
+    "name": "Mehmet Çoğum",
+    "clubs": [
+      "Konyaspor",
+      "Denizlispor"
+    ]
+  },
+  {
+    "name": "Mehmet Öncan",
+    "clubs": [
+      "Antalyaspor",
+      "Denizlispor"
+    ]
+  },
+  {
+    "name": "Mehmet Şimşek",
+    "clubs": [
+      "Kayserispor",
+      "Genclerbirligi"
+    ]
+  },
+  {
+    "name": "Melih Bostan",
+    "clubs": [
+      "Konyaspor",
+      "Fenerbahçe",
+      "Genclerbirligi"
+    ]
+  },
+  {
+    "name": "Memphis Depay",
+    "clubs": [
       "Barcelona",
-      "Milan"
+      "Atletico Madrid",
+      "Man Utd"
     ]
   },
   {
-    "name": "Michael Robinson",
-    "aliases": [
-      "Michael",
-      "Robinson"
-    ],
+    "name": "Merih Demiral",
     "clubs": [
-      "Liverpool",
-      "Manchester City"
+      "Juventus",
+      "Fenerbahçe"
     ]
   },
   {
-    "name": "Michael Thomas",
-    "aliases": [
-      "Michael",
-      "Thomas"
-    ],
+    "name": "Mert Günok",
+    "clubs": [
+      "Fenerbahçe",
+      "Başakşehir",
+      "Beşiktaş"
+    ]
+  },
+  {
+    "name": "Mert Nobre",
+    "clubs": [
+      "Kayserispor",
+      "Fenerbahçe",
+      "Genclerbirligi",
+      "Beşiktaş"
+    ]
+  },
+  {
+    "name": "Mert Çetin",
+    "clubs": [
+      "Kayserispor",
+      "Genclerbirligi",
+      "AS Roma"
+    ]
+  },
+  {
+    "name": "Mesut Özil",
     "clubs": [
       "Arsenal",
-      "Liverpool"
+      "Fenerbahçe",
+      "Başakşehir",
+      "Real Madrid"
     ]
   },
   {
-    "name": "Michel Bastos",
-    "aliases": [
-      "Bastos",
-      "Michel"
-    ],
+    "name": "Mete Demir",
     "clubs": [
-      "Lyon",
-      "Roma"
+      "Başakşehir",
+      "Genclerbirligi"
     ]
   },
   {
-    "name": "Michele De Nadai",
-    "aliases": [
-      "Michele",
-      "Nadai"
-    ],
+    "name": "Metehan Mert",
     "clubs": [
-      "Milan",
-      "Roma"
+      "Konyaspor",
+      "Genclerbirligi"
+    ]
+  },
+  {
+    "name": "Metin Aktaş",
+    "clubs": [
+      "Kayserispor",
+      "Trabzonspor"
+    ]
+  },
+  {
+    "name": "Metincan Cici",
+    "clubs": [
+      "Fenerbahçe",
+      "Antalyaspor"
+    ]
+  },
+  {
+    "name": "Mevlüt Erdinç",
+    "clubs": [
+      "Fenerbahçe",
+      "Başakşehir",
+      "Antalyaspor"
+    ]
+  },
+  {
+    "name": "Michael Ballack",
+    "clubs": [
+      "Chelsea",
+      "Bayern Munich"
+    ]
+  },
+  {
+    "name": "Michael Brown",
+    "clubs": [
+      "Tottenham",
+      "Man City"
+    ]
+  },
+  {
+    "name": "Michael Carrick",
+    "clubs": [
+      "Tottenham",
+      "Man Utd"
+    ]
+  },
+  {
+    "name": "Michael Essien",
+    "clubs": [
+      "Chelsea",
+      "AC Milan",
+      "Real Madrid"
+    ]
+  },
+  {
+    "name": "Michael Olise",
+    "clubs": [
+      "Chelsea",
+      "Arsenal",
+      "Bayern Munich",
+      "Man City"
+    ]
+  },
+  {
+    "name": "Michael Owen",
+    "clubs": [
+      "Real Madrid",
+      "Liverpool",
+      "Man Utd"
+    ]
+  },
+  {
+    "name": "Michael Petkovic",
+    "clubs": [
+      "Sivasspor",
+      "Trabzonspor"
+    ]
+  },
+  {
+    "name": "Michael Stewart",
+    "clubs": [
+      "Genclerbirligi",
+      "Man Utd"
+    ]
+  },
+  {
+    "name": "Michael Tarnat",
+    "clubs": [
+      "Bayern Munich",
+      "Man City"
     ]
   },
   {
     "name": "Michele Di Gregorio",
-    "aliases": [
-      "Gregorio",
-      "Michele"
-    ],
     "clubs": [
-      "Inter",
-      "Juventus"
+      "Juventus",
+      "Inter"
+    ]
+  },
+  {
+    "name": "Michele Pazienza",
+    "clubs": [
+      "Juventus",
+      "Napoli"
+    ]
+  },
+  {
+    "name": "Michele Scienza",
+    "clubs": [
+      "Juventus",
+      "Inter"
     ]
   },
   {
     "name": "Michele Serena",
-    "aliases": [
-      "Michele",
-      "Serena"
-    ],
     "clubs": [
+      "Juventus",
       "Atletico Madrid",
-      "Inter",
-      "Juventus"
+      "Inter"
     ]
   },
   {
     "name": "Michele Somma",
-    "aliases": [
-      "Michele",
-      "Somma"
-    ],
     "clubs": [
       "Juventus",
-      "Roma"
+      "AS Roma"
     ]
   },
   {
     "name": "Michy Batshuayi",
-    "aliases": [
-      "Batshuayi",
-      "Michy"
-    ],
     "clubs": [
-      "Beşiktaş",
-      "Borussia Dortmund",
+      "Bor. Dortmund",
       "Chelsea",
       "Fenerbahçe",
-      "Galatasaray"
-    ]
-  },
-  {
-    "name": "Michy Batshuayi-Atunga",
-    "aliases": [
-      "atunga",
-      "Atunga",
-      "batshuayi",
-      "Batshuayi",
-      "michy",
-      "Michy"
-    ],
-    "clubs": [
-      "Beşiktaş",
-      "Chelsea",
-      "Fenerbahçe",
-      "Galatasaray"
-    ]
-  },
-  {
-    "name": "Mick McCarthy",
-    "aliases": [
-      "McCarthy",
-      "Mick"
-    ],
-    "clubs": [
-      "Lyon",
-      "Manchester City"
-    ]
-  },
-  {
-    "name": "Mickaël Rol",
-    "aliases": [
-      "Mickaël",
-      "Rol"
-    ],
-    "clubs": [
-      "Lyon",
-      "Nice"
-    ]
-  },
-  {
-    "name": "Mickey Hamill",
-    "aliases": [
-      "Hamill",
-      "Mickey"
-    ],
-    "clubs": [
-      "Manchester City",
-      "Manchester United"
+      "Galatasaray",
+      "Beşiktaş"
     ]
   },
   {
     "name": "Mido",
-    "aliases": [],
     "clubs": [
-      "Ajax",
-      "Roma",
-      "Tottenham"
+      "Tottenham",
+      "AS Roma",
+      "Ajax"
     ]
   },
   {
-    "name": "Miguel Ángel Lamata Bravo",
-    "aliases": [
-      "Ángel",
-      "Bravo",
-      "Lamata",
-      "Miguel"
-    ],
+    "name": "Miguel Gutierrez",
     "clubs": [
-      "Atletico Madrid",
-      "Sevilla"
-    ]
-  },
-  {
-    "name": "Miguel Ángel Valcárcel",
-    "aliases": [
-      "Ángel",
-      "Miguel",
-      "Valcárcel"
-    ],
-    "clubs": [
-      "Atletico Madrid",
-      "Barcelona"
-    ]
-  },
-  {
-    "name": "Miguel Gual Agustina",
-    "aliases": [
-      "Agustina",
-      "Gual",
-      "Miguel"
-    ],
-    "clubs": [
-      "Barcelona",
-      "Sevilla"
+      "Real Madrid",
+      "Napoli"
     ]
   },
   {
     "name": "Miguel Lopes",
-    "aliases": [
-      "Lopes",
-      "Miguel"
-    ],
     "clubs": [
       "Kayserispor",
-      "Lyon"
+      "FC Porto",
+      "Benfica"
     ]
   },
   {
-    "name": "Miguel Reina",
-    "aliases": [
-      "Miguel",
-      "Reina"
-    ],
+    "name": "Miguel Vieira",
     "clubs": [
-      "Atletico Madrid",
+      "Başakşehir",
+      "Benfica"
+    ]
+  },
+  {
+    "name": "Mikail Okyar",
+    "clubs": [
+      "Genclerbirligi",
+      "Galatasaray"
+    ]
+  },
+  {
+    "name": "MikaÃ«l Silvestre",
+    "clubs": [
+      "Arsenal",
+      "Inter",
+      "Man Utd"
+    ]
+  },
+  {
+    "name": "Mike Maignan",
+    "clubs": [
+      "AC Milan",
+      "PSG"
+    ]
+  },
+  {
+    "name": "Mikel Arteta",
+    "clubs": [
+      "Arsenal",
       "Barcelona"
     ]
   },
   {
-    "name": "Mikaël Silvestre",
-    "aliases": [
-      "Mikaël",
-      "Silvestre"
-    ],
+    "name": "Mikel Merino",
     "clubs": [
-      "Arsenal",
-      "Inter",
-      "Manchester United"
+      "Bor. Dortmund",
+      "Arsenal"
     ]
   },
   {
-    "name": "Mike Marsh",
-    "aliases": [
-      "Marsh",
-      "Mike"
-    ],
+    "name": "Milan Baros",
     "clubs": [
+      "Antalyaspor",
       "Galatasaray",
       "Liverpool"
     ]
   },
   {
-    "name": "Mikel Arteta",
-    "aliases": [
-      "Arteta",
-      "Mikel"
-    ],
-    "clubs": [
-      "Arsenal",
-      "Barcelona",
-      "PSG"
-    ]
-  },
-  {
-    "name": "Milan Baroš",
-    "aliases": [
-      "Baroš",
-      "Milan"
-    ],
-    "clubs": [
-      "Antalyaspor",
-      "Galatasaray",
-      "Liverpool",
-      "Lyon"
-    ]
-  },
-  {
-    "name": "Milan Biševac",
-    "aliases": [
-      "Biševac",
-      "Milan"
-    ],
-    "clubs": [
-      "Lyon",
-      "PSG"
-    ]
-  },
-  {
-    "name": "Milan Škriniar",
-    "aliases": [
-      "milan",
-      "Milan",
-      "skriniar",
-      "Škriniar"
-    ],
+    "name": "Milan Skriniar",
     "clubs": [
       "Fenerbahçe",
-      "Inter",
-      "PSG"
+      "Inter"
     ]
   },
   {
-    "name": "Milos Kerkez",
-    "aliases": [
-      "Kerkez",
-      "Milos"
-    ],
+    "name": "Milan Stepanov",
     "clubs": [
-      "Liverpool",
-      "Milan"
+      "FC Porto",
+      "Trabzonspor"
     ]
   },
   {
-    "name": "Mino",
-    "aliases": [],
+    "name": "Mile Jedinak",
     "clubs": [
-      "Real Madrid",
-      "Sevilla"
+      "Genclerbirligi",
+      "Antalyaspor"
     ]
   },
   {
-    "name": "Miquel Soler",
-    "aliases": [
-      "Miquel",
-      "Soler"
-    ],
+    "name": "Mile Svilar",
     "clubs": [
-      "Atletico Madrid",
-      "Barcelona",
-      "Real Madrid",
-      "Sevilla"
+      "AS Roma",
+      "Benfica"
     ]
   },
   {
-    "name": "Miralem Pjanić",
-    "aliases": [
-      "Miralem",
-      "Pjanic",
-      "Pjanić"
-    ],
+    "name": "Milos Jojic",
     "clubs": [
+      "Bor. Dortmund",
+      "Başakşehir"
+    ]
+  },
+  {
+    "name": "Milot Rashica",
+    "clubs": [
+      "Galatasaray",
+      "Beşiktaş"
+    ]
+  },
+  {
+    "name": "Min-jae Kim",
+    "clubs": [
+      "Fenerbahçe",
+      "Napoli",
+      "Bayern Munich"
+    ]
+  },
+  {
+    "name": "Mipo Odubeko",
+    "clubs": [
+      "Man Utd",
+      "Man City"
+    ]
+  },
+  {
+    "name": "Miralem Pjanic",
+    "clubs": [
+      "Juventus",
       "Barcelona",
       "Beşiktaş",
-      "Juventus",
-      "Roma"
+      "AS Roma"
+    ]
+  },
+  {
+    "name": "Miralem Sulejmani",
+    "clubs": [
+      "Ajax",
+      "Benfica"
     ]
   },
   {
     "name": "Miranda",
-    "aliases": [],
     "clubs": [
       "Atletico Madrid",
       "Inter"
     ]
   },
   {
-    "name": "Mirko Vučinić",
-    "aliases": [
-      "Mirko",
-      "Vučinić"
-    ],
+    "name": "Miraç Asıltekin",
+    "clubs": [
+      "Başakşehir",
+      "Genclerbirligi",
+      "Beşiktaş"
+    ]
+  },
+  {
+    "name": "Mirko Conte",
+    "clubs": [
+      "Inter",
+      "Napoli"
+    ]
+  },
+  {
+    "name": "Mirko Vucinic",
     "clubs": [
       "Juventus",
-      "Roma"
+      "AS Roma"
     ]
   },
   {
-    "name": "Mirsad Hibić",
-    "aliases": [
-      "Hibić",
-      "Mirsad"
-    ],
+    "name": "Mista",
     "clubs": [
       "Atletico Madrid",
-      "Sevilla"
+      "Real Madrid"
     ]
   },
   {
-    "name": "Moacir Rodrigues Santos",
-    "aliases": [
-      "Moacir",
-      "Rodrigues",
-      "Santos"
-    ],
+    "name": "Modou Barrow",
     "clubs": [
-      "Atletico Madrid",
-      "Sevilla"
+      "Sivasspor",
+      "Denizlispor"
     ]
   },
   {
-    "name": "Mohamed Sarr",
-    "aliases": [
-      "Mohamed",
-      "Sarr"
-    ],
+    "name": "Mohamed Ali",
     "clubs": [
-      "Galatasaray",
-      "Milan"
+      "Sivasspor",
+      "Denizlispor"
+    ]
+  },
+  {
+    "name": "Mohamed Elneny",
+    "clubs": [
+      "Arsenal",
+      "Beşiktaş"
+    ]
+  },
+  {
+    "name": "Mohamed Ihattaren",
+    "clubs": [
+      "Juventus",
+      "Ajax"
+    ]
+  },
+  {
+    "name": "Mohamed Salah",
+    "clubs": [
+      "Chelsea",
+      "AS Roma",
+      "Liverpool"
     ]
   },
   {
     "name": "Mohamed Sissoko",
-    "aliases": [
-      "Mohamed",
-      "Sissoko"
-    ],
     "clubs": [
       "Juventus",
-      "Liverpool",
-      "PSG",
-      "Real Madrid"
+      "Liverpool"
     ]
   },
   {
-    "name": "Mohammed Abderrazack",
-    "aliases": [
-      "Abderrazack",
-      "Mohammed"
-    ],
+    "name": "Mohammed Kudus",
     "clubs": [
-      "Lyon",
-      "Nice"
-    ]
-  },
-  {
-    "name": "Moisés Delgado López",
-    "aliases": [
-      "Delgado",
-      "López",
-      "Moisés"
-    ],
-    "clubs": [
-      "Barcelona",
-      "Sevilla"
-    ]
-  },
-  {
-    "name": "Monchín Triana",
-    "aliases": [
-      "Monchín",
-      "Triana"
-    ],
-    "clubs": [
-      "Atletico Madrid",
-      "Real Madrid"
+      "Tottenham",
+      "Ajax"
     ]
   },
   {
     "name": "Morgan De Sanctis",
-    "aliases": [
-      "Morgan",
-      "Sanctis"
-    ],
     "clubs": [
-      "Galatasaray",
       "Juventus",
-      "Roma",
-      "Sevilla"
+      "Galatasaray",
+      "AS Roma",
+      "Napoli"
     ]
   },
   {
     "name": "Morgan Schneiderlin",
-    "aliases": [
-      "Morgan",
-      "Schneiderlin"
-    ],
     "clubs": [
-      "Manchester United",
-      "Nice"
+      "Konyaspor",
+      "Man Utd"
     ]
   },
   {
-    "name": "Mouhamadou Dabo",
-    "aliases": [
-      "Dabo",
-      "Mouhamadou"
-    ],
+    "name": "Mostapha El Kabir",
     "clubs": [
-      "Lyon",
-      "Sevilla"
+      "Genclerbirligi",
+      "Antalyaspor",
+      "Ajax"
     ]
   },
   {
     "name": "Mounir El Hamdaoui",
-    "aliases": [
-      "Hamdaoui",
-      "Mounir"
-    ],
     "clubs": [
-      "Ajax",
-      "Tottenham"
+      "Tottenham",
+      "Ajax"
     ]
   },
   {
-    "name": "Moussa Dembélé",
-    "aliases": [
-      "Dembele",
-      "Dembélé",
-      "Moussa"
-    ],
+    "name": "Moussa Dembele",
     "clubs": [
       "Atletico Madrid",
-      "Lyon"
+      "PSG"
     ]
   },
   {
-    "name": "Moussa Wagué",
-    "aliases": [
-      "Moussa",
-      "Wagué"
-    ],
+    "name": "Muammer Yıldırım",
     "clubs": [
-      "Barcelona",
-      "Nice"
-    ]
-  },
-  {
-    "name": "Muammer Nurlu",
-    "aliases": [
-      "Muammer",
-      "Nurlu"
-    ],
-    "clubs": [
-      "Antalyaspor",
-      "Kayserispor"
-    ]
-  },
-  {
-    "name": "Muhammed Ali Atam",
-    "aliases": [
-      "Ali",
-      "Atam",
-      "Muhammed"
-    ],
-    "clubs": [
-      "Galatasaray",
+      "Kayserispor",
       "Sivasspor"
     ]
   },
   {
-    "name": "Munir El Haddadi",
-    "aliases": [
-      "Haddadi",
-      "Munir"
-    ],
+    "name": "Muhammed Ertürk",
     "clubs": [
-      "Barcelona",
-      "Sevilla"
+      "Genclerbirligi",
+      "Denizlispor",
+      "Beşiktaş"
+    ]
+  },
+  {
+    "name": "Muhammet Demir",
+    "clubs": [
+      "Sivasspor",
+      "Konyaspor",
+      "Başakşehir",
+      "Trabzonspor"
     ]
   },
   {
     "name": "Murat Akça",
-    "aliases": [
-      "Akça",
-      "Murat"
-    ],
     "clubs": [
-      "Galatasaray",
-      "Sivasspor"
+      "Sivasspor",
+      "Denizlispor",
+      "Galatasaray"
     ]
   },
   {
     "name": "Murat Akın",
-    "aliases": [
-      "Akın",
-      "Murat"
-    ],
     "clubs": [
-      "Antalyaspor",
+      "Kayserispor",
+      "Konyaspor",
       "Başakşehir",
-      "Kayserispor"
+      "Antalyaspor"
+    ]
+  },
+  {
+    "name": "Murat Duman",
+    "clubs": [
+      "Kayserispor",
+      "Sivasspor",
+      "Konyaspor"
     ]
   },
   {
     "name": "Murat Erdoğan",
-    "aliases": [
-      "Erdoğan",
-      "Murat"
-    ],
     "clubs": [
-      "Galatasaray",
-      "Sivasspor"
+      "Sivasspor",
+      "Galatasaray"
     ]
   },
   {
-    "name": "Murat Ocak",
-    "aliases": [
-      "Murat",
-      "Ocak"
-    ],
+    "name": "Murat Hacıoğlu",
     "clubs": [
-      "Başakşehir",
-      "Trabzonspor"
+      "Konyaspor",
+      "Fenerbahçe",
+      "Denizlispor"
+    ]
+  },
+  {
+    "name": "Murat Kalkan",
+    "clubs": [
+      "Konyaspor",
+      "Genclerbirligi"
     ]
   },
   {
     "name": "Murat Sözgelmez",
-    "aliases": [
-      "Murat",
-      "Sözgelmez"
-    ],
     "clubs": [
-      "Antalyaspor",
-      "Sivasspor"
+      "Sivasspor",
+      "Antalyaspor"
+    ]
+  },
+  {
+    "name": "Murat Tosun",
+    "clubs": [
+      "Konyaspor",
+      "Trabzonspor"
+    ]
+  },
+  {
+    "name": "Murat Yıldırım",
+    "clubs": [
+      "Genclerbirligi",
+      "Ajax"
+    ]
+  },
+  {
+    "name": "Murat Şahin",
+    "clubs": [
+      "Konyaspor",
+      "Fenerbahçe",
+      "Beşiktaş"
     ]
   },
   {
     "name": "Musa Aydın",
-    "aliases": [
-      "Aydın",
-      "Musa"
-    ],
     "clubs": [
-      "Antalyaspor",
-      "Sivasspor"
+      "Sivasspor",
+      "Antalyaspor"
+    ]
+  },
+  {
+    "name": "Musa Büyük",
+    "clubs": [
+      "Konyaspor",
+      "Trabzonspor"
+    ]
+  },
+  {
+    "name": "Musa Kuş",
+    "clubs": [
+      "Sivasspor",
+      "Denizlispor"
     ]
   },
   {
     "name": "Musa Nizam",
-    "aliases": [
-      "Musa",
-      "Nizam"
-    ],
     "clubs": [
+      "Trabzonspor",
       "Antalyaspor",
-      "Trabzonspor"
+      "Denizlispor"
     ]
   },
   {
-    "name": "Mustafa Akbaş",
-    "aliases": [
-      "Akbaş",
-      "Mustafa"
-    ],
+    "name": "Mustafa Akhanım",
+    "clubs": [
+      "Konyaspor",
+      "Antalyaspor"
+    ]
+  },
+  {
+    "name": "Mustafa Dogan",
+    "clubs": [
+      "Fenerbahçe",
+      "Beşiktaş"
+    ]
+  },
+  {
+    "name": "Mustafa Er",
+    "clubs": [
+      "Konyaspor",
+      "Denizlispor"
+    ]
+  },
+  {
+    "name": "Mustafa Kademli",
+    "clubs": [
+      "Antalyaspor",
+      "Galatasaray"
+    ]
+  },
+  {
+    "name": "Mustafa Keçeli",
+    "clubs": [
+      "Trabzonspor",
+      "Denizlispor"
+    ]
+  },
+  {
+    "name": "Mustafa Pektemek",
     "clubs": [
       "Kayserispor",
-      "Trabzonspor"
-    ]
-  },
-  {
-    "name": "Mustafa Kocabey",
-    "aliases": [
-      "Kocabey",
-      "Mustafa"
-    ],
-    "clubs": [
-      "Galatasaray",
-      "Kayserispor"
-    ]
-  },
-  {
-    "name": "Mustafa Özkan",
-    "aliases": [
-      "Mustafa",
-      "Özkan"
-    ],
-    "clubs": [
-      "Antalyaspor",
+      "Başakşehir",
+      "Genclerbirligi",
       "Beşiktaş"
     ]
   },
   {
     "name": "Mustafa Sarp",
-    "aliases": [
-      "Mustafa",
-      "Sarp"
-    ],
     "clubs": [
       "Başakşehir",
       "Galatasaray"
     ]
   },
   {
-    "name": "Mustafa Yücedağ",
-    "aliases": [
-      "Mustafa",
-      "Yücedağ"
-    ],
+    "name": "Mustafa Yalçınkaya",
     "clubs": [
-      "Ajax",
+      "Kayserispor",
+      "Trabzonspor",
+      "Antalyaspor"
+    ]
+  },
+  {
+    "name": "Mustafa Yumlu",
+    "clubs": [
+      "Trabzonspor",
+      "Denizlispor"
+    ]
+  },
+  {
+    "name": "Mustafa Çeçenoğlu",
+    "clubs": [
+      "Fenerbahçe",
+      "Genclerbirligi",
+      "Denizlispor"
+    ]
+  },
+  {
+    "name": "Mustafa Çiçek",
+    "clubs": [
+      "Genclerbirligi",
+      "Galatasaray"
+    ]
+  },
+  {
+    "name": "Mustafa Özkan",
+    "clubs": [
+      "Genclerbirligi",
+      "Antalyaspor",
+      "Denizlispor",
+      "Beşiktaş"
+    ]
+  },
+  {
+    "name": "Mustapha Yatabare",
+    "clubs": [
+      "Sivasspor",
+      "Konyaspor",
+      "Trabzonspor",
+      "Genclerbirligi"
+    ]
+  },
+  {
+    "name": "Mutlu Aksu Doğan",
+    "clubs": [
       "Fenerbahçe",
       "Galatasaray"
     ]
   },
   {
-    "name": "Mustapha Dahleb",
-    "aliases": [
-      "Dahleb",
-      "Mustapha"
-    ],
+    "name": "Muzaffer Bilazer",
     "clubs": [
-      "Nice",
-      "PSG"
+      "Trabzonspor",
+      "Denizlispor"
     ]
   },
   {
-    "name": "Mülâyim Erdem",
-    "aliases": [
-      "Erdem",
-      "Mülâyim"
-    ],
+    "name": "Naby Sarr",
     "clubs": [
-      "Başakşehir",
-      "Galatasaray"
-    ]
-  },
-  {
-    "name": "Myziane Maolida",
-    "aliases": [
-      "Maolida",
-      "Myziane"
-    ],
-    "clubs": [
-      "Lyon",
-      "Nice"
+      "PSG",
+      "Olymp. Lyon"
     ]
   },
   {
     "name": "Nacer Chadli",
-    "aliases": [
-      "Chadli",
-      "Nacer"
-    ],
     "clubs": [
-      "Başakşehir",
-      "Tottenham"
+      "Tottenham",
+      "Başakşehir"
     ]
   },
   {
     "name": "Naci Ünüvar",
-    "aliases": [
-      "Naci",
-      "Ünüvar"
-    ],
     "clubs": [
-      "Ajax",
-      "Trabzonspor"
+      "Trabzonspor",
+      "Ajax"
     ]
   },
   {
-    "name": "Nambatingue Toko",
-    "aliases": [
-      "Nambatingue",
-      "Toko"
-    ],
+    "name": "Nadir Çiftçi",
     "clubs": [
-      "Nice",
-      "PSG"
+      "Kayserispor",
+      "Genclerbirligi"
     ]
   },
   {
     "name": "Nani",
-    "aliases": [
-      "Luis Nani",
-      "Luís Nani"
-    ],
     "clubs": [
       "Fenerbahçe",
-      "Manchester United",
-      "Valencia"
+      "Real Madrid",
+      "Man Utd"
     ]
   },
   {
-    "name": "Nano",
-    "aliases": [],
+    "name": "Nanu",
     "clubs": [
-      "Atletico Madrid",
-      "Barcelona"
+      "FC Porto",
+      "Benfica"
     ]
   },
   {
-    "name": "Narciso Soldan",
-    "aliases": [
-      "Narciso",
-      "Soldan"
-    ],
+    "name": "Nathan Ake",
     "clubs": [
-      "Inter",
-      "Milan"
+      "Chelsea",
+      "Man City"
     ]
   },
   {
-    "name": "Nayim",
-    "aliases": [],
+    "name": "Nathaniel Chalobah",
     "clubs": [
-      "Barcelona",
-      "Tottenham"
+      "Chelsea",
+      "Napoli"
     ]
   },
   {
-    "name": "Nazzareno Canuti",
-    "aliases": [
-      "Canuti",
-      "Nazzareno"
-    ],
+    "name": "Nazım Sangare",
     "clubs": [
-      "Inter",
-      "Milan"
+      "Fenerbahçe",
+      "Antalyaspor"
     ]
   },
   {
     "name": "Necati Ateş",
-    "aliases": [
-      "Ateş",
-      "Necati"
-    ],
     "clubs": [
       "Antalyaspor",
-      "Başakşehir",
       "Galatasaray"
     ]
   },
   {
-    "name": "Necdet Ergün",
-    "aliases": [
-      "Ergün",
-      "Necdet"
-    ],
+    "name": "Necati Yılmaz",
     "clubs": [
-      "Beşiktaş",
-      "Trabzonspor"
+      "Fenerbahçe",
+      "Denizlispor"
     ]
   },
   {
-    "name": "Necmi Perekli",
-    "aliases": [
-      "Necmi",
-      "Perekli"
-    ],
+    "name": "Necdet Sekmen",
     "clubs": [
-      "Beşiktaş",
-      "Trabzonspor"
+      "Kayserispor",
+      "Antalyaspor"
     ]
   },
   {
-    "name": "Neil Heaney",
-    "aliases": [
-      "Heaney",
-      "Neil"
-    ],
+    "name": "Nehuen Perez",
     "clubs": [
-      "Arsenal",
-      "Manchester City"
+      "FC Porto",
+      "Atletico Madrid"
     ]
   },
   {
-    "name": "Neil McBain",
-    "aliases": [
-      "McBain",
-      "Neil"
-    ],
+    "name": "Neil Sullivan",
     "clubs": [
-      "Liverpool",
-      "Manchester United"
-    ]
-  },
-  {
-    "name": "Neil McNab",
-    "aliases": [
-      "McNab",
-      "Neil"
-    ],
-    "clubs": [
-      "Manchester City",
+      "Chelsea",
       "Tottenham"
     ]
   },
   {
-    "name": "Neil Ruddock",
-    "aliases": [
-      "Neil",
-      "Ruddock"
-    ],
+    "name": "Nelson",
     "clubs": [
-      "Liverpool",
-      "Tottenham"
+      "FC Porto",
+      "Benfica"
+    ]
+  },
+  {
+    "name": "Nelson Oliveira",
+    "clubs": [
+      "Konyaspor",
+      "Benfica"
+    ]
+  },
+  {
+    "name": "Nelson Semedo",
+    "clubs": [
+      "Fenerbahçe",
+      "Barcelona",
+      "Benfica"
     ]
   },
   {
     "name": "Nelson Vivas",
-    "aliases": [
-      "Nelson",
-      "Vivas"
-    ],
     "clubs": [
       "Arsenal",
       "Inter"
     ]
   },
   {
-    "name": "Nemanja Vidić",
-    "aliases": [
-      "Nemanja",
-      "Vidić"
-    ],
+    "name": "Nemanja Matic",
+    "clubs": [
+      "Chelsea",
+      "AS Roma",
+      "Benfica",
+      "Man Utd"
+    ]
+  },
+  {
+    "name": "Nemanja Radonjic",
+    "clubs": [
+      "AS Roma",
+      "Benfica"
+    ]
+  },
+  {
+    "name": "Nemanja Vidicâ€",
     "clubs": [
       "Inter",
-      "Manchester United"
+      "Man Utd"
     ]
   },
   {
-    "name": "Nenê",
-    "aliases": [],
-    "clubs": [
-      "PSG",
-      "Real Madrid"
-    ]
-  },
-  {
-    "name": "Nestor Combin",
-    "aliases": [
-      "Combin",
-      "Nestor"
-    ],
+    "name": "Neto",
     "clubs": [
       "Juventus",
-      "Lyon",
-      "Milan"
-    ]
-  },
-  {
-    "name": "Nevio Scala",
-    "aliases": [
-      "Nevio",
-      "Scala"
-    ],
-    "clubs": [
-      "Inter",
-      "Milan",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Neymar",
-    "aliases": [
-      "Neymar Jr"
-    ],
-    "clubs": [
-      "Barcelona",
-      "PSG"
-    ]
-  },
-  {
-    "name": "Neymar da Silva Santos Júnior",
-    "aliases": [
-      "junior",
-      "Júnior",
-      "neymar",
-      "Neymar",
-      "santos",
-      "Santos",
-      "silva",
-      "Silva"
-    ],
-    "clubs": [
-      "Barcelona",
-      "PSG"
-    ]
-  },
-  {
-    "name": "Niall Quinn",
-    "aliases": [
-      "Niall",
-      "Quinn"
-    ],
-    "clubs": [
       "Arsenal",
-      "Manchester City"
+      "Barcelona"
     ]
   },
   {
-    "name": "Nick Barmby",
-    "aliases": [
-      "Barmby",
-      "Nick"
-    ],
+    "name": "Neven Subotic",
     "clubs": [
-      "Liverpool",
-      "Tottenham"
+      "Bor. Dortmund",
+      "Denizlispor"
     ]
   },
   {
     "name": "Nicklas Bendtner",
-    "aliases": [
-      "Bendtner",
-      "Nicklas"
-    ],
     "clubs": [
-      "Arsenal",
-      "Juventus"
+      "Juventus",
+      "Arsenal"
     ]
   },
   {
-    "name": "Nicola Berti",
-    "aliases": [
-      "Berti",
-      "Nicola"
-    ],
+    "name": "Nico Gaitan",
     "clubs": [
-      "Inter",
-      "Tottenham"
+      "Atletico Madrid",
+      "Benfica"
+    ]
+  },
+  {
+    "name": "Nico Gonzalez",
+    "clubs": [
+      "Juventus",
+      "FC Porto",
+      "Barcelona",
+      "Atletico Madrid",
+      "Man City"
+    ]
+  },
+  {
+    "name": "Nicola Amoruso",
+    "clubs": [
+      "Juventus",
+      "Napoli"
     ]
   },
   {
     "name": "Nicola Legrottaglie",
-    "aliases": [
-      "Legrottaglie",
-      "Nicola"
-    ],
     "clubs": [
       "Juventus",
-      "Milan"
+      "AC Milan"
     ]
   },
   {
-    "name": "Nicolae Simatoc",
-    "aliases": [
-      "Nicolae",
-      "Simatoc"
-    ],
+    "name": "Nicola Pozzi",
     "clubs": [
-      "Barcelona",
+      "AC Milan",
+      "Napoli"
+    ]
+  },
+  {
+    "name": "Nicola Zalewski",
+    "clubs": [
+      "AS Roma",
       "Inter"
     ]
   },
   {
     "name": "Nicolas Anelka",
-    "aliases": [
-      "Anelka",
-      "Nicolas"
-    ],
     "clubs": [
-      "Arsenal",
       "Chelsea",
-      "Fenerbahçe",
       "Juventus",
-      "Liverpool",
-      "Manchester City",
-      "PSG",
-      "Real Madrid"
-    ]
-  },
-  {
-    "name": "Nicolás Burdisso",
-    "aliases": [
-      "Burdisso",
-      "Nicolás"
-    ],
-    "clubs": [
-      "Inter",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Nicolás González Iglesias",
-    "aliases": [
-      "González",
-      "Iglesias",
-      "Nicolás"
-    ],
-    "clubs": [
-      "Barcelona",
-      "Manchester City"
-    ]
-  },
-  {
-    "name": "Nicolò Zaniolo",
-    "aliases": [
-      "nicolo",
-      "Nicolò",
-      "Nicolo Zaniolo",
-      "nicolozaniolo",
-      "zaniolo",
-      "Zaniolo"
-    ],
-    "clubs": [
-      "Galatasaray",
-      "Inter",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Nigel Clough",
-    "aliases": [
-      "Clough",
-      "Nigel"
-    ],
-    "clubs": [
-      "Liverpool",
-      "Manchester City"
-    ]
-  },
-  {
-    "name": "Nigel de Jong",
-    "aliases": [
-      "Jong",
-      "Nigel"
-    ],
-    "clubs": [
-      "Ajax",
-      "Galatasaray",
-      "Manchester City",
-      "Milan"
-    ]
-  },
-  {
-    "name": "Nigel Hasselbaink",
-    "aliases": [
-      "Hasselbaink",
-      "Nigel"
-    ],
-    "clubs": [
-      "Ajax",
-      "Barcelona"
-    ]
-  },
-  {
-    "name": "Nikola Kalinić",
-    "aliases": [
-      "Kalinić",
-      "Nikola"
-    ],
-    "clubs": [
-      "Atletico Madrid",
-      "Milan",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Nikola Simić",
-    "aliases": [
-      "Nikola",
-      "Simić"
-    ],
-    "clubs": [
-      "Lyon",
-      "Nice"
-    ]
-  },
-  {
-    "name": "Nikos Machlas",
-    "aliases": [
-      "Machlas",
-      "Nikos"
-    ],
-    "clubs": [
-      "Ajax",
-      "Sevilla"
-    ]
-  },
-  {
-    "name": "Noé Pamarot",
-    "aliases": [
-      "Noé",
-      "Pamarot"
-    ],
-    "clubs": [
-      "Nice",
-      "Tottenham"
-    ]
-  },
-  {
-    "name": "Nolito",
-    "aliases": [],
-    "clubs": [
-      "Barcelona",
-      "Manchester City",
-      "Sevilla"
-    ]
-  },
-  {
-    "name": "Nordin Amrabat",
-    "aliases": [
-      "Amrabat",
-      "Nordin"
-    ],
-    "clubs": [
-      "Galatasaray",
-      "Kayserispor"
-    ]
-  },
-  {
-    "name": "Nordin Wooter",
-    "aliases": [
-      "Nordin",
-      "Wooter"
-    ],
-    "clubs": [
-      "Ajax",
-      "Sivasspor"
-    ]
-  },
-  {
-    "name": "Nuri Şahin",
-    "aliases": [
-      "Nuri",
-      "Sahin",
-      "Şahin"
-    ],
-    "clubs": [
-      "Antalyaspor",
-      "Liverpool",
-      "Real Madrid"
-    ]
-  },
-  {
-    "name": "Nwankwo Kanu",
-    "aliases": [
-      "Kanu",
-      "Nwankwo"
-    ],
-    "clubs": [
-      "Ajax",
       "Arsenal",
+      "Fenerbahçe",
+      "Real Madrid",
+      "Liverpool",
+      "Man City"
+    ]
+  },
+  {
+    "name": "Nicolas Burdisso",
+    "clubs": [
+      "AS Roma",
       "Inter"
     ]
   },
   {
-    "name": "Odoacre Chierico",
-    "aliases": [
-      "Chierico",
-      "Odoacre"
-    ],
+    "name": "Nicolas Jackson",
     "clubs": [
-      "Inter",
-      "Roma"
+      "Chelsea",
+      "Bayern Munich"
     ]
   },
   {
-    "name": "Ogün Temizkanoğlu",
-    "aliases": [
-      "Ogun",
-      "Ogün",
-      "Temizkanoglu",
-      "Temizkanoğlu"
-    ],
+    "name": "Nicolas Navarro",
     "clubs": [
-      "Fenerbahçe",
+      "Kayserispor",
+      "Napoli"
+    ]
+  },
+  {
+    "name": "Nicolas Otamendi",
+    "clubs": [
+      "FC Porto",
+      "Benfica",
+      "Man City"
+    ]
+  },
+  {
+    "name": "Nicolas Pepe",
+    "clubs": [
+      "Arsenal",
       "Trabzonspor"
     ]
   },
   {
-    "name": "Oğulcan Çağlayan",
-    "aliases": [
-      "Çağlayan",
-      "Oğulcan"
-    ],
+    "name": "NicolÃ² Zaniolo",
     "clubs": [
       "Galatasaray",
-      "Kayserispor"
+      "AS Roma",
+      "Inter"
     ]
   },
   {
-    "name": "Oğuz Dağlaroğlu",
-    "aliases": [
-      "Dağlaroğlu",
-      "Oğuz"
-    ],
+    "name": "Nigel de Jong",
     "clubs": [
-      "Fenerbahçe",
-      "Sivasspor"
+      "Galatasaray",
+      "AC Milan",
+      "Ajax",
+      "Man City"
     ]
   },
   {
-    "name": "Oğuz Sabankay",
-    "aliases": [
-      "Oğuz",
-      "Sabankay"
-    ],
+    "name": "Nihat Baştürk",
     "clubs": [
-      "Başakşehir",
-      "Galatasaray"
+      "Genclerbirligi",
+      "Antalyaspor"
     ]
   },
   {
-    "name": "Oğuzhan Özyakup",
-    "aliases": [
-      "Oğuzhan",
-      "Özyakup"
-    ],
+    "name": "Nihat Şahin",
     "clubs": [
-      "Arsenal",
+      "Sivasspor",
+      "Genclerbirligi",
+      "Antalyaspor"
+    ]
+  },
+  {
+    "name": "Niklas Süle",
+    "clubs": [
+      "Bor. Dortmund",
+      "Bayern Munich"
+    ]
+  },
+  {
+    "name": "Nikola Kalinic",
+    "clubs": [
+      "AC Milan",
+      "Atletico Madrid",
+      "AS Roma"
+    ]
+  },
+  {
+    "name": "Niyazi Güney",
+    "clubs": [
+      "Konyaspor",
       "Beşiktaş"
     ]
   },
   {
-    "name": "Okan Buruk",
-    "aliases": [
-      "Buruk",
-      "Okan"
-    ],
+    "name": "Nizamettin Çalışkan",
     "clubs": [
-      "Başakşehir",
-      "Beşiktaş",
+      "Bor. Dortmund",
+      "Genclerbirligi"
+    ]
+  },
+  {
+    "name": "Njitap Geremi",
+    "clubs": [
+      "Chelsea",
+      "Genclerbirligi",
+      "Real Madrid"
+    ]
+  },
+  {
+    "name": "Noa Lang",
+    "clubs": [
+      "Ajax",
+      "Napoli"
+    ]
+  },
+  {
+    "name": "Noah Ohio",
+    "clubs": [
+      "Man Utd",
+      "Man City"
+    ]
+  },
+  {
+    "name": "Noah Okafor",
+    "clubs": [
+      "AC Milan",
+      "Napoli"
+    ]
+  },
+  {
+    "name": "Nolito",
+    "clubs": [
+      "Benfica",
+      "Man City"
+    ]
+  },
+  {
+    "name": "Noni Madueke",
+    "clubs": [
+      "Chelsea",
+      "Tottenham",
+      "Arsenal"
+    ]
+  },
+  {
+    "name": "Nordin Amrabat",
+    "clubs": [
+      "Kayserispor",
       "Galatasaray",
+      "Ajax"
+    ]
+  },
+  {
+    "name": "Nosa Edward Obaretin",
+    "clubs": [
+      "AC Milan",
+      "Napoli"
+    ]
+  },
+  {
+    "name": "Noussair Mazraoui",
+    "clubs": [
+      "Ajax",
+      "Man Utd",
+      "Bayern Munich"
+    ]
+  },
+  {
+    "name": "Ntumba Massanka",
+    "clubs": [
+      "Man Utd",
+      "Man City"
+    ]
+  },
+  {
+    "name": "Nuno Coelho",
+    "clubs": [
+      "FC Porto",
+      "Benfica"
+    ]
+  },
+  {
+    "name": "Nuno Santos",
+    "clubs": [
+      "FC Porto",
+      "Benfica"
+    ]
+  },
+  {
+    "name": "Nuno Tavares",
+    "clubs": [
+      "Arsenal",
+      "Benfica"
+    ]
+  },
+  {
+    "name": "Nuri Kamburoğlu",
+    "clubs": [
+      "Fenerbahçe",
+      "Antalyaspor"
+    ]
+  },
+  {
+    "name": "Nuri Şahin",
+    "clubs": [
+      "Bor. Dortmund",
+      "Antalyaspor",
+      "Real Madrid",
+      "Liverpool"
+    ]
+  },
+  {
+    "name": "Nwankwo Kanu",
+    "clubs": [
+      "Arsenal",
+      "Ajax",
+      "Inter"
+    ]
+  },
+  {
+    "name": "Ogenyi Onazi",
+    "clubs": [
+      "Trabzonspor",
+      "Denizlispor"
+    ]
+  },
+  {
+    "name": "Ogulcan Evin",
+    "clubs": [
+      "Sivasspor",
+      "Antalyaspor"
+    ]
+  },
+  {
+    "name": "Okan Alkan",
+    "clubs": [
+      "Kayserispor",
+      "Fenerbahçe"
+    ]
+  },
+  {
+    "name": "Okan Buruk",
+    "clubs": [
+      "Galatasaray",
+      "Beşiktaş",
       "Inter"
     ]
   },
   {
     "name": "Okay Yokuşlu",
-    "aliases": [
-      "Okay",
-      "Yokuşlu"
-    ],
     "clubs": [
       "Kayserispor",
       "Trabzonspor"
+    ]
+  },
+  {
+    "name": "Okechukwu Azubuike",
+    "clubs": [
+      "Sivasspor",
+      "Başakşehir"
+    ]
+  },
+  {
+    "name": "Oktay Delibalta",
+    "clubs": [
+      "Genclerbirligi",
+      "Antalyaspor"
     ]
   },
   {
     "name": "Oktay Derelioğlu",
-    "aliases": [
-      "Derelioğlu",
-      "Oktay"
-    ],
     "clubs": [
-      "Beşiktaş",
-      "Trabzonspor"
+      "Fenerbahçe",
+      "Trabzonspor",
+      "Beşiktaş"
+    ]
+  },
+  {
+    "name": "Olarenwaju Kayode",
+    "clubs": [
+      "Sivasspor",
+      "Genclerbirligi",
+      "Man City"
     ]
   },
   {
     "name": "Olcan Adın",
-    "aliases": [
-      "Adın",
-      "Olcan"
-    ],
     "clubs": [
+      "Fenerbahçe",
+      "Trabzonspor",
       "Antalyaspor",
-      "Galatasaray",
-      "Trabzonspor"
+      "Galatasaray"
     ]
   },
   {
     "name": "Olcay Şahan",
-    "aliases": [
-      "Olcay",
-      "Sahan",
-      "Şahan"
-    ],
     "clubs": [
-      "Beşiktaş",
-      "Trabzonspor"
+      "Trabzonspor",
+      "Denizlispor",
+      "Beşiktaş"
     ]
   },
   {
-    "name": "Oleguer Presas",
-    "aliases": [
-      "Oleguer",
-      "Presas"
-    ],
+    "name": "Oleguer",
     "clubs": [
-      "Ajax",
-      "Barcelona"
+      "Barcelona",
+      "Ajax"
     ]
   },
   {
     "name": "Oleksandr Zinchenko",
-    "aliases": [
-      "oleksandr",
-      "Oleksandr",
-      "zinchenko",
-      "Zinchenko"
-    ],
     "clubs": [
-      "Ajax",
       "Arsenal",
-      "Manchester City"
+      "Man City"
     ]
   },
   {
-    "name": "Oliver Bierhoff",
-    "aliases": [
-      "Bierhoff",
-      "Oliver"
-    ],
+    "name": "Oliver Torres",
     "clubs": [
-      "Inter",
-      "Milan"
+      "FC Porto",
+      "Atletico Madrid"
     ]
   },
   {
     "name": "Olivier Dacourt",
-    "aliases": [
-      "Dacourt",
-      "Olivier"
-    ],
     "clubs": [
-      "Inter",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Olivier Jonathan Giroud",
-    "aliases": [
-      "giroud",
-      "Giroud",
-      "jonathan",
-      "Jonathan",
-      "olivier",
-      "Olivier"
-    ],
-    "clubs": [
-      "Arsenal",
-      "Chelsea",
-      "Milan"
-    ]
-  },
-  {
-    "name": "Oliviero Mascheroni",
-    "aliases": [
-      "Mascheroni",
-      "Oliviero"
-    ],
-    "clubs": [
-      "Inter",
-      "Milan",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Oluwafikayomi Oluwadamilola Tomori",
-    "aliases": [
-      "oluwadamilola",
-      "Oluwadamilola",
-      "oluwafikayomi",
-      "Oluwafikayomi",
-      "tomori",
-      "Tomori"
-    ],
-    "clubs": [
-      "Chelsea",
-      "Milan"
-    ]
-  },
-  {
-    "name": "Ondřej Čelůstka",
-    "aliases": [
-      "Čelůstka",
-      "Ondřej"
-    ],
-    "clubs": [
-      "Antalyaspor",
-      "Trabzonspor"
-    ]
-  },
-  {
-    "name": "Onésimo Sánchez",
-    "aliases": [
-      "Onésimo",
-      "Sánchez"
-    ],
-    "clubs": [
-      "Barcelona",
-      "Sevilla"
-    ]
-  },
-  {
-    "name": "Onur Tuncer",
-    "aliases": [
-      "Onur",
-      "Tuncer"
-    ],
-    "clubs": [
-      "Antalyaspor",
-      "Fenerbahçe",
-      "Sivasspor"
-    ]
-  },
-  {
-    "name": "Orhan Ak",
-    "aliases": [
-      "Orhan"
-    ],
-    "clubs": [
-      "Antalyaspor",
-      "Başakşehir",
-      "Galatasaray"
-    ]
-  },
-  {
-    "name": "Orhan Akyüz",
-    "aliases": [
-      "Akyüz",
-      "Orhan"
-    ],
-    "clubs": [
-      "Galatasaray",
-      "Kayserispor",
-      "Trabzonspor"
-    ]
-  },
-  {
-    "name": "Orhan Kaynak",
-    "aliases": [
-      "Kaynak",
-      "Orhan"
-    ],
-    "clubs": [
-      "Başakşehir",
-      "Beşiktaş",
-      "Trabzonspor"
-    ]
-  },
-  {
-    "name": "Oriol Busquets",
-    "aliases": [
-      "Busquets",
-      "Oriol"
-    ],
-    "clubs": [
-      "Barcelona",
-      "Juventus"
-    ]
-  },
-  {
-    "name": "Orkun Uşak",
-    "aliases": [
-      "Orkun",
-      "Uşak"
-    ],
-    "clubs": [
-      "Antalyaspor",
-      "Başakşehir",
-      "Galatasaray"
-    ]
-  },
-  {
-    "name": "Orlando Bocchi",
-    "aliases": [
-      "Bocchi",
-      "Orlando"
-    ],
-    "clubs": [
-      "Inter",
-      "Milan"
-    ]
-  },
-  {
-    "name": "Óscar Córdoba",
-    "aliases": [
-      "Córdoba",
-      "Óscar"
-    ],
-    "clubs": [
-      "Antalyaspor",
-      "Beşiktaş"
-    ]
-  },
-  {
-    "name": "Oscar Damiani",
-    "aliases": [
-      "Damiani",
-      "Oscar"
-    ],
-    "clubs": [
-      "Inter",
-      "Juventus",
-      "Milan"
-    ]
-  },
-  {
-    "name": "Osman Akyol",
-    "aliases": [
-      "Akyol",
-      "Osman"
-    ],
-    "clubs": [
-      "Antalyaspor",
-      "Galatasaray"
-    ]
-  },
-  {
-    "name": "Osman Özköylü",
-    "aliases": [
-      "Osman",
-      "Özköylü"
-    ],
-    "clubs": [
-      "Kayserispor",
-      "Trabzonspor"
-    ]
-  },
-  {
-    "name": "Ostap Steckiw",
-    "aliases": [
-      "Ostap",
-      "Steckiw"
-    ],
-    "clubs": [
-      "Lyon",
-      "Nice"
-    ]
-  },
-  {
-    "name": "Osvaldo Ardiles",
-    "aliases": [
-      "Ardiles",
-      "Osvaldo"
-    ],
-    "clubs": [
-      "PSG",
-      "Tottenham"
-    ]
-  },
-  {
-    "name": "Oumar Dieng",
-    "aliases": [
-      "Dieng",
-      "Oumar"
-    ],
-    "clubs": [
-      "PSG",
-      "Trabzonspor"
-    ]
-  },
-  {
-    "name": "Oumar Toure",
-    "aliases": [
-      "Oumar",
-      "Toure"
-    ],
-    "clubs": [
-      "Inter",
-      "Juventus"
-    ]
-  },
-  {
-    "name": "Ousmane Dabo",
-    "aliases": [
-      "Dabo",
-      "Ousmane"
-    ],
-    "clubs": [
-      "Inter",
-      "Manchester City"
-    ]
-  },
-  {
-    "name": "Owen Hargreaves",
-    "aliases": [
-      "Hargreaves",
-      "Owen"
-    ],
-    "clubs": [
-      "Manchester City",
-      "Manchester United"
-    ]
-  },
-  {
-    "name": "Øyvind Leonhardsen",
-    "aliases": [
-      "Leonhardsen",
-      "Øyvind"
-    ],
-    "clubs": [
-      "Liverpool",
-      "Tottenham"
-    ]
-  },
-  {
-    "name": "Ozan Muhammed Kabak",
-    "aliases": [
-      "kabak",
-      "Kabak",
-      "muhammed",
-      "Muhammed",
-      "ozan",
-      "Ozan"
-    ],
-    "clubs": [
-      "Galatasaray",
-      "Liverpool"
-    ]
-  },
-  {
-    "name": "Ömer Arslan",
-    "aliases": [
-      "Arslan",
-      "Ömer"
-    ],
-    "clubs": [
-      "Antalyaspor",
-      "Beşiktaş"
-    ]
-  },
-  {
-    "name": "Ömer Ateş",
-    "aliases": [
-      "Ateş",
-      "Ömer"
-    ],
-    "clubs": [
-      "Antalyaspor",
-      "Galatasaray"
-    ]
-  },
-  {
-    "name": "Ömer Rıza",
-    "aliases": [
-      "Ömer",
-      "Rıza"
-    ],
-    "clubs": [
-      "Arsenal",
-      "Trabzonspor"
-    ]
-  },
-  {
-    "name": "Ömer Şişmanoğlu",
-    "aliases": [
-      "Ömer",
-      "Şişmanoğlu"
-    ],
-    "clubs": [
-      "Antalyaspor",
-      "Beşiktaş",
-      "Kayserispor"
-    ]
-  },
-  {
-    "name": "Önder Turacı",
-    "aliases": [
-      "Önder",
-      "Turacı"
-    ],
-    "clubs": [
-      "Antalyaspor",
-      "Kayserispor"
-    ]
-  },
-  {
-    "name": "Öner Kılıç",
-    "aliases": [
-      "Kılıç",
-      "Öner"
-    ],
-    "clubs": [
-      "Galatasaray",
-      "Kayserispor"
-    ]
-  },
-  {
-    "name": "Özgürcan Özcan",
-    "aliases": [
-      "Özcan",
-      "Özgürcan"
-    ],
-    "clubs": [
-      "Galatasaray",
-      "Kayserispor"
-    ]
-  },
-  {
-    "name": "Pablo Alfaro Armengot",
-    "aliases": [
-      "Alfaro",
-      "Armengot",
-      "Pablo"
-    ],
-    "clubs": [
-      "Atletico Madrid",
-      "Barcelona",
-      "Sevilla"
-    ]
-  },
-  {
-    "name": "Pablo Gabriel García",
-    "aliases": [
-      "Gabriel",
-      "García",
-      "Pablo"
-    ],
-    "clubs": [
-      "Atletico Madrid",
-      "Milan",
-      "Real Madrid"
-    ]
-  },
-  {
-    "name": "Pablo Marí",
-    "aliases": [
-      "Marí",
-      "Pablo"
-    ],
-    "clubs": [
-      "Arsenal",
-      "Manchester City"
-    ]
-  },
-  {
-    "name": "Pablo Olmedo",
-    "aliases": [
-      "Olmedo",
-      "Pablo"
-    ],
-    "clubs": [
-      "Atletico Madrid",
-      "Real Madrid"
-    ]
-  },
-  {
-    "name": "Pablo Sarabia",
-    "aliases": [
-      "Pablo",
-      "Sarabia"
-    ],
-    "clubs": [
-      "PSG",
-      "Real Madrid",
-      "Sevilla"
-    ]
-  },
-  {
-    "name": "Paddy McGuire",
-    "aliases": [
-      "McGuire",
-      "Paddy"
-    ],
-    "clubs": [
-      "Manchester City",
-      "Manchester United"
-    ]
-  },
-  {
-    "name": "Paddy Sloan",
-    "aliases": [
-      "Paddy",
-      "Sloan"
-    ],
-    "clubs": [
-      "Arsenal",
-      "Manchester United",
-      "Milan"
-    ]
-  },
-  {
-    "name": "Paolo Barison",
-    "aliases": [
-      "Barison",
-      "Paolo"
-    ],
-    "clubs": [
-      "Milan",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Paolo Di Canio",
-    "aliases": [
-      "Canio",
-      "Paolo"
-    ],
-    "clubs": [
-      "Juventus",
-      "Milan"
-    ]
-  },
-  {
-    "name": "Paolo Ginestra",
-    "aliases": [
-      "Ginestra",
-      "Paolo"
-    ],
-    "clubs": [
-      "Inter",
-      "Milan"
-    ]
-  },
-  {
-    "name": "Paolo Giovannelli",
-    "aliases": [
-      "Giovannelli",
-      "Paolo"
-    ],
-    "clubs": [
-      "Juventus",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Paolo Rossi",
-    "aliases": [
-      "Paolo",
-      "Rossi"
-    ],
-    "clubs": [
-      "Juventus",
-      "Milan"
-    ]
-  },
-  {
-    "name": "Paolo Sirena",
-    "aliases": [
-      "Paolo",
-      "Sirena"
-    ],
-    "clubs": [
-      "Inter",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Paolo Tramezzani",
-    "aliases": [
-      "Paolo",
-      "Tramezzani"
-    ],
-    "clubs": [
-      "Inter",
-      "Tottenham"
-    ]
-  },
-  {
-    "name": "Paolo Viganò",
-    "aliases": [
-      "Paolo",
-      "Viganò"
-    ],
-    "clubs": [
-      "Juventus",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Pascal Nouma",
-    "aliases": [
-      "Nouma",
-      "Pascal"
-    ],
-    "clubs": [
-      "Beşiktaş",
-      "PSG"
-    ]
-  },
-  {
-    "name": "Pat Finnerhan",
-    "aliases": [
-      "Finnerhan",
-      "Pat"
-    ],
-    "clubs": [
-      "Liverpool",
-      "Manchester City"
-    ]
-  },
-  {
-    "name": "Pat Jennings",
-    "aliases": [
-      "Jennings",
-      "Pat"
-    ],
-    "clubs": [
-      "Arsenal",
-      "Tottenham"
-    ]
-  },
-  {
-    "name": "Patrice Evra",
-    "aliases": [
-      "Evra",
-      "Patrice"
-    ],
-    "clubs": [
-      "Juventus",
-      "Manchester United",
-      "Nice"
-    ]
-  },
-  {
-    "name": "Patrice Loko",
-    "aliases": [
-      "Loko",
-      "Patrice"
-    ],
-    "clubs": [
-      "Lyon",
-      "PSG"
-    ]
-  },
-  {
-    "name": "Patrick Kluivert",
-    "aliases": [
-      "Kluivert",
-      "Patrick"
-    ],
-    "clubs": [
-      "Ajax",
-      "Barcelona",
-      "Milan"
-    ]
-  },
-  {
-    "name": "Patrick Vieira",
-    "aliases": [
-      "Patrick",
-      "Vieira"
-    ],
-    "clubs": [
-      "Arsenal",
-      "Inter",
-      "Juventus",
-      "Manchester City",
-      "Milan"
-    ]
-  },
-  {
-    "name": "Patxi Ferreira",
-    "aliases": [
-      "Ferreira",
-      "Patxi"
-    ],
-    "clubs": [
-      "Atletico Madrid",
-      "Sevilla"
-    ]
-  },
-  {
-    "name": "Paul Arnold Walty",
-    "aliases": [
-      "Arnold",
-      "Paul",
-      "Walty"
-    ],
-    "clubs": [
-      "Juventus",
-      "Milan"
-    ]
-  },
-  {
-    "name": "Paul Dickov",
-    "aliases": [
-      "Dickov",
-      "Paul"
-    ],
-    "clubs": [
-      "Arsenal",
-      "Manchester City"
-    ]
-  },
-  {
-    "name": "Paul Ince",
-    "aliases": [
-      "Ince",
-      "Paul"
-    ],
-    "clubs": [
-      "Inter",
-      "Liverpool",
-      "Manchester United"
-    ]
-  },
-  {
-    "name": "Paul Konchesky",
-    "aliases": [
-      "Konchesky",
-      "Paul"
-    ],
-    "clubs": [
-      "Liverpool",
-      "Tottenham"
-    ]
-  },
-  {
-    "name": "Paul Labile Pogba",
-    "aliases": [
-      "labile",
-      "Labile",
-      "paul",
-      "Paul",
-      "pogba",
-      "Pogba"
-    ],
-    "clubs": [
-      "Juventus",
-      "Manchester United"
-    ]
-  },
-  {
-    "name": "Paul Stewart",
-    "aliases": [
-      "Paul",
-      "Stewart"
-    ],
-    "clubs": [
-      "Liverpool",
-      "Manchester City",
-      "Tottenham"
-    ]
-  },
-  {
-    "name": "Paul Walsh",
-    "aliases": [
-      "Paul",
-      "Walsh"
-    ],
-    "clubs": [
-      "Liverpool",
-      "Manchester City",
-      "Tottenham"
-    ]
-  },
-  {
-    "name": "Paulinho",
-    "aliases": [],
-    "clubs": [
-      "Barcelona",
-      "Tottenham"
-    ]
-  },
-  {
-    "name": "Paulo Exequiel Dybala",
-    "aliases": [
-      "dybala",
-      "Dybala",
-      "exequiel",
-      "Exequiel",
-      "paulo",
-      "Paulo"
-    ],
-    "clubs": [
-      "Juventus",
-      "Roma"
-    ]
-  },
-  {
-    "name": "paulo foutro",
-    "aliases": [
-      "foutro",
-      "paulo"
-    ],
-    "clubs": [
-      "Atletico Madrid",
-      "Milan"
-    ]
-  },
-  {
-    "name": "Paulo Sousa",
-    "aliases": [
-      "Paulo",
-      "Sousa"
-    ],
-    "clubs": [
-      "Inter",
-      "Juventus"
-    ]
-  },
-  {
-    "name": "Pedro González Martínez",
-    "aliases": [
-      "González",
-      "Martínez",
-      "Pedro"
-    ],
-    "clubs": [
-      "Atletico Madrid",
-      "Sevilla"
-    ]
-  },
-  {
-    "name": "Pedro Luis Jaro",
-    "aliases": [
-      "Jaro",
-      "Luis",
-      "Pedro"
-    ],
-    "clubs": [
-      "Atletico Madrid",
-      "Real Madrid"
-    ]
-  },
-  {
-    "name": "Pedro Manfredini",
-    "aliases": [
-      "Manfredini",
-      "Pedro"
-    ],
-    "clubs": [
-      "Inter",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Pedro Mario Álvarez",
-    "aliases": [
-      "Álvarez",
-      "Mario",
-      "Pedro"
-    ],
-    "clubs": [
-      "Atletico Madrid",
-      "Barcelona"
-    ]
-  },
-  {
-    "name": "Peguy Luyindula",
-    "aliases": [
-      "Luyindula",
-      "Peguy"
-    ],
-    "clubs": [
-      "Lyon",
-      "PSG"
-    ]
-  },
-  {
-    "name": "Pep Guardiola",
-    "aliases": [
-      "Guardiola",
-      "Pep"
-    ],
-    "clubs": [
-      "Barcelona",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Pepe",
-    "aliases": [],
-    "clubs": [
-      "Beşiktaş",
-      "Real Madrid"
-    ]
-  },
-  {
-    "name": "Peter Barnes",
-    "aliases": [
-      "Barnes",
-      "Peter"
-    ],
-    "clubs": [
-      "Manchester City",
-      "Manchester United"
-    ]
-  },
-  {
-    "name": "Peter Beardsley",
-    "aliases": [
-      "Beardsley",
-      "Peter"
-    ],
-    "clubs": [
-      "Liverpool",
-      "Manchester City",
-      "Manchester United"
-    ]
-  },
-  {
-    "name": "Peter Bodak",
-    "aliases": [
-      "Bodak",
-      "Peter"
-    ],
-    "clubs": [
-      "Manchester City",
-      "Manchester United"
-    ]
-  },
-  {
-    "name": "Peter Crouch",
-    "aliases": [
-      "Crouch",
-      "Peter"
-    ],
-    "clubs": [
-      "Liverpool",
-      "Tottenham"
-    ]
-  },
-  {
-    "name": "Peter Doherty",
-    "aliases": [
-      "Doherty",
-      "Peter"
-    ],
-    "clubs": [
-      "Manchester City",
-      "Manchester United"
-    ]
-  },
-  {
-    "name": "Peter Dougall",
-    "aliases": [
-      "Dougall",
-      "Peter"
-    ],
-    "clubs": [
-      "Arsenal",
-      "Manchester United"
-    ]
-  },
-  {
-    "name": "Peter Kyle",
-    "aliases": [
-      "Kyle",
-      "Peter"
-    ],
-    "clubs": [
-      "Arsenal",
-      "Liverpool",
-      "Tottenham"
-    ]
-  },
-  {
-    "name": "Peter Luccin",
-    "aliases": [
-      "Luccin",
-      "Peter"
-    ],
-    "clubs": [
-      "Atletico Madrid",
-      "PSG"
-    ]
-  },
-  {
-    "name": "Peter Schmeichel",
-    "aliases": [
-      "Peter",
-      "Schmeichel"
-    ],
-    "clubs": [
-      "Manchester City",
-      "Manchester United"
-    ]
-  },
-  {
-    "name": "Phil Chisnall",
-    "aliases": [
-      "Chisnall",
-      "Phil"
-    ],
-    "clubs": [
-      "Liverpool",
-      "Manchester United"
-    ]
-  },
-  {
-    "name": "Philippe Coutinho Correia",
-    "aliases": [
-      "correia",
-      "Correia",
-      "coutinho",
-      "Coutinho",
-      "philippe",
-      "Philippe"
-    ],
-    "clubs": [
-      "Barcelona",
-      "Inter",
-      "Liverpool"
-    ]
-  },
-  {
-    "name": "Philippe Mexès",
-    "aliases": [
-      "Mexès",
-      "Philippe"
-    ],
-    "clubs": [
-      "Milan",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Philippe N'Dioro",
-    "aliases": [
-      "N'Dioro",
-      "Philippe"
-    ],
-    "clubs": [
-      "Lyon",
-      "Nice"
-    ]
-  },
-  {
-    "name": "Philippe Senderos",
-    "aliases": [
-      "Philippe",
-      "Senderos"
-    ],
-    "clubs": [
-      "Arsenal",
-      "Milan"
-    ]
-  },
-  {
-    "name": "Pier Luigi Pizzaballa",
-    "aliases": [
-      "Luigi",
-      "Pier",
-      "Pizzaballa"
-    ],
-    "clubs": [
-      "Milan",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Pierino Fanna",
-    "aliases": [
-      "Fanna",
-      "Pierino"
-    ],
-    "clubs": [
-      "Inter",
-      "Juventus"
-    ]
-  },
-  {
-    "name": "Pierino Prati",
-    "aliases": [
-      "Pierino",
-      "Prati"
-    ],
-    "clubs": [
-      "Milan",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Pierluigi Orlandini",
-    "aliases": [
-      "Orlandini",
-      "Pierluigi"
-    ],
-    "clubs": [
-      "Inter",
-      "Milan"
-    ]
-  },
-  {
-    "name": "Pierre Dréossi",
-    "aliases": [
-      "Dréossi",
-      "Pierre"
-    ],
-    "clubs": [
-      "Nice",
-      "PSG"
-    ]
-  },
-  {
-    "name": "Pierre Womé",
-    "aliases": [
-      "Pierre",
-      "Womé"
-    ],
-    "clubs": [
-      "Inter",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Pierre-Alain Frau",
-    "aliases": [
-      "Alain",
-      "Frau",
-      "Pierre"
-    ],
-    "clubs": [
-      "Lyon",
-      "PSG"
-    ]
-  },
-  {
-    "name": "Pierre-Emerick Emiliano Franço Aubameyang",
-    "aliases": [
-      "aubameyang",
-      "Aubameyang",
-      "emerick",
-      "Emerick",
-      "emiliano",
-      "Emiliano",
-      "franco",
-      "Franço",
-      "pierre",
-      "Pierre"
-    ],
-    "clubs": [
-      "Arsenal",
-      "Barcelona",
-      "Chelsea",
-      "Milan"
-    ]
-  },
-  {
-    "name": "Pietro Anastasi",
-    "aliases": [
-      "Anastasi",
-      "Pietro"
-    ],
-    "clubs": [
-      "Inter",
-      "Juventus"
-    ]
-  },
-  {
-    "name": "Pietro Bronzini",
-    "aliases": [
-      "Bronzini",
-      "Pietro"
-    ],
-    "clubs": [
-      "Inter",
-      "Milan"
-    ]
-  },
-  {
-    "name": "Pietro Grosso",
-    "aliases": [
-      "Grosso",
-      "Pietro"
-    ],
-    "clubs": [
-      "Milan",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Pietro Paolo Virdis",
-    "aliases": [
-      "Paolo",
-      "Pietro",
-      "Virdis"
-    ],
-    "clubs": [
-      "Juventus",
-      "Milan"
-    ]
-  },
-  {
-    "name": "Pietro Pastore",
-    "aliases": [
-      "Pastore",
-      "Pietro"
-    ],
-    "clubs": [
-      "Juventus",
-      "Milan",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Pietro Rebuzzi",
-    "aliases": [
-      "Pietro",
-      "Rebuzzi"
-    ],
-    "clubs": [
-      "Inter",
-      "Milan"
-    ]
-  },
-  {
-    "name": "Pietro Serantoni",
-    "aliases": [
-      "Pietro",
-      "Serantoni"
-    ],
-    "clubs": [
-      "Inter",
-      "Juventus",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Pietro Vierchowod",
-    "aliases": [
-      "Pietro",
-      "Vierchowod"
-    ],
-    "clubs": [
-      "Juventus",
-      "Milan",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Pini Balili",
-    "aliases": [
-      "Balili",
-      "Pini"
-    ],
-    "clubs": [
-      "Antalyaspor",
-      "Kayserispor",
-      "Sivasspor"
-    ]
-  },
-  {
-    "name": "Pol García",
-    "aliases": [
-      "García",
-      "Pol"
-    ],
-    "clubs": [
-      "Barcelona",
-      "Juventus"
-    ]
-  },
-  {
-    "name": "Pruden",
-    "aliases": [],
-    "clubs": [
-      "Atletico Madrid",
-      "Real Madrid"
-    ]
-  },
-  {
-    "name": "Rachid Ghezzal",
-    "aliases": [
-      "Ghezzal",
-      "Rachid"
-    ],
-    "clubs": [
-      "Beşiktaş",
-      "Leicester City",
-      "Lyon",
-      "Monaco"
-    ]
-  },
-  {
-    "name": "Radamel Falcao",
-    "aliases": [
-      "Falcao",
-      "Radamel"
-    ],
-    "clubs": [
-      "Atletico Madrid",
-      "Galatasaray",
-      "Manchester United"
-    ]
-  },
-  {
-    "name": "Radamel Falcao García Zárate",
-    "aliases": [
-      "falcao",
-      "Falcao",
-      "garcia",
-      "García",
-      "radamel",
-      "Radamel",
-      "zarate",
-      "Zárate"
-    ],
-    "clubs": [
-      "Chelsea",
-      "Galatasaray",
-      "Manchester United"
-    ]
-  },
-  {
-    "name": "Radja Nainggolan",
-    "aliases": [
-      "Nainggolan",
-      "Radja"
-    ],
-    "clubs": [
-      "Inter",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Rafa Mir",
-    "aliases": [
-      "Mir",
-      "Rafa"
-    ],
-    "clubs": [
-      "Barcelona",
-      "Sevilla"
-    ]
-  },
-  {
-    "name": "Rafael Batista Hernández",
-    "aliases": [
-      "Batista",
-      "Hernández",
-      "Rafael"
-    ],
-    "clubs": [
-      "Real Madrid",
-      "Sevilla"
-    ]
-  },
-  {
-    "name": "Rafael Lesmes",
-    "aliases": [
-      "Lesmes",
-      "Rafael"
-    ],
-    "clubs": [
-      "Atletico Madrid",
-      "Real Madrid"
-    ]
-  },
-  {
-    "name": "Rafael Pereira da Silva",
-    "aliases": [
-      "Pereira",
-      "Rafael",
-      "Silva"
-    ],
-    "clubs": [
-      "Lyon",
-      "Manchester United"
-    ]
-  },
-  {
-    "name": "Rafael van der Vaart",
-    "aliases": [
-      "der",
-      "Rafael",
-      "Vaart",
-      "van"
-    ],
-    "clubs": [
-      "Ajax",
-      "Real Madrid",
-      "Tottenham"
-    ]
-  },
-  {
-    "name": "Rafinha",
-    "aliases": [],
-    "clubs": [
-      "Barcelona",
-      "Inter",
-      "PSG"
-    ]
-  },
-  {
-    "name": "Ragıp Başdağ",
-    "aliases": [
-      "Başdağ",
-      "Ragıp"
-    ],
-    "clubs": [
-      "Kayserispor",
-      "Trabzonspor"
-    ]
-  },
-  {
-    "name": "Raheem Shaquille Sterling",
-    "aliases": [
-      "raheem",
-      "Raheem",
-      "shaquille",
-      "Shaquille",
-      "sterling",
-      "Sterling"
-    ],
-    "clubs": [
-      "Arsenal",
-      "Chelsea",
-      "Liverpool",
-      "Manchester City"
-    ]
-  },
-  {
-    "name": "Ralph Gaudie",
-    "aliases": [
-      "Gaudie",
-      "Ralph"
-    ],
-    "clubs": [
-      "Arsenal",
-      "Manchester United"
-    ]
-  },
-  {
-    "name": "Ramón de Mendizábal",
-    "aliases": [
-      "Mendizábal",
-      "Ramón"
-    ],
-    "clubs": [
-      "Atletico Madrid",
-      "Real Madrid"
-    ]
-  },
-  {
-    "name": "Ramón de Pablo Marañón",
-    "aliases": [
-      "Marañón",
-      "Pablo",
-      "Ramón"
-    ],
-    "clubs": [
-      "Atletico Madrid",
-      "Barcelona"
-    ]
-  },
-  {
-    "name": "Ramón Grosso",
-    "aliases": [
-      "Grosso",
-      "Ramón"
-    ],
-    "clubs": [
-      "Atletico Madrid",
-      "Real Madrid"
-    ]
-  },
-  {
-    "name": "Ramón Heredia",
-    "aliases": [
-      "Heredia",
-      "Ramón"
-    ],
-    "clubs": [
-      "Atletico Madrid",
-      "PSG"
-    ]
-  },
-  {
-    "name": "Ramon Motta",
-    "aliases": [
-      "Motta",
-      "Ramon"
-    ],
-    "clubs": [
-      "Antalyaspor",
-      "Beşiktaş"
-    ]
-  },
-  {
-    "name": "Raoul Bellanova",
-    "aliases": [
-      "Bellanova",
-      "Raoul"
-    ],
-    "clubs": [
-      "Inter",
-      "Milan"
-    ]
-  },
-  {
-    "name": "Raphaël Varane",
-    "aliases": [
-      "Raphaël",
-      "Varane"
-    ],
-    "clubs": [
-      "Manchester United",
-      "Real Madrid"
-    ]
-  },
-  {
-    "name": "Ray Clarke",
-    "aliases": [
-      "Clarke",
-      "Ray"
-    ],
-    "clubs": [
-      "Ajax",
-      "Tottenham"
-    ]
-  },
-  {
-    "name": "Ray Clemence",
-    "aliases": [
-      "Clemence",
-      "Ray"
-    ],
-    "clubs": [
-      "Liverpool",
-      "Tottenham"
-    ]
-  },
-  {
-    "name": "Ray Kennedy",
-    "aliases": [
-      "Kennedy",
-      "Ray"
-    ],
-    "clubs": [
-      "Arsenal",
-      "Liverpool"
-    ]
-  },
-  {
-    "name": "Ray Wilkins",
-    "aliases": [
-      "Ray",
-      "Wilkins"
-    ],
-    "clubs": [
-      "Manchester United",
-      "Milan",
-      "PSG"
-    ]
-  },
-  {
-    "name": "Raymond Domenech",
-    "aliases": [
-      "Domenech",
-      "Raymond"
-    ],
-    "clubs": [
-      "Lyon",
-      "PSG"
-    ]
-  },
-  {
-    "name": "Razundara Tjikuzu",
-    "aliases": [
-      "Razundara",
-      "Tjikuzu"
-    ],
-    "clubs": [
-      "Başakşehir",
-      "Trabzonspor"
-    ]
-  },
-  {
-    "name": "Recep Adanır",
-    "aliases": [
-      "Adanır",
-      "Recep"
-    ],
-    "clubs": [
-      "Beşiktaş",
-      "Galatasaray"
-    ]
-  },
-  {
-    "name": "Recep Çetin",
-    "aliases": [
-      "Çetin",
-      "Recep"
-    ],
-    "clubs": [
-      "Beşiktaş",
-      "Trabzonspor"
-    ]
-  },
-  {
-    "name": "Refik Osman Top",
-    "aliases": [
-      "Osman",
-      "Refik",
-      "Top"
-    ],
-    "clubs": [
-      "Beşiktaş",
-      "Galatasaray"
-    ]
-  },
-  {
-    "name": "Rémi Garde",
-    "aliases": [
-      "Garde",
-      "Rémi"
-    ],
-    "clubs": [
-      "Arsenal",
-      "Lyon"
-    ]
-  },
-  {
-    "name": "Renato Bodini",
-    "aliases": [
-      "Bodini",
-      "Renato"
-    ],
-    "clubs": [
-      "Milan",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Renato Cappellini",
-    "aliases": [
-      "Cappellini",
-      "Renato"
-    ],
-    "clubs": [
-      "Inter",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Renato De Manzano",
-    "aliases": [
-      "Manzano",
-      "Renato"
-    ],
-    "clubs": [
-      "Inter",
-      "Milan"
-    ]
-  },
-  {
-    "name": "Renato Ibarra",
-    "aliases": [
-      "Ibarra",
-      "Renato"
-    ],
-    "clubs": [
-      "Barcelona",
-      "Real Madrid"
-    ]
-  },
-  {
-    "name": "Renato Marchiaro",
-    "aliases": [
-      "Marchiaro",
-      "Renato"
-    ],
-    "clubs": [
-      "Juventus",
-      "Nice"
-    ]
-  },
-  {
-    "name": "Renato Olmi",
-    "aliases": [
-      "Olmi",
-      "Renato"
-    ],
-    "clubs": [
-      "Inter",
-      "Juventus"
-    ]
-  },
-  {
-    "name": "René Bocchi",
-    "aliases": [
-      "Bocchi",
-      "René"
-    ],
-    "clubs": [
-      "Lyon",
-      "Nice"
-    ]
-  },
-  {
-    "name": "Reto Ziegler",
-    "aliases": [
-      "Reto",
-      "Ziegler"
-    ],
-    "clubs": [
-      "Juventus",
-      "Tottenham"
-    ]
-  },
-  {
-    "name": "Rıdvan Şimşek",
-    "aliases": [
-      "Rıdvan",
-      "Şimşek"
-    ],
-    "clubs": [
-      "Antalyaspor",
-      "Beşiktaş"
-    ]
-  },
-  {
-    "name": "Ricardo",
-    "aliases": [],
-    "clubs": [
-      "Atletico Madrid",
-      "Manchester United"
-    ]
-  },
-  {
-    "name": "Ricardo Quaresma",
-    "aliases": [
-      "Quaresma",
-      "Ricardo"
-    ],
-    "clubs": [
-      "Barcelona",
-      "Beşiktaş",
-      "Chelsea",
+      "AS Roma",
       "Inter"
     ]
   },
   {
-    "name": "Ricardo Serna",
-    "aliases": [
-      "Ricardo",
-      "Serna"
-    ],
+    "name": "Olivier Giroud",
     "clubs": [
-      "Barcelona",
-      "Sevilla"
-    ]
-  },
-  {
-    "name": "Ricardo Zamora",
-    "aliases": [
-      "Ricardo",
-      "Zamora"
-    ],
-    "clubs": [
-      "Barcelona",
-      "Nice",
-      "Real Madrid"
-    ]
-  },
-  {
-    "name": "Riccardo Carapellese",
-    "aliases": [
-      "Carapellese",
-      "Riccardo"
-    ],
-    "clubs": [
-      "Juventus",
-      "Milan"
-    ]
-  },
-  {
-    "name": "Richard Dutruel",
-    "aliases": [
-      "Dutruel",
-      "Richard"
-    ],
-    "clubs": [
-      "Barcelona",
-      "PSG"
-    ]
-  },
-  {
-    "name": "Richard Kingson",
-    "aliases": [
-      "Kingson",
-      "Richard"
-    ],
-    "clubs": [
-      "Antalyaspor",
-      "Galatasaray"
-    ]
-  },
-  {
-    "name": "Richard Witschge",
-    "aliases": [
-      "Richard",
-      "Witschge"
-    ],
-    "clubs": [
-      "Ajax",
-      "Barcelona"
-    ]
-  },
-  {
-    "name": "Richard Wright",
-    "aliases": [
-      "Richard",
-      "Wright"
-    ],
-    "clubs": [
+      "Chelsea",
       "Arsenal",
-      "Manchester City"
+      "AC Milan"
     ]
   },
   {
-    "name": "Rigobert Song",
-    "aliases": [
-      "Rigobert",
-      "Song"
-    ],
+    "name": "Omar Elabdellaoui",
     "clubs": [
       "Galatasaray",
-      "Liverpool",
-      "Trabzonspor"
+      "Man City"
     ]
   },
   {
-    "name": "Riki",
-    "aliases": [],
-    "clubs": [
-      "Atletico Madrid",
-      "Real Madrid"
-    ]
-  },
-  {
-    "name": "Rino Ferrario",
-    "aliases": [
-      "Ferrario",
-      "Rino"
-    ],
-    "clubs": [
-      "Inter",
-      "Juventus"
-    ]
-  },
-  {
-    "name": "Rivaldo",
-    "aliases": [],
-    "clubs": [
-      "Barcelona",
-      "Milan"
-    ]
-  },
-  {
-    "name": "Robbie Fowler",
-    "aliases": [
-      "Fowler",
-      "Robbie"
-    ],
-    "clubs": [
-      "Liverpool",
-      "Manchester City"
-    ]
-  },
-  {
-    "name": "Robbie Keane",
-    "aliases": [
-      "Keane",
-      "Robbie"
-    ],
-    "clubs": [
-      "Inter",
-      "Liverpool",
-      "Tottenham"
-    ]
-  },
-  {
-    "name": "Robert Jarni",
-    "aliases": [
-      "Jarni",
-      "Robert"
-    ],
-    "clubs": [
-      "Juventus",
-      "Real Madrid"
-    ]
-  },
-  {
-    "name": "Robert Prosinečki",
-    "aliases": [
-      "Prosinečki",
-      "Robert"
-    ],
-    "clubs": [
-      "Barcelona",
-      "Real Madrid",
-      "Sevilla"
-    ]
-  },
-  {
-    "name": "Róbert Vittek",
-    "aliases": [
-      "Róbert",
-      "Vittek"
-    ],
-    "clubs": [
-      "Başakşehir",
-      "Trabzonspor"
-    ]
-  },
-  {
-    "name": "Roberto Abbondanzieri",
-    "aliases": [
-      "Abbondanzieri",
-      "Roberto"
-    ],
-    "clubs": [
-      "Inter",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Roberto Antonelli",
-    "aliases": [
-      "Antonelli",
-      "Roberto"
-    ],
-    "clubs": [
-      "Milan",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Roberto Baggio",
-    "aliases": [
-      "Baggio",
-      "Roberto"
-    ],
-    "clubs": [
-      "Inter",
-      "Juventus",
-      "Milan"
-    ]
-  },
-  {
-    "name": "Roberto Boninsegna",
-    "aliases": [
-      "Boninsegna",
-      "Roberto"
-    ],
-    "clubs": [
-      "Inter",
-      "Juventus"
-    ]
-  },
-  {
-    "name": "Roberto Carlos",
-    "aliases": [
-      "Carlos",
-      "Roberto"
-    ],
-    "clubs": [
-      "Inter",
-      "Real Madrid"
-    ]
-  },
-  {
-    "name": "Roberto Pereyra",
-    "aliases": [
-      "Pereyra",
-      "Roberto"
-    ],
-    "clubs": [
-      "Inter",
-      "Juventus"
-    ]
-  },
-  {
-    "name": "Roberto Scarnecchia",
-    "aliases": [
-      "Roberto",
-      "Scarnecchia"
-    ],
-    "clubs": [
-      "Milan",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Roberto Soldado",
-    "aliases": [
-      "Roberto",
-      "Soldado"
-    ],
-    "clubs": [
-      "Fenerbahçe",
-      "Real Madrid",
-      "Tottenham",
-      "Valencia"
-    ]
-  },
-  {
-    "name": "Roberto Tricella",
-    "aliases": [
-      "Roberto",
-      "Tricella"
-    ],
-    "clubs": [
-      "Inter",
-      "Juventus"
-    ]
-  },
-  {
-    "name": "Roberto Vieri",
-    "aliases": [
-      "Roberto",
-      "Vieri"
-    ],
-    "clubs": [
-      "Juventus",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Robin van Persie",
-    "aliases": [
-      "Persie",
-      "Robin",
-      "van",
-      "Van Persie"
-    ],
+    "name": "Omar Rekik",
     "clubs": [
       "Arsenal",
-      "Fenerbahçe",
-      "Manchester United"
+      "Man City"
     ]
   },
   {
-    "name": "Robinho",
-    "aliases": [
-      "Robson de Souza"
-    ],
+    "name": "Omari Hutchinson",
     "clubs": [
+      "Chelsea",
+      "Arsenal"
+    ]
+  },
+  {
+    "name": "Onur Bulut",
+    "clubs": [
+      "Kayserispor",
       "Başakşehir",
-      "Manchester City",
-      "Milan",
-      "Real Madrid",
-      "Sivasspor"
-    ]
-  },
-  {
-    "name": "Rodri",
-    "aliases": [],
-    "clubs": [
-      "Barcelona",
-      "Sevilla"
-    ]
-  },
-  {
-    "name": "Rodrigo Defendi",
-    "aliases": [
-      "Defendi",
-      "Rodrigo"
-    ],
-    "clubs": [
-      "Roma",
-      "Tottenham"
-    ]
-  },
-  {
-    "name": "Rodrigo Fabri",
-    "aliases": [
-      "Fabri",
-      "Rodrigo"
-    ],
-    "clubs": [
-      "Atletico Madrid",
-      "Real Madrid"
-    ]
-  },
-  {
-    "name": "Roger García Junyent",
-    "aliases": [
-      "García",
-      "Junyent",
-      "Roger"
-    ],
-    "clubs": [
-      "Ajax",
-      "Barcelona"
-    ]
-  },
-  {
-    "name": "Rohan Ricketts",
-    "aliases": [
-      "Ricketts",
-      "Rohan"
-    ],
-    "clubs": [
-      "Arsenal",
-      "Tottenham"
-    ]
-  },
-  {
-    "name": "Roman Dąbrowski",
-    "aliases": [
-      "Dąbrowski",
-      "Roman"
-    ],
-    "clubs": [
-      "Antalyaspor",
       "Beşiktaş"
     ]
   },
   {
-    "name": "Roman Kosecki",
-    "aliases": [
-      "Kosecki",
-      "Roman"
-    ],
+    "name": "Onur Tuncer",
     "clubs": [
-      "Atletico Madrid",
+      "Sivasspor",
+      "Fenerbahçe",
+      "Antalyaspor"
+    ]
+  },
+  {
+    "name": "Orhan Şam",
+    "clubs": [
+      "Fenerbahçe",
+      "Genclerbirligi"
+    ]
+  },
+  {
+    "name": "Oriol Romeu",
+    "clubs": [
+      "Chelsea",
+      "Barcelona"
+    ]
+  },
+  {
+    "name": "Orkan Çınar",
+    "clubs": [
+      "Konyaspor",
+      "Beşiktaş"
+    ]
+  },
+  {
+    "name": "Orkun Kökçü",
+    "clubs": [
+      "Beşiktaş",
+      "Benfica"
+    ]
+  },
+  {
+    "name": "Orkun Usak",
+    "clubs": [
+      "Konyaspor",
+      "Başakşehir",
+      "Antalyaspor",
       "Galatasaray"
     ]
   },
   {
-    "name": "Romano Penzo",
-    "aliases": [
-      "Penzo",
-      "Romano"
-    ],
+    "name": "Orkun Özdemir",
     "clubs": [
-      "Inter",
-      "Milan"
+      "Genclerbirligi",
+      "Beşiktaş"
     ]
   },
   {
-    "name": "Romário",
-    "aliases": [],
+    "name": "Osazee Aghatise",
     "clubs": [
-      "Ajax",
-      "Barcelona"
+      "Man Utd",
+      "Man City"
     ]
   },
   {
-    "name": "Romelu Menama Lukaku Bolingoli",
-    "aliases": [
-      "bolingoli",
-      "Bolingoli",
-      "lukaku",
-      "Lukaku",
-      "menama",
-      "Menama",
-      "romelu",
-      "Romelu"
-    ],
+    "name": "Oscar Cardozo",
     "clubs": [
-      "Chelsea",
-      "Inter",
-      "Manchester United",
-      "Roma"
+      "Trabzonspor",
+      "Benfica"
     ]
   },
   {
-    "name": "Romeo Benetti",
-    "aliases": [
-      "Benetti",
-      "Romeo"
-    ],
+    "name": "Osman Yeşilmeşe",
     "clubs": [
-      "Inter",
-      "Juventus",
-      "Milan",
-      "Roma"
+      "Kayserispor",
+      "Antalyaspor"
     ]
   },
   {
-    "name": "Romeo Menti",
-    "aliases": [
-      "Menti",
-      "Romeo"
-    ],
+    "name": "Ouasim Bouy",
     "clubs": [
       "Juventus",
-      "Milan"
+      "Ajax"
     ]
   },
   {
-    "name": "Ronald de Boer",
-    "aliases": [
-      "Boer",
-      "Ronald"
-    ],
+    "name": "Oumar Dieng",
     "clubs": [
-      "Ajax",
+      "Konyaspor",
+      "Trabzonspor"
+    ]
+  },
+  {
+    "name": "Ousmane Dabo",
+    "clubs": [
+      "Inter",
+      "Man City"
+    ]
+  },
+  {
+    "name": "Ousmane Dembele",
+    "clubs": [
+      "Bor. Dortmund",
       "Barcelona"
     ]
   },
   {
-    "name": "Ronald Koeman",
-    "aliases": [
-      "Koeman",
-      "Ronald"
-    ],
+    "name": "Owen Hargreaves",
     "clubs": [
-      "Ajax",
-      "Barcelona"
+      "Man Utd",
+      "Bayern Munich",
+      "Man City"
     ]
   },
   {
-    "name": "Ronaldinho",
-    "aliases": [],
+    "name": "Ozan Kabak",
     "clubs": [
-      "Barcelona",
-      "Milan",
-      "PSG"
+      "Galatasaray",
+      "Liverpool"
     ]
   },
   {
-    "name": "Ronaldo",
-    "aliases": [],
+    "name": "Ozan Tufan",
     "clubs": [
-      "Barcelona",
-      "Inter",
-      "Milan",
-      "Real Madrid"
+      "Fenerbahçe",
+      "Trabzonspor"
     ]
   },
   {
-    "name": "Ronnie Dix",
-    "aliases": [
-      "Dix",
-      "Ronnie"
-    ],
+    "name": "Ozan Özkan",
     "clubs": [
-      "Liverpool",
-      "Tottenham"
+      "Konyaspor",
+      "Denizlispor"
     ]
   },
   {
-    "name": "Ronnie Ekelund",
-    "aliases": [
-      "Ekelund",
-      "Ronnie"
-    ],
+    "name": "Oğulcan Çağlayan",
     "clubs": [
-      "Barcelona",
-      "Manchester City"
+      "Kayserispor",
+      "Galatasaray"
     ]
   },
   {
-    "name": "Ronny Johnsen",
-    "aliases": [
-      "Johnsen",
-      "Ronny"
-    ],
+    "name": "Oğuz Dağlaroğlu",
     "clubs": [
-      "Beşiktaş",
-      "Manchester United"
-    ]
-  },
-  {
-    "name": "Ronny Rosenthal",
-    "aliases": [
-      "Ronny",
-      "Rosenthal"
-    ],
-    "clubs": [
-      "Liverpool",
-      "Tottenham"
-    ]
-  },
-  {
-    "name": "Ronny Toma",
-    "aliases": [
-      "Ronny",
-      "Toma"
-    ],
-    "clubs": [
-      "Inter",
-      "Milan"
-    ]
-  },
-  {
-    "name": "Ruben Buriani",
-    "aliases": [
-      "Buriani",
-      "Ruben"
-    ],
-    "clubs": [
-      "Milan",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Rubén Olivera",
-    "aliases": [
-      "Olivera",
-      "Rubén"
-    ],
-    "clubs": [
-      "Atletico Madrid",
-      "Juventus"
-    ]
-  },
-  {
-    "name": "Rubén Sobrino",
-    "aliases": [
-      "Rubén",
-      "Sobrino"
-    ],
-    "clubs": [
-      "Manchester City",
-      "Real Madrid"
-    ]
-  },
-  {
-    "name": "Ruud Kaiser",
-    "aliases": [
-      "Kaiser",
-      "Ruud"
-    ],
-    "clubs": [
-      "Ajax",
-      "Nice"
-    ]
-  },
-  {
-    "name": "Ruud van Nistelrooy",
-    "aliases": [
-      "Nistelrooy",
-      "Ruud",
-      "van"
-    ],
-    "clubs": [
-      "Manchester United",
-      "Real Madrid"
-    ]
-  },
-  {
-    "name": "Rüştü Reçber",
-    "aliases": [
-      "Recber",
-      "Reçber",
-      "Rustu",
-      "Rüştü"
-    ],
-    "clubs": [
-      "Barcelona",
-      "Beşiktaş",
+      "Sivasspor",
       "Fenerbahçe"
     ]
   },
   {
-    "name": "Ryan Babel",
-    "aliases": [
-      "Babel",
-      "Ryan"
-    ],
+    "name": "Oğuz Kağan Güçtekin",
+    "clubs": [
+      "Konyaspor",
+      "Fenerbahçe"
+    ]
+  },
+  {
+    "name": "Oğuzhan Bahadır",
+    "clubs": [
+      "Konyaspor",
+      "Başakşehir"
+    ]
+  },
+  {
+    "name": "Oğuzhan Berber",
+    "clubs": [
+      "Kayserispor",
+      "Genclerbirligi",
+      "Denizlispor"
+    ]
+  },
+  {
+    "name": "Oğuzhan Özyakup",
+    "clubs": [
+      "Arsenal",
+      "Beşiktaş"
+    ]
+  },
+  {
+    "name": "Pablo Armero",
+    "clubs": [
+      "AC Milan",
+      "Napoli"
+    ]
+  },
+  {
+    "name": "Pablo Mari",
+    "clubs": [
+      "Arsenal",
+      "Man City"
+    ]
+  },
+  {
+    "name": "Pablo Moreno",
+    "clubs": [
+      "Juventus",
+      "Man City"
+    ]
+  },
+  {
+    "name": "Pablo Rosario",
+    "clubs": [
+      "FC Porto",
+      "Ajax"
+    ]
+  },
+  {
+    "name": "Paco Alcacer",
+    "clubs": [
+      "Bor. Dortmund",
+      "Barcelona"
+    ]
+  },
+  {
+    "name": "Paolo Di Canio",
+    "clubs": [
+      "Juventus",
+      "Napoli"
+    ]
+  },
+  {
+    "name": "Paolo Medina",
+    "clubs": [
+      "Real Madrid",
+      "Benfica"
+    ]
+  },
+  {
+    "name": "Paolo Tramezzani",
+    "clubs": [
+      "Tottenham",
+      "Inter"
+    ]
+  },
+  {
+    "name": "Patrice Evra",
+    "clubs": [
+      "Juventus",
+      "Man Utd"
+    ]
+  },
+  {
+    "name": "Patrick Cregg",
+    "clubs": [
+      "Arsenal",
+      "Man Utd"
+    ]
+  },
+  {
+    "name": "Patrick Friday Eze",
+    "clubs": [
+      "Konyaspor",
+      "Denizlispor"
+    ]
+  },
+  {
+    "name": "Patrick van Aanholt",
+    "clubs": [
+      "Chelsea",
+      "Galatasaray"
+    ]
+  },
+  {
+    "name": "Patrick Vieira",
+    "clubs": [
+      "Juventus",
+      "Arsenal",
+      "Inter",
+      "Man City"
+    ]
+  },
+  {
+    "name": "Patrik Berger",
+    "clubs": [
+      "Bor. Dortmund",
+      "Liverpool"
+    ]
+  },
+  {
+    "name": "Pau Lopez",
+    "clubs": [
+      "Tottenham",
+      "AS Roma"
+    ]
+  },
+  {
+    "name": "Paul Ince",
+    "clubs": [
+      "Inter",
+      "Liverpool",
+      "Man Utd"
+    ]
+  },
+  {
+    "name": "Paul Konchesky",
+    "clubs": [
+      "Tottenham",
+      "Liverpool"
+    ]
+  },
+  {
+    "name": "Paul Pogba",
+    "clubs": [
+      "Juventus",
+      "Man Utd"
+    ]
+  },
+  {
+    "name": "Paul-Jose Mpoku",
+    "clubs": [
+      "Tottenham",
+      "Konyaspor"
+    ]
+  },
+  {
+    "name": "Paulinho",
+    "clubs": [
+      "Tottenham",
+      "FC Porto",
+      "Barcelona",
+      "Liverpool"
+    ]
+  },
+  {
+    "name": "Paulo Dybala",
+    "clubs": [
+      "Juventus",
+      "AS Roma"
+    ]
+  },
+  {
+    "name": "Paulo Jorge",
+    "clubs": [
+      "FC Porto",
+      "Benfica"
+    ]
+  },
+  {
+    "name": "Pedrinho",
+    "clubs": [
+      "Konyaspor",
+      "Benfica"
+    ]
+  },
+  {
+    "name": "Pedro",
+    "clubs": [
+      "Chelsea",
+      "Barcelona",
+      "AS Roma"
+    ]
+  },
+  {
+    "name": "Pedro Alves",
+    "clubs": [
+      "FC Porto",
+      "Benfica"
+    ]
+  },
+  {
+    "name": "Pedro Henrique",
+    "clubs": [
+      "Kayserispor",
+      "Sivasspor",
+      "Inter"
+    ]
+  },
+  {
+    "name": "Pedro Justiniano",
+    "clubs": [
+      "Juventus",
+      "FC Porto"
+    ]
+  },
+  {
+    "name": "Pedro Nuno",
+    "clubs": [
+      "FC Porto",
+      "Benfica"
+    ]
+  },
+  {
+    "name": "Pedro Pereira",
+    "clubs": [
+      "Genclerbirligi",
+      "Benfica"
+    ]
+  },
+  {
+    "name": "Pedro Porro",
+    "clubs": [
+      "Tottenham",
+      "Man City"
+    ]
+  },
+  {
+    "name": "Pedro Rebocho",
+    "clubs": [
+      "Beşiktaş",
+      "Benfica"
+    ]
+  },
+  {
+    "name": "Pedro Santos",
+    "clubs": [
+      "FC Porto",
+      "Benfica"
+    ]
+  },
+  {
+    "name": "Pedro Virginia",
+    "clubs": [
+      "Arsenal",
+      "FC Porto"
+    ]
+  },
+  {
+    "name": "Pele",
+    "clubs": [
+      "FC Porto",
+      "Inter",
+      "Benfica"
+    ]
+  },
+  {
+    "name": "Pepe",
+    "clubs": [
+      "FC Porto",
+      "Beşiktaş",
+      "Real Madrid"
+    ]
+  },
+  {
+    "name": "Pepe Reina",
+    "clubs": [
+      "Barcelona",
+      "AC Milan",
+      "Napoli",
+      "Liverpool",
+      "Bayern Munich"
+    ]
+  },
+  {
+    "name": "Petar Skuletic",
+    "clubs": [
+      "Sivasspor",
+      "Genclerbirligi"
+    ]
+  },
+  {
+    "name": "Peter Crouch",
+    "clubs": [
+      "Tottenham",
+      "Liverpool"
+    ]
+  },
+  {
+    "name": "Peter Etebo",
+    "clubs": [
+      "Genclerbirligi",
+      "Galatasaray"
+    ]
+  },
+  {
+    "name": "Peter Schmeichel",
+    "clubs": [
+      "Man Utd",
+      "Man City"
+    ]
+  },
+  {
+    "name": "Petr Cech",
+    "clubs": [
+      "Chelsea",
+      "Arsenal"
+    ]
+  },
+  {
+    "name": "Philipp Degen",
+    "clubs": [
+      "Bor. Dortmund",
+      "Liverpool"
+    ]
+  },
+  {
+    "name": "Philippe Coutinho",
+    "clubs": [
+      "Barcelona",
+      "Inter",
+      "Liverpool",
+      "Bayern Munich"
+    ]
+  },
+  {
+    "name": "Philippe Mexes",
+    "clubs": [
+      "AC Milan",
+      "AS Roma"
+    ]
+  },
+  {
+    "name": "Philippe Sandler",
     "clubs": [
       "Ajax",
+      "Man City"
+    ]
+  },
+  {
+    "name": "Philippe Senderos",
+    "clubs": [
+      "Arsenal",
+      "AC Milan"
+    ]
+  },
+  {
+    "name": "Pierluigi Casiraghi",
+    "clubs": [
+      "Chelsea",
+      "Juventus"
+    ]
+  },
+  {
+    "name": "Pierluigi Gollini",
+    "clubs": [
+      "Tottenham",
+      "AS Roma",
+      "Napoli",
+      "Man Utd"
+    ]
+  },
+  {
+    "name": "Pierre Kalulu",
+    "clubs": [
+      "Juventus",
+      "AC Milan",
+      "Olymp. Lyon"
+    ]
+  },
+  {
+    "name": "Pierre van Hooijdonk",
+    "clubs": [
+      "Fenerbahçe",
+      "Benfica"
+    ]
+  },
+  {
+    "name": "Pierre Wome",
+    "clubs": [
+      "AS Roma",
+      "Inter"
+    ]
+  },
+  {
+    "name": "Pierre-Emerick Aubameyang",
+    "clubs": [
+      "Bor. Dortmund",
+      "Chelsea",
+      "Arsenal",
+      "Barcelona",
+      "AC Milan"
+    ]
+  },
+  {
+    "name": "Pierre-Emile Hojbjerg",
+    "clubs": [
+      "Tottenham",
+      "Bayern Munich"
+    ]
+  },
+  {
+    "name": "Pini Balili",
+    "clubs": [
+      "Kayserispor",
+      "Sivasspor",
+      "Antalyaspor"
+    ]
+  },
+  {
+    "name": "Piotr Zielinski",
+    "clubs": [
+      "Inter",
+      "Napoli"
+    ]
+  },
+  {
+    "name": "Pizzi",
+    "clubs": [
+      "Başakşehir",
+      "Atletico Madrid",
+      "Benfica"
+    ]
+  },
+  {
+    "name": "Queensy Menig",
+    "clubs": [
+      "Sivasspor",
+      "Ajax"
+    ]
+  },
+  {
+    "name": "Quincy Owusu-Abeyie",
+    "clubs": [
+      "Arsenal",
+      "Ajax"
+    ]
+  },
+  {
+    "name": "Quinton Fortune",
+    "clubs": [
+      "Atletico Madrid",
+      "Man Utd"
+    ]
+  },
+  {
+    "name": "Rachid Ghezzal",
+    "clubs": [
       "Beşiktaş",
+      "Olymp. Lyon"
+    ]
+  },
+  {
+    "name": "Radamel Falcao",
+    "clubs": [
+      "Chelsea",
+      "FC Porto",
+      "Galatasaray",
+      "Atletico Madrid",
+      "Man Utd"
+    ]
+  },
+  {
+    "name": "Radja Nainggolan",
+    "clubs": [
+      "AS Roma",
+      "Inter"
+    ]
+  },
+  {
+    "name": "Radoslaw Zelezny",
+    "clubs": [
+      "Juventus",
+      "AS Roma"
+    ]
+  },
+  {
+    "name": "Radu DrÄƒguşin",
+    "clubs": [
+      "Tottenham",
+      "Juventus"
+    ]
+  },
+  {
+    "name": "Rafa Marin",
+    "clubs": [
+      "Real Madrid",
+      "Napoli"
+    ]
+  },
+  {
+    "name": "Rafa Obrador",
+    "clubs": [
+      "Real Madrid",
+      "Benfica"
+    ]
+  },
+  {
+    "name": "Rafa Paez",
+    "clubs": [
+      "Real Madrid",
+      "Liverpool"
+    ]
+  },
+  {
+    "name": "Rafa Silva",
+    "clubs": [
+      "Beşiktaş",
+      "Benfica"
+    ]
+  },
+  {
+    "name": "Rafael",
+    "clubs": [
+      "Başakşehir",
+      "Man Utd"
+    ]
+  },
+  {
+    "name": "Rafael van der Vaart",
+    "clubs": [
+      "Tottenham",
+      "Ajax",
+      "Real Madrid"
+    ]
+  },
+  {
+    "name": "Rafinha",
+    "clubs": [
+      "Barcelona",
+      "Inter",
+      "Bayern Munich"
+    ]
+  },
+  {
+    "name": "Ragıp Başdağ",
+    "clubs": [
+      "Kayserispor",
+      "Trabzonspor",
+      "Denizlispor"
+    ]
+  },
+  {
+    "name": "Raheem Sterling",
+    "clubs": [
+      "Chelsea",
+      "Arsenal",
+      "Liverpool",
+      "Man City"
+    ]
+  },
+  {
+    "name": "Rajko Rotman",
+    "clubs": [
+      "Kayserispor",
+      "Başakşehir"
+    ]
+  },
+  {
+    "name": "Ramires",
+    "clubs": [
+      "Chelsea",
+      "Benfica"
+    ]
+  },
+  {
+    "name": "Randal Kolo Muani",
+    "clubs": [
+      "Tottenham",
+      "Juventus"
+    ]
+  },
+  {
+    "name": "Raoul Bellanova",
+    "clubs": [
+      "AC Milan",
+      "Inter"
+    ]
+  },
+  {
+    "name": "RaphaÃ«l Guerreiro",
+    "clubs": [
+      "Bor. Dortmund",
+      "Bayern Munich"
+    ]
+  },
+  {
+    "name": "RaphaÃ«l Varane",
+    "clubs": [
+      "Real Madrid",
+      "Man Utd"
+    ]
+  },
+  {
+    "name": "Raphinha",
+    "clubs": [
+      "Barcelona",
+      "Inter"
+    ]
+  },
+  {
+    "name": "Rasmus Hojlund",
+    "clubs": [
+      "Napoli",
+      "Man Utd"
+    ]
+  },
+  {
+    "name": "Rasmus Kristensen",
+    "clubs": [
+      "AS Roma",
+      "Ajax"
+    ]
+  },
+  {
+    "name": "Raul de Tomas",
+    "clubs": [
+      "Real Madrid",
+      "Benfica"
+    ]
+  },
+  {
+    "name": "Raul Jimenez",
+    "clubs": [
+      "Atletico Madrid",
+      "Benfica"
+    ]
+  },
+  {
+    "name": "Rayan Cherki",
+    "clubs": [
+      "Man City",
+      "Olymp. Lyon"
+    ]
+  },
+  {
+    "name": "Recep Niyaz",
+    "clubs": [
+      "Fenerbahçe",
+      "Denizlispor"
+    ]
+  },
+  {
+    "name": "Reece Devine",
+    "clubs": [
+      "Man Utd",
+      "Man City"
+    ]
+  },
+  {
+    "name": "Reece James",
+    "clubs": [
+      "Chelsea",
+      "Man Utd"
+    ]
+  },
+  {
+    "name": "Reinier",
+    "clubs": [
+      "Bor. Dortmund",
+      "Real Madrid"
+    ]
+  },
+  {
+    "name": "Reiss-Alexander Russell-Denny",
+    "clubs": [
+      "Chelsea",
+      "Tottenham"
+    ]
+  },
+  {
+    "name": "Renato Sanches",
+    "clubs": [
+      "AS Roma",
+      "Benfica",
+      "Bayern Munich"
+    ]
+  },
+  {
+    "name": "Renato Veiga",
+    "clubs": [
+      "Chelsea",
+      "Juventus"
+    ]
+  },
+  {
+    "name": "Renny Smith",
+    "clubs": [
+      "Chelsea",
+      "Arsenal"
+    ]
+  },
+  {
+    "name": "Rey Manaj",
+    "clubs": [
+      "Sivasspor",
+      "Barcelona",
+      "Inter"
+    ]
+  },
+  {
+    "name": "Rhian Brewster",
+    "clubs": [
+      "Chelsea",
+      "Liverpool"
+    ]
+  },
+  {
+    "name": "Riad Bajic",
+    "clubs": [
+      "Konyaspor",
+      "Başakşehir"
+    ]
+  },
+  {
+    "name": "Ricardinho",
+    "clubs": [
+      "FC Porto",
+      "Beşiktaş"
+    ]
+  },
+  {
+    "name": "Ricardo Farcaş",
+    "clubs": [
+      "Arsenal",
+      "Ajax"
+    ]
+  },
+  {
+    "name": "Ricardo Quaresma",
+    "clubs": [
+      "Chelsea",
+      "FC Porto",
+      "Barcelona",
+      "Beşiktaş",
+      "Inter"
+    ]
+  },
+  {
+    "name": "Ricardo Rocha",
+    "clubs": [
+      "Tottenham",
+      "Benfica"
+    ]
+  },
+  {
+    "name": "Ricardo Silva",
+    "clubs": [
+      "FC Porto",
+      "Benfica"
+    ]
+  },
+  {
+    "name": "Ricardo Velho",
+    "clubs": [
+      "FC Porto",
+      "Genclerbirligi"
+    ]
+  },
+  {
+    "name": "Riccardo Calafiori",
+    "clubs": [
+      "Arsenal",
+      "AS Roma"
+    ]
+  },
+  {
+    "name": "Richard Kingson",
+    "clubs": [
+      "Antalyaspor",
+      "Galatasaray"
+    ]
+  },
+  {
+    "name": "Riechedly Bazoer",
+    "clubs": [
+      "Konyaspor",
+      "FC Porto",
+      "Ajax"
+    ]
+  },
+  {
+    "name": "Rigobert Song",
+    "clubs": [
+      "Trabzonspor",
       "Galatasaray",
       "Liverpool"
     ]
   },
   {
-    "name": "Sabri Dino",
-    "aliases": [
-      "Dino",
-      "Sabri"
-    ],
+    "name": "Rio Ngumoha",
     "clubs": [
-      "Beşiktaş",
-      "Galatasaray"
+      "Chelsea",
+      "Liverpool"
     ]
   },
   {
-    "name": "Sabri Lamouchi",
-    "aliases": [
-      "Lamouchi",
-      "Sabri"
-    ],
+    "name": "Rivaldo",
     "clubs": [
+      "Barcelona",
+      "AC Milan"
+    ]
+  },
+  {
+    "name": "Robbie Keane",
+    "clubs": [
+      "Tottenham",
       "Inter",
-      "Lyon"
+      "Liverpool"
+    ]
+  },
+  {
+    "name": "Robert Enke",
+    "clubs": [
+      "Fenerbahçe",
+      "Barcelona",
+      "Benfica"
+    ]
+  },
+  {
+    "name": "Robert Jarni",
+    "clubs": [
+      "Juventus",
+      "Real Madrid"
+    ]
+  },
+  {
+    "name": "Robert Kovac",
+    "clubs": [
+      "Bor. Dortmund",
+      "Juventus",
+      "Bayern Munich"
+    ]
+  },
+  {
+    "name": "Robert Lewandowski",
+    "clubs": [
+      "Bor. Dortmund",
+      "Barcelona",
+      "Bayern Munich"
+    ]
+  },
+  {
+    "name": "Roberto",
+    "clubs": [
+      "FC Porto",
+      "Atletico Madrid",
+      "Inter",
+      "Benfica"
+    ]
+  },
+  {
+    "name": "Roberto Carlos",
+    "clubs": [
+      "Fenerbahçe",
+      "Real Madrid",
+      "Inter"
+    ]
+  },
+  {
+    "name": "Roberto Soldado",
+    "clubs": [
+      "Tottenham",
+      "Fenerbahçe",
+      "Real Madrid"
+    ]
+  },
+  {
+    "name": "Robin van Persie",
+    "clubs": [
+      "Arsenal",
+      "Fenerbahçe",
+      "Man Utd"
+    ]
+  },
+  {
+    "name": "Robinho",
+    "clubs": [
+      "Sivasspor",
+      "Başakşehir",
+      "AC Milan",
+      "Real Madrid",
+      "Man City"
+    ]
+  },
+  {
+    "name": "Rochinha",
+    "clubs": [
+      "FC Porto",
+      "Benfica"
+    ]
+  },
+  {
+    "name": "Rodri",
+    "clubs": [
+      "Atletico Madrid",
+      "Real Madrid",
+      "Benfica",
+      "Man City"
+    ]
+  },
+  {
+    "name": "Rodrigo Bentancur",
+    "clubs": [
+      "Tottenham",
+      "Juventus"
+    ]
+  },
+  {
+    "name": "Rodrigo Conceiçao",
+    "clubs": [
+      "FC Porto",
+      "Benfica"
+    ]
+  },
+  {
+    "name": "Rodrigo Defendi",
+    "clubs": [
+      "Tottenham",
+      "AS Roma"
+    ]
+  },
+  {
+    "name": "Rodrigo Rodrigues",
+    "clubs": [
+      "Real Madrid",
+      "Benfica"
+    ]
+  },
+  {
+    "name": "Rogerio",
+    "clubs": [
+      "Juventus",
+      "Inter"
+    ]
+  },
+  {
+    "name": "Rohan Ricketts",
+    "clubs": [
+      "Tottenham",
+      "Arsenal"
+    ]
+  },
+  {
+    "name": "Romeo Lavia",
+    "clubs": [
+      "Chelsea",
+      "Man City"
+    ]
+  },
+  {
+    "name": "Ronald de Boer",
+    "clubs": [
+      "Barcelona",
+      "Ajax"
+    ]
+  },
+  {
+    "name": "Ronaldinho",
+    "clubs": [
+      "Barcelona",
+      "AC Milan"
+    ]
+  },
+  {
+    "name": "Ronaldo",
+    "clubs": [
+      "Barcelona",
+      "Beşiktaş",
+      "AC Milan",
+      "Real Madrid",
+      "Inter",
+      "Benfica"
+    ]
+  },
+  {
+    "name": "Ronny Johnsen",
+    "clubs": [
+      "Beşiktaş",
+      "Man Utd"
+    ]
+  },
+  {
+    "name": "Rony Lopes",
+    "clubs": [
+      "Benfica",
+      "Man City"
+    ]
+  },
+  {
+    "name": "Roque Santa Cruz",
+    "clubs": [
+      "Bayern Munich",
+      "Man City"
+    ]
+  },
+  {
+    "name": "Ruben Cardoso",
+    "clubs": [
+      "FC Porto",
+      "Benfica"
+    ]
+  },
+  {
+    "name": "Ruben Dias",
+    "clubs": [
+      "Benfica",
+      "Man City"
+    ]
+  },
+  {
+    "name": "Ruben Loftus-Cheek",
+    "clubs": [
+      "Chelsea",
+      "AC Milan"
+    ]
+  },
+  {
+    "name": "Ruben Olivera",
+    "clubs": [
+      "Juventus",
+      "Atletico Madrid"
+    ]
+  },
+  {
+    "name": "Ruben Providence",
+    "clubs": [
+      "AS Roma",
+      "PSG"
+    ]
+  },
+  {
+    "name": "Ruben Sobrino",
+    "clubs": [
+      "Real Madrid",
+      "Man City"
+    ]
+  },
+  {
+    "name": "Rubens Pasino",
+    "clubs": [
+      "Juventus",
+      "Napoli"
+    ]
+  },
+  {
+    "name": "Rui Costa",
+    "clubs": [
+      "AC Milan",
+      "Benfica"
+    ]
+  },
+  {
+    "name": "Ruud van Nistelrooy",
+    "clubs": [
+      "Real Madrid",
+      "Man Utd"
+    ]
+  },
+  {
+    "name": "Ryan Babel",
+    "clubs": [
+      "Galatasaray",
+      "Beşiktaş",
+      "Ajax",
+      "Liverpool"
+    ]
+  },
+  {
+    "name": "Ryan Giggs",
+    "clubs": [
+      "Man Utd",
+      "Man City"
+    ]
+  },
+  {
+    "name": "Ryan Gravenberch",
+    "clubs": [
+      "Ajax",
+      "Liverpool",
+      "Bayern Munich"
+    ]
+  },
+  {
+    "name": "Ryan Kent",
+    "clubs": [
+      "Fenerbahçe",
+      "Liverpool"
+    ]
+  },
+  {
+    "name": "Ryan McAidoo",
+    "clubs": [
+      "Chelsea",
+      "Man City"
+    ]
+  },
+  {
+    "name": "Rüştü Reçber",
+    "clubs": [
+      "Fenerbahçe",
+      "Antalyaspor",
+      "Barcelona",
+      "Beşiktaş"
+    ]
+  },
+  {
+    "name": "Sacha Boey",
+    "clubs": [
+      "Galatasaray",
+      "Bayern Munich"
+    ]
+  },
+  {
+    "name": "Sadio Mane",
+    "clubs": [
+      "Liverpool",
+      "Bayern Munich"
+    ]
+  },
+  {
+    "name": "Sadık Çiftpınar",
+    "clubs": [
+      "Fenerbahçe",
+      "Galatasaray"
     ]
   },
   {
     "name": "Saffet Akyüz",
-    "aliases": [
-      "Akyüz",
-      "Saffet"
-    ],
     "clubs": [
-      "Antalyaspor",
-      "Galatasaray",
-      "Trabzonspor"
-    ]
-  },
-  {
-    "name": "Saffet Kaya",
-    "aliases": [
-      "Kaya",
-      "Saffet"
-    ],
-    "clubs": [
+      "Trabzonspor",
       "Antalyaspor",
       "Galatasaray"
     ]
   },
   {
-    "name": "Saffet Sancaklı",
-    "aliases": [
-      "Saffet",
-      "Sancaklı"
-    ],
+    "name": "Saidy Janko",
     "clubs": [
-      "Beşiktaş",
-      "Galatasaray"
+      "FC Porto",
+      "Man Utd"
+    ]
+  },
+  {
+    "name": "Sakıb Aytaç",
+    "clubs": [
+      "Kayserispor",
+      "Genclerbirligi",
+      "Antalyaspor",
+      "Denizlispor"
     ]
   },
   {
     "name": "Salih Dursun",
-    "aliases": [
-      "Dursun",
-      "Salih"
-    ],
     "clubs": [
-      "Galatasaray",
       "Kayserispor",
-      "Trabzonspor"
+      "Trabzonspor",
+      "Genclerbirligi",
+      "Antalyaspor",
+      "Galatasaray"
     ]
   },
   {
     "name": "Salih Uçan",
-    "aliases": [
-      "salih",
-      "Salih",
-      "Salih Ucan",
-      "salihucan",
-      "ucan",
-      "Ucan",
-      "Uçan"
-    ],
     "clubs": [
+      "Fenerbahçe",
       "Başakşehir",
       "Beşiktaş",
-      "Fenerbahçe",
-      "Roma"
+      "AS Roma"
     ]
   },
   {
-    "name": "Salva Ballesta",
-    "aliases": [
-      "Ballesta",
-      "Salva"
-    ],
+    "name": "Salvatore Aronica",
     "clubs": [
-      "Atletico Madrid",
-      "Sevilla"
-    ]
-  },
-  {
-    "name": "Salvatore Ferraro",
-    "aliases": [
-      "Ferraro",
-      "Salvatore"
-    ],
-    "clubs": [
-      "Inter",
-      "Milan"
+      "Juventus",
+      "Napoli"
     ]
   },
   {
     "name": "Salvatore Fresi",
-    "aliases": [
-      "Fresi",
-      "Salvatore"
-    ],
     "clubs": [
+      "Juventus",
       "Inter",
-      "Juventus"
+      "Napoli"
     ]
   },
   {
-    "name": "Salvatore Schillaci",
-    "aliases": [
-      "Salvatore",
-      "Schillaci"
-    ],
+    "name": "Sam Hart",
     "clubs": [
-      "Inter",
-      "Juventus"
+      "Liverpool",
+      "Man Utd"
     ]
   },
   {
-    "name": "Sam Raybould",
-    "aliases": [
-      "Raybould",
-      "Sam"
-    ],
+    "name": "Samet Akaydin",
     "clubs": [
-      "Arsenal",
-      "Liverpool"
+      "Fenerbahçe",
+      "Trabzonspor"
     ]
   },
   {
     "name": "Sami Khedira",
-    "aliases": [
-      "Khedira",
-      "Sami"
-    ],
     "clubs": [
       "Juventus",
       "Real Madrid"
@@ -19550,631 +11250,484 @@ export const PLAYERS = [
   },
   {
     "name": "Samir Nasri",
-    "aliases": [
-      "Nasri",
-      "Samir"
-    ],
-    "clubs": [
-      "Antalyaspor",
-      "Arsenal",
-      "Manchester City",
-      "Sevilla"
-    ]
-  },
-  {
-    "name": "Sammy McIlroy",
-    "aliases": [
-      "McIlroy",
-      "Sammy"
-    ],
-    "clubs": [
-      "Manchester City",
-      "Manchester United"
-    ]
-  },
-  {
-    "name": "Sammy Traoré",
-    "aliases": [
-      "Sammy",
-      "Traoré"
-    ],
-    "clubs": [
-      "Nice",
-      "PSG"
-    ]
-  },
-  {
-    "name": "Samuel Eto'o",
-    "aliases": [
-      "Eto'o",
-      "Etoo",
-      "Samuel"
-    ],
-    "clubs": [
-      "Antalyaspor",
-      "Barcelona",
-      "Chelsea",
-      "Inter",
-      "Real Madrid"
-    ]
-  },
-  {
-    "name": "Samuel Ipoua",
-    "aliases": [
-      "Ipoua",
-      "Samuel"
-    ],
-    "clubs": [
-      "Inter",
-      "Nice"
-    ]
-  },
-  {
-    "name": "Samuel Kuffour",
-    "aliases": [
-      "Kuffour",
-      "Samuel"
-    ],
-    "clubs": [
-      "Ajax",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Samuel Umtiti",
-    "aliases": [
-      "Samuel",
-      "Umtiti"
-    ],
-    "clubs": [
-      "Barcelona",
-      "Lyon"
-    ]
-  },
-  {
-    "name": "Sandro Puppo",
-    "aliases": [
-      "Puppo",
-      "Sandro"
-    ],
-    "clubs": [
-      "Inter",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Sandro Ramírez",
-    "aliases": [
-      "Ramírez",
-      "Sandro"
-    ],
-    "clubs": [
-      "Barcelona",
-      "Sevilla"
-    ]
-  },
-  {
-    "name": "Sandro Salvadore",
-    "aliases": [
-      "Salvadore",
-      "Sandro"
-    ],
-    "clubs": [
-      "Juventus",
-      "Milan"
-    ]
-  },
-  {
-    "name": "Sandy Turnbull",
-    "aliases": [
-      "Sandy",
-      "Turnbull"
-    ],
-    "clubs": [
-      "Manchester City",
-      "Manchester United"
-    ]
-  },
-  {
-    "name": "Santiago Ezquerro",
-    "aliases": [
-      "Ezquerro",
-      "Santiago"
-    ],
-    "clubs": [
-      "Atletico Madrid",
-      "Barcelona"
-    ]
-  },
-  {
-    "name": "Santiago Losada Amor",
-    "aliases": [
-      "Amor",
-      "Losada",
-      "Santiago"
-    ],
-    "clubs": [
-      "Atletico Madrid",
-      "Real Madrid"
-    ]
-  },
-  {
-    "name": "Santiago Solari",
-    "aliases": [
-      "Santiago",
-      "Solari"
-    ],
-    "clubs": [
-      "Atletico Madrid",
-      "Inter",
-      "Real Madrid"
-    ]
-  },
-  {
-    "name": "Saul Malatrasi",
-    "aliases": [
-      "Malatrasi",
-      "Saul"
-    ],
-    "clubs": [
-      "Inter",
-      "Milan",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Savino Bellini",
-    "aliases": [
-      "Bellini",
-      "Savino"
-    ],
-    "clubs": [
-      "Inter",
-      "Juventus",
-      "Milan"
-    ]
-  },
-  {
-    "name": "Scott Carson",
-    "aliases": [
-      "Carson",
-      "Scott"
-    ],
-    "clubs": [
-      "Liverpool",
-      "Manchester City"
-    ]
-  },
-  {
-    "name": "Scott Wootton",
-    "aliases": [
-      "Scott",
-      "Wootton"
-    ],
-    "clubs": [
-      "Liverpool",
-      "Manchester United"
-    ]
-  },
-  {
-    "name": "Sebastián Fleitas",
-    "aliases": [
-      "Fleitas",
-      "Sebastián"
-    ],
-    "clubs": [
-      "Real Madrid",
-      "Sevilla"
-    ]
-  },
-  {
-    "name": "Sebastián Losada",
-    "aliases": [
-      "Losada",
-      "Sebastián"
-    ],
-    "clubs": [
-      "Atletico Madrid",
-      "Real Madrid",
-      "Sevilla"
-    ]
-  },
-  {
-    "name": "Sébastien Squillaci",
-    "aliases": [
-      "Sébastien",
-      "Squillaci"
-    ],
     "clubs": [
       "Arsenal",
-      "Lyon",
-      "Sevilla"
-    ]
-  },
-  {
-    "name": "Sedat Ağçay",
-    "aliases": [
-      "Ağçay",
-      "Sedat"
-    ],
-    "clubs": [
       "Antalyaspor",
-      "Başakşehir"
+      "Man City"
     ]
   },
   {
-    "name": "Sedat Bayrak",
-    "aliases": [
-      "Bayrak",
-      "Sedat"
-    ],
+    "name": "Samu Saiz",
     "clubs": [
       "Sivasspor",
-      "Trabzonspor"
+      "Real Madrid"
     ]
   },
   {
-    "name": "Sedat Yeşilkaya",
-    "aliases": [
-      "Sedat",
-      "Yeşilkaya"
-    ],
+    "name": "Samuel Dahl",
     "clubs": [
-      "Galatasaray",
-      "Sivasspor"
+      "AS Roma",
+      "Benfica"
     ]
   },
   {
-    "name": "Sefa Yılmaz",
-    "aliases": [
-      "Sefa",
-      "Yılmaz"
-    ],
+    "name": "Samuel Holmen",
     "clubs": [
-      "Kayserispor",
-      "Trabzonspor"
-    ]
-  },
-  {
-    "name": "Sefer Karaer",
-    "aliases": [
-      "Karaer",
-      "Sefer"
-    ],
-    "clubs": [
-      "Galatasaray",
-      "Kayserispor"
-    ]
-  },
-  {
-    "name": "Selahattin Kınalı",
-    "aliases": [
-      "Kınalı",
-      "Selahattin"
-    ],
-    "clubs": [
-      "Antalyaspor",
-      "Trabzonspor"
-    ]
-  },
-  {
-    "name": "Selçuk İnan",
-    "aliases": [
-      "İnan",
-      "Selçuk"
-    ],
-    "clubs": [
-      "Galatasaray",
-      "Trabzonspor"
-    ]
-  },
-  {
-    "name": "Semih Şentürk",
-    "aliases": [
-      "Semih",
-      "Şentürk"
-    ],
-    "clubs": [
-      "Antalyaspor",
+      "Konyaspor",
+      "Fenerbahçe",
       "Başakşehir"
     ]
   },
   {
-    "name": "Sercan Yıldırım",
-    "aliases": [
-      "Sercan",
-      "Yıldırım"
-    ],
+    "name": "Samuel Iling-Junior",
     "clubs": [
-      "Galatasaray",
-      "Sivasspor"
-    ]
-  },
-  {
-    "name": "Serdar Bali",
-    "aliases": [
-      "Bali",
-      "Serdar"
-    ],
-    "clubs": [
-      "Beşiktaş",
-      "Trabzonspor"
-    ]
-  },
-  {
-    "name": "Serdar Kulbilge",
-    "aliases": [
-      "Kulbilge",
-      "Serdar"
-    ],
-    "clubs": [
-      "Fenerbahçe",
-      "Kayserispor"
-    ]
-  },
-  {
-    "name": "Serdar Özkan",
-    "aliases": [
-      "Özkan",
-      "Serdar"
-    ],
-    "clubs": [
-      "Antalyaspor",
-      "Beşiktaş",
-      "Galatasaray",
-      "Sivasspor"
-    ]
-  },
-  {
-    "name": "Serdar Topraktepe",
-    "aliases": [
-      "Serdar",
-      "Topraktepe"
-    ],
-    "clubs": [
-      "Beşiktaş",
-      "Sivasspor"
-    ]
-  },
-  {
-    "name": "Sergen Yalçın",
-    "aliases": [
-      "Sergen",
-      "Yalcin",
-      "Yalçın"
-    ],
-    "clubs": [
-      "Beşiktaş",
-      "Fenerbahçe",
-      "Galatasaray",
-      "Trabzonspor"
-    ]
-  },
-  {
-    "name": "Sergi Barjuan",
-    "aliases": [
-      "Barjuan",
-      "Sergi"
-    ],
-    "clubs": [
-      "Atletico Madrid",
-      "Barcelona"
-    ]
-  },
-  {
-    "name": "Sergi Canós",
-    "aliases": [
-      "Canós",
-      "Sergi"
-    ],
-    "clubs": [
-      "Barcelona",
-      "Liverpool"
-    ]
-  },
-  {
-    "name": "Sergi Gómez",
-    "aliases": [
-      "Gómez",
-      "Sergi"
-    ],
-    "clubs": [
-      "Barcelona",
-      "Sevilla"
-    ]
-  },
-  {
-    "name": "Sergio Agüero",
-    "aliases": [
-      "Agüero",
-      "Sergio"
-    ],
-    "clubs": [
-      "Atletico Madrid",
-      "Barcelona",
-      "Manchester City"
-    ]
-  },
-  {
-    "name": "Sergio Battistini",
-    "aliases": [
-      "Battistini",
-      "Sergio"
-    ],
-    "clubs": [
-      "Inter",
-      "Milan"
-    ]
-  },
-  {
-    "name": "Sergio Gori",
-    "aliases": [
-      "Gori",
-      "Sergio"
-    ],
-    "clubs": [
-      "Inter",
+      "Chelsea",
       "Juventus"
     ]
   },
   {
-    "name": "Sergio Marchi",
-    "aliases": [
-      "Marchi",
-      "Sergio"
-    ],
+    "name": "Samuel Kuffour",
     "clubs": [
-      "Inter",
-      "Milan"
+      "AS Roma",
+      "Ajax",
+      "Bayern Munich"
     ]
   },
   {
-    "name": "Sergio Pellizzaro",
-    "aliases": [
-      "Pellizzaro",
-      "Sergio"
-    ],
+    "name": "Samuel Moutoussamy",
     "clubs": [
-      "Inter",
-      "Roma"
+      "Sivasspor",
+      "Olymp. Lyon"
     ]
   },
   {
-    "name": "Sergio Petrelli",
-    "aliases": [
-      "Petrelli",
-      "Sergio"
-    ],
+    "name": "Samuel Umtiti",
     "clubs": [
-      "Juventus",
-      "Roma"
+      "Barcelona",
+      "Olymp. Lyon"
     ]
   },
   {
-    "name": "Sergio Porrini",
-    "aliases": [
-      "Porrini",
-      "Sergio"
-    ],
+    "name": "Samuele Dalla Bona",
     "clubs": [
-      "Juventus",
-      "Milan"
+      "Chelsea",
+      "AC Milan",
+      "Napoli"
     ]
   },
   {
-    "name": "Sergio Ramos",
-    "aliases": [
-      "Ramos",
-      "Sergio"
-    ],
+    "name": "Sandro",
     "clubs": [
-      "PSG",
-      "Real Madrid",
-      "Sevilla"
+      "Tottenham",
+      "Antalyaspor",
+      "Real Madrid"
     ]
   },
   {
-    "name": "Sergio Ramos García",
-    "aliases": [
-      "garcia",
-      "García",
-      "ramos",
-      "Ramos",
-      "sergio",
-      "Sergio"
-    ],
+    "name": "Sandro Mendonça",
     "clubs": [
-      "PSG",
-      "Real Madrid",
-      "Sevilla"
+      "Sivasspor",
+      "Genclerbirligi"
     ]
   },
   {
-    "name": "Sergio Reguilón",
-    "aliases": [
-      "Reguilón",
-      "Sergio"
-    ],
+    "name": "Santiago Ezquerro",
+    "clubs": [
+      "Barcelona",
+      "Atletico Madrid"
+    ]
+  },
+  {
+    "name": "Santiago Solari",
     "clubs": [
       "Atletico Madrid",
-      "Manchester United",
-      "Sevilla",
+      "Real Madrid",
+      "Inter"
+    ]
+  },
+  {
+    "name": "Saul Ã‘iguez",
+    "clubs": [
+      "Chelsea",
+      "Atletico Madrid"
+    ]
+  },
+  {
+    "name": "Savaş Polat",
+    "clubs": [
+      "Konyaspor",
+      "Fenerbahçe"
+    ]
+  },
+  {
+    "name": "Scott Carson",
+    "clubs": [
+      "Liverpool",
+      "Man City"
+    ]
+  },
+  {
+    "name": "Scott McTominay",
+    "clubs": [
+      "Napoli",
+      "Man Utd"
+    ]
+  },
+  {
+    "name": "Scott Minto",
+    "clubs": [
+      "Chelsea",
+      "Benfica"
+    ]
+  },
+  {
+    "name": "Scott Parker",
+    "clubs": [
+      "Chelsea",
       "Tottenham"
     ]
   },
   {
-    "name": "Sergio Sánchez Ortega",
-    "aliases": [
-      "Ortega",
-      "Sánchez",
-      "Sergio"
-    ],
+    "name": "Scott Sinclair",
     "clubs": [
-      "Real Madrid",
-      "Sevilla"
+      "Chelsea",
+      "Man City"
     ]
   },
   {
-    "name": "Sergio Santarini",
-    "aliases": [
-      "Santarini",
-      "Sergio"
-    ],
+    "name": "Scott Wootton",
     "clubs": [
-      "Inter",
-      "Roma"
+      "Liverpool",
+      "Man Utd"
     ]
   },
   {
-    "name": "Sergio Tenente",
-    "aliases": [
-      "Sergio",
-      "Tenente"
-    ],
+    "name": "Sebastian Rode",
     "clubs": [
-      "Milan",
-      "Roma"
+      "Bor. Dortmund",
+      "Bayern Munich"
     ]
   },
   {
-    "name": "Serhat Çakmak",
-    "aliases": [
-      "Çakmak",
-      "Serhat"
-    ],
+    "name": "Sebastiano Desplanches",
     "clubs": [
-      "Ajax",
+      "AC Milan",
+      "Inter"
+    ]
+  },
+  {
+    "name": "Sebastien Corchia",
+    "clubs": [
+      "Benfica",
+      "PSG"
+    ]
+  },
+  {
+    "name": "Sebastien Haller",
+    "clubs": [
+      "Bor. Dortmund",
+      "Ajax"
+    ]
+  },
+  {
+    "name": "Sedat Ağçay",
+    "clubs": [
+      "Konyaspor",
+      "Başakşehir",
+      "Genclerbirligi",
+      "Antalyaspor"
+    ]
+  },
+  {
+    "name": "Sedat Bayrak",
+    "clubs": [
+      "Sivasspor",
+      "Trabzonspor",
+      "Genclerbirligi"
+    ]
+  },
+  {
+    "name": "Sedat Şahintürk",
+    "clubs": [
+      "Denizlispor",
+      "Beşiktaş"
+    ]
+  },
+  {
+    "name": "Seddar Karaman",
+    "clubs": [
+      "Konyaspor",
+      "Antalyaspor",
+      "Denizlispor"
+    ]
+  },
+  {
+    "name": "Sefa Yılmaz",
+    "clubs": [
+      "Kayserispor",
+      "Sivasspor",
+      "Trabzonspor",
+      "Genclerbirligi"
+    ]
+  },
+  {
+    "name": "Selahattin Kınalı",
+    "clubs": [
+      "Trabzonspor",
+      "Antalyaspor",
+      "Denizlispor"
+    ]
+  },
+  {
+    "name": "Selim Dilli",
+    "clubs": [
+      "Konyaspor",
       "Trabzonspor"
+    ]
+  },
+  {
+    "name": "Selim Teber",
+    "clubs": [
+      "Kayserispor",
+      "Denizlispor"
+    ]
+  },
+  {
+    "name": "Selçuk Şahin",
+    "clubs": [
+      "Fenerbahçe",
+      "Genclerbirligi"
+    ]
+  },
+  {
+    "name": "Semavi Uzun",
+    "clubs": [
+      "Kayserispor",
+      "Konyaspor",
+      "Trabzonspor",
+      "Denizlispor"
+    ]
+  },
+  {
+    "name": "Semih Beyaz",
+    "clubs": [
+      "Fenerbahçe",
+      "Beşiktaş"
+    ]
+  },
+  {
+    "name": "Semih Şentürk",
+    "clubs": [
+      "Fenerbahçe",
+      "Başakşehir",
+      "Antalyaspor"
+    ]
+  },
+  {
+    "name": "Sercan Yıldırım",
+    "clubs": [
+      "Sivasspor",
+      "Galatasaray"
+    ]
+  },
+  {
+    "name": "Serdal Boyraz",
+    "clubs": [
+      "Kayserispor",
+      "Denizlispor"
+    ]
+  },
+  {
+    "name": "Serdar Akdoğan",
+    "clubs": [
+      "Sivasspor",
+      "Galatasaray"
+    ]
+  },
+  {
+    "name": "Serdar Dursun",
+    "clubs": [
+      "Fenerbahçe",
+      "Denizlispor"
+    ]
+  },
+  {
+    "name": "Serdar Eylik",
+    "clubs": [
+      "Denizlispor",
+      "Galatasaray"
+    ]
+  },
+  {
+    "name": "Serdar Kulbilge",
+    "clubs": [
+      "Kayserispor",
+      "Fenerbahçe",
+      "Genclerbirligi"
+    ]
+  },
+  {
+    "name": "Serdar Saatçı",
+    "clubs": [
+      "Trabzonspor",
+      "Beşiktaş"
+    ]
+  },
+  {
+    "name": "Serdar Taşçı",
+    "clubs": [
+      "Başakşehir",
+      "Bayern Munich"
+    ]
+  },
+  {
+    "name": "Serdar Özkan",
+    "clubs": [
+      "Sivasspor",
+      "Genclerbirligi",
+      "Antalyaspor",
+      "Galatasaray",
+      "Beşiktaş"
+    ]
+  },
+  {
+    "name": "Sereno",
+    "clubs": [
+      "Kayserispor",
+      "FC Porto"
+    ]
+  },
+  {
+    "name": "Serge Aurier",
+    "clubs": [
+      "Tottenham",
+      "Galatasaray"
+    ]
+  },
+  {
+    "name": "Serge Gnabry",
+    "clubs": [
+      "Arsenal",
+      "Bayern Munich"
+    ]
+  },
+  {
+    "name": "Serginho",
+    "clubs": [
+      "FC Porto",
+      "AC Milan",
+      "Inter",
+      "Benfica"
+    ]
+  },
+  {
+    "name": "Sergino Dest",
+    "clubs": [
+      "Barcelona",
+      "AC Milan",
+      "Ajax"
+    ]
+  },
+  {
+    "name": "Sergio Agüero",
+    "clubs": [
+      "Barcelona",
+      "Atletico Madrid",
+      "Man City"
+    ]
+  },
+  {
+    "name": "Sergio Conceiçao",
+    "clubs": [
+      "FC Porto",
+      "Inter"
+    ]
+  },
+  {
+    "name": "Sergio de Windt",
+    "clubs": [
+      "Juventus",
+      "Ajax"
+    ]
+  },
+  {
+    "name": "Sergio Gomez",
+    "clubs": [
+      "Bor. Dortmund",
+      "Man City"
+    ]
+  },
+  {
+    "name": "Sergio Oliveira",
+    "clubs": [
+      "FC Porto",
+      "Galatasaray",
+      "AS Roma"
+    ]
+  },
+  {
+    "name": "Sergio Porrini",
+    "clubs": [
+      "Juventus",
+      "AC Milan"
+    ]
+  },
+  {
+    "name": "Sergio Reguilon",
+    "clubs": [
+      "Tottenham",
+      "Atletico Madrid",
+      "Real Madrid",
+      "Man Utd"
+    ]
+  },
+  {
+    "name": "Serhat Akın",
+    "clubs": [
+      "Konyaspor",
+      "Fenerbahçe"
+    ]
+  },
+  {
+    "name": "Serkan Atak",
+    "clubs": [
+      "Antalyaspor",
+      "Denizlispor"
     ]
   },
   {
     "name": "Serkan Balcı",
-    "aliases": [
-      "Balcı",
-      "Serkan"
-    ],
     "clubs": [
-      "Antalyaspor",
-      "Trabzonspor"
+      "Fenerbahçe",
+      "Trabzonspor",
+      "Genclerbirligi",
+      "Antalyaspor"
+    ]
+  },
+  {
+    "name": "Serkan Damla",
+    "clubs": [
+      "Kayserispor",
+      "Genclerbirligi"
     ]
   },
   {
     "name": "Serkan Kurtuluş",
-    "aliases": [
-      "Kurtuluş",
-      "Serkan"
-    ],
     "clubs": [
-      "Galatasaray",
-      "Kayserispor"
+      "Kayserispor",
+      "Genclerbirligi",
+      "Galatasaray"
+    ]
+  },
+  {
+    "name": "Serkan Kırıntılı",
+    "clubs": [
+      "Konyaspor",
+      "Fenerbahçe"
     ]
   },
   {
     "name": "Serkan Özsoy",
-    "aliases": [
-      "Özsoy",
-      "Serkan"
-    ],
     "clubs": [
       "Fenerbahçe",
       "Trabzonspor"
@@ -20182,169 +11735,113 @@ export const PLAYERS = [
   },
   {
     "name": "Sertan Eser",
-    "aliases": [
-      "Eser",
-      "Sertan"
-    ],
     "clubs": [
-      "Başakşehir",
+      "Konyaspor",
+      "Genclerbirligi",
       "Beşiktaş"
     ]
   },
   {
     "name": "Servet Çetin",
-    "aliases": [
-      "Çetin",
-      "Servet"
-    ],
     "clubs": [
-      "Galatasaray",
-      "Sivasspor"
-    ]
-  },
-  {
-    "name": "Severino Lojodice",
-    "aliases": [
-      "Lojodice",
-      "Severino"
-    ],
-    "clubs": [
-      "Juventus",
-      "Roma"
+      "Sivasspor",
+      "Fenerbahçe",
+      "Denizlispor",
+      "Galatasaray"
     ]
   },
   {
     "name": "Seydou Keita",
-    "aliases": [
-      "Keita",
-      "Seydou"
-    ],
     "clubs": [
       "Barcelona",
-      "Roma",
-      "Sevilla"
+      "AS Roma"
     ]
   },
   {
     "name": "Seyit Cem Ünsal",
-    "aliases": [
-      "Cem",
-      "Seyit",
-      "Ünsal"
-    ],
     "clubs": [
-      "Barcelona",
       "Kayserispor",
-      "Trabzonspor"
+      "Trabzonspor",
+      "Genclerbirligi",
+      "Barcelona"
     ]
   },
   {
     "name": "Sezer Badur",
-    "aliases": [
-      "Badur",
-      "Sezer"
-    ],
     "clubs": [
-      "Antalyaspor",
       "Sivasspor",
-      "Trabzonspor"
-    ]
-  },
-  {
-    "name": "Sezer Öztürk",
-    "aliases": [
-      "Öztürk",
-      "Sezer"
-    ],
-    "clubs": [
-      "Başakşehir",
-      "Beşiktaş"
+      "Trabzonspor",
+      "Antalyaspor"
     ]
   },
   {
     "name": "Sezer Sezgin",
-    "aliases": [
-      "Sezer",
-      "Sezgin"
-    ],
     "clubs": [
-      "Beşiktaş",
-      "Kayserispor"
-    ]
-  },
-  {
-    "name": "Shabani Nonda",
-    "aliases": [
-      "Nonda",
-      "Shabani"
-    ],
-    "clubs": [
-      "Galatasaray",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Shaun Goater",
-    "aliases": [
-      "Goater",
-      "Shaun"
-    ],
-    "clubs": [
-      "Manchester City",
-      "Manchester United"
-    ]
-  },
-  {
-    "name": "Shinji Kagawa",
-    "aliases": [
-      "Kagawa",
-      "Shinji"
-    ],
-    "clubs": [
-      "Beşiktaş",
-      "Manchester United"
-    ]
-  },
-  {
-    "name": "Shota Arveladze",
-    "aliases": [
-      "Arveladze",
-      "Shota"
-    ],
-    "clubs": [
-      "Ajax",
-      "Trabzonspor"
-    ]
-  },
-  {
-    "name": "Sid Jones",
-    "aliases": [
-      "Jones",
-      "Sid"
-    ],
-    "clubs": [
-      "Arsenal",
-      "Manchester United"
-    ]
-  },
-  {
-    "name": "Simão Sabrosa",
-    "aliases": [
-      "Sabrosa",
-      "Simão"
-    ],
-    "clubs": [
-      "Atletico Madrid",
-      "Barcelona",
+      "Kayserispor",
       "Beşiktaş"
     ]
   },
   {
-    "name": "Šime Vrsaljko",
-    "aliases": [
-      "Šime",
-      "Vrsaljko"
-    ],
+    "name": "Shaocong Wu",
+    "clubs": [
+      "Başakşehir",
+      "Genclerbirligi"
+    ]
+  },
+  {
+    "name": "Shaun Goater",
+    "clubs": [
+      "Man Utd",
+      "Man City"
+    ]
+  },
+  {
+    "name": "Shaun Wright-Phillips",
+    "clubs": [
+      "Chelsea",
+      "Man City"
+    ]
+  },
+  {
+    "name": "Shinji Kagawa",
+    "clubs": [
+      "Bor. Dortmund",
+      "Beşiktaş",
+      "Man Utd"
+    ]
+  },
+  {
+    "name": "Shoya Nakajima",
+    "clubs": [
+      "FC Porto",
+      "Antalyaspor"
+    ]
+  },
+  {
+    "name": "Sidnei",
+    "clubs": [
+      "Beşiktaş",
+      "Benfica"
+    ]
+  },
+  {
+    "name": "Silvio",
+    "clubs": [
+      "Atletico Madrid",
+      "Benfica"
+    ]
+  },
+  {
+    "name": "Simao",
+    "clubs": [
+      "Barcelona",
+      "Beşiktaş",
+      "Atletico Madrid",
+      "Benfica"
+    ]
+  },
+  {
+    "name": "Sime Vrsaljko",
     "clubs": [
       "Atletico Madrid",
       "Inter"
@@ -20352,683 +11849,364 @@ export const PLAYERS = [
   },
   {
     "name": "Simon Colosimo",
-    "aliases": [
-      "Colosimo",
-      "Simon"
-    ],
     "clubs": [
-      "Manchester City",
-      "Sivasspor"
+      "Sivasspor",
+      "Man City"
     ]
   },
   {
-    "name": "Simon Kjær",
-    "aliases": [
-      "Kjær",
-      "Simon"
-    ],
+    "name": "Simone Bonavita",
     "clubs": [
-      "Milan",
-      "Roma",
-      "Sevilla"
+      "Inter",
+      "Napoli"
     ]
   },
   {
-    "name": "Simone Andrea Ganz",
-    "aliases": [
-      "Andrea",
-      "Ganz",
-      "Simone"
-    ],
+    "name": "Simone Ganz",
     "clubs": [
       "Juventus",
-      "Milan"
+      "AC Milan"
     ]
   },
   {
     "name": "Simone Loria",
-    "aliases": [
-      "Loria",
-      "Simone"
-    ],
     "clubs": [
       "Juventus",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Simone Pepe",
-    "aliases": [
-      "Pepe",
-      "Simone"
-    ],
-    "clubs": [
-      "Juventus",
-      "Roma"
+      "AS Roma"
     ]
   },
   {
     "name": "Simone Perrotta",
-    "aliases": [
-      "Perrotta",
-      "Simone"
-    ],
     "clubs": [
       "Juventus",
-      "Roma"
+      "AS Roma"
+    ]
+  },
+  {
+    "name": "Simone Verdi",
+    "clubs": [
+      "AC Milan",
+      "Napoli"
     ]
   },
   {
     "name": "Sinan Bolat",
-    "aliases": [
-      "Bolat",
-      "Sinan"
-    ],
     "clubs": [
-      "Galatasaray",
-      "Kayserispor"
+      "Kayserispor",
+      "FC Porto",
+      "Galatasaray"
     ]
   },
   {
-    "name": "Sinan Demircioğlu",
-    "aliases": [
-      "Demircioğlu",
-      "Sinan"
-    ],
+    "name": "Sinan Gümüş",
     "clubs": [
-      "Başakşehir",
-      "Beşiktaş"
+      "Fenerbahçe",
+      "Antalyaspor",
+      "Galatasaray"
     ]
   },
   {
     "name": "Sinan Kaloğlu",
-    "aliases": [
-      "Kaloğlu",
-      "Sinan"
-    ],
     "clubs": [
       "Antalyaspor",
       "Beşiktaş"
     ]
   },
   {
-    "name": "Siniša Mihajlović",
-    "aliases": [
-      "Mihajlović",
-      "Siniša"
-    ],
+    "name": "Sinan Osmanoğlu",
     "clubs": [
-      "Inter",
-      "Roma"
+      "Genclerbirligi",
+      "Galatasaray"
     ]
   },
   {
     "name": "Sofyan Amrabat",
-    "aliases": [
-      "amrabat",
-      "Amrabat",
-      "sofyan",
-      "Sofyan"
-    ],
     "clubs": [
       "Fenerbahçe",
-      "Manchester United"
+      "Man Utd"
     ]
   },
   {
     "name": "Sokratis Papastathopoulos",
-    "aliases": [
-      "Papastathopoulos",
-      "Sokratis"
-    ],
     "clubs": [
+      "Bor. Dortmund",
       "Arsenal",
-      "Milan"
-    ]
-  },
-  {
-    "name": "Sol Bamba",
-    "aliases": [
-      "Bamba",
-      "Sol"
-    ],
-    "clubs": [
-      "Atletico Madrid",
-      "PSG",
-      "Tottenham",
-      "Trabzonspor"
+      "AC Milan"
     ]
   },
   {
     "name": "Sol Campbell",
-    "aliases": [
-      "Campbell",
-      "Sol"
-    ],
     "clubs": [
-      "Arsenal",
-      "Tottenham"
+      "Tottenham",
+      "Arsenal"
     ]
   },
   {
-    "name": "Soner Tolungüç",
-    "aliases": [
-      "Soner",
-      "Tolungüç"
-    ],
+    "name": "Soner Aydoğdu",
     "clubs": [
-      "Galatasaray",
-      "Trabzonspor"
+      "Başakşehir",
+      "Trabzonspor",
+      "Genclerbirligi",
+      "Antalyaspor"
     ]
   },
   {
-    "name": "Sonia Bompastor",
-    "aliases": [
-      "Bompastor",
-      "Sonia"
-    ],
+    "name": "Soner Dikmen",
     "clubs": [
-      "Lyon",
-      "PSG"
+      "Konyaspor",
+      "Genclerbirligi",
+      "Antalyaspor"
     ]
   },
   {
-    "name": "Sonny Anderson",
-    "aliases": [
-      "Anderson",
-      "Sonny"
-    ],
+    "name": "Souleymane Doukara",
     "clubs": [
-      "Barcelona",
-      "Lyon"
+      "Genclerbirligi",
+      "Antalyaspor"
     ]
   },
   {
-    "name": "Sophia C. Madumere",
-    "aliases": [
-      "Madumere",
-      "Sophia"
-    ],
+    "name": "Souleymane Youla",
     "clubs": [
-      "Arsenal",
-      "Manchester United"
+      "Genclerbirligi",
+      "Denizlispor",
+      "Beşiktaş"
     ]
   },
   {
-    "name": "Stanley Nsoki",
-    "aliases": [
-      "Nsoki",
-      "Stanley"
-    ],
+    "name": "Souza",
     "clubs": [
-      "Nice",
-      "PSG"
+      "FC Porto",
+      "Fenerbahçe",
+      "Başakşehir",
+      "Beşiktaş"
+    ]
+  },
+  {
+    "name": "Stanislav Lobotka",
+    "clubs": [
+      "Ajax",
+      "Napoli"
     ]
   },
   {
     "name": "Steed Malbranque",
-    "aliases": [
-      "Malbranque",
-      "Steed"
-    ],
     "clubs": [
-      "Lyon",
-      "Tottenham"
+      "Tottenham",
+      "Olymp. Lyon"
     ]
   },
   {
-    "name": "Stefano Desideri",
-    "aliases": [
-      "Desideri",
-      "Stefano"
-    ],
+    "name": "Stefan Savic",
     "clubs": [
-      "Inter",
-      "Roma"
+      "Trabzonspor",
+      "Atletico Madrid",
+      "Man City"
     ]
   },
   {
-    "name": "Stefano Ferrari",
-    "aliases": [
-      "Ferrari",
-      "Stefano"
-    ],
+    "name": "Stefano Denswil",
     "clubs": [
-      "Milan",
-      "Roma"
+      "Kayserispor",
+      "Trabzonspor",
+      "Ajax"
     ]
   },
   {
-    "name": "Stefano Lombardi",
-    "aliases": [
-      "Lombardi",
-      "Stefano"
-    ],
+    "name": "Stefano Okaka",
     "clubs": [
-      "Inter",
-      "Milan"
-    ]
-  },
-  {
-    "name": "Stefano Tacconi",
-    "aliases": [
-      "Stefano",
-      "Tacconi"
-    ],
-    "clubs": [
-      "Inter",
-      "Juventus"
+      "Başakşehir",
+      "AS Roma"
     ]
   },
   {
     "name": "Stephan Lichtsteiner",
-    "aliases": [
-      "Lichtsteiner",
-      "Stephan"
-    ],
     "clubs": [
-      "Arsenal",
-      "Juventus"
+      "Juventus",
+      "Arsenal"
     ]
   },
   {
-    "name": "Stéphane Dalmat",
-    "aliases": [
-      "Dalmat",
-      "Stéphane"
-    ],
+    "name": "Stephane Badji",
     "clubs": [
-      "Inter",
-      "PSG",
-      "Tottenham"
+      "Kayserispor",
+      "Başakşehir"
     ]
   },
   {
-    "name": "Stéphane Mbia",
-    "aliases": [
-      "Mbia",
-      "Stéphane"
-    ],
+    "name": "Stephane Dalmat",
     "clubs": [
-      "Sevilla",
-      "Trabzonspor"
+      "Tottenham",
+      "Inter"
     ]
   },
   {
-    "name": "Stéphane Roche",
-    "aliases": [
-      "Roche",
-      "Stéphane"
-    ],
+    "name": "Stephen Appiah",
     "clubs": [
-      "Lyon",
-      "Nice"
-    ]
-  },
-  {
-    "name": "Stephen Pears",
-    "aliases": [
-      "Pears",
-      "Stephen"
-    ],
-    "clubs": [
-      "Liverpool",
-      "Manchester United"
+      "Juventus",
+      "Fenerbahçe"
     ]
   },
   {
     "name": "Stephy Mavididi",
-    "aliases": [
-      "Mavididi",
-      "Stephy"
-    ],
     "clubs": [
-      "Arsenal",
-      "Juventus"
+      "Juventus",
+      "Arsenal"
     ]
   },
   {
-    "name": "Steve Archibald",
-    "aliases": [
-      "Archibald",
-      "Steve"
-    ],
+    "name": "Stevan Jovetic",
     "clubs": [
-      "Barcelona",
-      "Tottenham"
+      "Inter",
+      "Man City"
     ]
   },
   {
-    "name": "Steve McMahon",
-    "aliases": [
-      "McMahon",
-      "Steve"
-    ],
+    "name": "Steve Sidwell",
     "clubs": [
-      "Liverpool",
-      "Manchester City"
+      "Chelsea",
+      "Arsenal"
     ]
   },
   {
-    "name": "Steve McManaman",
-    "aliases": [
-      "McManaman",
-      "Steve"
-    ],
+    "name": "Steven Bergwijn",
     "clubs": [
-      "Liverpool",
-      "Manchester City",
-      "Real Madrid"
-    ]
-  },
-  {
-    "name": "Steve Walford",
-    "aliases": [
-      "Steve",
-      "Walford"
-    ],
-    "clubs": [
-      "Arsenal",
-      "Tottenham"
+      "Tottenham",
+      "Ajax"
     ]
   },
   {
     "name": "Steven Caulker",
-    "aliases": [
-      "Caulker",
-      "Steven"
-    ],
     "clubs": [
-      "Liverpool",
-      "Tottenham"
+      "Tottenham",
+      "Fenerbahçe",
+      "Liverpool"
     ]
   },
   {
     "name": "Steven Nzonzi",
-    "aliases": [
-      "Nzonzi",
-      "Steven"
-    ],
     "clubs": [
+      "Konyaspor",
       "Galatasaray",
-      "Roma",
-      "Sevilla"
-    ]
-  },
-  {
-    "name": "Steven Pienaar",
-    "aliases": [
-      "Pienaar",
-      "Steven"
-    ],
-    "clubs": [
-      "Ajax",
-      "Tottenham"
-    ]
-  },
-  {
-    "name": "Stevica Kuzmanovski",
-    "aliases": [
-      "Kuzmanovski",
-      "Stevica"
-    ],
-    "clubs": [
-      "Antalyaspor",
-      "Galatasaray"
-    ]
-  },
-  {
-    "name": "Stuart Lewis",
-    "aliases": [
-      "Lewis",
-      "Stuart"
-    ],
-    "clubs": [
-      "Arsenal",
-      "Tottenham"
-    ]
-  },
-  {
-    "name": "Stuart Naysmith",
-    "aliases": [
-      "Naysmith",
-      "Stuart"
-    ],
-    "clubs": [
-      "Galatasaray",
-      "Manchester City"
-    ]
-  },
-  {
-    "name": "Stuart Taylor",
-    "aliases": [
-      "Stuart",
-      "Taylor"
-    ],
-    "clubs": [
-      "Arsenal",
-      "Manchester City"
-    ]
-  },
-  {
-    "name": "Suat Mamat",
-    "aliases": [
-      "Mamat",
-      "Suat"
-    ],
-    "clubs": [
-      "Beşiktaş",
-      "Galatasaray"
-    ]
-  },
-  {
-    "name": "Suat Usta",
-    "aliases": [
-      "Suat",
-      "Usta"
-    ],
-    "clubs": [
-      "Antalyaspor",
-      "Galatasaray"
-    ]
-  },
-  {
-    "name": "Sulley Muntari",
-    "aliases": [
-      "Muntari",
-      "Sulley"
-    ],
-    "clubs": [
-      "Inter",
-      "Milan"
-    ]
-  },
-  {
-    "name": "Sunday Oliseh",
-    "aliases": [
-      "Oliseh",
-      "Sunday"
-    ],
-    "clubs": [
-      "Ajax",
-      "Juventus"
-    ]
-  },
-  {
-    "name": "Sylvain Distin",
-    "aliases": [
-      "Distin",
-      "Sylvain"
-    ],
-    "clubs": [
-      "Manchester City",
+      "AS Roma",
       "PSG"
     ]
   },
   {
-    "name": "Sylvain Wiltord",
-    "aliases": [
-      "Sylvain",
-      "Wiltord"
-    ],
+    "name": "Steven Pienaar",
+    "clubs": [
+      "Bor. Dortmund",
+      "Tottenham",
+      "Ajax"
+    ]
+  },
+  {
+    "name": "Steven Vitoria",
+    "clubs": [
+      "FC Porto",
+      "Benfica"
+    ]
+  },
+  {
+    "name": "Stuart Taylor",
     "clubs": [
       "Arsenal",
-      "Lyon"
+      "Man City"
+    ]
+  },
+  {
+    "name": "Sulley Muntari",
+    "clubs": [
+      "AC Milan",
+      "Inter"
+    ]
+  },
+  {
+    "name": "Suso",
+    "clubs": [
+      "AC Milan",
+      "Liverpool"
+    ]
+  },
+  {
+    "name": "Sylvain Distin",
+    "clubs": [
+      "PSG",
+      "Man City"
     ]
   },
   {
     "name": "Sylvinho",
-    "aliases": [],
     "clubs": [
       "Arsenal",
       "Barcelona",
-      "Manchester City"
+      "Man City"
     ]
   },
   {
-    "name": "Şahin Aygüneş",
-    "aliases": [
-      "Aygüneş",
-      "Şahin"
-    ],
+    "name": "Tahir Alegöz",
     "clubs": [
-      "Antalyaspor",
-      "Trabzonspor"
+      "Sivasspor",
+      "Konyaspor"
     ]
   },
   {
-    "name": "Şükrü Gülesin",
-    "aliases": [
-      "Gülesin",
-      "Şükrü"
-    ],
+    "name": "Tal Ben Haim",
     "clubs": [
+      "Chelsea",
+      "Man City"
+    ]
+  },
+  {
+    "name": "Talisca",
+    "clubs": [
+      "Fenerbahçe",
       "Beşiktaş",
-      "Galatasaray"
+      "Benfica"
     ]
   },
   {
     "name": "Tamer Tuna",
-    "aliases": [
-      "Tamer",
-      "Tuna"
-    ],
     "clubs": [
-      "Beşiktaş",
+      "Trabzonspor",
+      "Denizlispor",
       "Galatasaray",
-      "Trabzonspor"
+      "Beşiktaş"
     ]
   },
   {
-    "name": "Tammy Bakumo-Abraham",
-    "aliases": [
-      "abraham",
-      "Abraham",
-      "bakumo",
-      "Bakumo",
-      "tammy",
-      "Tammy"
-    ],
+    "name": "Tammy Abraham",
     "clubs": [
-      "Beşiktaş",
       "Chelsea",
-      "Milan",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Taner Gülleri",
-    "aliases": [
-      "Gülleri",
-      "Taner"
-    ],
-    "clubs": [
-      "Antalyaspor",
-      "Başakşehir",
-      "Kayserispor"
-    ]
-  },
-  {
-    "name": "Taner Yalçın",
-    "aliases": [
-      "Taner",
-      "Yalçın"
-    ],
-    "clubs": [
-      "Başakşehir",
-      "Kayserispor"
+      "Beşiktaş",
+      "AC Milan",
+      "AS Roma"
     ]
   },
   {
     "name": "Tanguy Ndombele",
-    "aliases": [
-      "Ndombele",
-      "Tanguy"
-    ],
     "clubs": [
+      "Tottenham",
       "Galatasaray",
-      "Lyon",
-      "Nice",
-      "Tottenham"
+      "Napoli"
     ]
   },
   {
-    "name": "Tanguy Ndombélé Alvaro",
-    "aliases": [
-      "alvaro",
-      "Alvaro",
-      "ndombele",
-      "Ndombele",
-      "Ndombélé",
-      "tanguy",
-      "Tanguy"
-    ],
+    "name": "Tanguy Nianzou",
     "clubs": [
-      "Galatasaray",
-      "Lyon",
-      "Nice",
-      "Tottenham"
+      "PSG",
+      "Bayern Munich"
     ]
   },
   {
-    "name": "Tarcisio Burgnich",
-    "aliases": [
-      "Burgnich",
-      "Tarcisio"
-    ],
+    "name": "Tarık Çamdal",
     "clubs": [
-      "Inter",
-      "Juventus"
-    ]
-  },
-  {
-    "name": "Taribo West",
-    "aliases": [
-      "Taribo",
-      "West"
-    ],
-    "clubs": [
-      "Inter",
-      "Milan"
-    ]
-  },
-  {
-    "name": "Tarik Oulida",
-    "aliases": [
-      "Oulida",
-      "Tarik"
-    ],
-    "clubs": [
-      "Ajax",
-      "Sevilla"
+      "Antalyaspor",
+      "Galatasaray"
     ]
   },
   {
     "name": "Tayfun Cora",
-    "aliases": [
-      "Cora",
-      "Tayfun"
-    ],
     "clubs": [
       "Kayserispor",
       "Trabzonspor"
@@ -21036,1297 +12214,843 @@ export const PLAYERS = [
   },
   {
     "name": "Tayfun Seven",
-    "aliases": [
-      "Seven",
-      "Tayfun"
-    ],
     "clubs": [
-      "Antalyaspor",
-      "Başakşehir"
+      "Konyaspor",
+      "Fenerbahçe",
+      "Genclerbirligi",
+      "Antalyaspor"
     ]
   },
   {
-    "name": "Ted MacDougall",
-    "aliases": [
-      "MacDougall",
-      "Ted"
-    ],
+    "name": "Tayfur Bingöl",
     "clubs": [
-      "Liverpool",
-      "Manchester United"
+      "Genclerbirligi",
+      "Beşiktaş"
     ]
   },
   {
-    "name": "Ted Savage",
-    "aliases": [
-      "Savage",
-      "Ted"
-    ],
+    "name": "Tayfur Havutçu",
     "clubs": [
-      "Liverpool",
-      "Manchester United"
+      "Fenerbahçe",
+      "Beşiktaş"
+    ]
+  },
+  {
+    "name": "Taylan Antalyalı",
+    "clubs": [
+      "Genclerbirligi",
+      "Galatasaray"
     ]
   },
   {
     "name": "Teddy Sheringham",
-    "aliases": [
-      "Sheringham",
-      "Teddy"
-    ],
     "clubs": [
-      "Manchester United",
-      "Tottenham"
+      "Tottenham",
+      "Man Utd"
     ]
   },
   {
     "name": "Teemu Tainio",
-    "aliases": [
-      "Tainio",
-      "Teemu"
-    ],
     "clubs": [
-      "Ajax",
-      "Tottenham"
-    ]
-  },
-  {
-    "name": "Temel Uğur Yiğit",
-    "aliases": [
-      "Temel",
-      "Uğur",
-      "Yiğit"
-    ],
-    "clubs": [
-      "Kayserispor",
-      "Sivasspor"
+      "Tottenham",
+      "Ajax"
     ]
   },
   {
     "name": "Terry Cooke",
-    "aliases": [
-      "Cooke",
-      "Terry"
-    ],
     "clubs": [
-      "Manchester City",
-      "Manchester United"
+      "Man Utd",
+      "Man City"
     ]
   },
   {
-    "name": "Terry Gibson",
-    "aliases": [
-      "Gibson",
-      "Terry"
-    ],
+    "name": "Thalisson",
     "clubs": [
-      "Manchester United",
-      "Tottenham"
+      "Genclerbirligi",
+      "Antalyaspor"
     ]
   },
   {
-    "name": "Tevfik Köse",
-    "aliases": [
-      "Köse",
-      "Tevfik"
-    ],
+    "name": "Theofanis Gekas",
     "clubs": [
-      "Başakşehir",
-      "Kayserispor"
+      "Sivasspor",
+      "Konyaspor"
     ]
   },
   {
-    "name": "Théo Bernard François Hernández",
-    "aliases": [
-      "bernard",
-      "Bernard",
-      "francois",
-      "François",
-      "hernandez",
-      "Hernández",
-      "theo",
-      "Théo"
-    ],
-    "clubs": [
-      "Milan",
-      "Real Madrid"
-    ]
-  },
-  {
-    "name": "Thiago Alcântara",
-    "aliases": [
-      "Alcântara",
-      "Thiago"
-    ],
+    "name": "Thiago Alcantara",
     "clubs": [
       "Barcelona",
-      "Liverpool"
+      "Liverpool",
+      "Bayern Munich"
     ]
   },
   {
     "name": "Thiago Motta",
-    "aliases": [
-      "Motta",
-      "Thiago"
-    ],
     "clubs": [
-      "Atletico Madrid",
       "Barcelona",
-      "Inter",
-      "PSG"
-    ]
-  },
-  {
-    "name": "Thiago Pitarch",
-    "aliases": [
-      "Pitarch",
-      "Thiago"
-    ],
-    "clubs": [
       "Atletico Madrid",
-      "Real Madrid"
+      "Inter"
     ]
   },
   {
     "name": "Thiago Silva",
-    "aliases": [
-      "Silva",
-      "Thiago"
-    ],
     "clubs": [
-      "Milan",
-      "PSG"
+      "Chelsea",
+      "FC Porto",
+      "AC Milan"
     ]
   },
   {
     "name": "Thibaut Courtois",
-    "aliases": [
-      "Courtois",
-      "Thibaut"
-    ],
-    "clubs": [
-      "Atletico Madrid",
-      "Real Madrid"
-    ]
-  },
-  {
-    "name": "Thibaut Nicolas Marc Courtois",
-    "aliases": [
-      "courtois",
-      "Courtois",
-      "marc",
-      "Marc",
-      "nicolas",
-      "Nicolas",
-      "thibaut",
-      "Thibaut"
-    ],
     "clubs": [
       "Chelsea",
+      "Atletico Madrid",
       "Real Madrid"
     ]
   },
   {
     "name": "Thierry Henry",
-    "aliases": [
-      "Henry",
-      "Thierry"
-    ],
-    "clubs": [
-      "Arsenal",
-      "Barcelona",
-      "Juventus"
-    ]
-  },
-  {
-    "name": "Thomas Fitchie",
-    "aliases": [
-      "Fitchie",
-      "Thomas"
-    ],
-    "clubs": [
-      "Arsenal",
-      "Tottenham"
-    ]
-  },
-  {
-    "name": "Thomas Häßler",
-    "aliases": [
-      "Häßler",
-      "Thomas"
-    ],
     "clubs": [
       "Juventus",
-      "Roma"
+      "Arsenal",
+      "Barcelona"
+    ]
+  },
+  {
+    "name": "Thimothee Atouba",
+    "clubs": [
+      "Tottenham",
+      "Ajax"
+    ]
+  },
+  {
+    "name": "Thomas Fontaine",
+    "clubs": [
+      "Genclerbirligi",
+      "Olymp. Lyon"
     ]
   },
   {
     "name": "Thomas Helveg",
-    "aliases": [
-      "Helveg",
-      "Thomas"
-    ],
     "clubs": [
-      "Inter",
-      "Milan"
+      "AC Milan",
+      "Inter"
     ]
   },
   {
-    "name": "Thomas McNulty",
-    "aliases": [
-      "McNulty",
-      "Thomas"
-    ],
+    "name": "Thomas Hengen",
     "clubs": [
-      "Liverpool",
-      "Manchester United"
+      "Bor. Dortmund",
+      "Beşiktaş"
     ]
   },
   {
-    "name": "Thomas Reid",
-    "aliases": [
-      "Reid",
-      "Thomas"
-    ],
+    "name": "Thomas Meunier",
     "clubs": [
-      "Liverpool",
-      "Manchester United"
+      "Bor. Dortmund",
+      "Trabzonspor"
+    ]
+  },
+  {
+    "name": "Thomas Partey",
+    "clubs": [
+      "Arsenal",
+      "Atletico Madrid"
     ]
   },
   {
     "name": "Thomas Vermaelen",
-    "aliases": [
-      "Thomas",
-      "Vermaelen"
-    ],
     "clubs": [
-      "Ajax",
       "Arsenal",
       "Barcelona",
-      "Roma"
+      "AS Roma",
+      "Ajax"
+    ]
+  },
+  {
+    "name": "Thorgan Hazard",
+    "clubs": [
+      "Bor. Dortmund",
+      "Chelsea"
+    ]
+  },
+  {
+    "name": "Tiago Dantas",
+    "clubs": [
+      "Benfica",
+      "Bayern Munich"
+    ]
+  },
+  {
+    "name": "Tiago Dias",
+    "clubs": [
+      "AC Milan",
+      "Benfica"
+    ]
+  },
+  {
+    "name": "Tiago Djalo(420465)",
+    "clubs": [
+      "Juventus",
+      "FC Porto",
+      "Beşiktaş"
+    ]
+  },
+  {
+    "name": "Tiago Ferreira",
+    "clubs": [
+      "FC Porto",
+      "Benfica"
+    ]
+  },
+  {
+    "name": "Tiago Lopes",
+    "clubs": [
+      "Kayserispor",
+      "FC Porto",
+      "Denizlispor"
     ]
   },
   {
     "name": "Tiago Mendes",
-    "aliases": [
-      "Mendes",
-      "Tiago"
-    ],
     "clubs": [
-      "Atletico Madrid",
+      "Chelsea",
       "Juventus",
-      "Lyon"
+      "Atletico Madrid",
+      "Benfica"
     ]
   },
   {
-    "name": "Tibor Szalay",
-    "aliases": [
-      "Szalay",
-      "Tibor"
-    ],
+    "name": "Tiago Ribeiro",
     "clubs": [
-      "Barcelona",
-      "Beşiktaş",
-      "Sevilla"
+      "FC Porto",
+      "Benfica"
+    ]
+  },
+  {
+    "name": "Tiago Rodrigues",
+    "clubs": [
+      "FC Porto",
+      "Genclerbirligi"
+    ]
+  },
+  {
+    "name": "Tiago Silva",
+    "clubs": [
+      "FC Porto",
+      "Benfica"
+    ]
+  },
+  {
+    "name": "Tiemoue Bakayoko",
+    "clubs": [
+      "Chelsea",
+      "AC Milan",
+      "Napoli"
+    ]
+  },
+  {
+    "name": "Tijani Babangida",
+    "clubs": [
+      "Genclerbirligi",
+      "Ajax"
+    ]
+  },
+  {
+    "name": "Tijjani Reijnders",
+    "clubs": [
+      "AC Milan",
+      "Man City"
+    ]
+  },
+  {
+    "name": "Timi Davies",
+    "clubs": [
+      "Arsenal",
+      "Man City"
     ]
   },
   {
     "name": "Timo Werner",
-    "aliases": [
-      "timo",
-      "Timo",
-      "werner",
-      "Werner"
-    ],
     "clubs": [
       "Chelsea",
       "Tottenham"
     ]
   },
   {
-    "name": "Timothée Atouba",
-    "aliases": [
-      "Atouba",
-      "Timothée"
-    ],
+    "name": "Timothy Fosu-Mensah",
     "clubs": [
       "Ajax",
-      "Tottenham"
+      "Man Utd"
     ]
   },
   {
-    "name": "Timothée Kolodziejczak",
-    "aliases": [
-      "Kolodziejczak",
-      "Timothée"
-    ],
+    "name": "Timothy Weah",
     "clubs": [
-      "Lyon",
-      "Nice",
-      "Sevilla"
+      "Juventus",
+      "PSG"
     ]
   },
   {
-    "name": "Tiziano Manfrin",
-    "aliases": [
-      "Manfrin",
-      "Tiziano"
-    ],
+    "name": "Tobi Omole",
     "clubs": [
-      "Inter",
-      "Milan"
+      "Tottenham",
+      "Arsenal"
     ]
   },
   {
     "name": "Toby Alderweireld",
-    "aliases": [
-      "Alderweireld",
-      "Toby"
-    ],
     "clubs": [
-      "Ajax",
+      "Tottenham",
       "Atletico Madrid",
-      "Tottenham"
+      "Ajax"
     ]
   },
   {
     "name": "Tolga Doğantez",
-    "aliases": [
-      "Doğantez",
-      "Tolga"
-    ],
     "clubs": [
-      "Beşiktaş",
-      "Sivasspor"
-    ]
-  },
-  {
-    "name": "Tolga Seyhan",
-    "aliases": [
-      "Seyhan",
-      "Tolga"
-    ],
-    "clubs": [
-      "Galatasaray",
-      "Trabzonspor"
+      "Sivasspor",
+      "Genclerbirligi",
+      "Beşiktaş"
     ]
   },
   {
     "name": "Tolga Zengin",
-    "aliases": [
-      "Tolga",
-      "Zengin"
-    ],
     "clubs": [
-      "Beşiktaş",
-      "Trabzonspor"
+      "Trabzonspor",
+      "Beşiktaş"
     ]
   },
   {
-    "name": "Tolunay Kafkas",
-    "aliases": [
-      "Kafkas",
-      "Tolunay"
-    ],
+    "name": "Tolgahan Acar",
     "clubs": [
-      "Galatasaray",
-      "Trabzonspor"
+      "Sivasspor",
+      "Denizlispor"
     ]
   },
   {
-    "name": "Tom Chorlton",
-    "aliases": [
-      "Chorlton",
-      "Tom"
-    ],
+    "name": "Tolgay Arslan",
     "clubs": [
-      "Liverpool",
-      "Manchester United"
+      "Fenerbahçe",
+      "Beşiktaş"
     ]
   },
   {
-    "name": "Tom De Mul",
-    "aliases": [
-      "Mul",
-      "Tom"
-    ],
+    "name": "Tom Dele-Bashiru",
     "clubs": [
-      "Ajax",
-      "Sevilla"
+      "Genclerbirligi",
+      "Man City"
     ]
   },
   {
-    "name": "Tom Forman",
-    "aliases": [
-      "Forman",
-      "Tom"
-    ],
+    "name": "Tom Huddlestone",
     "clubs": [
-      "Manchester City",
-      "Tottenham"
+      "Tottenham",
+      "Man Utd"
     ]
   },
   {
-    "name": "Tom Miller",
-    "aliases": [
-      "Miller",
-      "Tom"
-    ],
+    "name": "Tomas Moreira",
     "clubs": [
-      "Liverpool",
-      "Manchester United"
+      "FC Porto",
+      "Benfica"
     ]
   },
   {
-    "name": "Tom Robertson",
-    "aliases": [
-      "Robertson",
-      "Tom"
-    ],
+    "name": "Tomas Rosicky",
     "clubs": [
-      "Liverpool",
-      "Manchester United"
+      "Bor. Dortmund",
+      "Arsenal"
     ]
   },
   {
-    "name": "Tom Stanton",
-    "aliases": [
-      "Stanton",
-      "Tom"
-    ],
+    "name": "Tomislav Sokota",
     "clubs": [
-      "Arsenal",
-      "Liverpool"
-    ]
-  },
-  {
-    "name": "Tom Wilcox",
-    "aliases": [
-      "Tom",
-      "Wilcox"
-    ],
-    "clubs": [
-      "Arsenal",
-      "Manchester United"
-    ]
-  },
-  {
-    "name": "Tomáš Jun",
-    "aliases": [
-      "Jun",
-      "Tomáš"
-    ],
-    "clubs": [
-      "Beşiktaş",
-      "Trabzonspor"
-    ]
-  },
-  {
-    "name": "Tomás Reñones Crego",
-    "aliases": [
-      "Crego",
-      "Reñones",
-      "Tomás"
-    ],
-    "clubs": [
-      "Atletico Madrid",
-      "Barcelona"
-    ]
-  },
-  {
-    "name": "Tomáš Ujfaluši",
-    "aliases": [
-      "Tomáš",
-      "Ujfaluši"
-    ],
-    "clubs": [
-      "Atletico Madrid",
-      "Galatasaray"
+      "FC Porto",
+      "Benfica"
     ]
   },
   {
     "name": "Tommaso Rocchi",
-    "aliases": [
-      "Rocchi",
-      "Tommaso"
-    ],
-    "clubs": [
-      "Inter",
-      "Juventus"
-    ]
-  },
-  {
-    "name": "Tommy Baldwin",
-    "aliases": [
-      "Baldwin",
-      "Tommy"
-    ],
-    "clubs": [
-      "Arsenal",
-      "Manchester United"
-    ]
-  },
-  {
-    "name": "Tommy Caton",
-    "aliases": [
-      "Caton",
-      "Tommy"
-    ],
-    "clubs": [
-      "Arsenal",
-      "Manchester City"
-    ]
-  },
-  {
-    "name": "Tommy Farrell",
-    "aliases": [
-      "Farrell",
-      "Tommy"
-    ],
-    "clubs": [
-      "Arsenal",
-      "Manchester City"
-    ]
-  },
-  {
-    "name": "Tommy Gipps",
-    "aliases": [
-      "Gipps",
-      "Tommy"
-    ],
-    "clubs": [
-      "Manchester United",
-      "Tottenham"
-    ]
-  },
-  {
-    "name": "Tommy Hynds",
-    "aliases": [
-      "Hynds",
-      "Tommy"
-    ],
-    "clubs": [
-      "Arsenal",
-      "Manchester City"
-    ]
-  },
-  {
-    "name": "Tommy Johnson",
-    "aliases": [
-      "Johnson",
-      "Tommy"
-    ],
-    "clubs": [
-      "Liverpool",
-      "Manchester City"
-    ]
-  },
-  {
-    "name": "Toni Moral",
-    "aliases": [
-      "Moral",
-      "Toni"
-    ],
-    "clubs": [
-      "Barcelona",
-      "Real Madrid"
-    ]
-  },
-  {
-    "name": "Tony Coton",
-    "aliases": [
-      "Coton",
-      "Tony"
-    ],
-    "clubs": [
-      "Manchester City",
-      "Manchester United"
-    ]
-  },
-  {
-    "name": "Tony Marchi",
-    "aliases": [
-      "Marchi",
-      "Tony"
-    ],
     "clubs": [
       "Juventus",
-      "Tottenham"
+      "Inter"
     ]
   },
   {
-    "name": "Tony Whelan",
-    "aliases": [
-      "Tony",
-      "Whelan"
-    ],
+    "name": "Tommy Setford",
     "clubs": [
-      "Manchester City",
-      "Manchester United"
+      "Arsenal",
+      "Ajax"
     ]
   },
   {
-    "name": "Tote",
-    "aliases": [],
+    "name": "Toni Kroos",
     "clubs": [
-      "Atletico Madrid",
-      "Real Madrid"
+      "Real Madrid",
+      "Bayern Munich"
     ]
   },
   {
-    "name": "Trézéguet",
-    "aliases": [],
+    "name": "Torsten Frings",
     "clubs": [
-      "Başakşehir",
-      "Trabzonspor"
+      "Bor. Dortmund",
+      "Bayern Munich"
+    ]
+  },
+  {
+    "name": "Tosin Adarabioyo",
+    "clubs": [
+      "Chelsea",
+      "Man City"
+    ]
+  },
+  {
+    "name": "Tosin Kehinde",
+    "clubs": [
+      "Man Utd",
+      "Man City"
+    ]
+  },
+  {
+    "name": "Trent Alexander-Arnold",
+    "clubs": [
+      "Real Madrid",
+      "Liverpool"
+    ]
+  },
+  {
+    "name": "Tugay Kerimoğlu",
+    "clubs": [
+      "Trabzonspor",
+      "Galatasaray"
     ]
   },
   {
     "name": "Tuna Üzümcü",
-    "aliases": [
-      "Tuna",
-      "Üzümcü"
-    ],
     "clubs": [
+      "Genclerbirligi",
       "Antalyaspor",
+      "Denizlispor",
       "Beşiktaş"
     ]
   },
   {
-    "name": "Tuncay Mesçi",
-    "aliases": [
-      "Mesçi",
-      "Tuncay"
-    ],
-    "clubs": [
-      "Beşiktaş",
-      "Trabzonspor"
-    ]
-  },
-  {
-    "name": "Tuncay Soyak",
-    "aliases": [
-      "Soyak",
-      "Tuncay"
-    ],
-    "clubs": [
-      "Galatasaray",
-      "Trabzonspor"
-    ]
-  },
-  {
-    "name": "Turgay Bahadır",
-    "aliases": [
-      "Bahadır",
-      "Turgay"
-    ],
-    "clubs": [
-      "Başakşehir",
-      "Kayserispor"
-    ]
-  },
-  {
-    "name": "Turgut Doğan Şahin",
-    "aliases": [
-      "Doğan",
-      "Şahin",
-      "Turgut"
-    ],
+    "name": "Turgut Şahin",
     "clubs": [
       "Kayserispor",
-      "Trabzonspor"
+      "Trabzonspor",
+      "Genclerbirligi"
+    ]
+  },
+  {
+    "name": "Tyler Boyd",
+    "clubs": [
+      "Sivasspor",
+      "Beşiktaş"
+    ]
+  },
+  {
+    "name": "Tyler Fletcher",
+    "clubs": [
+      "Man Utd",
+      "Man City"
     ]
   },
   {
     "name": "Tümer Metin",
-    "aliases": [
-      "Metin",
-      "Tumer",
-      "Tümer"
-    ],
     "clubs": [
-      "Beşiktaş",
-      "Fenerbahçe"
-    ]
-  },
-  {
-    "name": "Ufuk Ateş",
-    "aliases": [
-      "Ateş",
-      "Ufuk"
-    ],
-    "clubs": [
-      "Antalyaspor",
-      "Başakşehir",
-      "Sivasspor"
-    ]
-  },
-  {
-    "name": "Ufuk Ceylan",
-    "aliases": [
-      "Ceylan",
-      "Ufuk"
-    ],
-    "clubs": [
-      "Başakşehir",
-      "Galatasaray"
-    ]
-  },
-  {
-    "name": "Ufuk Süer",
-    "aliases": [
-      "Süer",
-      "Ufuk"
-    ],
-    "clubs": [
-      "Beşiktaş",
-      "Sivasspor"
-    ]
-  },
-  {
-    "name": "Ufuk Talay",
-    "aliases": [
-      "Talay",
-      "Ufuk"
-    ],
-    "clubs": [
-      "Antalyaspor",
-      "Galatasaray"
-    ]
-  },
-  {
-    "name": "Ugo Locatelli",
-    "aliases": [
-      "Locatelli",
-      "Ugo"
-    ],
-    "clubs": [
-      "Inter",
-      "Juventus"
-    ]
-  },
-  {
-    "name": "Ugo Rietmann",
-    "aliases": [
-      "Rietmann",
-      "Ugo"
-    ],
-    "clubs": [
-      "Inter",
-      "Milan"
-    ]
-  },
-  {
-    "name": "Uğur Akdemir",
-    "aliases": [
-      "Akdemir",
-      "Uğur"
-    ],
-    "clubs": [
-      "Galatasaray",
-      "Sivasspor"
-    ]
-  },
-  {
-    "name": "Uğur Demirok",
-    "aliases": [
-      "Demirok",
-      "Uğur"
-    ],
-    "clubs": [
-      "Galatasaray",
-      "Trabzonspor"
-    ]
-  },
-  {
-    "name": "Uğur İnceman",
-    "aliases": [
-      "İnceman",
-      "Uğur"
-    ],
-    "clubs": [
-      "Antalyaspor",
+      "Fenerbahçe",
       "Beşiktaş"
     ]
   },
   {
-    "name": "Uğur Kavuk",
-    "aliases": [
-      "Kavuk",
-      "Uğur"
-    ],
+    "name": "Ufuk Akyol",
+    "clubs": [
+      "Konyaspor",
+      "Antalyaspor"
+    ]
+  },
+  {
+    "name": "Ufuk Ateş",
+    "clubs": [
+      "Sivasspor",
+      "Konyaspor",
+      "Antalyaspor"
+    ]
+  },
+  {
+    "name": "Ufuk Ceylan",
+    "clubs": [
+      "Başakşehir",
+      "Galatasaray"
+    ]
+  },
+  {
+    "name": "Ufuk Çam",
     "clubs": [
       "Antalyaspor",
-      "Başakşehir",
-      "Sivasspor"
+      "Galatasaray"
     ]
   },
   {
-    "name": "Uğur Uçar",
-    "aliases": [
-      "Uçar",
-      "Uğur"
-    ],
+    "name": "Ufukhan Bayraktar",
+    "clubs": [
+      "Konyaspor",
+      "Trabzonspor"
+    ]
+  },
+  {
+    "name": "Umaro Cande",
+    "clubs": [
+      "FC Porto",
+      "Benfica"
+    ]
+  },
+  {
+    "name": "Umut Bulut",
+    "clubs": [
+      "Kayserispor",
+      "Trabzonspor",
+      "Galatasaray"
+    ]
+  },
+  {
+    "name": "Umut Güneş",
     "clubs": [
       "Başakşehir",
-      "Galatasaray",
-      "Kayserispor"
-    ]
-  },
-  {
-    "name": "Umberto Guarnieri",
-    "aliases": [
-      "Guarnieri",
-      "Umberto"
-    ],
-    "clubs": [
-      "Inter",
-      "Milan"
-    ]
-  },
-  {
-    "name": "Umberto Malvano",
-    "aliases": [
-      "Malvano",
-      "Umberto"
-    ],
-    "clubs": [
-      "Juventus",
-      "Milan"
-    ]
-  },
-  {
-    "name": "Umberto Menti",
-    "aliases": [
-      "Menti",
-      "Umberto"
-    ],
-    "clubs": [
-      "Juventus",
-      "Milan"
-    ]
-  },
-  {
-    "name": "Umut burugudut bulut",
-    "aliases": [
-      "bulut",
-      "burugudut",
-      "Umut"
-    ],
-    "clubs": [
-      "Galatasaray",
       "Trabzonspor"
     ]
   },
   {
     "name": "Umut Kaya",
-    "aliases": [
-      "Kaya",
-      "Umut"
-    ],
     "clubs": [
-      "Beşiktaş",
-      "Kayserispor"
-    ]
-  },
-  {
-    "name": "Urby Emanuelson",
-    "aliases": [
-      "Emanuelson",
-      "Urby"
-    ],
-    "clubs": [
-      "Ajax",
-      "Milan",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Ümit Davala",
-    "aliases": [
-      "Davala",
-      "Ümit"
-    ],
-    "clubs": [
-      "Galatasaray",
-      "Inter",
-      "Milan"
-    ]
-  },
-  {
-    "name": "Valeri Bojinov",
-    "aliases": [
-      "Bojinov",
-      "Valeri"
-    ],
-    "clubs": [
-      "Juventus",
-      "Manchester City"
-    ]
-  },
-  {
-    "name": "Vampeta",
-    "aliases": [],
-    "clubs": [
-      "Inter",
-      "PSG"
-    ]
-  },
-  {
-    "name": "Vedran Ćorluka",
-    "aliases": [
-      "Ćorluka",
-      "Vedran"
-    ],
-    "clubs": [
-      "Manchester City",
-      "Tottenham"
-    ]
-  },
-  {
-    "name": "Veysel Aksu",
-    "aliases": [
-      "Aksu",
-      "Veysel"
-    ],
-    "clubs": [
-      "Başakşehir",
-      "Kayserispor"
-    ]
-  },
-  {
-    "name": "Veysel Cihan",
-    "aliases": [
-      "Cihan",
-      "Veysel"
-    ],
-    "clubs": [
-      "Antalyaspor",
+      "Kayserispor",
+      "Denizlispor",
       "Beşiktaş"
     ]
   },
   {
-    "name": "Vic Groves",
-    "aliases": [
-      "Groves",
-      "Vic"
-    ],
+    "name": "Umut Nayir",
     "clubs": [
-      "Arsenal",
-      "Tottenham"
+      "Konyaspor",
+      "Fenerbahçe",
+      "Beşiktaş"
     ]
   },
   {
-    "name": "Víctor Benítez",
-    "aliases": [
-      "Benítez",
-      "Víctor"
-    ],
+    "name": "Umut Sözen",
+    "clubs": [
+      "Kayserispor",
+      "Genclerbirligi"
+    ]
+  },
+  {
+    "name": "Urby Emanuelson",
+    "clubs": [
+      "AC Milan",
+      "AS Roma",
+      "Ajax"
+    ]
+  },
+  {
+    "name": "Uğur Akdemir",
+    "clubs": [
+      "Sivasspor",
+      "Konyaspor",
+      "Genclerbirligi",
+      "Galatasaray"
+    ]
+  },
+  {
+    "name": "Uğur Demirok",
+    "clubs": [
+      "Kayserispor",
+      "Konyaspor",
+      "Trabzonspor",
+      "Galatasaray"
+    ]
+  },
+  {
+    "name": "Uğur Erdoğan",
+    "clubs": [
+      "Denizlispor",
+      "Galatasaray"
+    ]
+  },
+  {
+    "name": "Uğur Uçar",
+    "clubs": [
+      "Kayserispor",
+      "Başakşehir",
+      "Galatasaray"
+    ]
+  },
+  {
+    "name": "Uğur Çiftçi",
+    "clubs": [
+      "Sivasspor",
+      "Genclerbirligi"
+    ]
+  },
+  {
+    "name": "Uğurcan Çakır",
+    "clubs": [
+      "Trabzonspor",
+      "Galatasaray"
+    ]
+  },
+  {
+    "name": "Vaclav Cerny",
+    "clubs": [
+      "Beşiktaş",
+      "Ajax"
+    ]
+  },
+  {
+    "name": "Valdo",
+    "clubs": [
+      "Real Madrid",
+      "Benfica"
+    ]
+  },
+  {
+    "name": "Valentino Lazaro",
     "clubs": [
       "Inter",
-      "Milan",
-      "Roma"
+      "Benfica"
     ]
   },
   {
-    "name": "Víctor Daniel Bravo",
-    "aliases": [
-      "Bravo",
-      "Daniel",
-      "Víctor"
-    ],
+    "name": "Valeri Bozhinov",
     "clubs": [
-      "Atletico Madrid",
-      "Barcelona"
+      "Juventus",
+      "Man City"
+    ]
+  },
+  {
+    "name": "Valon Ethemi",
+    "clubs": [
+      "Sivasspor",
+      "Konyaspor"
+    ]
+  },
+  {
+    "name": "Vanja Milinkovic-Savic",
+    "clubs": [
+      "Napoli",
+      "Man Utd"
+    ]
+  },
+  {
+    "name": "Varela",
+    "clubs": [
+      "Kayserispor",
+      "FC Porto"
+    ]
+  },
+  {
+    "name": "Vasco PaciÃªncia",
+    "clubs": [
+      "FC Porto",
+      "Benfica"
+    ]
+  },
+  {
+    "name": "Vedat İnceefe",
+    "clubs": [
+      "Galatasaray",
+      "Beşiktaş"
+    ]
+  },
+  {
+    "name": "Vedat Muriqi",
+    "clubs": [
+      "Fenerbahçe",
+      "Genclerbirligi"
+    ]
+  },
+  {
+    "name": "Vedran Corluka",
+    "clubs": [
+      "Tottenham",
+      "Man City"
+    ]
+  },
+  {
+    "name": "Veli Acar",
+    "clubs": [
+      "Konyaspor",
+      "Denizlispor"
+    ]
+  },
+  {
+    "name": "Veysel Cihan",
+    "clubs": [
+      "Konyaspor",
+      "Genclerbirligi",
+      "Antalyaspor",
+      "Denizlispor",
+      "Beşiktaş"
+    ]
+  },
+  {
+    "name": "Veysel Sarı",
+    "clubs": [
+      "Antalyaspor",
+      "Galatasaray"
+    ]
+  },
+  {
+    "name": "Victor Lindelöf",
+    "clubs": [
+      "Benfica",
+      "Man Utd"
     ]
   },
   {
     "name": "Victor Moses",
-    "aliases": [
-      "Moses",
-      "Victor"
-    ],
     "clubs": [
+      "Chelsea",
+      "Fenerbahçe",
       "Inter",
       "Liverpool"
     ]
   },
   {
-    "name": "Victor Nurenberg",
-    "aliases": [
-      "Nurenberg",
-      "Victor"
-    ],
+    "name": "Victor Nelsson",
     "clubs": [
-      "Lyon",
-      "Nice"
+      "Galatasaray",
+      "AS Roma"
     ]
   },
   {
     "name": "Victor Osimhen",
-    "aliases": [
-      "Osimhen",
-      "Victor"
-    ],
     "clubs": [
       "Galatasaray",
-      "Lille"
+      "Napoli"
     ]
   },
   {
-    "name": "Víctor Valdés",
-    "aliases": [
-      "Valdés",
-      "Víctor"
-    ],
+    "name": "Victor Ruiz",
+    "clubs": [
+      "Beşiktaş",
+      "Napoli"
+    ]
+  },
+  {
+    "name": "Victor Valdes",
     "clubs": [
       "Barcelona",
-      "Manchester United"
+      "Man Utd"
     ]
   },
   {
-    "name": "Victoriano de Santos Troya",
-    "aliases": [
-      "Santos",
-      "Troya",
-      "Victoriano"
-    ],
+    "name": "Vid Belec",
     "clubs": [
-      "Atletico Madrid",
-      "Barcelona"
-    ]
-  },
-  {
-    "name": "Vikash Dhorasoo",
-    "aliases": [
-      "Dhorasoo",
-      "Vikash"
-    ],
-    "clubs": [
-      "Lyon",
-      "Milan",
-      "PSG"
+      "Konyaspor",
+      "Inter"
     ]
   },
   {
     "name": "Vincent Aboubakar",
-    "aliases": [
-      "Aboubakar",
-      "Vincent"
-    ],
     "clubs": [
-      "Antalyaspor",
-      "Beşiktaş",
-      "Porto"
+      "FC Porto",
+      "Beşiktaş"
     ]
   },
   {
-    "name": "Vincenzo Occhetta",
-    "aliases": [
-      "Occhetta",
-      "Vincenzo"
-    ],
+    "name": "Vincent Janssen",
     "clubs": [
-      "Juventus",
-      "Milan"
+      "Tottenham",
+      "Fenerbahçe"
     ]
   },
   {
-    "name": "Vinicio Verza",
-    "aliases": [
-      "Verza",
-      "Vinicio"
-    ],
+    "name": "Vincenzo Camilleri",
     "clubs": [
-      "Juventus",
-      "Milan"
-    ]
-  },
-  {
-    "name": "Vinny Samways",
-    "aliases": [
-      "Samways",
-      "Vinny"
-    ],
-    "clubs": [
-      "Sevilla",
-      "Tottenham"
-    ]
-  },
-  {
-    "name": "Virginio De Paoli",
-    "aliases": [
-      "Paoli",
-      "Virginio"
-    ],
-    "clubs": [
-      "Juventus",
-      "Milan"
-    ]
-  },
-  {
-    "name": "Vito D'Amato",
-    "aliases": [
-      "D'Amato",
-      "Vito"
-    ],
-    "clubs": [
-      "Inter",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Vitolo",
-    "aliases": [],
-    "clubs": [
-      "Atletico Madrid",
-      "Sevilla"
-    ]
-  },
-  {
-    "name": "Viv Anderson",
-    "aliases": [
-      "Anderson",
-      "Viv"
-    ],
-    "clubs": [
-      "Arsenal",
-      "Manchester United"
-    ]
-  },
-  {
-    "name": "Vlad Marin",
-    "aliases": [
-      "Marin",
-      "Vlad"
-    ],
-    "clubs": [
-      "Juventus",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Vladimir Jugović",
-    "aliases": [
-      "Jugović",
-      "Vladimir"
-    ],
-    "clubs": [
-      "Atletico Madrid",
-      "Inter",
+      "Chelsea",
       "Juventus"
     ]
   },
   {
-    "name": "Volkan Arslan",
-    "aliases": [
-      "Arslan",
-      "Volkan"
-    ],
+    "name": "Vitezslav Jaros",
     "clubs": [
-      "Antalyaspor",
-      "Galatasaray"
+      "Ajax",
+      "Liverpool"
+    ]
+  },
+  {
+    "name": "Vlad Chiricheş",
+    "clubs": [
+      "Tottenham",
+      "Napoli",
+      "Benfica"
+    ]
+  },
+  {
+    "name": "Volkan Al",
+    "clubs": [
+      "Konyaspor",
+      "Denizlispor"
     ]
   },
   {
     "name": "Volkan Babacan",
-    "aliases": [
-      "Babacan",
-      "Volkan"
-    ],
     "clubs": [
-      "Başakşehir",
+      "Kayserispor",
       "Fenerbahçe",
-      "Kayserispor"
-    ]
-  },
-  {
-    "name": "Volkan Ünlü",
-    "aliases": [
-      "Ünlü",
-      "Volkan"
-    ],
-    "clubs": [
-      "Beşiktaş",
-      "Sivasspor",
-      "Trabzonspor"
+      "Başakşehir"
     ]
   },
   {
     "name": "Volkan Yaman",
-    "aliases": [
-      "Volkan",
-      "Yaman"
-    ],
     "clubs": [
       "Antalyaspor",
       "Galatasaray"
     ]
   },
   {
-    "name": "Wallyson Mallmann",
-    "aliases": [
-      "Mallmann",
-      "Wallyson"
-    ],
+    "name": "Volkan Ünlü",
     "clubs": [
-      "Manchester City",
-      "Nice"
+      "Sivasspor",
+      "Başakşehir",
+      "Trabzonspor",
+      "Beşiktaş"
     ]
   },
   {
-    "name": "Walter Rozitsky",
-    "aliases": [
-      "Rozitsky",
-      "Walter"
-    ],
+    "name": "Walter Gargano",
     "clubs": [
-      "Barcelona",
-      "Real Madrid"
+      "Inter",
+      "Napoli"
     ]
   },
   {
     "name": "Walter Samuel",
-    "aliases": [
-      "Samuel",
-      "Walter"
-    ],
     "clubs": [
-      "Inter",
+      "AS Roma",
       "Real Madrid",
-      "Roma"
+      "Inter"
     ]
   },
   {
-    "name": "Wesley Sneijder",
-    "aliases": [
-      "Sneijder",
-      "Wesley"
-    ],
+    "name": "Wayne Bridge",
     "clubs": [
-      "Ajax",
-      "Galatasaray",
-      "Inter",
-      "Nice",
-      "Real Madrid"
+      "Chelsea",
+      "Man City"
     ]
   },
   {
-    "name": "Wilf Woodcock",
-    "aliases": [
-      "Wilf",
-      "Woodcock"
-    ],
+    "name": "Wederson",
     "clubs": [
-      "Manchester City",
-      "Manchester United"
+      "Fenerbahçe",
+      "Antalyaspor"
     ]
   },
   {
     "name": "Wilfried Kanga",
-    "aliases": [
-      "Kanga",
-      "Wilfried"
-    ],
     "clubs": [
       "Kayserispor",
       "PSG"
@@ -22334,513 +13058,569 @@ export const PLAYERS = [
   },
   {
     "name": "Wilfried Zaha",
-    "aliases": [
-      "Wilfried",
-      "Zaha"
-    ],
     "clubs": [
       "Galatasaray",
-      "Lyon",
-      "Manchester United"
+      "Man Utd"
     ]
   },
   {
-    "name": "William Ayache",
-    "aliases": [
-      "Ayache",
-      "William"
-    ],
+    "name": "Will Lankshear",
     "clubs": [
-      "Nice",
-      "PSG"
-    ]
-  },
-  {
-    "name": "William Campbell",
-    "aliases": [
-      "Campbell",
-      "William"
-    ],
-    "clubs": [
-      "Arsenal",
-      "Manchester United"
-    ]
-  },
-  {
-    "name": "William Douglas",
-    "aliases": [
-      "Douglas",
-      "William"
-    ],
-    "clubs": [
-      "Manchester City",
-      "Manchester United"
-    ]
-  },
-  {
-    "name": "William Gallas",
-    "aliases": [
-      "Gallas",
-      "William"
-    ],
-    "clubs": [
-      "Arsenal",
-      "Tottenham"
-    ]
-  },
-  {
-    "name": "William Hunter",
-    "aliases": [
-      "Hunter",
-      "William"
-    ],
-    "clubs": [
-      "Liverpool",
-      "Manchester United"
-    ]
-  },
-  {
-    "name": "William Smith",
-    "aliases": [
-      "Smith",
-      "William"
-    ],
-    "clubs": [
-      "Manchester City",
-      "Manchester United"
-    ]
-  },
-  {
-    "name": "Willie Young",
-    "aliases": [
-      "Willie",
-      "Young"
-    ],
-    "clubs": [
-      "Arsenal",
-      "Tottenham"
-    ]
-  },
-  {
-    "name": "Wim Jonk",
-    "aliases": [
-      "Jonk",
-      "Wim"
-    ],
-    "clubs": [
-      "Ajax",
-      "Inter"
-    ]
-  },
-  {
-    "name": "Winston Bogarde",
-    "aliases": [
-      "Bogarde",
-      "Winston"
-    ],
-    "clubs": [
-      "Ajax",
-      "Barcelona",
-      "Milan"
-    ]
-  },
-  {
-    "name": "Wyn Davies",
-    "aliases": [
-      "Davies",
-      "Wyn"
-    ],
-    "clubs": [
-      "Manchester City",
-      "Manchester United"
-    ]
-  },
-  {
-    "name": "Xabi Alonso",
-    "aliases": [
-      "Alonso",
-      "Xabi"
-    ],
-    "clubs": [
-      "Liverpool",
-      "Real Madrid"
-    ]
-  },
-  {
-    "name": "Xherdan Shaqiri",
-    "aliases": [
-      "shaqiri",
-      "Shaqiri",
-      "xherdan",
-      "Xherdan"
-    ],
-    "clubs": [
-      "Inter",
-      "Liverpool",
-      "Lyon"
-    ]
-  },
-  {
-    "name": "Yalçın Ayhan",
-    "aliases": [
-      "Ayhan",
-      "Yalçın"
-    ],
-    "clubs": [
-      "Antalyaspor",
-      "Başakşehir",
-      "Galatasaray"
-    ]
-  },
-  {
-    "name": "Yanko Daucik",
-    "aliases": [
-      "Daucik",
-      "Yanko"
-    ],
-    "clubs": [
-      "Atletico Madrid",
-      "Real Madrid"
-    ]
-  },
-  {
-    "name": "Yannick Kamanan",
-    "aliases": [
-      "Kamanan",
-      "Yannick"
-    ],
-    "clubs": [
-      "Sivasspor",
-      "Tottenham"
-    ]
-  },
-  {
-    "name": "Yaser Yıldız",
-    "aliases": [
-      "Yaser",
-      "Yıldız"
-    ],
-    "clubs": [
-      "Beşiktaş",
-      "Galatasaray"
-    ]
-  },
-  {
-    "name": "Yasin Öztekin",
-    "aliases": [
-      "Öztekin",
-      "Yasin"
-    ],
-    "clubs": [
-      "Galatasaray",
-      "Trabzonspor"
-    ]
-  },
-  {
-    "name": "Yavuz Eraydın",
-    "aliases": [
-      "Eraydın",
-      "Yavuz"
-    ],
-    "clubs": [
-      "Başakşehir",
-      "Sivasspor"
-    ]
-  },
-  {
-    "name": "Yaya Sanogo",
-    "aliases": [
-      "Sanogo",
-      "Yaya"
-    ],
-    "clubs": [
-      "Ajax",
+      "Tottenham",
       "Arsenal"
     ]
   },
   {
-    "name": "Yaya Touré",
-    "aliases": [
-      "Touré",
-      "Yaya"
-    ],
+    "name": "William",
     "clubs": [
-      "Barcelona",
-      "Manchester City"
+      "Kayserispor",
+      "Inter",
+      "Benfica"
     ]
   },
   {
-    "name": "Yekta Kurtuluş",
-    "aliases": [
-      "Kurtuluş",
-      "Yekta"
-    ],
+    "name": "William Gallas",
+    "clubs": [
+      "Chelsea",
+      "Tottenham",
+      "Arsenal"
+    ]
+  },
+  {
+    "name": "William Vainqueur",
     "clubs": [
       "Antalyaspor",
-      "Galatasaray",
-      "Sivasspor"
+      "AS Roma"
     ]
   },
   {
-    "name": "Yoan Severin",
-    "aliases": [
-      "Severin",
-      "Yoan"
-    ],
+    "name": "Willian",
     "clubs": [
-      "Juventus",
-      "Lyon"
+      "Chelsea",
+      "Arsenal"
     ]
   },
   {
-    "name": "Yoann Gourcuff",
-    "aliases": [
-      "Gourcuff",
-      "Yoann"
-    ],
+    "name": "Willy Caballero",
     "clubs": [
-      "Lyon",
-      "Milan"
+      "Chelsea",
+      "Man City"
     ]
   },
   {
-    "name": "Yordi",
-    "aliases": [],
+    "name": "Wilson Odobert",
     "clubs": [
-      "Atletico Madrid",
-      "Sevilla"
-    ]
-  },
-  {
-    "name": "Yossi Benayoun",
-    "aliases": [
-      "Benayoun",
-      "Yossi"
-    ],
-    "clubs": [
-      "Ajax",
-      "Arsenal",
-      "Liverpool"
-    ]
-  },
-  {
-    "name": "Younès Belhanda",
-    "aliases": [
-      "belhanda",
-      "Belhanda",
-      "younes",
-      "Younès"
-    ],
-    "clubs": [
-      "Galatasaray",
-      "Nice"
-    ]
-  },
-  {
-    "name": "Youri Djorkaeff",
-    "aliases": [
-      "Djorkaeff",
-      "Youri"
-    ],
-    "clubs": [
-      "Inter",
+      "Tottenham",
       "PSG"
     ]
   },
   {
-    "name": "Youssef En-Nesyri",
-    "aliases": [
-      "nesyri",
-      "Nesyri",
-      "youssef",
-      "Youssef"
-    ],
+    "name": "Winston Bogarde",
     "clubs": [
-      "Fenerbahçe",
-      "Sevilla"
+      "Chelsea",
+      "Barcelona",
+      "Ajax"
     ]
   },
   {
-    "name": "Yuri Berchiche",
-    "aliases": [
-      "Berchiche",
-      "Yuri"
-    ],
+    "name": "Wojciech Szczesny",
     "clubs": [
-      "PSG",
+      "Juventus",
+      "Arsenal",
+      "Barcelona",
+      "AS Roma"
+    ]
+  },
+  {
+    "name": "Wout Weghorst",
+    "clubs": [
+      "Beşiktaş",
+      "Ajax",
+      "Man Utd"
+    ]
+  },
+  {
+    "name": "Xabi Alonso",
+    "clubs": [
+      "Real Madrid",
+      "Liverpool",
+      "Bayern Munich"
+    ]
+  },
+  {
+    "name": "Xherdan Shaqiri",
+    "clubs": [
+      "Inter",
+      "Liverpool",
+      "Bayern Munich"
+    ]
+  },
+  {
+    "name": "Yacine Adli",
+    "clubs": [
+      "AC Milan",
+      "PSG"
+    ]
+  },
+  {
+    "name": "Yakup Bugun",
+    "clubs": [
+      "Trabzonspor",
+      "Denizlispor"
+    ]
+  },
+  {
+    "name": "Yalçın Ayhan",
+    "clubs": [
+      "Başakşehir",
+      "Antalyaspor",
+      "Galatasaray",
+      "Beşiktaş"
+    ]
+  },
+  {
+    "name": "Yan Couto",
+    "clubs": [
+      "Bor. Dortmund",
+      "Man City"
+    ]
+  },
+  {
+    "name": "Yann Sommer",
+    "clubs": [
+      "Inter",
+      "Bayern Munich"
+    ]
+  },
+  {
+    "name": "Yaser Yıldız",
+    "clubs": [
+      "Denizlispor",
+      "Galatasaray",
+      "Beşiktaş"
+    ]
+  },
+  {
+    "name": "Yasin Yiğit",
+    "clubs": [
+      "Antalyaspor",
+      "Beşiktaş"
+    ]
+  },
+  {
+    "name": "Yasin Çakmak",
+    "clubs": [
+      "Sivasspor",
+      "Fenerbahçe",
+      "Denizlispor"
+    ]
+  },
+  {
+    "name": "Yasir Elmacı",
+    "clubs": [
+      "Sivasspor",
+      "Genclerbirligi"
+    ]
+  },
+  {
+    "name": "Yassine Benzia",
+    "clubs": [
+      "Fenerbahçe",
+      "Olymp. Lyon"
+    ]
+  },
+  {
+    "name": "Yaya Sanogo",
+    "clubs": [
+      "Arsenal",
+      "Ajax"
+    ]
+  },
+  {
+    "name": "Yaya Toure",
+    "clubs": [
+      "Barcelona",
+      "Man City"
+    ]
+  },
+  {
+    "name": "Yaşar Aydın",
+    "clubs": [
+      "Kayserispor",
+      "Konyaspor"
+    ]
+  },
+  {
+    "name": "Yekta Kurtuluş",
+    "clubs": [
+      "Sivasspor",
+      "Antalyaspor",
+      "Galatasaray"
+    ]
+  },
+  {
+    "name": "Yenal Tuncer",
+    "clubs": [
+      "Antalyaspor",
+      "Denizlispor"
+    ]
+  },
+  {
+    "name": "Yener Arıca",
+    "clubs": [
+      "Kayserispor",
+      "Ajax"
+    ]
+  },
+  {
+    "name": "Yiğit Efe Demir",
+    "clubs": [
+      "Fenerbahçe",
+      "Genclerbirligi"
+    ]
+  },
+  {
+    "name": "Yoan Severin",
+    "clubs": [
+      "Juventus",
+      "Olymp. Lyon"
+    ]
+  },
+  {
+    "name": "Yossi Benayoun",
+    "clubs": [
+      "Chelsea",
+      "Arsenal",
+      "Ajax",
+      "Liverpool"
+    ]
+  },
+  {
+    "name": "Young-pyo Lee",
+    "clubs": [
+      "Bor. Dortmund",
       "Tottenham"
     ]
   },
   {
-    "name": "Yusuf Şimşek",
-    "aliases": [
-      "Şimşek",
-      "Yusuf"
-    ],
+    "name": "Yunus Altun",
     "clubs": [
-      "Beşiktaş",
+      "Kayserispor",
+      "Konyaspor",
       "Fenerbahçe"
     ]
   },
   {
-    "name": "Yūto Nagatomo",
-    "aliases": [
-      "Nagatomo",
-      "Yūto"
-    ],
+    "name": "Yunus Mallı",
+    "clubs": [
+      "Konyaspor",
+      "Trabzonspor"
+    ]
+  },
+  {
+    "name": "Yunus Musah",
+    "clubs": [
+      "Arsenal",
+      "AC Milan"
+    ]
+  },
+  {
+    "name": "Yusuf Demir",
+    "clubs": [
+      "Barcelona",
+      "Galatasaray"
+    ]
+  },
+  {
+    "name": "Yusuf Deniz Şaş",
+    "clubs": [
+      "Başakşehir",
+      "Galatasaray"
+    ]
+  },
+  {
+    "name": "Yusuf Erdoğan",
+    "clubs": [
+      "Konyaspor",
+      "Trabzonspor"
+    ]
+  },
+  {
+    "name": "Yusuf Sarı",
+    "clubs": [
+      "Başakşehir",
+      "Trabzonspor"
+    ]
+  },
+  {
+    "name": "Yusuf Soysal",
+    "clubs": [
+      "Kayserispor",
+      "Genclerbirligi"
+    ]
+  },
+  {
+    "name": "Yusuf Tunç",
+    "clubs": [
+      "Fenerbahçe",
+      "Beşiktaş"
+    ]
+  },
+  {
+    "name": "Yuto Nagatomo",
     "clubs": [
       "Galatasaray",
       "Inter"
     ]
   },
   {
-    "name": "Yves Mariot",
-    "aliases": [
-      "Mariot",
-      "Yves"
-    ],
-    "clubs": [
-      "Lyon",
-      "Nice"
-    ]
-  },
-  {
     "name": "Zafer Demiray",
-    "aliases": [
-      "Demiray",
-      "Zafer"
-    ],
     "clubs": [
+      "Trabzonspor",
       "Antalyaspor",
-      "Beşiktaş",
-      "Trabzonspor"
+      "Beşiktaş"
     ]
   },
   {
-    "name": "Zbigniew Boniek",
-    "aliases": [
-      "Boniek",
-      "Zbigniew"
-    ],
+    "name": "Zafer Türkmen",
+    "clubs": [
+      "Kayserispor",
+      "Genclerbirligi"
+    ]
+  },
+  {
+    "name": "Zargo Toure",
+    "clubs": [
+      "Trabzonspor",
+      "Genclerbirligi"
+    ]
+  },
+  {
+    "name": "Zdenek Grygera",
     "clubs": [
       "Juventus",
-      "Roma"
+      "Ajax"
     ]
   },
   {
-    "name": "Zdeněk Grygera",
-    "aliases": [
-      "Grygera",
-      "Zdeněk"
-    ],
+    "name": "Ze Pedro",
     "clubs": [
-      "Ajax",
-      "Juventus"
+      "FC Porto",
+      "Benfica"
+    ]
+  },
+  {
+    "name": "Ze Roberto",
+    "clubs": [
+      "Real Madrid",
+      "Bayern Munich"
+    ]
+  },
+  {
+    "name": "Zech Medley",
+    "clubs": [
+      "Chelsea",
+      "Arsenal"
     ]
   },
   {
     "name": "Zeki Fryers",
-    "aliases": [
-      "Fryers",
-      "Zeki"
-    ],
     "clubs": [
-      "Manchester United",
-      "Tottenham"
-    ]
-  },
-  {
-    "name": "Zeki Yavru",
-    "aliases": [
-      "Yavru",
-      "Zeki"
-    ],
-    "clubs": [
-      "Kayserispor",
-      "Trabzonspor"
+      "Tottenham",
+      "Man Utd"
     ]
   },
   {
     "name": "Zinedine Zidane",
-    "aliases": [
-      "Zidane",
-      "Zinedine"
-    ],
     "clubs": [
       "Juventus",
       "Real Madrid"
     ]
   },
   {
-    "name": "Zlatan Ibrahimović",
-    "aliases": [
-      "Ibrahimovic",
-      "Ibrahimović",
-      "Zlatan"
-    ],
+    "name": "Zlatan Ibrahimovic",
     "clubs": [
-      "Ajax",
-      "Barcelona",
-      "Inter",
       "Juventus",
-      "Manchester United",
-      "Milan",
-      "PSG"
-    ]
-  },
-  {
-    "name": "Zlatko Vujović",
-    "aliases": [
-      "Vujović",
-      "Zlatko"
-    ],
-    "clubs": [
-      "Nice",
-      "PSG"
-    ]
-  },
-  {
-    "name": "Zlatko Yankov",
-    "aliases": [
-      "Yankov",
-      "Zlatko"
-    ],
-    "clubs": [
-      "Beşiktaş",
-      "Sivasspor"
-    ]
-  },
-  {
-    "name": "Zoltán Czibor",
-    "aliases": [
-      "Czibor",
-      "Zoltán"
-    ],
-    "clubs": [
       "Barcelona",
-      "Roma"
-    ]
-  },
-  {
-    "name": "Zoran Njeguš",
-    "aliases": [
-      "Njeguš",
-      "Zoran"
-    ],
-    "clubs": [
-      "Atletico Madrid",
-      "Sevilla"
-    ]
-  },
-  {
-    "name": "Zoumana Camara",
-    "aliases": [
-      "Camara",
-      "Zoumana"
-    ],
-    "clubs": [
+      "AC Milan",
+      "Ajax",
       "Inter",
-      "PSG"
+      "Man Utd"
+    ]
+  },
+  {
+    "name": "Zlatko Zahovic",
+    "clubs": [
+      "FC Porto",
+      "Benfica"
+    ]
+  },
+  {
+    "name": "Zymer Bytyqi",
+    "clubs": [
+      "Konyaspor",
+      "Antalyaspor"
+    ]
+  },
+  {
+    "name": "Çağdaş Atan",
+    "clubs": [
+      "Trabzonspor",
+      "Denizlispor",
+      "Beşiktaş"
+    ]
+  },
+  {
+    "name": "Çağlar Birinci",
+    "clubs": [
+      "Kayserispor",
+      "Trabzonspor",
+      "Denizlispor",
+      "Galatasaray"
+    ]
+  },
+  {
+    "name": "Çekdar Orhan",
+    "clubs": [
+      "Antalyaspor",
+      "Galatasaray"
+    ]
+  },
+  {
+    "name": "Ömer Ali Şahiner",
+    "clubs": [
+      "Konyaspor",
+      "Başakşehir"
+    ]
+  },
+  {
+    "name": "Ömer Bayram",
+    "clubs": [
+      "Kayserispor",
+      "Galatasaray"
+    ]
+  },
+  {
+    "name": "Ömer Gümüş",
+    "clubs": [
+      "Başakşehir",
+      "Galatasaray",
+      "Beşiktaş"
+    ]
+  },
+  {
+    "name": "Ömer Kulga",
+    "clubs": [
+      "Kayserispor",
+      "Denizlispor"
+    ]
+  },
+  {
+    "name": "Ömer Riza",
+    "clubs": [
+      "Arsenal",
+      "Trabzonspor",
+      "Denizlispor"
+    ]
+  },
+  {
+    "name": "Ömer Toprak",
+    "clubs": [
+      "Bor. Dortmund",
+      "Antalyaspor"
+    ]
+  },
+  {
+    "name": "Ömer Çatkıç",
+    "clubs": [
+      "Genclerbirligi",
+      "Antalyaspor"
+    ]
+  },
+  {
+    "name": "Ömer Şişmanoğlu",
+    "clubs": [
+      "Kayserispor",
+      "Konyaspor",
+      "Antalyaspor",
+      "Denizlispor",
+      "Beşiktaş"
+    ]
+  },
+  {
+    "name": "Önder Turacı",
+    "clubs": [
+      "Kayserispor",
+      "Fenerbahçe",
+      "Antalyaspor"
+    ]
+  },
+  {
+    "name": "Özden Öngün",
+    "clubs": [
+      "Kayserispor",
+      "Konyaspor",
+      "Denizlispor"
+    ]
+  },
+  {
+    "name": "Özgür Can Özcan",
+    "clubs": [
+      "Kayserispor",
+      "Denizlispor",
+      "Galatasaray"
+    ]
+  },
+  {
+    "name": "Özgür Çek",
+    "clubs": [
+      "Fenerbahçe",
+      "Genclerbirligi",
+      "Denizlispor"
+    ]
+  },
+  {
+    "name": "Ümit Bozkurt",
+    "clubs": [
+      "Konyaspor",
+      "Genclerbirligi",
+      "Denizlispor",
+      "Beşiktaş"
+    ]
+  },
+  {
+    "name": "Ümit Karan",
+    "clubs": [
+      "Genclerbirligi",
+      "Galatasaray"
+    ]
+  },
+  {
+    "name": "Ümit Özat",
+    "clubs": [
+      "Fenerbahçe",
+      "Genclerbirligi"
+    ]
+  },
+  {
+    "name": "Şener Aşkaroğlu",
+    "clubs": [
+      "Konyaspor",
+      "Denizlispor"
+    ]
+  },
+  {
+    "name": "Şenol Akın",
+    "clubs": [
+      "Konyaspor",
+      "Denizlispor"
+    ]
+  },
+  {
+    "name": "Şiyar Kepir",
+    "clubs": [
+      "Antalyaspor",
+      "Beşiktaş"
     ]
   }
 ];

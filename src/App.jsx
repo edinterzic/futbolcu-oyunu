@@ -1,7 +1,6 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import { createClient } from "@supabase/supabase-js";
-import { PLAYERS } from "./data/players";
-import { TEAMS } from "./data/teams";
+import { PLAYERS, TEAMS, ANSWER_INDEX, getPairKey, getAnswers } from "./data/gameData";
 import { TEAM_LOGOS } from "./data/teamLogos";
 
 const WINNING_SCORE = 3;
@@ -85,29 +84,64 @@ NORMALIZED_PLAYERS.forEach((player) => {
   });
 });
 
+function getNameTokens(name) {
+  return String(name || "")
+    .replaceAll("-", " ")
+    .split(" ")
+    .map((part) => normalizeText(part))
+    .filter(Boolean);
+}
+
 function playerPlayedForClub(player, clubName) {
   return player.normalizedClubs.has(normalizeText(clubName));
 }
 
-function playerPlayedForBothTeams(player, teamA, teamB) {
-  const normalizedA = normalizeText(teamA);
-  const normalizedB = normalizeText(teamB);
-  return player.normalizedClubs.has(normalizedA) && player.normalizedClubs.has(normalizedB);
+function getRoundAnswers(round) {
+  return getAnswers(round.teams[0], round.teams[1]);
+}
+
+function answerNameMatchesInput(answerName, userInput, answersForRound = []) {
+  const normalizedInput = normalizeText(userInput);
+  if (!normalizedInput) return false;
+
+  const normalizedAnswer = normalizeText(answerName);
+  if (normalizedAnswer === normalizedInput) return true;
+
+  const tokens = getNameTokens(answerName);
+  if (!tokens.includes(normalizedInput)) return false;
+
+  const sameTokenMatches = answersForRound.filter((answer) => getNameTokens(answer).includes(normalizedInput));
+
+  return sameTokenMatches.length === 1;
+}
+
+function findAcceptedAnswer(round, userInput) {
+  const answers = getRoundAnswers(round);
+  return answers.find((answer) => answerNameMatchesInput(answer, userInput, answers)) || null;
 }
 
 function findPlayerByInput(userInput) {
   const normalizedInput = normalizeText(userInput);
   if (!normalizedInput) return null;
-  return PLAYERS_BY_TOKEN.get(normalizedInput) || null;
+
+  const exactPlayer = PLAYERS_BY_TOKEN.get(normalizedInput);
+  if (exactPlayer) return exactPlayer;
+
+  const tokenMatches = NORMALIZED_PLAYERS.filter((player) => player.suggestionTokens.includes(normalizedInput));
+  return tokenMatches.length === 1 ? tokenMatches[0] : null;
 }
 
 function isCorrectAnswer(round, userInput) {
-  const player = findPlayerByInput(userInput);
-  if (!player) return false;
-  return playerPlayedForBothTeams(player, round.teams[0], round.teams[1]);
+  return Boolean(findAcceptedAnswer(round, userInput));
 }
 
 function getWrongAnswerExplanation(round, userInput) {
+  const acceptedAnswer = findAcceptedAnswer(round, userInput);
+
+  if (acceptedAnswer) {
+    return `${acceptedAnswer} bu eşleşme için doğru cevap olarak görünüyor.`;
+  }
+
   const player = findPlayerByInput(userInput);
   const teamA = round.teams[0];
   const teamB = round.teams[1];
@@ -135,12 +169,7 @@ function getWrongAnswerExplanation(round, userInput) {
 }
 
 function getCorrectPlayersForRound(round) {
-  const normalizedA = normalizeText(round.teams[0]);
-  const normalizedB = normalizeText(round.teams[1]);
-
-  return NORMALIZED_PLAYERS.filter(
-    (player) => player.normalizedClubs.has(normalizedA) && player.normalizedClubs.has(normalizedB)
-  );
+  return getRoundAnswers(round).map((name) => ({ name }));
 }
 
 function getPlayerSuggestions(userInput) {
@@ -153,33 +182,13 @@ function getPlayerSuggestions(userInput) {
 }
 
 function getRoundKey(round) {
-  return round.teams.map(normalizeText).sort().join("-");
+  return getPairKey(round.teams[0], round.teams[1]);
 }
 
-function createPlayableTeamPairs() {
-  const teamPairKeys = new Set();
-  const pairs = [];
-
-  NORMALIZED_PLAYERS.forEach((player) => {
-    const playerTeams = TEAMS.filter((team) => player.normalizedClubs.has(normalizeText(team)));
-
-    for (let i = 0; i < playerTeams.length; i += 1) {
-      for (let j = i + 1; j < playerTeams.length; j += 1) {
-        const round = { teams: [playerTeams[i], playerTeams[j]] };
-        const key = getRoundKey(round);
-
-        if (!teamPairKeys.has(key)) {
-          teamPairKeys.add(key);
-          pairs.push(round);
-        }
-      }
-    }
-  });
-
-  return pairs.sort((a, b) => getRoundKey(a).localeCompare(getRoundKey(b), "tr-TR"));
-}
-
-const PLAYABLE_TEAM_PAIRS = createPlayableTeamPairs();
+const PLAYABLE_TEAM_PAIRS = Object.keys(ANSWER_INDEX).map((key) => {
+  const [teamA, teamB] = key.split("|");
+  return { teams: [teamA, teamB] };
+});
 
 function getPlayableTeamPairs() {
   return PLAYABLE_TEAM_PAIRS;
@@ -188,23 +197,17 @@ function getPlayableTeamPairs() {
 function getRandomRound(usedRoundKeys = []) {
   const available = PLAYABLE_TEAM_PAIRS.filter((round) => !usedRoundKeys.includes(getRoundKey(round)));
   const pool = available.length > 0 ? available : PLAYABLE_TEAM_PAIRS;
-  const selected = pool[Math.floor(Math.random() * pool.length)] || { teams: ["Beşiktaş", "Barcelona"] };
+  const selected = pool[Math.floor(Math.random() * pool.length)] || { teams: ["Fenerbahçe", "Galatasaray"] };
   return selected;
 }
 
 function runSelfTests() {
-  const psgBarcelona = { teams: ["PSG", "Barcelona"] };
-
   console.assert(normalizeText("Mesut Özil") === normalizeText("mesut ozil"), "Turkish character normalization failed");
   console.assert(normalizeText("Hakan Şükür") === normalizeText("hakan sukur"), "Turkish s/ü normalization failed");
   console.assert(getPlayerSuggestions("xzy").length === 0, "Suggestions should be empty when there is no match");
+  console.assert(getPlayableTeamPairs().length === Object.keys(ANSWER_INDEX).length, "Playable pairs must come from ANSWER_INDEX");
   console.assert(getPlayableTeamPairs().length > 0, "There should be playable team pairs");
   console.assert(WINNING_SCORE === 3, "Winning score should be 3");
-
-  const messiExists = getPlayerSuggestions("messi").some((player) => normalizeText(player.name).includes("messi"));
-  if (messiExists) {
-    console.assert(isCorrectAnswer(psgBarcelona, "Messi"), "Messi should validate PSG and Barcelona when present in dataset");
-  }
 }
 
 runSelfTests();
