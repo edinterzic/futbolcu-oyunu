@@ -851,30 +851,29 @@ function WrongExplanationCard({ report, onReport }) {
   );
 }
 
-function MatchSummary({ playerNames, scores, winner, targetScore, seriesWins, matchHistory }) {
+function MatchSummary({ playerNames, scores, winner, targetScore, seriesWins, matchHistory, currentCorrectRounds = [] }) {
   if (winner === null || winner === undefined) return null;
 
-  const loser = winner === 0 ? 1 : 0;
   const currentMatch = (matchHistory || [])[Math.max((matchHistory || []).length - 1, 0)] || {};
-  const correctRounds = currentMatch.correctRounds || [];
-  const lastMatches = (matchHistory || []).slice(-5).reverse();
+  const correctRounds = currentCorrectRounds.length ? currentCorrectRounds : (currentMatch.correctRounds || []);
+  const lastMatches = (matchHistory || []).slice(-3).reverse();
 
   return (
-    <div className="match-summary-card">
+    <div className="match-summary-card final-summary">
       <h3>Maç Özeti</h3>
 
-      <div className="summary-grid">
+      <div className="summary-grid final-summary-grid">
         <div>
           <span>Kazanan</span>
           <strong>{playerNames[winner]}</strong>
         </div>
         <div>
-          <span>Maç skoru</span>
+          <span>Skor</span>
           <strong>{scores[0]} - {scores[1]}</strong>
         </div>
         <div>
           <span>Hedef</span>
-          <strong>{targetScore} puan</strong>
+          <strong>{targetScore}</strong>
         </div>
         <div>
           <span>Seri</span>
@@ -882,15 +881,11 @@ function MatchSummary({ playerNames, scores, winner, targetScore, seriesWins, ma
         </div>
       </div>
 
-      <p className="summary-line">
-        {playerNames[winner]} maçı aldı. {playerNames[loser]} rövanşta durumu eşitlemeye çalışacak.
-      </p>
-
-      {correctRounds.length > 0 && (
-        <div className="correct-rounds-summary">
-          <strong>Doğru cevaplanan turlar</strong>
+      <div className="correct-rounds-summary">
+        <strong>Doğru cevaplananlar</strong>
+        {correctRounds.length > 0 ? (
           <div className="correct-rounds-list">
-            {correctRounds.map((item, index) => (
+            {correctRounds.slice(0, 6).map((item, index) => (
               <div className="correct-round-item" key={`${item.teamA}-${item.teamB}-${item.answer}-${index}`}>
                 <span className="round-no">#{index + 1}</span>
                 <span className="round-pair">{item.teamA} - {item.teamB}</span>
@@ -899,12 +894,13 @@ function MatchSummary({ playerNames, scores, winner, targetScore, seriesWins, ma
               </div>
             ))}
           </div>
-        </div>
-      )}
+        ) : (
+          <p className="empty-summary">Bu maç için doğru cevap kaydı bulunamadı.</p>
+        )}
+      </div>
 
       {lastMatches.length > 1 && (
-        <div className="match-history">
-          <strong>Serideki maçlar</strong>
+        <div className="match-history compact-history">
           {lastMatches.map((match, index) => (
             <span key={`${match.finishedAt}-${index}`}>
               {match.winnerName}: {match.score?.[0]} - {match.score?.[1]}
@@ -1333,6 +1329,7 @@ export default function App() {
     setPreRoundLeft(ROUND_REVEAL_SECONDS);
     setWrongAttempts([0, 0]);
     setLastAction(null);
+    setCorrectRounds([]);
     setLastWrongReport(null);
     setReportStatus(null);
     setMessage({ type: "info", text: `Oda oluşturuldu: ${code}. Rakip bağlanana kadar takımlar gizli kalacak.` });
@@ -1659,7 +1656,7 @@ export default function App() {
         lastAction: { type: "correct", playerIndex, answer: raw },
         seriesWins: nextSeriesWins,
         matchHistory: nextMatchHistory,
-        correctRounds: hasWinner ? [] : nextCorrectRounds
+        correctRounds: nextCorrectRounds
       };
 
       setScores(newScores);
@@ -1669,7 +1666,7 @@ export default function App() {
       setPreRoundEndsAt(null);
       setTimeLeft(0);
       setLastAction({ type: "correct", playerIndex, answer: raw });
-      setCorrectRounds(hasWinner ? [] : nextCorrectRounds);
+      setCorrectRounds(nextCorrectRounds);
       setLastWrongReport(null);
       setReportStatus(null);
       setMessage(nextMessage);
@@ -2553,6 +2550,7 @@ export default function App() {
                   targetScore={targetScore}
                   seriesWins={seriesWins}
                   matchHistory={matchHistory}
+                  currentCorrectRounds={correctRounds}
                 />
 
                 <div className="winner-actions">
@@ -5760,6 +5758,498 @@ input:disabled {
     min-height: 42px !important;
     padding: 7px !important;
     font-size: 12px !important;
+  }
+}
+
+
+
+/* v23 final: true one-screen layout for mobile and desktop */
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+@media (min-width: 761px) {
+  .app-shell {
+    min-height: 100vh !important;
+    height: 100vh !important;
+    max-height: 100vh !important;
+    overflow: hidden !important;
+    padding: 14px !important;
+  }
+
+  .game-container {
+    height: 100% !important;
+    max-width: 1080px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    overflow: hidden !important;
+  }
+
+  .hero {
+    flex: 0 0 auto !important;
+    margin-bottom: 10px !important;
+  }
+
+  .hero h1 {
+    font-size: clamp(28px, 3.2vw, 40px) !important;
+  }
+
+  .hero p {
+    margin-top: 6px !important;
+    line-height: 1.25 !important;
+    font-size: 14px !important;
+  }
+
+  .panel {
+    padding: 16px !important;
+    border-radius: 22px !important;
+  }
+
+  .game-area {
+    flex: 1 1 auto !important;
+    min-height: 0 !important;
+    display: grid !important;
+    grid-template-rows: auto auto 1fr !important;
+    gap: 10px !important;
+    overflow: hidden !important;
+  }
+
+  .online-bar {
+    padding: 8px !important;
+  }
+
+  .score-grid {
+    gap: 10px !important;
+  }
+
+  .score-card {
+    padding: 10px !important;
+    border-radius: 18px !important;
+  }
+
+  .score-card strong {
+    font-size: 30px !important;
+  }
+
+  .teams-grid {
+    margin: 10px 0 !important;
+  }
+
+  .team-card {
+    padding: 14px 12px !important;
+    border-radius: 20px !important;
+  }
+
+  .team-logo {
+    width: 78px !important;
+    height: 78px !important;
+    margin-bottom: 8px !important;
+  }
+
+  .team-logo__inner {
+    width: 58px !important;
+    height: 58px !important;
+  }
+
+  .single-answer-card {
+    padding: 11px !important;
+  }
+
+  .answer-row {
+    align-items: stretch !important;
+  }
+
+  .answer-row .primary-button,
+  .single-answer-card input {
+    min-height: 44px !important;
+  }
+
+  .winner-panel {
+    height: 100% !important;
+    min-height: 0 !important;
+    display: grid !important;
+    grid-template-rows: auto auto auto auto auto !important;
+    align-content: center !important;
+    justify-items: center !important;
+    gap: 10px !important;
+    padding: 18px !important;
+    overflow: hidden !important;
+  }
+
+  .winner-panel .trophy {
+    width: 86px !important;
+    height: 86px !important;
+    font-size: 42px !important;
+    margin: 0 !important;
+  }
+
+  .winner-panel h2 {
+    font-size: 34px !important;
+    margin: 0 !important;
+  }
+
+  .winner-panel > p {
+    margin: 0 !important;
+    font-size: 18px !important;
+  }
+
+  .match-summary-card.final-summary {
+    width: min(100%, 860px) !important;
+    max-width: 860px !important;
+    margin: 0 auto !important;
+    padding: 14px !important;
+    border-radius: 20px !important;
+    overflow: hidden !important;
+  }
+
+  .winner-actions {
+    margin: 0 !important;
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 10px !important;
+    width: min(100%, 520px) !important;
+  }
+
+  .winner-actions .primary-button,
+  .winner-actions .light-button {
+    min-height: 44px !important;
+    padding: 10px !important;
+  }
+
+  .home-screen .panel {
+    flex: 1 1 auto !important;
+    overflow: hidden !important;
+  }
+
+  .home-screen .mode-grid {
+    gap: 12px !important;
+  }
+
+  .home-screen .mode-card {
+    min-height: 130px !important;
+    padding: 16px !important;
+  }
+
+  .home-screen .input-card,
+  .home-screen .score-select-box {
+    padding: 11px !important;
+    margin-top: 10px !important;
+  }
+}
+
+.match-summary-card.final-summary {
+  box-sizing: border-box !important;
+  overflow: hidden !important;
+}
+
+.final-summary h3 {
+  margin: 0 0 8px !important;
+}
+
+.final-summary-grid {
+  display: grid !important;
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  gap: 8px !important;
+}
+
+.final-summary-grid div {
+  min-width: 0 !important;
+  padding: 9px 6px !important;
+  border-radius: 14px !important;
+}
+
+.final-summary-grid span {
+  font-size: 11px !important;
+}
+
+.final-summary-grid strong {
+  font-size: 18px !important;
+  white-space: nowrap !important;
+}
+
+.correct-rounds-summary {
+  margin-top: 10px !important;
+  padding: 10px !important;
+  border-radius: 16px !important;
+  background: rgba(255, 255, 255, 0.1) !important;
+}
+
+.correct-rounds-summary > strong {
+  display: block !important;
+  text-align: center !important;
+  margin-bottom: 7px !important;
+}
+
+.correct-rounds-list {
+  display: grid !important;
+  gap: 6px !important;
+}
+
+.correct-round-item {
+  display: grid !important;
+  grid-template-columns: 30px minmax(0, 1.35fr) minmax(0, 0.8fr) minmax(0, 0.7fr) !important;
+  gap: 7px !important;
+  align-items: center !important;
+  padding: 7px 8px !important;
+  border-radius: 12px !important;
+  background: rgba(255, 255, 255, 0.12) !important;
+  min-width: 0 !important;
+}
+
+.round-no,
+.round-pair,
+.round-answer,
+.round-player {
+  min-width: 0 !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+}
+
+.round-no {
+  font-weight: 950 !important;
+  color: #bbf7d0 !important;
+}
+
+.round-pair {
+  font-weight: 800 !important;
+  color: white !important;
+}
+
+.round-answer {
+  font-weight: 950 !important;
+  color: #d1fae5 !important;
+}
+
+.round-player {
+  text-align: right !important;
+  font-size: 12px !important;
+  color: rgba(255, 255, 255, 0.74) !important;
+}
+
+.empty-summary {
+  margin: 0 !important;
+  text-align: center !important;
+  color: rgba(255, 255, 255, 0.75) !important;
+}
+
+@media (max-width: 760px) {
+  .app-shell {
+    min-height: 100svh !important;
+    height: 100svh !important;
+    max-height: 100svh !important;
+    overflow: hidden !important;
+    padding: 6px !important;
+  }
+
+  .game-container {
+    height: 100% !important;
+    max-height: 100% !important;
+    overflow: hidden !important;
+  }
+
+  .winner-panel {
+    height: 100% !important;
+    min-height: 0 !important;
+    display: grid !important;
+    grid-template-rows: auto auto auto auto auto !important;
+    align-content: center !important;
+    justify-items: center !important;
+    gap: 8px !important;
+    padding: 10px !important;
+    overflow: hidden !important;
+    text-align: center !important;
+  }
+
+  .winner-panel .trophy {
+    width: 84px !important;
+    height: 84px !important;
+    font-size: 38px !important;
+    margin: 0 !important;
+  }
+
+  .winner-panel h2 {
+    font-size: 31px !important;
+    line-height: 1.05 !important;
+    margin: 0 !important;
+  }
+
+  .winner-panel > p {
+    margin: 0 !important;
+    font-size: 14px !important;
+    line-height: 1.2 !important;
+  }
+
+  .match-summary-card.final-summary {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 9px !important;
+    border-radius: 18px !important;
+  }
+
+  .final-summary h3 {
+    font-size: 18px !important;
+    margin-bottom: 7px !important;
+  }
+
+  .final-summary-grid {
+    gap: 5px !important;
+  }
+
+  .final-summary-grid div {
+    padding: 7px 3px !important;
+    border-radius: 12px !important;
+  }
+
+  .final-summary-grid span {
+    font-size: 9px !important;
+  }
+
+  .final-summary-grid strong {
+    font-size: 14px !important;
+  }
+
+  .correct-rounds-summary {
+    margin-top: 8px !important;
+    padding: 7px !important;
+    border-radius: 14px !important;
+  }
+
+  .correct-rounds-summary > strong {
+    font-size: 13px !important;
+    margin-bottom: 5px !important;
+  }
+
+  .correct-rounds-list {
+    gap: 4px !important;
+  }
+
+  .correct-round-item {
+    grid-template-columns: 22px minmax(0, 1fr) minmax(0, 0.72fr) !important;
+    grid-template-areas:
+      "no pair answer"
+      "no player player" !important;
+    gap: 2px 5px !important;
+    padding: 5px 6px !important;
+    border-radius: 10px !important;
+  }
+
+  .round-no {
+    grid-area: no !important;
+    font-size: 10px !important;
+  }
+
+  .round-pair {
+    grid-area: pair !important;
+    font-size: 10px !important;
+  }
+
+  .round-answer {
+    grid-area: answer !important;
+    font-size: 11px !important;
+    text-align: right !important;
+  }
+
+  .round-player {
+    grid-area: player !important;
+    font-size: 9px !important;
+    text-align: right !important;
+  }
+
+  .compact-history,
+  .match-history {
+    display: none !important;
+  }
+
+  .winner-actions {
+    width: 100% !important;
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 8px !important;
+    margin: 0 !important;
+  }
+
+  .winner-actions .primary-button,
+  .winner-actions .light-button {
+    min-height: 42px !important;
+    height: 42px !important;
+    padding: 7px !important;
+    border-radius: 14px !important;
+    font-size: 12px !important;
+  }
+
+  .home-screen .hero {
+    margin-bottom: 7px !important;
+  }
+
+  .home-screen .hero h1 {
+    font-size: 23px !important;
+  }
+
+  .home-screen .hero p {
+    display: none !important;
+  }
+
+  .home-screen .panel {
+    padding: 9px !important;
+    border-radius: 18px !important;
+    overflow: hidden !important;
+  }
+
+  .home-screen .mode-grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 7px !important;
+  }
+
+  .home-screen .mode-card {
+    min-height: 82px !important;
+    padding: 9px 7px !important;
+  }
+
+  .home-screen .mode-card span {
+    font-size: 21px !important;
+    margin-bottom: 3px !important;
+  }
+
+  .home-screen .mode-card strong {
+    font-size: 13px !important;
+  }
+
+  .home-screen .mode-card small {
+    display: none !important;
+  }
+}
+
+@media (max-width: 760px) and (max-height: 720px) {
+  .winner-panel .trophy {
+    width: 62px !important;
+    height: 62px !important;
+    font-size: 30px !important;
+  }
+
+  .winner-panel h2 {
+    font-size: 25px !important;
+  }
+
+  .winner-panel > p {
+    font-size: 12px !important;
+  }
+
+  .correct-rounds-summary {
+    margin-top: 5px !important;
+  }
+
+  .correct-round-item {
+    padding: 4px 5px !important;
+  }
+
+  .winner-actions .primary-button,
+  .winner-actions .light-button {
+    height: 38px !important;
+    min-height: 38px !important;
   }
 }
 
