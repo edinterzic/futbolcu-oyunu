@@ -165,454 +165,7 @@ function getWrongAnswerExplanation(round, userInput) {
     return `${player.name}, bu veri havuzuna göre ne ${teamA} ne de ${teamB} takımında oynamadı.`;
   }
 
-  return `${player.name} bu eşleşme için doğru olmalıydı; veri kontrolü gerekiyor.
-
-@media (max-width: 760px) {
-  html,
-  body,
-  #root {
-    min-height: 100%;
-  }
-
-  .app-shell {
-    min-height: 100svh;
-    padding: 8px;
-  }
-
-  .game-container {
-    max-width: 100%;
-  }
-
-  .hero {
-    margin-bottom: 8px;
-  }
-
-  .badge {
-    font-size: 11px;
-    padding: 6px 10px;
-    margin-bottom: 6px;
-  }
-
-  .hero h1 {
-    font-size: 24px;
-    letter-spacing: -0.035em;
-  }
-
-  .hero p {
-    display: none;
-  }
-
-  .sound-toggle {
-    margin-top: 7px;
-    padding: 7px 10px;
-    font-size: 12px;
-  }
-
-  .game-area {
-    gap: 8px;
-  }
-
-  .online-bar {
-    top: 4px;
-    gap: 5px;
-    border-radius: 14px;
-    padding: 7px;
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .online-bar span {
-    font-size: 11px;
-    padding: 6px 7px;
-    text-align: center;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-
-  .online-bar .mini-button {
-    grid-column: span 2;
-    width: 100%;
-    margin: 0;
-    min-height: 34px;
-    padding: 6px 8px;
-    font-size: 12px;
-  }
-
-  .score-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 7px;
-  }
-
-  .score-card {
-    border-radius: 16px;
-    padding: 8px;
-  }
-
-  .score-card span {
-    font-size: 12px;
-  }
-
-  .score-card strong {
-    font-size: 28px;
-    margin-top: 1px;
-  }
-
-  .score-card em {
-    font-size: 10px;
-  }
-
-  .series-bar {
-    margin: 0;
-    padding: 7px 8px;
-    border-radius: 14px;
-    font-size: 12px;
-  }
-
-  .panel {
-    padding: 10px;
-    border-radius: 18px;
-  }
-
-  .top-row {
-    gap: 8px;
-    margin-bottom: 6px;
-  }
-
-  .round-pill {
-    font-size: 12px;
-    padding: 7px 9px;
-  }
-
-  .timer-box {
-    margin: 4px auto 0;
-    padding: 6px 10px;
-    max-width: 150px;
-    border-radius: 14px;
-  }
-
-  .timer-box span,
-  .timer-box em {
-    font-size: 10px;
-  }
-
-  .timer-box strong {
-    font-size: 26px;
-    line-height: 1;
-  }
-
-  .teams-grid {
-    grid-template-columns: minmax(0, 1fr) 34px minmax(0, 1fr);
-    gap: 6px;
-    margin: 8px 0;
-  }
-
-  .versus {
-    font-size: 14px;
-    padding: 6px 0;
-    text-align: center;
-  }
-
-  .team-card {
-    border-radius: 16px;
-    padding: 8px 6px;
-    min-height: 128px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-
-  .team-card span {
-    font-size: 10px;
-    margin-bottom: 2px;
-  }
-
-  .team-logo {
-    width: 58px;
-    height: 58px;
-    margin: 4px auto 7px;
-    border-radius: 17px;
-    padding: 4px;
-  }
-
-  .team-logo::after {
-    inset: 4px;
-    border-radius: 14px;
-  }
-
-  .team-logo__ring {
-    border-radius: 14px;
-  }
-
-  .team-logo__inner {
-    width: 44px;
-    height: 44px;
-    border-radius: 12px;
-    padding: 5px;
-  }
-
-  .team-logo span {
-    font-size: 14px;
-  }
-
-  .team-card strong {
-    font-size: 16px;
-    line-height: 1.08;
-    word-break: break-word;
-  }
-
-  .single-answer-card {
-    padding: 9px;
-    border-radius: 16px;
-  }
-
-  .single-answer-card label,
-  .wrong-right-info {
-    font-size: 11px;
-  }
-
-  .wrong-right-info {
-    padding: 5px 8px;
-    margin-bottom: 6px;
-  }
-
-  .answer-row {
-    flex-direction: row;
-    gap: 7px;
-    align-items: stretch;
-  }
-
-  .single-answer-card input {
-    min-height: 44px;
-    padding: 10px;
-    border-radius: 12px;
-    font-size: 16px;
-  }
-
-  .answer-row .primary-button {
-    width: 92px;
-    min-width: 92px;
-    min-height: 44px;
-    padding: 8px 10px;
-    border-radius: 12px;
-    font-size: 13px;
-  }
-
-  .suggestions {
-    max-height: 148px;
-    border-radius: 14px;
-  }
-
-  .suggestions button {
-    padding: 10px 12px;
-    font-size: 13px;
-  }
-
-  .status-message {
-    margin-top: 6px;
-    padding: 7px 9px;
-    border-radius: 13px;
-    font-size: 12px;
-  }
-
-  .wrong-explanation-card,
-  .goal-animation,
-  .concede-animation,
-  .wrong-animation,
-  .round-animation,
-  .answers-box {
-    margin-top: 7px;
-    padding: 9px;
-    border-radius: 16px;
-  }
-
-  .answers-box p {
-    display: none;
-  }
-
-  .answer-tags {
-    gap: 6px;
-  }
-
-  .answer-tags span,
-  .answer-tags.clickable button {
-    font-size: 11px;
-    padding: 6px 8px;
-  }
-
-  .bottom-actions {
-    margin-top: 8px;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 7px;
-  }
-
-  .bottom-actions .light-button {
-    min-height: 40px;
-    padding: 8px;
-    font-size: 12px;
-  }
-
-  .challenge-tools {
-    margin-top: 7px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 7px;
-  }
-
-  .challenge-tools .light-button {
-    min-height: 38px;
-    padding: 7px;
-    font-size: 11px;
-  }
-
-  .joker-hint {
-    margin-top: 7px;
-    padding: 8px;
-    border-radius: 14px;
-    font-size: 12px;
-  }
-
-  .waiting-panel {
-    min-height: calc(100svh - 110px);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-
-  .pre-round-count {
-    width: 88px;
-    height: 88px;
-    font-size: 48px;
-    margin-top: 12px;
-  }
-
-  .winner-panel {
-    min-height: calc(100svh - 120px);
-  }
-
-  .match-summary-card {
-    margin: 10px auto;
-    padding: 11px;
-    border-radius: 18px;
-  }
-
-  .summary-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 7px;
-  }
-
-  .summary-grid div {
-    padding: 8px;
-    border-radius: 14px;
-  }
-
-  .winner-actions {
-    grid-template-columns: 1fr 1fr;
-    gap: 8px;
-  }
-
-  .winner-actions .primary-button,
-  .winner-actions .light-button {
-    min-height: 42px;
-    padding: 8px;
-    font-size: 12px;
-  }
-
-  .mode-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 8px;
-  }
-
-  .mode-card {
-    padding: 12px;
-    border-radius: 16px;
-  }
-
-  .mode-card span {
-    font-size: 22px;
-    margin-bottom: 5px;
-  }
-
-  .mode-card strong {
-    font-size: 14px;
-  }
-
-  .mode-card small {
-    display: none;
-  }
-
-  .room-card,
-  .score-select-box {
-    margin-bottom: 10px;
-  }
-
-  .room-actions {
-    grid-template-columns: 1fr 1fr;
-    gap: 8px;
-  }
-
-  .room-actions .primary-button,
-  .room-actions .light-button {
-    min-height: 44px;
-    font-size: 12px;
-    padding: 8px;
-  }
-}
-
-@media (max-height: 700px) and (max-width: 760px) {
-  .hero h1 {
-    font-size: 20px;
-  }
-
-  .badge,
-  .sound-toggle {
-    display: none;
-  }
-
-  .online-bar {
-    position: static;
-  }
-
-  .score-card {
-    padding: 6px;
-  }
-
-  .score-card strong {
-    font-size: 23px;
-  }
-
-  .team-card {
-    min-height: 112px;
-    padding: 6px 5px;
-  }
-
-  .team-logo {
-    width: 48px;
-    height: 48px;
-    margin-bottom: 5px;
-  }
-
-  .team-logo__inner {
-    width: 36px;
-    height: 36px;
-  }
-
-  .team-card strong {
-    font-size: 14px;
-  }
-
-  .timer-box {
-    display: none;
-  }
-
-  .answers-box,
-  .wrong-explanation-card {
-    max-height: 120px;
-    overflow: auto;
-  }
-}
-
-`;
+  return `${player.name} bu eşleşme için doğru olmalıydı; veri kontrolü gerekiyor.`;
 }
 
 function getCorrectPlayersForRound(round) {
@@ -2128,11 +1681,11 @@ export default function App() {
   }, [soundEnabled]);
 
   return (
-    <div className="app-shell">
+    <div className={`app-shell ${screen === "game" || screen === "challenge" || screen === "winner" ? "game-screen" : "home-screen"}`}>
       <style>{css}</style>
 
       <main className="game-container">
-        <header className="hero compact-hero">
+        <header className={`hero ${screen === "game" || screen === "challenge" || screen === "winner" ? "hero-in-game" : ""}`}>
           <div className="badge">🌍 Online Futbolcu Kapışması</div>
           <h1>İki Takım, Tek Futbolcu</h1>
           <p>
@@ -2226,7 +1779,7 @@ export default function App() {
                 <div className="pre-round-count">{challengePreRoundLeft}</div>
               </section>
             ) : (
-              <div className="panel game-panel-compact">
+              <div className="panel">
                 <div className="top-row">
                   <div className="round-pill">🔥 Seri: {challengeScore}</div>
                   <button type="button" onClick={startChallenge} className="light-button">
@@ -2253,7 +1806,7 @@ export default function App() {
                   <div className="joker-hint">🃏 {challengeJokerHint}</div>
                 )}
 
-                <div className="teams-grid compact-teams">
+                <div className="teams-grid">
                   <div className="team-card">
                     <span>Takım 1</span>
                     <TeamLogo teamName={challengeRound.teams[0]} />
@@ -2279,7 +1832,7 @@ export default function App() {
                   </div>
                 )}
 
-                <div className="single-answer-card compact-answer">
+                <div className="single-answer-card">
                   <label>Senin cevabın</label>
                   <div className="answer-row">
                     <div className="autocomplete-wrap">
@@ -2388,7 +1941,7 @@ export default function App() {
               <button type="button" onClick={copyInvite} className="mini-button">Linki Kopyala</button>
             </div>
 
-            <div className="score-grid compact-score">
+            <div className="score-grid">
               {[0, 1].map((index) => (
                 <div key={index} className={`score-card ${index === playerIndex ? "me" : ""}`}>
                   <span>{playerNames[index]}</span>
@@ -2476,7 +2029,7 @@ export default function App() {
                 <div className="pre-round-count">{preRoundLeft}</div>
               </section>
             ) : (
-              <div className="panel game-panel-compact">
+              <div className="panel">
                 <div className="top-row">
                   <div className="round-pill">⏱️ {roundLocked ? "Tur bitti" : `Tur #${usedRoundKeys.length || 1}`}</div>
                   <button type="button" onClick={resetGame} className="light-button">
@@ -2490,7 +2043,7 @@ export default function App() {
                   <em>saniye</em>
                 </div>
 
-                <div className="teams-grid compact-teams">
+                <div className="teams-grid">
                   <div className="team-card">
                     <span>Takım 1</span>
                     <TeamLogo teamName={round.teams[0]} />
@@ -2534,7 +2087,7 @@ export default function App() {
                   </div>
                 )}
 
-                <div className="single-answer-card compact-answer">
+                <div className="single-answer-card">
                   <label>Senin cevabın</label>
                   <div className="wrong-right-info">
                     Yanlış hakkı: <strong>{myWrongAttemptUsed ? 0 : 1}</strong>
@@ -3645,109 +3198,6 @@ input:disabled {
 }
 
 
-
-/* Compact product layout */
-.game-area {
-  gap: 12px;
-}
-
-.hero.compact-hero {
-  margin-bottom: 12px;
-}
-
-.online-bar {
-  position: sticky;
-  top: 8px;
-  z-index: 20;
-  backdrop-filter: blur(16px);
-}
-
-.score-grid.compact-score {
-  gap: 10px;
-}
-
-.score-card {
-  padding: 12px 14px;
-}
-
-.score-card strong {
-  font-size: 34px;
-}
-
-.score-card em {
-  margin-top: 2px;
-}
-
-.series-bar {
-  margin-bottom: 10px;
-  padding: 9px 12px;
-}
-
-.panel.game-panel-compact {
-  padding: 18px;
-}
-
-.top-row {
-  margin-bottom: 6px;
-}
-
-.timer-box {
-  margin: 8px auto 0;
-  padding: 8px 14px;
-  max-width: 220px;
-}
-
-.timer-box strong {
-  font-size: 34px;
-}
-
-.teams-grid.compact-teams {
-  margin: 14px 0;
-  gap: 12px;
-}
-
-.team-card {
-  padding: 18px 14px;
-}
-
-.team-card strong {
-  font-size: clamp(22px, 3vw, 34px);
-}
-
-.single-answer-card.compact-answer {
-  padding: 12px;
-}
-
-.single-answer-card.compact-answer label {
-  margin-bottom: 6px;
-}
-
-.input-card input,
-.join-box input,
-.single-answer-card input {
-  padding: 12px 13px;
-}
-
-.primary-button,
-.light-button {
-  min-height: 44px;
-}
-
-.status-message {
-  margin-top: 8px;
-  padding: 9px 11px;
-}
-
-.bottom-actions {
-  margin-top: 12px;
-}
-
-.answers-box {
-  margin-top: 10px;
-  padding: 12px;
-}
-
-
 @media (max-width: 760px) {
   .app-shell {
     padding: 18px 12px;
@@ -3858,4 +3308,575 @@ input:disabled {
     }
   }
 }
+
+/* v16 strict mobile app layout */
+@media (max-width: 760px) {
+  html,
+  body,
+  #root {
+    width: 100%;
+    min-height: 100%;
+  }
+
+  body {
+    overflow-x: hidden;
+  }
+
+  .app-shell {
+    padding: 8px;
+  }
+
+  .app-shell.game-screen {
+    height: 100svh;
+    max-height: 100svh;
+    overflow: hidden;
+    padding: 6px;
+  }
+
+  .game-screen .game-container {
+    height: 100%;
+    max-height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  .hero.hero-in-game {
+    display: none;
+  }
+
+  .game-screen .game-area {
+    flex: 1;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    overflow: hidden;
+  }
+
+  .game-screen .online-bar {
+    flex: 0 0 auto;
+    position: static;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 3px;
+    padding: 4px;
+    border-radius: 12px;
+  }
+
+  .game-screen .online-bar span {
+    min-width: 0;
+    padding: 4px 5px;
+    border-radius: 9px;
+    font-size: 9.5px;
+    line-height: 1.1;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .game-screen .online-bar span:nth-child(2),
+  .game-screen .online-bar span:nth-child(3) {
+    display: none;
+  }
+
+  .game-screen .online-bar .mini-button {
+    display: none;
+  }
+
+  .game-screen .score-grid {
+    flex: 0 0 auto;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 5px;
+  }
+
+  .game-screen .score-card {
+    border-radius: 12px;
+    padding: 5px 7px;
+  }
+
+  .game-screen .score-card span {
+    font-size: 10px;
+    line-height: 1.05;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .game-screen .score-card strong {
+    font-size: 21px;
+    line-height: 1;
+    margin-top: 1px;
+  }
+
+  .game-screen .score-card em {
+    display: none;
+  }
+
+  .game-screen .series-bar {
+    flex: 0 0 auto;
+    margin: 0;
+    padding: 4px 7px;
+    border-radius: 11px;
+    font-size: 10.5px;
+    line-height: 1.1;
+  }
+
+  .game-screen .series-bar span {
+    display: none;
+  }
+
+  .game-screen .panel {
+    flex: 1;
+    min-height: 0;
+    overflow: hidden;
+    padding: 7px;
+    border-radius: 14px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .game-screen .waiting-panel {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .game-screen .waiting-panel h2 {
+    margin: 6px 0;
+    font-size: 20px;
+  }
+
+  .game-screen .waiting-panel p {
+    margin: 4px 0;
+    font-size: 12px;
+  }
+
+  .game-screen .top-row {
+    flex: 0 0 auto;
+    margin: 0;
+    gap: 5px;
+    align-items: center;
+  }
+
+  .game-screen .round-pill {
+    padding: 4px 7px;
+    border-radius: 999px;
+    font-size: 10px;
+  }
+
+  .game-screen .timer-box {
+    flex: 0 0 auto;
+    margin: 3px auto 0;
+    padding: 4px 8px;
+    max-width: 110px;
+    border-radius: 12px;
+  }
+
+  .game-screen .timer-box span,
+  .game-screen .timer-box em {
+    display: none;
+  }
+
+  .game-screen .timer-box strong {
+    font-size: 22px;
+    line-height: 1;
+  }
+
+  .game-screen .challenge-tools {
+    flex: 0 0 auto;
+    margin: 5px 0 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5px;
+  }
+
+  .game-screen .challenge-tools .light-button {
+    min-height: 32px;
+    padding: 5px 6px;
+    border-radius: 10px;
+    font-size: 10px;
+  }
+
+  .game-screen .joker-hint {
+    flex: 0 0 auto;
+    margin: 4px 0 0;
+    padding: 5px 7px;
+    border-radius: 10px;
+    font-size: 10px;
+  }
+
+  .game-screen .teams-grid {
+    flex: 1 1 auto;
+    min-height: 0;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 26px minmax(0, 1fr);
+    align-items: stretch;
+    gap: 5px;
+    margin: 5px 0;
+  }
+
+  .game-screen .team-card {
+    min-width: 0;
+    border-radius: 14px;
+    padding: 5px 4px;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .game-screen .team-card span {
+    font-size: 9px;
+    line-height: 1;
+    margin-bottom: 2px;
+  }
+
+  .game-screen .team-logo {
+    width: clamp(42px, 13vw, 58px);
+    height: clamp(42px, 13vw, 58px);
+    margin: 2px auto 5px;
+    border-radius: 16px;
+    padding: 4px;
+  }
+
+  .game-screen .team-logo::after {
+    inset: 4px;
+    border-radius: 12px;
+  }
+
+  .game-screen .team-logo__ring {
+    border-radius: 12px;
+  }
+
+  .game-screen .team-logo__inner {
+    width: clamp(31px, 9.8vw, 44px);
+    height: clamp(31px, 9.8vw, 44px);
+    border-radius: 10px;
+    padding: 4px;
+  }
+
+  .game-screen .team-logo span {
+    font-size: 12px;
+  }
+
+  .game-screen .team-card strong {
+    font-size: clamp(12px, 4.2vw, 16px);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    word-break: break-word;
+  }
+
+  .game-screen .versus {
+    align-self: center;
+    text-align: center;
+    font-size: 12px;
+    padding: 0;
+  }
+
+  .game-screen .single-answer-card {
+    flex: 0 0 auto;
+    padding: 6px;
+    border-radius: 13px;
+  }
+
+  .game-screen .single-answer-card label {
+    display: none;
+  }
+
+  .game-screen .wrong-right-info {
+    margin: 0 0 4px;
+    padding: 4px 6px;
+    font-size: 10px;
+    border-radius: 9px;
+  }
+
+  .game-screen .answer-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 78px;
+    gap: 5px;
+    align-items: stretch;
+  }
+
+  .game-screen .single-answer-card input {
+    min-height: 38px;
+    height: 38px;
+    border-radius: 11px;
+    padding: 8px 10px;
+    font-size: 16px;
+  }
+
+  .game-screen .answer-row .primary-button {
+    width: auto;
+    min-width: 0;
+    min-height: 38px;
+    height: 38px;
+    padding: 6px 7px;
+    border-radius: 11px;
+    font-size: 11.5px;
+  }
+
+  .game-screen .suggestions {
+    bottom: 45px;
+    top: auto;
+    margin-top: 0;
+    max-height: 132px;
+    border-radius: 12px;
+  }
+
+  .game-screen .suggestions button {
+    padding: 8px 10px;
+    font-size: 12px;
+  }
+
+  .game-screen .status-message {
+    flex: 0 0 auto;
+    margin-top: 4px;
+    padding: 5px 7px;
+    border-radius: 10px;
+    font-size: 10.5px;
+    line-height: 1.15;
+  }
+
+  .game-screen .wrong-explanation-card,
+  .game-screen .answers-box,
+  .game-screen .match-summary-card {
+    flex: 0 1 auto;
+    margin-top: 5px;
+    padding: 7px;
+    border-radius: 12px;
+    max-height: 96px;
+    overflow: auto;
+    font-size: 10.5px;
+  }
+
+  .game-screen .wrong-explanation-card p,
+  .game-screen .answers-box p,
+  .game-screen .summary-line,
+  .game-screen .match-history {
+    display: none;
+  }
+
+  .game-screen .wrong-icon {
+    width: 30px;
+    height: 30px;
+    flex-basis: 30px;
+    border-radius: 10px;
+    font-size: 16px;
+  }
+
+  .game-screen .answer-tags {
+    gap: 4px;
+  }
+
+  .game-screen .answer-tags span,
+  .game-screen .answer-tags.clickable button {
+    padding: 4px 6px;
+    border-radius: 999px;
+    font-size: 10px;
+  }
+
+  .game-screen .answer-tags.clickable em {
+    display: none;
+  }
+
+  .game-screen .bottom-actions {
+    flex: 0 0 auto;
+    margin-top: 5px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 5px;
+  }
+
+  .game-screen .bottom-actions .light-button {
+    min-height: 34px;
+    padding: 5px;
+    border-radius: 10px;
+    font-size: 10px;
+  }
+
+  .game-screen .round-animation,
+  .game-screen .goal-animation,
+  .game-screen .concede-animation,
+  .game-screen .wrong-animation {
+    flex: 0 0 auto;
+    margin: 4px 0;
+    padding: 5px;
+    border-radius: 12px;
+    min-height: 42px;
+  }
+
+  .game-screen .goal-scene {
+    max-width: 150px;
+  }
+
+  .game-screen .pre-round-count {
+    width: 74px;
+    height: 74px;
+    font-size: 42px;
+    margin: 8px auto;
+  }
+
+  .game-screen .winner-panel {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .game-screen .winner-panel .trophy {
+    font-size: 34px;
+  }
+
+  .game-screen .winner-panel h2 {
+    margin: 4px 0;
+    font-size: 22px;
+  }
+
+  .game-screen .winner-panel p {
+    margin: 3px 0;
+    font-size: 12px;
+  }
+
+  .game-screen .summary-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 5px;
+  }
+
+  .game-screen .summary-grid div {
+    padding: 6px;
+    border-radius: 10px;
+  }
+
+  .game-screen .summary-grid span {
+    font-size: 9px;
+  }
+
+  .game-screen .summary-grid strong {
+    font-size: 12px;
+  }
+
+  .game-screen .winner-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+    margin-top: 8px;
+  }
+
+  .game-screen .winner-actions .primary-button,
+  .game-screen .winner-actions .light-button {
+    min-height: 38px;
+    padding: 6px;
+    border-radius: 11px;
+    font-size: 11px;
+  }
+
+  .home-screen .hero h1 {
+    font-size: 28px;
+  }
+
+  .home-screen .hero p {
+    display: none;
+  }
+
+  .home-screen .panel {
+    padding: 14px;
+  }
+
+  .home-screen .mode-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+
+  .home-screen .mode-card {
+    padding: 12px;
+    border-radius: 16px;
+  }
+
+  .home-screen .mode-card small {
+    display: none;
+  }
+
+  .home-screen .room-actions {
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+}
+
+@media (max-width: 390px) {
+  .game-screen .online-bar {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .game-screen .online-bar span:nth-child(4) {
+    display: none;
+  }
+
+  .game-screen .score-card strong {
+    font-size: 19px;
+  }
+
+  .game-screen .team-logo {
+    width: 42px;
+    height: 42px;
+  }
+
+  .game-screen .team-logo__inner {
+    width: 31px;
+    height: 31px;
+  }
+
+  .game-screen .team-card strong {
+    font-size: 12px;
+  }
+
+  .game-screen .answer-row {
+    grid-template-columns: minmax(0, 1fr) 68px;
+  }
+
+  .game-screen .answer-row .primary-button {
+    font-size: 10.5px;
+  }
+}
+
+@media (max-height: 690px) and (max-width: 760px) {
+  .game-screen .online-bar {
+    display: none;
+  }
+
+  .game-screen .series-bar {
+    display: none;
+  }
+
+  .game-screen .timer-box {
+    display: none;
+  }
+
+  .game-screen .team-card {
+    padding: 4px;
+  }
+
+  .game-screen .team-logo {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 3px;
+  }
+
+  .game-screen .team-logo__inner {
+    width: 30px;
+    height: 30px;
+  }
+
+  .game-screen .single-answer-card input,
+  .game-screen .answer-row .primary-button {
+    height: 36px;
+    min-height: 36px;
+  }
+
+  .game-screen .status-message,
+  .game-screen .wrong-explanation-card,
+  .game-screen .answers-box {
+    max-height: 70px;
+  }
+}
+
+
 `;
