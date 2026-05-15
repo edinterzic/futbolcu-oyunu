@@ -279,6 +279,431 @@ function getWrongAnswerExplanation(round, userInput) {
   }
 }
 
+
+
+/* v18 hard mobile app layout: no giant white team cards, fit active game to one screen */
+@media (max-width: 760px) {
+  html,
+  body,
+  #root {
+    height: 100%;
+    min-height: 100%;
+    overflow-x: hidden;
+  }
+
+  body {
+    overscroll-behavior: none;
+  }
+
+  .app-shell {
+    height: 100svh !important;
+    min-height: 100svh !important;
+    max-height: 100svh !important;
+    overflow: hidden !important;
+    padding: 4px !important;
+  }
+
+  .game-container {
+    height: 100% !important;
+    max-width: 100% !important;
+    overflow: hidden !important;
+  }
+
+  .hero,
+  .compact-hero {
+    display: none !important;
+  }
+
+  .game-area {
+    height: 100% !important;
+    max-height: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 5px !important;
+    overflow: hidden !important;
+  }
+
+  .online-bar {
+    display: none !important;
+  }
+
+  .score-grid,
+  .score-grid.compact-score {
+    flex: 0 0 auto !important;
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 5px !important;
+    margin: 0 !important;
+  }
+
+  .score-card {
+    min-height: 44px !important;
+    height: 44px !important;
+    padding: 5px 8px !important;
+    border-radius: 14px !important;
+  }
+
+  .score-card span {
+    font-size: 10px !important;
+    line-height: 1 !important;
+  }
+
+  .score-card strong {
+    font-size: 24px !important;
+    line-height: 1 !important;
+    margin: 1px 0 0 !important;
+  }
+
+  .score-card em {
+    display: none !important;
+  }
+
+  .series-bar {
+    display: none !important;
+  }
+
+  .panel,
+  .game-panel-compact {
+    flex: 1 1 auto !important;
+    min-height: 0 !important;
+    height: auto !important;
+    overflow: hidden !important;
+    padding: 7px !important;
+    border-radius: 16px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 5px !important;
+  }
+
+  .top-row {
+    flex: 0 0 auto !important;
+    margin: 0 !important;
+    display: grid !important;
+    grid-template-columns: 1fr auto 1fr !important;
+    align-items: center !important;
+    gap: 4px !important;
+  }
+
+  .top-row .light-button {
+    grid-column: 2 !important;
+    min-height: 34px !important;
+    padding: 6px 12px !important;
+    border-radius: 14px !important;
+    font-size: 13px !important;
+  }
+
+  .round-pill {
+    grid-column: 2 !important;
+    min-height: 30px !important;
+    padding: 6px 10px !important;
+    border-radius: 999px !important;
+    font-size: 12px !important;
+    justify-self: center !important;
+  }
+
+  .timer-box {
+    flex: 0 0 auto !important;
+    max-width: 100px !important;
+    padding: 4px 8px !important;
+    border-radius: 12px !important;
+    margin: 0 auto !important;
+  }
+
+  .timer-box span,
+  .timer-box em {
+    display: none !important;
+  }
+
+  .timer-box strong {
+    font-size: 20px !important;
+    line-height: 1 !important;
+  }
+
+  .teams-grid,
+  .teams-grid.compact-teams {
+    flex: 0 0 auto !important;
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) 28px minmax(0, 1fr) !important;
+    align-items: center !important;
+    gap: 6px !important;
+    margin: 2px 0 !important;
+    height: 92px !important;
+    min-height: 92px !important;
+    max-height: 92px !important;
+  }
+
+  .team-card {
+    height: 92px !important;
+    min-height: 92px !important;
+    max-height: 92px !important;
+    background: rgba(255, 255, 255, 0.94) !important;
+    border-radius: 18px !important;
+    padding: 6px 5px !important;
+    display: grid !important;
+    grid-template-rows: 12px 34px 1fr !important;
+    justify-items: center !important;
+    align-items: center !important;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.18) !important;
+    overflow: hidden !important;
+  }
+
+  .team-card span {
+    font-size: 9px !important;
+    line-height: 1 !important;
+    margin: 0 !important;
+    color: #64748b !important;
+  }
+
+  .team-logo {
+    width: 32px !important;
+    height: 32px !important;
+    min-width: 32px !important;
+    min-height: 32px !important;
+    margin: 0 !important;
+    padding: 2px !important;
+    border-radius: 11px !important;
+    box-shadow: none !important;
+  }
+
+  .team-logo::after {
+    display: none !important;
+  }
+
+  .team-logo__ring {
+    border-radius: 9px !important;
+  }
+
+  .team-logo__inner {
+    width: 25px !important;
+    height: 25px !important;
+    padding: 2px !important;
+    border-radius: 8px !important;
+  }
+
+  .team-logo span {
+    font-size: 10px !important;
+  }
+
+  .team-card strong {
+    font-size: 14px !important;
+    line-height: 1.08 !important;
+    font-weight: 950 !important;
+    max-width: 100% !important;
+    text-align: center !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+  }
+
+  .versus {
+    font-size: 12px !important;
+    font-weight: 950 !important;
+    text-align: center !important;
+    padding: 0 !important;
+    color: #bbf7d0 !important;
+  }
+
+  .single-answer-card,
+  .single-answer-card.compact-answer {
+    flex: 0 0 auto !important;
+    padding: 7px !important;
+    border-radius: 16px !important;
+    margin: 0 !important;
+  }
+
+  .single-answer-card label {
+    display: none !important;
+  }
+
+  .wrong-right-info {
+    font-size: 10px !important;
+    padding: 4px 7px !important;
+    margin: 0 0 5px !important;
+  }
+
+  .answer-row {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) 82px !important;
+    gap: 6px !important;
+    align-items: stretch !important;
+  }
+
+  .single-answer-card input {
+    height: 42px !important;
+    min-height: 42px !important;
+    padding: 8px 10px !important;
+    border-radius: 13px !important;
+    font-size: 16px !important;
+  }
+
+  .answer-row .primary-button {
+    width: 82px !important;
+    min-width: 82px !important;
+    height: 42px !important;
+    min-height: 42px !important;
+    padding: 6px !important;
+    border-radius: 13px !important;
+    font-size: 12px !important;
+  }
+
+  .suggestions {
+    max-height: 122px !important;
+    border-radius: 14px !important;
+  }
+
+  .suggestions button {
+    padding: 9px 10px !important;
+    font-size: 12px !important;
+  }
+
+  .status-message {
+    flex: 0 0 auto !important;
+    margin: 0 !important;
+    padding: 6px 8px !important;
+    border-radius: 12px !important;
+    font-size: 11px !important;
+    max-height: 42px !important;
+    overflow: hidden !important;
+  }
+
+  .wrong-explanation-card,
+  .answers-box,
+  .round-animation,
+  .goal-animation,
+  .concede-animation,
+  .wrong-animation {
+    flex: 0 1 auto !important;
+    max-height: 82px !important;
+    overflow: auto !important;
+    margin: 0 !important;
+    padding: 7px !important;
+    border-radius: 14px !important;
+    font-size: 11px !important;
+  }
+
+  .answers-box p {
+    display: none !important;
+  }
+
+  .answer-tags {
+    gap: 5px !important;
+  }
+
+  .answer-tags span,
+  .answer-tags.clickable button {
+    padding: 5px 7px !important;
+    font-size: 10px !important;
+  }
+
+  .bottom-actions {
+    flex: 0 0 auto !important;
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 6px !important;
+    margin: 0 !important;
+  }
+
+  .bottom-actions .light-button {
+    min-height: 36px !important;
+    height: 36px !important;
+    padding: 5px !important;
+    border-radius: 13px !important;
+    font-size: 11px !important;
+  }
+
+  .challenge-tools {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 6px !important;
+    margin: 0 !important;
+  }
+
+  .challenge-tools .light-button {
+    min-height: 34px !important;
+    height: 34px !important;
+    padding: 5px !important;
+    font-size: 10px !important;
+    border-radius: 12px !important;
+  }
+
+  .joker-hint {
+    margin: 0 !important;
+    padding: 6px !important;
+    max-height: 34px !important;
+    overflow: hidden !important;
+    font-size: 10px !important;
+  }
+
+  .pre-round-count {
+    width: 84px !important;
+    height: 84px !important;
+    font-size: 46px !important;
+  }
+}
+
+@media (max-width: 760px) and (max-height: 700px) {
+  .score-grid {
+    display: none !important;
+  }
+
+  .panel,
+  .game-panel-compact {
+    padding: 5px !important;
+    gap: 4px !important;
+  }
+
+  .top-row .light-button,
+  .round-pill {
+    min-height: 28px !important;
+    padding: 4px 9px !important;
+    font-size: 11px !important;
+  }
+
+  .teams-grid,
+  .teams-grid.compact-teams {
+    height: 76px !important;
+    min-height: 76px !important;
+    max-height: 76px !important;
+  }
+
+  .team-card {
+    height: 76px !important;
+    min-height: 76px !important;
+    max-height: 76px !important;
+    grid-template-rows: 10px 26px 1fr !important;
+  }
+
+  .team-logo {
+    width: 25px !important;
+    height: 25px !important;
+  }
+
+  .team-logo__inner {
+    width: 19px !important;
+    height: 19px !important;
+  }
+
+  .team-card strong {
+    font-size: 12px !important;
+  }
+
+  .single-answer-card input,
+  .answer-row .primary-button {
+    height: 38px !important;
+    min-height: 38px !important;
+  }
+
+  .answer-row {
+    grid-template-columns: minmax(0, 1fr) 72px !important;
+  }
+
+  .answer-row .primary-button {
+    width: 72px !important;
+    min-width: 72px !important;
+  }
+}
+
 `;
 }
 
