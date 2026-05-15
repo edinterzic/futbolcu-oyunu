@@ -6253,4 +6253,318 @@ body,
   }
 }
 
+
+
+/* v24: desktop home must fit without scrolling */
+@media (min-width: 761px) {
+  .app-shell.home-screen {
+    height: 100vh !important;
+    min-height: 100vh !important;
+    max-height: 100vh !important;
+    overflow: hidden !important;
+    padding: 10px 18px !important;
+  }
+
+  .home-screen .game-container {
+    height: 100% !important;
+    max-width: 1120px !important;
+    display: grid !important;
+    grid-template-rows: auto 1fr !important;
+    gap: 8px !important;
+    overflow: hidden !important;
+  }
+
+  .home-screen .hero {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .home-screen .badge {
+    padding: 5px 11px !important;
+    font-size: 12px !important;
+    margin-bottom: 5px !important;
+  }
+
+  .home-screen .hero h1 {
+    font-size: 34px !important;
+    line-height: 0.95 !important;
+    margin: 0 !important;
+  }
+
+  .home-screen .hero p {
+    margin: 6px auto 0 !important;
+    font-size: 13px !important;
+    line-height: 1.2 !important;
+  }
+
+  .home-screen .sound-toggle {
+    margin-top: 7px !important;
+    padding: 6px 10px !important;
+    font-size: 12px !important;
+  }
+
+  .home-screen .panel {
+    min-height: 0 !important;
+    height: 100% !important;
+    overflow: hidden !important;
+    padding: 14px !important;
+    border-radius: 22px !important;
+    display: grid !important;
+    grid-template-rows: auto auto auto 1fr !important;
+    gap: 10px !important;
+  }
+
+  .home-screen .mode-grid {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 10px !important;
+  }
+
+  .home-screen .mode-card {
+    min-height: 96px !important;
+    padding: 13px 16px !important;
+    border-radius: 18px !important;
+  }
+
+  .home-screen .mode-card span {
+    font-size: 28px !important;
+    margin-bottom: 5px !important;
+  }
+
+  .home-screen .mode-card strong {
+    font-size: 18px !important;
+    line-height: 1.05 !important;
+  }
+
+  .home-screen .mode-card small {
+    font-size: 13px !important;
+    line-height: 1.2 !important;
+    margin-top: 6px !important;
+  }
+
+  .home-screen .input-card,
+  .home-screen .score-select-box {
+    margin: 0 !important;
+    padding: 11px 14px !important;
+    border-radius: 18px !important;
+  }
+
+  .home-screen .input-card label,
+  .home-screen .score-select-box label {
+    font-size: 12px !important;
+    margin-bottom: 6px !important;
+    text-align: center !important;
+  }
+
+  .home-screen .input-card input {
+    min-height: 42px !important;
+    height: 42px !important;
+    padding: 8px 12px !important;
+    font-size: 16px !important;
+    border-radius: 13px !important;
+  }
+
+  .home-screen .score-options {
+    display: flex !important;
+    gap: 8px !important;
+    align-items: center !important;
+  }
+
+  .home-screen .score-option {
+    min-height: 40px !important;
+    padding: 7px 18px !important;
+    border-radius: 13px !important;
+    font-size: 14px !important;
+  }
+
+  .home-screen .score-select-box p {
+    margin: 6px 0 0 !important;
+    font-size: 12px !important;
+    line-height: 1.2 !important;
+  }
+
+  .home-screen .room-actions {
+    align-self: end !important;
+    display: grid !important;
+    grid-template-columns: 1.2fr 1fr 1fr !important;
+    gap: 10px !important;
+    min-height: 50px !important;
+  }
+
+  .home-screen .room-actions .primary-button,
+  .home-screen .room-actions .light-button {
+    min-height: 48px !important;
+    height: 48px !important;
+    padding: 8px 10px !important;
+    border-radius: 16px !important;
+    font-size: 14px !important;
+  }
+
+  .home-screen .join-box {
+    display: grid !important;
+    grid-template-columns: 1fr auto !important;
+    gap: 8px !important;
+  }
+
+  .home-screen .join-box input {
+    height: 48px !important;
+    min-height: 48px !important;
+    padding: 8px 12px !important;
+    border-radius: 16px !important;
+    font-size: 16px !important;
+  }
+
+  .home-screen .status-message {
+    margin: 0 !important;
+    padding: 8px 10px !important;
+    min-height: 36px !important;
+    max-height: 42px !important;
+    overflow: hidden !important;
+  }
+}
+
+/* For shorter laptop screens */
+@media (min-width: 761px) and (max-height: 760px) {
+  .home-screen .hero h1 {
+    font-size: 28px !important;
+  }
+
+  .home-screen .hero p,
+  .home-screen .mode-card small,
+  .home-screen .score-select-box p {
+    display: none !important;
+  }
+
+  .home-screen .sound-toggle {
+    margin-top: 5px !important;
+    padding: 5px 9px !important;
+  }
+
+  .home-screen .panel {
+    padding: 10px !important;
+    gap: 8px !important;
+  }
+
+  .home-screen .mode-card {
+    min-height: 78px !important;
+    padding: 10px 14px !important;
+  }
+
+  .home-screen .mode-card span {
+    font-size: 23px !important;
+    margin-bottom: 3px !important;
+  }
+
+  .home-screen .mode-card strong {
+    font-size: 16px !important;
+  }
+
+  .home-screen .input-card,
+  .home-screen .score-select-box {
+    padding: 9px 12px !important;
+  }
+
+  .home-screen .input-card input,
+  .home-screen .join-box input {
+    height: 40px !important;
+    min-height: 40px !important;
+  }
+
+  .home-screen .score-option {
+    min-height: 36px !important;
+    padding: 6px 14px !important;
+  }
+
+  .home-screen .room-actions .primary-button,
+  .home-screen .room-actions .light-button {
+    height: 42px !important;
+    min-height: 42px !important;
+  }
+}
+
+/* Desktop active game also tighter, but not cut */
+@media (min-width: 761px) {
+  .app-shell.game-screen {
+    height: 100vh !important;
+    max-height: 100vh !important;
+    overflow: hidden !important;
+    padding: 10px 18px !important;
+  }
+
+  .game-screen .game-container {
+    height: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    overflow: hidden !important;
+  }
+
+  .game-screen .hero {
+    display: none !important;
+  }
+
+  .game-screen .game-area {
+    flex: 1 1 auto !important;
+    min-height: 0 !important;
+    overflow: hidden !important;
+    display: grid !important;
+    grid-template-rows: auto auto 1fr !important;
+    gap: 8px !important;
+  }
+
+  .game-screen .online-bar {
+    padding: 7px !important;
+  }
+
+  .game-screen .online-bar span {
+    padding: 6px 9px !important;
+    font-size: 12px !important;
+  }
+
+  .game-screen .score-grid {
+    gap: 8px !important;
+  }
+
+  .game-screen .score-card {
+    padding: 9px !important;
+    border-radius: 18px !important;
+  }
+
+  .game-screen .score-card strong {
+    font-size: 28px !important;
+  }
+
+  .game-screen .panel {
+    min-height: 0 !important;
+    overflow: hidden !important;
+    padding: 12px !important;
+    border-radius: 20px !important;
+  }
+
+  .game-screen .teams-grid {
+    margin: 8px 0 !important;
+  }
+
+  .game-screen .team-card {
+    padding: 12px !important;
+  }
+
+  .game-screen .team-logo {
+    width: 72px !important;
+    height: 72px !important;
+  }
+
+  .game-screen .team-logo__inner {
+    width: 52px !important;
+    height: 52px !important;
+  }
+
+  .game-screen .single-answer-card {
+    padding: 10px !important;
+  }
+
+  .game-screen .bottom-actions {
+    margin-top: 8px !important;
+  }
+}
+
 `;
