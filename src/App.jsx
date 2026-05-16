@@ -1568,10 +1568,20 @@ export default function App() {
       <div className="app-frame">
         <header className={`topbar ${isHome ? "" : "topbar-compact"}`}>
           <div className="brand">
-            <span className="brand-mark" aria-hidden="true">⚽</span>
+            <span className="brand-mark" aria-hidden="true">
+              <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="16" cy="16" r="14" fill="#ffffff" stroke="#0f172a" strokeWidth="1.5"/>
+                <polygon points="16,9 22,13 20,20 12,20 10,13" fill="#0f172a"/>
+                <line x1="16" y1="9" x2="16" y2="4" stroke="#0f172a" strokeWidth="1.3"/>
+                <line x1="22" y1="13" x2="27" y2="11.5" stroke="#0f172a" strokeWidth="1.3"/>
+                <line x1="20" y1="20" x2="24" y2="26" stroke="#0f172a" strokeWidth="1.3"/>
+                <line x1="12" y1="20" x2="8" y2="26" stroke="#0f172a" strokeWidth="1.3"/>
+                <line x1="10" y1="13" x2="5" y2="11.5" stroke="#0f172a" strokeWidth="1.3"/>
+              </svg>
+            </span>
             <div className="brand-text">
-              <strong>İki Takım, Tek Futbolcu</strong>
-              {isHome && <small>Oda kur, arkadaşınla yarış.</small>}
+              <strong>PairFC</strong>
+              {isHome && <small>İki takım, tek futbolcu. Sen bul.</small>}
             </div>
           </div>
           <button type="button" onClick={toggleSound} className="icon-button" aria-label={soundEnabled ? "Sesi kapat" : "Sesi aç"} title={soundEnabled ? "Ses açık" : "Ses kapalı"}>
@@ -2196,9 +2206,20 @@ button:focus-visible {
 }
 
 .brand-mark {
-  font-size: 26px;
+  width: 28px;
+  height: 28px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
   filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.4));
   animation: bob 3s ease-in-out infinite;
+}
+
+.brand-mark svg {
+  width: 100%;
+  height: 100%;
+  display: block;
 }
 
 @keyframes bob {
@@ -3613,7 +3634,8 @@ button:focus-visible {
   }
 
   .brand-mark {
-    font-size: 22px;
+    width: 24px;
+    height: 24px;
   }
 
   .brand-text strong {
@@ -3952,7 +3974,8 @@ button:focus-visible {
   }
 
   .brand-mark {
-    font-size: 28px;
+    width: 32px;
+    height: 32px;
   }
 
   .panel,
