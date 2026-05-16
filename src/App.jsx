@@ -8166,4 +8166,278 @@ body,
     margin-top: 6px !important;
   }
 }
+
+
+/* v30 stacked mobile teams + centered waiting */
+@media (max-width: 760px) {
+  .challenge-waiting {
+    display: grid !important;
+    place-content: center !important;
+    justify-items: center !important;
+    align-content: center !important;
+    text-align: center !important;
+    min-height: calc(100dvh - 130px) !important;
+    padding: 24px 18px !important;
+    gap: 14px !important;
+  }
+
+  .challenge-waiting .waiting-icon,
+  .challenge-waiting .pre-round-count {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    place-self: center !important;
+  }
+
+  .challenge-waiting h2,
+  .challenge-waiting p {
+    width: 100% !important;
+    text-align: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  .challenge-waiting h2 {
+    font-size: 26px !important;
+  }
+
+  .challenge-waiting p {
+    max-width: 300px !important;
+    font-size: 15px !important;
+    line-height: 1.3 !important;
+  }
+
+  .challenge-waiting .pre-round-count {
+    width: 110px !important;
+    height: 110px !important;
+    font-size: 54px !important;
+  }
+
+  .challenge-panel.challenge-live,
+  .challenge-panel.challenge-feedback,
+  .challenge-panel.challenge-ended {
+    gap: 10px !important;
+  }
+
+  .challenge-panel .challenge-tools {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 10px !important;
+  }
+
+  .challenge-panel .challenge-tools .light-button {
+    min-height: 44px !important;
+    height: auto !important;
+    padding: 8px 10px !important;
+    font-size: 13px !important;
+    line-height: 1.2 !important;
+    white-space: normal !important;
+    word-break: normal !important;
+  }
+
+  .challenge-panel .timer-box {
+    min-height: 54px !important;
+    height: 54px !important;
+    padding: 6px 12px !important;
+  }
+
+  .challenge-panel .teams-grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    grid-template-rows: auto 28px auto !important;
+    gap: 8px !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    margin: 2px 0 4px !important;
+  }
+
+  .challenge-panel .versus {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    min-height: 28px !important;
+    font-size: 22px !important;
+    line-height: 1 !important;
+  }
+
+  .challenge-panel .team-card {
+    display: grid !important;
+    grid-template-columns: 56px minmax(0, 1fr) !important;
+    grid-template-rows: 18px auto !important;
+    column-gap: 12px !important;
+    row-gap: 2px !important;
+    align-items: center !important;
+    text-align: left !important;
+    height: auto !important;
+    min-height: 96px !important;
+    max-height: none !important;
+    padding: 10px 14px !important;
+    border-radius: 20px !important;
+  }
+
+  .challenge-panel .team-card > span {
+    grid-column: 2 !important;
+    grid-row: 1 !important;
+    justify-self: start !important;
+    align-self: end !important;
+    font-size: 13px !important;
+    line-height: 1 !important;
+    margin: 0 !important;
+  }
+
+  .challenge-panel .team-card > .team-logo {
+    grid-column: 1 !important;
+    grid-row: 1 / span 2 !important;
+    width: 52px !important;
+    height: 52px !important;
+    margin: 0 !important;
+    align-self: center !important;
+    justify-self: center !important;
+  }
+
+  .challenge-panel .team-card > .team-logo .team-logo__inner {
+    width: 40px !important;
+    height: 40px !important;
+  }
+
+  .challenge-panel .team-card > strong {
+    grid-column: 2 !important;
+    grid-row: 2 !important;
+    margin: 0 !important;
+    text-align: left !important;
+    font-size: 22px !important;
+    line-height: 1.05 !important;
+    overflow-wrap: anywhere !important;
+    word-break: normal !important;
+    hyphens: none !important;
+    -webkit-line-clamp: 2 !important;
+    display: -webkit-box !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+  }
+
+  .challenge-panel .single-answer-card {
+    padding: 10px 12px !important;
+  }
+
+  .challenge-panel .single-answer-card label {
+    display: none !important;
+  }
+
+  .challenge-panel .answer-row {
+    grid-template-columns: minmax(0, 1fr) 108px !important;
+    gap: 10px !important;
+  }
+
+  .challenge-panel .single-answer-card input {
+    height: 48px !important;
+    min-height: 48px !important;
+    font-size: 16px !important;
+  }
+
+  .challenge-panel .answer-row .primary-button {
+    height: 48px !important;
+    min-height: 48px !important;
+    width: 108px !important;
+    min-width: 108px !important;
+    font-size: 15px !important;
+  }
+
+  .challenge-panel .wrong-explanation-card {
+    padding: 12px !important;
+    gap: 10px !important;
+  }
+
+  .challenge-panel .wrong-explanation-card p {
+    margin: 4px 0 8px !important;
+    font-size: 14px !important;
+    line-height: 1.28 !important;
+  }
+
+  .challenge-panel .report-box {
+    padding: 12px !important;
+    gap: 10px !important;
+  }
+
+  .challenge-panel .report-box span {
+    font-size: 14px !important;
+    line-height: 1.28 !important;
+    text-align: center !important;
+  }
+
+  .challenge-panel .report-box .light-button {
+    min-height: 46px !important;
+    height: 46px !important;
+    font-size: 15px !important;
+  }
+
+  .challenge-panel .status-message {
+    min-height: 40px !important;
+    padding: 8px 10px !important;
+    font-size: 12px !important;
+    line-height: 1.24 !important;
+  }
+
+  .challenge-panel .answers-box {
+    padding: 12px !important;
+    min-height: 118px !important;
+    max-height: 142px !important;
+  }
+
+  .challenge-panel .answers-box strong {
+    font-size: 16px !important;
+    line-height: 1.15 !important;
+  }
+
+  .challenge-panel .answers-box p {
+    display: none !important;
+  }
+
+  .challenge-panel .answer-tags {
+    margin-top: 8px !important;
+    gap: 8px !important;
+    max-height: 78px !important;
+    overflow: auto !important;
+  }
+
+  .challenge-panel .answer-tags span,
+  .challenge-panel .answer-tags.clickable button {
+    padding: 8px 11px !important;
+    font-size: 12px !important;
+  }
+
+  .challenge-panel .challenge-result {
+    margin-top: 0 !important;
+    padding: 12px !important;
+    gap: 6px !important;
+  }
+
+  .challenge-panel .challenge-result strong {
+    font-size: 17px !important;
+  }
+
+  .challenge-panel .challenge-result span {
+    font-size: 14px !important;
+  }
+
+  .challenge-panel .challenge-result .primary-button.big {
+    height: 46px !important;
+    min-height: 46px !important;
+    font-size: 15px !important;
+  }
+}
+
+@media (max-width: 430px) {
+  .challenge-panel .team-card > strong {
+    font-size: 20px !important;
+  }
+
+  .challenge-panel .challenge-tools .light-button {
+    font-size: 12px !important;
+  }
+
+  .challenge-panel .timer-box strong {
+    font-size: 26px !important;
+  }
+}
 `;
