@@ -2351,14 +2351,14 @@ export default function App() {
             </div>
 
             {challengeIsPreRound ? (
-              <section className="panel waiting-panel">
+              <section className="panel waiting-panel challenge-waiting">
                 <div className="waiting-icon">⏱️</div>
                 <h2>Takımlar hazırlanıyor</h2>
                 <p>Takımlar {challengePreRoundLeft} saniye sonra görünecek.</p>
                 <div className="pre-round-count">{challengePreRoundLeft}</div>
               </section>
             ) : (
-              <div className="panel">
+              <div className={`panel challenge-panel ${challengeRoundLocked ? "challenge-ended" : challengeShowAnswers || challengeLastAction || challengeMessage || challengeJokerHint ? "challenge-feedback" : "challenge-live"}`}>
                 <div className="top-row">
                   <div className="round-pill">🔥 Seri: {challengeScore}</div>
                   <button type="button" onClick={startChallenge} className="light-button">
@@ -7443,4 +7443,265 @@ body,
   }
 }
 
+
+
+/* v27 final mobile challenge polish */
+@media (max-width: 760px) {
+  .challenge-waiting {
+    justify-content: center !important;
+    align-items: center !important;
+    min-height: 100% !important;
+    padding: 18px 16px !important;
+    gap: 18px !important;
+  }
+
+  .challenge-waiting .waiting-icon {
+    width: 88px !important;
+    height: 88px !important;
+    margin: 0 auto !important;
+    font-size: 42px !important;
+  }
+
+  .challenge-waiting h2 {
+    margin: 0 !important;
+    font-size: 28px !important;
+    line-height: 1.1 !important;
+  }
+
+  .challenge-waiting p {
+    margin: 0 !important;
+    font-size: 16px !important;
+    line-height: 1.35 !important;
+    max-width: 280px !important;
+  }
+
+  .challenge-waiting .pre-round-count {
+    width: 104px !important;
+    height: 104px !important;
+    margin: 0 !important;
+    font-size: 52px !important;
+  }
+
+  .challenge-panel.challenge-live {
+    justify-content: space-between !important;
+  }
+
+  .challenge-panel.challenge-live .teams-grid {
+    height: 236px !important;
+    min-height: 236px !important;
+    max-height: 236px !important;
+    grid-template-columns: minmax(0, 1fr) 42px minmax(0, 1fr) !important;
+    gap: 10px !important;
+    margin: 4px 0 6px !important;
+  }
+
+  .challenge-panel.challenge-live .team-card {
+    height: 236px !important;
+    min-height: 236px !important;
+    max-height: 236px !important;
+    grid-template-rows: 28px 78px 1fr !important;
+    padding: 14px 10px !important;
+    border-radius: 28px !important;
+  }
+
+  .challenge-panel.challenge-live .team-card span {
+    font-size: 15px !important;
+  }
+
+  .challenge-panel.challenge-live .team-logo {
+    width: 72px !important;
+    height: 72px !important;
+    border-radius: 22px !important;
+    padding: 6px !important;
+  }
+
+  .challenge-panel.challenge-live .team-logo__inner {
+    width: 56px !important;
+    height: 56px !important;
+    border-radius: 18px !important;
+  }
+
+  .challenge-panel.challenge-live .team-logo span {
+    font-size: 24px !important;
+  }
+
+  .challenge-panel.challenge-live .team-card strong {
+    font-size: 26px !important;
+    line-height: 1.05 !important;
+    -webkit-line-clamp: 2 !important;
+  }
+
+  .challenge-panel.challenge-live .versus {
+    font-size: 24px !important;
+  }
+
+  .challenge-panel.challenge-live .single-answer-card {
+    margin-top: 6px !important;
+  }
+
+  .challenge-panel.challenge-live .single-answer-card input {
+    height: 54px !important;
+    min-height: 54px !important;
+    font-size: 17px !important;
+  }
+
+  .challenge-panel.challenge-live .answer-row {
+    grid-template-columns: minmax(0, 1fr) 110px !important;
+  }
+
+  .challenge-panel.challenge-live .answer-row .primary-button {
+    width: 110px !important;
+    min-width: 110px !important;
+    height: 54px !important;
+    min-height: 54px !important;
+    font-size: 15px !important;
+  }
+
+  .challenge-panel.challenge-live .timer-box {
+    min-height: 50px !important;
+    height: 50px !important;
+    max-height: 50px !important;
+    padding: 8px 14px !important;
+  }
+
+  .challenge-panel.challenge-live .timer-box span,
+  .challenge-panel.challenge-live .timer-box em {
+    display: inline !important;
+    font-size: 14px !important;
+  }
+
+  .challenge-panel.challenge-live .timer-box strong {
+    font-size: 34px !important;
+  }
+
+  .challenge-panel.challenge-live .challenge-tools .light-button {
+    height: 44px !important;
+    min-height: 44px !important;
+    font-size: 13px !important;
+    padding: 8px 10px !important;
+  }
+
+  .challenge-panel.challenge-feedback .teams-grid,
+  .challenge-panel.challenge-ended .teams-grid {
+    height: 150px !important;
+    min-height: 150px !important;
+    max-height: 150px !important;
+    grid-template-columns: minmax(0, 1fr) 34px minmax(0, 1fr) !important;
+  }
+
+  .challenge-panel.challenge-feedback .team-card,
+  .challenge-panel.challenge-ended .team-card {
+    height: 150px !important;
+    min-height: 150px !important;
+    max-height: 150px !important;
+    grid-template-rows: 18px 50px 1fr !important;
+    padding: 10px 8px !important;
+  }
+
+  .challenge-panel.challenge-feedback .team-card span,
+  .challenge-panel.challenge-ended .team-card span {
+    font-size: 12px !important;
+  }
+
+  .challenge-panel.challenge-feedback .team-logo,
+  .challenge-panel.challenge-ended .team-logo {
+    width: 46px !important;
+    height: 46px !important;
+  }
+
+  .challenge-panel.challenge-feedback .team-logo__inner,
+  .challenge-panel.challenge-ended .team-logo__inner {
+    width: 36px !important;
+    height: 36px !important;
+  }
+
+  .challenge-panel.challenge-feedback .team-card strong,
+  .challenge-panel.challenge-ended .team-card strong {
+    font-size: 18px !important;
+  }
+
+  .challenge-panel.challenge-feedback .wrong-animation,
+  .challenge-panel.challenge-feedback .goal-animation,
+  .challenge-panel.challenge-ended .wrong-animation,
+  .challenge-panel.challenge-ended .goal-animation {
+    min-height: 70px !important;
+    max-height: 70px !important;
+    height: 70px !important;
+  }
+
+  .challenge-panel.challenge-feedback .answers-box,
+  .challenge-panel.challenge-ended .answers-box {
+    min-height: 136px !important;
+    max-height: 150px !important;
+    height: auto !important;
+    overflow: auto !important;
+  }
+
+  .challenge-panel.challenge-feedback .answer-tags,
+  .challenge-panel.challenge-ended .answer-tags {
+    gap: 10px !important;
+  }
+
+  .challenge-panel.challenge-feedback .answer-tags span,
+  .challenge-panel.challenge-feedback .answer-tags.clickable button,
+  .challenge-panel.challenge-ended .answer-tags span,
+  .challenge-panel.challenge-ended .answer-tags.clickable button {
+    padding: 10px 14px !important;
+    font-size: 14px !important;
+    border-radius: 999px !important;
+  }
+
+  .challenge-result {
+    margin-top: 6px !important;
+    gap: 8px !important;
+    padding: 14px !important;
+    border-radius: 18px !important;
+  }
+
+  .challenge-result strong {
+    font-size: 18px !important;
+    line-height: 1.15 !important;
+  }
+
+  .challenge-result span {
+    font-size: 15px !important;
+    line-height: 1.2 !important;
+  }
+
+  .challenge-result .primary-button.big {
+    min-height: 54px !important;
+    height: 54px !important;
+    font-size: 18px !important;
+    border-radius: 16px !important;
+  }
+}
+
+@media (max-width: 760px) and (max-height: 780px) {
+  .challenge-panel.challenge-live .teams-grid {
+    height: 200px !important;
+    min-height: 200px !important;
+    max-height: 200px !important;
+  }
+
+  .challenge-panel.challenge-live .team-card {
+    height: 200px !important;
+    min-height: 200px !important;
+    max-height: 200px !important;
+    grid-template-rows: 24px 66px 1fr !important;
+  }
+
+  .challenge-panel.challenge-live .team-logo {
+    width: 60px !important;
+    height: 60px !important;
+  }
+
+  .challenge-panel.challenge-live .team-logo__inner {
+    width: 46px !important;
+    height: 46px !important;
+  }
+
+  .challenge-panel.challenge-live .team-card strong {
+    font-size: 22px !important;
+  }
+}
 `;
