@@ -1,48 +1,168 @@
-// Auto-generated from active_teams.csv and active_player_teams.csv
-// Team names must match exactly. Do not edit accents/spelling unless you update the CSV too.
+// Auto-generated from cleaned player-team data
+// Each player has 2+ clubs (single-club players are excluded; they cannot form quiz pairs)
+// Team names must match exactly with teams.js
 
 export const PLAYERS = [
   {
     "name": "Aaron Anselmino",
     "clubs": [
-      "Bor. Dortmund",
+      "Borussia Dortmund",
       "Chelsea"
+    ]
+  },
+  {
+    "name": "Aaron Appindangoye",
+    "clubs": [
+      "Kocaelispor",
+      "Sivasspor"
+    ]
+  },
+  {
+    "name": "Aaron Connolly",
+    "clubs": [
+      "Brighton",
+      "Sunderland"
+    ]
+  },
+  {
+    "name": "Aaron Hayden",
+    "clubs": [
+      "Chelsea",
+      "Wolverhampton"
+    ]
+  },
+  {
+    "name": "Aaron Hughes",
+    "clubs": [
+      "Aston Villa",
+      "Brighton",
+      "Fulham",
+      "Newcastle United"
+    ]
+  },
+  {
+    "name": "Aaron Keto-Diyawa",
+    "clubs": [
+      "Fulham",
+      "Wolverhampton"
     ]
   },
   {
     "name": "Aaron Lennon",
     "clubs": [
+      "Burnley",
+      "Everton",
       "Kayserispor",
+      "Leeds United",
       "Tottenham"
+    ]
+  },
+  {
+    "name": "Aaron Mooy",
+    "clubs": [
+      "Brighton",
+      "Manchester City"
+    ]
+  },
+  {
+    "name": "Aaron Pierre",
+    "clubs": [
+      "Brentford",
+      "Fulham"
+    ]
+  },
+  {
+    "name": "Aaron Pressley",
+    "clubs": [
+      "Aston Villa",
+      "Brentford"
+    ]
+  },
+  {
+    "name": "Aaron Ramsdale",
+    "clubs": [
+      "Arsenal",
+      "Bournemouth",
+      "Newcastle United"
     ]
   },
   {
     "name": "Aaron Ramsey",
     "clubs": [
-      "Juventus",
-      "Arsenal"
+      "Arsenal",
+      "Aston Villa",
+      "Burnley",
+      "Juventus"
+    ]
+  },
+  {
+    "name": "Aaron Tshibola",
+    "clubs": [
+      "Aston Villa",
+      "Gençlerbirliği"
+    ]
+  },
+  {
+    "name": "Aaron Wan-Bissaka",
+    "clubs": [
+      "Crystal Palace",
+      "Manchester United",
+      "West Ham"
     ]
   },
   {
     "name": "Aatif Chahechouhe",
     "clubs": [
-      "Sivasspor",
+      "Antalyaspor",
       "Fenerbahçe",
-      "Antalyaspor"
+      "Karagümrük",
+      "Sivasspor",
+      "Çaykur Rizespor"
     ]
   },
   {
     "name": "Abdou Traore",
     "clubs": [
-      "Sivasspor",
-      "Konyaspor"
+      "Gaziantepspor",
+      "Konyaspor",
+      "Sivasspor"
     ]
   },
   {
     "name": "Abdoulaye Ba",
     "clubs": [
+      "Alanyaspor",
       "FC Porto",
       "Fenerbahçe"
+    ]
+  },
+  {
+    "name": "Abdoulaye Diallo",
+    "clubs": [
+      "Gençlerbirliği",
+      "Çaykur Rizespor"
+    ]
+  },
+  {
+    "name": "Abdoulaye Faye",
+    "clubs": [
+      "Newcastle United",
+      "West Ham"
+    ]
+  },
+  {
+    "name": "Abdul Khalili",
+    "clubs": [
+      "Gençlerbirliği",
+      "Kasımpaşa"
+    ]
+  },
+  {
+    "name": "Abdul Razak",
+    "clubs": [
+      "Brighton",
+      "Manchester City",
+      "West Ham"
     ]
   },
   {
@@ -56,12 +176,14 @@ export const PLAYERS = [
     "name": "Abdulaziz Solmaz",
     "clubs": [
       "Başakşehir",
+      "Samsunspor",
       "Trabzonspor"
     ]
   },
   {
     "name": "Abdulkadir Parmak",
     "clubs": [
+      "Gaziantep FK",
       "Kayserispor",
       "Sivasspor",
       "Trabzonspor"
@@ -70,83 +192,205 @@ export const PLAYERS = [
   {
     "name": "Abdullah Durak",
     "clubs": [
+      "Gençlerbirliği",
+      "Kasımpaşa",
       "Kayserispor",
-      "Genclerbirligi"
+      "Çaykur Rizespor"
     ]
   },
   {
     "name": "Abdullah Ercan",
     "clubs": [
       "Fenerbahçe",
-      "Trabzonspor",
-      "Galatasaray"
+      "Galatasaray",
+      "Trabzonspor"
+    ]
+  },
+  {
+    "name": "Abdullah Koparan",
+    "clubs": [
+      "Karagümrük",
+      "Kasımpaşa"
     ]
   },
   {
     "name": "Abdullah Yiğiter",
     "clubs": [
+      "Antalyaspor",
       "Fenerbahçe",
-      "Antalyaspor"
+      "Çaykur Rizespor"
+    ]
+  },
+  {
+    "name": "Abdullah Çetin",
+    "clubs": [
+      "Antalyaspor",
+      "Göztepe"
     ]
   },
   {
     "name": "Abdulsamet Burak",
     "clubs": [
-      "Kayserispor",
-      "Antalyaspor"
+      "Antalyaspor",
+      "Kayserispor"
     ]
   },
   {
     "name": "Abdurrahim Dursun",
     "clubs": [
-      "Trabzonspor",
-      "Genclerbirligi",
-      "Antalyaspor"
+      "Antalyaspor",
+      "Gençlerbirliği",
+      "Trabzonspor"
     ]
   },
   {
     "name": "Abdurrahman Ayhanoğlu",
     "clubs": [
+      "Alanyaspor",
       "Antalyaspor",
       "Denizlispor"
     ]
   },
   {
+    "name": "Abdurrahman Dereli",
+    "clubs": [
+      "Kasımpaşa",
+      "Sivasspor"
+    ]
+  },
+  {
+    "name": "Abdülkadir Kayalı",
+    "clubs": [
+      "Fenerbahçe",
+      "Gaziantepspor"
+    ]
+  },
+  {
     "name": "Abdülkadir Ömür",
     "clubs": [
+      "Antalyaspor",
       "Trabzonspor",
-      "Antalyaspor"
+      "Çaykur Rizespor"
     ]
   },
   {
     "name": "Abdülkerim Bardakcı",
     "clubs": [
-      "Konyaspor",
       "Denizlispor",
-      "Galatasaray"
+      "Galatasaray",
+      "Konyaspor",
+      "Samsunspor"
     ]
   },
   {
     "name": "Achraf Hakimi",
     "clubs": [
-      "Bor. Dortmund",
-      "Real Madrid",
-      "Inter"
+      "Borussia Dortmund",
+      "Inter",
+      "Real Madrid"
+    ]
+  },
+  {
+    "name": "Ackeme Francis-Burrell",
+    "clubs": [
+      "Burnley",
+      "Wolverhampton"
+    ]
+  },
+  {
+    "name": "Adam Clayton",
+    "clubs": [
+      "Leeds United",
+      "Manchester City"
+    ]
+  },
+  {
+    "name": "Adam Forshaw",
+    "clubs": [
+      "Brentford",
+      "Everton",
+      "Leeds United"
+    ]
+  },
+  {
+    "name": "Adam Hammill",
+    "clubs": [
+      "Liverpool",
+      "Wolverhampton"
+    ]
+  },
+  {
+    "name": "Adam Johnson",
+    "clubs": [
+      "Leeds United",
+      "Manchester City",
+      "Sunderland"
+    ]
+  },
+  {
+    "name": "Adam Lallana",
+    "clubs": [
+      "Bournemouth",
+      "Brighton",
+      "Liverpool"
+    ]
+  },
+  {
+    "name": "Adam Phillips",
+    "clubs": [
+      "Burnley",
+      "Liverpool"
+    ]
+  },
+  {
+    "name": "Adam Reed",
+    "clubs": [
+      "Brentford",
+      "Sunderland"
+    ]
+  },
+  {
+    "name": "Adam Smith",
+    "clubs": [
+      "Bournemouth",
+      "Leeds United",
+      "Tottenham"
+    ]
+  },
+  {
+    "name": "Adam Taggart",
+    "clubs": [
+      "Fulham",
+      "Newcastle United"
     ]
   },
   {
     "name": "Adama Traore",
     "clubs": [
-      "Genclerbirligi",
-      "Barcelona"
+      "Aston Villa",
+      "Barcelona",
+      "Fulham",
+      "Gençlerbirliği",
+      "Göztepe",
+      "Wolverhampton"
+    ]
+  },
+  {
+    "name": "Ade Akinbiyi",
+    "clubs": [
+      "Brighton",
+      "Burnley",
+      "Crystal Palace",
+      "Wolverhampton"
     ]
   },
   {
     "name": "Adel Taarabt",
     "clubs": [
-      "Tottenham",
       "AC Milan",
-      "Benfica"
+      "Benfica",
+      "Fulham",
+      "Tottenham"
     ]
   },
   {
@@ -159,98 +403,250 @@ export const PLAYERS = [
   {
     "name": "Adem Büyük",
     "clubs": [
+      "Beşiktaş",
       "Galatasaray",
-      "Beşiktaş"
+      "Kasımpaşa"
     ]
   },
   {
     "name": "Adem Dursun",
     "clubs": [
-      "Genclerbirligi",
-      "Beşiktaş"
+      "Beşiktaş",
+      "Gaziantepspor",
+      "Gençlerbirliği"
     ]
   },
   {
     "name": "Adem Eren Kabak",
     "clubs": [
-      "Konyaspor",
-      "Genclerbirligi"
+      "Gençlerbirliği",
+      "Konyaspor"
     ]
   },
   {
     "name": "Adem Ljajic",
     "clubs": [
-      "Beşiktaş",
       "AS Roma",
-      "Inter"
+      "Beşiktaş",
+      "Inter",
+      "Karagümrük"
+    ]
+  },
+  {
+    "name": "Adem Çalık",
+    "clubs": [
+      "Denizlispor",
+      "Göztepe",
+      "Kocaelispor"
+    ]
+  },
+  {
+    "name": "Ademola Lookman",
+    "clubs": [
+      "Everton",
+      "Fulham"
+    ]
+  },
+  {
+    "name": "Adil Aouchiche",
+    "clubs": [
+      "Paris Saint-Germain",
+      "Sunderland"
+    ]
+  },
+  {
+    "name": "Adil Demirbağ",
+    "clubs": [
+      "Karagümrük",
+      "Konyaspor"
     ]
   },
   {
     "name": "Adil Rami",
     "clubs": [
-      "Fenerbahçe",
-      "AC Milan"
+      "AC Milan",
+      "Fenerbahçe"
+    ]
+  },
+  {
+    "name": "Adlene Guedioura",
+    "clubs": [
+      "Crystal Palace",
+      "Wolverhampton"
+    ]
+  },
+  {
+    "name": "Adnan Demirel",
+    "clubs": [
+      "Alanyaspor",
+      "Göztepe"
+    ]
+  },
+  {
+    "name": "Adnan Efe Durmuşoğlu",
+    "clubs": [
+      "Beşiktaş",
+      "Eyüpspor",
+      "Karagümrük"
     ]
   },
   {
     "name": "Adnan Güngör",
     "clubs": [
       "Konyaspor",
+      "Samsunspor",
       "Trabzonspor"
     ]
   },
   {
     "name": "Adnan Januzaj",
     "clubs": [
-      "Bor. Dortmund",
       "Başakşehir",
-      "Man Utd"
+      "Borussia Dortmund",
+      "Manchester United",
+      "Sunderland"
+    ]
+  },
+  {
+    "name": "Adolfo Gaich",
+    "clubs": [
+      "Antalyaspor",
+      "Çaykur Rizespor"
+    ]
+  },
+  {
+    "name": "Adrian",
+    "clubs": [
+      "Liverpool",
+      "West Ham"
+    ]
+  },
+  {
+    "name": "Adrian Akande",
+    "clubs": [
+      "Chelsea",
+      "Crystal Palace"
+    ]
+  },
+  {
+    "name": "Adrian Galliani",
+    "clubs": [
+      "AC Milan",
+      "Nottingham Forest"
+    ]
+  },
+  {
+    "name": "Adrian Janusz",
+    "clubs": [
+      "Brentford",
+      "Newcastle United"
     ]
   },
   {
     "name": "Adrian Lopez",
     "clubs": [
-      "FC Porto",
-      "Atletico Madrid"
+      "Atlético Madrid",
+      "FC Porto"
     ]
   },
   {
     "name": "Adriano",
     "clubs": [
-      "FC Porto",
+      "AS Roma",
       "Barcelona",
       "Beşiktaş",
-      "AS Roma",
+      "FC Porto",
       "Inter"
     ]
   },
   {
     "name": "Adrien Rabiot",
     "clubs": [
-      "Juventus",
       "AC Milan",
-      "Man City"
+      "Juventus",
+      "Manchester City"
+    ]
+  },
+  {
+    "name": "Adryan",
+    "clubs": [
+      "Kayserispor",
+      "Leeds United"
+    ]
+  },
+  {
+    "name": "Afonso Sousa",
+    "clubs": [
+      "FC Porto",
+      "Samsunspor"
     ]
   },
   {
     "name": "Ahmed Barusso",
     "clubs": [
-      "Galatasaray",
-      "AS Roma"
+      "AS Roma",
+      "Galatasaray"
+    ]
+  },
+  {
+    "name": "Ahmed El Mohamady",
+    "clubs": [
+      "Aston Villa",
+      "Sunderland"
+    ]
+  },
+  {
+    "name": "Ahmed Hassan",
+    "clubs": [
+      "Alanyaspor",
+      "Konyaspor"
+    ]
+  },
+  {
+    "name": "Ahmed Ildız",
+    "clubs": [
+      "Alanyaspor",
+      "Eyüpspor",
+      "Göztepe",
+      "Kasımpaşa"
     ]
   },
   {
     "name": "Ahmed Kutucu",
     "clubs": [
       "Başakşehir",
+      "Eyüpspor",
       "Galatasaray"
+    ]
+  },
+  {
+    "name": "Ahmed Musa",
+    "clubs": [
+      "Karagümrük",
+      "Sivasspor"
     ]
   },
   {
     "name": "Ahmet Aras",
     "clubs": [
-      "Sivasspor",
-      "Antalyaspor"
+      "Antalyaspor",
+      "Karagümrük",
+      "Sivasspor"
+    ]
+  },
+  {
+    "name": "Ahmet Arda Birinci",
+    "clubs": [
+      "Trabzonspor",
+      "Çaykur Rizespor"
+    ]
+  },
+  {
+    "name": "Ahmet Burak Solakel",
+    "clubs": [
+      "Denizlispor",
+      "Gaziantepspor",
+      "Samsunspor"
     ]
   },
   {
@@ -263,81 +659,288 @@ export const PLAYERS = [
   {
     "name": "Ahmet Cebe",
     "clubs": [
-      "Sivasspor",
-      "Denizlispor"
+      "Denizlispor",
+      "Samsunspor",
+      "Sivasspor"
     ]
   },
   {
     "name": "Ahmet Dursun",
     "clubs": [
       "Antalyaspor",
+      "Beşiktaş",
+      "Eyüpspor",
+      "Kocaelispor"
+    ]
+  },
+  {
+    "name": "Ahmet Gülay",
+    "clubs": [
+      "Alanyaspor",
       "Beşiktaş"
+    ]
+  },
+  {
+    "name": "Ahmet Hasan Göcen",
+    "clubs": [
+      "Başakşehir",
+      "Karagümrük",
+      "Kocaelispor"
+    ]
+  },
+  {
+    "name": "Ahmet Kesim",
+    "clubs": [
+      "Alanyaspor",
+      "Galatasaray",
+      "Gaziantep FK"
     ]
   },
   {
     "name": "Ahmet Oğuz",
     "clubs": [
-      "Sivasspor",
+      "Gençlerbirliği",
+      "Kasımpaşa",
+      "Kocaelispor",
       "Konyaspor",
-      "Genclerbirligi"
+      "Sivasspor"
+    ]
+  },
+  {
+    "name": "Ahmet Sağat",
+    "clubs": [
+      "Kocaelispor",
+      "Samsunspor"
+    ]
+  },
+  {
+    "name": "Ahmet Sivri",
+    "clubs": [
+      "Galatasaray",
+      "Karagümrük"
+    ]
+  },
+  {
+    "name": "Ahmet Sönmez",
+    "clubs": [
+      "Antalyaspor",
+      "Göztepe"
     ]
   },
   {
     "name": "Ahmet Yıldırım",
     "clubs": [
+      "Beşiktaş",
       "Fenerbahçe",
       "Galatasaray",
-      "Beşiktaş"
+      "Samsunspor"
     ]
   },
   {
     "name": "Ahmet Çalık",
     "clubs": [
-      "Konyaspor",
-      "Genclerbirligi",
-      "Galatasaray"
+      "Galatasaray",
+      "Gençlerbirliği",
+      "Konyaspor"
+    ]
+  },
+  {
+    "name": "Ahmet Çağıran",
+    "clubs": [
+      "Denizlispor",
+      "Çaykur Rizespor"
     ]
   },
   {
     "name": "Ahmet Özcan",
     "clubs": [
-      "Kayserispor",
-      "Genclerbirligi"
+      "Gençlerbirliği",
+      "Kayserispor"
+    ]
+  },
+  {
+    "name": "Ahmet Üner",
+    "clubs": [
+      "Eyüpspor",
+      "Karagümrük"
+    ]
+  },
+  {
+    "name": "Ahmet İlhan Özek",
+    "clubs": [
+      "Gençlerbirliği",
+      "Çaykur Rizespor"
+    ]
+  },
+  {
+    "name": "Ahmet Şahin",
+    "clubs": [
+      "Karagümrük",
+      "Kocaelispor",
+      "Samsunspor",
+      "Trabzonspor"
     ]
   },
   {
     "name": "Ahmetcan Kaplan",
     "clubs": [
-      "Trabzonspor",
-      "Ajax"
+      "Ajax",
+      "Trabzonspor"
+    ]
+  },
+  {
+    "name": "Ahmethan Köse",
+    "clubs": [
+      "Fenerbahçe",
+      "Samsunspor"
+    ]
+  },
+  {
+    "name": "Aiden McGeady",
+    "clubs": [
+      "Everton",
+      "Sunderland"
     ]
   },
   {
     "name": "Ainsley Maitland-Niles",
     "clubs": [
-      "Arsenal",
-      "AS Roma"
+      "AS Roma",
+      "Arsenal"
+    ]
+  },
+  {
+    "name": "Ajaniurchall",
+    "clubs": [
+      "Aston Villa",
+      "Bournemouth"
+    ]
+  },
+  {
+    "name": "Ajdin Hasic",
+    "clubs": [
+      "Beşiktaş",
+      "Göztepe"
+    ]
+  },
+  {
+    "name": "Aji Alese",
+    "clubs": [
+      "Sunderland",
+      "West Ham"
+    ]
+  },
+  {
+    "name": "Akeem Agbetu",
+    "clubs": [
+      "Kocaelispor",
+      "Samsunspor",
+      "Sivasspor"
     ]
   },
   {
     "name": "Aksel Aktaş",
     "clubs": [
-      "Kayserispor",
-      "Genclerbirligi"
+      "Gençlerbirliği",
+      "Karagümrük",
+      "Kayserispor"
+    ]
+  },
+  {
+    "name": "Akın Dağdelen",
+    "clubs": [
+      "Antalyaspor",
+      "Eyüpspor",
+      "Göztepe",
+      "Samsunspor"
     ]
   },
   {
     "name": "Alaaddin Okumuş",
     "clubs": [
-      "Sivasspor",
-      "Genclerbirligi"
+      "Gençlerbirliği",
+      "Samsunspor",
+      "Sivasspor"
+    ]
+  },
+  {
+    "name": "Alan Connell",
+    "clubs": [
+      "Bournemouth",
+      "Brentford"
+    ]
+  },
+  {
+    "name": "Alan Navarro",
+    "clubs": [
+      "Brighton",
+      "Liverpool"
+    ]
+  },
+  {
+    "name": "Alan Smith",
+    "clubs": [
+      "Leeds United",
+      "Manchester United",
+      "Newcastle United"
+    ]
+  },
+  {
+    "name": "Alan Stubbs",
+    "clubs": [
+      "Everton",
+      "Sunderland"
+    ]
+  },
+  {
+    "name": "Alan Tate",
+    "clubs": [
+      "Leeds United",
+      "Manchester United"
+    ]
+  },
+  {
+    "name": "Alan Thompson",
+    "clubs": [
+      "Aston Villa",
+      "Leeds United",
+      "Newcastle United"
+    ]
+  },
+  {
+    "name": "Alan Wright",
+    "clubs": [
+      "Aston Villa",
+      "Leeds United"
+    ]
+  },
+  {
+    "name": "Alanlayney",
+    "clubs": [
+      "Bournemouth",
+      "Brighton"
     ]
   },
   {
     "name": "Alassane Ndao",
     "clubs": [
+      "Antalyaspor",
+      "Karagümrük",
+      "Konyaspor"
+    ]
+  },
+  {
+    "name": "Alastair Gordon",
+    "clubs": [
+      "Chelsea",
+      "Crystal Palace"
+    ]
+  },
+  {
+    "name": "Alberk Koç",
+    "clubs": [
       "Konyaspor",
-      "Antalyaspor"
+      "Çaykur Rizespor"
     ]
   },
   {
@@ -350,8 +953,22 @@ export const PLAYERS = [
   {
     "name": "Albert Ferrer",
     "clubs": [
-      "Chelsea",
-      "Barcelona"
+      "Barcelona",
+      "Chelsea"
+    ]
+  },
+  {
+    "name": "Albert Jarrett",
+    "clubs": [
+      "Arsenal",
+      "Brighton"
+    ]
+  },
+  {
+    "name": "Albert Luque",
+    "clubs": [
+      "Ajax",
+      "Newcastle United"
     ]
   },
   {
@@ -359,15 +976,22 @@ export const PLAYERS = [
     "clubs": [
       "Galatasaray",
       "Liverpool",
-      "Man City"
+      "Manchester City"
+    ]
+  },
+  {
+    "name": "Albert Sambi Lokonga",
+    "clubs": [
+      "Arsenal",
+      "Crystal Palace"
     ]
   },
   {
     "name": "Alberto Aquilani",
     "clubs": [
-      "Juventus",
       "AC Milan",
       "AS Roma",
+      "Juventus",
       "Liverpool"
     ]
   },
@@ -388,8 +1012,8 @@ export const PLAYERS = [
   {
     "name": "Alberto Costa",
     "clubs": [
-      "Juventus",
-      "FC Porto"
+      "FC Porto",
+      "Juventus"
     ]
   },
   {
@@ -400,30 +1024,40 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Albian Ajeti",
+    "clubs": [
+      "Gaziantep FK",
+      "West Ham"
+    ]
+  },
+  {
     "name": "Alcides",
     "clubs": [
-      "Chelsea",
-      "Benfica"
+      "Benfica",
+      "Chelsea"
     ]
   },
   {
     "name": "Alec Chamberlain",
     "clubs": [
       "Chelsea",
-      "Liverpool"
+      "Everton",
+      "Liverpool",
+      "Sunderland"
     ]
   },
   {
     "name": "Alejandro Garnacho",
     "clubs": [
       "Chelsea",
-      "Man Utd"
+      "Manchester United"
     ]
   },
   {
     "name": "Aleksandar Aleksandrov",
     "clubs": [
       "Kayserispor",
+      "Kocaelispor",
       "Konyaspor"
     ]
   },
@@ -432,30 +1066,51 @@ export const PLAYERS = [
     "clubs": [
       "AS Roma",
       "Inter",
-      "Man City"
+      "Manchester City"
+    ]
+  },
+  {
+    "name": "Aleksandar MitroviÄ‡",
+    "clubs": [
+      "Fulham",
+      "Newcastle United"
     ]
   },
   {
     "name": "Aleksandr Hleb",
     "clubs": [
       "Arsenal",
-      "Konyaspor",
-      "Genclerbirligi",
-      "Barcelona"
+      "Barcelona",
+      "Gençlerbirliği",
+      "Konyaspor"
+    ]
+  },
+  {
+    "name": "Aleksey Smertin",
+    "clubs": [
+      "Chelsea",
+      "Fulham"
     ]
   },
   {
     "name": "Alen Halilovic",
     "clubs": [
-      "Barcelona",
-      "AC Milan"
+      "AC Milan",
+      "Barcelona"
+    ]
+  },
+  {
+    "name": "Alessandro Cannataro",
+    "clubs": [
+      "Bournemouth",
+      "Inter"
     ]
   },
   {
     "name": "Alessandro Citi",
     "clubs": [
-      "Juventus",
-      "AC Milan"
+      "AC Milan",
+      "Juventus"
     ]
   },
   {
@@ -475,23 +1130,23 @@ export const PLAYERS = [
   {
     "name": "Alessandro Matri",
     "clubs": [
-      "Juventus",
-      "AC Milan"
+      "AC Milan",
+      "Juventus"
     ]
   },
   {
     "name": "Alessandro Minelli",
     "clubs": [
-      "Juventus",
-      "Inter"
+      "Inter",
+      "Juventus"
     ]
   },
   {
     "name": "Alessio Cerci",
     "clubs": [
       "AC Milan",
-      "Atletico Madrid",
-      "AS Roma"
+      "AS Roma",
+      "Atlético Madrid"
     ]
   },
   {
@@ -504,18 +1159,34 @@ export const PLAYERS = [
   {
     "name": "Alex",
     "clubs": [
+      "AC Milan",
+      "Benfica",
       "Chelsea",
       "FC Porto",
-      "Fenerbahçe",
-      "AC Milan",
-      "Benfica"
+      "Fenerbahçe"
+    ]
+  },
+  {
+    "name": "Alex Iwobi",
+    "clubs": [
+      "Arsenal",
+      "Everton",
+      "Fulham"
     ]
   },
   {
     "name": "Alex Jimenez",
     "clubs": [
       "AC Milan",
+      "Bournemouth",
       "Real Madrid"
+    ]
+  },
+  {
+    "name": "Alex Nimely",
+    "clubs": [
+      "Crystal Palace",
+      "Manchester City"
     ]
   },
   {
@@ -529,22 +1200,40 @@ export const PLAYERS = [
   {
     "name": "Alex Pritchard",
     "clubs": [
+      "Brentford",
+      "Sivasspor",
+      "Sunderland",
       "Tottenham",
-      "Sivasspor"
+      "West Ham"
+    ]
+  },
+  {
+    "name": "Alex Rae",
+    "clubs": [
+      "Sunderland",
+      "Wolverhampton"
     ]
   },
   {
     "name": "Alex Sandro",
     "clubs": [
-      "Juventus",
-      "FC Porto"
+      "FC Porto",
+      "Juventus"
+    ]
+  },
+  {
+    "name": "Alex Smith",
+    "clubs": [
+      "Everton",
+      "Fulham"
     ]
   },
   {
     "name": "Alex Song",
     "clubs": [
       "Arsenal",
-      "Barcelona"
+      "Barcelona",
+      "West Ham"
     ]
   },
   {
@@ -553,7 +1242,7 @@ export const PLAYERS = [
       "FC Porto",
       "Galatasaray",
       "Inter",
-      "Man Utd"
+      "Manchester United"
     ]
   },
   {
@@ -567,37 +1256,75 @@ export const PLAYERS = [
     "name": "Alexander Büttner",
     "clubs": [
       "Ajax",
-      "Man Utd"
+      "Manchester United"
     ]
   },
   {
     "name": "Alexander Isak",
     "clubs": [
-      "Bor. Dortmund",
+      "Borussia Dortmund",
+      "Liverpool",
+      "Newcastle United"
+    ]
+  },
+  {
+    "name": "Alexander Kacaniklic",
+    "clubs": [
+      "Burnley",
+      "Fulham",
       "Liverpool"
     ]
   },
   {
     "name": "Alexander Manninger",
     "clubs": [
-      "Juventus",
       "Arsenal",
+      "Juventus",
       "Liverpool"
+    ]
+  },
+  {
+    "name": "Alexander Merkel",
+    "clubs": [
+      "AC Milan",
+      "Gaziantep FK"
+    ]
+  },
+  {
+    "name": "Alexander Milosevic",
+    "clubs": [
+      "Beşiktaş",
+      "Çaykur Rizespor"
     ]
   },
   {
     "name": "Alexander Sorloth",
     "clubs": [
-      "Trabzonspor",
-      "Atletico Madrid"
+      "Atlético Madrid",
+      "Crystal Palace",
+      "Trabzonspor"
     ]
   },
   {
     "name": "Alexandre Pato",
     "clubs": [
-      "Chelsea",
       "AC Milan",
+      "Chelsea",
       "Inter"
+    ]
+  },
+  {
+    "name": "Alexandru Maxim",
+    "clubs": [
+      "Beşiktaş",
+      "Gaziantep FK"
+    ]
+  },
+  {
+    "name": "Alexis Mac Allister",
+    "clubs": [
+      "Brighton",
+      "Liverpool"
     ]
   },
   {
@@ -613,48 +1340,120 @@ export const PLAYERS = [
       "Arsenal",
       "Barcelona",
       "Inter",
-      "Man Utd"
+      "Manchester United"
+    ]
+  },
+  {
+    "name": "Alfie Harrison",
+    "clubs": [
+      "Manchester City",
+      "Newcastle United"
+    ]
+  },
+  {
+    "name": "Alfie Hughes",
+    "clubs": [
+      "Leeds United",
+      "Manchester United",
+      "Newcastle United"
+    ]
+  },
+  {
+    "name": "Alfie Mawson",
+    "clubs": [
+      "Brentford",
+      "Fulham"
+    ]
+  },
+  {
+    "name": "Alfie McNally",
+    "clubs": [
+      "Brentford",
+      "Fulham"
+    ]
+  },
+  {
+    "name": "Alfred Phiri",
+    "clubs": [
+      "Gençlerbirliği",
+      "Samsunspor"
+    ]
+  },
+  {
+    "name": "Ali Bayraktar",
+    "clubs": [
+      "Denizlispor",
+      "Gaziantepspor",
+      "Kocaelispor"
     ]
   },
   {
     "name": "Ali Cansun Begeçarslan",
     "clubs": [
-      "Genclerbirligi",
       "Antalyaspor",
-      "Beşiktaş"
+      "Beşiktaş",
+      "Eyüpspor",
+      "Gaziantepspor",
+      "Gençlerbirliği",
+      "Kocaelispor"
+    ]
+  },
+  {
+    "name": "Ali Dere",
+    "clubs": [
+      "Göztepe",
+      "Konyaspor"
     ]
   },
   {
     "name": "Ali Eren Beşerler",
     "clubs": [
+      "Beşiktaş",
+      "Gençlerbirliği",
+      "Kocaelispor",
       "Sivasspor",
-      "Genclerbirligi",
-      "Beşiktaş"
+      "Çaykur Rizespor"
     ]
   },
   {
     "name": "Ali Güneş",
     "clubs": [
+      "Beşiktaş",
       "Fenerbahçe",
-      "Beşiktaş"
+      "Kasımpaşa"
+    ]
+  },
+  {
+    "name": "Ali Kandil",
+    "clubs": [
+      "Kasımpaşa",
+      "Kocaelispor",
+      "Trabzonspor"
     ]
   },
   {
     "name": "Ali Tandoğan",
     "clubs": [
-      "Genclerbirligi",
       "Antalyaspor",
+      "Beşiktaş",
       "Denizlispor",
-      "Beşiktaş"
+      "Gençlerbirliği"
+    ]
+  },
+  {
+    "name": "Ali Tuna Tanyıldız",
+    "clubs": [
+      "Eyüpspor",
+      "Sivasspor"
     ]
   },
   {
     "name": "Ali Turan",
     "clubs": [
-      "Kayserispor",
-      "Konyaspor",
       "Antalyaspor",
-      "Galatasaray"
+      "Galatasaray",
+      "Kayserispor",
+      "Konyaspor"
     ]
   },
   {
@@ -662,42 +1461,82 @@ export const PLAYERS = [
     "clubs": [
       "Antalyaspor",
       "Denizlispor",
-      "Galatasaray"
+      "Galatasaray",
+      "Kasımpaşa"
     ]
   },
   {
     "name": "Ali Zitouni",
     "clubs": [
-      "Konyaspor",
-      "Antalyaspor"
+      "Antalyaspor",
+      "Konyaspor"
+    ]
+  },
+  {
+    "name": "Ali Çakır",
+    "clubs": [
+      "Antalyaspor",
+      "Kocaelispor"
+    ]
+  },
+  {
+    "name": "Ali Ülgen",
+    "clubs": [
+      "Galatasaray",
+      "Samsunspor"
     ]
   },
   {
     "name": "Alican Karadağ",
     "clubs": [
-      "Sivasspor",
-      "Genclerbirligi"
+      "Gençlerbirliği",
+      "Sivasspor"
+    ]
+  },
+  {
+    "name": "Alican Tez",
+    "clubs": [
+      "Antalyaspor",
+      "Eyüpspor"
     ]
   },
   {
     "name": "Alihan Kubalas",
     "clubs": [
-      "Sivasspor",
-      "Fenerbahçe"
+      "Fenerbahçe",
+      "Karagümrük",
+      "Kocaelispor",
+      "Sivasspor"
     ]
   },
   {
     "name": "Alim Emiroğlu",
     "clubs": [
-      "Sivasspor",
-      "Denizlispor"
+      "Denizlispor",
+      "Sivasspor"
+    ]
+  },
+  {
+    "name": "Alim Öztürk",
+    "clubs": [
+      "Samsunspor",
+      "Sunderland",
+      "Trabzonspor"
+    ]
+  },
+  {
+    "name": "Aliou Badji",
+    "clubs": [
+      "Gaziantep FK",
+      "Sivasspor"
     ]
   },
   {
     "name": "Aliou Traore",
     "clubs": [
-      "Man Utd",
-      "PSG"
+      "Göztepe",
+      "Manchester United",
+      "Paris Saint-Germain"
     ]
   },
   {
@@ -711,105 +1550,174 @@ export const PLAYERS = [
   {
     "name": "Allan",
     "clubs": [
+      "Everton",
       "Inter",
-      "Napoli",
-      "Liverpool"
+      "Liverpool",
+      "Napoli"
+    ]
+  },
+  {
+    "name": "Allan Saint-Maximin",
+    "clubs": [
+      "Fenerbahçe",
+      "Newcastle United"
+    ]
+  },
+  {
+    "name": "Ally Samatta",
+    "clubs": [
+      "Aston Villa",
+      "Fenerbahçe"
     ]
   },
   {
     "name": "Alou Diarra",
     "clubs": [
+      "Bayern Munich",
       "Liverpool",
-      "Bayern Munich"
+      "West Ham"
     ]
   },
   {
     "name": "Alp Küçükvardar",
     "clubs": [
       "Denizlispor",
-      "Galatasaray"
+      "Galatasaray",
+      "Gaziantepspor",
+      "Göztepe",
+      "Karagümrük",
+      "Çaykur Rizespor"
+    ]
+  },
+  {
+    "name": "Alp Tutar",
+    "clubs": [
+      "Ajax",
+      "Eyüpspor",
+      "Samsunspor"
     ]
   },
   {
     "name": "Alparslan Erdem",
     "clubs": [
       "Başakşehir",
-      "Genclerbirligi",
-      "Galatasaray"
+      "Galatasaray",
+      "Gençlerbirliği",
+      "Karagümrük"
     ]
   },
   {
     "name": "Alpaslan Kartal",
     "clubs": [
+      "Denizlispor",
+      "Kasımpaşa",
       "Kayserispor",
-      "Denizlispor"
+      "Samsunspor"
+    ]
+  },
+  {
+    "name": "Alpaslan Öztürk",
+    "clubs": [
+      "Eyüpspor",
+      "Galatasaray",
+      "Göztepe",
+      "Kasımpaşa"
     ]
   },
   {
     "name": "Alpay Çelebi",
     "clubs": [
-      "Kayserispor",
+      "Alanyaspor",
+      "Beşiktaş",
       "Fenerbahçe",
-      "Beşiktaş"
+      "Kayserispor",
+      "Kocaelispor"
     ]
   },
   {
     "name": "Alpay Özalan",
     "clubs": [
-      "Fenerbahçe",
-      "Beşiktaş"
+      "Aston Villa",
+      "Beşiktaş",
+      "Fenerbahçe"
+    ]
+  },
+  {
+    "name": "Alper Karaman",
+    "clubs": [
+      "Başakşehir",
+      "Eyüpspor"
     ]
   },
   {
     "name": "Alper Uludağ",
     "clubs": [
+      "Gençlerbirliği",
       "Kayserispor",
       "Konyaspor",
-      "Trabzonspor",
-      "Genclerbirligi"
+      "Trabzonspor"
     ]
   },
   {
     "name": "Alperen Babacan",
     "clubs": [
-      "Genclerbirligi",
-      "Denizlispor"
+      "Denizlispor",
+      "Gençlerbirliği"
+    ]
+  },
+  {
+    "name": "Alperen Doğan",
+    "clubs": [
+      "Beşiktaş",
+      "Eyüpspor"
     ]
   },
   {
     "name": "Alperen Uysal",
     "clubs": [
       "Antalyaspor",
-      "Galatasaray"
+      "Galatasaray",
+      "Gaziantepspor",
+      "Çaykur Rizespor"
     ]
   },
   {
     "name": "Alphonse Areola",
     "clubs": [
+      "Fulham",
+      "Paris Saint-Germain",
       "Real Madrid",
-      "PSG"
+      "West Ham"
     ]
   },
   {
     "name": "Altay Bayındır",
     "clubs": [
       "Fenerbahçe",
-      "Man Utd"
+      "Manchester United"
     ]
   },
   {
     "name": "Alvaro Arbeloa",
     "clubs": [
+      "Liverpool",
       "Real Madrid",
-      "Liverpool"
+      "West Ham"
     ]
   },
   {
     "name": "Alvaro Carreras",
     "clubs": [
-      "Real Madrid",
       "Benfica",
-      "Man Utd"
+      "Manchester United",
+      "Real Madrid"
+    ]
+  },
+  {
+    "name": "Alvaro Fernandez",
+    "clubs": [
+      "Brentford",
+      "Real Madrid"
     ]
   },
   {
@@ -822,11 +1730,11 @@ export const PLAYERS = [
   {
     "name": "Alvaro Morata",
     "clubs": [
-      "Chelsea",
-      "Juventus",
-      "Galatasaray",
       "AC Milan",
-      "Atletico Madrid",
+      "Atlético Madrid",
+      "Chelsea",
+      "Galatasaray",
+      "Juventus",
       "Real Madrid"
     ]
   },
@@ -834,23 +1742,52 @@ export const PLAYERS = [
     "name": "Alvaro Negredo",
     "clubs": [
       "Beşiktaş",
-      "Real Madrid",
-      "Man City"
+      "Manchester City",
+      "Real Madrid"
     ]
   },
   {
     "name": "Alvaro Odriozola",
     "clubs": [
-      "Real Madrid",
-      "Bayern Munich"
+      "Bayern Munich",
+      "Real Madrid"
+    ]
+  },
+  {
+    "name": "Alvin Ayman",
+    "clubs": [
+      "Liverpool",
+      "Wolverhampton"
     ]
   },
   {
     "name": "Aly Cissokho",
     "clubs": [
-      "FC Porto",
       "Antalyaspor",
+      "Aston Villa",
+      "FC Porto",
       "Liverpool"
+    ]
+  },
+  {
+    "name": "Aly Malle",
+    "clubs": [
+      "Eyüpspor",
+      "Sivasspor"
+    ]
+  },
+  {
+    "name": "Amad Diallo",
+    "clubs": [
+      "Manchester United",
+      "Sunderland"
+    ]
+  },
+  {
+    "name": "Amadou Diallo",
+    "clubs": [
+      "Newcastle United",
+      "West Ham"
     ]
   },
   {
@@ -861,10 +1798,31 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Amadou Onana",
+    "clubs": [
+      "Aston Villa",
+      "Everton"
+    ]
+  },
+  {
     "name": "Amani Richards",
     "clubs": [
-      "Chelsea",
-      "Arsenal"
+      "Arsenal",
+      "Chelsea"
+    ]
+  },
+  {
+    "name": "Amara Nallo",
+    "clubs": [
+      "Liverpool",
+      "West Ham"
+    ]
+  },
+  {
+    "name": "Amario Cozier-Duberry",
+    "clubs": [
+      "Arsenal",
+      "Brighton"
     ]
   },
   {
@@ -882,80 +1840,171 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Amdy Faye",
+    "clubs": [
+      "Leeds United",
+      "Newcastle United"
+    ]
+  },
+  {
+    "name": "Amedej Vetrih",
+    "clubs": [
+      "Gaziantep FK",
+      "Çaykur Rizespor"
+    ]
+  },
+  {
     "name": "Amilton",
     "clubs": [
+      "Antalyaspor",
+      "Gençlerbirliği",
       "Konyaspor",
-      "Genclerbirligi",
-      "Antalyaspor"
+      "Çaykur Rizespor"
     ]
   },
   {
     "name": "Amir Hadziahmetovic",
     "clubs": [
+      "Beşiktaş",
       "Konyaspor",
-      "Beşiktaş"
+      "Çaykur Rizespor"
+    ]
+  },
+  {
+    "name": "Anastasios Bakasetas",
+    "clubs": [
+      "Alanyaspor",
+      "Trabzonspor"
+    ]
+  },
+  {
+    "name": "Anders Lindegaard",
+    "clubs": [
+      "Burnley",
+      "Manchester United"
     ]
   },
   {
     "name": "Anderson",
     "clubs": [
+      "Benfica",
       "FC Porto",
       "Inter",
-      "Benfica",
-      "Man Utd"
+      "Manchester United"
+    ]
+  },
+  {
+    "name": "Anderson Silva",
+    "clubs": [
+      "Alanyaspor",
+      "Everton"
+    ]
+  },
+  {
+    "name": "Andi Zeqiri",
+    "clubs": [
+      "Brighton",
+      "Juventus"
+    ]
+  },
+  {
+    "name": "Andre",
+    "clubs": [
+      "Inter",
+      "Wolverhampton"
+    ]
+  },
+  {
+    "name": "Andre Ayew",
+    "clubs": [
+      "Fenerbahçe",
+      "West Ham"
     ]
   },
   {
     "name": "Andre Gomes",
     "clubs": [
-      "FC Porto",
       "Barcelona",
-      "Benfica"
+      "Benfica",
+      "Everton",
+      "FC Porto"
+    ]
+  },
+  {
+    "name": "Andre Gray",
+    "clubs": [
+      "Brentford",
+      "Burnley",
+      "Karagümrük"
     ]
   },
   {
     "name": "Andre Kona",
     "clubs": [
-      "Genclerbirligi",
-      "Antalyaspor"
+      "Antalyaspor",
+      "Gençlerbirliği"
+    ]
+  },
+  {
+    "name": "Andre Macanga",
+    "clubs": [
+      "FC Porto",
+      "Gaziantepspor"
+    ]
+  },
+  {
+    "name": "Andre Moreira",
+    "clubs": [
+      "Aston Villa",
+      "Atlético Madrid"
     ]
   },
   {
     "name": "Andre Moritz",
     "clubs": [
-      "Kayserispor",
-      "Denizlispor"
+      "Crystal Palace",
+      "Denizlispor",
+      "Kasımpaşa",
+      "Kayserispor"
     ]
   },
   {
     "name": "Andre Onana",
     "clubs": [
-      "Trabzonspor",
       "Ajax",
       "Inter",
-      "Man Utd"
+      "Manchester United",
+      "Trabzonspor"
     ]
   },
   {
     "name": "Andre Santos",
     "clubs": [
-      "FC Porto",
-      "Benfica"
+      "Benfica",
+      "FC Porto"
     ]
   },
   {
     "name": "Andre Schürrle",
     "clubs": [
-      "Bor. Dortmund",
-      "Chelsea"
+      "Borussia Dortmund",
+      "Chelsea",
+      "Fulham"
     ]
   },
   {
     "name": "Andre Silva",
     "clubs": [
-      "FC Porto",
       "AC Milan",
+      "FC Porto",
       "Inter"
+    ]
+  },
+  {
+    "name": "Andre Sousa",
+    "clubs": [
+      "Benfica",
+      "Gaziantep FK"
     ]
   },
   {
@@ -975,8 +2024,9 @@ export const PLAYERS = [
   {
     "name": "Andrea Dossena",
     "clubs": [
+      "Liverpool",
       "Napoli",
-      "Liverpool"
+      "Sunderland"
     ]
   },
   {
@@ -989,155 +2039,403 @@ export const PLAYERS = [
   {
     "name": "Andrea Pirlo",
     "clubs": [
-      "Juventus",
       "AC Milan",
-      "Inter"
+      "Inter",
+      "Juventus"
     ]
   },
   {
     "name": "Andrea Poli",
     "clubs": [
-      "Antalyaspor",
       "AC Milan",
+      "Antalyaspor",
       "Inter"
     ]
   },
   {
     "name": "Andreas Christensen",
     "clubs": [
-      "Chelsea",
-      "Barcelona"
+      "Barcelona",
+      "Chelsea"
+    ]
+  },
+  {
+    "name": "Andreas Pereira",
+    "clubs": [
+      "Fulham",
+      "Manchester United"
+    ]
+  },
+  {
+    "name": "Andreas Weimann",
+    "clubs": [
+      "Aston Villa",
+      "Wolverhampton"
+    ]
+  },
+  {
+    "name": "Andrew Crofts",
+    "clubs": [
+      "Brighton",
+      "Chelsea"
+    ]
+  },
+  {
+    "name": "Andrew Surman",
+    "clubs": [
+      "Bournemouth",
+      "Wolverhampton"
     ]
   },
   {
     "name": "Andrey Kanchelskis",
     "clubs": [
-      "Man Utd",
-      "Man City"
+      "Everton",
+      "Manchester City",
+      "Manchester United"
     ]
   },
   {
     "name": "Andriy Shevchenko",
     "clubs": [
-      "Chelsea",
-      "AC Milan"
+      "AC Milan",
+      "Chelsea"
+    ]
+  },
+  {
+    "name": "Andriy Yarmolenko",
+    "clubs": [
+      "Borussia Dortmund",
+      "West Ham"
     ]
   },
   {
     "name": "Andros Townsend",
     "clubs": [
-      "Tottenham",
-      "Antalyaspor"
+      "Antalyaspor",
+      "Crystal Palace",
+      "Everton",
+      "Leeds United",
+      "Newcastle United",
+      "Tottenham"
+    ]
+  },
+  {
+    "name": "Andy Carroll",
+    "clubs": [
+      "Liverpool",
+      "Newcastle United",
+      "West Ham"
     ]
   },
   {
     "name": "Andy Cole",
     "clubs": [
       "Arsenal",
-      "Man Utd",
-      "Man City"
+      "Burnley",
+      "Fulham",
+      "Manchester City",
+      "Manchester United",
+      "Newcastle United",
+      "Sunderland"
     ]
   },
   {
     "name": "Andy Diouf",
     "clubs": [
       "Inter",
-      "PSG"
+      "Paris Saint-Germain"
+    ]
+  },
+  {
+    "name": "Andy Frampton",
+    "clubs": [
+      "Brentford",
+      "Crystal Palace"
+    ]
+  },
+  {
+    "name": "Andy Gray",
+    "clubs": [
+      "Burnley",
+      "Leeds United",
+      "Sunderland"
+    ]
+  },
+  {
+    "name": "Andy Keogh",
+    "clubs": [
+      "Leeds United",
+      "Wolverhampton"
+    ]
+  },
+  {
+    "name": "Andy Lonergan",
+    "clubs": [
+      "Everton",
+      "Fulham",
+      "Leeds United",
+      "Liverpool",
+      "Wolverhampton"
+    ]
+  },
+  {
+    "name": "Andy Marriott",
+    "clubs": [
+      "Arsenal",
+      "Burnley",
+      "Sunderland"
+    ]
+  },
+  {
+    "name": "Andy Marshall",
+    "clubs": [
+      "Aston Villa",
+      "Bournemouth",
+      "Wolverhampton"
+    ]
+  },
+  {
+    "name": "Andy Petterson",
+    "clubs": [
+      "Bournemouth",
+      "Brighton",
+      "Newcastle United"
+    ]
+  },
+  {
+    "name": "Andy Reid",
+    "clubs": [
+      "Nottingham Forest",
+      "Sunderland",
+      "Tottenham"
+    ]
+  },
+  {
+    "name": "Andy Todd",
+    "clubs": [
+      "Burnley",
+      "Nottingham Forest"
     ]
   },
   {
     "name": "Andy van der Meyde",
     "clubs": [
       "Ajax",
+      "Everton",
       "Inter"
+    ]
+  },
+  {
+    "name": "Ange-Freddy Plumain",
+    "clubs": [
+      "Fulham",
+      "Samsunspor"
     ]
   },
   {
     "name": "Angel Di Maria",
     "clubs": [
-      "Juventus",
-      "Real Madrid",
       "Benfica",
-      "Man Utd"
+      "Juventus",
+      "Manchester United",
+      "Real Madrid"
     ]
   },
   {
     "name": "Angelino",
     "clubs": [
-      "Galatasaray",
       "AS Roma",
-      "Man City"
+      "Galatasaray",
+      "Manchester City"
+    ]
+  },
+  {
+    "name": "Angelo Ogbonna",
+    "clubs": [
+      "Juventus",
+      "West Ham"
+    ]
+  },
+  {
+    "name": "Anis Mehmeti",
+    "clubs": [
+      "Fulham",
+      "Tottenham"
+    ]
+  },
+  {
+    "name": "Anouar El Mhassani",
+    "clubs": [
+      "Ajax",
+      "West Ham"
+    ]
+  },
+  {
+    "name": "Ansu Fati",
+    "clubs": [
+      "Barcelona",
+      "Brighton"
     ]
   },
   {
     "name": "Ante Rebic",
     "clubs": [
-      "Beşiktaş",
-      "AC Milan"
+      "AC Milan",
+      "Beşiktaş"
+    ]
+  },
+  {
+    "name": "Antef Tsoungui",
+    "clubs": [
+      "Brighton",
+      "Chelsea"
+    ]
+  },
+  {
+    "name": "Anthony Driscoll-Glennon",
+    "clubs": [
+      "Burnley",
+      "Liverpool"
+    ]
+  },
+  {
+    "name": "Anthony Edgar",
+    "clubs": [
+      "Bournemouth",
+      "West Ham"
+    ]
+  },
+  {
+    "name": "Anthony Elanga",
+    "clubs": [
+      "Manchester United",
+      "Newcastle United"
+    ]
+  },
+  {
+    "name": "Anthony Gardner",
+    "clubs": [
+      "Crystal Palace",
+      "Everton",
+      "Tottenham"
+    ]
+  },
+  {
+    "name": "Anthony Gordon",
+    "clubs": [
+      "Everton",
+      "Liverpool",
+      "Newcastle United"
+    ]
+  },
+  {
+    "name": "Anthony Knockaert",
+    "clubs": [
+      "Brighton",
+      "Fulham"
+    ]
+  },
+  {
+    "name": "Anthony Le Tallec",
+    "clubs": [
+      "Liverpool",
+      "Sunderland"
     ]
   },
   {
     "name": "Anthony Martial",
     "clubs": [
-      "Man Utd",
-      "Olymp. Lyon"
+      "Manchester United",
+      "Olympique Lyon"
+    ]
+  },
+  {
+    "name": "Anthony Stokes",
+    "clubs": [
+      "Arsenal",
+      "Crystal Palace",
+      "Sunderland"
     ]
   },
   {
     "name": "Antoine Griezmann",
     "clubs": [
-      "Barcelona",
-      "Atletico Madrid"
+      "Atlético Madrid",
+      "Barcelona"
+    ]
+  },
+  {
+    "name": "Antoine Semenyo",
+    "clubs": [
+      "Bournemouth",
+      "Sunderland"
+    ]
+  },
+  {
+    "name": "Anton Ferdinand",
+    "clubs": [
+      "Antalyaspor",
+      "Sunderland",
+      "West Ham"
+    ]
+  },
+  {
+    "name": "Antonee Robinson",
+    "clubs": [
+      "Everton",
+      "Fulham"
     ]
   },
   {
     "name": "Antonio Adan",
     "clubs": [
-      "Atletico Madrid",
+      "Atlético Madrid",
       "Real Madrid"
     ]
   },
   {
     "name": "Antonio Candreva",
     "clubs": [
-      "Juventus",
-      "Inter"
+      "Inter",
+      "Juventus"
     ]
   },
   {
     "name": "Antonio Chimenti",
     "clubs": [
-      "Juventus",
-      "AS Roma"
+      "AS Roma",
+      "Juventus"
     ]
   },
   {
     "name": "Antonio Mirante",
     "clubs": [
-      "Juventus",
       "AC Milan",
-      "AS Roma"
+      "AS Roma",
+      "Juventus"
     ]
   },
   {
     "name": "Antonio Nocerino",
     "clubs": [
+      "AC Milan",
       "Juventus",
-      "AC Milan"
+      "West Ham"
     ]
   },
   {
     "name": "Antonio Nunez",
     "clubs": [
-      "Real Madrid",
-      "Liverpool"
+      "Liverpool",
+      "Real Madrid"
     ]
   },
   {
     "name": "Antonio Rüdiger",
     "clubs": [
-      "Chelsea",
       "AS Roma",
+      "Chelsea",
       "Real Madrid"
     ]
   },
@@ -1145,44 +2443,71 @@ export const PLAYERS = [
     "name": "Antony",
     "clubs": [
       "Ajax",
-      "Man Utd"
+      "Manchester United"
+    ]
+  },
+  {
+    "name": "Anwar El Ghazi",
+    "clubs": [
+      "Ajax",
+      "Aston Villa",
+      "Everton"
     ]
   },
   {
     "name": "Anıl Batın Aydın",
     "clubs": [
-      "Sivasspor",
-      "Galatasaray"
+      "Galatasaray",
+      "Sivasspor"
     ]
   },
   {
     "name": "Anıl Dilaver",
     "clubs": [
       "Denizlispor",
-      "Galatasaray"
+      "Galatasaray",
+      "Samsunspor"
     ]
   },
   {
     "name": "Anıl Karaer",
     "clubs": [
+      "Galatasaray",
+      "Gençlerbirliği",
       "Kayserispor",
-      "Genclerbirligi",
-      "Galatasaray"
+      "Çaykur Rizespor"
+    ]
+  },
+  {
+    "name": "Anıl Koç",
+    "clubs": [
+      "Antalyaspor",
+      "Kasımpaşa"
     ]
   },
   {
     "name": "Anıl Taşdemir",
     "clubs": [
+      "Denizlispor",
+      "Göztepe",
+      "Karagümrük",
       "Kayserispor",
-      "Trabzonspor",
-      "Denizlispor"
+      "Samsunspor",
+      "Trabzonspor"
     ]
   },
   {
     "name": "Aras Özbiliz",
     "clubs": [
-      "Beşiktaş",
-      "Ajax"
+      "Ajax",
+      "Beşiktaş"
+    ]
+  },
+  {
+    "name": "Arda Akgün",
+    "clubs": [
+      "Fenerbahçe",
+      "Karagümrük"
     ]
   },
   {
@@ -1193,50 +2518,116 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Arda Kızıldağ",
+    "clubs": [
+      "Gaziantep FK",
+      "Gençlerbirliği"
+    ]
+  },
+  {
+    "name": "Arda Okan Kurtulan",
+    "clubs": [
+      "Fenerbahçe",
+      "Göztepe"
+    ]
+  },
+  {
     "name": "Arda Turan",
     "clubs": [
-      "Başakşehir",
+      "Atlético Madrid",
       "Barcelona",
-      "Galatasaray",
-      "Atletico Madrid"
+      "Başakşehir",
+      "Galatasaray"
     ]
   },
   {
     "name": "Argel Fuchs",
     "clubs": [
+      "Benfica",
       "FC Porto",
-      "Inter",
-      "Benfica"
+      "Inter"
+    ]
+  },
+  {
+    "name": "Arif Morkaya",
+    "clubs": [
+      "Galatasaray",
+      "Karagümrük"
     ]
   },
   {
     "name": "Ariza Makukula",
     "clubs": [
-      "Kayserispor",
-      "Benfica"
+      "Benfica",
+      "Kayserispor"
     ]
   },
   {
     "name": "Arjen Robben",
     "clubs": [
+      "Bayern Munich",
       "Chelsea",
-      "Real Madrid",
-      "Bayern Munich"
+      "Real Madrid"
     ]
   },
   {
     "name": "Arkadiusz Milik",
     "clubs": [
-      "Juventus",
       "Ajax",
+      "Juventus",
       "Napoli"
+    ]
+  },
+  {
+    "name": "Arlenirch",
+    "clubs": [
+      "Burnley",
+      "Everton"
     ]
   },
   {
     "name": "Armand Traore",
     "clubs": [
+      "Arsenal",
       "Juventus",
-      "Arsenal"
+      "Çaykur Rizespor"
+    ]
+  },
+  {
+    "name": "Armandoroja",
+    "clubs": [
+      "Burnley",
+      "Everton",
+      "Fulham"
+    ]
+  },
+  {
+    "name": "Armin Hodzic",
+    "clubs": [
+      "Kasımpaşa",
+      "Liverpool"
+    ]
+  },
+  {
+    "name": "Armstrong Oko-Flex",
+    "clubs": [
+      "Arsenal",
+      "West Ham"
+    ]
+  },
+  {
+    "name": "Arnaut Danjuma",
+    "clubs": [
+      "Bournemouth",
+      "Everton",
+      "Tottenham"
+    ]
+  },
+  {
+    "name": "Arouna Kone",
+    "clubs": [
+      "Everton",
+      "Sivasspor"
     ]
   },
   {
@@ -1247,11 +2638,27 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Arthur Masuaku",
+    "clubs": [
+      "Beşiktaş",
+      "Sunderland",
+      "West Ham"
+    ]
+  },
+  {
     "name": "Arthur Melo",
     "clubs": [
-      "Juventus",
       "Barcelona",
+      "Juventus",
       "Liverpool"
+    ]
+  },
+  {
+    "name": "Artun Akçakın",
+    "clubs": [
+      "Alanyaspor",
+      "Eyüpspor",
+      "Gençlerbirliği"
     ]
   },
   {
@@ -1271,53 +2678,102 @@ export const PLAYERS = [
   {
     "name": "Arturo Vidal",
     "clubs": [
-      "Juventus",
       "Barcelona",
+      "Bayern Munich",
       "Inter",
-      "Bayern Munich"
+      "Juventus"
+    ]
+  },
+  {
+    "name": "Asamoah Gyan",
+    "clubs": [
+      "Kayserispor",
+      "Sunderland"
     ]
   },
   {
     "name": "Ashley Cole",
     "clubs": [
-      "Chelsea",
+      "AS Roma",
       "Arsenal",
-      "AS Roma"
+      "Chelsea",
+      "Crystal Palace"
+    ]
+  },
+  {
+    "name": "Ashley Fletcher",
+    "clubs": [
+      "Manchester United",
+      "Sunderland",
+      "West Ham"
     ]
   },
   {
     "name": "Ashley Grimes",
     "clubs": [
-      "Man Utd",
-      "Man City"
+      "Manchester City",
+      "Manchester United"
     ]
   },
   {
     "name": "Ashley Young",
     "clubs": [
+      "Aston Villa",
+      "Everton",
       "Inter",
-      "Man Utd"
+      "Manchester United"
+    ]
+  },
+  {
+    "name": "Ashleyarnes",
+    "clubs": [
+      "Brighton",
+      "Burnley"
     ]
   },
   {
     "name": "Asmir Begovic",
     "clubs": [
-      "Chelsea",
-      "AC Milan"
+      "AC Milan",
+      "Chelsea"
+    ]
+  },
+  {
+    "name": "Asmiregovic",
+    "clubs": [
+      "Bournemouth",
+      "Everton"
     ]
   },
   {
     "name": "Atabey Çiçek",
     "clubs": [
       "Başakşehir",
-      "Genclerbirligi"
+      "Gençlerbirliği",
+      "Kocaelispor",
+      "Samsunspor"
+    ]
+  },
+  {
+    "name": "Atacan Öztürk",
+    "clubs": [
+      "Alanyaspor",
+      "Antalyaspor",
+      "Göztepe"
+    ]
+  },
+  {
+    "name": "Atakan Çankaya",
+    "clubs": [
+      "Göztepe",
+      "Karagümrük"
     ]
   },
   {
     "name": "Atakan Üner",
     "clubs": [
-      "Denizlispor",
-      "Beşiktaş"
+      "Beşiktaş",
+      "Denizlispor"
     ]
   },
   {
@@ -1328,10 +2784,27 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Atila Turan",
+    "clubs": [
+      "Kasımpaşa",
+      "Kayserispor",
+      "Kocaelispor"
+    ]
+  },
+  {
+    "name": "Atilla Güneş",
+    "clubs": [
+      "Fenerbahçe",
+      "Göztepe",
+      "Kocaelispor"
+    ]
+  },
+  {
     "name": "Atilla Koca",
     "clubs": [
+      "Fenerbahçe",
       "Sivasspor",
-      "Fenerbahçe"
+      "Çaykur Rizespor"
     ]
   },
   {
@@ -1342,6 +2815,20 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Attila Szalai",
+    "clubs": [
+      "Fenerbahçe",
+      "Kasımpaşa"
+    ]
+  },
+  {
+    "name": "Atınç Nukan",
+    "clubs": [
+      "Beşiktaş",
+      "Göztepe"
+    ]
+  },
+  {
     "name": "Aurelien Chedjou",
     "clubs": [
       "Başakşehir",
@@ -1349,84 +2836,175 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Axel Disasi",
+    "clubs": [
+      "Aston Villa",
+      "Chelsea"
+    ]
+  },
+  {
     "name": "Axel Tuanzebe",
     "clubs": [
-      "Napoli",
-      "Man Utd"
+      "Aston Villa",
+      "Burnley",
+      "Manchester United",
+      "Napoli"
     ]
   },
   {
     "name": "Axel Witsel",
     "clubs": [
-      "Bor. Dortmund",
-      "Atletico Madrid",
-      "Benfica"
+      "Atlético Madrid",
+      "Benfica",
+      "Borussia Dortmund"
     ]
   },
   {
     "name": "Ayden Heaven",
     "clubs": [
       "Arsenal",
-      "Man Utd"
+      "Manchester United",
+      "West Ham"
     ]
   },
   {
     "name": "Aydın Karabulut",
     "clubs": [
-      "Sivasspor",
-      "Genclerbirligi",
       "Antalyaspor",
-      "Beşiktaş"
+      "Beşiktaş",
+      "Gençlerbirliği",
+      "Göztepe",
+      "Kocaelispor",
+      "Sivasspor"
+    ]
+  },
+  {
+    "name": "Aydın Kuzu",
+    "clubs": [
+      "Göztepe",
+      "Çaykur Rizespor"
+    ]
+  },
+  {
+    "name": "Aydın Küçükkaya",
+    "clubs": [
+      "Antalyaspor",
+      "Kasımpaşa"
+    ]
+  },
+  {
+    "name": "Aydın Yıldırım",
+    "clubs": [
+      "Kocaelispor",
+      "Samsunspor",
+      "Sivasspor"
+    ]
+  },
+  {
+    "name": "Aykut Akgün",
+    "clubs": [
+      "Trabzonspor",
+      "Çaykur Rizespor"
     ]
   },
   {
     "name": "Aykut Demir",
     "clubs": [
-      "Trabzonspor",
-      "Genclerbirligi"
+      "Gençlerbirliği",
+      "Trabzonspor"
+    ]
+  },
+  {
+    "name": "Aykut Erçetin",
+    "clubs": [
+      "Galatasaray",
+      "Çaykur Rizespor"
     ]
   },
   {
     "name": "Aykut Öztürk",
     "clubs": [
-      "Sivasspor",
-      "Konyaspor"
+      "Konyaspor",
+      "Sivasspor"
     ]
   },
   {
     "name": "Ayman Abdelaziz",
     "clubs": [
+      "Gençlerbirliği",
+      "Kocaelispor",
       "Konyaspor",
       "Trabzonspor",
-      "Genclerbirligi"
+      "Çaykur Rizespor"
+    ]
+  },
+  {
+    "name": "Aytac Sulu",
+    "clubs": [
+      "Gençlerbirliği",
+      "Samsunspor"
     ]
   },
   {
     "name": "Aytaç Kara",
     "clubs": [
-      "Trabzonspor",
-      "Galatasaray"
+      "Galatasaray",
+      "Göztepe",
+      "Kasımpaşa",
+      "Trabzonspor"
+    ]
+  },
+  {
+    "name": "Aytek Aşıkoğlu",
+    "clubs": [
+      "Gaziantepspor",
+      "Göztepe",
+      "Çaykur Rizespor"
+    ]
+  },
+  {
+    "name": "Aytürk Hocaoğlu",
+    "clubs": [
+      "Beşiktaş",
+      "Eyüpspor"
+    ]
+  },
+  {
+    "name": "Azar Karadas",
+    "clubs": [
+      "Benfica",
+      "Kasımpaşa"
     ]
   },
   {
     "name": "Aziz Behich",
     "clubs": [
-      "Kayserispor",
-      "Başakşehir"
+      "Başakşehir",
+      "Kayserispor"
     ]
   },
   {
     "name": "Bacary Sagna",
     "clubs": [
       "Arsenal",
-      "Man City"
+      "Manchester City"
     ]
   },
   {
     "name": "Badou Ndiaye",
     "clubs": [
-      "Trabzonspor",
-      "Galatasaray"
+      "Galatasaray",
+      "Gaziantep FK",
+      "Karagümrük",
+      "Trabzonspor"
+    ]
+  },
+  {
+    "name": "Baha Çörüz",
+    "clubs": [
+      "Alanyaspor",
+      "Antalyaspor",
+      "Eyüpspor"
     ]
   },
   {
@@ -1437,121 +3015,405 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Bahadır Sekizkardeş",
+    "clubs": [
+      "Beşiktaş",
+      "Çaykur Rizespor"
+    ]
+  },
+  {
+    "name": "Bahadır Öztürk",
+    "clubs": [
+      "Antalyaspor",
+      "Çaykur Rizespor"
+    ]
+  },
+  {
+    "name": "Bahattin Köse",
+    "clubs": [
+      "Kocaelispor",
+      "Samsunspor"
+    ]
+  },
+  {
+    "name": "Bahattin Yıldırım",
+    "clubs": [
+      "Kayserispor",
+      "Kocaelispor"
+    ]
+  },
+  {
+    "name": "Bailey Peacock-Farrell",
+    "clubs": [
+      "Burnley",
+      "Leeds United"
+    ]
+  },
+  {
+    "name": "Bakary Sako",
+    "clubs": [
+      "Crystal Palace",
+      "Wolverhampton"
+    ]
+  },
+  {
     "name": "Baki Mercimek",
     "clubs": [
-      "Genclerbirligi",
-      "Beşiktaş"
+      "Beşiktaş",
+      "Gençlerbirliği",
+      "Sunderland"
     ]
   },
   {
     "name": "Baran Aksaka",
     "clubs": [
-      "Genclerbirligi",
-      "Galatasaray"
+      "Galatasaray",
+      "Gençlerbirliği"
+    ]
+  },
+  {
+    "name": "Baran Demiroğlu",
+    "clubs": [
+      "Galatasaray",
+      "Karagümrük"
+    ]
+  },
+  {
+    "name": "Barbaros Barut",
+    "clubs": [
+      "Kasımpaşa",
+      "Konyaspor"
+    ]
+  },
+  {
+    "name": "Barryannan",
+    "clubs": [
+      "Aston Villa",
+      "Crystal Palace",
+      "Leeds United"
     ]
   },
   {
     "name": "Bartuğ Elmaz",
     "clubs": [
-      "Sivasspor",
       "Fenerbahçe",
-      "Galatasaray"
+      "Galatasaray",
+      "Sivasspor"
     ]
   },
   {
     "name": "Barış Bayram",
     "clubs": [
-      "Kayserispor",
-      "Antalyaspor"
+      "Antalyaspor",
+      "Kayserispor"
+    ]
+  },
+  {
+    "name": "Barış Başdaş",
+    "clubs": [
+      "Alanyaspor",
+      "Gençlerbirliği",
+      "Göztepe",
+      "Karagümrük",
+      "Kasımpaşa",
+      "Samsunspor"
+    ]
+  },
+  {
+    "name": "Barış Demircan",
+    "clubs": [
+      "Fenerbahçe",
+      "Kasımpaşa"
+    ]
+  },
+  {
+    "name": "Barış Durmaz",
+    "clubs": [
+      "Gaziantepspor",
+      "Samsunspor"
+    ]
+  },
+  {
+    "name": "Barış Memiş",
+    "clubs": [
+      "Eyüpspor",
+      "Trabzonspor"
     ]
   },
   {
     "name": "Barış Sağır",
     "clubs": [
-      "Konyaspor",
-      "Antalyaspor"
+      "Antalyaspor",
+      "Konyaspor"
     ]
   },
   {
     "name": "Barış Özbek",
     "clubs": [
+      "Galatasaray",
+      "Karagümrük",
       "Kayserispor",
-      "Trabzonspor",
-      "Galatasaray"
+      "Trabzonspor"
+    ]
+  },
+  {
+    "name": "Bashir Humphreys",
+    "clubs": [
+      "Burnley",
+      "Chelsea"
     ]
   },
   {
     "name": "Bastian Schweinsteiger",
     "clubs": [
-      "Man Utd",
-      "Bayern Munich"
+      "Bayern Munich",
+      "Manchester United"
     ]
   },
   {
     "name": "Batuhan Karadeniz",
     "clubs": [
+      "Beşiktaş",
       "Sivasspor",
-      "Trabzonspor",
-      "Beşiktaş"
+      "Trabzonspor"
+    ]
+  },
+  {
+    "name": "Batuhan Yayıkcı",
+    "clubs": [
+      "Fenerbahçe",
+      "Karagümrük",
+      "Kocaelispor"
+    ]
+  },
+  {
+    "name": "Batuhan Çakır",
+    "clubs": [
+      "Başakşehir",
+      "Çaykur Rizespor"
+    ]
+  },
+  {
+    "name": "Batuhan İşen",
+    "clubs": [
+      "Eyüpspor",
+      "Kasımpaşa"
+    ]
+  },
+  {
+    "name": "Batuhan Şen",
+    "clubs": [
+      "Galatasaray",
+      "Gaziantep FK",
+      "Karagümrük",
+      "Kocaelispor"
+    ]
+  },
+  {
+    "name": "Baykal Aydınlı",
+    "clubs": [
+      "Karagümrük",
+      "Samsunspor"
     ]
   },
   {
     "name": "Bayram Bektaş",
     "clubs": [
-      "Konyaspor",
-      "Trabzonspor",
       "Antalyaspor",
-      "Beşiktaş"
+      "Beşiktaş",
+      "Kocaelispor",
+      "Konyaspor",
+      "Trabzonspor"
     ]
   },
   {
     "name": "Bebe",
     "clubs": [
-      "Beşiktaş",
       "Benfica",
-      "Man Utd"
+      "Beşiktaş",
+      "Manchester United"
+    ]
+  },
+  {
+    "name": "Bedirhan Özyurt",
+    "clubs": [
+      "Alanyaspor",
+      "Başakşehir"
     ]
   },
   {
     "name": "Bekir Akın",
     "clubs": [
-      "Fenerbahçe",
-      "Başakşehir"
+      "Başakşehir",
+      "Fenerbahçe"
+    ]
+  },
+  {
+    "name": "Bekir Yılmaz",
+    "clubs": [
+      "Eyüpspor",
+      "Gençlerbirliği"
     ]
   },
   {
     "name": "Bekir İrtegün",
     "clubs": [
+      "Başakşehir",
       "Fenerbahçe",
-      "Başakşehir"
+      "Gaziantepspor"
+    ]
+  },
+  {
+    "name": "Ben Alnwick",
+    "clubs": [
+      "Leeds United",
+      "Sunderland",
+      "Tottenham"
+    ]
+  },
+  {
+    "name": "Ben Chilwell",
+    "clubs": [
+      "Chelsea",
+      "Crystal Palace"
+    ]
+  },
+  {
+    "name": "Ben Chorley",
+    "clubs": [
+      "Arsenal",
+      "Brentford"
+    ]
+  },
+  {
+    "name": "Ben Crompton",
+    "clubs": [
+      "Sunderland",
+      "Wolverhampton"
     ]
   },
   {
     "name": "Ben Davies",
     "clubs": [
-      "Tottenham",
+      "Liverpool",
+      "Tottenham"
+    ]
+  },
+  {
+    "name": "Ben Doak",
+    "clubs": [
+      "Bournemouth",
       "Liverpool"
+    ]
+  },
+  {
+    "name": "Ben Gibson",
+    "clubs": [
+      "Burnley",
+      "Newcastle United"
+    ]
+  },
+  {
+    "name": "Ben Gordon",
+    "clubs": [
+      "Chelsea",
+      "Leeds United"
+    ]
+  },
+  {
+    "name": "Ben Mee",
+    "clubs": [
+      "Brentford",
+      "Burnley",
+      "Manchester City"
+    ]
+  },
+  {
+    "name": "Ben Pearson",
+    "clubs": [
+      "Bournemouth",
+      "Manchester United"
     ]
   },
   {
     "name": "Ben Rienstra",
     "clubs": [
+      "Ajax",
+      "Kayserispor"
+    ]
+  },
+  {
+    "name": "Ben Sheaf",
+    "clubs": [
+      "Arsenal",
+      "West Ham"
+    ]
+  },
+  {
+    "name": "Ben White",
+    "clubs": [
+      "Arsenal",
+      "Brighton",
+      "Leeds United"
+    ]
+  },
+  {
+    "name": "Ben Wilson",
+    "clubs": [
+      "Brighton",
+      "Sunderland"
+    ]
+  },
+  {
+    "name": "Ben Woods",
+    "clubs": [
+      "Burnley",
+      "Manchester United"
+    ]
+  },
+  {
+    "name": "Benhur Keser",
+    "clubs": [
       "Kayserispor",
-      "Ajax"
+      "Kocaelispor",
+      "Çaykur Rizespor"
+    ]
+  },
+  {
+    "name": "Benicioaker",
+    "clubs": [
+      "Brighton",
+      "West Ham"
     ]
   },
   {
     "name": "Benik Afobe",
     "clubs": [
       "Arsenal",
-      "Trabzonspor"
+      "Bournemouth",
+      "Trabzonspor",
+      "Wolverhampton"
+    ]
+  },
+  {
+    "name": "Benjamin Kimpioka",
+    "clubs": [
+      "Sivasspor",
+      "Sunderland"
+    ]
+  },
+  {
+    "name": "Benjamin Lecomte",
+    "clubs": [
+      "Atlético Madrid",
+      "Fulham"
     ]
   },
   {
     "name": "Benjamin Pavard",
     "clubs": [
-      "Inter",
-      "Bayern Munich"
+      "Bayern Munich",
+      "Inter"
     ]
   },
   {
@@ -1562,22 +3424,31 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Benjani",
+    "clubs": [
+      "Manchester City",
+      "Sunderland"
+    ]
+  },
+  {
     "name": "Benni McCarthy",
     "clubs": [
+      "Ajax",
       "FC Porto",
-      "Ajax"
+      "West Ham"
     ]
   },
   {
     "name": "Benny",
     "clubs": [
-      "FC Porto",
-      "Benfica"
+      "Benfica",
+      "FC Porto"
     ]
   },
   {
     "name": "Benny Carbone",
     "clubs": [
+      "Aston Villa",
       "Inter",
       "Napoli"
     ]
@@ -1586,15 +3457,16 @@ export const PLAYERS = [
     "name": "Berat Özdemir",
     "clubs": [
       "Başakşehir",
-      "Trabzonspor",
-      "Genclerbirligi"
+      "Gençlerbirliği",
+      "Trabzonspor"
     ]
   },
   {
     "name": "Berk Can Yıldızlı",
     "clubs": [
+      "Beşiktaş",
       "Galatasaray",
-      "Beşiktaş"
+      "Kasımpaşa"
     ]
   },
   {
@@ -1607,16 +3479,35 @@ export const PLAYERS = [
   {
     "name": "Berkan Emir",
     "clubs": [
+      "Alanyaspor",
+      "Beşiktaş",
+      "Eyüpspor",
+      "Göztepe",
       "Kayserispor",
-      "Beşiktaş"
+      "Kocaelispor"
+    ]
+  },
+  {
+    "name": "Berkan Kutlu",
+    "clubs": [
+      "Alanyaspor",
+      "Galatasaray"
+    ]
+  },
+  {
+    "name": "Berkay Dabanlı",
+    "clubs": [
+      "Karagümrük",
+      "Kayserispor",
+      "Kocaelispor"
     ]
   },
   {
     "name": "Berkay Değirmencioğlu",
     "clubs": [
-      "Kayserispor",
+      "Denizlispor",
       "Fenerbahçe",
-      "Denizlispor"
+      "Kayserispor"
     ]
   },
   {
@@ -1627,66 +3518,132 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Berkay Uzun",
+    "clubs": [
+      "Trabzonspor",
+      "Çaykur Rizespor"
+    ]
+  },
+  {
+    "name": "Berkay Vardar",
+    "clubs": [
+      "Beşiktaş",
+      "Karagümrük"
+    ]
+  },
+  {
+    "name": "Berkay Özcan",
+    "clubs": [
+      "Başakşehir",
+      "Karagümrük",
+      "Çaykur Rizespor"
+    ]
+  },
+  {
+    "name": "Berkay Öztuvan",
+    "clubs": [
+      "Fenerbahçe",
+      "Göztepe"
+    ]
+  },
+  {
+    "name": "Berke Özer",
+    "clubs": [
+      "Eyüpspor",
+      "Fenerbahçe"
+    ]
+  },
+  {
     "name": "Bernard Mensah",
     "clubs": [
-      "Kayserispor",
+      "Atlético Madrid",
       "Beşiktaş",
-      "Atletico Madrid"
+      "Kasımpaşa",
+      "Kayserispor"
     ]
   },
   {
     "name": "Bernardo Corradi",
     "clubs": [
       "Inter",
-      "Man City"
+      "Manchester City"
     ]
   },
   {
     "name": "Bernardo Silva",
     "clubs": [
       "Benfica",
-      "Man City"
+      "Manchester City"
+    ]
+  },
+  {
+    "name": "Bernd Leno",
+    "clubs": [
+      "Arsenal",
+      "Fulham"
+    ]
+  },
+  {
+    "name": "Bersant Celina",
+    "clubs": [
+      "Kasımpaşa",
+      "Manchester City"
     ]
   },
   {
     "name": "Bertrand Traore",
     "clubs": [
-      "Chelsea",
+      "Ajax",
+      "Aston Villa",
       "Başakşehir",
-      "Ajax"
+      "Chelsea",
+      "Sunderland"
     ]
   },
   {
     "name": "Bertuğ Yıldırım",
     "clubs": [
-      "Başakşehir",
-      "Antalyaspor"
+      "Antalyaspor",
+      "Başakşehir"
+    ]
+  },
+  {
+    "name": "Besian Idrizaj",
+    "clubs": [
+      "Crystal Palace",
+      "Liverpool"
     ]
   },
   {
     "name": "Beto",
     "clubs": [
+      "Benfica",
+      "Everton",
       "FC Porto",
-      "Benfica"
+      "Göztepe"
     ]
   },
   {
     "name": "Beyhan Sümer",
     "clubs": [
-      "Kayserispor",
-      "Genclerbirligi"
+      "Gençlerbirliği",
+      "Karagümrük",
+      "Kayserispor"
     ]
   },
   {
     "name": "Beykan Şimşek",
     "clubs": [
-      "Sivasspor",
-      "Fenerbahçe"
+      "Fenerbahçe",
+      "Göztepe",
+      "Kocaelispor",
+      "Sivasspor"
     ]
   },
   {
     "name": "Bilal Aziz Özer",
     "clubs": [
+      "Karagümrük",
       "Kayserispor",
       "Konyaspor"
     ]
@@ -1694,16 +3651,24 @@ export const PLAYERS = [
   {
     "name": "Bilal Bayazıt",
     "clubs": [
-      "Kayserispor",
-      "Ajax"
+      "Ajax",
+      "Kayserispor"
     ]
   },
   {
     "name": "Bilal Başaçıkoğlu",
     "clubs": [
+      "Ajax",
+      "Gaziantep FK",
       "Kayserispor",
-      "Trabzonspor",
-      "Ajax"
+      "Trabzonspor"
+    ]
+  },
+  {
+    "name": "Bilal Cubukcu",
+    "clubs": [
+      "Gençlerbirliği",
+      "Kocaelispor"
     ]
   },
   {
@@ -1714,17 +3679,77 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Billy Fewster",
+    "clubs": [
+      "Leeds United",
+      "Nottingham Forest"
+    ]
+  },
+  {
     "name": "Billy Gilmour",
     "clubs": [
+      "Brighton",
       "Chelsea",
       "Napoli"
+    ]
+  },
+  {
+    "name": "Billy Granger",
+    "clubs": [
+      "Chelsea",
+      "Fulham"
+    ]
+  },
+  {
+    "name": "Billy Paynter",
+    "clubs": [
+      "Brighton",
+      "Leeds United"
+    ]
+  },
+  {
+    "name": "Birkan Tetik",
+    "clubs": [
+      "Alanyaspor",
+      "Eyüpspor",
+      "Galatasaray",
+      "Karagümrük"
     ]
   },
   {
     "name": "Birol Demirhan",
     "clubs": [
       "Kayserispor",
-      "Konyaspor"
+      "Konyaspor",
+      "Çaykur Rizespor"
+    ]
+  },
+  {
+    "name": "Birol Parlak",
+    "clubs": [
+      "Alanyaspor",
+      "Kayserispor"
+    ]
+  },
+  {
+    "name": "Bjarni Vidarsson",
+    "clubs": [
+      "Bournemouth",
+      "Everton"
+    ]
+  },
+  {
+    "name": "Björn Vleminckx",
+    "clubs": [
+      "Gençlerbirliği",
+      "Göztepe"
+    ]
+  },
+  {
+    "name": "Blair Adams",
+    "clubs": [
+      "Brentford",
+      "Sunderland"
     ]
   },
   {
@@ -1735,33 +3760,58 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Bobby Duncan",
+    "name": "Bobby Clark",
     "clubs": [
       "Liverpool",
-      "Man City"
+      "Newcastle United"
     ]
   },
   {
-    "name": "BobÃ´",
+    "name": "Bobby Duncan",
     "clubs": [
-      "Kayserispor",
-      "Beşiktaş"
+      "Liverpool",
+      "Manchester City"
+    ]
+  },
+  {
+    "name": "Bobby Zamora",
+    "clubs": [
+      "Brighton",
+      "Fulham",
+      "Tottenham",
+      "West Ham"
+    ]
+  },
+  {
+    "name": "Bobi´",
+    "clubs": [
+      "Alanyaspor",
+      "Beşiktaş",
+      "Kayserispor"
     ]
   },
   {
     "name": "Bogdan Stancu",
     "clubs": [
-      "Genclerbirligi",
-      "Galatasaray"
+      "Eyüpspor",
+      "Galatasaray",
+      "Gençlerbirliği"
     ]
   },
   {
     "name": "Bojan Krkic",
     "clubs": [
-      "Barcelona",
       "AC Milan",
       "AS Roma",
-      "Ajax"
+      "Ajax",
+      "Barcelona"
+    ]
+  },
+  {
+    "name": "Boris Mathis",
+    "clubs": [
+      "Everton",
+      "Olympique Lyon"
     ]
   },
   {
@@ -1781,46 +3831,152 @@ export const PLAYERS = [
   {
     "name": "Borja Valero",
     "clubs": [
-      "Real Madrid",
-      "Inter"
+      "Inter",
+      "Real Madrid"
+    ]
+  },
+  {
+    "name": "Borna Sosa",
+    "clubs": [
+      "Ajax",
+      "Crystal Palace"
     ]
   },
   {
     "name": "Brad Friedel",
     "clubs": [
-      "Tottenham",
+      "Aston Villa",
       "Galatasaray",
+      "Liverpool",
+      "Newcastle United",
+      "Tottenham"
+    ]
+  },
+  {
+    "name": "Brad Smith",
+    "clubs": [
+      "Bournemouth",
       "Liverpool"
+    ]
+  },
+  {
+    "name": "Bradley Johnson",
+    "clubs": [
+      "Brighton",
+      "Leeds United"
+    ]
+  },
+  {
+    "name": "Bradley Orr",
+    "clubs": [
+      "Burnley",
+      "Everton",
+      "Newcastle United"
+    ]
+  },
+  {
+    "name": "Bradley Wright-Phillips",
+    "clubs": [
+      "Brentford",
+      "Manchester City"
     ]
   },
   {
     "name": "Brahim Darri",
     "clubs": [
+      "Ajax",
       "Denizlispor",
-      "Ajax"
+      "Karagümrük",
+      "Samsunspor"
     ]
   },
   {
     "name": "Brahim Diaz",
     "clubs": [
       "AC Milan",
-      "Real Madrid",
-      "Man City"
+      "Manchester City",
+      "Real Madrid"
+    ]
+  },
+  {
+    "name": "Brandon Wilson",
+    "clubs": [
+      "Burnley",
+      "Newcastle United"
+    ]
+  },
+  {
+    "name": "Brayden Clarke",
+    "clubs": [
+      "Arsenal",
+      "Wolverhampton"
+    ]
+  },
+  {
+    "name": "Brendan Galloway",
+    "clubs": [
+      "Everton",
+      "Sunderland"
+    ]
+  },
+  {
+    "name": "Brennan Johnson",
+    "clubs": [
+      "Nottingham Forest",
+      "Tottenham"
+    ]
+  },
+  {
+    "name": "Brett Angell",
+    "clubs": [
+      "Everton",
+      "Sunderland"
+    ]
+  },
+  {
+    "name": "Brian Deane",
+    "clubs": [
+      "Benfica",
+      "Leeds United",
+      "Sunderland",
+      "West Ham"
+    ]
+  },
+  {
+    "name": "Brian Montenegro",
+    "clubs": [
+      "Leeds United",
+      "West Ham"
+    ]
+  },
+  {
+    "name": "Brian Stock",
+    "clubs": [
+      "Bournemouth",
+      "Burnley"
     ]
   },
   {
     "name": "Bright Arrey-Mbi",
     "clubs": [
-      "Chelsea",
-      "Bayern Munich"
+      "Bayern Munich",
+      "Chelsea"
+    ]
+  },
+  {
+    "name": "Brooklyn Nfonkeu",
+    "clubs": [
+      "Leeds United",
+      "Manchester City"
     ]
   },
   {
     "name": "Bruma",
     "clubs": [
+      "Benfica",
       "Fenerbahçe",
       "Galatasaray",
-      "Benfica"
+      "Gaziantepspor"
     ]
   },
   {
@@ -1833,22 +3989,22 @@ export const PLAYERS = [
   {
     "name": "Bruno Costa",
     "clubs": [
-      "FC Porto",
-      "Benfica"
+      "Benfica",
+      "FC Porto"
     ]
   },
   {
     "name": "Bruno Peres",
     "clubs": [
-      "Trabzonspor",
-      "AS Roma"
+      "AS Roma",
+      "Trabzonspor"
     ]
   },
   {
     "name": "Bruno Silva",
     "clubs": [
-      "FC Porto",
-      "Ajax"
+      "Ajax",
+      "FC Porto"
     ]
   },
   {
@@ -1856,6 +4012,13 @@ export const PLAYERS = [
     "clubs": [
       "Ajax",
       "Benfica"
+    ]
+  },
+  {
+    "name": "Bruno Viana",
+    "clubs": [
+      "Alanyaspor",
+      "Gaziantep FK"
     ]
   },
   {
@@ -1867,64 +4030,187 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Bryan Mbeumo",
+    "clubs": [
+      "Brentford",
+      "Manchester United"
+    ]
+  },
+  {
+    "name": "Bryan Oviedo",
+    "clubs": [
+      "Everton",
+      "Sunderland"
+    ]
+  },
+  {
+    "name": "Buluthan Bulut",
+    "clubs": [
+      "Alanyaspor",
+      "Göztepe"
+    ]
+  },
+  {
     "name": "Burak Akdiş",
     "clubs": [
+      "Galatasaray",
+      "Göztepe",
       "Kayserispor",
-      "Sivasspor",
-      "Galatasaray"
+      "Sivasspor"
+    ]
+  },
+  {
+    "name": "Burak Akyıldız",
+    "clubs": [
+      "Denizlispor",
+      "Göztepe"
+    ]
+  },
+  {
+    "name": "Burak Albayrak",
+    "clubs": [
+      "Fenerbahçe",
+      "Çaykur Rizespor"
     ]
   },
   {
     "name": "Burak Kapacak",
     "clubs": [
+      "Fenerbahçe",
+      "Karagümrük",
       "Kayserispor",
-      "Sivasspor",
-      "Fenerbahçe"
+      "Sivasspor"
     ]
   },
   {
     "name": "Burak Karaduman",
     "clubs": [
-      "Konyaspor",
-      "Denizlispor"
+      "Denizlispor",
+      "Konyaspor"
+    ]
+  },
+  {
+    "name": "Burak Süleyman",
+    "clubs": [
+      "Göztepe",
+      "Kocaelispor"
     ]
   },
   {
     "name": "Burak Yılmaz",
     "clubs": [
-      "Fenerbahçe",
-      "Trabzonspor",
       "Antalyaspor",
+      "Beşiktaş",
+      "Fenerbahçe",
       "Galatasaray",
-      "Beşiktaş"
+      "Samsunspor",
+      "Trabzonspor"
+    ]
+  },
+  {
+    "name": "Burhan Coşkun",
+    "clubs": [
+      "Göztepe",
+      "Kocaelispor",
+      "Samsunspor"
+    ]
+  },
+  {
+    "name": "Burhan Ersoy",
+    "clubs": [
+      "Eyüpspor",
+      "Karagümrük"
     ]
   },
   {
     "name": "Burhan Eşer",
     "clubs": [
-      "Sivasspor",
-      "Genclerbirligi"
+      "Gençlerbirliği",
+      "Sivasspor"
+    ]
+  },
+  {
+    "name": "Burhanettin Kaymak",
+    "clubs": [
+      "Galatasaray",
+      "Göztepe"
     ]
   },
   {
     "name": "Buğra Çağıran",
     "clubs": [
-      "Trabzonspor",
-      "Genclerbirligi"
+      "Gençlerbirliği",
+      "Samsunspor",
+      "Trabzonspor"
+    ]
+  },
+  {
+    "name": "Bülent Aslan",
+    "clubs": [
+      "Alanyaspor",
+      "Antalyaspor"
+    ]
+  },
+  {
+    "name": "Bülent Bal",
+    "clubs": [
+      "Gaziantepspor",
+      "Göztepe"
     ]
   },
   {
     "name": "Bülent Bölükbaşı",
     "clubs": [
+      "Gaziantepspor",
       "Kayserispor",
+      "Kocaelispor",
       "Konyaspor"
     ]
   },
   {
     "name": "Bülent Karaman",
     "clubs": [
+      "Gençlerbirliği",
       "Kayserispor",
-      "Genclerbirligi"
+      "Kocaelispor",
+      "Samsunspor"
+    ]
+  },
+  {
+    "name": "Bülent Uzun",
+    "clubs": [
+      "Beşiktaş",
+      "Eyüpspor",
+      "Kasımpaşa",
+      "Kocaelispor"
+    ]
+  },
+  {
+    "name": "Bünyamin Çetinkaya",
+    "clubs": [
+      "Başakşehir",
+      "Kasımpaşa"
+    ]
+  },
+  {
+    "name": "CJ Egan-Riley",
+    "clubs": [
+      "Burnley",
+      "Manchester City"
+    ]
+  },
+  {
+    "name": "Caelan Avenell",
+    "clubs": [
+      "Brentford",
+      "Fulham"
+    ]
+  },
+  {
+    "name": "Cafercan Aksu",
+    "clubs": [
+      "Galatasaray",
+      "Çaykur Rizespor"
     ]
   },
   {
@@ -1932,7 +4218,8 @@ export const PLAYERS = [
     "clubs": [
       "AC Milan",
       "AS Roma",
-      "Benfica"
+      "Benfica",
+      "Kasımpaşa"
     ]
   },
   {
@@ -1943,50 +4230,204 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Caleb Ekuban",
+    "clubs": [
+      "Leeds United",
+      "Trabzonspor"
+    ]
+  },
+  {
+    "name": "Calen Gallagher-Allison",
+    "clubs": [
+      "Burnley",
+      "Manchester United"
+    ]
+  },
+  {
+    "name": "Callum Doyle",
+    "clubs": [
+      "Manchester City",
+      "Sunderland"
+    ]
+  },
+  {
+    "name": "Callum McManaman",
+    "clubs": [
+      "Everton",
+      "Sunderland"
+    ]
+  },
+  {
+    "name": "Callum Styles",
+    "clubs": [
+      "Burnley",
+      "Sunderland"
+    ]
+  },
+  {
+    "name": "Callum Wilson",
+    "clubs": [
+      "Bournemouth",
+      "Newcastle United",
+      "West Ham"
+    ]
+  },
+  {
+    "name": "Calum Chambers",
+    "clubs": [
+      "Arsenal",
+      "Aston Villa",
+      "Fulham"
+    ]
+  },
+  {
+    "name": "Calum Davenport",
+    "clubs": [
+      "Sunderland",
+      "Tottenham",
+      "West Ham"
+    ]
+  },
+  {
+    "name": "Calum Willock",
+    "clubs": [
+      "Brentford",
+      "Fulham"
+    ]
+  },
+  {
+    "name": "Cameron Carter-Vickers",
+    "clubs": [
+      "Bournemouth",
+      "Tottenham"
+    ]
+  },
+  {
+    "name": "Cameron Jerome",
+    "clubs": [
+      "Crystal Palace",
+      "Göztepe"
+    ]
+  },
+  {
+    "name": "Cameron Jessup",
+    "clubs": [
+      "Crystal Palace",
+      "Sunderland"
+    ]
+  },
+  {
+    "name": "Cameron Stewart",
+    "clubs": [
+      "Burnley",
+      "Leeds United",
+      "Manchester United"
+    ]
+  },
+  {
+    "name": "Cameronorthwick-Jackson",
+    "clubs": [
+      "Leeds United",
+      "Wolverhampton"
+    ]
+  },
+  {
+    "name": "Can Cumhur Bozacı",
+    "clubs": [
+      "Göztepe",
+      "Çaykur Rizespor"
+    ]
+  },
+  {
     "name": "Can Erdem",
     "clubs": [
+      "Beşiktaş",
       "Denizlispor",
-      "Beşiktaş"
+      "Kocaelispor"
+    ]
+  },
+  {
+    "name": "Can Keleş",
+    "clubs": [
+      "Beşiktaş",
+      "Karagümrük",
+      "Kasımpaşa",
+      "Kocaelispor"
+    ]
+  },
+  {
+    "name": "Caner Bağ",
+    "clubs": [
+      "Eyüpspor",
+      "Sivasspor"
+    ]
+  },
+  {
+    "name": "Caner Celep",
+    "clubs": [
+      "Denizlispor",
+      "Eyüpspor"
     ]
   },
   {
     "name": "Caner Erkin",
     "clubs": [
-      "Fenerbahçe",
       "Başakşehir",
-      "Galatasaray",
       "Beşiktaş",
-      "Inter"
+      "Eyüpspor",
+      "Fenerbahçe",
+      "Galatasaray",
+      "Inter",
+      "Karagümrük"
     ]
   },
   {
     "name": "Caner Osmanpaşa",
     "clubs": [
+      "Denizlispor",
+      "Kocaelispor",
       "Sivasspor",
-      "Trabzonspor",
-      "Denizlispor"
+      "Trabzonspor"
     ]
   },
   {
     "name": "Caner Yılmaz",
     "clubs": [
-      "Sivasspor",
-      "Antalyaspor"
+      "Alanyaspor",
+      "Antalyaspor",
+      "Samsunspor",
+      "Sivasspor"
+    ]
+  },
+  {
+    "name": "Carl Fletcher",
+    "clubs": [
+      "Bournemouth",
+      "Crystal Palace",
+      "West Ham"
+    ]
+  },
+  {
+    "name": "Carl Jenkinson",
+    "clubs": [
+      "Arsenal",
+      "Newcastle United",
+      "West Ham"
     ]
   },
   {
     "name": "Carl Medjani",
     "clubs": [
+      "Liverpool",
       "Sivasspor",
-      "Trabzonspor",
-      "Liverpool"
+      "Trabzonspor"
     ]
   },
   {
     "name": "Carles Perez",
     "clubs": [
-      "Barcelona",
-      "AS Roma"
+      "AS Roma",
+      "Barcelona"
     ]
   },
   {
@@ -1997,48 +4438,91 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Carlo Nash",
+    "clubs": [
+      "Crystal Palace",
+      "Everton",
+      "Manchester City"
+    ]
+  },
+  {
+    "name": "Carlos Alberto",
+    "clubs": [
+      "FC Porto",
+      "Çaykur Rizespor"
+    ]
+  },
+  {
+    "name": "Carlos Alcaraz",
+    "clubs": [
+      "Everton",
+      "Juventus"
+    ]
+  },
+  {
+    "name": "Carlos Cuellar",
+    "clubs": [
+      "Aston Villa",
+      "Sunderland"
+    ]
+  },
+  {
     "name": "Carlos Forbs",
     "clubs": [
       "Ajax",
-      "Man City"
+      "Manchester City",
+      "Wolverhampton"
     ]
   },
   {
     "name": "Carlos Gamarra",
     "clubs": [
-      "Atletico Madrid",
-      "Inter",
-      "Benfica"
+      "Atlético Madrid",
+      "Benfica",
+      "Inter"
     ]
   },
   {
     "name": "Carlos Sanchez",
     "clubs": [
+      "Aston Villa",
+      "Liverpool",
       "Real Madrid",
-      "Liverpool"
+      "West Ham"
     ]
   },
   {
     "name": "Carlos Tevez",
     "clubs": [
       "Juventus",
-      "Man Utd",
-      "Man City"
+      "Manchester City",
+      "Manchester United",
+      "West Ham"
     ]
   },
   {
     "name": "Carlos Vinicius",
     "clubs": [
-      "Tottenham",
+      "Benfica",
       "Galatasaray",
       "Napoli",
-      "Benfica"
+      "Tottenham"
+    ]
+  },
+  {
+    "name": "Carlton Cole",
+    "clubs": [
+      "Aston Villa",
+      "Chelsea",
+      "West Ham",
+      "Wolverhampton"
     ]
   },
   {
     "name": "Carney Chukwuemeka",
     "clubs": [
-      "Bor. Dortmund",
+      "Aston Villa",
+      "Borussia Dortmund",
       "Chelsea"
     ]
   },
@@ -2046,22 +4530,52 @@ export const PLAYERS = [
     "name": "Casemiro",
     "clubs": [
       "FC Porto",
-      "Real Madrid",
-      "Man Utd"
+      "Manchester United",
+      "Real Madrid"
+    ]
+  },
+  {
+    "name": "Casper Ankergren",
+    "clubs": [
+      "Brighton",
+      "Leeds United"
+    ]
+  },
+  {
+    "name": "Castro",
+    "clubs": [
+      "FC Porto",
+      "Göztepe",
+      "Kasımpaşa"
+    ]
+  },
+  {
+    "name": "Cedric Carrasso",
+    "clubs": [
+      "Crystal Palace",
+      "Galatasaray"
     ]
   },
   {
     "name": "Cedric Soares",
     "clubs": [
       "Arsenal",
+      "Fulham",
       "Inter"
     ]
   },
   {
     "name": "Cedric van der Gun",
     "clubs": [
-      "Bor. Dortmund",
-      "Ajax"
+      "Ajax",
+      "Borussia Dortmund"
+    ]
+  },
+  {
+    "name": "Celal Emiştekinkaraca",
+    "clubs": [
+      "Eyüpspor",
+      "Fenerbahçe"
     ]
   },
   {
@@ -2072,18 +4586,40 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Celil Yüksel",
+    "clubs": [
+      "Galatasaray",
+      "Göztepe",
+      "Samsunspor"
+    ]
+  },
+  {
+    "name": "Cem Beceren",
+    "clubs": [
+      "Gaziantepspor",
+      "Trabzonspor"
+    ]
+  },
+  {
     "name": "Cem Can",
     "clubs": [
+      "Gençlerbirliği",
       "Kayserispor",
-      "Sivasspor",
-      "Genclerbirligi"
+      "Sivasspor"
     ]
   },
   {
     "name": "Cem Sultan",
     "clubs": [
-      "Kayserispor",
-      "Galatasaray"
+      "Galatasaray",
+      "Kayserispor"
+    ]
+  },
+  {
+    "name": "Cemal Atan",
+    "clubs": [
+      "Denizlispor",
+      "Kasımpaşa"
     ]
   },
   {
@@ -2096,54 +4632,105 @@ export const PLAYERS = [
   {
     "name": "Cemali Sertel",
     "clubs": [
+      "Antalyaspor",
       "Başakşehir",
-      "Antalyaspor"
+      "Çaykur Rizespor"
+    ]
+  },
+  {
+    "name": "Cemil Adıcan",
+    "clubs": [
+      "Kayserispor",
+      "Samsunspor"
+    ]
+  },
+  {
+    "name": "Cemil Vatansever",
+    "clubs": [
+      "Alanyaspor",
+      "Göztepe"
+    ]
+  },
+  {
+    "name": "Cemre Atmaca",
+    "clubs": [
+      "Eyüpspor",
+      "Trabzonspor"
+    ]
+  },
+  {
+    "name": "Cengiz Biçer",
+    "clubs": [
+      "Göztepe",
+      "Samsunspor"
     ]
   },
   {
     "name": "Cengiz Ünder",
     "clubs": [
-      "Fenerbahçe",
+      "AS Roma",
       "Başakşehir",
       "Beşiktaş",
-      "AS Roma"
+      "Fenerbahçe"
+    ]
+  },
+  {
+    "name": "Cenk Ahmet Alkılıç",
+    "clubs": [
+      "Alanyaspor",
+      "Başakşehir",
+      "Eyüpspor",
+      "Çaykur Rizespor"
     ]
   },
   {
     "name": "Cenk Gönen",
     "clubs": [
-      "Kayserispor",
+      "Alanyaspor",
+      "Beşiktaş",
       "Denizlispor",
       "Galatasaray",
-      "Beşiktaş"
+      "Göztepe",
+      "Kayserispor"
+    ]
+  },
+  {
+    "name": "Cenk Güvenç",
+    "clubs": [
+      "Denizlispor",
+      "Çaykur Rizespor"
     ]
   },
   {
     "name": "Cenk Tosun",
     "clubs": [
+      "Beşiktaş",
+      "Crystal Palace",
+      "Everton",
       "Fenerbahçe",
-      "Beşiktaş"
+      "Gaziantepspor"
     ]
   },
   {
     "name": "Cenk Şahin",
     "clubs": [
-      "Kayserispor",
-      "Başakşehir"
+      "Başakşehir",
+      "Gaziantep FK",
+      "Kayserispor"
     ]
   },
   {
     "name": "Cesar Azpilicueta",
     "clubs": [
-      "Chelsea",
-      "Atletico Madrid"
+      "Atlético Madrid",
+      "Chelsea"
     ]
   },
   {
     "name": "Cesar Sanchez",
     "clubs": [
-      "Tottenham",
-      "Real Madrid"
+      "Real Madrid",
+      "Tottenham"
     ]
   },
   {
@@ -2154,98 +4741,269 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Cesc FÃ bregas",
+    "name": "Cesc Fi bregas",
     "clubs": [
-      "Chelsea",
       "Arsenal",
-      "Barcelona"
+      "Barcelona",
+      "Chelsea"
     ]
   },
   {
     "name": "Ceyhun Eriş",
     "clubs": [
-      "Sivasspor",
-      "Konyaspor",
-      "Fenerbahçe",
-      "Trabzonspor",
-      "Genclerbirligi",
       "Denizlispor",
-      "Galatasaray"
+      "Fenerbahçe",
+      "Galatasaray",
+      "Gençlerbirliği",
+      "Göztepe",
+      "Konyaspor",
+      "Samsunspor",
+      "Sivasspor",
+      "Trabzonspor",
+      "Çaykur Rizespor"
     ]
   },
   {
     "name": "Ceyhun Gülselam",
     "clubs": [
+      "Alanyaspor",
+      "Galatasaray",
       "Kayserispor",
-      "Trabzonspor",
-      "Galatasaray"
+      "Trabzonspor"
+    ]
+  },
+  {
+    "name": "Chadi Riad",
+    "clubs": [
+      "Barcelona",
+      "Crystal Palace"
+    ]
+  },
+  {
+    "name": "Chancel Mbemba",
+    "clubs": [
+      "FC Porto",
+      "Newcastle United"
+    ]
+  },
+  {
+    "name": "Charles Sagoe Jr",
+    "clubs": [
+      "Arsenal",
+      "Fulham"
     ]
   },
   {
     "name": "Charlie McNeill",
     "clubs": [
       "Liverpool",
-      "Man Utd",
-      "Man City"
+      "Manchester City",
+      "Manchester United"
+    ]
+  },
+  {
+    "name": "Charlie Seaman",
+    "clubs": [
+      "Bournemouth",
+      "West Ham"
+    ]
+  },
+  {
+    "name": "Charlie Sheringham",
+    "clubs": [
+      "Bournemouth",
+      "Crystal Palace"
+    ]
+  },
+  {
+    "name": "Charlie Taylor",
+    "clubs": [
+      "Burnley",
+      "Leeds United"
+    ]
+  },
+  {
+    "name": "Charlie Wiggett",
+    "clubs": [
+      "Chelsea",
+      "Newcastle United"
+    ]
+  },
+  {
+    "name": "Cheikhou Kouyate",
+    "clubs": [
+      "Crystal Palace",
+      "West Ham"
     ]
   },
   {
     "name": "Cher Ndour",
     "clubs": [
-      "Beşiktaş",
-      "Benfica"
+      "Benfica",
+      "Beşiktaş"
+    ]
+  },
+  {
+    "name": "Cherif Ndiaye",
+    "clubs": [
+      "Göztepe",
+      "Samsunspor"
     ]
   },
   {
     "name": "Chicharito",
     "clubs": [
+      "Manchester United",
       "Real Madrid",
-      "Man Utd"
+      "West Ham"
     ]
   },
   {
     "name": "Chico",
     "clubs": [
+      "Antalyaspor",
       "FC Porto",
-      "Antalyaspor"
+      "Gaziantepspor"
     ]
   },
   {
     "name": "Chido Obi",
     "clubs": [
       "Arsenal",
-      "Man Utd"
+      "Manchester United"
+    ]
+  },
+  {
+    "name": "Chidozie Awaziem",
+    "clubs": [
+      "Alanyaspor",
+      "FC Porto",
+      "Çaykur Rizespor"
+    ]
+  },
+  {
+    "name": "Chike Kandi",
+    "clubs": [
+      "Brighton",
+      "Chelsea"
     ]
   },
   {
     "name": "Chiquinho",
     "clubs": [
+      "Benfica",
       "Inter",
-      "Benfica"
+      "Wolverhampton"
+    ]
+  },
+  {
+    "name": "Chris Day",
+    "clubs": [
+      "Crystal Palace",
+      "Tottenham"
+    ]
+  },
+  {
+    "name": "Chris Eagles",
+    "clubs": [
+      "Burnley",
+      "Manchester United"
+    ]
+  },
+  {
+    "name": "Chris Iwelumo",
+    "clubs": [
+      "Brighton",
+      "Burnley",
+      "Wolverhampton"
+    ]
+  },
+  {
+    "name": "Chris Long",
+    "clubs": [
+      "Brentford",
+      "Burnley",
+      "Everton"
+    ]
+  },
+  {
+    "name": "Chris Martin",
+    "clubs": [
+      "Crystal Palace",
+      "Fulham",
+      "Nottingham Forest"
+    ]
+  },
+  {
+    "name": "Chris Mepham",
+    "clubs": [
+      "Bournemouth",
+      "Brentford",
+      "Chelsea",
+      "Sunderland"
+    ]
+  },
+  {
+    "name": "Chris Powell",
+    "clubs": [
+      "Crystal Palace",
+      "West Ham"
+    ]
+  },
+  {
+    "name": "Chris Richards",
+    "clubs": [
+      "Bayern Munich",
+      "Crystal Palace"
     ]
   },
   {
     "name": "Chris Smalling",
     "clubs": [
       "AS Roma",
-      "Man Utd"
+      "Fulham",
+      "Manchester United"
+    ]
+  },
+  {
+    "name": "Chris Sutton",
+    "clubs": [
+      "Aston Villa",
+      "Chelsea"
+    ]
+  },
+  {
+    "name": "Chris Wood",
+    "clubs": [
+      "Brighton",
+      "Burnley",
+      "Leeds United",
+      "Newcastle United"
+    ]
+  },
+  {
+    "name": "Chrisaird",
+    "clubs": [
+      "Burnley",
+      "Fulham"
     ]
   },
   {
     "name": "Christian Abbiati",
     "clubs": [
-      "Juventus",
       "AC Milan",
-      "Atletico Madrid"
+      "Atlético Madrid",
+      "Juventus"
     ]
   },
   {
     "name": "Christian Eriksen",
     "clubs": [
-      "Tottenham",
       "Ajax",
+      "Brentford",
       "Inter",
-      "Man Utd"
+      "Manchester United",
+      "Tottenham"
     ]
   },
   {
@@ -2256,67 +5014,121 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Christian Norgaard",
+    "clubs": [
+      "Arsenal",
+      "Brentford"
+    ]
+  },
+  {
     "name": "Christian Panucci",
     "clubs": [
-      "Chelsea",
       "AS Roma",
-      "Real Madrid",
-      "Inter"
+      "Chelsea",
+      "Inter",
+      "Real Madrid"
     ]
   },
   {
     "name": "Christian Poulsen",
     "clubs": [
-      "Juventus",
       "Ajax",
+      "Juventus",
       "Liverpool"
     ]
   },
   {
     "name": "Christian Pulisic",
     "clubs": [
-      "Bor. Dortmund",
-      "Chelsea",
-      "AC Milan"
+      "AC Milan",
+      "Borussia Dortmund",
+      "Chelsea"
     ]
   },
   {
     "name": "Christian Vieri",
     "clubs": [
-      "Juventus",
       "AC Milan",
-      "Atletico Madrid",
-      "Inter"
+      "Atlético Madrid",
+      "Inter",
+      "Juventus"
+    ]
+  },
+  {
+    "name": "Christianassila",
+    "clubs": [
+      "Sunderland",
+      "West Ham"
+    ]
+  },
+  {
+    "name": "Christianenteke",
+    "clubs": [
+      "Aston Villa",
+      "Crystal Palace"
     ]
   },
   {
     "name": "Christopher Lungoyi",
     "clubs": [
-      "Juventus",
-      "FC Porto"
+      "FC Porto",
+      "Gaziantep FK",
+      "Juventus"
     ]
   },
   {
     "name": "Christopher Nkunku",
     "clubs": [
-      "Chelsea",
       "AC Milan",
-      "PSG"
+      "Chelsea",
+      "Paris Saint-Germain"
     ]
   },
   {
     "name": "Chuba Akpom",
     "clubs": [
+      "Ajax",
       "Arsenal",
-      "Ajax"
+      "Brentford",
+      "Brighton"
     ]
   },
   {
     "name": "Cicinho",
     "clubs": [
-      "Sivasspor",
       "AS Roma",
-      "Real Madrid"
+      "Real Madrid",
+      "Sivasspor"
+    ]
+  },
+  {
+    "name": "Cihan Gümüş",
+    "clubs": [
+      "Eyüpspor",
+      "Galatasaray",
+      "Karagümrük"
+    ]
+  },
+  {
+    "name": "Cihan Yilmaz",
+    "clubs": [
+      "Göztepe",
+      "Sivasspor"
+    ]
+  },
+  {
+    "name": "Cihan Özkaymak",
+    "clubs": [
+      "Alanyaspor",
+      "Denizlispor"
+    ]
+  },
+  {
+    "name": "Cihat Çelik",
+    "clubs": [
+      "Gaziantep FK",
+      "Kocaelispor",
+      "Sivasspor"
     ]
   },
   {
@@ -2329,9 +5141,16 @@ export const PLAYERS = [
   {
     "name": "Ciro Immobile",
     "clubs": [
-      "Bor. Dortmund",
-      "Juventus",
-      "Beşiktaş"
+      "Beşiktaş",
+      "Borussia Dortmund",
+      "Juventus"
+    ]
+  },
+  {
+    "name": "Ci¢ndido Costa",
+    "clubs": [
+      "Benfica",
+      "FC Porto"
     ]
   },
   {
@@ -2339,8 +5158,15 @@ export const PLAYERS = [
     "clubs": [
       "AC Milan",
       "Ajax",
-      "Real Madrid",
-      "Inter"
+      "Inter",
+      "Real Madrid"
+    ]
+  },
+  {
+    "name": "Clarke Carlisle",
+    "clubs": [
+      "Burnley",
+      "Leeds United"
     ]
   },
   {
@@ -2354,85 +5180,246 @@ export const PLAYERS = [
     "name": "Claudio Bravo",
     "clubs": [
       "Barcelona",
-      "Man City"
+      "Manchester City"
     ]
   },
   {
     "name": "Claudio Gomes",
     "clubs": [
-      "PSG",
-      "Man City"
+      "Manchester City",
+      "Paris Saint-Germain"
     ]
   },
   {
     "name": "Claudio Pizarro",
     "clubs": [
-      "Chelsea",
-      "Bayern Munich"
+      "Bayern Munich",
+      "Chelsea"
+    ]
+  },
+  {
+    "name": "Claudio Reyna",
+    "clubs": [
+      "Manchester City",
+      "Sunderland"
+    ]
+  },
+  {
+    "name": "Claudio Winck",
+    "clubs": [
+      "Inter",
+      "Kasımpaşa"
     ]
   },
   {
     "name": "Clement Grenier",
     "clubs": [
       "AS Roma",
-      "Olymp. Lyon"
+      "Olympique Lyon"
     ]
   },
   {
     "name": "Clement Lenglet",
     "clubs": [
-      "Tottenham",
+      "Aston Villa",
+      "Atlético Madrid",
       "Barcelona",
-      "Atletico Madrid"
+      "Tottenham"
+    ]
+  },
+  {
+    "name": "Clint Dempsey",
+    "clubs": [
+      "Fulham",
+      "Tottenham"
+    ]
+  },
+  {
+    "name": "Clinton Morrison",
+    "clubs": [
+      "Brentford",
+      "Crystal Palace"
+    ]
+  },
+  {
+    "name": "Clive Clarke",
+    "clubs": [
+      "Sunderland",
+      "West Ham"
+    ]
+  },
+  {
+    "name": "Cody Drameh",
+    "clubs": [
+      "Fulham",
+      "Leeds United"
+    ]
+  },
+  {
+    "name": "Cole Dasilva",
+    "clubs": [
+      "Brentford",
+      "Chelsea"
     ]
   },
   {
     "name": "Cole Palmer",
     "clubs": [
       "Chelsea",
-      "Man City"
+      "Manchester City"
     ]
   },
   {
     "name": "Colin Kazım-Richards",
     "clubs": [
       "Arsenal",
+      "Brighton",
       "Fenerbahçe",
-      "Galatasaray"
+      "Galatasaray",
+      "Karagümrük"
+    ]
+  },
+  {
+    "name": "Conal Platt",
+    "clubs": [
+      "Bournemouth",
+      "Liverpool"
+    ]
+  },
+  {
+    "name": "Connor Roberts",
+    "clubs": [
+      "Burnley",
+      "Leeds United"
+    ]
+  },
+  {
+    "name": "Conor Coady",
+    "clubs": [
+      "Everton",
+      "Liverpool",
+      "Wolverhampton"
     ]
   },
   {
     "name": "Conor Gallagher",
     "clubs": [
+      "Atlético Madrid",
       "Chelsea",
-      "Atletico Madrid"
+      "Crystal Palace"
+    ]
+  },
+  {
+    "name": "Conor Hourihane",
+    "clubs": [
+      "Aston Villa",
+      "Sunderland"
+    ]
+  },
+  {
+    "name": "Conor McAleny",
+    "clubs": [
+      "Brentford",
+      "Everton"
     ]
   },
   {
     "name": "Corentin Tolisso",
     "clubs": [
       "Bayern Munich",
-      "Olymp. Lyon"
+      "Olympique Lyon"
+    ]
+  },
+  {
+    "name": "Corry Evans",
+    "clubs": [
+      "Manchester United",
+      "Sunderland"
     ]
   },
   {
     "name": "Costel Pantilimon",
     "clubs": [
       "Denizlispor",
-      "Man City"
+      "Manchester City",
+      "Sunderland"
+    ]
+  },
+  {
+    "name": "Craig Armstrong",
+    "clubs": [
+      "Burnley",
+      "Nottingham Forest"
     ]
   },
   {
     "name": "Craig Bellamy",
     "clubs": [
       "Liverpool",
-      "Man City"
+      "Manchester City"
+    ]
+  },
+  {
+    "name": "Craig Davies",
+    "clubs": [
+      "Brighton",
+      "Manchester City",
+      "Wolverhampton"
+    ]
+  },
+  {
+    "name": "Craig Dawson",
+    "clubs": [
+      "West Ham",
+      "Wolverhampton"
+    ]
+  },
+  {
+    "name": "Craig Dobson",
+    "clubs": [
+      "Brentford",
+      "Crystal Palace"
+    ]
+  },
+  {
+    "name": "Craig Forrest",
+    "clubs": [
+      "Chelsea",
+      "West Ham"
+    ]
+  },
+  {
+    "name": "Craig Gardner",
+    "clubs": [
+      "Aston Villa",
+      "Sunderland"
+    ]
+  },
+  {
+    "name": "Craig Hignett",
+    "clubs": [
+      "Leeds United",
+      "Liverpool"
+    ]
+  },
+  {
+    "name": "Craig Moore",
+    "clubs": [
+      "Crystal Palace",
+      "Newcastle United"
+    ]
+  },
+  {
+    "name": "Craigellamy",
+    "clubs": [
+      "Newcastle United",
+      "West Ham"
     ]
   },
   {
     "name": "Cristian Ansaldi",
     "clubs": [
-      "Atletico Madrid",
+      "Atlético Madrid",
       "Inter"
     ]
   },
@@ -2446,98 +5433,177 @@ export const PLAYERS = [
   {
     "name": "Cristian Rodriguez",
     "clubs": [
-      "FC Porto",
-      "Atletico Madrid",
-      "Benfica"
+      "Atlético Madrid",
+      "Benfica",
+      "FC Porto"
     ]
   },
   {
     "name": "Cristian Romero",
     "clubs": [
-      "Tottenham",
-      "Juventus"
+      "Juventus",
+      "Tottenham"
     ]
   },
   {
     "name": "Cristian SÄƒpunaru",
     "clubs": [
-      "Kayserispor",
+      "Denizlispor",
       "FC Porto",
-      "Denizlispor"
+      "Kayserispor"
     ]
   },
   {
     "name": "Cristian Tello",
     "clubs": [
-      "FC Porto",
-      "Barcelona"
+      "Barcelona",
+      "FC Porto"
     ]
   },
   {
     "name": "Cristiano Ronaldo",
     "clubs": [
       "Juventus",
-      "Real Madrid",
-      "Man Utd"
+      "Manchester United",
+      "Real Madrid"
     ]
   },
   {
     "name": "Cristiano Zanetti",
     "clubs": [
-      "Juventus",
       "AS Roma",
-      "Inter"
+      "Inter",
+      "Juventus"
     ]
   },
   {
     "name": "Cristovao Ramos",
     "clubs": [
-      "Konyaspor",
-      "FC Porto"
+      "FC Porto",
+      "Konyaspor"
+    ]
+  },
+  {
+    "name": "Crysencio Summerville",
+    "clubs": [
+      "Leeds United",
+      "West Ham"
+    ]
+  },
+  {
+    "name": "Cumali Bişi",
+    "clubs": [
+      "Beşiktaş",
+      "Çaykur Rizespor"
     ]
   },
   {
     "name": "Cyril Domoraud",
     "clubs": [
-      "Konyaspor",
       "AC Milan",
-      "Inter"
+      "Inter",
+      "Konyaspor"
     ]
   },
   {
-    "name": "CÃ¢ndido Costa",
+    "name": "DJ Campbell",
     "clubs": [
-      "FC Porto",
-      "Benfica"
+      "Aston Villa",
+      "Brentford"
     ]
   },
   {
     "name": "Daishawn Redan",
     "clubs": [
-      "Chelsea",
-      "Ajax"
+      "Ajax",
+      "Chelsea"
+    ]
+  },
+  {
+    "name": "Dale Stephens",
+    "clubs": [
+      "Brighton",
+      "Burnley"
     ]
   },
   {
     "name": "Daley Blind",
     "clubs": [
       "Ajax",
-      "Man Utd",
-      "Bayern Munich"
+      "Bayern Munich",
+      "Manchester United"
+    ]
+  },
+  {
+    "name": "Damien Duff",
+    "clubs": [
+      "Chelsea",
+      "Fulham",
+      "Newcastle United"
+    ]
+  },
+  {
+    "name": "Dan Agyei",
+    "clubs": [
+      "Burnley",
+      "Kocaelispor"
+    ]
+  },
+  {
+    "name": "Dan Casey",
+    "clubs": [
+      "Arsenal",
+      "Sunderland"
+    ]
+  },
+  {
+    "name": "Dan Crowley",
+    "clubs": [
+      "Arsenal",
+      "Aston Villa"
+    ]
+  },
+  {
+    "name": "Dan Gosling",
+    "clubs": [
+      "Bournemouth",
+      "Everton",
+      "Newcastle United"
+    ]
+  },
+  {
+    "name": "Dan Harding",
+    "clubs": [
+      "Brighton",
+      "Leeds United"
+    ]
+  },
+  {
+    "name": "Dan Kemp",
+    "clubs": [
+      "Chelsea",
+      "West Ham"
     ]
   },
   {
     "name": "Dan-Axel Zagadou",
     "clubs": [
-      "Bor. Dortmund",
-      "PSG"
+      "Borussia Dortmund",
+      "Paris Saint-Germain"
+    ]
+  },
+  {
+    "name": "Dango Ouattara",
+    "clubs": [
+      "Bournemouth",
+      "Brentford"
     ]
   },
   {
     "name": "Dani Alves",
     "clubs": [
-      "Juventus",
-      "Barcelona"
+      "Barcelona",
+      "Juventus"
     ]
   },
   {
@@ -2550,16 +5616,30 @@ export const PLAYERS = [
   {
     "name": "Dani Garcia",
     "clubs": [
-      "Denizlispor",
       "Barcelona",
+      "Denizlispor",
       "Real Madrid"
     ]
   },
   {
     "name": "Dani Pacheco",
     "clubs": [
-      "Atletico Madrid",
+      "Atlético Madrid",
       "Liverpool"
+    ]
+  },
+  {
+    "name": "Dani van den Heuvel",
+    "clubs": [
+      "Ajax",
+      "Leeds United"
+    ]
+  },
+  {
+    "name": "Daniel Akindayini",
+    "clubs": [
+      "Brighton",
+      "Tottenham"
     ]
   },
   {
@@ -2579,40 +5659,78 @@ export const PLAYERS = [
   {
     "name": "Daniel Candeias",
     "clubs": [
+      "Alanyaspor",
+      "Benfica",
       "FC Porto",
-      "Genclerbirligi",
-      "Benfica"
+      "Gençlerbirliği",
+      "Kocaelispor"
+    ]
+  },
+  {
+    "name": "Daniel Gore",
+    "clubs": [
+      "Burnley",
+      "Manchester United"
+    ]
+  },
+  {
+    "name": "Daniel James",
+    "clubs": [
+      "Fulham",
+      "Leeds United",
+      "Manchester United"
+    ]
+  },
+  {
+    "name": "Daniel Jinadu",
+    "clubs": [
+      "Chelsea",
+      "West Ham"
+    ]
+  },
+  {
+    "name": "Daniel Johnson",
+    "clubs": [
+      "Aston Villa",
+      "Karagümrük"
     ]
   },
   {
     "name": "Daniel Opare",
     "clubs": [
-      "FC Porto",
-      "Beşiktaş"
+      "Beşiktaş",
+      "FC Porto"
     ]
   },
   {
     "name": "Daniel Osvaldo",
     "clubs": [
-      "Juventus",
-      "FC Porto",
       "AS Roma",
-      "Inter"
+      "FC Porto",
+      "Inter",
+      "Juventus"
+    ]
+  },
+  {
+    "name": "Daniel Oyegoke",
+    "clubs": [
+      "Arsenal",
+      "Brentford"
     ]
   },
   {
     "name": "Daniel Sturridge",
     "clubs": [
       "Chelsea",
-      "Trabzonspor",
       "Liverpool",
-      "Man City"
+      "Manchester City",
+      "Trabzonspor"
     ]
   },
   {
     "name": "Daniel Wass",
     "clubs": [
-      "Atletico Madrid",
+      "Atlético Madrid",
       "Benfica"
     ]
   },
@@ -2626,76 +5744,222 @@ export const PLAYERS = [
   {
     "name": "Daniele Rugani",
     "clubs": [
-      "Juventus",
-      "Ajax"
+      "Ajax",
+      "Juventus"
+    ]
+  },
+  {
+    "name": "Danielentley",
+    "clubs": [
+      "Brentford",
+      "Wolverhampton"
     ]
   },
   {
     "name": "Danijel Aleksic",
     "clubs": [
-      "Konyaspor",
-      "Başakşehir"
+      "Başakşehir",
+      "Konyaspor"
     ]
   },
   {
     "name": "Danilo",
     "clubs": [
-      "Juventus",
-      "FC Porto",
-      "Antalyaspor",
       "Ajax",
-      "Real Madrid",
-      "Man City"
+      "Antalyaspor",
+      "FC Porto",
+      "Juventus",
+      "Manchester City",
+      "Real Madrid"
     ]
   },
   {
     "name": "Danilo Pereira",
     "clubs": [
-      "FC Porto",
-      "Benfica"
+      "Benfica",
+      "FC Porto"
+    ]
+  },
+  {
+    "name": "Danny Cadamarteri",
+    "clubs": [
+      "Everton",
+      "Leeds United"
+    ]
+  },
+  {
+    "name": "Danny Collins",
+    "clubs": [
+      "Sunderland",
+      "West Ham"
+    ]
+  },
+  {
+    "name": "Danny Cullip",
+    "clubs": [
+      "Brentford",
+      "Brighton",
+      "Fulham"
     ]
   },
   {
     "name": "Danny Drinkwater",
     "clubs": [
+      "Aston Villa",
+      "Burnley",
       "Chelsea",
-      "Man Utd"
+      "Kasımpaşa",
+      "Manchester United"
+    ]
+  },
+  {
+    "name": "Danny Fox",
+    "clubs": [
+      "Burnley",
+      "Everton"
+    ]
+  },
+  {
+    "name": "Danny Gabbidon",
+    "clubs": [
+      "Crystal Palace",
+      "West Ham"
+    ]
+  },
+  {
+    "name": "Danny Graham",
+    "clubs": [
+      "Leeds United",
+      "Sunderland",
+      "Wolverhampton"
     ]
   },
   {
     "name": "Danny Granville",
     "clubs": [
       "Chelsea",
-      "Man City"
+      "Crystal Palace",
+      "Leeds United",
+      "Manchester City"
+    ]
+  },
+  {
+    "name": "Danny Guthrie",
+    "clubs": [
+      "Fulham",
+      "Liverpool",
+      "Newcastle United"
+    ]
+  },
+  {
+    "name": "Danny Higginbotham",
+    "clubs": [
+      "Manchester United",
+      "Sunderland"
+    ]
+  },
+  {
+    "name": "Danny Hoesen",
+    "clubs": [
+      "Ajax",
+      "Fulham"
+    ]
+  },
+  {
+    "name": "Danny Hollands",
+    "clubs": [
+      "Bournemouth",
+      "Chelsea"
+    ]
+  },
+  {
+    "name": "Danny Ings",
+    "clubs": [
+      "Aston Villa",
+      "Bournemouth",
+      "Burnley",
+      "Liverpool",
+      "West Ham"
     ]
   },
   {
     "name": "Danny Murphy",
     "clubs": [
-      "Tottenham",
-      "Liverpool"
+      "Fulham",
+      "Liverpool",
+      "Tottenham"
+    ]
+  },
+  {
+    "name": "Danny Pappoe",
+    "clubs": [
+      "Brighton",
+      "Chelsea"
+    ]
+  },
+  {
+    "name": "Danny Pugh",
+    "clubs": [
+      "Leeds United",
+      "Manchester United"
     ]
   },
   {
     "name": "Danny Rose",
     "clubs": [
-      "Tottenham",
-      "Man Utd",
-      "Man City"
+      "Leeds United",
+      "Manchester City",
+      "Manchester United",
+      "Newcastle United",
+      "Sunderland",
+      "Tottenham"
+    ]
+  },
+  {
+    "name": "Danny Simpson",
+    "clubs": [
+      "Manchester United",
+      "Newcastle United",
+      "Sunderland"
+    ]
+  },
+  {
+    "name": "Danny Webber",
+    "clubs": [
+      "Leeds United",
+      "Manchester United"
     ]
   },
   {
     "name": "Danny Welbeck",
     "clubs": [
       "Arsenal",
-      "Man Utd"
+      "Brighton",
+      "Manchester United",
+      "Sunderland"
+    ]
+  },
+  {
+    "name": "Dannyatth",
+    "clubs": [
+      "Sunderland",
+      "Wolverhampton"
+    ]
+  },
+  {
+    "name": "Danurn",
+    "clubs": [
+      "Brighton",
+      "Fulham",
+      "Newcastle United"
     ]
   },
   {
     "name": "Dany Nounkeu",
     "clubs": [
+      "Beşiktaş",
       "Galatasaray",
-      "Beşiktaş"
+      "Gaziantepspor"
     ]
   },
   {
@@ -2706,10 +5970,107 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Dario Del Fabro",
+    "clubs": [
+      "Juventus",
+      "Leeds United"
+    ]
+  },
+  {
     "name": "Dario Simic",
     "clubs": [
       "AC Milan",
       "Inter"
+    ]
+  },
+  {
+    "name": "Darius Vassell",
+    "clubs": [
+      "Aston Villa",
+      "Manchester City"
+    ]
+  },
+  {
+    "name": "Darko Churlinov",
+    "clubs": [
+      "Burnley",
+      "Kocaelispor"
+    ]
+  },
+  {
+    "name": "Darko Gyabi",
+    "clubs": [
+      "Leeds United",
+      "Manchester City"
+    ]
+  },
+  {
+    "name": "Darren Anderton",
+    "clubs": [
+      "Bournemouth",
+      "Tottenham",
+      "Wolverhampton"
+    ]
+  },
+  {
+    "name": "Darren Peacock",
+    "clubs": [
+      "Newcastle United",
+      "Wolverhampton"
+    ]
+  },
+  {
+    "name": "Darren Potter",
+    "clubs": [
+      "Everton",
+      "Liverpool",
+      "Wolverhampton"
+    ]
+  },
+  {
+    "name": "Darren Pratley",
+    "clubs": [
+      "Brentford",
+      "Fulham"
+    ]
+  },
+  {
+    "name": "Darren Randolph",
+    "clubs": [
+      "Bournemouth",
+      "West Ham"
+    ]
+  },
+  {
+    "name": "Darren Ward",
+    "clubs": [
+      "Crystal Palace",
+      "Wolverhampton"
+    ]
+  },
+  {
+    "name": "Darrenent",
+    "clubs": [
+      "Aston Villa",
+      "Brighton",
+      "Fulham",
+      "Sunderland"
+    ]
+  },
+  {
+    "name": "Darron Gibson",
+    "clubs": [
+      "Everton",
+      "Manchester United",
+      "Sunderland",
+      "Wolverhampton"
+    ]
+  },
+  {
+    "name": "Darvydas Sernas",
+    "clubs": [
+      "Alanyaspor",
+      "Gaziantepspor"
     ]
   },
   {
@@ -2720,69 +6081,178 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Daryl Murphy",
+    "clubs": [
+      "Newcastle United",
+      "Sunderland"
+    ]
+  },
+  {
+    "name": "Daryl Taylor",
+    "clubs": [
+      "Aston Villa",
+      "Bournemouth"
+    ]
+  },
+  {
+    "name": "Dave Moli",
+    "clubs": [
+      "Liverpool",
+      "Wolverhampton"
+    ]
+  },
+  {
     "name": "David Alaba",
     "clubs": [
-      "Real Madrid",
-      "Bayern Munich"
+      "Bayern Munich",
+      "Real Madrid"
     ]
   },
   {
     "name": "David Beckham",
     "clubs": [
       "AC Milan",
-      "Real Madrid",
-      "Man Utd"
+      "Manchester United",
+      "Real Madrid"
     ]
   },
   {
     "name": "David Bentley",
     "clubs": [
-      "Tottenham",
-      "Arsenal"
+      "Arsenal",
+      "Tottenham"
     ]
   },
   {
     "name": "David Carmo",
     "clubs": [
-      "FC Porto",
-      "Benfica"
+      "Benfica",
+      "FC Porto"
     ]
   },
   {
-    "name": "David de Gea",
+    "name": "David Carney",
     "clubs": [
-      "Atletico Madrid",
-      "Man Utd"
+      "Everton",
+      "Newcastle United"
+    ]
+  },
+  {
+    "name": "David Connolly",
+    "clubs": [
+      "Sunderland",
+      "West Ham",
+      "Wolverhampton"
+    ]
+  },
+  {
+    "name": "David Datro Fofana",
+    "clubs": [
+      "Burnley",
+      "Chelsea",
+      "Göztepe"
+    ]
+  },
+  {
+    "name": "David Edgar",
+    "clubs": [
+      "Burnley",
+      "Newcastle United"
+    ]
+  },
+  {
+    "name": "David Forde",
+    "clubs": [
+      "Bournemouth",
+      "West Ham"
+    ]
+  },
+  {
+    "name": "David Ginola",
+    "clubs": [
+      "Aston Villa",
+      "Everton",
+      "Newcastle United",
+      "Tottenham"
+    ]
+  },
+  {
+    "name": "David Healy",
+    "clubs": [
+      "Fulham",
+      "Leeds United",
+      "Manchester United",
+      "Sunderland"
     ]
   },
   {
     "name": "David James",
     "clubs": [
+      "Aston Villa",
+      "Bournemouth",
       "Liverpool",
-      "Man City"
+      "Manchester City",
+      "West Ham"
+    ]
+  },
+  {
+    "name": "David Jones",
+    "clubs": [
+      "Burnley",
+      "Manchester United",
+      "Wolverhampton"
     ]
   },
   {
     "name": "David Jurasek",
     "clubs": [
-      "Beşiktaş",
-      "Benfica"
+      "Benfica",
+      "Beşiktaş"
+    ]
+  },
+  {
+    "name": "David Lopez",
+    "clubs": [
+      "Brighton",
+      "Napoli"
     ]
   },
   {
     "name": "David Luiz",
     "clubs": [
-      "Chelsea",
       "Arsenal",
-      "Benfica"
+      "Benfica",
+      "Chelsea"
+    ]
+  },
+  {
+    "name": "David Martin",
+    "clubs": [
+      "Leeds United",
+      "Liverpool",
+      "West Ham"
+    ]
+  },
+  {
+    "name": "David May",
+    "clubs": [
+      "Burnley",
+      "Manchester United"
     ]
   },
   {
     "name": "David Neres",
     "clubs": [
       "Ajax",
-      "Napoli",
-      "Benfica"
+      "Benfica",
+      "Napoli"
+    ]
+  },
+  {
+    "name": "David Nugent",
+    "clubs": [
+      "Burnley",
+      "Liverpool"
     ]
   },
   {
@@ -2797,28 +6267,72 @@ export const PLAYERS = [
     "clubs": [
       "AS Roma",
       "Inter",
-      "Man City"
+      "Manchester City"
+    ]
+  },
+  {
+    "name": "David Prutton",
+    "clubs": [
+      "Leeds United",
+      "Nottingham Forest"
+    ]
+  },
+  {
+    "name": "David Raya",
+    "clubs": [
+      "Arsenal",
+      "Brentford"
     ]
   },
   {
     "name": "David Silva",
     "clubs": [
       "FC Porto",
-      "Man City"
+      "Manchester City"
+    ]
+  },
+  {
+    "name": "David Stockdale",
+    "clubs": [
+      "Brighton",
+      "Fulham"
     ]
   },
   {
     "name": "David Suazo",
     "clubs": [
-      "Inter",
-      "Benfica"
+      "Benfica",
+      "Inter"
+    ]
+  },
+  {
+    "name": "David Terrier",
+    "clubs": [
+      "Newcastle United",
+      "West Ham"
+    ]
+  },
+  {
+    "name": "David Unsworth",
+    "clubs": [
+      "Aston Villa",
+      "Burnley",
+      "Everton",
+      "West Ham"
     ]
   },
   {
     "name": "David Villa",
     "clubs": [
-      "Barcelona",
-      "Atletico Madrid"
+      "Atlético Madrid",
+      "Barcelona"
+    ]
+  },
+  {
+    "name": "David de Gea",
+    "clubs": [
+      "Atlético Madrid",
+      "Manchester United"
     ]
   },
   {
@@ -2839,96 +6353,222 @@ export const PLAYERS = [
     "name": "Davide Santon",
     "clubs": [
       "AS Roma",
-      "Inter"
+      "Inter",
+      "Newcastle United"
     ]
   },
   {
     "name": "Davide Zappacosta",
     "clubs": [
-      "Chelsea",
-      "AS Roma"
+      "AS Roma",
+      "Chelsea"
+    ]
+  },
+  {
+    "name": "Davidellion",
+    "clubs": [
+      "Sunderland",
+      "West Ham"
+    ]
+  },
+  {
+    "name": "Davidson",
+    "clubs": [
+      "Alanyaspor",
+      "Başakşehir"
+    ]
+  },
+  {
+    "name": "Davidurrows",
+    "clubs": [
+      "Everton",
+      "West Ham"
+    ]
+  },
+  {
+    "name": "Davidutton",
+    "clubs": [
+      "Bournemouth",
+      "Brentford",
+      "Brighton",
+      "Fulham"
     ]
   },
   {
     "name": "Davinson Sanchez",
     "clubs": [
-      "Tottenham",
+      "Ajax",
       "Galatasaray",
-      "Ajax"
+      "Tottenham"
     ]
   },
   {
     "name": "Davor Suker",
     "clubs": [
       "Arsenal",
-      "Real Madrid"
+      "Real Madrid",
+      "West Ham"
     ]
   },
   {
     "name": "Davy Klaassen",
     "clubs": [
       "Ajax",
+      "Everton",
       "Inter"
-    ]
-  },
-  {
-    "name": "Dean Huijsen",
-    "clubs": [
-      "Juventus",
-      "AS Roma",
-      "Real Madrid"
     ]
   },
   {
     "name": "DeAndre Yedlin",
     "clubs": [
+      "Galatasaray",
+      "Newcastle United",
+      "Sunderland",
+      "Tottenham"
+    ]
+  },
+  {
+    "name": "Dean Henderson",
+    "clubs": [
+      "Crystal Palace",
+      "Manchester United"
+    ]
+  },
+  {
+    "name": "Dean Huijsen",
+    "clubs": [
+      "AS Roma",
+      "Bournemouth",
+      "Juventus",
+      "Real Madrid"
+    ]
+  },
+  {
+    "name": "Dean Marney",
+    "clubs": [
+      "Burnley",
+      "Tottenham"
+    ]
+  },
+  {
+    "name": "Dean Richards",
+    "clubs": [
       "Tottenham",
-      "Galatasaray"
+      "Wolverhampton"
+    ]
+  },
+  {
+    "name": "Deanowditch",
+    "clubs": [
+      "Brentford",
+      "Brighton",
+      "Burnley"
+    ]
+  },
+  {
+    "name": "Declan Frith",
+    "clubs": [
+      "Aston Villa",
+      "Chelsea"
     ]
   },
   {
     "name": "Declan Rice",
     "clubs": [
+      "Arsenal",
       "Chelsea",
-      "Arsenal"
+      "West Ham"
     ]
   },
   {
     "name": "Deco",
     "clubs": [
-      "Chelsea",
-      "FC Porto",
       "Barcelona",
-      "Benfica"
+      "Benfica",
+      "Chelsea",
+      "FC Porto"
+    ]
+  },
+  {
+    "name": "Dejan Kelhar",
+    "clubs": [
+      "Samsunspor",
+      "Sivasspor"
     ]
   },
   {
     "name": "Dejan Kulusevski",
     "clubs": [
-      "Tottenham",
-      "Juventus"
+      "Juventus",
+      "Tottenham"
+    ]
+  },
+  {
+    "name": "Deji Sotona",
+    "clubs": [
+      "Brentford",
+      "Burnley",
+      "Manchester United"
+    ]
+  },
+  {
+    "name": "Dele Adebola",
+    "clubs": [
+      "Burnley",
+      "Crystal Palace"
     ]
   },
   {
     "name": "Dele Alli",
     "clubs": [
-      "Tottenham",
-      "Beşiktaş"
+      "Beşiktaş",
+      "Everton",
+      "Tottenham"
     ]
   },
   {
     "name": "Demba Ba",
     "clubs": [
-      "Chelsea",
       "Başakşehir",
-      "Beşiktaş"
+      "Beşiktaş",
+      "Chelsea",
+      "Göztepe"
+    ]
+  },
+  {
+    "name": "Dembaa",
+    "clubs": [
+      "Newcastle United",
+      "West Ham"
+    ]
+  },
+  {
+    "name": "Demi Akarakiri",
+    "clubs": [
+      "Arsenal",
+      "Everton"
     ]
   },
   {
     "name": "Deni Milosevic",
     "clubs": [
-      "Konyaspor",
-      "Antalyaspor"
+      "Antalyaspor",
+      "Konyaspor"
+    ]
+  },
+  {
+    "name": "Denis DrÄƒguÈ™",
+    "clubs": [
+      "Eyüpspor",
+      "Gaziantep FK"
+    ]
+  },
+  {
+    "name": "Denis Irwin",
+    "clubs": [
+      "Leeds United",
+      "Manchester United",
+      "Wolverhampton"
     ]
   },
   {
@@ -2936,7 +6576,7 @@ export const PLAYERS = [
     "clubs": [
       "Arsenal",
       "Barcelona",
-      "Man City"
+      "Manchester City"
     ]
   },
   {
@@ -2949,45 +6589,88 @@ export const PLAYERS = [
   {
     "name": "Deniz Barış",
     "clubs": [
+      "Antalyaspor",
       "Fenerbahçe",
-      "Genclerbirligi",
-      "Antalyaspor"
+      "Gençlerbirliği"
+    ]
+  },
+  {
+    "name": "Deniz Kolgu",
+    "clubs": [
+      "Göztepe",
+      "Kocaelispor"
     ]
   },
   {
     "name": "Deniz Mehmet",
     "clubs": [
       "Kayserispor",
-      "Man Utd"
+      "Manchester United",
+      "West Ham"
     ]
   },
   {
     "name": "Deniz Türüç",
     "clubs": [
-      "Kayserispor",
+      "Başakşehir",
       "Fenerbahçe",
-      "Başakşehir"
+      "Kayserispor"
+    ]
+  },
+  {
+    "name": "Deniz Vural",
+    "clubs": [
+      "Alanyaspor",
+      "Denizlispor"
     ]
   },
   {
     "name": "Deniz Yılmaz",
     "clubs": [
-      "Trabzonspor",
-      "Genclerbirligi"
+      "Gençlerbirliği",
+      "Trabzonspor"
+    ]
+  },
+  {
+    "name": "Dennis Adeniran",
+    "clubs": [
+      "Everton",
+      "Fulham"
+    ]
+  },
+  {
+    "name": "Dennis Cirkin",
+    "clubs": [
+      "Sunderland",
+      "Tottenham"
     ]
   },
   {
     "name": "Dennis Gentenaar",
     "clubs": [
-      "Bor. Dortmund",
-      "Ajax"
+      "Ajax",
+      "Borussia Dortmund"
     ]
   },
   {
     "name": "Derley",
     "clubs": [
-      "Kayserispor",
-      "Benfica"
+      "Benfica",
+      "Kayserispor"
+    ]
+  },
+  {
+    "name": "Dermot Mee",
+    "clubs": [
+      "Fulham",
+      "Manchester United"
+    ]
+  },
+  {
+    "name": "Derrick Luckassen",
+    "clubs": [
+      "Karagümrük",
+      "Kasımpaşa"
     ]
   },
   {
@@ -3000,8 +6683,17 @@ export const PLAYERS = [
   {
     "name": "Devran Ayhan",
     "clubs": [
+      "Beşiktaş",
+      "Gaziantepspor",
       "Sivasspor",
-      "Beşiktaş"
+      "Çaykur Rizespor"
+    ]
+  },
+  {
+    "name": "Devrim Taşkaya",
+    "clubs": [
+      "Beşiktaş",
+      "Eyüpspor"
     ]
   },
   {
@@ -3014,8 +6706,16 @@ export const PLAYERS = [
   {
     "name": "Diant Ramaj",
     "clubs": [
-      "Bor. Dortmund",
-      "Ajax"
+      "Ajax",
+      "Borussia Dortmund"
+    ]
+  },
+  {
+    "name": "Dickson Etuhu",
+    "clubs": [
+      "Fulham",
+      "Manchester City",
+      "Sunderland"
     ]
   },
   {
@@ -3023,6 +6723,13 @@ export const PLAYERS = [
     "clubs": [
       "AC Milan",
       "Benfica"
+    ]
+  },
+  {
+    "name": "Didier Domi",
+    "clubs": [
+      "Leeds United",
+      "Newcastle United"
     ]
   },
   {
@@ -3042,46 +6749,61 @@ export const PLAYERS = [
   {
     "name": "Diego",
     "clubs": [
-      "Juventus",
+      "Atlético Madrid",
       "FC Porto",
       "Fenerbahçe",
-      "Atletico Madrid"
+      "Juventus"
     ]
   },
   {
     "name": "Diego Angelo",
     "clubs": [
-      "Kayserispor",
-      "Genclerbirligi",
-      "Antalyaspor"
+      "Antalyaspor",
+      "Gençlerbirliği",
+      "Kayserispor"
     ]
   },
   {
     "name": "Diego Biseswar",
     "clubs": [
-      "Kayserispor",
-      "Ajax"
+      "Ajax",
+      "Kayserispor"
+    ]
+  },
+  {
+    "name": "Diego Carlos",
+    "clubs": [
+      "Aston Villa",
+      "Fenerbahçe"
+    ]
+  },
+  {
+    "name": "Diego Cavalieri",
+    "clubs": [
+      "Crystal Palace",
+      "Liverpool"
     ]
   },
   {
     "name": "Diego Costa",
     "clubs": [
+      "Atlético Madrid",
       "Chelsea",
-      "Atletico Madrid"
+      "Wolverhampton"
     ]
   },
   {
     "name": "Diego Forlan",
     "clubs": [
-      "Atletico Madrid",
+      "Atlético Madrid",
       "Inter",
-      "Man Utd"
+      "Manchester United"
     ]
   },
   {
     "name": "Diego Godin",
     "clubs": [
-      "Atletico Madrid",
+      "Atlético Madrid",
       "Inter"
     ]
   },
@@ -3096,14 +6818,15 @@ export const PLAYERS = [
     "name": "Diego Llorente",
     "clubs": [
       "AS Roma",
+      "Leeds United",
       "Real Madrid"
     ]
   },
   {
     "name": "Diego Lopes",
     "clubs": [
-      "Kayserispor",
-      "Benfica"
+      "Benfica",
+      "Kayserispor"
     ]
   },
   {
@@ -3116,15 +6839,15 @@ export const PLAYERS = [
   {
     "name": "Diego Moreira",
     "clubs": [
-      "Chelsea",
-      "Benfica"
+      "Benfica",
+      "Chelsea"
     ]
   },
   {
     "name": "Diego Perotti",
     "clubs": [
-      "Fenerbahçe",
-      "AS Roma"
+      "AS Roma",
+      "Fenerbahçe"
     ]
   },
   {
@@ -3135,61 +6858,99 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Dilaver Güçlü",
+    "clubs": [
+      "Denizlispor",
+      "Göztepe",
+      "Kocaelispor",
+      "Samsunspor"
+    ]
+  },
+  {
     "name": "Dillon Hoogewerf",
     "clubs": [
       "Ajax",
-      "Man Utd"
+      "Manchester United"
     ]
   },
   {
     "name": "Dimitar Berbatov",
     "clubs": [
-      "Tottenham",
-      "Man Utd"
+      "Manchester United",
+      "Tottenham"
     ]
   },
   {
     "name": "Dimitar Rangelov",
     "clubs": [
-      "Bor. Dortmund",
+      "Borussia Dortmund",
       "Konyaspor"
     ]
   },
   {
     "name": "Dimitrios Goutas",
     "clubs": [
-      "Sivasspor",
-      "Genclerbirligi"
+      "Gençlerbirliği",
+      "Sivasspor"
+    ]
+  },
+  {
+    "name": "Dimitrios Kourbelis",
+    "clubs": [
+      "Karagümrük",
+      "Trabzonspor"
     ]
   },
   {
     "name": "Dimitrios Pelkas",
     "clubs": [
-      "Fenerbahçe",
-      "Başakşehir"
+      "Başakşehir",
+      "Fenerbahçe"
     ]
   },
   {
     "name": "Diogo Barbosa",
     "clubs": [
-      "FC Porto",
-      "Benfica"
+      "Benfica",
+      "FC Porto"
+    ]
+  },
+  {
+    "name": "Diogo Coelho",
+    "clubs": [
+      "Benfica",
+      "Kocaelispor"
     ]
   },
   {
     "name": "Diogo Dalot",
     "clubs": [
-      "FC Porto",
       "AC Milan",
-      "Man Utd"
+      "FC Porto",
+      "Manchester United"
     ]
   },
   {
     "name": "Diogo Jota",
     "clubs": [
+      "Atlético Madrid",
       "FC Porto",
-      "Atletico Madrid",
-      "Liverpool"
+      "Liverpool",
+      "Wolverhampton"
+    ]
+  },
+  {
+    "name": "Dion Dublin",
+    "clubs": [
+      "Aston Villa",
+      "Manchester United"
+    ]
+  },
+  {
+    "name": "Dion Sanderson",
+    "clubs": [
+      "Sunderland",
+      "Wolverhampton"
     ]
   },
   {
@@ -3197,6 +6958,27 @@ export const PLAYERS = [
     "clubs": [
       "Fenerbahçe",
       "Liverpool"
+    ]
+  },
+  {
+    "name": "Dirk Lehmann",
+    "clubs": [
+      "Brighton",
+      "Fulham"
+    ]
+  },
+  {
+    "name": "Divin Mubama",
+    "clubs": [
+      "Manchester City",
+      "West Ham"
+    ]
+  },
+  {
+    "name": "Divine Mukasa",
+    "clubs": [
+      "Manchester City",
+      "West Ham"
     ]
   },
   {
@@ -3209,20 +6991,44 @@ export const PLAYERS = [
   {
     "name": "Djalma",
     "clubs": [
-      "Konyaspor",
+      "Alanyaspor",
       "FC Porto",
-      "Genclerbirligi"
+      "Gençlerbirliği",
+      "Kasımpaşa",
+      "Konyaspor"
     ]
   },
   {
     "name": "Djaniny",
     "clubs": [
-      "Trabzonspor",
-      "Benfica"
+      "Benfica",
+      "Trabzonspor"
     ]
   },
   {
-    "name": "DodÃ´",
+    "name": "Djed Spence",
+    "clubs": [
+      "Fulham",
+      "Leeds United",
+      "Tottenham"
+    ]
+  },
+  {
+    "name": "Djibril Cisse",
+    "clubs": [
+      "Liverpool",
+      "Sunderland"
+    ]
+  },
+  {
+    "name": "Djordje Petrovic",
+    "clubs": [
+      "Bournemouth",
+      "Chelsea"
+    ]
+  },
+  {
+    "name": "Dodi´",
     "clubs": [
       "AS Roma",
       "Inter"
@@ -3231,16 +7037,61 @@ export const PLAYERS = [
   {
     "name": "Domingos Quina",
     "clubs": [
+      "Benfica",
       "Chelsea",
-      "Benfica"
+      "Fulham",
+      "West Ham"
+    ]
+  },
+  {
+    "name": "Dominic Calvert-Lewin",
+    "clubs": [
+      "Everton",
+      "Leeds United"
+    ]
+  },
+  {
+    "name": "Dominic Shimmin",
+    "clubs": [
+      "Arsenal",
+      "Bournemouth"
     ]
   },
   {
     "name": "Dominic Solanke",
     "clubs": [
+      "Bournemouth",
       "Chelsea",
-      "Tottenham",
-      "Liverpool"
+      "Liverpool",
+      "Tottenham"
+    ]
+  },
+  {
+    "name": "Dominic Thompson",
+    "clubs": [
+      "Arsenal",
+      "Brentford"
+    ]
+  },
+  {
+    "name": "Don Goodman",
+    "clubs": [
+      "Sunderland",
+      "Wolverhampton"
+    ]
+  },
+  {
+    "name": "Donald Love",
+    "clubs": [
+      "Manchester United",
+      "Sunderland"
+    ]
+  },
+  {
+    "name": "Dong-won Ji",
+    "clubs": [
+      "Borussia Dortmund",
+      "Sunderland"
     ]
   },
   {
@@ -3251,66 +7102,107 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Donnell McNeilly",
+    "clubs": [
+      "Chelsea",
+      "Nottingham Forest"
+    ]
+  },
+  {
     "name": "Donny van de Beek",
     "clubs": [
       "Ajax",
-      "Man Utd"
+      "Manchester United"
     ]
   },
   {
     "name": "Donyell Malen",
     "clubs": [
-      "Bor. Dortmund",
+      "Ajax",
       "Arsenal",
-      "Ajax"
+      "Aston Villa",
+      "Borussia Dortmund"
     ]
   },
   {
     "name": "Dorukhan Toköz",
     "clubs": [
+      "Beşiktaş",
+      "Eyüpspor",
       "Kayserispor",
-      "Trabzonspor",
-      "Beşiktaş"
+      "Trabzonspor"
+    ]
+  },
+  {
+    "name": "Dougie Freedman",
+    "clubs": [
+      "Crystal Palace",
+      "Leeds United",
+      "Wolverhampton"
     ]
   },
   {
     "name": "Douglas",
     "clubs": [
+      "Barcelona",
+      "Benfica",
+      "Beşiktaş",
       "Sivasspor",
       "Trabzonspor",
-      "Barcelona",
-      "Beşiktaş",
-      "Benfica"
+      "Çaykur Rizespor"
     ]
   },
   {
     "name": "Douglas Costa",
     "clubs": [
-      "Juventus",
-      "Bayern Munich"
+      "Bayern Munich",
+      "Juventus"
     ]
   },
   {
     "name": "Douglas Luiz",
     "clubs": [
+      "Aston Villa",
       "Juventus",
-      "Man City"
+      "Manchester City"
+    ]
+  },
+  {
+    "name": "Douglas Tanque",
+    "clubs": [
+      "Kocaelispor",
+      "Samsunspor"
     ]
   },
   {
     "name": "Doğa Kaya",
     "clubs": [
+      "Antalyaspor",
+      "Gençlerbirliği",
+      "Göztepe",
       "Kayserispor",
-      "Sivasspor",
-      "Genclerbirligi",
-      "Antalyaspor"
+      "Sivasspor"
     ]
   },
   {
     "name": "Doğan Alemdar",
     "clubs": [
-      "Kayserispor",
-      "Başakşehir"
+      "Başakşehir",
+      "Kayserispor"
+    ]
+  },
+  {
+    "name": "Doğan Baykuş",
+    "clubs": [
+      "Karagümrük",
+      "Kocaelispor"
+    ]
+  },
+  {
+    "name": "Doğucan Haspolat",
+    "clubs": [
+      "Kasımpaşa",
+      "Trabzonspor"
     ]
   },
   {
@@ -3328,38 +7220,101 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Dursun Karaman",
+    "name": "Duckens Nazon",
+    "clubs": [
+      "Kayserispor",
+      "Wolverhampton"
+    ]
+  },
+  {
+    "name": "Duhan Aksu",
     "clubs": [
       "Fenerbahçe",
-      "Antalyaspor"
+      "Kasımpaşa",
+      "Kocaelispor"
+    ]
+  },
+  {
+    "name": "Dursun Karaman",
+    "clubs": [
+      "Antalyaspor",
+      "Fenerbahçe"
     ]
   },
   {
     "name": "Dusan Tadic",
     "clubs": [
-      "Fenerbahçe",
-      "Ajax"
+      "Ajax",
+      "Fenerbahçe"
     ]
   },
   {
     "name": "Dusko Tosic",
     "clubs": [
-      "Genclerbirligi",
-      "Beşiktaş"
+      "Beşiktaş",
+      "Gençlerbirliği",
+      "Kasımpaşa"
+    ]
+  },
+  {
+    "name": "Dwight Gayle",
+    "clubs": [
+      "Crystal Palace",
+      "Newcastle United"
+    ]
+  },
+  {
+    "name": "Dwight McNeil",
+    "clubs": [
+      "Burnley",
+      "Everton",
+      "Manchester United"
+    ]
+  },
+  {
+    "name": "Dwight Yorke",
+    "clubs": [
+      "Aston Villa",
+      "Manchester United",
+      "Sunderland"
+    ]
+  },
+  {
+    "name": "Dylan Williams",
+    "clubs": [
+      "Chelsea",
+      "Wolverhampton"
+    ]
+  },
+  {
+    "name": "Eberechi Eze",
+    "clubs": [
+      "Arsenal",
+      "Crystal Palace",
+      "Fulham"
+    ]
+  },
+  {
+    "name": "Eddie Lewis",
+    "clubs": [
+      "Fulham",
+      "Leeds United"
     ]
   },
   {
     "name": "Eddie Nketiah",
     "clubs": [
+      "Arsenal",
       "Chelsea",
-      "Arsenal"
+      "Crystal Palace",
+      "Leeds United"
     ]
   },
   {
     "name": "Eddy Gnahore",
     "clubs": [
-      "Napoli",
-      "Man City"
+      "Manchester City",
+      "Napoli"
     ]
   },
   {
@@ -3379,26 +7334,27 @@ export const PLAYERS = [
   {
     "name": "Ederson",
     "clubs": [
-      "Fenerbahçe",
       "Benfica",
-      "Man City"
+      "Fenerbahçe",
+      "Manchester City"
     ]
   },
   {
     "name": "Edgar",
     "clubs": [
-      "Real Madrid",
-      "Benfica"
+      "Benfica",
+      "Real Madrid"
     ]
   },
   {
     "name": "Edgar Davids",
     "clubs": [
-      "Tottenham",
-      "Juventus",
-      "Barcelona",
       "Ajax",
-      "Inter"
+      "Barcelona",
+      "Crystal Palace",
+      "Inter",
+      "Juventus",
+      "Tottenham"
     ]
   },
   {
@@ -3411,10 +7367,10 @@ export const PLAYERS = [
   {
     "name": "Edin Dzeko",
     "clubs": [
-      "Fenerbahçe",
       "AS Roma",
+      "Fenerbahçe",
       "Inter",
-      "Man City"
+      "Manchester City"
     ]
   },
   {
@@ -3427,8 +7383,8 @@ export const PLAYERS = [
   {
     "name": "Edinson Cavani",
     "clubs": [
-      "Napoli",
-      "Man Utd"
+      "Manchester United",
+      "Napoli"
     ]
   },
   {
@@ -3439,17 +7395,25 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Edouard Michut",
+    "clubs": [
+      "Paris Saint-Germain",
+      "Sunderland"
+    ]
+  },
+  {
     "name": "Edson Alvarez",
     "clubs": [
+      "Ajax",
       "Fenerbahçe",
-      "Ajax"
+      "West Ham"
     ]
   },
   {
     "name": "Edson Sousa",
     "clubs": [
-      "Tottenham",
-      "Benfica"
+      "Benfica",
+      "Tottenham"
     ]
   },
   {
@@ -3460,49 +7424,158 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Eduardo Bauermann",
+    "clubs": [
+      "Alanyaspor",
+      "Inter"
+    ]
+  },
+  {
     "name": "Eduardo Salvio",
     "clubs": [
-      "Atletico Madrid",
+      "Atlético Madrid",
       "Benfica"
     ]
   },
   {
     "name": "Edwin van der Sar",
     "clubs": [
-      "Juventus",
       "Ajax",
-      "Man Utd"
+      "Fulham",
+      "Juventus",
+      "Manchester United"
+    ]
+  },
+  {
+    "name": "Efe Tatlı",
+    "clubs": [
+      "Galatasaray",
+      "Karagümrük"
+    ]
+  },
+  {
+    "name": "Efe Tecimer",
+    "clubs": [
+      "Beşiktaş",
+      "Çaykur Rizespor"
     ]
   },
   {
     "name": "Efe Özarslan",
     "clubs": [
-      "Kayserispor",
-      "Genclerbirligi"
+      "Gençlerbirliği",
+      "Kayserispor"
+    ]
+  },
+  {
+    "name": "Efecan Karaca",
+    "clubs": [
+      "Alanyaspor",
+      "Galatasaray"
+    ]
+  },
+  {
+    "name": "Efecan Mızrakcı",
+    "clubs": [
+      "Fenerbahçe",
+      "Karagümrük"
+    ]
+  },
+  {
+    "name": "Efkan Bekiroğlu",
+    "clubs": [
+      "Alanyaspor",
+      "Göztepe",
+      "Sivasspor"
+    ]
+  },
+  {
+    "name": "Ege Albayrak",
+    "clubs": [
+      "Kasımpaşa",
+      "Trabzonspor"
+    ]
+  },
+  {
+    "name": "Egeberk Gabel",
+    "clubs": [
+      "Beşiktaş",
+      "Göztepe"
     ]
   },
   {
     "name": "Egemen Korkmaz",
     "clubs": [
-      "Fenerbahçe",
       "Başakşehir",
-      "Trabzonspor",
-      "Beşiktaş"
+      "Beşiktaş",
+      "Fenerbahçe",
+      "Trabzonspor"
+    ]
+  },
+  {
+    "name": "Egemen Pehlivan",
+    "clubs": [
+      "Karagümrük",
+      "Kasımpaşa"
     ]
   },
   {
     "name": "Eidur Gudjohnsen",
     "clubs": [
+      "Barcelona",
       "Chelsea",
-      "Tottenham",
-      "Barcelona"
+      "Fulham",
+      "Tottenham"
+    ]
+  },
+  {
+    "name": "Eirikakke",
+    "clubs": [
+      "Aston Villa",
+      "Leeds United"
+    ]
+  },
+  {
+    "name": "Ekrem Dag",
+    "clubs": [
+      "Beşiktaş",
+      "Gaziantepspor"
+    ]
+  },
+  {
+    "name": "Ekrem Köse",
+    "clubs": [
+      "Beşiktaş",
+      "Kocaelispor"
+    ]
+  },
+  {
+    "name": "Ekrem Kılıçarslan",
+    "clubs": [
+      "Gaziantep FK",
+      "Göztepe"
+    ]
+  },
+  {
+    "name": "El-Hadji Diouf",
+    "clubs": [
+      "Leeds United",
+      "Liverpool",
+      "Sunderland"
     ]
   },
   {
     "name": "Eldor Shomurodov",
     "clubs": [
-      "Başakşehir",
-      "AS Roma"
+      "AS Roma",
+      "Başakşehir"
+    ]
+  },
+  {
+    "name": "Elia Caprile",
+    "clubs": [
+      "Leeds United",
+      "Napoli"
     ]
   },
   {
@@ -3515,9 +7588,9 @@ export const PLAYERS = [
   {
     "name": "Eljero Elia",
     "clubs": [
-      "Juventus",
+      "Ajax",
       "Başakşehir",
-      "Ajax"
+      "Juventus"
     ]
   },
   {
@@ -3525,6 +7598,43 @@ export const PLAYERS = [
     "clubs": [
       "Fenerbahçe",
       "Napoli"
+    ]
+  },
+  {
+    "name": "Elliott Ward",
+    "clubs": [
+      "Bournemouth",
+      "West Ham"
+    ]
+  },
+  {
+    "name": "Elliottennett",
+    "clubs": [
+      "Brighton",
+      "Wolverhampton"
+    ]
+  },
+  {
+    "name": "Ellis Simms",
+    "clubs": [
+      "Everton",
+      "Manchester City",
+      "Sunderland"
+    ]
+  },
+  {
+    "name": "Elvis Manu",
+    "clubs": [
+      "Brighton",
+      "Gençlerbirliği"
+    ]
+  },
+  {
+    "name": "Elyasa Süme",
+    "clubs": [
+      "Gaziantepspor",
+      "Kasımpaşa",
+      "Samsunspor"
     ]
   },
   {
@@ -3538,52 +7648,76 @@ export const PLAYERS = [
     "name": "Emanuele Giaccherini",
     "clubs": [
       "Juventus",
-      "Napoli"
+      "Napoli",
+      "Sunderland"
     ]
   },
   {
     "name": "Emerson",
     "clubs": [
+      "AS Roma",
       "Chelsea",
-      "AS Roma"
+      "West Ham"
     ]
   },
   {
     "name": "Emerson Conceiçao",
     "clubs": [
-      "Trabzonspor",
-      "Benfica"
+      "Benfica",
+      "Trabzonspor"
+    ]
+  },
+  {
+    "name": "Emerson Hyndman",
+    "clubs": [
+      "Bournemouth",
+      "Fulham"
     ]
   },
   {
     "name": "Emerson Royal",
     "clubs": [
-      "Tottenham",
+      "AC Milan",
       "Barcelona",
-      "AC Milan"
+      "Tottenham"
     ]
   },
   {
     "name": "Emerson Thome",
     "clubs": [
+      "Benfica",
       "Chelsea",
       "Inter",
-      "Benfica"
+      "Sunderland"
     ]
   },
   {
     "name": "Emil Audero",
     "clubs": [
-      "Juventus",
-      "Inter"
+      "Inter",
+      "Juventus"
+    ]
+  },
+  {
+    "name": "Emile Smith Rowe",
+    "clubs": [
+      "Arsenal",
+      "Fulham"
     ]
   },
   {
     "name": "Emiliano Insua",
     "clubs": [
+      "Atlético Madrid",
       "Galatasaray",
-      "Atletico Madrid",
       "Liverpool"
+    ]
+  },
+  {
+    "name": "Emiliano Marcondes",
+    "clubs": [
+      "Bournemouth",
+      "Brentford"
     ]
   },
   {
@@ -3594,24 +7728,115 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Emiliano Marti­nez",
+    "clubs": [
+      "Aston Villa",
+      "Wolverhampton"
+    ]
+  },
+  {
     "name": "Emiliano Viviano",
     "clubs": [
       "Arsenal",
-      "Inter"
+      "Inter",
+      "Karagümrük"
+    ]
+  },
+  {
+    "name": "Emilio Lawrence",
+    "clubs": [
+      "Everton",
+      "Manchester City"
+    ]
+  },
+  {
+    "name": "Emin Aladağ",
+    "clubs": [
+      "Denizlispor",
+      "Samsunspor"
+    ]
+  },
+  {
+    "name": "Emin Soğuk",
+    "clubs": [
+      "Eyüpspor",
+      "Samsunspor"
+    ]
+  },
+  {
+    "name": "Emin Taş",
+    "clubs": [
+      "Göztepe",
+      "Çaykur Rizespor"
+    ]
+  },
+  {
+    "name": "Emir Kaan Baş",
+    "clubs": [
+      "Galatasaray",
+      "Karagümrük"
+    ]
+  },
+  {
+    "name": "Emir Koldere",
+    "clubs": [
+      "Başakşehir",
+      "Samsunspor"
+    ]
+  },
+  {
+    "name": "Emir Ortakaya",
+    "clubs": [
+      "Eyüpspor",
+      "Fenerbahçe",
+      "Göztepe",
+      "Kocaelispor"
     ]
   },
   {
     "name": "Emir Tintiş",
     "clubs": [
+      "Beşiktaş",
       "Galatasaray",
-      "Beşiktaş"
+      "Karagümrük"
     ]
   },
   {
     "name": "Emircan Altıntaş",
     "clubs": [
+      "Alanyaspor",
       "Başakşehir",
-      "Beşiktaş"
+      "Beşiktaş",
+      "Çaykur Rizespor"
+    ]
+  },
+  {
+    "name": "Emircan Seçgin",
+    "clubs": [
+      "Galatasaray",
+      "Göztepe"
+    ]
+  },
+  {
+    "name": "Emirhan Delibaş",
+    "clubs": [
+      "Beşiktaş",
+      "Göztepe",
+      "Karagümrük"
+    ]
+  },
+  {
+    "name": "Emirhan Parmaksız",
+    "clubs": [
+      "Fenerbahçe",
+      "Karagümrük"
+    ]
+  },
+  {
+    "name": "Emirhan Topçu",
+    "clubs": [
+      "Beşiktaş",
+      "Çaykur Rizespor"
     ]
   },
   {
@@ -3624,129 +7849,200 @@ export const PLAYERS = [
   {
     "name": "Emmanuel Adebayor",
     "clubs": [
-      "Kayserispor",
-      "Tottenham",
       "Arsenal",
       "Başakşehir",
+      "Crystal Palace",
+      "Kayserispor",
+      "Manchester City",
       "Real Madrid",
-      "Man City"
+      "Tottenham"
+    ]
+  },
+  {
+    "name": "Emmanuel Agbadou",
+    "clubs": [
+      "Beşiktaş",
+      "Wolverhampton"
+    ]
+  },
+  {
+    "name": "Emmanuel Boateng",
+    "clubs": [
+      "Gaziantep FK",
+      "Konyaspor"
     ]
   },
   {
     "name": "Emmanuel Eboue",
     "clubs": [
       "Arsenal",
-      "Galatasaray"
+      "Galatasaray",
+      "Sunderland"
+    ]
+  },
+  {
+    "name": "Emmanuel Emenike",
+    "clubs": [
+      "Fenerbahçe",
+      "West Ham"
+    ]
+  },
+  {
+    "name": "Emmanuel Ledesma",
+    "clubs": [
+      "Brentford",
+      "Brighton"
     ]
   },
   {
     "name": "Emrah Başsan",
     "clubs": [
+      "Antalyaspor",
+      "Galatasaray",
       "Kayserispor",
       "Sivasspor",
-      "Antalyaspor",
-      "Galatasaray"
+      "Çaykur Rizespor"
     ]
   },
   {
     "name": "Emrah Eren",
     "clubs": [
+      "Denizlispor",
+      "Galatasaray",
+      "Gaziantepspor",
+      "Kocaelispor",
       "Konyaspor",
       "Trabzonspor",
-      "Denizlispor",
-      "Galatasaray"
+      "Çaykur Rizespor"
     ]
   },
   {
     "name": "Emre Aygün",
     "clubs": [
-      "Trabzonspor",
-      "Genclerbirligi"
+      "Gençlerbirliği",
+      "Göztepe",
+      "Trabzonspor"
     ]
   },
   {
     "name": "Emre Belözoğlu",
     "clubs": [
-      "Fenerbahçe",
+      "Atlético Madrid",
       "Başakşehir",
+      "Fenerbahçe",
       "Galatasaray",
-      "Atletico Madrid",
       "Inter"
+    ]
+  },
+  {
+    "name": "Emre Bilgin",
+    "clubs": [
+      "Beşiktaş",
+      "Karagümrük"
     ]
   },
   {
     "name": "Emre Can",
     "clubs": [
-      "Bor. Dortmund",
+      "Bayern Munich",
+      "Borussia Dortmund",
       "Juventus",
-      "Liverpool",
-      "Bayern Munich"
+      "Liverpool"
     ]
   },
   {
     "name": "Emre Demir",
     "clubs": [
+      "Fenerbahçe",
       "Kayserispor",
-      "Fenerbahçe"
+      "Samsunspor"
+    ]
+  },
+  {
+    "name": "Emre Gedik",
+    "clubs": [
+      "Eyüpspor",
+      "Göztepe",
+      "Kasımpaşa",
+      "Kocaelispor"
     ]
   },
   {
     "name": "Emre Güral",
     "clubs": [
-      "Trabzonspor",
-      "Antalyaspor"
+      "Alanyaspor",
+      "Antalyaspor",
+      "Trabzonspor"
     ]
   },
   {
     "name": "Emre Kılınç",
     "clubs": [
-      "Sivasspor",
-      "Galatasaray"
+      "Galatasaray",
+      "Samsunspor",
+      "Sivasspor"
     ]
   },
   {
     "name": "Emre Mor",
     "clubs": [
-      "Bor. Dortmund",
+      "Borussia Dortmund",
+      "Eyüpspor",
       "Fenerbahçe",
-      "Galatasaray"
+      "Galatasaray",
+      "Karagümrük"
+    ]
+  },
+  {
+    "name": "Emre Nefiz",
+    "clubs": [
+      "Alanyaspor",
+      "Gaziantepspor",
+      "Kocaelispor"
     ]
   },
   {
     "name": "Emre Taşdemir",
     "clubs": [
-      "Kayserispor",
-      "Galatasaray"
+      "Galatasaray",
+      "Gaziantep FK",
+      "Kasımpaşa",
+      "Kayserispor"
     ]
   },
   {
     "name": "Emre Toraman",
     "clubs": [
+      "Eyüpspor",
+      "Gençlerbirliği",
+      "Kasımpaşa",
       "Konyaspor",
       "Trabzonspor",
-      "Genclerbirligi"
+      "Çaykur Rizespor"
     ]
   },
   {
     "name": "Emre Yüksektepe",
     "clubs": [
-      "Konyaspor",
-      "Galatasaray"
+      "Galatasaray",
+      "Konyaspor"
     ]
   },
   {
     "name": "Emre Çolak",
     "clubs": [
       "Başakşehir",
-      "Galatasaray"
+      "Galatasaray",
+      "Göztepe",
+      "Karagümrük"
     ]
   },
   {
     "name": "Emrecan Uzunhan",
     "clubs": [
       "Antalyaspor",
-      "Galatasaray",
-      "Beşiktaş"
+      "Beşiktaş",
+      "Galatasaray"
     ]
   },
   {
@@ -3759,15 +8055,41 @@ export const PLAYERS = [
   {
     "name": "Emrullah Şalk",
     "clubs": [
+      "Eyüpspor",
+      "Gençlerbirliği",
       "Konyaspor",
-      "Genclerbirligi"
+      "Samsunspor",
+      "Çaykur Rizespor"
+    ]
+  },
+  {
+    "name": "Ender Alkan",
+    "clubs": [
+      "Denizlispor",
+      "Kasımpaşa"
     ]
   },
   {
     "name": "Enes Durmuş",
     "clubs": [
+      "Beşiktaş",
       "Fenerbahçe",
-      "Beşiktaş"
+      "Göztepe"
+    ]
+  },
+  {
+    "name": "Enes Keskin",
+    "clubs": [
+      "Alanyaspor",
+      "Eyüpspor",
+      "Gençlerbirliği"
+    ]
+  },
+  {
+    "name": "Enes Kimia",
+    "clubs": [
+      "Kasımpaşa",
+      "Sivasspor"
     ]
   },
   {
@@ -3780,9 +8102,19 @@ export const PLAYERS = [
   {
     "name": "Engin Bekdemir",
     "clubs": [
-      "Kayserispor",
       "FC Porto",
-      "Genclerbirligi"
+      "Gençlerbirliği",
+      "Karagümrük",
+      "Kayserispor",
+      "Çaykur Rizespor"
+    ]
+  },
+  {
+    "name": "Engin Öztonga",
+    "clubs": [
+      "Gaziantepspor",
+      "Kocaelispor",
+      "Çaykur Rizespor"
     ]
   },
   {
@@ -3793,31 +8125,53 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Enner Valencia",
+    "clubs": [
+      "Everton",
+      "Fenerbahçe",
+      "West Ham"
+    ]
+  },
+  {
     "name": "Ensar Kemaloğlu",
     "clubs": [
-      "Trabzonspor",
-      "Genclerbirligi"
+      "Gençlerbirliği",
+      "Trabzonspor"
     ]
   },
   {
     "name": "Enzo Barrenechea",
     "clubs": [
-      "Juventus",
-      "Benfica"
+      "Benfica",
+      "Juventus"
     ]
   },
   {
     "name": "Enzo Crivelli",
     "clubs": [
-      "Başakşehir",
-      "Antalyaspor"
+      "Antalyaspor",
+      "Başakşehir"
     ]
   },
   {
     "name": "Enzo Fernandez",
     "clubs": [
-      "Chelsea",
-      "Benfica"
+      "Benfica",
+      "Chelsea"
+    ]
+  },
+  {
+    "name": "Enzo Le Fee",
+    "clubs": [
+      "AS Roma",
+      "Sunderland"
+    ]
+  },
+  {
+    "name": "Enzo Roco",
+    "clubs": [
+      "Beşiktaş",
+      "Karagümrük"
     ]
   },
   {
@@ -3828,38 +8182,116 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Eray Açıkgöz",
+    "clubs": [
+      "Göztepe",
+      "Çaykur Rizespor"
+    ]
+  },
+  {
+    "name": "Ercan Agaçe",
+    "clubs": [
+      "Göztepe",
+      "Kocaelispor"
+    ]
+  },
+  {
+    "name": "Ercan Coşkun",
+    "clubs": [
+      "Samsunspor",
+      "Çaykur Rizespor"
+    ]
+  },
+  {
     "name": "Ercan Ünal",
     "clubs": [
       "Antalyaspor",
-      "Denizlispor"
+      "Denizlispor",
+      "Samsunspor",
+      "Çaykur Rizespor"
+    ]
+  },
+  {
+    "name": "Ercüment Kafkasyalı",
+    "clubs": [
+      "Kocaelispor",
+      "Konyaspor",
+      "Samsunspor"
+    ]
+  },
+  {
+    "name": "Erdal Güneş",
+    "clubs": [
+      "Gaziantepspor",
+      "Kayserispor"
     ]
   },
   {
     "name": "Erdal Kilicaslan",
     "clubs": [
-      "Konyaspor",
-      "Genclerbirligi"
+      "Gaziantepspor",
+      "Gençlerbirliği",
+      "Konyaspor"
+    ]
+  },
+  {
+    "name": "Erdal Köse",
+    "clubs": [
+      "Eyüpspor",
+      "Kasımpaşa"
     ]
   },
   {
     "name": "Erdal Rakip",
     "clubs": [
       "Antalyaspor",
-      "Benfica"
+      "Benfica",
+      "Crystal Palace"
+    ]
+  },
+  {
+    "name": "Erdal Tanhan",
+    "clubs": [
+      "Gaziantepspor",
+      "Sivasspor"
     ]
   },
   {
     "name": "Erdal Öztürk",
     "clubs": [
-      "Kayserispor",
-      "Genclerbirligi"
+      "Gençlerbirliği",
+      "Karagümrük",
+      "Kayserispor"
+    ]
+  },
+  {
+    "name": "Erdem Canpolat",
+    "clubs": [
+      "Kasımpaşa",
+      "Çaykur Rizespor"
+    ]
+  },
+  {
+    "name": "Erdem Sen",
+    "clubs": [
+      "Gaziantepspor",
+      "Samsunspor",
+      "Çaykur Rizespor"
+    ]
+  },
+  {
+    "name": "Erdem Uğurlu",
+    "clubs": [
+      "Gaziantep FK",
+      "Göztepe"
     ]
   },
   {
     "name": "Erdem Özgenç",
     "clubs": [
       "Fenerbahçe",
-      "Genclerbirligi"
+      "Gençlerbirliği",
+      "Karagümrük"
     ]
   },
   {
@@ -3873,142 +8305,282 @@ export const PLAYERS = [
   {
     "name": "Eren Albayrak",
     "clubs": [
-      "Konyaspor",
+      "Antalyaspor",
       "Başakşehir",
+      "Konyaspor",
       "Trabzonspor",
-      "Antalyaspor"
+      "Çaykur Rizespor"
+    ]
+  },
+  {
+    "name": "Eren Bilen",
+    "clubs": [
+      "Göztepe",
+      "Kocaelispor"
+    ]
+  },
+  {
+    "name": "Eren Derdiyok",
+    "clubs": [
+      "Galatasaray",
+      "Göztepe",
+      "Kasımpaşa"
     ]
   },
   {
     "name": "Eren Elmalı",
     "clubs": [
-      "Trabzonspor",
+      "Galatasaray",
+      "Kasımpaşa",
+      "Trabzonspor"
+    ]
+  },
+  {
+    "name": "Eren Toksoy",
+    "clubs": [
+      "Başakşehir",
+      "Eyüpspor"
+    ]
+  },
+  {
+    "name": "Erencan Yardımcı",
+    "clubs": [
+      "Alanyaspor",
+      "Eyüpspor",
       "Galatasaray"
     ]
   },
   {
     "name": "Ergin Keleş",
     "clubs": [
+      "Göztepe",
       "Sivasspor",
       "Trabzonspor"
     ]
   },
   {
+    "name": "Ergin Yücetaş",
+    "clubs": [
+      "Kocaelispor",
+      "Samsunspor",
+      "Çaykur Rizespor"
+    ]
+  },
+  {
     "name": "Erhan Albayrak",
     "clubs": [
+      "Fenerbahçe",
+      "Gaziantepspor",
+      "Kocaelispor",
       "Konyaspor",
-      "Fenerbahçe"
+      "Çaykur Rizespor"
     ]
   },
   {
     "name": "Erhan Erentürk",
     "clubs": [
-      "Sivasspor",
+      "Gençlerbirliği",
       "Konyaspor",
-      "Genclerbirligi"
+      "Sivasspor"
+    ]
+  },
+  {
+    "name": "Erhan Kara",
+    "clubs": [
+      "Galatasaray",
+      "Karagümrük"
+    ]
+  },
+  {
+    "name": "Erhan Kartal",
+    "clubs": [
+      "Alanyaspor",
+      "Denizlispor",
+      "Kasımpaşa",
+      "Samsunspor"
     ]
   },
   {
     "name": "Erhan Namlı",
     "clubs": [
-      "Trabzonspor",
       "Denizlispor",
-      "Galatasaray"
+      "Galatasaray",
+      "Gaziantepspor",
+      "Trabzonspor",
+      "Çaykur Rizespor"
+    ]
+  },
+  {
+    "name": "Erhan Şentürk",
+    "clubs": [
+      "Galatasaray",
+      "Samsunspor",
+      "Çaykur Rizespor"
+    ]
+  },
+  {
+    "name": "Erhun Öztümer",
+    "clubs": [
+      "Karagümrük",
+      "Sivasspor"
     ]
   },
   {
     "name": "Eric Bailly",
     "clubs": [
       "Beşiktaş",
-      "Man Utd"
+      "Manchester United"
     ]
   },
   {
     "name": "Eric Dier",
     "clubs": [
-      "Tottenham",
-      "Bayern Munich"
+      "Bayern Munich",
+      "Everton",
+      "Tottenham"
+    ]
+  },
+  {
+    "name": "Eric Djemba Djemba",
+    "clubs": [
+      "Aston Villa",
+      "Burnley",
+      "Manchester United"
     ]
   },
   {
     "name": "Eric Garcia",
     "clubs": [
       "Barcelona",
-      "Man City"
+      "Manchester City"
+    ]
+  },
+  {
+    "name": "Eric Lichaj",
+    "clubs": [
+      "Aston Villa",
+      "Karagümrük",
+      "Leeds United"
+    ]
+  },
+  {
+    "name": "Eric Nixon",
+    "clubs": [
+      "Manchester City",
+      "Wolverhampton"
+    ]
+  },
+  {
+    "name": "Eric Odhiambo",
+    "clubs": [
+      "Brentford",
+      "Denizlispor"
     ]
   },
   {
     "name": "Erik Lamela",
     "clubs": [
-      "Tottenham",
-      "AS Roma"
+      "AS Roma",
+      "Tottenham"
+    ]
+  },
+  {
+    "name": "Erik Sabo",
+    "clubs": [
+      "Karagümrük",
+      "Çaykur Rizespor"
     ]
   },
   {
     "name": "Erkam Reşmen",
     "clubs": [
-      "Kayserispor",
       "Antalyaspor",
-      "Beşiktaş"
+      "Beşiktaş",
+      "Kayserispor",
+      "Samsunspor"
     ]
   },
   {
     "name": "Erkan Eyibil",
     "clubs": [
-      "Genclerbirligi",
-      "Antalyaspor"
+      "Antalyaspor",
+      "Gençlerbirliği"
+    ]
+  },
+  {
+    "name": "Erkan Ferin",
+    "clubs": [
+      "Eyüpspor",
+      "Galatasaray"
     ]
   },
   {
     "name": "Erkan Kaş",
     "clubs": [
+      "Beşiktaş",
       "Kayserispor",
       "Sivasspor",
-      "Beşiktaş"
+      "Çaykur Rizespor"
     ]
   },
   {
     "name": "Erkan Sekman",
     "clubs": [
-      "Konyaspor",
       "Antalyaspor",
+      "Beşiktaş",
       "Denizlispor",
-      "Beşiktaş"
+      "Gaziantepspor",
+      "Göztepe",
+      "Karagümrük",
+      "Konyaspor"
     ]
   },
   {
     "name": "Erkan Zengin",
     "clubs": [
-      "Trabzonspor",
-      "Beşiktaş"
+      "Beşiktaş",
+      "Karagümrük",
+      "Trabzonspor"
+    ]
+  },
+  {
+    "name": "Erkut Şentürk",
+    "clubs": [
+      "Beşiktaş",
+      "Karagümrük"
     ]
   },
   {
     "name": "Erling Haaland",
     "clubs": [
-      "Bor. Dortmund",
-      "Man City"
+      "Borussia Dortmund",
+      "Manchester City"
     ]
   },
   {
     "name": "Erman Güraçar",
     "clubs": [
-      "Trabzonspor",
+      "Beşiktaş",
       "Denizlispor",
-      "Beşiktaş"
+      "Gaziantepspor",
+      "Kocaelispor",
+      "Samsunspor",
+      "Trabzonspor"
     ]
   },
   {
     "name": "Erman Kılıç",
     "clubs": [
-      "Sivasspor",
       "Antalyaspor",
-      "Galatasaray"
+      "Galatasaray",
+      "Göztepe",
+      "Sivasspor"
     ]
   },
   {
     "name": "Erman Özgür",
     "clubs": [
+      "Gaziantepspor",
       "Konyaspor",
       "Trabzonspor"
     ]
@@ -4023,15 +8595,24 @@ export const PLAYERS = [
   {
     "name": "Ernest Muci",
     "clubs": [
-      "Trabzonspor",
-      "Beşiktaş"
+      "Beşiktaş",
+      "Trabzonspor"
     ]
   },
   {
     "name": "Erol Kapusuz",
     "clubs": [
+      "Antalyaspor",
+      "Gaziantepspor",
       "Kayserispor",
-      "Antalyaspor"
+      "Samsunspor"
+    ]
+  },
+  {
+    "name": "Erol Yükseker",
+    "clubs": [
+      "Eyüpspor",
+      "Karagümrük"
     ]
   },
   {
@@ -4042,142 +8623,301 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Ersel Aslıyüksek",
+    "clubs": [
+      "Gençlerbirliği",
+      "Samsunspor"
+    ]
+  },
+  {
+    "name": "Ersin Güreler",
+    "clubs": [
+      "Göztepe",
+      "Kocaelispor",
+      "Konyaspor",
+      "Çaykur Rizespor"
+    ]
+  },
+  {
+    "name": "Ersin Veli",
+    "clubs": [
+      "Eyüpspor",
+      "Samsunspor"
+    ]
+  },
+  {
+    "name": "Ersoy Uçtu",
+    "clubs": [
+      "Eyüpspor",
+      "Galatasaray"
+    ]
+  },
+  {
+    "name": "Ertaç Özbir",
+    "clubs": [
+      "Gençlerbirliği",
+      "Kasımpaşa"
+    ]
+  },
+  {
     "name": "Ertuğrul Arslan",
     "clubs": [
+      "Antalyaspor",
+      "Göztepe",
       "Kayserispor",
-      "Sivasspor",
       "Konyaspor",
-      "Antalyaspor"
+      "Sivasspor"
+    ]
+  },
+  {
+    "name": "Ertuğrul Ersoy",
+    "clubs": [
+      "Gaziantep FK",
+      "Çaykur Rizespor"
     ]
   },
   {
     "name": "Ertuğrul Çetin",
     "clubs": [
       "Fenerbahçe",
-      "Genclerbirligi"
+      "Gençlerbirliği"
+    ]
+  },
+  {
+    "name": "Ervin Zukanovic",
+    "clubs": [
+      "AS Roma",
+      "Karagümrük"
     ]
   },
   {
     "name": "Eser Yağmur",
     "clubs": [
-      "Konyaspor",
+      "Beşiktaş",
       "Denizlispor",
-      "Beşiktaş"
+      "Konyaspor"
     ]
   },
   {
     "name": "Esteban Cambiasso",
     "clubs": [
-      "Real Madrid",
-      "Inter"
+      "Inter",
+      "Real Madrid"
+    ]
+  },
+  {
+    "name": "Ethan Ampadu",
+    "clubs": [
+      "Chelsea",
+      "Leeds United"
+    ]
+  },
+  {
+    "name": "Ethan Kachosa",
+    "clubs": [
+      "Leeds United",
+      "Sunderland"
+    ]
+  },
+  {
+    "name": "Ethan Laird",
+    "clubs": [
+      "Bournemouth",
+      "Manchester United"
+    ]
+  },
+  {
+    "name": "Ethem Bayburt",
+    "clubs": [
+      "Alanyaspor",
+      "Eyüpspor"
     ]
   },
   {
     "name": "Etzaz Hussain",
     "clubs": [
-      "Sivasspor",
-      "Man Utd"
+      "Manchester United",
+      "Sivasspor"
+    ]
+  },
+  {
+    "name": "Evan Ferguson",
+    "clubs": [
+      "AS Roma",
+      "Brighton",
+      "West Ham"
     ]
   },
   {
     "name": "Evandro Brandao",
     "clubs": [
       "Benfica",
-      "Man Utd"
+      "Manchester United"
+    ]
+  },
+  {
+    "name": "Evanilson",
+    "clubs": [
+      "Bournemouth",
+      "FC Porto"
     ]
   },
   {
     "name": "Ever Banega",
     "clubs": [
-      "Atletico Madrid",
+      "Atlético Madrid",
       "Inter"
+    ]
+  },
+  {
+    "name": "Evren Kürkçü",
+    "clubs": [
+      "Göztepe",
+      "Kasımpaşa",
+      "Samsunspor",
+      "Çaykur Rizespor"
+    ]
+  },
+  {
+    "name": "Evren Özyiğit",
+    "clubs": [
+      "Denizlispor",
+      "Eyüpspor"
     ]
   },
   {
     "name": "Eyong Enoh",
     "clubs": [
+      "Ajax",
       "Antalyaspor",
-      "Ajax"
+      "Fulham"
     ]
   },
   {
     "name": "Ezequiel Garay",
     "clubs": [
-      "Real Madrid",
-      "Benfica"
+      "Benfica",
+      "Real Madrid"
+    ]
+  },
+  {
+    "name": "Ezequiel Schelotto",
+    "clubs": [
+      "Brighton",
+      "Inter"
+    ]
+  },
+  {
+    "name": "Ezgjan Alioski",
+    "clubs": [
+      "Fenerbahçe",
+      "Leeds United"
+    ]
+  },
+  {
+    "name": "Ezri Konsa",
+    "clubs": [
+      "Aston Villa",
+      "Brentford"
+    ]
+  },
+  {
+    "name": "Eşref Korkmazoğlu",
+    "clubs": [
+      "Başakşehir",
+      "Eyüpspor"
     ]
   },
   {
     "name": "Fabian Carini",
     "clubs": [
-      "Juventus",
-      "Inter"
+      "Inter",
+      "Juventus"
+    ]
+  },
+  {
+    "name": "Fabian Delph",
+    "clubs": [
+      "Aston Villa",
+      "Everton",
+      "Leeds United",
+      "Manchester City"
+    ]
+  },
+  {
+    "name": "Fabian Ernst",
+    "clubs": [
+      "Beşiktaş",
+      "Kasımpaşa"
     ]
   },
   {
     "name": "Fabiano",
     "clubs": [
+      "Denizlispor",
       "Fenerbahçe",
-      "Denizlispor"
+      "Kasımpaşa"
     ]
   },
   {
     "name": "Fabinho",
     "clubs": [
-      "FC Porto",
       "Benfica",
+      "FC Porto",
       "Liverpool"
     ]
   },
   {
     "name": "Fabio Bilica",
     "clubs": [
-      "Sivasspor",
-      "Fenerbahçe"
+      "Fenerbahçe",
+      "Sivasspor"
     ]
   },
   {
     "name": "Fabio Cannavaro",
     "clubs": [
-      "Juventus",
-      "Real Madrid",
       "Inter",
-      "Napoli"
+      "Juventus",
+      "Napoli",
+      "Real Madrid"
     ]
   },
   {
     "name": "Fabio Cardoso",
     "clubs": [
-      "FC Porto",
-      "Benfica"
+      "Benfica",
+      "FC Porto"
     ]
   },
   {
     "name": "Fabio Carvalho",
     "clubs": [
       "Benfica",
+      "Brentford",
+      "Fulham",
       "Liverpool"
     ]
   },
   {
     "name": "Fabio Coentrao",
     "clubs": [
-      "Real Madrid",
-      "Benfica"
+      "Benfica",
+      "Real Madrid"
     ]
   },
   {
     "name": "Fabio Grosso",
     "clubs": [
-      "Juventus",
-      "Inter"
+      "Inter",
+      "Juventus"
     ]
   },
   {
     "name": "Fabio Nunes",
     "clubs": [
-      "FC Porto",
-      "Benfica"
+      "Benfica",
+      "FC Porto"
     ]
   },
   {
@@ -4190,9 +8930,10 @@ export const PLAYERS = [
   {
     "name": "Fabio Silva",
     "clubs": [
-      "Bor. Dortmund",
+      "Benfica",
+      "Borussia Dortmund",
       "FC Porto",
-      "Benfica"
+      "Wolverhampton"
     ]
   },
   {
@@ -4203,87 +8944,184 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Fabri",
+    "clubs": [
+      "Beşiktaş",
+      "Fulham"
+    ]
+  },
+  {
+    "name": "Fabricio Baiano",
+    "clubs": [
+      "Gençlerbirliği",
+      "Çaykur Rizespor"
+    ]
+  },
+  {
     "name": "Fabricio Coloccini",
     "clubs": [
       "AC Milan",
-      "Atletico Madrid"
+      "Atlético Madrid",
+      "Newcastle United"
     ]
   },
   {
     "name": "Fabrizio Caligara",
     "clubs": [
-      "Juventus",
-      "Inter"
+      "Inter",
+      "Juventus"
     ]
   },
   {
     "name": "Fabrizio Miccoli",
     "clubs": [
-      "Juventus",
       "AC Milan",
-      "Benfica"
+      "Benfica",
+      "Juventus"
     ]
   },
   {
     "name": "Fahri Tatan",
     "clubs": [
-      "Konyaspor",
-      "Fenerbahçe",
+      "Beşiktaş",
       "Denizlispor",
-      "Beşiktaş"
+      "Fenerbahçe",
+      "Konyaspor",
+      "Çaykur Rizespor"
+    ]
+  },
+  {
+    "name": "Farhaan Ali Wahid",
+    "clubs": [
+      "Chelsea",
+      "Fulham"
+    ]
+  },
+  {
+    "name": "Farouk Miya",
+    "clubs": [
+      "Konyaspor",
+      "Çaykur Rizespor"
+    ]
+  },
+  {
+    "name": "Faruk Atalay",
+    "clubs": [
+      "Galatasaray",
+      "Karagümrük",
+      "Kasımpaşa"
+    ]
+  },
+  {
+    "name": "Faruk Bayar",
+    "clubs": [
+      "Gaziantepspor",
+      "Kasımpaşa",
+      "Sivasspor"
     ]
   },
   {
     "name": "Fatih Aksoy",
     "clubs": [
-      "Sivasspor",
-      "Beşiktaş"
+      "Alanyaspor",
+      "Beşiktaş",
+      "Sivasspor"
     ]
   },
   {
     "name": "Fatih Akyel",
     "clubs": [
       "Fenerbahçe",
-      "Trabzonspor",
-      "Genclerbirligi",
-      "Galatasaray"
+      "Galatasaray",
+      "Gençlerbirliği",
+      "Kasımpaşa",
+      "Kocaelispor",
+      "Trabzonspor"
     ]
   },
   {
     "name": "Fatih Ceylan",
     "clubs": [
-      "Kayserispor",
       "Antalyaspor",
-      "Denizlispor"
+      "Denizlispor",
+      "Kayserispor"
     ]
   },
   {
     "name": "Fatih Egedik",
     "clubs": [
-      "Konyaspor",
-      "Denizlispor"
+      "Denizlispor",
+      "Konyaspor"
+    ]
+  },
+  {
+    "name": "Fatih Kanber",
+    "clubs": [
+      "Fenerbahçe",
+      "Kocaelispor"
+    ]
+  },
+  {
+    "name": "Fatih Kurucuk",
+    "clubs": [
+      "Göztepe",
+      "Karagümrük"
+    ]
+  },
+  {
+    "name": "Fatih Kıran",
+    "clubs": [
+      "Göztepe",
+      "Sivasspor"
     ]
   },
   {
     "name": "Fatih Sezer",
     "clubs": [
+      "Antalyaspor",
       "Kayserispor",
       "Konyaspor",
-      "Antalyaspor"
+      "Samsunspor"
+    ]
+  },
+  {
+    "name": "Fatih Taşdelen",
+    "clubs": [
+      "Eyüpspor",
+      "Galatasaray"
     ]
   },
   {
     "name": "Fatih Tekke",
     "clubs": [
-      "Trabzonspor",
-      "Beşiktaş"
+      "Beşiktaş",
+      "Gaziantepspor",
+      "Trabzonspor"
+    ]
+  },
+  {
+    "name": "Fatih Yiğen",
+    "clubs": [
+      "Denizlispor",
+      "Göztepe"
     ]
   },
   {
     "name": "Fatih Öztürk",
     "clubs": [
-      "Trabzonspor",
-      "Galatasaray"
+      "Eyüpspor",
+      "Galatasaray",
+      "Kasımpaşa",
+      "Trabzonspor"
+    ]
+  },
+  {
+    "name": "Fatih Şen",
+    "clubs": [
+      "Gaziantepspor",
+      "Kocaelispor",
+      "Konyaspor",
+      "Samsunspor"
     ]
   },
   {
@@ -4303,15 +9141,16 @@ export const PLAYERS = [
   {
     "name": "Fazlı Ulusoy",
     "clubs": [
+      "Galatasaray",
       "Kayserispor",
-      "Galatasaray"
+      "Kocaelispor"
     ]
   },
   {
     "name": "Federico Balzaretti",
     "clubs": [
-      "Juventus",
-      "AS Roma"
+      "AS Roma",
+      "Juventus"
     ]
   },
   {
@@ -4324,114 +9163,197 @@ export const PLAYERS = [
   {
     "name": "Federico Fazio",
     "clubs": [
-      "Tottenham",
-      "AS Roma"
+      "AS Roma",
+      "Tottenham"
+    ]
+  },
+  {
+    "name": "Federico Fernandez",
+    "clubs": [
+      "Napoli",
+      "Newcastle United"
     ]
   },
   {
     "name": "Fedor Kudryashov",
     "clubs": [
-      "Başakşehir",
-      "Antalyaspor"
+      "Antalyaspor",
+      "Başakşehir"
     ]
   },
   {
     "name": "Felipe",
     "clubs": [
+      "Atlético Madrid",
       "FC Porto",
-      "Atletico Madrid",
       "Inter"
+    ]
+  },
+  {
+    "name": "Felipe Anderson",
+    "clubs": [
+      "FC Porto",
+      "West Ham"
     ]
   },
   {
     "name": "Felipe Caicedo",
     "clubs": [
       "Inter",
-      "Man City"
+      "Manchester City"
+    ]
+  },
+  {
+    "name": "Felipe Mattioni",
+    "clubs": [
+      "AC Milan",
+      "Everton"
     ]
   },
   {
     "name": "Felipe Melo",
     "clubs": [
-      "Juventus",
       "Galatasaray",
-      "Inter"
+      "Inter",
+      "Juventus"
+    ]
+  },
+  {
+    "name": "Felix Chester",
+    "clubs": [
+      "Burnley",
+      "Manchester United"
     ]
   },
   {
     "name": "Felix Correia",
     "clubs": [
       "Juventus",
-      "Man City"
+      "Manchester City"
     ]
   },
   {
     "name": "Felix Nmecha",
     "clubs": [
-      "Bor. Dortmund",
-      "Man City"
+      "Borussia Dortmund",
+      "Manchester City"
+    ]
+  },
+  {
+    "name": "Ferdi Kadıoğlu",
+    "clubs": [
+      "Brighton",
+      "Fenerbahçe"
+    ]
+  },
+  {
+    "name": "Ferdi Tatlı",
+    "clubs": [
+      "Gençlerbirliği",
+      "Karagümrük"
+    ]
+  },
+  {
+    "name": "Ferdinand Okoh",
+    "clubs": [
+      "Bournemouth",
+      "Tottenham",
+      "West Ham"
+    ]
+  },
+  {
+    "name": "Ferhat Kiraz",
+    "clubs": [
+      "Gençlerbirliği",
+      "Kasımpaşa"
+    ]
+  },
+  {
+    "name": "Ferhat Yayla",
+    "clubs": [
+      "Eyüpspor",
+      "Sivasspor"
+    ]
+  },
+  {
+    "name": "Ferhat Çulcuoğlu",
+    "clubs": [
+      "Fenerbahçe",
+      "Göztepe",
+      "Samsunspor"
     ]
   },
   {
     "name": "Ferhat Öztorun",
     "clubs": [
-      "Konyaspor",
       "Başakşehir",
-      "Trabzonspor",
-      "Galatasaray"
+      "Galatasaray",
+      "Konyaspor",
+      "Trabzonspor"
     ]
   },
   {
     "name": "Feridun Sungur",
     "clubs": [
-      "Trabzonspor",
-      "Denizlispor"
+      "Denizlispor",
+      "Eyüpspor",
+      "Samsunspor",
+      "Trabzonspor"
     ]
   },
   {
     "name": "Ferland Mendy",
     "clubs": [
-      "Real Madrid",
-      "PSG"
+      "Paris Saint-Germain",
+      "Real Madrid"
     ]
   },
   {
     "name": "Fernando",
     "clubs": [
-      "FC Porto",
       "Antalyaspor",
+      "FC Porto",
       "Galatasaray",
-      "Real Madrid",
-      "Man City"
+      "Manchester City",
+      "Real Madrid"
     ]
   },
   {
     "name": "Fernando Andrade",
     "clubs": [
+      "FC Porto",
       "Sivasspor",
-      "FC Porto"
+      "Çaykur Rizespor"
+    ]
+  },
+  {
+    "name": "Fernando Boldrin",
+    "clubs": [
+      "Kayserispor",
+      "Samsunspor",
+      "Çaykur Rizespor"
     ]
   },
   {
     "name": "Fernando Llorente",
     "clubs": [
-      "Tottenham",
       "Juventus",
-      "Napoli"
+      "Napoli",
+      "Tottenham"
     ]
   },
   {
     "name": "Fernando Meira",
     "clubs": [
-      "Galatasaray",
-      "Benfica"
+      "Benfica",
+      "Galatasaray"
     ]
   },
   {
     "name": "Fernando Morientes",
     "clubs": [
-      "Real Madrid",
-      "Liverpool"
+      "Liverpool",
+      "Real Madrid"
     ]
   },
   {
@@ -4444,9 +9366,9 @@ export const PLAYERS = [
   {
     "name": "Fernando Torres",
     "clubs": [
-      "Chelsea",
       "AC Milan",
-      "Atletico Madrid",
+      "Atlético Madrid",
+      "Chelsea",
       "Liverpool"
     ]
   },
@@ -4454,7 +9376,14 @@ export const PLAYERS = [
     "name": "Ferran Torres",
     "clubs": [
       "Barcelona",
-      "Man City"
+      "Manchester City"
+    ]
+  },
+  {
+    "name": "Fethi Özer",
+    "clubs": [
+      "Eyüpspor",
+      "Göztepe"
     ]
   },
   {
@@ -4465,51 +9394,147 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Fevzi Tuncay",
+    "clubs": [
+      "Beşiktaş",
+      "Gaziantepspor",
+      "Kocaelispor",
+      "Samsunspor"
+    ]
+  },
+  {
     "name": "Fikayo Tomori",
     "clubs": [
-      "Chelsea",
-      "AC Milan"
+      "AC Milan",
+      "Brighton",
+      "Chelsea"
     ]
   },
   {
     "name": "Filip Kostic",
     "clubs": [
-      "Juventus",
-      "Fenerbahçe"
+      "Fenerbahçe",
+      "Juventus"
+    ]
+  },
+  {
+    "name": "Filipe Augusto",
+    "clubs": [
+      "Alanyaspor",
+      "Benfica"
     ]
   },
   {
     "name": "Filipe Luis",
     "clubs": [
-      "Chelsea",
-      "Atletico Madrid",
-      "Ajax"
+      "Ajax",
+      "Atlético Madrid",
+      "Chelsea"
+    ]
+  },
+  {
+    "name": "Filipe da Costa",
+    "clubs": [
+      "Benfica",
+      "Leeds United"
+    ]
+  },
+  {
+    "name": "Filippo Costa",
+    "clubs": [
+      "Bournemouth",
+      "Napoli"
     ]
   },
   {
     "name": "Filippo Inzaghi",
     "clubs": [
-      "Juventus",
-      "AC Milan"
+      "AC Milan",
+      "Juventus"
+    ]
+  },
+  {
+    "name": "Fin Stevens",
+    "clubs": [
+      "Arsenal",
+      "Brentford"
+    ]
+  },
+  {
+    "name": "Finley Munroe",
+    "clubs": [
+      "Aston Villa",
+      "Chelsea"
+    ]
+  },
+  {
+    "name": "Fitz Hall",
+    "clubs": [
+      "Crystal Palace",
+      "Newcastle United",
+      "West Ham"
+    ]
+  },
+  {
+    "name": "Florent Hadergjonaj",
+    "clubs": [
+      "Alanyaspor",
+      "Kasımpaşa"
     ]
   },
   {
     "name": "Florent Sinama-Pongolle",
     "clubs": [
-      "Atletico Madrid",
+      "Atlético Madrid",
       "Liverpool"
+    ]
+  },
+  {
+    "name": "Florentino",
+    "clubs": [
+      "Benfica",
+      "Burnley"
+    ]
+  },
+  {
+    "name": "Florian Jozefzoon",
+    "clubs": [
+      "Ajax",
+      "Brentford"
+    ]
+  },
+  {
+    "name": "Florian Lejeune",
+    "clubs": [
+      "Manchester City",
+      "Newcastle United"
+    ]
+  },
+  {
+    "name": "Florin Andone",
+    "clubs": [
+      "Brighton",
+      "Galatasaray"
+    ]
+  },
+  {
+    "name": "Floyd Ayite",
+    "clubs": [
+      "Fulham",
+      "Gençlerbirliği"
     ]
   },
   {
     "name": "Fode Ballo-Toure",
     "clubs": [
       "AC Milan",
-      "PSG"
+      "Paris Saint-Germain"
     ]
   },
   {
     "name": "Fode Koita",
     "clubs": [
+      "Kasımpaşa",
       "Sivasspor",
       "Trabzonspor"
     ]
@@ -4517,6 +9542,8 @@ export const PLAYERS = [
   {
     "name": "Fousseni Diabate",
     "clubs": [
+      "Göztepe",
+      "Kasımpaşa",
       "Sivasspor",
       "Trabzonspor"
     ]
@@ -4524,15 +9551,17 @@ export const PLAYERS = [
   {
     "name": "Fraizer Campbell",
     "clubs": [
-      "Tottenham",
-      "Man Utd"
+      "Crystal Palace",
+      "Manchester United",
+      "Sunderland",
+      "Tottenham"
     ]
   },
   {
     "name": "Fran Merida",
     "clubs": [
       "Arsenal",
-      "Atletico Madrid"
+      "Atlético Madrid"
     ]
   },
   {
@@ -4557,6 +9586,13 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Francis Okoronkwo",
+    "clubs": [
+      "Everton",
+      "Sunderland"
+    ]
+  },
+  {
     "name": "Francisco Barido(1231248)",
     "clubs": [
       "Juventus",
@@ -4566,58 +9602,190 @@ export const PLAYERS = [
   {
     "name": "Francisco Conceiçao",
     "clubs": [
-      "Juventus",
+      "Ajax",
       "FC Porto",
-      "Ajax"
+      "Juventus"
     ]
   },
   {
     "name": "Francisco Trincao",
     "clubs": [
+      "Barcelona",
       "FC Porto",
-      "Barcelona"
+      "Wolverhampton"
     ]
   },
   {
     "name": "Franck Kessie",
     "clubs": [
-      "Barcelona",
-      "AC Milan"
+      "AC Milan",
+      "Barcelona"
     ]
   },
   {
     "name": "Franck Ribery",
     "clubs": [
-      "Galatasaray",
-      "Bayern Munich"
+      "Bayern Munich",
+      "Galatasaray"
+    ]
+  },
+  {
+    "name": "Franco Di Santo",
+    "clubs": [
+      "Chelsea",
+      "Göztepe"
     ]
   },
   {
     "name": "Franco Tongya",
     "clubs": [
-      "Juventus",
-      "Genclerbirligi"
+      "Gençlerbirliği",
+      "Juventus"
+    ]
+  },
+  {
+    "name": "Frank Anguissa",
+    "clubs": [
+      "Fulham",
+      "Napoli"
     ]
   },
   {
     "name": "Frank Lampard",
     "clubs": [
       "Chelsea",
-      "Man City"
+      "Manchester City",
+      "West Ham"
+    ]
+  },
+  {
+    "name": "Frank Nouble",
+    "clubs": [
+      "Chelsea",
+      "West Ham",
+      "Wolverhampton"
+    ]
+  },
+  {
+    "name": "Frank Simek",
+    "clubs": [
+      "Arsenal",
+      "Bournemouth"
+    ]
+  },
+  {
+    "name": "Frank Sinclair",
+    "clubs": [
+      "Burnley",
+      "Chelsea"
+    ]
+  },
+  {
+    "name": "Frank Wiafe",
+    "clubs": [
+      "Ajax",
+      "Newcastle United"
+    ]
+  },
+  {
+    "name": "François Moubandje",
+    "clubs": [
+      "Alanyaspor",
+      "Göztepe"
+    ]
+  },
+  {
+    "name": "Fraser Digby",
+    "clubs": [
+      "Crystal Palace",
+      "Manchester United"
+    ]
+  },
+  {
+    "name": "Fraser Forster",
+    "clubs": [
+      "Newcastle United",
+      "Tottenham"
     ]
   },
   {
     "name": "Fred",
     "clubs": [
       "Fenerbahçe",
-      "Man Utd"
+      "Manchester United"
+    ]
+  },
+  {
+    "name": "Freddie Ljungberg",
+    "clubs": [
+      "Arsenal",
+      "West Ham"
+    ]
+  },
+  {
+    "name": "Freddie Sears",
+    "clubs": [
+      "Crystal Palace",
+      "West Ham"
+    ]
+  },
+  {
+    "name": "Freddie Woodman",
+    "clubs": [
+      "Bournemouth",
+      "Crystal Palace",
+      "Liverpool",
+      "Newcastle United"
+    ]
+  },
+  {
+    "name": "Freddy Adu",
+    "clubs": [
+      "Benfica",
+      "Çaykur Rizespor"
+    ]
+  },
+  {
+    "name": "Freddy Yao",
+    "clubs": [
+      "Burnley",
+      "Fulham"
+    ]
+  },
+  {
+    "name": "Frederic Kanoute",
+    "clubs": [
+      "Tottenham",
+      "West Ham"
     ]
   },
   {
     "name": "Frederic Veseli",
     "clubs": [
-      "Man Utd",
-      "Man City"
+      "Karagümrük",
+      "Manchester City",
+      "Manchester United"
+    ]
+  },
+  {
+    "name": "Frederik Alves",
+    "clubs": [
+      "Sunderland",
+      "West Ham"
+    ]
+  },
+  {
+    "name": "Fredrik Ulvestad",
+    "clubs": [
+      "Burnley",
+      "Sivasspor"
+    ]
+  },
+  {
+    "name": "Fredy",
+    "clubs": [
+      "Antalyaspor",
+      "Eyüpspor"
     ]
   },
   {
@@ -4630,58 +9798,114 @@ export const PLAYERS = [
   {
     "name": "Frenkie de Jong",
     "clubs": [
-      "Barcelona",
-      "Ajax"
+      "Ajax",
+      "Barcelona"
+    ]
+  },
+  {
+    "name": "Fuat Özpenbe",
+    "clubs": [
+      "Alanyaspor",
+      "Sivasspor"
+    ]
+  },
+  {
+    "name": "Furkan Bayır",
+    "clubs": [
+      "Alanyaspor",
+      "Göztepe"
     ]
   },
   {
     "name": "Furkan Korkut",
     "clubs": [
-      "Genclerbirligi",
-      "Galatasaray"
+      "Galatasaray",
+      "Gençlerbirliği"
     ]
   },
   {
     "name": "Furkan Soyalp",
     "clubs": [
-      "Kayserispor",
-      "Başakşehir"
+      "Başakşehir",
+      "Gaziantep FK",
+      "Kayserispor"
+    ]
+  },
+  {
+    "name": "Furkan Çolak",
+    "clubs": [
+      "Beşiktaş",
+      "Eyüpspor"
     ]
   },
   {
     "name": "Furkan Özçal",
     "clubs": [
-      "Kayserispor",
-      "Galatasaray"
+      "Galatasaray",
+      "Kayserispor"
     ]
   },
   {
     "name": "Furkan Şeker",
     "clubs": [
-      "Genclerbirligi",
+      "Beşiktaş",
       "Denizlispor",
-      "Beşiktaş"
+      "Gençlerbirliği",
+      "Göztepe"
+    ]
+  },
+  {
+    "name": "Fynn Talley",
+    "clubs": [
+      "Arsenal",
+      "Brighton"
     ]
   },
   {
     "name": "Fırat Akkoyun",
     "clubs": [
+      "Alanyaspor",
       "Kayserispor",
       "Konyaspor"
     ]
   },
   {
+    "name": "Fırat Arıkan",
+    "clubs": [
+      "Alanyaspor",
+      "Antalyaspor"
+    ]
+  },
+  {
+    "name": "Fırat Çakmak",
+    "clubs": [
+      "Denizlispor",
+      "Eyüpspor"
+    ]
+  },
+  {
     "name": "Fıratcan Üzüm",
     "clubs": [
-      "Trabzonspor",
-      "Genclerbirligi"
+      "Gençlerbirliği",
+      "Göztepe",
+      "Trabzonspor"
+    ]
+  },
+  {
+    "name": "Gabor Kiraly",
+    "clubs": [
+      "Aston Villa",
+      "Burnley",
+      "Crystal Palace",
+      "Fulham",
+      "West Ham"
     ]
   },
   {
     "name": "Gabri",
     "clubs": [
-      "Barcelona",
-      "Ajax"
+      "Ajax",
+      "Barcelona"
     ]
   },
   {
@@ -4694,23 +9918,30 @@ export const PLAYERS = [
   {
     "name": "Gabriel Barbosa",
     "clubs": [
-      "Inter",
-      "Benfica"
+      "Benfica",
+      "Inter"
     ]
   },
   {
     "name": "Gabriel Heinze",
     "clubs": [
       "AS Roma",
-      "Real Madrid",
-      "Man Utd"
+      "Manchester United",
+      "Real Madrid"
     ]
   },
   {
     "name": "Gabriel Jesus",
     "clubs": [
       "Arsenal",
-      "Man City"
+      "Manchester City"
+    ]
+  },
+  {
+    "name": "Gabriel Obertan",
+    "clubs": [
+      "Manchester United",
+      "Newcastle United"
     ]
   },
   {
@@ -4724,52 +9955,146 @@ export const PLAYERS = [
     "name": "Gabriel Paulista",
     "clubs": [
       "Arsenal",
-      "Beşiktaş",
-      "Atletico Madrid"
+      "Atlético Madrid",
+      "Beşiktaş"
     ]
   },
   {
     "name": "Gabriel Pires",
     "clubs": [
-      "Juventus",
-      "Benfica"
+      "Benfica",
+      "Juventus"
     ]
   },
   {
     "name": "Gabriel Torje",
     "clubs": [
-      "Sivasspor",
+      "Gençlerbirliği",
       "Konyaspor",
-      "Genclerbirligi"
+      "Sivasspor"
+    ]
+  },
+  {
+    "name": "Gael Clichy",
+    "clubs": [
+      "Arsenal",
+      "Başakşehir",
+      "Manchester City"
+    ]
+  },
+  {
+    "name": "Gael Kakuta",
+    "clubs": [
+      "Chelsea",
+      "Fulham"
+    ]
+  },
+  {
+    "name": "Gaetan Laura",
+    "clubs": [
+      "Gençlerbirliği",
+      "Samsunspor"
+    ]
+  },
+  {
+    "name": "Gai Assulin",
+    "clubs": [
+      "Brighton",
+      "Manchester City"
     ]
   },
   {
     "name": "Galip Güzel",
     "clubs": [
+      "Alanyaspor",
+      "Galatasaray",
+      "Karagümrük",
       "Sivasspor",
-      "Galatasaray"
+      "Çaykur Rizespor"
     ]
   },
   {
     "name": "Garcia Calvo",
     "clubs": [
-      "Atletico Madrid",
+      "Atlético Madrid",
       "Real Madrid"
     ]
   },
   {
     "name": "Gareth Bale",
     "clubs": [
-      "Tottenham",
-      "Real Madrid"
+      "Real Madrid",
+      "Tottenham"
+    ]
+  },
+  {
+    "name": "Gareth Southgate",
+    "clubs": [
+      "Aston Villa",
+      "Crystal Palace"
+    ]
+  },
+  {
+    "name": "Gareth Taylor",
+    "clubs": [
+      "Burnley",
+      "Crystal Palace",
+      "Manchester City"
+    ]
+  },
+  {
+    "name": "Gareth Williams",
+    "clubs": [
+      "Bournemouth",
+      "Crystal Palace"
+    ]
+  },
+  {
+    "name": "Garetharry",
+    "clubs": [
+      "Aston Villa",
+      "Brighton",
+      "Everton"
     ]
   },
   {
     "name": "Garry Rodrigues",
     "clubs": [
-      "Sivasspor",
       "Fenerbahçe",
-      "Galatasaray"
+      "Galatasaray",
+      "Sivasspor"
+    ]
+  },
+  {
+    "name": "Gary Alexander",
+    "clubs": [
+      "Brentford",
+      "West Ham"
+    ]
+  },
+  {
+    "name": "Gary Cahill",
+    "clubs": [
+      "Aston Villa",
+      "Bournemouth",
+      "Burnley",
+      "Chelsea",
+      "Crystal Palace"
+    ]
+  },
+  {
+    "name": "Gary Charles",
+    "clubs": [
+      "Aston Villa",
+      "Benfica",
+      "West Ham"
+    ]
+  },
+  {
+    "name": "Gary Gardner",
+    "clubs": [
+      "Aston Villa",
+      "Brighton"
     ]
   },
   {
@@ -4780,48 +10105,183 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "GaÃ«l Clichy",
+    "name": "Gary Speed",
+    "clubs": [
+      "Everton",
+      "Leeds United",
+      "Newcastle United"
+    ]
+  },
+  {
+    "name": "Garyorrowdale",
+    "clubs": [
+      "Brighton",
+      "Crystal Palace"
+    ]
+  },
+  {
+    "name": "Garyreen",
+    "clubs": [
+      "Sunderland",
+      "West Ham",
+      "Wolverhampton"
+    ]
+  },
+  {
+    "name": "Gaston Campi",
+    "clubs": [
+      "Karagümrük",
+      "Trabzonspor"
+    ]
+  },
+  {
+    "name": "Gavin Hoyte",
     "clubs": [
       "Arsenal",
-      "Başakşehir",
-      "Man City"
+      "Brighton"
+    ]
+  },
+  {
+    "name": "Gavin Mahon",
+    "clubs": [
+      "Brentford",
+      "Crystal Palace",
+      "Wolverhampton"
+    ]
+  },
+  {
+    "name": "Gavin McCann",
+    "clubs": [
+      "Aston Villa",
+      "Everton",
+      "Sunderland"
+    ]
+  },
+  {
+    "name": "Gavin Ward",
+    "clubs": [
+      "Aston Villa",
+      "Burnley"
     ]
   },
   {
     "name": "Gedson Fernandes",
     "clubs": [
-      "Tottenham",
-      "Galatasaray",
+      "Benfica",
       "Beşiktaş",
-      "Benfica"
+      "Galatasaray",
+      "Tottenham",
+      "Çaykur Rizespor"
+    ]
+  },
+  {
+    "name": "Geoff Horsfield",
+    "clubs": [
+      "Fulham",
+      "Leeds United"
+    ]
+  },
+  {
+    "name": "Geoff Thomas",
+    "clubs": [
+      "Crystal Palace",
+      "Wolverhampton"
     ]
   },
   {
     "name": "Geoffrey Kondogbia",
     "clubs": [
-      "Atletico Madrid",
+      "Atlético Madrid",
       "Inter"
+    ]
+  },
+  {
+    "name": "George Dobson",
+    "clubs": [
+      "Arsenal",
+      "Sunderland",
+      "West Ham"
+    ]
+  },
+  {
+    "name": "George Green",
+    "clubs": [
+      "Burnley",
+      "Everton"
+    ]
+  },
+  {
+    "name": "George Hemmings",
+    "clubs": [
+      "Aston Villa",
+      "Nottingham Forest"
+    ]
+  },
+  {
+    "name": "George McCartney",
+    "clubs": [
+      "Leeds United",
+      "Sunderland",
+      "West Ham"
+    ]
+  },
+  {
+    "name": "George Saville",
+    "clubs": [
+      "Brentford",
+      "Chelsea",
+      "Wolverhampton"
+    ]
+  },
+  {
+    "name": "Georgi Ivanov",
+    "clubs": [
+      "Gaziantepspor",
+      "Samsunspor"
+    ]
+  },
+  {
+    "name": "Georginio Rutter",
+    "clubs": [
+      "Brighton",
+      "Leeds United"
     ]
   },
   {
     "name": "Georginio Wijnaldum",
     "clubs": [
       "AS Roma",
-      "Liverpool"
+      "Liverpool",
+      "Newcastle United"
     ]
   },
   {
     "name": "Georgios Karagounis",
     "clubs": [
-      "Inter",
-      "Benfica"
+      "Benfica",
+      "Fulham",
+      "Inter"
+    ]
+  },
+  {
+    "name": "Georgios Okkas",
+    "clubs": [
+      "Arsenal",
+      "Fulham"
+    ]
+  },
+  {
+    "name": "Georgios Samaras",
+    "clubs": [
+      "Manchester City",
+      "Samsunspor"
     ]
   },
   {
     "name": "Geovanne Martins",
     "clubs": [
-      "FC Porto",
-      "Benfica"
+      "Benfica",
+      "FC Porto"
     ]
   },
   {
@@ -4829,43 +10289,58 @@ export const PLAYERS = [
     "clubs": [
       "Barcelona",
       "Benfica",
-      "Man City"
+      "Manchester City"
     ]
   },
   {
     "name": "Geovany Quenda",
     "clubs": [
-      "Chelsea",
-      "Benfica"
+      "Benfica",
+      "Chelsea"
     ]
   },
   {
     "name": "Gerard Deulofeu",
     "clubs": [
+      "AC Milan",
       "Barcelona",
-      "AC Milan"
+      "Everton"
+    ]
+  },
+  {
+    "name": "Gerard Gohou",
+    "clubs": [
+      "Denizlispor",
+      "Kasımpaşa"
     ]
   },
   {
     "name": "Gerard Pique",
     "clubs": [
       "Barcelona",
-      "Man Utd"
+      "Manchester United"
     ]
   },
   {
     "name": "Geronimo Rulli",
     "clubs": [
       "Ajax",
-      "Man City"
+      "Manchester City"
+    ]
+  },
+  {
+    "name": "Gerson Rodrigues",
+    "clubs": [
+      "Eyüpspor",
+      "Sivasspor"
     ]
   },
   {
     "name": "Gervinho",
     "clubs": [
+      "AS Roma",
       "Arsenal",
-      "Trabzonspor",
-      "AS Roma"
+      "Trabzonspor"
     ]
   },
   {
@@ -4878,7 +10353,7 @@ export const PLAYERS = [
   {
     "name": "Giacomo Raspadori",
     "clubs": [
-      "Atletico Madrid",
+      "Atlético Madrid",
       "Napoli"
     ]
   },
@@ -4894,6 +10369,13 @@ export const PLAYERS = [
     "clubs": [
       "Chelsea",
       "Napoli"
+    ]
+  },
+  {
+    "name": "Giani KiriÈ›Äƒ",
+    "clubs": [
+      "Gaziantepspor",
+      "Samsunspor"
     ]
   },
   {
@@ -4913,8 +10395,8 @@ export const PLAYERS = [
   {
     "name": "Gianluca Lapadula",
     "clubs": [
-      "Juventus",
-      "AC Milan"
+      "AC Milan",
+      "Juventus"
     ]
   },
   {
@@ -4927,46 +10409,53 @@ export const PLAYERS = [
   {
     "name": "Gianluca Zambrotta",
     "clubs": [
-      "Juventus",
+      "AC Milan",
       "Barcelona",
-      "AC Milan"
+      "Juventus"
     ]
   },
   {
     "name": "Gianluigi Donnarumma",
     "clubs": [
       "AC Milan",
-      "Man City"
+      "Manchester City"
     ]
   },
   {
     "name": "Gil Dias",
     "clubs": [
-      "FC Porto",
-      "Benfica"
+      "Benfica",
+      "FC Porto"
     ]
   },
   {
     "name": "Gilberto",
     "clubs": [
-      "Tottenham",
+      "Benfica",
       "Inter",
-      "Benfica"
+      "Tottenham"
+    ]
+  },
+  {
+    "name": "Gilles Binya",
+    "clubs": [
+      "Benfica",
+      "Gaziantepspor"
     ]
   },
   {
     "name": "Giorgio Venturin",
     "clubs": [
-      "Atletico Madrid",
+      "Atlético Madrid",
       "Napoli"
     ]
   },
   {
     "name": "Giovani dos Santos",
     "clubs": [
-      "Tottenham",
       "Barcelona",
-      "Galatasaray"
+      "Galatasaray",
+      "Tottenham"
     ]
   },
   {
@@ -4979,8 +10468,15 @@ export const PLAYERS = [
   {
     "name": "Giuliano",
     "clubs": [
-      "Fenerbahçe",
-      "Başakşehir"
+      "Başakşehir",
+      "Fenerbahçe"
+    ]
+  },
+  {
+    "name": "Giuseppe Rossi",
+    "clubs": [
+      "Manchester United",
+      "Newcastle United"
     ]
   },
   {
@@ -4994,24 +10490,75 @@ export const PLAYERS = [
     "name": "Glen Johnson",
     "clubs": [
       "Chelsea",
-      "Liverpool"
+      "Liverpool",
+      "West Ham"
+    ]
+  },
+  {
+    "name": "Glen Kamara",
+    "clubs": [
+      "Arsenal",
+      "Leeds United"
+    ]
+  },
+  {
+    "name": "Glenn Murray",
+    "clubs": [
+      "Bournemouth",
+      "Brighton",
+      "Crystal Palace"
+    ]
+  },
+  {
+    "name": "Glenn Whelan",
+    "clubs": [
+      "Aston Villa",
+      "Manchester City"
+    ]
+  },
+  {
+    "name": "Glynor Plet",
+    "clubs": [
+      "Ajax",
+      "Alanyaspor"
+    ]
+  },
+  {
+    "name": "Godfried Frimpong",
+    "clubs": [
+      "Benfica",
+      "Kasımpaşa"
     ]
   },
   {
     "name": "Gonzalo Higuain",
     "clubs": [
+      "AC Milan",
       "Chelsea",
       "Juventus",
-      "AC Milan",
-      "Real Madrid",
-      "Napoli"
+      "Napoli",
+      "Real Madrid"
+    ]
+  },
+  {
+    "name": "Gonzalo Sorondo",
+    "clubs": [
+      "Crystal Palace",
+      "Inter"
     ]
   },
   {
     "name": "Gonçalo Borges",
     "clubs": [
-      "FC Porto",
-      "Benfica"
+      "Benfica",
+      "FC Porto"
+    ]
+  },
+  {
+    "name": "Gonçalo Guedes",
+    "clubs": [
+      "Benfica",
+      "Wolverhampton"
     ]
   },
   {
@@ -5023,10 +10570,61 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Gordon Armstrong",
+    "clubs": [
+      "Burnley",
+      "Sunderland"
+    ]
+  },
+  {
+    "name": "Graham Stack",
+    "clubs": [
+      "Arsenal",
+      "Leeds United",
+      "Wolverhampton"
+    ]
+  },
+  {
+    "name": "Granit Xhaka",
+    "clubs": [
+      "Arsenal",
+      "Sunderland"
+    ]
+  },
+  {
+    "name": "Grant Hall",
+    "clubs": [
+      "Brighton",
+      "Tottenham"
+    ]
+  },
+  {
+    "name": "Grant Holt",
+    "clubs": [
+      "Aston Villa",
+      "Wolverhampton"
+    ]
+  },
+  {
+    "name": "Grant Smith",
+    "clubs": [
+      "Brighton",
+      "Fulham"
+    ]
+  },
+  {
+    "name": "Greg Halford",
+    "clubs": [
+      "Brighton",
+      "Sunderland",
+      "Wolverhampton"
+    ]
+  },
+  {
     "name": "Gregory van der Wiel",
     "clubs": [
-      "Fenerbahçe",
-      "Ajax"
+      "Ajax",
+      "Fenerbahçe"
     ]
   },
   {
@@ -5037,18 +10635,39 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Guido Kocer",
+    "clubs": [
+      "Gençlerbirliği",
+      "Samsunspor"
+    ]
+  },
+  {
+    "name": "Guilherme",
+    "clubs": [
+      "Göztepe",
+      "Trabzonspor"
+    ]
+  },
+  {
     "name": "Guilherme Siqueira",
     "clubs": [
-      "Atletico Madrid",
-      "Inter",
-      "Benfica"
+      "Atlético Madrid",
+      "Benfica",
+      "Inter"
     ]
   },
   {
     "name": "Guillaume Warmuz",
     "clubs": [
-      "Bor. Dortmund",
-      "Arsenal"
+      "Arsenal",
+      "Borussia Dortmund"
+    ]
+  },
+  {
+    "name": "Gustave Bebbe",
+    "clubs": [
+      "Kasımpaşa",
+      "Konyaspor"
     ]
   },
   {
@@ -5068,8 +10687,8 @@ export const PLAYERS = [
   {
     "name": "Gustavo Schneider",
     "clubs": [
-      "FC Porto",
-      "Benfica"
+      "Benfica",
+      "FC Porto"
     ]
   },
   {
@@ -5082,15 +10701,30 @@ export const PLAYERS = [
   {
     "name": "Guy Demel",
     "clubs": [
-      "Bor. Dortmund",
-      "Arsenal"
+      "Arsenal",
+      "Borussia Dortmund",
+      "West Ham"
+    ]
+  },
+  {
+    "name": "Guy-Michel Landel",
+    "clubs": [
+      "Alanyaspor",
+      "Gençlerbirliği"
+    ]
+  },
+  {
+    "name": "Gylfi Sigurdsson",
+    "clubs": [
+      "Everton",
+      "Tottenham"
     ]
   },
   {
     "name": "Gyliano van Velzen",
     "clubs": [
       "Ajax",
-      "Man Utd"
+      "Manchester United"
     ]
   },
   {
@@ -5101,34 +10735,78 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Gökdeniz Bayrakdar",
+    "clubs": [
+      "Antalyaspor",
+      "Kocaelispor"
+    ]
+  },
+  {
+    "name": "Gökhan Alsan",
+    "clubs": [
+      "Gaziantep FK",
+      "Samsunspor",
+      "Trabzonspor"
+    ]
+  },
+  {
     "name": "Gökhan Bozkaya",
     "clubs": [
-      "Sivasspor",
+      "Antalyaspor",
       "Fenerbahçe",
-      "Antalyaspor"
+      "Kocaelispor",
+      "Sivasspor"
+    ]
+  },
+  {
+    "name": "Gökhan Caba",
+    "clubs": [
+      "Eyüpspor",
+      "Karagümrük",
+      "Kasımpaşa"
+    ]
+  },
+  {
+    "name": "Gökhan Değirmenci",
+    "clubs": [
+      "Gaziantepspor",
+      "Göztepe",
+      "Kayserispor",
+      "Kocaelispor"
     ]
   },
   {
     "name": "Gökhan Emreciksin",
     "clubs": [
+      "Fenerbahçe",
+      "Göztepe",
       "Kayserispor",
-      "Konyaspor",
-      "Fenerbahçe"
+      "Konyaspor"
     ]
   },
   {
     "name": "Gökhan Gönül",
     "clubs": [
+      "Beşiktaş",
       "Fenerbahçe",
-      "Genclerbirligi",
-      "Beşiktaş"
+      "Gençlerbirliği",
+      "Çaykur Rizespor"
+    ]
+  },
+  {
+    "name": "Gökhan Gül",
+    "clubs": [
+      "Gençlerbirliği",
+      "Kasımpaşa"
     ]
   },
   {
     "name": "Gökhan Güleç",
     "clubs": [
+      "Beşiktaş",
       "Denizlispor",
-      "Beşiktaş"
+      "Gaziantepspor",
+      "Kasımpaşa"
     ]
   },
   {
@@ -5142,132 +10820,247 @@ export const PLAYERS = [
   {
     "name": "Gökhan Karadeniz",
     "clubs": [
-      "Trabzonspor",
-      "Antalyaspor"
+      "Antalyaspor",
+      "Göztepe",
+      "Samsunspor",
+      "Trabzonspor"
     ]
   },
   {
     "name": "Gökhan Süzen",
     "clubs": [
-      "Sivasspor",
+      "Beşiktaş",
       "Denizlispor",
       "Galatasaray",
-      "Beşiktaş"
+      "Gaziantepspor",
+      "Sivasspor"
     ]
   },
   {
     "name": "Gökhan Tokgöz",
     "clubs": [
-      "Konyaspor",
-      "Genclerbirligi"
+      "Gençlerbirliği",
+      "Konyaspor"
     ]
   },
   {
     "name": "Gökhan Töre",
     "clubs": [
+      "Beşiktaş",
       "Chelsea",
       "Konyaspor",
-      "Beşiktaş"
+      "West Ham"
     ]
   },
   {
     "name": "Gökhan Zan",
     "clubs": [
+      "Beşiktaş",
       "Galatasaray",
-      "Beşiktaş"
+      "Gaziantepspor"
     ]
   },
   {
     "name": "Gökhan Ünal",
     "clubs": [
-      "Kayserispor",
       "Fenerbahçe",
-      "Trabzonspor",
-      "Genclerbirligi"
+      "Gençlerbirliği",
+      "Kayserispor",
+      "Trabzonspor"
     ]
   },
   {
     "name": "Göksel Akıncı",
     "clubs": [
-      "Genclerbirligi",
-      "Denizlispor"
+      "Denizlispor",
+      "Eyüpspor",
+      "Gaziantepspor",
+      "Gençlerbirliği",
+      "Göztepe",
+      "Kasımpaşa"
+    ]
+  },
+  {
+    "name": "Göksel Yaman",
+    "clubs": [
+      "Göztepe",
+      "Trabzonspor"
     ]
   },
   {
     "name": "Göktan Gürpüz",
     "clubs": [
-      "Trabzonspor",
-      "Genclerbirligi"
+      "Gençlerbirliği",
+      "Karagümrük",
+      "Trabzonspor"
+    ]
+  },
+  {
+    "name": "Göktuğ Bakırbaş",
+    "clubs": [
+      "Göztepe",
+      "Sivasspor"
     ]
   },
   {
     "name": "Günay Güvenç",
     "clubs": [
+      "Beşiktaş",
       "Galatasaray",
-      "Beşiktaş"
+      "Gaziantep FK",
+      "Göztepe",
+      "Kasımpaşa"
     ]
   },
   {
     "name": "Gündüz Gürol Azer",
     "clubs": [
+      "Galatasaray",
+      "Kasımpaşa",
       "Sivasspor",
-      "Galatasaray"
+      "Çaykur Rizespor"
     ]
   },
   {
     "name": "Güray Vural",
     "clubs": [
-      "Kayserispor",
-      "Trabzonspor",
       "Antalyaspor",
-      "Denizlispor"
+      "Denizlispor",
+      "Gaziantep FK",
+      "Kayserispor",
+      "Trabzonspor"
     ]
   },
   {
     "name": "Gürhan Gürsoy",
     "clubs": [
-      "Sivasspor",
+      "Antalyaspor",
       "Fenerbahçe",
-      "Antalyaspor"
+      "Göztepe",
+      "Sivasspor"
+    ]
+  },
+  {
+    "name": "Güven Güneri",
+    "clubs": [
+      "Eyüpspor",
+      "Fenerbahçe"
+    ]
+  },
+  {
+    "name": "Güven Yalçın",
+    "clubs": [
+      "Alanyaspor",
+      "Beşiktaş",
+      "Karagümrük"
+    ]
+  },
+  {
+    "name": "Habib Habibou",
+    "clubs": [
+      "Gaziantepspor",
+      "Leeds United"
+    ]
+  },
+  {
+    "name": "Habibeye",
+    "clubs": [
+      "Aston Villa",
+      "Newcastle United"
+    ]
+  },
+  {
+    "name": "Habil Özbakır",
+    "clubs": [
+      "Trabzonspor",
+      "Çaykur Rizespor"
+    ]
+  },
+  {
+    "name": "Hakan Akbaş",
+    "clubs": [
+      "Beşiktaş",
+      "Eyüpspor",
+      "Çaykur Rizespor"
+    ]
+  },
+  {
+    "name": "Hakan Arslan",
+    "clubs": [
+      "Kasımpaşa",
+      "Samsunspor",
+      "Sivasspor"
     ]
   },
   {
     "name": "Hakan Arıkan",
     "clubs": [
-      "Kayserispor",
-      "Trabzonspor",
-      "Genclerbirligi",
       "Antalyaspor",
-      "Beşiktaş"
+      "Beşiktaş",
+      "Gençlerbirliği",
+      "Kayserispor",
+      "Kocaelispor",
+      "Trabzonspor"
     ]
   },
   {
     "name": "Hakan Aslantas",
     "clubs": [
+      "Gençlerbirliği",
       "Kayserispor",
-      "Konyaspor",
-      "Genclerbirligi"
+      "Konyaspor"
+    ]
+  },
+  {
+    "name": "Hakan Ateş",
+    "clubs": [
+      "Denizlispor",
+      "Göztepe"
     ]
   },
   {
     "name": "Hakan Bayraktar",
     "clubs": [
-      "Sivasspor",
-      "Fenerbahçe"
+      "Fenerbahçe",
+      "Gaziantepspor",
+      "Samsunspor",
+      "Sivasspor"
     ]
   },
   {
     "name": "Hakan Canbazoğlu",
     "clubs": [
-      "Sivasspor",
-      "Galatasaray"
+      "Galatasaray",
+      "Sivasspor"
     ]
   },
   {
     "name": "Hakan Demir",
     "clubs": [
-      "Genclerbirligi",
-      "Antalyaspor"
+      "Antalyaspor",
+      "Gençlerbirliği",
+      "Göztepe"
+    ]
+  },
+  {
+    "name": "Hakan Erçelik",
+    "clubs": [
+      "Alanyaspor",
+      "Denizlispor"
+    ]
+  },
+  {
+    "name": "Hakan Konaş",
+    "clubs": [
+      "Eyüpspor",
+      "Karagümrük"
+    ]
+  },
+  {
+    "name": "Hakan Saral",
+    "clubs": [
+      "Antalyaspor",
+      "Kasımpaşa"
     ]
   },
   {
@@ -5280,16 +11073,26 @@ export const PLAYERS = [
   {
     "name": "Hakan Çinemre",
     "clubs": [
+      "Denizlispor",
       "Fenerbahçe",
-      "Denizlispor"
+      "Gaziantepspor",
+      "Göztepe"
     ]
   },
   {
     "name": "Hakan Özmert",
     "clubs": [
-      "Sivasspor",
+      "Antalyaspor",
       "Başakşehir",
-      "Antalyaspor"
+      "Kasımpaşa",
+      "Sivasspor"
+    ]
+  },
+  {
+    "name": "Hakan Ünsal",
+    "clubs": [
+      "Galatasaray",
+      "Çaykur Rizespor"
     ]
   },
   {
@@ -5302,9 +11105,9 @@ export const PLAYERS = [
   {
     "name": "Hakim Ziyech",
     "clubs": [
+      "Ajax",
       "Chelsea",
-      "Galatasaray",
-      "Ajax"
+      "Galatasaray"
     ]
   },
   {
@@ -5315,62 +11118,212 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Halil Akbunar",
+    "clubs": [
+      "Antalyaspor",
+      "Eyüpspor",
+      "Göztepe"
+    ]
+  },
+  {
+    "name": "Halil Cengiz",
+    "clubs": [
+      "Karagümrük",
+      "Kayserispor"
+    ]
+  },
+  {
+    "name": "Halil Dervişoğlu",
+    "clubs": [
+      "Brentford",
+      "Burnley",
+      "Galatasaray",
+      "Gaziantep FK",
+      "Çaykur Rizespor"
+    ]
+  },
+  {
+    "name": "Halil Yeral",
+    "clubs": [
+      "Eyüpspor",
+      "Samsunspor"
+    ]
+  },
+  {
+    "name": "Halil Çelik",
+    "clubs": [
+      "Eyüpspor",
+      "Göztepe"
+    ]
+  },
+  {
     "name": "Halil İbrahim Sönmez",
     "clubs": [
       "Konyaspor",
-      "Trabzonspor"
+      "Trabzonspor",
+      "Çaykur Rizespor"
+    ]
+  },
+  {
+    "name": "Halit Güven Kocabal",
+    "clubs": [
+      "Beşiktaş",
+      "Eyüpspor"
+    ]
+  },
+  {
+    "name": "Halit Matlı",
+    "clubs": [
+      "Eyüpspor",
+      "Kocaelispor"
+    ]
+  },
+  {
+    "name": "Haluk Türkeri",
+    "clubs": [
+      "Denizlispor",
+      "Samsunspor"
+    ]
+  },
+  {
+    "name": "Hamed Traore",
+    "clubs": [
+      "Bournemouth",
+      "Napoli"
     ]
   },
   {
     "name": "Hamit Altıntop",
     "clubs": [
+      "Bayern Munich",
       "Galatasaray",
-      "Real Madrid",
-      "Bayern Munich"
+      "Real Madrid"
+    ]
+  },
+  {
+    "name": "Hamza Akman",
+    "clubs": [
+      "Eyüpspor",
+      "Galatasaray"
+    ]
+  },
+  {
+    "name": "Hannibal",
+    "clubs": [
+      "Burnley",
+      "Manchester United"
     ]
   },
   {
     "name": "Hans Jörg Butt",
     "clubs": [
-      "Benfica",
-      "Bayern Munich"
+      "Bayern Munich",
+      "Benfica"
     ]
   },
   {
     "name": "Haris Seferovic",
     "clubs": [
-      "Galatasaray",
-      "Benfica"
+      "Benfica",
+      "Galatasaray"
+    ]
+  },
+  {
+    "name": "Harrison Ashby",
+    "clubs": [
+      "Newcastle United",
+      "West Ham"
+    ]
+  },
+  {
+    "name": "Harrison McMahon",
+    "clubs": [
+      "Chelsea",
+      "West Ham"
     ]
   },
   {
     "name": "Harrison Parker",
     "clubs": [
       "Arsenal",
-      "Man Utd",
-      "Man City"
+      "Manchester City",
+      "Manchester United"
+    ]
+  },
+  {
+    "name": "Harrison Sohna",
+    "clubs": [
+      "Aston Villa",
+      "Sunderland"
+    ]
+  },
+  {
+    "name": "Harry Allen",
+    "clubs": [
+      "Burnley",
+      "Manchester United"
+    ]
+  },
+  {
+    "name": "Harry Arter",
+    "clubs": [
+      "Bournemouth",
+      "Fulham"
+    ]
+  },
+  {
+    "name": "Harry Forrester",
+    "clubs": [
+      "Aston Villa",
+      "Brentford"
     ]
   },
   {
     "name": "Harry Kane",
     "clubs": [
-      "Tottenham",
       "Arsenal",
-      "Bayern Munich"
+      "Bayern Munich",
+      "Tottenham"
     ]
   },
   {
     "name": "Harry Kewell",
     "clubs": [
       "Galatasaray",
+      "Leeds United",
+      "Liverpool"
+    ]
+  },
+  {
+    "name": "Harry Wilson",
+    "clubs": [
+      "Bournemouth",
+      "Fulham",
       "Liverpool"
     ]
   },
   {
     "name": "Harun Kaya",
     "clubs": [
-      "Galatasaray",
-      "Beşiktaş"
+      "Beşiktaş",
+      "Galatasaray"
+    ]
+  },
+  {
+    "name": "Harun Tekin",
+    "clubs": [
+      "Eyüpspor",
+      "Fenerbahçe",
+      "Kasımpaşa",
+      "Kocaelispor"
+    ]
+  },
+  {
+    "name": "Harvey Elliott",
+    "clubs": [
+      "Aston Villa",
+      "Fulham",
+      "Liverpool"
     ]
   },
   {
@@ -5381,56 +11334,159 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Harvey Griffiths",
+    "clubs": [
+      "Manchester City",
+      "Wolverhampton"
+    ]
+  },
+  {
     "name": "Harvey Neville",
     "clubs": [
-      "Man Utd",
-      "Man City"
+      "Manchester City",
+      "Manchester United"
+    ]
+  },
+  {
+    "name": "Hasan Acar",
+    "clubs": [
+      "Alanyaspor",
+      "Göztepe",
+      "Kayserispor"
     ]
   },
   {
     "name": "Hasan Ali Kaldırım",
     "clubs": [
-      "Kayserispor",
+      "Başakşehir",
       "Fenerbahçe",
-      "Başakşehir"
+      "Kayserispor"
+    ]
+  },
+  {
+    "name": "Hasan Altıparmak",
+    "clubs": [
+      "Antalyaspor",
+      "Eyüpspor"
+    ]
+  },
+  {
+    "name": "Hasan Ayaroğlu",
+    "clubs": [
+      "Alanyaspor",
+      "Denizlispor"
     ]
   },
   {
     "name": "Hasan Gültang",
     "clubs": [
-      "Kayserispor",
-      "Genclerbirligi"
+      "Gaziantepspor",
+      "Gençlerbirliği",
+      "Kayserispor"
+    ]
+  },
+  {
+    "name": "Hasan Hatipoğlu",
+    "clubs": [
+      "Kocaelispor",
+      "Samsunspor",
+      "Sivasspor"
     ]
   },
   {
     "name": "Hasan Kabze",
     "clubs": [
-      "Sivasspor",
+      "Galatasaray",
       "Konyaspor",
-      "Galatasaray"
+      "Sivasspor"
+    ]
+  },
+  {
+    "name": "Hasan Kılıç",
+    "clubs": [
+      "Denizlispor",
+      "Samsunspor"
     ]
   },
   {
     "name": "Hasan Salihamidzic",
     "clubs": [
-      "Juventus",
-      "Bayern Munich"
+      "Bayern Munich",
+      "Juventus"
     ]
   },
   {
     "name": "Hasan Sönmez",
     "clubs": [
+      "Antalyaspor",
+      "Gençlerbirliği",
       "Kayserispor",
+      "Samsunspor",
+      "Trabzonspor"
+    ]
+  },
+  {
+    "name": "Hasan Yurt",
+    "clubs": [
+      "Gaziantepspor",
+      "Sivasspor"
+    ]
+  },
+  {
+    "name": "Hasan Üçüncü",
+    "clubs": [
       "Trabzonspor",
-      "Genclerbirligi",
-      "Antalyaspor"
+      "Çaykur Rizespor"
+    ]
+  },
+  {
+    "name": "Hassan Kachloul",
+    "clubs": [
+      "Aston Villa",
+      "Wolverhampton"
     ]
   },
   {
     "name": "Hassan Yebda",
     "clubs": [
-      "Napoli",
-      "Benfica"
+      "Benfica",
+      "Napoli"
+    ]
+  },
+  {
+    "name": "Havard Nordtveit",
+    "clubs": [
+      "Fulham",
+      "West Ham"
+    ]
+  },
+  {
+    "name": "Haydar Yılmaz",
+    "clubs": [
+      "Alanyaspor",
+      "Gaziantep FK"
+    ]
+  },
+  {
+    "name": "Hayden Foxe",
+    "clubs": [
+      "Ajax",
+      "Leeds United",
+      "West Ham"
+    ]
+  },
+  {
+    "name": "Hayden Lindley",
+    "clubs": [
+      "Aston Villa",
+      "Manchester City"
+    ]
+  },
+  {
+    "name": "Hayden Mullins",
+    "clubs": [
+      "Crystal Palace",
+      "West Ham"
     ]
   },
   {
@@ -5443,8 +11499,8 @@ export const PLAYERS = [
   {
     "name": "Hector Herrera",
     "clubs": [
-      "FC Porto",
-      "Atletico Madrid"
+      "Atlético Madrid",
+      "FC Porto"
     ]
   },
   {
@@ -5455,10 +11511,18 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Helder Costa",
+    "clubs": [
+      "Benfica",
+      "Leeds United",
+      "Wolverhampton"
+    ]
+  },
+  {
     "name": "Helder Postiga",
     "clubs": [
-      "Tottenham",
-      "FC Porto"
+      "FC Porto",
+      "Tottenham"
     ]
   },
   {
@@ -5469,20 +11533,42 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Henri Camara",
+    "clubs": [
+      "West Ham",
+      "Wolverhampton"
+    ]
+  },
+  {
+    "name": "Henri Lansbury",
+    "clubs": [
+      "Arsenal",
+      "Aston Villa",
+      "West Ham"
+    ]
+  },
+  {
+    "name": "Henri Saivet",
+    "clubs": [
+      "Newcastle United",
+      "Sivasspor"
+    ]
+  },
+  {
     "name": "Henrik Larsson",
     "clubs": [
       "Barcelona",
-      "Man Utd"
+      "Manchester United"
     ]
   },
   {
     "name": "Henrikh Mkhitaryan",
     "clubs": [
-      "Bor. Dortmund",
-      "Arsenal",
       "AS Roma",
+      "Arsenal",
+      "Borussia Dortmund",
       "Inter",
-      "Man Utd"
+      "Manchester United"
     ]
   },
   {
@@ -5495,30 +11581,39 @@ export const PLAYERS = [
   {
     "name": "Henry Onyekuru",
     "clubs": [
-      "Genclerbirligi",
-      "Galatasaray"
+      "Everton",
+      "Galatasaray",
+      "Gençlerbirliği"
+    ]
+  },
+  {
+    "name": "Hermann Hreidarsson",
+    "clubs": [
+      "Brentford",
+      "Crystal Palace"
     ]
   },
   {
     "name": "Hernan Crespo",
     "clubs": [
-      "Chelsea",
       "AC Milan",
+      "Chelsea",
       "Inter"
     ]
   },
   {
     "name": "Hernanes",
     "clubs": [
-      "Juventus",
-      "Inter"
+      "Inter",
+      "Juventus"
     ]
   },
   {
     "name": "Herve Tum",
     "clubs": [
-      "Sivasspor",
-      "Genclerbirligi"
+      "Gençlerbirliği",
+      "Göztepe",
+      "Sivasspor"
     ]
   },
   {
@@ -5529,10 +11624,17 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Hogan Ephraim",
+    "clubs": [
+      "Leeds United",
+      "West Ham"
+    ]
+  },
+  {
     "name": "Houssem Aouar",
     "clubs": [
       "AS Roma",
-      "Olymp. Lyon"
+      "Olympique Lyon"
     ]
   },
   {
@@ -5546,7 +11648,8 @@ export const PLAYERS = [
     "name": "Hubert Graczyk",
     "clubs": [
       "Arsenal",
-      "Man Utd"
+      "Everton",
+      "Manchester United"
     ]
   },
   {
@@ -5559,89 +11662,182 @@ export const PLAYERS = [
   {
     "name": "Hugo Felix",
     "clubs": [
-      "FC Porto",
-      "Benfica"
+      "Benfica",
+      "FC Porto"
     ]
   },
   {
     "name": "Hugo Leal",
     "clubs": [
-      "FC Porto",
-      "Atletico Madrid",
-      "Benfica"
+      "Atlético Madrid",
+      "Benfica",
+      "FC Porto"
     ]
   },
   {
     "name": "Hugo Rodallega",
     "clubs": [
-      "Trabzonspor",
-      "Denizlispor"
+      "Denizlispor",
+      "Fulham",
+      "Trabzonspor"
     ]
   },
   {
     "name": "Hulk",
     "clubs": [
-      "FC Porto",
-      "Benfica"
+      "Benfica",
+      "FC Porto"
     ]
   },
   {
     "name": "Hyun-jun Suk",
     "clubs": [
+      "Ajax",
       "FC Porto",
-      "Trabzonspor",
-      "Ajax"
+      "Trabzonspor"
+    ]
+  },
+  {
+    "name": "Hüseyin Bak",
+    "clubs": [
+      "Göztepe",
+      "Çaykur Rizespor"
+    ]
+  },
+  {
+    "name": "Hüseyin Kartal",
+    "clubs": [
+      "Denizlispor",
+      "Göztepe",
+      "Kasımpaşa"
+    ]
+  },
+  {
+    "name": "Hüseyin Topkaya",
+    "clubs": [
+      "Kayserispor",
+      "Çaykur Rizespor"
     ]
   },
   {
     "name": "Hüseyin Türkmen",
     "clubs": [
-      "Trabzonspor",
-      "Antalyaspor"
+      "Antalyaspor",
+      "Trabzonspor"
+    ]
+  },
+  {
+    "name": "Hüseyin Yoğurtçu",
+    "clubs": [
+      "Gençlerbirliği",
+      "Kasımpaşa"
     ]
   },
   {
     "name": "Hüseyin Çimşir",
     "clubs": [
-      "Trabzonspor",
-      "Antalyaspor"
+      "Antalyaspor",
+      "Trabzonspor"
+    ]
+  },
+  {
+    "name": "Hüsnü Zeybekoğlu",
+    "clubs": [
+      "Eyüpspor",
+      "Fenerbahçe"
     ]
   },
   {
     "name": "Iago Falque",
     "clubs": [
-      "Tottenham",
+      "AS Roma",
       "Juventus",
-      "AS Roma"
+      "Tottenham"
+    ]
+  },
+  {
+    "name": "Iain Turner",
+    "clubs": [
+      "Crystal Palace",
+      "Everton"
+    ]
+  },
+  {
+    "name": "Ian Cox",
+    "clubs": [
+      "Bournemouth",
+      "Burnley",
+      "Crystal Palace"
     ]
   },
   {
     "name": "Ian Maatsen",
     "clubs": [
-      "Bor. Dortmund",
+      "Aston Villa",
+      "Borussia Dortmund",
+      "Burnley",
       "Chelsea"
+    ]
+  },
+  {
+    "name": "Ian Pearce",
+    "clubs": [
+      "Chelsea",
+      "Fulham",
+      "West Ham"
     ]
   },
   {
     "name": "Ian Poveda",
     "clubs": [
-      "Chelsea",
       "Arsenal",
-      "Man City"
+      "Brentford",
+      "Chelsea",
+      "Leeds United",
+      "Manchester City",
+      "Sunderland"
+    ]
+  },
+  {
+    "name": "Ian Westlake",
+    "clubs": [
+      "Brighton",
+      "Leeds United"
+    ]
+  },
+  {
+    "name": "Ianennett",
+    "clubs": [
+      "Leeds United",
+      "Newcastle United"
     ]
   },
   {
     "name": "Iasmin Latovlevici",
     "clubs": [
-      "Genclerbirligi",
-      "Galatasaray"
+      "Galatasaray",
+      "Gençlerbirliği"
+    ]
+  },
+  {
+    "name": "Ibrahim Ba",
+    "clubs": [
+      "AC Milan",
+      "Çaykur Rizespor"
     ]
   },
   {
     "name": "Ibrahima Bangoura",
     "clubs": [
-      "Konyaspor",
-      "Denizlispor"
+      "Denizlispor",
+      "Konyaspor"
+    ]
+  },
+  {
+    "name": "Idrissa Gueye",
+    "clubs": [
+      "Aston Villa",
+      "Everton"
     ]
   },
   {
@@ -5652,6 +11848,13 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Igor Julio",
+    "clubs": [
+      "Brighton",
+      "West Ham"
+    ]
+  },
+  {
     "name": "Iker Casillas",
     "clubs": [
       "FC Porto",
@@ -5659,10 +11862,17 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Ilias Chatzitheodoridis",
+    "clubs": [
+      "Arsenal",
+      "Brentford"
+    ]
+  },
+  {
     "name": "Ilqar Qurbanov",
     "clubs": [
-      "Sivasspor",
-      "Fenerbahçe"
+      "Fenerbahçe",
+      "Sivasspor"
     ]
   },
   {
@@ -5670,6 +11880,13 @@ export const PLAYERS = [
     "clubs": [
       "Barcelona",
       "Galatasaray"
+    ]
+  },
+  {
+    "name": "IonuÈ› Radu",
+    "clubs": [
+      "Bournemouth",
+      "Inter"
     ]
   },
   {
@@ -5682,24 +11899,52 @@ export const PLAYERS = [
   {
     "name": "Isaac Cuenca",
     "clubs": [
-      "Barcelona",
-      "Ajax"
+      "Ajax",
+      "Barcelona"
+    ]
+  },
+  {
+    "name": "Isaac Hayden",
+    "clubs": [
+      "Arsenal",
+      "Newcastle United"
     ]
   },
   {
     "name": "Isaac Promise",
     "clubs": [
-      "Trabzonspor",
-      "Genclerbirligi",
-      "Antalyaspor"
+      "Antalyaspor",
+      "Gençlerbirliği",
+      "Trabzonspor"
+    ]
+  },
+  {
+    "name": "Isaac Sackey",
+    "clubs": [
+      "Alanyaspor",
+      "Denizlispor"
+    ]
+  },
+  {
+    "name": "Isaiah Rankin",
+    "clubs": [
+      "Arsenal",
+      "Brentford"
     ]
   },
   {
     "name": "Ishak Belfodil",
     "clubs": [
       "Inter",
-      "PSG",
-      "Olymp. Lyon"
+      "Olympique Lyon",
+      "Paris Saint-Germain"
+    ]
+  },
+  {
+    "name": "Islam Slimani",
+    "clubs": [
+      "Fenerbahçe",
+      "Newcastle United"
     ]
   },
   {
@@ -5710,25 +11955,50 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Ismail Aissati",
+    "name": "Ismael Bennacer",
     "clubs": [
-      "Antalyaspor",
-      "Denizlispor",
-      "Ajax"
+      "AC Milan",
+      "Arsenal"
     ]
   },
   {
-    "name": "IsmaÃ«l Bennacer",
+    "name": "Ismael Diomande",
     "clubs": [
-      "Arsenal",
-      "AC Milan"
+      "Konyaspor",
+      "Samsunspor",
+      "Çaykur Rizespor"
+    ]
+  },
+  {
+    "name": "Ismail Aissati",
+    "clubs": [
+      "Ajax",
+      "Alanyaspor",
+      "Antalyaspor",
+      "Denizlispor"
+    ]
+  },
+  {
+    "name": "Issa Diop",
+    "clubs": [
+      "Fulham",
+      "West Ham"
     ]
   },
   {
     "name": "Issa Kabore",
     "clubs": [
       "Benfica",
-      "Man City"
+      "Manchester City"
+    ]
+  },
+  {
+    "name": "Ivan Cavaleiro",
+    "clubs": [
+      "Alanyaspor",
+      "Benfica",
+      "Fulham",
+      "Wolverhampton"
     ]
   },
   {
@@ -5741,168 +12011,60 @@ export const PLAYERS = [
   {
     "name": "Ivan Lietava",
     "clubs": [
-      "Konyaspor",
-      "Denizlispor"
+      "Denizlispor",
+      "Konyaspor"
     ]
   },
   {
     "name": "Ivan Marcano",
     "clubs": [
-      "FC Porto",
-      "AS Roma"
+      "AS Roma",
+      "FC Porto"
     ]
   },
   {
     "name": "Ivan Perisic",
     "clubs": [
-      "Bor. Dortmund",
-      "Tottenham",
+      "Bayern Munich",
+      "Borussia Dortmund",
       "Inter",
-      "Bayern Munich"
+      "Tottenham"
     ]
   },
   {
     "name": "Ivan Radeljic",
     "clubs": [
-      "Genclerbirligi",
-      "Antalyaspor"
-    ]
-  },
-  {
-    "name": "İbrahim Akdağ",
-    "clubs": [
-      "Kayserispor",
-      "Sivasspor",
-      "Başakşehir"
-    ]
-  },
-  {
-    "name": "İbrahim Akın",
-    "clubs": [
-      "Sivasspor",
-      "Beşiktaş"
-    ]
-  },
-  {
-    "name": "İbrahim Dağaşan",
-    "clubs": [
-      "Kayserispor",
-      "Sivasspor",
-      "Antalyaspor"
-    ]
-  },
-  {
-    "name": "İbrahim Ege",
-    "clubs": [
-      "Konyaspor",
-      "Trabzonspor",
-      "Denizlispor"
-    ]
-  },
-  {
-    "name": "İbrahim Toraman",
-    "clubs": [
-      "Sivasspor",
-      "Beşiktaş"
-    ]
-  },
-  {
-    "name": "İlhan Mansız",
-    "clubs": [
-      "Genclerbirligi",
-      "Beşiktaş"
-    ]
-  },
-  {
-    "name": "İlkay Durmuş",
-    "clubs": [
-      "Genclerbirligi",
-      "Antalyaspor"
-    ]
-  },
-  {
-    "name": "İlkay Gündoğan",
-    "clubs": [
-      "Bor. Dortmund",
-      "Barcelona",
-      "Galatasaray",
-      "Man City"
-    ]
-  },
-  {
-    "name": "İlker Avcıbay",
-    "clubs": [
-      "Konyaspor",
       "Antalyaspor",
-      "Denizlispor"
+      "Gençlerbirliği"
     ]
   },
   {
-    "name": "İlyas Kahraman",
+    "name": "Ivan Toney",
     "clubs": [
-      "Antalyaspor",
-      "Denizlispor",
-      "Galatasaray"
+      "Brentford",
+      "Newcastle United"
     ]
   },
   {
-    "name": "İlyas Yılmazer",
+    "name": "Ivanildo Fernandes",
     "clubs": [
-      "Fenerbahçe",
-      "Antalyaspor"
-    ]
-  },
-  {
-    "name": "İrfan Can Kahveci",
-    "clubs": [
-      "Fenerbahçe",
-      "Başakşehir",
-      "Genclerbirligi"
-    ]
-  },
-  {
-    "name": "İsmail Doğan",
-    "clubs": [
-      "Kayserispor",
-      "Genclerbirligi",
-      "Denizlispor"
-    ]
-  },
-  {
-    "name": "İsmail Güldüren",
-    "clubs": [
-      "Konyaspor",
-      "Fenerbahçe",
-      "Genclerbirligi"
-    ]
-  },
-  {
-    "name": "İsmail Kayalı",
-    "clubs": [
-      "Fenerbahçe",
-      "Antalyaspor"
-    ]
-  },
-  {
-    "name": "İsmail Köybaşı",
-    "clubs": [
-      "Fenerbahçe",
       "Trabzonspor",
-      "Beşiktaş"
+      "Çaykur Rizespor"
     ]
   },
   {
-    "name": "İsmail Çipe",
+    "name": "Ivo Grbic",
     "clubs": [
-      "Kayserispor",
-      "Galatasaray"
+      "Atlético Madrid",
+      "Karagümrük",
+      "Çaykur Rizespor"
     ]
   },
   {
-    "name": "İzzet Akgül",
+    "name": "Izzyrown",
     "clubs": [
-      "Denizlispor",
-      "Galatasaray"
+      "Brighton",
+      "Leeds United"
     ]
   },
   {
@@ -5910,45 +12072,197 @@ export const PLAYERS = [
     "clubs": [
       "AC Milan",
       "Ajax",
-      "Man Utd"
+      "Manchester United"
+    ]
+  },
+  {
+    "name": "Jack Clarke",
+    "clubs": [
+      "Aston Villa",
+      "Leeds United",
+      "Sunderland",
+      "Tottenham"
+    ]
+  },
+  {
+    "name": "Jack Colback",
+    "clubs": [
+      "Newcastle United",
+      "Sunderland"
+    ]
+  },
+  {
+    "name": "Jack Collison",
+    "clubs": [
+      "Bournemouth",
+      "West Ham"
+    ]
+  },
+  {
+    "name": "Jack Cork",
+    "clubs": [
+      "Bournemouth",
+      "Burnley",
+      "Chelsea"
     ]
   },
   {
     "name": "Jack Fletcher",
     "clubs": [
-      "Man Utd",
-      "Man City"
+      "Manchester City",
+      "Manchester United"
+    ]
+  },
+  {
+    "name": "Jack Grealish",
+    "clubs": [
+      "Aston Villa",
+      "Everton",
+      "Manchester City"
+    ]
+  },
+  {
+    "name": "Jack Harper",
+    "clubs": [
+      "Brighton",
+      "Real Madrid"
     ]
   },
   {
     "name": "Jack Harrison",
     "clubs": [
+      "Everton",
+      "Leeds United",
       "Liverpool",
-      "Man Utd",
-      "Man City"
+      "Manchester City",
+      "Manchester United"
+    ]
+  },
+  {
+    "name": "Jack McIntyre",
+    "clubs": [
+      "Everton",
+      "Manchester City",
+      "Sunderland"
+    ]
+  },
+  {
+    "name": "Jack Metcalf",
+    "clubs": [
+      "Liverpool",
+      "Wolverhampton"
+    ]
+  },
+  {
+    "name": "Jack Robinson",
+    "clubs": [
+      "Liverpool",
+      "Wolverhampton"
+    ]
+  },
+  {
+    "name": "Jack Rodwell",
+    "clubs": [
+      "Everton",
+      "Manchester City",
+      "Sunderland"
+    ]
+  },
+  {
+    "name": "Jack Wakely",
+    "clubs": [
+      "Brighton",
+      "Chelsea"
+    ]
+  },
+  {
+    "name": "Jack Wilshere",
+    "clubs": [
+      "Arsenal",
+      "Bournemouth",
+      "West Ham"
+    ]
+  },
+  {
+    "name": "Jackainbridge",
+    "clubs": [
+      "Everton",
+      "Sunderland"
     ]
   },
   {
     "name": "Jackson Martinez",
     "clubs": [
-      "FC Porto",
-      "Atletico Madrid"
+      "Atlético Madrid",
+      "FC Porto"
+    ]
+  },
+  {
+    "name": "Jackutland",
+    "clubs": [
+      "Crystal Palace",
+      "Leeds United"
+    ]
+  },
+  {
+    "name": "Jacob Carney",
+    "clubs": [
+      "Manchester United",
+      "Sunderland"
+    ]
+  },
+  {
+    "name": "Jacob Ramsey",
+    "clubs": [
+      "Aston Villa",
+      "Newcastle United"
+    ]
+  },
+  {
+    "name": "Jacobedeau",
+    "clubs": [
+      "Aston Villa",
+      "Burnley"
+    ]
+  },
+  {
+    "name": "Jacson Coppack",
+    "clubs": [
+      "Burnley",
+      "Everton"
     ]
   },
   {
     "name": "Jadon Sancho",
     "clubs": [
-      "Bor. Dortmund",
+      "Aston Villa",
+      "Borussia Dortmund",
       "Chelsea",
-      "Man Utd",
-      "Man City"
+      "Manchester City",
+      "Manchester United"
+    ]
+  },
+  {
+    "name": "Jaidon Anthony",
+    "clubs": [
+      "Arsenal",
+      "Bournemouth",
+      "Burnley",
+      "Leeds United"
     ]
   },
   {
     "name": "Jailson",
     "clubs": [
-      "Fenerbahçe",
-      "Benfica"
+      "Benfica",
+      "Fenerbahçe"
+    ]
+  },
+  {
+    "name": "Jairo Riedewald",
+    "clubs": [
+      "Ajax",
+      "Crystal Palace"
     ]
   },
   {
@@ -5959,10 +12273,52 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Jak Alnwick",
+    "clubs": [
+      "Newcastle United",
+      "Sunderland"
+    ]
+  },
+  {
+    "name": "Jake Adelson",
+    "clubs": [
+      "Everton",
+      "Newcastle United"
+    ]
+  },
+  {
+    "name": "Jake Clarke-Salter",
+    "clubs": [
+      "Chelsea",
+      "Sunderland"
+    ]
+  },
+  {
+    "name": "Jake Livermore",
+    "clubs": [
+      "Leeds United",
+      "Tottenham"
+    ]
+  },
+  {
+    "name": "Jake Taylor",
+    "clubs": [
+      "Manchester United",
+      "Nottingham Forest"
+    ]
+  },
+  {
+    "name": "Jakeidwell",
+    "clubs": [
+      "Brentford",
+      "Everton"
+    ]
+  },
+  {
     "name": "Jakub Kaluzinski",
     "clubs": [
-      "Başakşehir",
-      "Antalyaspor"
+      "Antalyaspor",
+      "Başakşehir"
     ]
   },
   {
@@ -5973,91 +12329,235 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Jamaal Lascelles",
+    "clubs": [
+      "Newcastle United",
+      "Nottingham Forest"
+    ]
+  },
+  {
     "name": "Jamal Musiala",
     "clubs": [
-      "Chelsea",
-      "Bayern Munich"
+      "Bayern Munich",
+      "Chelsea"
+    ]
+  },
+  {
+    "name": "James Chester",
+    "clubs": [
+      "Aston Villa",
+      "Manchester United"
+    ]
+  },
+  {
+    "name": "James Collins",
+    "clubs": [
+      "Aston Villa",
+      "West Ham"
+    ]
+  },
+  {
+    "name": "James Garner",
+    "clubs": [
+      "Everton",
+      "Manchester United"
+    ]
+  },
+  {
+    "name": "James Henry",
+    "clubs": [
+      "Bournemouth",
+      "Wolverhampton"
     ]
   },
   {
     "name": "James Lawrence",
     "clubs": [
-      "Arsenal",
-      "Ajax"
+      "Ajax",
+      "Arsenal"
     ]
   },
   {
     "name": "James Lea Siliki",
     "clubs": [
-      "Genclerbirligi",
-      "PSG"
+      "Gençlerbirliği",
+      "Paris Saint-Germain"
+    ]
+  },
+  {
+    "name": "James McCarthy",
+    "clubs": [
+      "Crystal Palace",
+      "Everton"
     ]
   },
   {
     "name": "James McConnell",
     "clubs": [
       "Ajax",
-      "Liverpool"
+      "Liverpool",
+      "Sunderland"
     ]
   },
   {
     "name": "James Milner",
     "clubs": [
+      "Aston Villa",
+      "Brighton",
+      "Leeds United",
       "Liverpool",
-      "Man City"
+      "Manchester City",
+      "Newcastle United"
+    ]
+  },
+  {
+    "name": "James Perch",
+    "clubs": [
+      "Newcastle United",
+      "Nottingham Forest"
     ]
   },
   {
     "name": "James Rodriguez",
     "clubs": [
+      "Bayern Munich",
       "FC Porto",
-      "Real Madrid",
-      "Bayern Munich"
+      "Real Madrid"
     ]
   },
   {
     "name": "James Russell",
     "clubs": [
-      "Chelsea",
-      "Arsenal"
+      "Arsenal",
+      "Chelsea"
+    ]
+  },
+  {
+    "name": "James Tarkowski",
+    "clubs": [
+      "Brentford",
+      "Burnley",
+      "Everton"
+    ]
+  },
+  {
+    "name": "James Tomkins",
+    "clubs": [
+      "Crystal Palace",
+      "West Ham"
+    ]
+  },
+  {
+    "name": "James Trafford",
+    "clubs": [
+      "Burnley",
+      "Manchester City"
     ]
   },
   {
     "name": "James Troisi",
     "clubs": [
-      "Kayserispor",
+      "Gençlerbirliği",
       "Juventus",
-      "Genclerbirligi"
+      "Kayserispor",
+      "Newcastle United"
+    ]
+  },
+  {
+    "name": "James Vaughan",
+    "clubs": [
+      "Crystal Palace",
+      "Everton",
+      "Sunderland"
+    ]
+  },
+  {
+    "name": "James Wilson",
+    "clubs": [
+      "Brentford",
+      "Brighton",
+      "Manchester United"
+    ]
+  },
+  {
+    "name": "James Wright",
+    "clubs": [
+      "Aston Villa",
+      "Manchester City"
+    ]
+  },
+  {
+    "name": "Jamie Ashdown",
+    "clubs": [
+      "Bournemouth",
+      "Leeds United"
+    ]
+  },
+  {
+    "name": "Jamie Clapham",
+    "clubs": [
+      "Leeds United",
+      "Tottenham",
+      "Wolverhampton"
     ]
   },
   {
     "name": "Jamie Gittens",
     "clubs": [
-      "Bor. Dortmund",
+      "Borussia Dortmund",
       "Chelsea",
-      "Man City"
+      "Manchester City"
     ]
   },
   {
     "name": "Jamie Redknapp",
     "clubs": [
-      "Tottenham",
-      "Liverpool"
+      "Bournemouth",
+      "Liverpool",
+      "Tottenham"
+    ]
+  },
+  {
+    "name": "Jamie Vincent",
+    "clubs": [
+      "Bournemouth",
+      "Crystal Palace"
+    ]
+  },
+  {
+    "name": "Jan Kirchhoff",
+    "clubs": [
+      "Bayern Munich",
+      "Sunderland"
+    ]
+  },
+  {
+    "name": "Jan Mucha",
+    "clubs": [
+      "Everton",
+      "Inter"
     ]
   },
   {
     "name": "Jan Oblak",
     "clubs": [
-      "Atletico Madrid",
+      "Atlético Madrid",
       "Benfica"
     ]
   },
   {
     "name": "Jan Vertonghen",
     "clubs": [
-      "Tottenham",
       "Ajax",
-      "Benfica"
+      "Benfica",
+      "Tottenham"
+    ]
+  },
+  {
+    "name": "Jaroslaw Jach",
+    "clubs": [
+      "Crystal Palace",
+      "Çaykur Rizespor"
     ]
   },
   {
@@ -6068,96 +12568,272 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Jason Culina",
+    "clubs": [
+      "Ajax",
+      "Newcastle United"
+    ]
+  },
+  {
     "name": "Jason Denayer",
     "clubs": [
       "Galatasaray",
-      "Man City"
+      "Manchester City",
+      "Sunderland"
+    ]
+  },
+  {
+    "name": "Jason Gilchrist",
+    "clubs": [
+      "Burnley",
+      "Manchester City"
+    ]
+  },
+  {
+    "name": "Jason Lampkin",
+    "clubs": [
+      "Aston Villa",
+      "Manchester United"
+    ]
+  },
+  {
+    "name": "Jason Pearce",
+    "clubs": [
+      "Bournemouth",
+      "Leeds United"
+    ]
+  },
+  {
+    "name": "Jason Shackell",
+    "clubs": [
+      "Burnley",
+      "Wolverhampton"
     ]
   },
   {
     "name": "Jason Sraha",
     "clubs": [
-      "Chelsea",
-      "Arsenal"
+      "Arsenal",
+      "Chelsea"
+    ]
+  },
+  {
+    "name": "Jason Steele",
+    "clubs": [
+      "Brighton",
+      "Sunderland"
     ]
   },
   {
     "name": "Jasper Cillessen",
     "clubs": [
-      "Barcelona",
-      "Ajax"
+      "Ajax",
+      "Barcelona"
     ]
   },
   {
-    "name": "JavairÃ´ Dilrosun",
+    "name": "Javairi´ Dilrosun",
     "clubs": [
       "Ajax",
-      "Man City"
+      "Manchester City"
     ]
   },
   {
     "name": "Javi Garcia",
     "clubs": [
-      "Real Madrid",
       "Benfica",
-      "Man City"
+      "Manchester City",
+      "Real Madrid"
     ]
   },
   {
     "name": "Javi Montero",
     "clubs": [
-      "Beşiktaş",
-      "Atletico Madrid"
+      "Atlético Madrid",
+      "Beşiktaş"
     ]
   },
   {
     "name": "Javier Balboa",
     "clubs": [
-      "Real Madrid",
-      "Benfica"
+      "Benfica",
+      "Real Madrid"
     ]
   },
   {
     "name": "Javier Manquillo",
     "clubs": [
-      "Atletico Madrid",
-      "Liverpool"
+      "Atlético Madrid",
+      "Liverpool",
+      "Newcastle United",
+      "Sunderland"
     ]
   },
   {
     "name": "Javier Mascherano",
     "clubs": [
       "Barcelona",
-      "Liverpool"
+      "Liverpool",
+      "West Ham"
     ]
   },
   {
     "name": "Javier Saviola",
     "clubs": [
       "Barcelona",
-      "Real Madrid",
-      "Benfica"
+      "Benfica",
+      "Real Madrid"
+    ]
+  },
+  {
+    "name": "Jay McEveley",
+    "clubs": [
+      "Burnley",
+      "Everton"
+    ]
+  },
+  {
+    "name": "Jay Turner-Cooke",
+    "clubs": [
+      "Newcastle United",
+      "Sunderland"
+    ]
+  },
+  {
+    "name": "Jay Williams",
+    "clubs": [
+      "Bournemouth",
+      "Fulham"
     ]
   },
   {
     "name": "Jayden Braaf",
     "clubs": [
       "Ajax",
-      "Man City"
+      "Manchester City"
+    ]
+  },
+  {
+    "name": "Jayden Lienou",
+    "clubs": [
+      "Everton",
+      "Leeds United",
+      "Manchester City"
+    ]
+  },
+  {
+    "name": "Jayden Onen",
+    "clubs": [
+      "Arsenal",
+      "Brentford",
+      "Brighton"
+    ]
+  },
+  {
+    "name": "Jaydenarber",
+    "clubs": [
+      "Aston Villa",
+      "Fulham"
+    ]
+  },
+  {
+    "name": "Jazz Richards",
+    "clubs": [
+      "Crystal Palace",
+      "Fulham"
+    ]
+  },
+  {
+    "name": "Jean Evrard Kouassi",
+    "clubs": [
+      "Karagümrük",
+      "Trabzonspor"
+    ]
+  },
+  {
+    "name": "Jean Michael Seri",
+    "clubs": [
+      "Fulham",
+      "Galatasaray"
+    ]
+  },
+  {
+    "name": "Jean-Armel Kana-Biyik",
+    "clubs": [
+      "Gaziantep FK",
+      "Kayserispor"
     ]
   },
   {
     "name": "Jean-Clair Todibo",
     "clubs": [
       "Barcelona",
-      "Benfica"
+      "Benfica",
+      "West Ham"
+    ]
+  },
+  {
+    "name": "Jean-Jacques Gosso",
+    "clubs": [
+      "Gençlerbirliği",
+      "Göztepe"
+    ]
+  },
+  {
+    "name": "Jean-Kevin Augustin",
+    "clubs": [
+      "Leeds United",
+      "Paris Saint-Germain"
+    ]
+  },
+  {
+    "name": "Jean-Philippe Gbamin",
+    "clubs": [
+      "Everton",
+      "Trabzonspor"
+    ]
+  },
+  {
+    "name": "Jeff Hendrick",
+    "clubs": [
+      "Burnley",
+      "Newcastle United"
+    ]
+  },
+  {
+    "name": "Jeff Minton",
+    "clubs": [
+      "Brighton",
+      "Tottenham"
     ]
   },
   {
     "name": "Jefferson",
     "clubs": [
+      "Gaziantep FK",
       "Konyaspor",
       "Trabzonspor"
+    ]
+  },
+  {
+    "name": "Jefferson Lerma",
+    "clubs": [
+      "Bournemouth",
+      "Crystal Palace"
+    ]
+  },
+  {
+    "name": "Jeffrey Monakana",
+    "clubs": [
+      "Arsenal",
+      "Brighton"
+    ]
+  },
+  {
+    "name": "Jeffrey Schlupp",
+    "clubs": [
+      "Brentford",
+      "Crystal Palace"
     ]
   },
   {
@@ -6168,54 +12844,142 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Jemal Johnson",
+    "clubs": [
+      "Leeds United",
+      "Wolverhampton"
+    ]
+  },
+  {
     "name": "Jens Lehmann",
     "clubs": [
-      "Bor. Dortmund",
-      "Arsenal"
+      "Arsenal",
+      "Borussia Dortmund"
     ]
   },
   {
     "name": "Jeremain Lens",
     "clubs": [
-      "Fenerbahçe",
+      "Ajax",
       "Beşiktaş",
-      "Ajax"
+      "Fenerbahçe",
+      "Karagümrük",
+      "Sunderland"
+    ]
+  },
+  {
+    "name": "Jeremiah Chilokoa-Mullen",
+    "clubs": [
+      "Leeds United",
+      "Liverpool"
+    ]
+  },
+  {
+    "name": "Jeremie Aliadiere",
+    "clubs": [
+      "Arsenal",
+      "West Ham",
+      "Wolverhampton"
     ]
   },
   {
     "name": "Jeremie Frimpong",
     "clubs": [
       "Liverpool",
-      "Man City"
+      "Manchester City"
     ]
   },
   {
     "name": "Jeremy Menez",
     "clubs": [
-      "Antalyaspor",
       "AC Milan",
-      "AS Roma"
+      "AS Roma",
+      "Antalyaspor"
+    ]
+  },
+  {
+    "name": "Jeremy Sarmiento",
+    "clubs": [
+      "Benfica",
+      "Brighton",
+      "Burnley"
+    ]
+  },
+  {
+    "name": "Jeri´me Boateng",
+    "clubs": [
+      "Bayern Munich",
+      "Manchester City"
+    ]
+  },
+  {
+    "name": "Jermain Defoe",
+    "clubs": [
+      "Bournemouth",
+      "Sunderland",
+      "Tottenham",
+      "West Ham"
+    ]
+  },
+  {
+    "name": "Jermaine Jenas",
+    "clubs": [
+      "Aston Villa",
+      "Newcastle United",
+      "Nottingham Forest",
+      "Tottenham"
     ]
   },
   {
     "name": "Jermaine Pennant",
     "clubs": [
       "Arsenal",
-      "Liverpool"
+      "Leeds United",
+      "Liverpool",
+      "Wolverhampton"
+    ]
+  },
+  {
+    "name": "Jermaine Wright",
+    "clubs": [
+      "Leeds United",
+      "Wolverhampton"
+    ]
+  },
+  {
+    "name": "Jermaineeckford",
+    "clubs": [
+      "Everton",
+      "Leeds United"
+    ]
+  },
+  {
+    "name": "Jerome Opoku",
+    "clubs": [
+      "Başakşehir",
+      "Fulham"
+    ]
+  },
+  {
+    "name": "Jerome Sinclair",
+    "clubs": [
+      "Liverpool",
+      "Sunderland"
+    ]
+  },
+  {
+    "name": "Jerome Thomas",
+    "clubs": [
+      "Arsenal",
+      "Crystal Palace",
+      "Leeds United"
     ]
   },
   {
     "name": "Jerzy Dudek",
     "clubs": [
-      "Real Madrid",
-      "Liverpool"
-    ]
-  },
-  {
-    "name": "JerÃ´me Boateng",
-    "clubs": [
-      "Bayern Munich",
-      "Man City"
+      "Liverpool",
+      "Real Madrid"
     ]
   },
   {
@@ -6228,105 +12992,243 @@ export const PLAYERS = [
   {
     "name": "Jesper Gronkjaer",
     "clubs": [
+      "Ajax",
+      "Atlético Madrid",
+      "Chelsea"
+    ]
+  },
+  {
+    "name": "Jesper Lindstrom",
+    "clubs": [
+      "Everton",
+      "Napoli"
+    ]
+  },
+  {
+    "name": "Jess Kedwell Vanstrattan",
+    "clubs": [
+      "Juventus",
+      "Newcastle United"
+    ]
+  },
+  {
+    "name": "Jesse Derry",
+    "clubs": [
       "Chelsea",
-      "Atletico Madrid",
-      "Ajax"
+      "Crystal Palace"
+    ]
+  },
+  {
+    "name": "Jesse Lingard",
+    "clubs": [
+      "Brighton",
+      "Manchester United",
+      "West Ham"
     ]
   },
   {
     "name": "Jesse Sekidika",
     "clubs": [
-      "Konyaspor",
+      "Benfica",
+      "Eyüpspor",
       "Galatasaray",
-      "Benfica"
+      "Konyaspor"
+    ]
+  },
+  {
+    "name": "Jesse Starkey",
+    "clubs": [
+      "Brighton",
+      "Chelsea"
+    ]
+  },
+  {
+    "name": "Jesurun Rak-Sakyi",
+    "clubs": [
+      "Chelsea",
+      "Crystal Palace",
+      "Çaykur Rizespor"
+    ]
+  },
+  {
+    "name": "Jesus Gamez",
+    "clubs": [
+      "Atlético Madrid",
+      "Newcastle United"
+    ]
+  },
+  {
+    "name": "Jesus Vallejo",
+    "clubs": [
+      "Real Madrid",
+      "Wolverhampton"
+    ]
+  },
+  {
+    "name": "Jhon Duran",
+    "clubs": [
+      "Aston Villa",
+      "Fenerbahçe"
+    ]
+  },
+  {
+    "name": "Jhon Murillo",
+    "clubs": [
+      "Benfica",
+      "Kasımpaşa"
+    ]
+  },
+  {
+    "name": "Jim McNulty",
+    "clubs": [
+      "Brighton",
+      "Everton",
+      "Liverpool"
+    ]
+  },
+  {
+    "name": "Jimmy Dunne",
+    "clubs": [
+      "Burnley",
+      "Manchester United",
+      "Sunderland"
     ]
   },
   {
     "name": "Jimmy Durmaz",
     "clubs": [
-      "Genclerbirligi",
-      "Galatasaray"
+      "Galatasaray",
+      "Gençlerbirliği",
+      "Karagümrük"
     ]
   },
   {
     "name": "Jimmy Floyd Hasselbaink",
     "clubs": [
+      "Atlético Madrid",
       "Chelsea",
-      "Atletico Madrid"
+      "Leeds United"
+    ]
+  },
+  {
+    "name": "Jimmy Walker",
+    "clubs": [
+      "Tottenham",
+      "West Ham"
+    ]
+  },
+  {
+    "name": "Ji´",
+    "clubs": [
+      "Everton",
+      "Galatasaray",
+      "Manchester City"
+    ]
+  },
+  {
+    "name": "Joachim Andersen",
+    "clubs": [
+      "Crystal Palace",
+      "Fulham"
+    ]
+  },
+  {
+    "name": "Joao Amaral",
+    "clubs": [
+      "Benfica",
+      "Kocaelispor"
     ]
   },
   {
     "name": "Joao Barros",
     "clubs": [
-      "FC Porto",
-      "Benfica"
+      "Benfica",
+      "FC Porto"
+    ]
+  },
+  {
+    "name": "Joao Caiado",
+    "clubs": [
+      "Benfica",
+      "Wolverhampton"
     ]
   },
   {
     "name": "Joao Cancelo",
     "clubs": [
-      "Juventus",
       "Barcelona",
-      "Inter",
-      "Benfica",
       "Bayern Munich",
-      "Man City"
+      "Benfica",
+      "Inter",
+      "Juventus",
+      "Manchester City"
     ]
   },
   {
     "name": "Joao Carlos Teixeira",
     "clubs": [
+      "Brentford",
+      "Brighton",
       "FC Porto",
       "Liverpool"
     ]
   },
   {
-    "name": "Joao da Silva",
+    "name": "Joao Felix",
     "clubs": [
-      "Juventus",
-      "Benfica"
+      "AC Milan",
+      "Atlético Madrid",
+      "Barcelona",
+      "Benfica",
+      "Chelsea",
+      "FC Porto"
     ]
   },
   {
-    "name": "Joao Felix",
+    "name": "Joao Figueiredo",
     "clubs": [
-      "Chelsea",
-      "FC Porto",
-      "Barcelona",
-      "AC Milan",
-      "Atletico Madrid",
-      "Benfica"
+      "Başakşehir",
+      "Gaziantep FK"
     ]
   },
   {
     "name": "Joao Fonseca",
     "clubs": [
-      "Inter",
-      "Benfica"
+      "Benfica",
+      "Inter"
     ]
   },
   {
     "name": "Joao Manuel Pinto",
     "clubs": [
-      "FC Porto",
-      "Benfica"
+      "Benfica",
+      "FC Porto"
     ]
   },
   {
     "name": "Joao Mario",
     "clubs": [
-      "Juventus",
-      "FC Porto",
+      "Benfica",
       "Beşiktaş",
+      "FC Porto",
       "Inter",
-      "Benfica"
+      "Juventus",
+      "West Ham"
+    ]
+  },
+  {
+    "name": "Joao Moutinho",
+    "clubs": [
+      "FC Porto",
+      "Wolverhampton"
     ]
   },
   {
     "name": "Joao Palhinha",
     "clubs": [
-      "Tottenham",
-      "Bayern Munich"
+      "Bayern Munich",
+      "Fulham",
+      "Tottenham"
     ]
   },
   {
@@ -6339,6 +13241,7 @@ export const PLAYERS = [
   {
     "name": "Joao Pedro",
     "clubs": [
+      "Brighton",
       "Chelsea",
       "FC Porto",
       "Fenerbahçe",
@@ -6348,31 +13251,32 @@ export const PLAYERS = [
   {
     "name": "Joao Pereira",
     "clubs": [
+      "Benfica",
       "FC Porto",
-      "Trabzonspor",
-      "Benfica"
+      "Trabzonspor"
     ]
   },
   {
     "name": "Joao Queiros",
     "clubs": [
-      "FC Porto",
-      "Benfica"
+      "Benfica",
+      "FC Porto"
     ]
   },
   {
     "name": "Joao Tavares",
     "clubs": [
+      "Benfica",
       "FC Porto",
-      "Inter",
-      "Benfica"
+      "Inter"
     ]
   },
   {
     "name": "Joao Teixeira",
     "clubs": [
+      "Benfica",
       "FC Porto",
-      "Benfica"
+      "Wolverhampton"
     ]
   },
   {
@@ -6383,66 +13287,266 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Joao Vitor",
+    "clubs": [
+      "Gaziantepspor",
+      "Inter"
+    ]
+  },
+  {
+    "name": "Joao da Silva",
+    "clubs": [
+      "Benfica",
+      "Juventus"
+    ]
+  },
+  {
+    "name": "Jobi McAnuff",
+    "clubs": [
+      "Crystal Palace",
+      "West Ham"
+    ]
+  },
+  {
     "name": "Joca",
     "clubs": [
       "FC Porto",
-      "Genclerbirligi"
+      "Gençlerbirliği"
+    ]
+  },
+  {
+    "name": "Jody Craddock",
+    "clubs": [
+      "Sunderland",
+      "Wolverhampton"
+    ]
+  },
+  {
+    "name": "Jody Morris",
+    "clubs": [
+      "Chelsea",
+      "Leeds United"
+    ]
+  },
+  {
+    "name": "Joe Anderson",
+    "clubs": [
+      "Everton",
+      "Liverpool",
+      "Sunderland"
     ]
   },
   {
     "name": "Joe Cole",
     "clubs": [
+      "Aston Villa",
       "Chelsea",
-      "Liverpool"
+      "Liverpool",
+      "West Ham"
+    ]
+  },
+  {
+    "name": "Joe Gelhardt",
+    "clubs": [
+      "Leeds United",
+      "Sunderland"
     ]
   },
   {
     "name": "Joe Hart",
     "clubs": [
+      "Burnley",
+      "Manchester City",
       "Tottenham",
-      "Man City"
+      "West Ham"
+    ]
+  },
+  {
+    "name": "Joe Hilton",
+    "clubs": [
+      "Everton",
+      "Manchester City"
+    ]
+  },
+  {
+    "name": "Joe Hodge",
+    "clubs": [
+      "Manchester City",
+      "Wolverhampton"
+    ]
+  },
+  {
+    "name": "Joe Ledley",
+    "clubs": [
+      "Crystal Palace",
+      "Newcastle United"
+    ]
+  },
+  {
+    "name": "Joe Rodon",
+    "clubs": [
+      "Leeds United",
+      "Tottenham"
+    ]
+  },
+  {
+    "name": "Joe Rothwell",
+    "clubs": [
+      "Bournemouth",
+      "Leeds United",
+      "Manchester United"
+    ]
+  },
+  {
+    "name": "Joe Snowdon",
+    "clubs": [
+      "Leeds United",
+      "Manchester City"
+    ]
+  },
+  {
+    "name": "Joe Willock",
+    "clubs": [
+      "Arsenal",
+      "Newcastle United"
+    ]
+  },
+  {
+    "name": "Joe Worrall",
+    "clubs": [
+      "Beşiktaş",
+      "Burnley",
+      "Nottingham Forest"
+    ]
+  },
+  {
+    "name": "Joel Lynch",
+    "clubs": [
+      "Brighton",
+      "Sunderland"
+    ]
+  },
+  {
+    "name": "Joel Obi",
+    "clubs": [
+      "Alanyaspor",
+      "Inter"
     ]
   },
   {
     "name": "Joel Pereira",
     "clubs": [
       "FC Porto",
-      "Man Utd"
+      "Manchester United"
+    ]
+  },
+  {
+    "name": "Joel Robles",
+    "clubs": [
+      "Atlético Madrid",
+      "Everton",
+      "Leeds United"
+    ]
+  },
+  {
+    "name": "Joel Veltman",
+    "clubs": [
+      "Ajax",
+      "Brighton"
     ]
   },
   {
     "name": "Johan Djourou",
     "clubs": [
-      "Arsenal",
-      "Antalyaspor"
+      "Antalyaspor",
+      "Arsenal"
+    ]
+  },
+  {
+    "name": "Johannerg Gudmundsson",
+    "clubs": [
+      "Burnley",
+      "Fulham"
     ]
   },
   {
     "name": "John Arne Riise",
     "clubs": [
       "AS Roma",
+      "Fulham",
       "Liverpool"
     ]
   },
   {
     "name": "John Carew",
     "clubs": [
+      "AS Roma",
+      "Aston Villa",
       "Beşiktaş",
-      "AS Roma"
+      "West Ham"
+    ]
+  },
+  {
+    "name": "John Egan",
+    "clubs": [
+      "Brentford",
+      "Burnley",
+      "Crystal Palace",
+      "Sunderland"
+    ]
+  },
+  {
+    "name": "John Halls",
+    "clubs": [
+      "Arsenal",
+      "Brentford",
+      "Crystal Palace"
+    ]
+  },
+  {
+    "name": "John Hartson",
+    "clubs": [
+      "Arsenal",
+      "West Ham"
     ]
   },
   {
     "name": "John Heitinga",
     "clubs": [
-      "Atletico Madrid",
-      "Ajax"
+      "Ajax",
+      "Atlético Madrid",
+      "Everton",
+      "Fulham"
+    ]
+  },
+  {
+    "name": "John Lundstram",
+    "clubs": [
+      "Everton",
+      "Trabzonspor"
+    ]
+  },
+  {
+    "name": "John Moncur",
+    "clubs": [
+      "Brentford",
+      "Tottenham",
+      "West Ham"
     ]
   },
   {
     "name": "John Moshoeu",
     "clubs": [
       "Fenerbahçe",
-      "Genclerbirligi"
+      "Gençlerbirliği",
+      "Kocaelispor"
+    ]
+  },
+  {
+    "name": "John Mullin",
+    "clubs": [
+      "Burnley",
+      "Sunderland"
     ]
   },
   {
@@ -6453,24 +13557,148 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "John Oster",
+    "clubs": [
+      "Burnley",
+      "Crystal Palace",
+      "Everton",
+      "Leeds United",
+      "Sunderland"
+    ]
+  },
+  {
+    "name": "John Ruddy",
+    "clubs": [
+      "Everton",
+      "Newcastle United",
+      "Wolverhampton"
+    ]
+  },
+  {
+    "name": "John Salako",
+    "clubs": [
+      "Brentford",
+      "Crystal Palace",
+      "Fulham"
+    ]
+  },
+  {
+    "name": "John Spencer",
+    "clubs": [
+      "Chelsea",
+      "Everton"
+    ]
+  },
+  {
+    "name": "John Stones",
+    "clubs": [
+      "Everton",
+      "Manchester City"
+    ]
+  },
+  {
+    "name": "John Swift",
+    "clubs": [
+      "Brentford",
+      "Chelsea"
+    ]
+  },
+  {
+    "name": "John Terry",
+    "clubs": [
+      "Aston Villa",
+      "Chelsea",
+      "West Ham"
+    ]
+  },
+  {
     "name": "Johnny Cardoso",
     "clubs": [
-      "Atletico Madrid",
+      "Atlético Madrid",
       "Inter"
+    ]
+  },
+  {
+    "name": "Johnny Gorman",
+    "clubs": [
+      "Manchester United",
+      "Wolverhampton"
+    ]
+  },
+  {
+    "name": "Johnostock",
+    "clubs": [
+      "Brentford",
+      "Crystal Palace"
+    ]
+  },
+  {
+    "name": "Joleon Lescott",
+    "clubs": [
+      "Aston Villa",
+      "Everton",
+      "Manchester City",
+      "Sunderland",
+      "Wolverhampton"
+    ]
+  },
+  {
+    "name": "Jon Dahl Tomasson",
+    "clubs": [
+      "AC Milan",
+      "Newcastle United"
+    ]
+  },
+  {
+    "name": "Jon Flanagan",
+    "clubs": [
+      "Burnley",
+      "Liverpool"
+    ]
+  },
+  {
+    "name": "Jon Harley",
+    "clubs": [
+      "Burnley",
+      "Chelsea",
+      "Fulham",
+      "West Ham"
     ]
   },
   {
     "name": "Jon Macken",
     "clubs": [
-      "Man Utd",
-      "Man City"
+      "Crystal Palace",
+      "Manchester City",
+      "Manchester United"
+    ]
+  },
+  {
+    "name": "Jon Toral",
+    "clubs": [
+      "Arsenal",
+      "Brentford"
+    ]
+  },
+  {
+    "name": "Jonah Kusi-Asare",
+    "clubs": [
+      "Bayern Munich",
+      "Fulham"
+    ]
+  },
+  {
+    "name": "Jonas Lössl",
+    "clubs": [
+      "Brentford",
+      "Everton"
     ]
   },
   {
     "name": "Jonatan Binotto",
     "clubs": [
-      "Juventus",
-      "Inter"
+      "Inter",
+      "Juventus"
     ]
   },
   {
@@ -6481,24 +13709,173 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Jonathan Ayite",
+    "clubs": [
+      "Alanyaspor",
+      "Samsunspor"
+    ]
+  },
+  {
+    "name": "Jonathan Douglas",
+    "clubs": [
+      "Brentford",
+      "Leeds United"
+    ]
+  },
+  {
+    "name": "Jonathan Greening",
+    "clubs": [
+      "Fulham",
+      "Manchester United"
+    ]
+  },
+  {
+    "name": "Jonathan Lund",
+    "clubs": [
+      "Burnley",
+      "Leeds United"
+    ]
+  },
+  {
+    "name": "Jonathan Obika",
+    "clubs": [
+      "Brighton",
+      "Crystal Palace",
+      "Tottenham"
+    ]
+  },
+  {
+    "name": "Jonathan Spector",
+    "clubs": [
+      "Manchester United",
+      "West Ham"
+    ]
+  },
+  {
+    "name": "Jonathan Tehoue",
+    "clubs": [
+      "Kasımpaşa",
+      "Konyaspor"
+    ]
+  },
+  {
     "name": "Jonathan Woodgate",
     "clubs": [
-      "Tottenham",
-      "Real Madrid"
+      "Leeds United",
+      "Newcastle United",
+      "Real Madrid",
+      "Tottenham"
     ]
   },
   {
     "name": "Jonathan Zebina",
     "clubs": [
-      "Juventus",
-      "AS Roma"
+      "AS Roma",
+      "Juventus"
+    ]
+  },
+  {
+    "name": "Jonjo Shelvey",
+    "clubs": [
+      "Burnley",
+      "Eyüpspor",
+      "Liverpool",
+      "Newcastle United",
+      "Çaykur Rizespor"
+    ]
+  },
+  {
+    "name": "Jonny Evans",
+    "clubs": [
+      "Manchester United",
+      "Sunderland"
+    ]
+  },
+  {
+    "name": "Jonny Otto",
+    "clubs": [
+      "Atlético Madrid",
+      "Wolverhampton"
+    ]
+  },
+  {
+    "name": "Jonny Steele",
+    "clubs": [
+      "Newcastle United",
+      "Wolverhampton"
+    ]
+  },
+  {
+    "name": "Jonny Williams",
+    "clubs": [
+      "Crystal Palace",
+      "Sunderland"
+    ]
+  },
+  {
+    "name": "Jordan Aina",
+    "clubs": [
+      "Chelsea",
+      "Fulham"
+    ]
+  },
+  {
+    "name": "Jordan Archer",
+    "clubs": [
+      "Fulham",
+      "Tottenham"
+    ]
+  },
+  {
+    "name": "Jordan Ayew",
+    "clubs": [
+      "Aston Villa",
+      "Crystal Palace"
+    ]
+  },
+  {
+    "name": "Jordan Graham",
+    "clubs": [
+      "Aston Villa",
+      "Fulham",
+      "Wolverhampton"
     ]
   },
   {
     "name": "Jordan Henderson",
     "clubs": [
       "Ajax",
+      "Brentford",
+      "Liverpool",
+      "Sunderland"
+    ]
+  },
+  {
+    "name": "Jordan Pickford",
+    "clubs": [
+      "Everton",
+      "Sunderland"
+    ]
+  },
+  {
+    "name": "Jordan Veretout",
+    "clubs": [
+      "AS Roma",
+      "Aston Villa"
+    ]
+  },
+  {
+    "name": "Jordon Ibe",
+    "clubs": [
+      "Bournemouth",
       "Liverpool"
+    ]
+  },
+  {
+    "name": "Jorge Fernandes",
+    "clubs": [
+      "FC Porto",
+      "Kasımpaşa"
     ]
   },
   {
@@ -6511,91 +13888,114 @@ export const PLAYERS = [
   {
     "name": "Jorge Sanchez",
     "clubs": [
-      "FC Porto",
-      "Ajax"
+      "Ajax",
+      "FC Porto"
     ]
   },
   {
     "name": "Jorge Silva",
     "clubs": [
-      "FC Porto",
-      "Benfica"
+      "Benfica",
+      "FC Porto"
     ]
   },
   {
     "name": "Jorginho",
     "clubs": [
-      "Chelsea",
       "Arsenal",
+      "Benfica",
+      "Chelsea",
       "FC Porto",
-      "Napoli",
-      "Benfica"
+      "Gaziantepspor",
+      "Napoli"
     ]
   },
   {
     "name": "Jorrel Hato",
     "clubs": [
-      "Chelsea",
-      "Ajax"
+      "Ajax",
+      "Chelsea"
     ]
   },
   {
     "name": "Jose Antonio Reyes",
     "clubs": [
       "Arsenal",
-      "Atletico Madrid",
-      "Real Madrid",
-      "Benfica"
+      "Atlético Madrid",
+      "Benfica",
+      "Real Madrid"
     ]
   },
   {
     "name": "Jose Callejon",
     "clubs": [
-      "Real Madrid",
-      "Napoli"
+      "Napoli",
+      "Real Madrid"
+    ]
+  },
+  {
+    "name": "Jose Campana",
+    "clubs": [
+      "Crystal Palace",
+      "FC Porto"
     ]
   },
   {
     "name": "Jose Chamot",
     "clubs": [
       "AC Milan",
-      "Atletico Madrid"
+      "Atlético Madrid"
     ]
   },
   {
     "name": "Jose Dominguez",
     "clubs": [
-      "Tottenham",
-      "Benfica"
+      "Benfica",
+      "Tottenham"
+    ]
+  },
+  {
+    "name": "Jose Enrique",
+    "clubs": [
+      "Liverpool",
+      "Newcastle United"
+    ]
+  },
+  {
+    "name": "Jose Fonte",
+    "clubs": [
+      "Benfica",
+      "Crystal Palace",
+      "West Ham"
     ]
   },
   {
     "name": "Jose Manuel Jurado",
     "clubs": [
-      "Atletico Madrid",
+      "Atlético Madrid",
       "Real Madrid"
     ]
   },
   {
     "name": "Jose Mari",
     "clubs": [
-      "Barcelona",
       "AC Milan",
-      "Atletico Madrid"
+      "Atlético Madrid",
+      "Barcelona"
     ]
   },
   {
     "name": "Jose Monteiro",
     "clubs": [
-      "FC Porto",
-      "Benfica"
+      "Benfica",
+      "FC Porto"
     ]
   },
   {
     "name": "Jose Pozo",
     "clubs": [
-      "Real Madrid",
-      "Man City"
+      "Manchester City",
+      "Real Madrid"
     ]
   },
   {
@@ -6608,34 +14008,144 @@ export const PLAYERS = [
   {
     "name": "Jose Sa",
     "clubs": [
+      "Benfica",
       "FC Porto",
-      "Benfica"
+      "Wolverhampton"
     ]
   },
   {
     "name": "Jose Sosa",
     "clubs": [
-      "Fenerbahçe",
-      "Trabzonspor",
-      "Beşiktaş",
       "AC Milan",
-      "Atletico Madrid",
+      "Atlético Madrid",
+      "Bayern Munich",
+      "Beşiktaş",
+      "Fenerbahçe",
       "Napoli",
-      "Bayern Munich"
+      "Trabzonspor"
+    ]
+  },
+  {
+    "name": "Josef Yarney",
+    "clubs": [
+      "Everton",
+      "Newcastle United"
+    ]
+  },
+  {
+    "name": "Joselu",
+    "clubs": [
+      "Newcastle United",
+      "Real Madrid"
     ]
   },
   {
     "name": "Joseph Attamah",
     "clubs": [
+      "Başakşehir",
+      "Karagümrük",
       "Kayserispor",
-      "Başakşehir"
+      "Çaykur Rizespor"
+    ]
+  },
+  {
+    "name": "Joseph Yobo",
+    "clubs": [
+      "Everton",
+      "Fenerbahçe"
+    ]
+  },
+  {
+    "name": "Josh Cullen",
+    "clubs": [
+      "Burnley",
+      "West Ham"
+    ]
+  },
+  {
+    "name": "Josh Dasilva",
+    "clubs": [
+      "Arsenal",
+      "Brentford"
+    ]
+  },
+  {
+    "name": "Josh Laurent",
+    "clubs": [
+      "Brentford",
+      "Burnley"
+    ]
+  },
+  {
+    "name": "Josh Maja",
+    "clubs": [
+      "Fulham",
+      "Manchester City",
+      "Sunderland"
+    ]
+  },
+  {
+    "name": "Josh McEachran",
+    "clubs": [
+      "Brentford",
+      "Chelsea"
+    ]
+  },
+  {
+    "name": "Josh McQuoid",
+    "clubs": [
+      "Bournemouth",
+      "Burnley"
+    ]
+  },
+  {
+    "name": "Josh Onomah",
+    "clubs": [
+      "Aston Villa",
+      "Fulham",
+      "Tottenham"
+    ]
+  },
+  {
+    "name": "Josh Pritchard",
+    "clubs": [
+      "Fulham",
+      "Manchester United"
+    ]
+  },
+  {
+    "name": "Josh Robertson",
+    "clubs": [
+      "Brighton",
+      "Sunderland"
+    ]
+  },
+  {
+    "name": "Josh Walker",
+    "clubs": [
+      "Bournemouth",
+      "Fulham"
+    ]
+  },
+  {
+    "name": "Josh Wilson-Esbrand",
+    "clubs": [
+      "Manchester City",
+      "West Ham"
+    ]
+  },
+  {
+    "name": "Joshua Ajala",
+    "clubs": [
+      "Chelsea",
+      "West Ham"
     ]
   },
   {
     "name": "Joshua Zirkzee",
     "clubs": [
-      "Man Utd",
-      "Bayern Munich"
+      "Bayern Munich",
+      "Manchester United"
     ]
   },
   {
@@ -6648,29 +14158,44 @@ export const PLAYERS = [
   {
     "name": "Josue Chibozo",
     "clubs": [
-      "Juventus",
-      "Inter"
+      "Inter",
+      "Juventus"
+    ]
+  },
+  {
+    "name": "Jota Peleteiro",
+    "clubs": [
+      "Aston Villa",
+      "Brentford"
+    ]
+  },
+  {
+    "name": "Juan",
+    "clubs": [
+      "AS Roma",
+      "Göztepe"
     ]
   },
   {
     "name": "Juan Bernat",
     "clubs": [
-      "Benfica",
-      "Bayern Munich"
+      "Bayern Munich",
+      "Benfica"
     ]
   },
   {
     "name": "Juan Familia-Castillo",
     "clubs": [
-      "Chelsea",
-      "Ajax"
+      "Ajax",
+      "Chelsea"
     ]
   },
   {
     "name": "Juan Iturbe",
     "clubs": [
-      "FC Porto",
-      "AS Roma"
+      "AS Roma",
+      "Bournemouth",
+      "FC Porto"
     ]
   },
   {
@@ -6686,8 +14211,8 @@ export const PLAYERS = [
     "clubs": [
       "Chelsea",
       "Galatasaray",
-      "Real Madrid",
-      "Man Utd"
+      "Manchester United",
+      "Real Madrid"
     ]
   },
   {
@@ -6695,28 +14220,35 @@ export const PLAYERS = [
     "clubs": [
       "Chelsea",
       "Inter",
-      "Man Utd"
+      "Manchester United"
     ]
   },
   {
     "name": "Juanfran",
     "clubs": [
-      "Beşiktaş",
-      "Ajax"
+      "Ajax",
+      "Beşiktaş"
     ]
   },
   {
     "name": "Juanfran Torres",
     "clubs": [
-      "Atletico Madrid",
+      "Atlético Madrid",
       "Real Madrid"
     ]
   },
   {
     "name": "Jude Bellingham",
     "clubs": [
-      "Bor. Dortmund",
+      "Borussia Dortmund",
       "Real Madrid"
+    ]
+  },
+  {
+    "name": "Jude Russell",
+    "clubs": [
+      "Brentford",
+      "Crystal Palace"
     ]
   },
   {
@@ -6729,100 +14261,227 @@ export const PLAYERS = [
   {
     "name": "Julian Alvarez",
     "clubs": [
-      "Atletico Madrid",
-      "Man City"
+      "Atlético Madrid",
+      "Manchester City"
+    ]
+  },
+  {
+    "name": "Julian Araujo",
+    "clubs": [
+      "Barcelona",
+      "Bournemouth"
+    ]
+  },
+  {
+    "name": "Julian Gray",
+    "clubs": [
+      "Arsenal",
+      "Crystal Palace",
+      "Fulham"
+    ]
+  },
+  {
+    "name": "Julian Jeanvier",
+    "clubs": [
+      "Brentford",
+      "Kasımpaşa",
+      "Kayserispor"
+    ]
+  },
+  {
+    "name": "Julian Joachim",
+    "clubs": [
+      "Aston Villa",
+      "Leeds United"
     ]
   },
   {
     "name": "Julian Weigl",
     "clubs": [
-      "Bor. Dortmund",
-      "Benfica"
+      "Benfica",
+      "Borussia Dortmund"
+    ]
+  },
+  {
+    "name": "Julianennett",
+    "clubs": [
+      "Crystal Palace",
+      "Nottingham Forest"
+    ]
+  },
+  {
+    "name": "Julien Carre",
+    "clubs": [
+      "Brentford",
+      "Brighton"
     ]
   },
   {
     "name": "Julien Escude",
     "clubs": [
-      "Beşiktaş",
-      "Ajax"
+      "Ajax",
+      "Beşiktaş"
+    ]
+  },
+  {
+    "name": "Julien Faubert",
+    "clubs": [
+      "Real Madrid",
+      "West Ham"
     ]
   },
   {
     "name": "Julio Baptista",
     "clubs": [
-      "Arsenal",
       "AS Roma",
+      "Arsenal",
       "Real Madrid"
     ]
   },
   {
     "name": "Julio Cesar",
     "clubs": [
-      "Inter",
-      "Benfica"
+      "Benfica",
+      "Gaziantepspor",
+      "Inter"
     ]
   },
   {
     "name": "Junichi Inamoto",
     "clubs": [
       "Arsenal",
+      "Fulham",
       "Galatasaray"
+    ]
+  },
+  {
+    "name": "Junior Fernandes",
+    "clubs": [
+      "Alanyaspor",
+      "Başakşehir"
+    ]
+  },
+  {
+    "name": "Junior Firpo",
+    "clubs": [
+      "Barcelona",
+      "Leeds United"
+    ]
+  },
+  {
+    "name": "Junior Stanislas",
+    "clubs": [
+      "Bournemouth",
+      "Burnley",
+      "West Ham"
     ]
   },
   {
     "name": "Junior Tallo",
     "clubs": [
       "AS Roma",
-      "Inter"
+      "Inter",
+      "Samsunspor"
     ]
   },
   {
     "name": "Juraj Kucka",
     "clubs": [
-      "Trabzonspor",
-      "AC Milan"
+      "AC Milan",
+      "Trabzonspor"
     ]
   },
   {
-    "name": "JurriÃ«n Timber",
+    "name": "Jure Balkovec",
+    "clubs": [
+      "Alanyaspor",
+      "Karagümrük"
+    ]
+  },
+  {
+    "name": "Jurrien Timber",
+    "clubs": [
+      "Ajax",
+      "Arsenal"
+    ]
+  },
+  {
+    "name": "Justin Hoyte",
     "clubs": [
       "Arsenal",
-      "Ajax"
+      "Sunderland"
     ]
   },
   {
     "name": "Justin Kluivert",
     "clubs": [
       "AS Roma",
-      "Ajax"
+      "Ajax",
+      "Bournemouth"
     ]
   },
   {
-    "name": "JÃ´",
+    "name": "Jürgen Macho",
     "clubs": [
-      "Galatasaray",
-      "Man City"
+      "Chelsea",
+      "Sunderland"
+    ]
+  },
+  {
+    "name": "Kaba Diawara",
+    "clubs": [
+      "Arsenal",
+      "Gaziantepspor",
+      "West Ham"
+    ]
+  },
+  {
+    "name": "Kacper Kozlowski",
+    "clubs": [
+      "Brighton",
+      "Gaziantep FK"
+    ]
+  },
+  {
+    "name": "Kade Ratchford",
+    "clubs": [
+      "Burnley",
+      "Manchester United"
+    ]
+  },
+  {
+    "name": "Kadeem Harris",
+    "clubs": [
+      "Brentford",
+      "Samsunspor"
     ]
   },
   {
     "name": "Kadir Bekmezci",
     "clubs": [
-      "Sivasspor",
-      "Antalyaspor"
+      "Antalyaspor",
+      "Sivasspor"
     ]
   },
   {
-    "name": "KahÃª",
+    "name": "Kahiª",
     "clubs": [
-      "Genclerbirligi",
-      "Denizlispor"
+      "Denizlispor",
+      "Gençlerbirliği"
+    ]
+  },
+  {
+    "name": "Kahraman Demirtaş",
+    "clubs": [
+      "Göztepe",
+      "Konyaspor"
     ]
   },
   {
     "name": "Kai Havertz",
     "clubs": [
-      "Chelsea",
-      "Arsenal"
+      "Arsenal",
+      "Chelsea"
     ]
   },
   {
@@ -6833,31 +14492,122 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Kalvin Phillips",
+    "clubs": [
+      "Leeds United",
+      "Manchester City",
+      "West Ham"
+    ]
+  },
+  {
     "name": "Kamarni Ryan",
     "clubs": [
-      "Chelsea",
-      "Arsenal"
+      "Arsenal",
+      "Burnley",
+      "Chelsea"
+    ]
+  },
+  {
+    "name": "Kane Taylor",
+    "clubs": [
+      "Aston Villa",
+      "Manchester City"
     ]
   },
   {
     "name": "Kanfory Sylla",
     "clubs": [
-      "Sivasspor",
-      "Konyaspor"
+      "Konyaspor",
+      "Sivasspor"
     ]
   },
   {
     "name": "Karim Benzema",
     "clubs": [
-      "Real Madrid",
-      "Olymp. Lyon"
+      "Olympique Lyon",
+      "Real Madrid"
+    ]
+  },
+  {
+    "name": "Karim Hafez",
+    "clubs": [
+      "Başakşehir",
+      "Kasımpaşa"
+    ]
+  },
+  {
+    "name": "Karim Laribi",
+    "clubs": [
+      "Fulham",
+      "Inter"
     ]
   },
   {
     "name": "Kartal Yılmaz",
     "clubs": [
-      "Kayserispor",
-      "Beşiktaş"
+      "Beşiktaş",
+      "Kayserispor"
+    ]
+  },
+  {
+    "name": "Kasey Keller",
+    "clubs": [
+      "Fulham",
+      "Tottenham"
+    ]
+  },
+  {
+    "name": "Kasper Schmeichel",
+    "clubs": [
+      "Leeds United",
+      "Manchester City"
+    ]
+  },
+  {
+    "name": "Kaya Tarakçı",
+    "clubs": [
+      "Gaziantepspor",
+      "Kocaelispor",
+      "Konyaspor",
+      "Çaykur Rizespor"
+    ]
+  },
+  {
+    "name": "Kazaiah Sterling",
+    "clubs": [
+      "Sunderland",
+      "Tottenham"
+    ]
+  },
+  {
+    "name": "Kazenga LuaLua",
+    "clubs": [
+      "Brighton",
+      "Gençlerbirliği",
+      "Newcastle United",
+      "Sunderland"
+    ]
+  },
+  {
+    "name": "Kazım Sarı",
+    "clubs": [
+      "Alanyaspor",
+      "Denizlispor",
+      "Göztepe"
+    ]
+  },
+  {
+    "name": "Keelan Williams",
+    "clubs": [
+      "Burnley",
+      "Liverpool"
+    ]
+  },
+  {
+    "name": "Keiren Westwood",
+    "clubs": [
+      "Manchester City",
+      "Sunderland"
     ]
   },
   {
@@ -6870,15 +14620,61 @@ export const PLAYERS = [
   {
     "name": "Keita Balde",
     "clubs": [
-      "Sivasspor",
-      "Inter"
+      "Inter",
+      "Sivasspor"
+    ]
+  },
+  {
+    "name": "Keith Andrews",
+    "clubs": [
+      "Brighton",
+      "Wolverhampton"
+    ]
+  },
+  {
+    "name": "Keith Gillespie",
+    "clubs": [
+      "Manchester United",
+      "Newcastle United"
+    ]
+  },
+  {
+    "name": "Keith Lowe",
+    "clubs": [
+      "Brighton",
+      "Burnley",
+      "Wolverhampton"
+    ]
+  },
+  {
+    "name": "Kelechi Chibueze",
+    "clubs": [
+      "Chelsea",
+      "Sunderland"
+    ]
+  },
+  {
+    "name": "Kemal Ademi",
+    "clubs": [
+      "Fenerbahçe",
+      "Karagümrük"
     ]
   },
   {
     "name": "Kemal Aslan",
     "clubs": [
+      "Denizlispor",
       "Fenerbahçe",
-      "Denizlispor"
+      "Gaziantepspor",
+      "Kocaelispor",
+      "Çaykur Rizespor"
+    ]
+  },
+  {
+    "name": "Kemal Cingirt",
+    "clubs": [
+      "Fenerbahçe",
+      "Karagümrük"
     ]
   },
   {
@@ -6889,113 +14685,239 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Kemy Agustien",
+    "clubs": [
+      "Brighton",
+      "Crystal Palace"
+    ]
+  },
+  {
+    "name": "Kenan Sahin",
+    "clubs": [
+      "Denizlispor",
+      "Eyüpspor"
+    ]
+  },
+  {
     "name": "Kenan Özer",
     "clubs": [
-      "Konyaspor",
       "Antalyaspor",
-      "Beşiktaş"
+      "Beşiktaş",
+      "Gaziantep FK",
+      "Konyaspor",
+      "Çaykur Rizespor"
+    ]
+  },
+  {
+    "name": "Kenedy",
+    "clubs": [
+      "Chelsea",
+      "Newcastle United"
     ]
   },
   {
     "name": "Kenji Gorre",
     "clubs": [
-      "Man Utd",
-      "Man City"
+      "Manchester City",
+      "Manchester United"
+    ]
+  },
+  {
+    "name": "Kenneth Omeruo",
+    "clubs": [
+      "Alanyaspor",
+      "Chelsea",
+      "Kasımpaşa"
+    ]
+  },
+  {
+    "name": "Kenny Tete",
+    "clubs": [
+      "Ajax",
+      "Fulham"
+    ]
+  },
+  {
+    "name": "Kenwyne Jones",
+    "clubs": [
+      "Bournemouth",
+      "Sunderland"
     ]
   },
   {
     "name": "Kepa Arrizabalaga",
     "clubs": [
-      "Chelsea",
       "Arsenal",
+      "Bournemouth",
+      "Chelsea",
       "Real Madrid"
     ]
   },
   {
     "name": "Kerem Aktürkoğlu",
     "clubs": [
-      "Fenerbahçe",
       "Başakşehir",
-      "Galatasaray",
-      "Benfica"
+      "Benfica",
+      "Fenerbahçe",
+      "Galatasaray"
     ]
   },
   {
     "name": "Kerem Atakan Kesgin",
     "clubs": [
-      "Sivasspor",
-      "Beşiktaş"
+      "Beşiktaş",
+      "Göztepe",
+      "Karagümrük",
+      "Sivasspor"
+    ]
+  },
+  {
+    "name": "Kerem Demirbay",
+    "clubs": [
+      "Eyüpspor",
+      "Galatasaray"
+    ]
+  },
+  {
+    "name": "Kerem Gülbahar",
+    "clubs": [
+      "Alanyaspor",
+      "Denizlispor",
+      "Göztepe"
+    ]
+  },
+  {
+    "name": "Kerem Hayta",
+    "clubs": [
+      "Alanyaspor",
+      "Kasımpaşa"
+    ]
+  },
+  {
+    "name": "Kerem Kalafat",
+    "clubs": [
+      "Beşiktaş",
+      "Çaykur Rizespor"
+    ]
+  },
+  {
+    "name": "Kerem Yandal",
+    "clubs": [
+      "Fenerbahçe",
+      "Karagümrük"
+    ]
+  },
+  {
+    "name": "Kerem Yusuf Sirkeci",
+    "clubs": [
+      "Eyüpspor",
+      "Karagümrük"
+    ]
+  },
+  {
+    "name": "Kerem İnan",
+    "clubs": [
+      "Galatasaray",
+      "Samsunspor",
+      "Çaykur Rizespor"
     ]
   },
   {
     "name": "Kerem Şen",
     "clubs": [
-      "Trabzonspor",
-      "Galatasaray"
+      "Galatasaray",
+      "Trabzonspor"
     ]
   },
   {
     "name": "Kerem Şeras",
     "clubs": [
-      "Genclerbirligi",
-      "Antalyaspor"
+      "Antalyaspor",
+      "Gençlerbirliği",
+      "Göztepe",
+      "Kasımpaşa"
     ]
   },
   {
     "name": "Kerim Avcı",
     "clubs": [
-      "Sivasspor",
-      "Genclerbirligi"
+      "Gaziantep FK",
+      "Gençlerbirliği",
+      "Sivasspor"
     ]
   },
   {
     "name": "Kerim Frei",
     "clubs": [
       "Başakşehir",
-      "Beşiktaş"
+      "Beşiktaş",
+      "Fulham",
+      "Karagümrük"
     ]
   },
   {
     "name": "Kevin Amuneke",
     "clubs": [
-      "FC Porto",
-      "Benfica"
+      "Benfica",
+      "FC Porto"
     ]
   },
   {
     "name": "Kevin Campbell",
     "clubs": [
       "Arsenal",
+      "Everton",
       "Trabzonspor"
     ]
   },
   {
     "name": "Kevin Constant",
     "clubs": [
-      "Trabzonspor",
-      "AC Milan"
+      "AC Milan",
+      "Trabzonspor"
     ]
   },
   {
     "name": "Kevin Csoboth",
     "clubs": [
-      "Genclerbirligi",
-      "Benfica"
+      "Benfica",
+      "Gençlerbirliği"
     ]
   },
   {
     "name": "Kevin De Bruyne",
     "clubs": [
       "Chelsea",
-      "Napoli",
-      "Man City"
+      "Manchester City",
+      "Napoli"
     ]
   },
   {
-    "name": "Kevin GroÃŸkreutz",
+    "name": "Kevin Doyle",
     "clubs": [
-      "Bor. Dortmund",
+      "Crystal Palace",
+      "Wolverhampton"
+    ]
+  },
+  {
+    "name": "Kevin Grobkreutz",
+    "clubs": [
+      "Borussia Dortmund",
       "Galatasaray"
+    ]
+  },
+  {
+    "name": "Kevin Hitchcock",
+    "clubs": [
+      "Chelsea",
+      "West Ham"
+    ]
+  },
+  {
+    "name": "Kevin Horlock",
+    "clubs": [
+      "Manchester City",
+      "West Ham"
     ]
   },
   {
@@ -7006,6 +14928,13 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Kevin Kyle",
+    "clubs": [
+      "Sunderland",
+      "Wolverhampton"
+    ]
+  },
+  {
     "name": "Kevin Martins",
     "clubs": [
       "AC Milan",
@@ -7013,79 +14942,212 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Kevin Mbabu",
+    "clubs": [
+      "Fulham",
+      "Newcastle United"
+    ]
+  },
+  {
+    "name": "Kevin McDonald",
+    "clubs": [
+      "Burnley",
+      "Fulham",
+      "Wolverhampton"
+    ]
+  },
+  {
+    "name": "Kevin McLeod",
+    "clubs": [
+      "Brighton",
+      "Everton"
+    ]
+  },
+  {
+    "name": "Kevin Mirallas",
+    "clubs": [
+      "Everton",
+      "Gaziantep FK"
+    ]
+  },
+  {
+    "name": "Kevin Nolan",
+    "clubs": [
+      "Newcastle United",
+      "West Ham"
+    ]
+  },
+  {
+    "name": "Kevin Phillips",
+    "clubs": [
+      "Aston Villa",
+      "Crystal Palace",
+      "Sunderland"
+    ]
+  },
+  {
+    "name": "Kevin Rodrigues",
+    "clubs": [
+      "Gaziantep FK",
+      "Kasımpaşa"
+    ]
+  },
+  {
+    "name": "Kevin Smith",
+    "clubs": [
+      "Leeds United",
+      "Sunderland"
+    ]
+  },
+  {
     "name": "Kevin Stewart",
     "clubs": [
-      "Tottenham",
-      "Liverpool"
+      "Liverpool",
+      "Tottenham"
+    ]
+  },
+  {
+    "name": "Kevin Watson",
+    "clubs": [
+      "Brentford",
+      "Tottenham"
     ]
   },
   {
     "name": "Kevin-Prince Boateng",
     "clubs": [
-      "Bor. Dortmund",
-      "Tottenham",
+      "AC Milan",
       "Barcelona",
       "Beşiktaş",
-      "AC Milan"
+      "Borussia Dortmund",
+      "Tottenham"
+    ]
+  },
+  {
+    "name": "Kevinall",
+    "clubs": [
+      "Burnley",
+      "Fulham",
+      "Sunderland"
+    ]
+  },
+  {
+    "name": "Kevinetsy",
+    "clubs": [
+      "Bournemouth",
+      "Fulham"
     ]
   },
   {
     "name": "Khalid Boulahrouz",
     "clubs": [
-      "Chelsea",
-      "Ajax"
+      "Ajax",
+      "Chelsea"
     ]
   },
   {
     "name": "Ki-Jana Hoever",
     "clubs": [
       "Ajax",
-      "Liverpool"
+      "Liverpool",
+      "Wolverhampton"
+    ]
+  },
+  {
+    "name": "Kieran Agard",
+    "clubs": [
+      "Arsenal",
+      "Everton"
+    ]
+  },
+  {
+    "name": "Kieran Richardson",
+    "clubs": [
+      "Aston Villa",
+      "Fulham",
+      "Manchester United",
+      "Sunderland",
+      "West Ham"
+    ]
+  },
+  {
+    "name": "Kiernan Dewsbury-Hall",
+    "clubs": [
+      "Chelsea",
+      "Everton"
     ]
   },
   {
     "name": "Kiernan Hughes-Mason",
     "clubs": [
-      "Tottenham",
-      "Arsenal"
+      "Arsenal",
+      "Tottenham"
+    ]
+  },
+  {
+    "name": "Kieron Dyer",
+    "clubs": [
+      "Newcastle United",
+      "West Ham"
     ]
   },
   {
     "name": "Kiki Musampa",
     "clubs": [
-      "Trabzonspor",
-      "Atletico Madrid",
       "Ajax",
-      "Man City"
+      "Atlético Madrid",
+      "Manchester City",
+      "Trabzonspor"
+    ]
+  },
+  {
+    "name": "Kiko Casilla",
+    "clubs": [
+      "Leeds United",
+      "Real Madrid"
     ]
   },
   {
     "name": "Kingsley Coman",
     "clubs": [
+      "Bayern Munich",
       "Juventus",
-      "PSG",
-      "Bayern Munich"
+      "Paris Saint-Germain"
+    ]
+  },
+  {
+    "name": "Kjell Scherpen",
+    "clubs": [
+      "Ajax",
+      "Brighton"
     ]
   },
   {
     "name": "Kleberson",
     "clubs": [
       "Beşiktaş",
-      "Man Utd"
+      "Manchester United"
     ]
   },
   {
     "name": "Ko Itakura",
     "clubs": [
       "Ajax",
-      "Man City"
+      "Manchester City"
+    ]
+  },
+  {
+    "name": "Koby Mottoh",
+    "clubs": [
+      "Arsenal",
+      "Bournemouth"
     ]
   },
   {
     "name": "Kolbeinn Sigthorsson",
     "clubs": [
-      "Galatasaray",
-      "Ajax"
+      "Ajax",
+      "Galatasaray"
     ]
   },
   {
@@ -7093,14 +15155,21 @@ export const PLAYERS = [
     "clubs": [
       "Arsenal",
       "Liverpool",
-      "Man City"
+      "Manchester City"
     ]
   },
   {
     "name": "Koni De Winter",
     "clubs": [
-      "Juventus",
-      "AC Milan"
+      "AC Milan",
+      "Juventus"
+    ]
+  },
+  {
+    "name": "Konrad Michalak",
+    "clubs": [
+      "Konyaspor",
+      "Çaykur Rizespor"
     ]
   },
   {
@@ -7111,10 +15180,18 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Konstantinos Mavropanos",
+    "clubs": [
+      "Arsenal",
+      "West Ham"
+    ]
+  },
+  {
     "name": "Konstantinos Mitroglou",
     "clubs": [
-      "Galatasaray",
-      "Benfica"
+      "Benfica",
+      "Fulham",
+      "Galatasaray"
     ]
   },
   {
@@ -7125,66 +15202,236 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Koray Altınay",
+    "clubs": [
+      "Karagümrük",
+      "Sivasspor",
+      "Çaykur Rizespor"
+    ]
+  },
+  {
+    "name": "Koray Arslan",
+    "clubs": [
+      "Antalyaspor",
+      "Gaziantepspor",
+      "Göztepe"
+    ]
+  },
+  {
     "name": "Koray Avcı",
     "clubs": [
-      "Genclerbirligi",
-      "Beşiktaş"
+      "Beşiktaş",
+      "Gençlerbirliği",
+      "Kasımpaşa",
+      "Çaykur Rizespor"
     ]
   },
   {
     "name": "Koray Günter",
     "clubs": [
-      "Bor. Dortmund",
-      "Galatasaray"
+      "Borussia Dortmund",
+      "Galatasaray",
+      "Göztepe",
+      "Karagümrük"
+    ]
+  },
+  {
+    "name": "Koray Tekin Bulman",
+    "clubs": [
+      "Antalyaspor",
+      "Karagümrük",
+      "Kasımpaşa"
     ]
   },
   {
     "name": "Koray Çölgeçen",
     "clubs": [
+      "Alanyaspor",
+      "Denizlispor",
+      "Göztepe",
       "Kayserispor",
-      "Denizlispor"
+      "Kocaelispor"
     ]
   },
   {
     "name": "Korcan Çelikay",
     "clubs": [
-      "Sivasspor",
-      "Beşiktaş"
+      "Beşiktaş",
+      "Kocaelispor",
+      "Sivasspor"
+    ]
+  },
+  {
+    "name": "Korhan Güler",
+    "clubs": [
+      "Alanyaspor",
+      "Galatasaray"
     ]
   },
   {
     "name": "Korhan Öztürk",
     "clubs": [
-      "Genclerbirligi",
-      "Antalyaspor"
+      "Antalyaspor",
+      "Gençlerbirliği",
+      "Göztepe",
+      "Kasımpaşa"
+    ]
+  },
+  {
+    "name": "Kortney Hause",
+    "clubs": [
+      "Aston Villa",
+      "West Ham",
+      "Wolverhampton"
+    ]
+  },
+  {
+    "name": "Kris Taylor",
+    "clubs": [
+      "Manchester United",
+      "Wolverhampton"
+    ]
+  },
+  {
+    "name": "Kristian Sekularac",
+    "clubs": [
+      "Fulham",
+      "Juventus"
+    ]
+  },
+  {
+    "name": "Kristijan Bistrovic",
+    "clubs": [
+      "Karagümrük",
+      "Kasımpaşa"
     ]
   },
   {
     "name": "Krzysztof Piatek",
     "clubs": [
-      "Başakşehir",
-      "AC Milan"
+      "AC Milan",
+      "Başakşehir"
+    ]
+  },
+  {
+    "name": "Kubilay Aktaş",
+    "clubs": [
+      "Denizlispor",
+      "Gaziantep FK",
+      "Kasımpaşa"
+    ]
+  },
+  {
+    "name": "Kubilay Kanatsızkuş",
+    "clubs": [
+      "Göztepe",
+      "Kasımpaşa",
+      "Çaykur Rizespor"
+    ]
+  },
+  {
+    "name": "Kubilay Sönmez",
+    "clubs": [
+      "Göztepe",
+      "Kayserispor"
+    ]
+  },
+  {
+    "name": "Kubilay Yavuz",
+    "clubs": [
+      "Beşiktaş",
+      "Eyüpspor",
+      "Kocaelispor",
+      "Samsunspor"
+    ]
+  },
+  {
+    "name": "Kurt Zouma",
+    "clubs": [
+      "Chelsea",
+      "Everton",
+      "West Ham"
     ]
   },
   {
     "name": "Kwadwo Asamoah",
     "clubs": [
-      "Juventus",
-      "Inter"
+      "Inter",
+      "Juventus"
+    ]
+  },
+  {
+    "name": "Kyel Reid",
+    "clubs": [
+      "Crystal Palace",
+      "West Ham",
+      "Wolverhampton"
+    ]
+  },
+  {
+    "name": "Kyle Lafferty",
+    "clubs": [
+      "Burnley",
+      "Sunderland",
+      "Çaykur Rizespor"
+    ]
+  },
+  {
+    "name": "Kyle Scott",
+    "clubs": [
+      "Chelsea",
+      "Newcastle United"
+    ]
+  },
+  {
+    "name": "Kyle Walker-Peters",
+    "clubs": [
+      "Tottenham",
+      "West Ham"
+    ]
+  },
+  {
+    "name": "Kyrie Pierre",
+    "clubs": [
+      "Aston Villa",
+      "Brentford"
     ]
   },
   {
     "name": "Köksal Yedek",
     "clubs": [
-      "Kayserispor",
-      "Antalyaspor"
+      "Antalyaspor",
+      "Kayserispor"
     ]
   },
   {
     "name": "Kürşat Duymuş",
     "clubs": [
+      "Beşiktaş",
       "Trabzonspor",
-      "Beşiktaş"
+      "Çaykur Rizespor"
+    ]
+  },
+  {
+    "name": "Lamine Diatta",
+    "clubs": [
+      "Beşiktaş",
+      "Newcastle United"
+    ]
+  },
+  {
+    "name": "Lamine Gassama",
+    "clubs": [
+      "Alanyaspor",
+      "Göztepe",
+      "Olympique Lyon"
+    ]
+  },
+  {
+    "name": "Landon Donovan",
+    "clubs": [
+      "Bayern Munich",
+      "Everton"
     ]
   },
   {
@@ -7195,11 +15442,39 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Largie Ramazani",
+    "clubs": [
+      "Leeds United",
+      "Manchester United"
+    ]
+  },
+  {
+    "name": "Larnell Cole",
+    "clubs": [
+      "Fulham",
+      "Manchester United"
+    ]
+  },
+  {
+    "name": "Lars Jacobsen",
+    "clubs": [
+      "Everton",
+      "West Ham"
+    ]
+  },
+  {
     "name": "Lassana Diarra",
     "clubs": [
-      "Chelsea",
       "Arsenal",
+      "Chelsea",
       "Real Madrid"
+    ]
+  },
+  {
+    "name": "Laurens Deock",
+    "clubs": [
+      "Leeds United",
+      "Sunderland"
     ]
   },
   {
@@ -7207,46 +15482,71 @@ export const PLAYERS = [
     "clubs": [
       "Barcelona",
       "Inter",
-      "Napoli",
-      "Man Utd"
+      "Manchester United",
+      "Napoli"
+    ]
+  },
+  {
+    "name": "Laurent Robert",
+    "clubs": [
+      "Benfica",
+      "Newcastle United"
     ]
   },
   {
     "name": "Lawrence Vigouroux",
     "clubs": [
-      "Tottenham",
-      "Liverpool"
+      "Burnley",
+      "Liverpool",
+      "Tottenham"
     ]
   },
   {
     "name": "Lazar Markovic",
     "clubs": [
-      "Fenerbahçe",
-      "Trabzonspor",
       "Benfica",
-      "Liverpool"
+      "Fenerbahçe",
+      "Fulham",
+      "Gaziantep FK",
+      "Liverpool",
+      "Trabzonspor"
+    ]
+  },
+  {
+    "name": "Leander Dendoncker",
+    "clubs": [
+      "Aston Villa",
+      "Napoli",
+      "Wolverhampton"
+    ]
+  },
+  {
+    "name": "Leandre Griffit",
+    "clubs": [
+      "Crystal Palace",
+      "Leeds United"
     ]
   },
   {
     "name": "Leandrinho",
     "clubs": [
-      "Sivasspor",
       "Denizlispor",
-      "Napoli"
+      "Napoli",
+      "Sivasspor"
     ]
   },
   {
     "name": "Leandro Kappel",
     "clubs": [
-      "Denizlispor",
-      "Ajax"
+      "Ajax",
+      "Denizlispor"
     ]
   },
   {
     "name": "Leandro Paredes",
     "clubs": [
-      "Juventus",
-      "AS Roma"
+      "AS Roma",
+      "Juventus"
     ]
   },
   {
@@ -7257,47 +15557,147 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Leandro Rodri­guez",
+    "clubs": [
+      "Brentford",
+      "Everton"
+    ]
+  },
+  {
+    "name": "Leandro Trossard",
+    "clubs": [
+      "Arsenal",
+      "Brighton"
+    ]
+  },
+  {
+    "name": "Lee Camp",
+    "clubs": [
+      "Bournemouth",
+      "Sunderland"
+    ]
+  },
+  {
+    "name": "Lee Grant",
+    "clubs": [
+      "Burnley",
+      "Manchester United"
+    ]
+  },
+  {
+    "name": "Lee Hendrie",
+    "clubs": [
+      "Aston Villa",
+      "Brighton"
+    ]
+  },
+  {
+    "name": "Lee Peltier",
+    "clubs": [
+      "Leeds United",
+      "Liverpool"
+    ]
+  },
+  {
+    "name": "Lee Roche",
+    "clubs": [
+      "Burnley",
+      "Manchester United"
+    ]
+  },
+  {
+    "name": "Leif Davis",
+    "clubs": [
+      "Bournemouth",
+      "Leeds United"
+    ]
+  },
+  {
+    "name": "Leigh Mills",
+    "clubs": [
+      "Brentford",
+      "Tottenham"
+    ]
+  },
+  {
     "name": "Leo Duarte",
     "clubs": [
-      "Başakşehir",
-      "AC Milan"
+      "AC Milan",
+      "Başakşehir"
     ]
   },
   {
     "name": "Leo Dubois",
     "clubs": [
       "Başakşehir",
+      "Eyüpspor",
       "Galatasaray"
     ]
   },
   {
     "name": "Leo Franco",
     "clubs": [
-      "Galatasaray",
-      "Atletico Madrid"
+      "Atlético Madrid",
+      "Galatasaray"
+    ]
+  },
+  {
+    "name": "Leo Hjelde",
+    "clubs": [
+      "Leeds United",
+      "Sunderland"
+    ]
+  },
+  {
+    "name": "Leo Ostigard",
+    "clubs": [
+      "Brighton",
+      "Napoli"
+    ]
+  },
+  {
+    "name": "Leon Constantine",
+    "clubs": [
+      "Brentford",
+      "Leeds United"
+    ]
+  },
+  {
+    "name": "Leon Cort",
+    "clubs": [
+      "Burnley",
+      "Crystal Palace"
+    ]
+  },
+  {
+    "name": "Leon Knight",
+    "clubs": [
+      "Brighton",
+      "Chelsea"
     ]
   },
   {
     "name": "Leonardo",
     "clubs": [
+      "Ajax",
       "FC Porto",
-      "Ajax"
+      "Newcastle United"
     ]
   },
   {
     "name": "Leonardo Bonucci",
     "clubs": [
-      "Juventus",
-      "Fenerbahçe",
       "AC Milan",
-      "Inter"
+      "Fenerbahçe",
+      "Inter",
+      "Juventus"
     ]
   },
   {
     "name": "Leonardo Mancuso",
     "clubs": [
-      "Juventus",
-      "AC Milan"
+      "AC Milan",
+      "Juventus"
     ]
   },
   {
@@ -7310,17 +15710,69 @@ export const PLAYERS = [
   {
     "name": "Leonardo Spinazzola",
     "clubs": [
-      "Juventus",
       "AS Roma",
+      "Juventus",
       "Napoli"
+    ]
+  },
+  {
+    "name": "Leonest",
+    "clubs": [
+      "Bournemouth",
+      "Brighton",
+      "Newcastle United"
     ]
   },
   {
     "name": "Leroy Sane",
     "clubs": [
-      "Galatasaray",
       "Bayern Munich",
-      "Man City"
+      "Galatasaray",
+      "Manchester City"
+    ]
+  },
+  {
+    "name": "Les Sealey",
+    "clubs": [
+      "Aston Villa",
+      "Manchester United",
+      "West Ham"
+    ]
+  },
+  {
+    "name": "Lesley Ugochukwu",
+    "clubs": [
+      "Burnley",
+      "Chelsea"
+    ]
+  },
+  {
+    "name": "Levent Mercan",
+    "clubs": [
+      "Fenerbahçe",
+      "Karagümrük"
+    ]
+  },
+  {
+    "name": "Levent Yılmaz",
+    "clubs": [
+      "Kayserispor",
+      "Samsunspor"
+    ]
+  },
+  {
+    "name": "Levi Colwill",
+    "clubs": [
+      "Brighton",
+      "Chelsea"
+    ]
+  },
+  {
+    "name": "Levi Laing",
+    "clubs": [
+      "Arsenal",
+      "Brentford",
+      "West Ham"
     ]
   },
   {
@@ -7331,54 +15783,226 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Lewis Cook",
+    "clubs": [
+      "Bournemouth",
+      "Leeds United"
+    ]
+  },
+  {
+    "name": "Lewis Dobbin",
+    "clubs": [
+      "Aston Villa",
+      "Everton"
+    ]
+  },
+  {
+    "name": "Lewis Gibson",
+    "clubs": [
+      "Everton",
+      "Newcastle United"
+    ]
+  },
+  {
+    "name": "Lewis Grabban",
+    "clubs": [
+      "Aston Villa",
+      "Bournemouth",
+      "Brentford",
+      "Crystal Palace",
+      "Sunderland"
+    ]
+  },
+  {
+    "name": "Lewis Hall",
+    "clubs": [
+      "Chelsea",
+      "Newcastle United"
+    ]
+  },
+  {
+    "name": "Lewis Holtby",
+    "clubs": [
+      "Fulham",
+      "Tottenham"
+    ]
+  },
+  {
+    "name": "Lewis Kinsella",
+    "clubs": [
+      "Arsenal",
+      "Aston Villa"
+    ]
+  },
+  {
+    "name": "Lewis Price",
+    "clubs": [
+      "Brentford",
+      "Crystal Palace"
+    ]
+  },
+  {
+    "name": "Lewis Richards",
+    "clubs": [
+      "Brentford",
+      "Wolverhampton"
+    ]
+  },
+  {
+    "name": "Lewis Thomas",
+    "clubs": [
+      "Burnley",
+      "Manchester City"
+    ]
+  },
+  {
     "name": "Liam Delap",
     "clubs": [
       "Chelsea",
-      "Man City"
+      "Manchester City"
+    ]
+  },
+  {
+    "name": "Liam Hughes",
+    "clubs": [
+      "Liverpool",
+      "Wolverhampton"
+    ]
+  },
+  {
+    "name": "Liam Millar",
+    "clubs": [
+      "Fulham",
+      "Liverpool"
+    ]
+  },
+  {
+    "name": "Liam Ridgewell",
+    "clubs": [
+      "Aston Villa",
+      "Brighton",
+      "West Ham"
+    ]
+  },
+  {
+    "name": "Liamridcutt",
+    "clubs": [
+      "Brighton",
+      "Leeds United",
+      "Sunderland"
     ]
   },
   {
     "name": "Lilian Thuram",
     "clubs": [
-      "Juventus",
-      "Barcelona"
+      "Barcelona",
+      "Juventus"
     ]
   },
   {
     "name": "Lincoln",
     "clubs": [
       "Fenerbahçe",
-      "Galatasaray"
+      "Galatasaray",
+      "Çaykur Rizespor"
+    ]
+  },
+  {
+    "name": "Lino Sousa",
+    "clubs": [
+      "Arsenal",
+      "Aston Villa"
+    ]
+  },
+  {
+    "name": "Lionel Ainsworth",
+    "clubs": [
+      "Bournemouth",
+      "Brentford"
     ]
   },
   {
     "name": "Lionel Carole",
     "clubs": [
-      "Kayserispor",
+      "Benfica",
       "Galatasaray",
-      "Benfica"
+      "Kayserispor"
+    ]
+  },
+  {
+    "name": "Lionel Perez",
+    "clubs": [
+      "Newcastle United",
+      "Sunderland"
     ]
   },
   {
     "name": "Lisandro Lopez",
     "clubs": [
+      "Benfica",
       "FC Porto",
-      "Inter",
-      "Benfica"
+      "Inter"
     ]
   },
   {
     "name": "Lisandro Martinez",
     "clubs": [
       "Ajax",
-      "Man Utd"
+      "Manchester United"
+    ]
+  },
+  {
+    "name": "Lloyd Dyer",
+    "clubs": [
+      "Aston Villa",
+      "Burnley"
+    ]
+  },
+  {
+    "name": "Lloyd Kelly",
+    "clubs": [
+      "Bournemouth",
+      "Juventus",
+      "Newcastle United"
+    ]
+  },
+  {
+    "name": "Lloyd Owusu",
+    "clubs": [
+      "Brentford",
+      "Brighton"
+    ]
+  },
+  {
+    "name": "Logan Pye",
+    "clubs": [
+      "Burnley",
+      "Manchester United",
+      "Sunderland"
     ]
   },
   {
     "name": "Loic Remy",
     "clubs": [
       "Chelsea",
-      "Olymp. Lyon"
+      "Crystal Palace",
+      "Newcastle United",
+      "Olympique Lyon",
+      "Çaykur Rizespor"
+    ]
+  },
+  {
+    "name": "Loide Augusto",
+    "clubs": [
+      "Alanyaspor",
+      "Çaykur Rizespor"
+    ]
+  },
+  {
+    "name": "Lomana LuaLua",
+    "clubs": [
+      "Newcastle United",
+      "Çaykur Rizespor"
     ]
   },
   {
@@ -7389,25 +16013,66 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Lorenzo Pinamonte",
+    "clubs": [
+      "Brentford",
+      "Brighton"
+    ]
+  },
+  {
+    "name": "Lorik Cana",
+    "clubs": [
+      "Galatasaray",
+      "Sunderland"
+    ]
+  },
+  {
     "name": "Loris Karius",
     "clubs": [
       "Beşiktaş",
       "Liverpool",
-      "Man City"
+      "Manchester City",
+      "Newcastle United"
+    ]
+  },
+  {
+    "name": "Louie Copley",
+    "clubs": [
+      "Arsenal",
+      "West Ham"
     ]
   },
   {
     "name": "Louie Moulden",
     "clubs": [
       "Liverpool",
-      "Man City"
+      "Manchester City",
+      "Wolverhampton"
+    ]
+  },
+  {
+    "name": "Louis Enahoro-Marcus",
+    "clubs": [
+      "Leeds United",
+      "Liverpool"
     ]
   },
   {
     "name": "Louis Saha",
     "clubs": [
-      "Tottenham",
-      "Man Utd"
+      "Everton",
+      "Fulham",
+      "Manchester United",
+      "Newcastle United",
+      "Sunderland",
+      "Tottenham"
+    ]
+  },
+  {
+    "name": "Lubomir Satka",
+    "clubs": [
+      "Newcastle United",
+      "Samsunspor"
     ]
   },
   {
@@ -7415,6 +16080,13 @@ export const PLAYERS = [
     "clubs": [
       "Juventus",
       "Napoli"
+    ]
+  },
+  {
+    "name": "Luca Ashby-Hammond",
+    "clubs": [
+      "Fulham",
+      "Liverpool"
     ]
   },
   {
@@ -7427,28 +16099,51 @@ export const PLAYERS = [
   {
     "name": "Luca Pellegrini",
     "clubs": [
-      "Juventus",
-      "AS Roma"
+      "AS Roma",
+      "Juventus"
+    ]
+  },
+  {
+    "name": "Luca Picotto",
+    "clubs": [
+      "Brentford",
+      "Fulham"
     ]
   },
   {
     "name": "Luca Scapuzzi",
     "clubs": [
       "AC Milan",
-      "Man City"
+      "Manchester City"
+    ]
+  },
+  {
+    "name": "Luca Stephenson",
+    "clubs": [
+      "Liverpool",
+      "Sunderland"
+    ]
+  },
+  {
+    "name": "Luca Thomas",
+    "clubs": [
+      "Leeds United",
+      "Manchester City"
     ]
   },
   {
     "name": "Lucas Digne",
     "clubs": [
+      "AS Roma",
+      "Aston Villa",
       "Barcelona",
-      "AS Roma"
+      "Everton"
     ]
   },
   {
     "name": "Lucas Hernandez",
     "clubs": [
-      "Atletico Madrid",
+      "Atlético Madrid",
       "Bayern Munich"
     ]
   },
@@ -7460,10 +16155,46 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Lucas Neill",
+    "clubs": [
+      "Everton",
+      "Galatasaray",
+      "West Ham"
+    ]
+  },
+  {
     "name": "Lucas Ocampos",
     "clubs": [
       "AC Milan",
       "Ajax"
+    ]
+  },
+  {
+    "name": "Lucas Paqueta",
+    "clubs": [
+      "AC Milan",
+      "West Ham"
+    ]
+  },
+  {
+    "name": "Lucas Perez",
+    "clubs": [
+      "Arsenal",
+      "West Ham"
+    ]
+  },
+  {
+    "name": "Lucas Perri",
+    "clubs": [
+      "Crystal Palace",
+      "Leeds United"
+    ]
+  },
+  {
+    "name": "Lucas Piazon",
+    "clubs": [
+      "Chelsea",
+      "Fulham"
     ]
   },
   {
@@ -7476,31 +16207,45 @@ export const PLAYERS = [
   {
     "name": "Lucas Rosa",
     "clubs": [
-      "Juventus",
-      "Ajax"
+      "Ajax",
+      "Juventus"
+    ]
+  },
+  {
+    "name": "Lucas Scicluna",
+    "clubs": [
+      "Newcastle United",
+      "Wolverhampton"
     ]
   },
   {
     "name": "Lucas Torreira",
     "clubs": [
       "Arsenal",
-      "Galatasaray",
-      "Atletico Madrid"
+      "Atlético Madrid",
+      "Galatasaray"
+    ]
+  },
+  {
+    "name": "Luccas Claro",
+    "clubs": [
+      "Eyüpspor",
+      "Gençlerbirliği"
     ]
   },
   {
     "name": "Luciano Galletti",
     "clubs": [
-      "Atletico Madrid",
+      "Atlético Madrid",
       "Napoli"
     ]
   },
   {
     "name": "Lucio",
     "clubs": [
-      "Juventus",
+      "Bayern Munich",
       "Inter",
-      "Bayern Munich"
+      "Juventus"
     ]
   },
   {
@@ -7513,31 +16258,31 @@ export const PLAYERS = [
   {
     "name": "Luis Diaz",
     "clubs": [
+      "Bayern Munich",
       "FC Porto",
-      "Liverpool",
-      "Bayern Munich"
+      "Liverpool"
     ]
   },
   {
     "name": "Luis Figo",
     "clubs": [
       "Barcelona",
-      "Real Madrid",
-      "Inter"
+      "Inter",
+      "Real Madrid"
     ]
   },
   {
     "name": "Luis Filipe",
     "clubs": [
-      "FC Porto",
-      "Benfica"
+      "Benfica",
+      "FC Porto"
     ]
   },
   {
     "name": "Luis Garcia",
     "clubs": [
+      "Atlético Madrid",
       "Barcelona",
-      "Atletico Madrid",
       "Inter",
       "Liverpool"
     ]
@@ -7550,113 +16295,296 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Luis Jimenez",
+    "clubs": [
+      "Inter",
+      "West Ham"
+    ]
+  },
+  {
+    "name": "Luis Longstaff",
+    "clubs": [
+      "Liverpool",
+      "Newcastle United"
+    ]
+  },
+  {
     "name": "Luis Martins",
     "clubs": [
-      "FC Porto",
-      "Benfica"
+      "Benfica",
+      "FC Porto"
     ]
   },
   {
     "name": "Luis Pedro Cavanda",
     "clubs": [
-      "Trabzonspor",
-      "Galatasaray"
+      "Galatasaray",
+      "Trabzonspor"
+    ]
+  },
+  {
+    "name": "Luis Sinisterra",
+    "clubs": [
+      "Bournemouth",
+      "Leeds United"
     ]
   },
   {
     "name": "Luis Suarez",
     "clubs": [
-      "Barcelona",
-      "Atletico Madrid",
       "Ajax",
+      "Atlético Madrid",
+      "Barcelona",
       "Liverpool"
     ]
   },
   {
     "name": "Luiz Adriano",
     "clubs": [
-      "Antalyaspor",
       "AC Milan",
+      "Antalyaspor",
       "Inter"
     ]
   },
   {
     "name": "Luiz Gustavo",
     "clubs": [
-      "Fenerbahçe",
+      "Bayern Munich",
       "Benfica",
-      "Bayern Munich"
+      "Fenerbahçe"
+    ]
+  },
+  {
+    "name": "Lui­soa Morte",
+    "clubs": [
+      "Fulham",
+      "West Ham"
     ]
   },
   {
     "name": "Luka Jovic",
     "clubs": [
       "AC Milan",
-      "Real Madrid",
-      "Benfica"
+      "Benfica",
+      "Real Madrid"
     ]
   },
   {
     "name": "Luka Modric",
     "clubs": [
-      "Tottenham",
       "AC Milan",
-      "Real Madrid"
+      "Real Madrid",
+      "Tottenham"
+    ]
+  },
+  {
+    "name": "Lukas Jutkiewicz",
+    "clubs": [
+      "Burnley",
+      "Everton"
+    ]
+  },
+  {
+    "name": "Lukas Nmecha",
+    "clubs": [
+      "Leeds United",
+      "Manchester City"
     ]
   },
   {
     "name": "Lukas Podolski",
     "clubs": [
-      "Arsenal",
       "Antalyaspor",
+      "Arsenal",
+      "Bayern Munich",
       "Galatasaray",
-      "Inter",
-      "Bayern Munich"
+      "Inter"
+    ]
+  },
+  {
+    "name": "Lukasz Fabianski",
+    "clubs": [
+      "Arsenal",
+      "West Ham"
+    ]
+  },
+  {
+    "name": "Luke Ayling",
+    "clubs": [
+      "Arsenal",
+      "Leeds United"
+    ]
+  },
+  {
+    "name": "Luke Chadwick",
+    "clubs": [
+      "Burnley",
+      "Manchester United",
+      "West Ham"
+    ]
+  },
+  {
+    "name": "Luke Cundle",
+    "clubs": [
+      "Burnley",
+      "Wolverhampton"
+    ]
+  },
+  {
+    "name": "Luke Daniels",
+    "clubs": [
+      "Brentford",
+      "Manchester United"
+    ]
+  },
+  {
+    "name": "Luke Garbutt",
+    "clubs": [
+      "Everton",
+      "Fulham",
+      "Leeds United"
+    ]
+  },
+  {
+    "name": "Luke Hendrie",
+    "clubs": [
+      "Burnley",
+      "Manchester United"
+    ]
+  },
+  {
+    "name": "Luke Hewitson",
+    "clubs": [
+      "Liverpool",
+      "Sunderland"
+    ]
+  },
+  {
+    "name": "Luke Ifil",
+    "clubs": [
+      "Arsenal",
+      "Wolverhampton"
+    ]
+  },
+  {
+    "name": "Luke Plange",
+    "clubs": [
+      "Arsenal",
+      "Crystal Palace"
+    ]
+  },
+  {
+    "name": "Lumor Agbenyenu",
+    "clubs": [
+      "FC Porto",
+      "Göztepe"
     ]
   },
   {
     "name": "Luuk de Jong",
     "clubs": [
+      "Barcelona",
       "FC Porto",
-      "Barcelona"
+      "Newcastle United"
     ]
   },
   {
     "name": "Maarten Stekelenburg",
     "clubs": [
       "AS Roma",
-      "Ajax"
+      "Ajax",
+      "Everton",
+      "Fulham"
+    ]
+  },
+  {
+    "name": "Mace Goodridge",
+    "clubs": [
+      "Manchester City",
+      "Newcastle United"
+    ]
+  },
+  {
+    "name": "Macit Güven",
+    "clubs": [
+      "Kocaelispor",
+      "Trabzonspor"
+    ]
+  },
+  {
+    "name": "Madger Gomes",
+    "clubs": [
+      "Leeds United",
+      "Liverpool"
+    ]
+  },
+  {
+    "name": "Mahamoudou Kere",
+    "clubs": [
+      "Konyaspor",
+      "Samsunspor"
+    ]
+  },
+  {
+    "name": "Mahmoud Dahoud",
+    "clubs": [
+      "Borussia Dortmund",
+      "Brighton"
     ]
   },
   {
     "name": "Mahmoud Trezeguet",
     "clubs": [
+      "Aston Villa",
       "Başakşehir",
+      "Kasımpaşa",
       "Trabzonspor"
+    ]
+  },
+  {
+    "name": "Mahmut Bezgin",
+    "clubs": [
+      "Gaziantepspor",
+      "Sivasspor"
     ]
   },
   {
     "name": "Mahmut Boz",
     "clubs": [
-      "Sivasspor",
-      "Genclerbirligi"
+      "Gençlerbirliği",
+      "Sivasspor"
+    ]
+  },
+  {
+    "name": "Mahmut Demirgan",
+    "clubs": [
+      "Beşiktaş",
+      "Eyüpspor"
     ]
   },
   {
     "name": "Mahmut Hanefi Erdoğdu",
     "clubs": [
-      "Sivasspor",
-      "Fenerbahçe"
+      "Fenerbahçe",
+      "Gaziantepspor",
+      "Sivasspor"
     ]
   },
   {
     "name": "Maicon",
     "clubs": [
+      "AS Roma",
       "FC Porto",
       "Galatasaray",
-      "AS Roma",
       "Inter",
-      "Man City"
+      "Manchester City"
+    ]
+  },
+  {
+    "name": "Maik Taylor",
+    "clubs": [
+      "Fulham",
+      "Leeds United"
     ]
   },
   {
@@ -7669,22 +16597,38 @@ export const PLAYERS = [
   {
     "name": "Malcolm Ebiowei",
     "clubs": [
+      "Arsenal",
       "Chelsea",
-      "Arsenal"
+      "Crystal Palace"
+    ]
+  },
+  {
+    "name": "Maldini Kacurri",
+    "clubs": [
+      "Arsenal",
+      "Fulham"
+    ]
+  },
+  {
+    "name": "Malick Thiaw",
+    "clubs": [
+      "AC Milan",
+      "Newcastle United"
     ]
   },
   {
     "name": "Malo Gusto",
     "clubs": [
       "Chelsea",
-      "Olymp. Lyon"
+      "Olympique Lyon"
     ]
   },
   {
     "name": "Mamadou Sakho",
     "clubs": [
+      "Crystal Palace",
       "Liverpool",
-      "PSG"
+      "Paris Saint-Germain"
     ]
   },
   {
@@ -7697,15 +16641,30 @@ export const PLAYERS = [
   {
     "name": "Mame Diouf",
     "clubs": [
+      "Göztepe",
       "Konyaspor",
-      "Man Utd"
+      "Manchester United"
     ]
   },
   {
     "name": "Mani",
     "clubs": [
-      "FC Porto",
-      "Benfica"
+      "Benfica",
+      "FC Porto"
+    ]
+  },
+  {
+    "name": "Manni Norkett",
+    "clubs": [
+      "Manchester United",
+      "Nottingham Forest"
+    ]
+  },
+  {
+    "name": "Manolis Siopis",
+    "clubs": [
+      "Alanyaspor",
+      "Trabzonspor"
     ]
   },
   {
@@ -7716,49 +16675,88 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Manuel Akanji",
+    "name": "Manor Solomon",
     "clubs": [
-      "Bor. Dortmund",
-      "Inter",
-      "Man City"
+      "Fulham",
+      "Leeds United",
+      "Tottenham"
     ]
   },
   {
-    "name": "Manuel da Costa",
+    "name": "Manuel Akanji",
     "clubs": [
-      "Sivasspor",
-      "Başakşehir",
-      "Trabzonspor"
+      "Borussia Dortmund",
+      "Inter",
+      "Manchester City"
+    ]
+  },
+  {
+    "name": "Manuel Almunia",
+    "clubs": [
+      "Arsenal",
+      "West Ham"
     ]
   },
   {
     "name": "Manuel Fernandes",
     "clubs": [
-      "Kayserispor",
+      "Benfica",
       "Beşiktaş",
-      "Benfica"
+      "Everton",
+      "Kayserispor"
     ]
   },
   {
     "name": "Manuel Locatelli",
     "clubs": [
-      "Juventus",
-      "AC Milan"
+      "AC Milan",
+      "Juventus"
+    ]
+  },
+  {
+    "name": "Manuel da Costa",
+    "clubs": [
+      "Başakşehir",
+      "Sivasspor",
+      "Trabzonspor",
+      "West Ham"
     ]
   },
   {
     "name": "Manuele Blasi",
     "clubs": [
-      "Juventus",
       "AS Roma",
+      "Juventus",
       "Napoli"
+    ]
+  },
+  {
+    "name": "Mapou Yanga-Mbiwa",
+    "clubs": [
+      "AS Roma",
+      "Newcastle United"
+    ]
+  },
+  {
+    "name": "Marc Bola",
+    "clubs": [
+      "Arsenal",
+      "Samsunspor"
     ]
   },
   {
     "name": "Marc Cucurella",
     "clubs": [
+      "Barcelona",
+      "Brighton",
+      "Chelsea"
+    ]
+  },
+  {
+    "name": "Marc Guehi",
+    "clubs": [
       "Chelsea",
-      "Barcelona"
+      "Crystal Palace"
     ]
   },
   {
@@ -7771,8 +16769,38 @@ export const PLAYERS = [
   {
     "name": "Marc Kibong Mbamba",
     "clubs": [
-      "Konyaspor",
-      "Denizlispor"
+      "Denizlispor",
+      "Konyaspor"
+    ]
+  },
+  {
+    "name": "Marc Laird",
+    "clubs": [
+      "Brentford",
+      "Manchester City"
+    ]
+  },
+  {
+    "name": "Marc Roca",
+    "clubs": [
+      "Bayern Munich",
+      "Leeds United"
+    ]
+  },
+  {
+    "name": "Marc Wilson",
+    "clubs": [
+      "Bournemouth",
+      "Manchester United",
+      "Sunderland"
+    ]
+  },
+  {
+    "name": "Marcao",
+    "clubs": [
+      "Galatasaray",
+      "Karagümrük",
+      "Kocaelispor"
     ]
   },
   {
@@ -7783,18 +16811,33 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Marcel Lewis",
+    "clubs": [
+      "Burnley",
+      "Chelsea"
+    ]
+  },
+  {
     "name": "Marcel Sabitzer",
     "clubs": [
-      "Bor. Dortmund",
-      "Man Utd",
-      "Bayern Munich"
+      "Bayern Munich",
+      "Borussia Dortmund",
+      "Manchester United"
     ]
   },
   {
     "name": "Marcell Washington",
     "clubs": [
-      "Chelsea",
-      "Arsenal"
+      "Arsenal",
+      "Chelsea"
+    ]
+  },
+  {
+    "name": "Marcello Trotta",
+    "clubs": [
+      "Brentford",
+      "Fulham",
+      "Manchester City"
     ]
   },
   {
@@ -7812,19 +16855,33 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Marcelo Saraiva",
+    "clubs": [
+      "Inter",
+      "Nottingham Forest"
+    ]
+  },
+  {
     "name": "Marcelo Zalayeta",
     "clubs": [
-      "Kayserispor",
       "Juventus",
+      "Kayserispor",
       "Napoli"
+    ]
+  },
+  {
+    "name": "Marcinho",
+    "clubs": [
+      "Gaziantepspor",
+      "Gençlerbirliği"
     ]
   },
   {
     "name": "Marco Amelia",
     "clubs": [
-      "Chelsea",
       "AC Milan",
-      "AS Roma"
+      "AS Roma",
+      "Chelsea"
     ]
   },
   {
@@ -7837,6 +16894,7 @@ export const PLAYERS = [
   {
     "name": "Marco Asensio",
     "clubs": [
+      "Aston Villa",
       "Fenerbahçe",
       "Real Madrid"
     ]
@@ -7844,9 +16902,9 @@ export const PLAYERS = [
   {
     "name": "Marco Borriello",
     "clubs": [
-      "Juventus",
       "AC Milan",
-      "AS Roma"
+      "AS Roma",
+      "Juventus"
     ]
   },
   {
@@ -7857,10 +16915,17 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Marco Materazzi",
+    "clubs": [
+      "Everton",
+      "Inter"
+    ]
+  },
+  {
     "name": "Marco Motta",
     "clubs": [
-      "Juventus",
-      "AS Roma"
+      "AS Roma",
+      "Juventus"
     ]
   },
   {
@@ -7873,16 +16938,9 @@ export const PLAYERS = [
   {
     "name": "Marco Storari",
     "clubs": [
-      "Juventus",
       "AC Milan",
+      "Juventus",
       "Napoli"
-    ]
-  },
-  {
-    "name": "Marco van Ginkel",
-    "clubs": [
-      "Chelsea",
-      "AC Milan"
     ]
   },
   {
@@ -7893,47 +16951,92 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Marco van Ginkel",
+    "clubs": [
+      "AC Milan",
+      "Chelsea"
+    ]
+  },
+  {
     "name": "Marcos Alonso",
     "clubs": [
-      "Chelsea",
       "Barcelona",
-      "Real Madrid"
+      "Chelsea",
+      "Real Madrid",
+      "Sunderland"
     ]
   },
   {
     "name": "Marcos Llorente",
     "clubs": [
-      "Atletico Madrid",
+      "Atlético Madrid",
       "Real Madrid"
+    ]
+  },
+  {
+    "name": "Marcos Painter",
+    "clubs": [
+      "Bournemouth",
+      "Brighton"
     ]
   },
   {
     "name": "Marcus Bettinelli",
     "clubs": [
       "Chelsea",
-      "Man City"
+      "Manchester City"
+    ]
+  },
+  {
+    "name": "Marcus Edwards",
+    "clubs": [
+      "Burnley",
+      "Tottenham"
+    ]
+  },
+  {
+    "name": "Marcus Hahnemann",
+    "clubs": [
+      "Everton",
+      "Fulham",
+      "Wolverhampton"
+    ]
+  },
+  {
+    "name": "Marcus McGuane",
+    "clubs": [
+      "Arsenal",
+      "Nottingham Forest"
+    ]
+  },
+  {
+    "name": "Marcus Neill",
+    "clubs": [
+      "Liverpool",
+      "Sunderland"
     ]
   },
   {
     "name": "Marcus Rashford",
     "clubs": [
+      "Aston Villa",
       "Barcelona",
-      "Man Utd"
+      "Manchester United"
     ]
   },
   {
     "name": "Marek Cech",
     "clubs": [
       "FC Porto",
-      "Trabzonspor",
-      "Inter"
+      "Inter",
+      "Trabzonspor"
     ]
   },
   {
     "name": "Marek Hamsik",
     "clubs": [
-      "Trabzonspor",
-      "Napoli"
+      "Napoli",
+      "Trabzonspor"
     ]
   },
   {
@@ -7941,6 +17044,13 @@ export const PLAYERS = [
     "clubs": [
       "AC Milan",
       "Napoli"
+    ]
+  },
+  {
+    "name": "Marek Stech",
+    "clubs": [
+      "Bournemouth",
+      "West Ham"
     ]
   },
   {
@@ -7963,102 +17073,191 @@ export const PLAYERS = [
       "AC Milan",
       "Inter",
       "Liverpool",
-      "Man City"
+      "Manchester City"
     ]
   },
   {
     "name": "Mario Gomez",
     "clubs": [
-      "Beşiktaş",
-      "Bayern Munich"
+      "Bayern Munich",
+      "Beşiktaş"
     ]
   },
   {
     "name": "Mario Götze",
     "clubs": [
-      "Bor. Dortmund",
-      "Bayern Munich"
+      "Bayern Munich",
+      "Borussia Dortmund"
     ]
   },
   {
     "name": "Mario Hermoso",
     "clubs": [
-      "Atletico Madrid",
       "AS Roma",
+      "Atlético Madrid",
       "Real Madrid"
     ]
   },
   {
     "name": "Mario Lemina",
     "clubs": [
+      "Fulham",
+      "Galatasaray",
       "Juventus",
-      "Galatasaray"
+      "Wolverhampton"
     ]
   },
   {
     "name": "Mario Mandzukic",
     "clubs": [
-      "Juventus",
       "AC Milan",
-      "Atletico Madrid",
-      "Bayern Munich"
+      "Atlético Madrid",
+      "Bayern Munich",
+      "Juventus"
     ]
   },
   {
     "name": "Mario Melchiot",
     "clubs": [
-      "Chelsea",
-      "Ajax"
+      "Ajax",
+      "Chelsea"
     ]
   },
   {
     "name": "Mario Pasalic",
     "clubs": [
-      "Chelsea",
-      "AC Milan"
+      "AC Milan",
+      "Chelsea"
     ]
   },
   {
     "name": "Mario Rui",
     "clubs": [
       "AS Roma",
-      "Napoli",
-      "Benfica"
+      "Benfica",
+      "Napoli"
     ]
   },
   {
     "name": "Mario Stanic",
     "clubs": [
-      "Chelsea",
-      "Benfica"
+      "Benfica",
+      "Chelsea"
+    ]
+  },
+  {
+    "name": "Mariusz Pawelek",
+    "clubs": [
+      "Konyaspor",
+      "Çaykur Rizespor"
     ]
   },
   {
     "name": "Mark Bosnich",
     "clubs": [
       "Chelsea",
-      "Man Utd"
+      "Manchester United"
+    ]
+  },
+  {
+    "name": "Mark Crossley",
+    "clubs": [
+      "Fulham",
+      "Manchester United",
+      "Nottingham Forest"
+    ]
+  },
+  {
+    "name": "Mark Helm",
+    "clubs": [
+      "Burnley",
+      "Manchester United"
     ]
   },
   {
     "name": "Mark Howard",
     "clubs": [
       "Arsenal",
-      "Man Utd"
+      "Manchester United"
+    ]
+  },
+  {
+    "name": "Mark Hudson",
+    "clubs": [
+      "Crystal Palace",
+      "Fulham"
     ]
   },
   {
     "name": "Mark Kennedy",
     "clubs": [
+      "Crystal Palace",
       "Liverpool",
-      "Man City"
+      "Manchester City",
+      "Wolverhampton"
+    ]
+  },
+  {
+    "name": "Mark Lynch",
+    "clubs": [
+      "Manchester United",
+      "Sunderland"
+    ]
+  },
+  {
+    "name": "Mark McCammon",
+    "clubs": [
+      "Brentford",
+      "Brighton"
+    ]
+  },
+  {
+    "name": "Mark Randall",
+    "clubs": [
+      "Arsenal",
+      "Burnley"
     ]
   },
   {
     "name": "Mark Robins",
     "clubs": [
-      "Man Utd",
-      "Man City"
+      "Manchester City",
+      "Manchester United"
+    ]
+  },
+  {
+    "name": "Mark Schwarzer",
+    "clubs": [
+      "Chelsea",
+      "Fulham"
+    ]
+  },
+  {
+    "name": "Mark Travers",
+    "clubs": [
+      "Bournemouth",
+      "Everton"
+    ]
+  },
+  {
+    "name": "Mark Yeates",
+    "clubs": [
+      "Brighton",
+      "Tottenham"
+    ]
+  },
+  {
+    "name": "Markeeney",
+    "clubs": [
+      "Brighton",
+      "Leeds United"
+    ]
+  },
+  {
+    "name": "Marko Arnautovic",
+    "clubs": [
+      "Inter",
+      "West Ham"
     ]
   },
   {
@@ -8069,53 +17268,143 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Marko Jevtovic",
+    "clubs": [
+      "Gaziantep FK",
+      "Konyaspor"
+    ]
+  },
+  {
     "name": "Markus Babbel",
     "clubs": [
-      "Liverpool",
-      "Bayern Munich"
+      "Bayern Munich",
+      "Liverpool"
     ]
   },
   {
     "name": "Markus Feulner",
     "clubs": [
-      "Bor. Dortmund",
-      "Bayern Munich"
+      "Bayern Munich",
+      "Borussia Dortmund"
+    ]
+  },
+  {
+    "name": "Markus Neumayr",
+    "clubs": [
+      "Kasımpaşa",
+      "Manchester United"
+    ]
+  },
+  {
+    "name": "Marley Leuluai",
+    "clubs": [
+      "Burnley",
+      "Manchester City"
     ]
   },
   {
     "name": "Marlon",
     "clubs": [
-      "Trabzonspor",
-      "Barcelona"
+      "Barcelona",
+      "Trabzonspor"
+    ]
+  },
+  {
+    "name": "Marlon Harewood",
+    "clubs": [
+      "Aston Villa",
+      "Newcastle United",
+      "Nottingham Forest",
+      "West Ham",
+      "Wolverhampton"
+    ]
+  },
+  {
+    "name": "Marloneresford",
+    "clubs": [
+      "Burnley",
+      "Wolverhampton"
     ]
   },
   {
     "name": "Marlos Moreno",
     "clubs": [
       "Konyaspor",
-      "Man City"
+      "Manchester City"
+    ]
+  },
+  {
+    "name": "Marouane Chamakh",
+    "clubs": [
+      "Arsenal",
+      "Crystal Palace",
+      "West Ham"
+    ]
+  },
+  {
+    "name": "Marouane Fellaini",
+    "clubs": [
+      "Everton",
+      "Manchester United"
     ]
   },
   {
     "name": "Marquinhos",
     "clubs": [
+      "AS Roma",
       "Arsenal",
-      "AS Roma"
+      "Çaykur Rizespor"
+    ]
+  },
+  {
+    "name": "Mart Poom",
+    "clubs": [
+      "Arsenal",
+      "Sunderland"
+    ]
+  },
+  {
+    "name": "Martell Taylor-Crossdale",
+    "clubs": [
+      "Chelsea",
+      "Fulham"
     ]
   },
   {
     "name": "Martin Caceres",
     "clubs": [
-      "Juventus",
-      "Barcelona"
+      "Barcelona",
+      "Juventus"
     ]
   },
   {
     "name": "Martin Demichelis",
     "clubs": [
-      "Atletico Madrid",
+      "Atlético Madrid",
       "Bayern Munich",
-      "Man City"
+      "Manchester City"
+    ]
+  },
+  {
+    "name": "Martin Dubravka",
+    "clubs": [
+      "Burnley",
+      "Manchester United",
+      "Newcastle United"
+    ]
+  },
+  {
+    "name": "Martin Kelly",
+    "clubs": [
+      "Crystal Palace",
+      "Liverpool"
+    ]
+  },
+  {
+    "name": "Martin Laursen",
+    "clubs": [
+      "AC Milan",
+      "Aston Villa"
     ]
   },
   {
@@ -8135,37 +17424,95 @@ export const PLAYERS = [
   {
     "name": "Martin Petrov",
     "clubs": [
-      "Atletico Madrid",
-      "Man City"
+      "Atlético Madrid",
+      "Manchester City"
+    ]
+  },
+  {
+    "name": "Martin Samuelsen",
+    "clubs": [
+      "Manchester City",
+      "West Ham"
     ]
   },
   {
     "name": "Martin Skrtel",
     "clubs": [
-      "Fenerbahçe",
       "Başakşehir",
+      "Fenerbahçe",
       "Liverpool"
+    ]
+  },
+  {
+    "name": "Martin Woods",
+    "clubs": [
+      "Leeds United",
+      "Sunderland"
     ]
   },
   {
     "name": "Marton Fülöp",
     "clubs": [
-      "Tottenham",
-      "Man City"
+      "Manchester City",
+      "Sunderland",
+      "Tottenham"
+    ]
+  },
+  {
+    "name": "Maruis Tresor Doh",
+    "clubs": [
+      "Fenerbahçe",
+      "Karagümrük"
     ]
   },
   {
     "name": "Marvin Bakalorz",
     "clubs": [
-      "Bor. Dortmund",
+      "Borussia Dortmund",
       "Denizlispor"
+    ]
+  },
+  {
+    "name": "Marvin Kaleta",
+    "clubs": [
+      "Manchester City",
+      "Wolverhampton"
+    ]
+  },
+  {
+    "name": "Marvin Sordell",
+    "clubs": [
+      "Burnley",
+      "Fulham"
+    ]
+  },
+  {
+    "name": "Marvinartley",
+    "clubs": [
+      "Bournemouth",
+      "Burnley"
+    ]
+  },
+  {
+    "name": "Marçal",
+    "clubs": [
+      "Benfica",
+      "Gaziantepspor",
+      "Wolverhampton"
     ]
   },
   {
     "name": "Mason Mount",
     "clubs": [
       "Chelsea",
-      "Man Utd"
+      "Manchester United"
+    ]
+  },
+  {
+    "name": "Massadio Haidara",
+    "clubs": [
+      "Kocaelispor",
+      "Newcastle United"
     ]
   },
   {
@@ -8186,44 +17533,68 @@ export const PLAYERS = [
     "name": "Mateo Kovacic",
     "clubs": [
       "Chelsea",
-      "Real Madrid",
       "Inter",
-      "Man City"
+      "Manchester City",
+      "Real Madrid"
     ]
   },
   {
     "name": "Matheus",
     "clubs": [
-      "FC Porto",
-      "Ajax"
+      "Ajax",
+      "FC Porto"
     ]
   },
   {
     "name": "Matheus Cunha",
     "clubs": [
-      "Atletico Madrid",
-      "Man Utd"
+      "Atlético Madrid",
+      "Manchester United",
+      "Wolverhampton"
+    ]
+  },
+  {
+    "name": "Matheus Nunes",
+    "clubs": [
+      "Manchester City",
+      "Wolverhampton"
     ]
   },
   {
     "name": "Mathew Ryan",
     "clubs": [
+      "AS Roma",
       "Arsenal",
-      "AS Roma"
+      "Brighton"
+    ]
+  },
+  {
+    "name": "Mathieu Debuchy",
+    "clubs": [
+      "Arsenal",
+      "Newcastle United"
     ]
   },
   {
     "name": "Mathieu Flamini",
     "clubs": [
+      "AC Milan",
       "Arsenal",
-      "AC Milan"
+      "Crystal Palace"
     ]
   },
   {
     "name": "Mathys Tel",
     "clubs": [
-      "Tottenham",
-      "Bayern Munich"
+      "Bayern Munich",
+      "Tottenham"
+    ]
+  },
+  {
+    "name": "Matias Kranevitter",
+    "clubs": [
+      "Atlético Madrid",
+      "Karagümrük"
     ]
   },
   {
@@ -8236,37 +17607,83 @@ export const PLAYERS = [
   {
     "name": "Matias Soule",
     "clubs": [
-      "Juventus",
-      "AS Roma"
+      "AS Roma",
+      "Juventus"
+    ]
+  },
+  {
+    "name": "Matija Sarkic",
+    "clubs": [
+      "Aston Villa",
+      "Wolverhampton"
     ]
   },
   {
     "name": "Mats Hummels",
     "clubs": [
-      "Bor. Dortmund",
       "AS Roma",
-      "Bayern Munich"
+      "Bayern Munich",
+      "Borussia Dortmund"
     ]
   },
   {
     "name": "Matt Doherty",
     "clubs": [
+      "Atlético Madrid",
       "Tottenham",
-      "Atletico Madrid"
+      "Wolverhampton"
+    ]
+  },
+  {
+    "name": "Matt Jarvis",
+    "clubs": [
+      "West Ham",
+      "Wolverhampton"
+    ]
+  },
+  {
+    "name": "Matt Lawrence",
+    "clubs": [
+      "Crystal Palace",
+      "Fulham"
     ]
   },
   {
     "name": "Matt Smith",
     "clubs": [
       "Arsenal",
-      "Man City"
+      "Fulham",
+      "Leeds United",
+      "Manchester City"
+    ]
+  },
+  {
+    "name": "Matt Targett",
+    "clubs": [
+      "Aston Villa",
+      "Fulham",
+      "Newcastle United"
+    ]
+  },
+  {
+    "name": "Matt Thornhill",
+    "clubs": [
+      "Brighton",
+      "Nottingham Forest"
+    ]
+  },
+  {
+    "name": "Matt Turner",
+    "clubs": [
+      "Arsenal",
+      "Crystal Palace"
     ]
   },
   {
     "name": "Matteo Brighi",
     "clubs": [
-      "Juventus",
-      "AS Roma"
+      "AS Roma",
+      "Juventus"
     ]
   },
   {
@@ -8274,14 +17691,14 @@ export const PLAYERS = [
     "clubs": [
       "AC Milan",
       "Inter",
-      "Man Utd"
+      "Manchester United"
     ]
   },
   {
     "name": "Matteo Guendouzi",
     "clubs": [
       "Arsenal",
-      "PSG"
+      "Paris Saint-Germain"
     ]
   },
   {
@@ -8293,26 +17710,85 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Matteo Ricci",
+    "clubs": [
+      "AS Roma",
+      "Karagümrük"
+    ]
+  },
+  {
+    "name": "Matthew Connolly",
+    "clubs": [
+      "Arsenal",
+      "Bournemouth"
+    ]
+  },
+  {
+    "name": "Matthew Etherington",
+    "clubs": [
+      "Tottenham",
+      "West Ham"
+    ]
+  },
+  {
+    "name": "Matthew Kilgallon",
+    "clubs": [
+      "Leeds United",
+      "Sunderland",
+      "West Ham"
+    ]
+  },
+  {
+    "name": "Matthew Lowton",
+    "clubs": [
+      "Aston Villa",
+      "Burnley"
+    ]
+  },
+  {
+    "name": "Matthew Pennington",
+    "clubs": [
+      "Everton",
+      "Leeds United"
+    ]
+  },
+  {
+    "name": "Matthew Upson",
+    "clubs": [
+      "Arsenal",
+      "Brighton",
+      "Crystal Palace",
+      "West Ham"
+    ]
+  },
+  {
+    "name": "Matthewondswell",
+    "clubs": [
+      "Newcastle United",
+      "Nottingham Forest"
+    ]
+  },
+  {
     "name": "Matthijs de Ligt",
     "clubs": [
-      "Juventus",
       "Ajax",
-      "Man Utd",
-      "Bayern Munich"
+      "Bayern Munich",
+      "Juventus",
+      "Manchester United"
     ]
   },
   {
     "name": "Mattia Caldara",
     "clubs": [
-      "Juventus",
-      "AC Milan"
+      "AC Milan",
+      "Juventus"
     ]
   },
   {
     "name": "Mattia De Sciglio",
     "clubs": [
-      "Juventus",
-      "AC Milan"
+      "AC Milan",
+      "Juventus"
     ]
   },
   {
@@ -8338,10 +17814,17 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Matty Cash",
+    "clubs": [
+      "Aston Villa",
+      "Nottingham Forest"
+    ]
+  },
+  {
     "name": "Mauricio Isla",
     "clubs": [
-      "Juventus",
-      "Fenerbahçe"
+      "Fenerbahçe",
+      "Juventus"
     ]
   },
   {
@@ -8349,6 +17832,14 @@ export const PLAYERS = [
     "clubs": [
       "Barcelona",
       "Liverpool"
+    ]
+  },
+  {
+    "name": "Mauricio Taricco",
+    "clubs": [
+      "Brighton",
+      "Tottenham",
+      "West Ham"
     ]
   },
   {
@@ -8368,28 +17859,82 @@ export const PLAYERS = [
   {
     "name": "Mauro Ribeiro",
     "clubs": [
-      "FC Porto",
-      "Benfica"
+      "Benfica",
+      "FC Porto"
+    ]
+  },
+  {
+    "name": "Mauro Zarate",
+    "clubs": [
+      "Inter",
+      "West Ham"
+    ]
+  },
+  {
+    "name": "Max Dean",
+    "clubs": [
+      "Everton",
+      "Leeds United"
+    ]
+  },
+  {
+    "name": "Max Gradel",
+    "clubs": [
+      "Bournemouth",
+      "Gaziantep FK",
+      "Leeds United",
+      "Sivasspor"
+    ]
+  },
+  {
+    "name": "Max Haygarth",
+    "clubs": [
+      "Brentford",
+      "Manchester United"
+    ]
+  },
+  {
+    "name": "Max McFadden",
+    "clubs": [
+      "Leeds United",
+      "Tottenham"
+    ]
+  },
+  {
+    "name": "Max Meyer",
+    "clubs": [
+      "Crystal Palace",
+      "Fenerbahçe"
+    ]
+  },
+  {
+    "name": "Max Thompson",
+    "clubs": [
+      "Burnley",
+      "Everton",
+      "Manchester United",
+      "Newcastle United",
+      "Sunderland"
     ]
   },
   {
     "name": "Maxi Lopez",
     "clubs": [
-      "Barcelona",
-      "AC Milan"
+      "AC Milan",
+      "Barcelona"
     ]
   },
   {
     "name": "Maxi Pereira",
     "clubs": [
-      "FC Porto",
-      "Benfica"
+      "Benfica",
+      "FC Porto"
     ]
   },
   {
     "name": "Maxi Rodriguez",
     "clubs": [
-      "Atletico Madrid",
+      "Atlético Madrid",
       "Liverpool"
     ]
   },
@@ -8397,22 +17942,53 @@ export const PLAYERS = [
     "name": "Maxime Gonalons",
     "clubs": [
       "AS Roma",
-      "Olymp. Lyon"
+      "Olympique Lyon"
+    ]
+  },
+  {
+    "name": "Maximilian Kilman",
+    "clubs": [
+      "West Ham",
+      "Wolverhampton"
+    ]
+  },
+  {
+    "name": "Maximilian Wöber",
+    "clubs": [
+      "Ajax",
+      "Leeds United"
+    ]
+  },
+  {
+    "name": "Maxwel Cornet",
+    "clubs": [
+      "Burnley",
+      "West Ham"
     ]
   },
   {
     "name": "Maxwell",
     "clubs": [
-      "Barcelona",
       "Ajax",
+      "Barcelona",
       "Inter"
     ]
   },
   {
     "name": "Mbaye Diagne",
     "clubs": [
+      "Galatasaray",
       "Juventus",
-      "Galatasaray"
+      "Karagümrük",
+      "Kasımpaşa"
+    ]
+  },
+  {
+    "name": "Mbilla Etame",
+    "clubs": [
+      "Alanyaspor",
+      "Antalyaspor",
+      "Samsunspor"
     ]
   },
   {
@@ -8433,85 +18009,159 @@ export const PLAYERS = [
     "name": "Mehmet Aksu",
     "clubs": [
       "Antalyaspor",
-      "Galatasaray",
-      "Beşiktaş"
+      "Beşiktaş",
+      "Eyüpspor",
+      "Galatasaray"
+    ]
+  },
+  {
+    "name": "Mehmet Ali Çakmak",
+    "clubs": [
+      "Gençlerbirliği",
+      "Göztepe"
     ]
   },
   {
     "name": "Mehmet Altıparmak",
     "clubs": [
-      "Genclerbirligi",
-      "Denizlispor"
+      "Denizlispor",
+      "Gençlerbirliği"
     ]
   },
   {
     "name": "Mehmet Aurelio",
     "clubs": [
+      "Beşiktaş",
       "Fenerbahçe",
-      "Trabzonspor",
-      "Beşiktaş"
+      "Trabzonspor"
     ]
   },
   {
     "name": "Mehmet Ayaz",
     "clubs": [
+      "Fenerbahçe",
       "Kayserispor",
-      "Konyaspor",
-      "Fenerbahçe"
+      "Konyaspor"
     ]
   },
   {
     "name": "Mehmet Batdal",
     "clubs": [
-      "Konyaspor",
       "Başakşehir",
-      "Galatasaray"
+      "Galatasaray",
+      "Karagümrük",
+      "Konyaspor"
+    ]
+  },
+  {
+    "name": "Mehmet Burak Çeneli",
+    "clubs": [
+      "Alanyaspor",
+      "Göztepe"
+    ]
+  },
+  {
+    "name": "Mehmet Bölükbaşı",
+    "clubs": [
+      "Galatasaray",
+      "Samsunspor",
+      "Çaykur Rizespor"
     ]
   },
   {
     "name": "Mehmet Eren Boyraz",
     "clubs": [
-      "Kayserispor",
-      "Antalyaspor"
+      "Antalyaspor",
+      "Kayserispor"
     ]
   },
   {
     "name": "Mehmet Güven",
     "clubs": [
-      "Konyaspor",
-      "Galatasaray"
+      "Galatasaray",
+      "Konyaspor"
+    ]
+  },
+  {
+    "name": "Mehmet Kahraman",
+    "clubs": [
+      "Kocaelispor",
+      "Trabzonspor"
+    ]
+  },
+  {
+    "name": "Mehmet Kara",
+    "clubs": [
+      "Gaziantepspor",
+      "Gençlerbirliği"
+    ]
+  },
+  {
+    "name": "Mehmet Muttalip Kutun",
+    "clubs": [
+      "Karagümrük",
+      "Kasımpaşa"
     ]
   },
   {
     "name": "Mehmet Polat",
     "clubs": [
-      "Genclerbirligi",
-      "Galatasaray"
+      "Galatasaray",
+      "Gaziantepspor",
+      "Gençlerbirliği",
+      "Samsunspor",
+      "Çaykur Rizespor"
+    ]
+  },
+  {
+    "name": "Mehmet Sak",
+    "clubs": [
+      "Göztepe",
+      "Kocaelispor",
+      "Samsunspor"
     ]
   },
   {
     "name": "Mehmet Sedef",
     "clubs": [
-      "Konyaspor",
-      "Genclerbirligi",
       "Antalyaspor",
-      "Beşiktaş"
+      "Beşiktaş",
+      "Gaziantepspor",
+      "Gençlerbirliği",
+      "Konyaspor",
+      "Çaykur Rizespor"
     ]
   },
   {
     "name": "Mehmet Taş",
     "clubs": [
-      "Genclerbirligi",
-      "Denizlispor"
+      "Denizlispor",
+      "Gençlerbirliği",
+      "Kocaelispor"
     ]
   },
   {
     "name": "Mehmet Topal",
     "clubs": [
-      "Fenerbahçe",
       "Başakşehir",
-      "Galatasaray",
-      "Beşiktaş"
+      "Beşiktaş",
+      "Fenerbahçe",
+      "Galatasaray"
+    ]
+  },
+  {
+    "name": "Mehmet Tosun",
+    "clubs": [
+      "Eyüpspor",
+      "Kasımpaşa"
+    ]
+  },
+  {
+    "name": "Mehmet Uslu",
+    "clubs": [
+      "Eyüpspor",
+      "Konyaspor",
+      "Çaykur Rizespor"
     ]
   },
   {
@@ -8524,185 +18174,403 @@ export const PLAYERS = [
   {
     "name": "Mehmet Yozgatlı",
     "clubs": [
+      "Beşiktaş",
       "Fenerbahçe",
-      "Genclerbirligi",
       "Galatasaray",
-      "Beşiktaş"
+      "Gaziantepspor",
+      "Gençlerbirliği",
+      "Çaykur Rizespor"
     ]
   },
   {
     "name": "Mehmet Yıldız",
     "clubs": [
-      "Sivasspor",
-      "Antalyaspor"
+      "Antalyaspor",
+      "Sivasspor"
     ]
   },
   {
     "name": "Mehmet Yılmaz",
     "clubs": [
-      "Trabzonspor",
       "Antalyaspor",
-      "Denizlispor"
+      "Denizlispor",
+      "Gaziantepspor",
+      "Karagümrük",
+      "Kocaelispor",
+      "Samsunspor",
+      "Trabzonspor"
     ]
   },
   {
     "name": "Mehmet Çoğum",
     "clubs": [
-      "Konyaspor",
-      "Denizlispor"
+      "Denizlispor",
+      "Gaziantepspor",
+      "Konyaspor"
     ]
   },
   {
     "name": "Mehmet Öncan",
     "clubs": [
+      "Alanyaspor",
       "Antalyaspor",
       "Denizlispor"
     ]
   },
   {
+    "name": "Mehmet Şen",
+    "clubs": [
+      "Konyaspor",
+      "Çaykur Rizespor"
+    ]
+  },
+  {
     "name": "Mehmet Şimşek",
     "clubs": [
-      "Kayserispor",
-      "Genclerbirligi"
+      "Gençlerbirliği",
+      "Kayserispor"
+    ]
+  },
+  {
+    "name": "Melih Altıkulaç",
+    "clubs": [
+      "Olympique Lyon",
+      "Samsunspor"
     ]
   },
   {
     "name": "Melih Bostan",
     "clubs": [
-      "Konyaspor",
       "Fenerbahçe",
-      "Genclerbirligi"
+      "Gençlerbirliği",
+      "Konyaspor"
+    ]
+  },
+  {
+    "name": "Melih Enes Uygun",
+    "clubs": [
+      "Antalyaspor",
+      "Göztepe"
     ]
   },
   {
     "name": "Memphis Depay",
     "clubs": [
+      "Atlético Madrid",
       "Barcelona",
-      "Atletico Madrid",
-      "Man Utd"
+      "Manchester United"
     ]
   },
   {
     "name": "Merih Demiral",
     "clubs": [
-      "Juventus",
-      "Fenerbahçe"
+      "Alanyaspor",
+      "Fenerbahçe",
+      "Juventus"
     ]
   },
   {
     "name": "Mert Günok",
     "clubs": [
-      "Fenerbahçe",
       "Başakşehir",
-      "Beşiktaş"
+      "Beşiktaş",
+      "Fenerbahçe",
+      "Kocaelispor"
     ]
   },
   {
     "name": "Mert Nobre",
     "clubs": [
-      "Kayserispor",
+      "Beşiktaş",
       "Fenerbahçe",
-      "Genclerbirligi",
-      "Beşiktaş"
+      "Gençlerbirliği",
+      "Kayserispor"
     ]
   },
   {
     "name": "Mert Çetin",
     "clubs": [
-      "Kayserispor",
-      "Genclerbirligi",
-      "AS Roma"
+      "AS Roma",
+      "Gençlerbirliği",
+      "Kayserispor"
+    ]
+  },
+  {
+    "name": "Mert Çölgeçen",
+    "clubs": [
+      "Antalyaspor",
+      "Göztepe",
+      "Kocaelispor"
+    ]
+  },
+  {
+    "name": "Mertan Öztürk",
+    "clubs": [
+      "Galatasaray",
+      "Kocaelispor"
+    ]
+  },
+  {
+    "name": "Mertcan Açıkgöz",
+    "clubs": [
+      "Beşiktaş",
+      "Eyüpspor"
+    ]
+  },
+  {
+    "name": "Merter Yüce",
+    "clubs": [
+      "Karagümrük",
+      "Kayserispor"
+    ]
+  },
+  {
+    "name": "Mervan Çelik",
+    "clubs": [
+      "Gençlerbirliği",
+      "Karagümrük"
+    ]
+  },
+  {
+    "name": "Mesaque Dju",
+    "clubs": [
+      "Benfica",
+      "West Ham"
+    ]
+  },
+  {
+    "name": "Mesca",
+    "clubs": [
+      "Chelsea",
+      "Fulham"
+    ]
+  },
+  {
+    "name": "Mesut Can Tunalı",
+    "clubs": [
+      "Göztepe",
+      "Kocaelispor"
+    ]
+  },
+  {
+    "name": "Mesut Çaytemel",
+    "clubs": [
+      "Antalyaspor",
+      "Samsunspor"
     ]
   },
   {
     "name": "Mesut Özil",
     "clubs": [
       "Arsenal",
-      "Fenerbahçe",
       "Başakşehir",
+      "Fenerbahçe",
       "Real Madrid"
+    ]
+  },
+  {
+    "name": "Mete Akkaya",
+    "clubs": [
+      "Trabzonspor",
+      "Çaykur Rizespor"
     ]
   },
   {
     "name": "Mete Demir",
     "clubs": [
       "Başakşehir",
-      "Genclerbirligi"
+      "Eyüpspor",
+      "Gençlerbirliği"
+    ]
+  },
+  {
+    "name": "Metehan Baltacı",
+    "clubs": [
+      "Eyüpspor",
+      "Galatasaray"
     ]
   },
   {
     "name": "Metehan Mert",
     "clubs": [
-      "Konyaspor",
-      "Genclerbirligi"
+      "Gençlerbirliği",
+      "Konyaspor"
+    ]
+  },
+  {
+    "name": "Metehan Mimaroğlu",
+    "clubs": [
+      "Eyüpspor",
+      "Gençlerbirliği"
     ]
   },
   {
     "name": "Metin Aktaş",
     "clubs": [
       "Kayserispor",
-      "Trabzonspor"
+      "Trabzonspor",
+      "Çaykur Rizespor"
+    ]
+  },
+  {
+    "name": "Metin Aslan",
+    "clubs": [
+      "Alanyaspor",
+      "Antalyaspor"
     ]
   },
   {
     "name": "Metincan Cici",
     "clubs": [
+      "Antalyaspor",
       "Fenerbahçe",
-      "Antalyaspor"
+      "Samsunspor"
     ]
   },
   {
     "name": "Mevlüt Erdinç",
     "clubs": [
-      "Fenerbahçe",
+      "Antalyaspor",
       "Başakşehir",
-      "Antalyaspor"
+      "Fenerbahçe",
+      "Karagümrük",
+      "Kocaelispor"
+    ]
+  },
+  {
+    "name": "Micah Richards",
+    "clubs": [
+      "Aston Villa",
+      "Manchester City"
     ]
   },
   {
     "name": "Michael Ballack",
     "clubs": [
-      "Chelsea",
-      "Bayern Munich"
+      "Bayern Munich",
+      "Chelsea"
     ]
   },
   {
     "name": "Michael Brown",
     "clubs": [
-      "Tottenham",
-      "Man City"
+      "Manchester City",
+      "Tottenham"
     ]
   },
   {
     "name": "Michael Carrick",
     "clubs": [
+      "Manchester United",
       "Tottenham",
-      "Man Utd"
+      "West Ham"
     ]
   },
   {
     "name": "Michael Essien",
     "clubs": [
-      "Chelsea",
       "AC Milan",
+      "Chelsea",
       "Real Madrid"
+    ]
+  },
+  {
+    "name": "Michael Fink",
+    "clubs": [
+      "Beşiktaş",
+      "Samsunspor"
+    ]
+  },
+  {
+    "name": "Michael Hector",
+    "clubs": [
+      "Chelsea",
+      "Fulham"
+    ]
+  },
+  {
+    "name": "Michael Hughes",
+    "clubs": [
+      "Crystal Palace",
+      "Manchester City",
+      "West Ham"
+    ]
+  },
+  {
+    "name": "Michael Ihiekwe",
+    "clubs": [
+      "Liverpool",
+      "Wolverhampton"
+    ]
+  },
+  {
+    "name": "Michael Johnson",
+    "clubs": [
+      "Everton",
+      "Leeds United",
+      "Manchester City"
+    ]
+  },
+  {
+    "name": "Michael Kayode",
+    "clubs": [
+      "Brentford",
+      "Juventus"
+    ]
+  },
+  {
+    "name": "Michael Keane",
+    "clubs": [
+      "Burnley",
+      "Everton",
+      "Manchester United"
+    ]
+  },
+  {
+    "name": "Michael Kightly",
+    "clubs": [
+      "Burnley",
+      "Wolverhampton"
+    ]
+  },
+  {
+    "name": "Michael Mancienne",
+    "clubs": [
+      "Chelsea",
+      "Wolverhampton"
+    ]
+  },
+  {
+    "name": "Michael Mellon",
+    "clubs": [
+      "Burnley",
+      "Manchester United"
+    ]
+  },
+  {
+    "name": "Michael Olakigbe",
+    "clubs": [
+      "Brentford",
+      "Fulham"
     ]
   },
   {
     "name": "Michael Olise",
     "clubs": [
-      "Chelsea",
       "Arsenal",
       "Bayern Munich",
-      "Man City"
+      "Chelsea",
+      "Crystal Palace",
+      "Manchester City"
     ]
   },
   {
     "name": "Michael Owen",
     "clubs": [
-      "Real Madrid",
       "Liverpool",
-      "Man Utd"
+      "Manchester United",
+      "Newcastle United",
+      "Real Madrid"
     ]
   },
   {
@@ -8713,24 +18581,60 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Michael Ricketts",
+    "clubs": [
+      "Burnley",
+      "Leeds United"
+    ]
+  },
+  {
+    "name": "Michael Standing",
+    "clubs": [
+      "Aston Villa",
+      "Bournemouth",
+      "Brighton"
+    ]
+  },
+  {
     "name": "Michael Stewart",
     "clubs": [
-      "Genclerbirligi",
-      "Man Utd"
+      "Gençlerbirliği",
+      "Manchester United"
+    ]
+  },
+  {
+    "name": "Michael Symes",
+    "clubs": [
+      "Bournemouth",
+      "Everton"
     ]
   },
   {
     "name": "Michael Tarnat",
     "clubs": [
       "Bayern Munich",
-      "Man City"
+      "Manchester City"
+    ]
+  },
+  {
+    "name": "Michael Woods",
+    "clubs": [
+      "Chelsea",
+      "Leeds United"
+    ]
+  },
+  {
+    "name": "Michaelrown",
+    "clubs": [
+      "Fulham",
+      "Leeds United"
     ]
   },
   {
     "name": "Michele Di Gregorio",
     "clubs": [
-      "Juventus",
-      "Inter"
+      "Inter",
+      "Juventus"
     ]
   },
   {
@@ -8743,56 +18647,64 @@ export const PLAYERS = [
   {
     "name": "Michele Scienza",
     "clubs": [
-      "Juventus",
-      "Inter"
+      "Inter",
+      "Juventus"
     ]
   },
   {
     "name": "Michele Serena",
     "clubs": [
-      "Juventus",
-      "Atletico Madrid",
-      "Inter"
+      "Atlético Madrid",
+      "Inter",
+      "Juventus"
     ]
   },
   {
     "name": "Michele Somma",
     "clubs": [
-      "Juventus",
-      "AS Roma"
+      "AS Roma",
+      "Juventus"
     ]
   },
   {
     "name": "Michy Batshuayi",
     "clubs": [
-      "Bor. Dortmund",
+      "Beşiktaş",
+      "Borussia Dortmund",
       "Chelsea",
       "Fenerbahçe",
-      "Galatasaray",
-      "Beşiktaş"
+      "Galatasaray"
+    ]
+  },
+  {
+    "name": "Mickael Tirpan",
+    "clubs": [
+      "Kasımpaşa",
+      "Samsunspor"
     ]
   },
   {
     "name": "Mido",
     "clubs": [
-      "Tottenham",
       "AS Roma",
-      "Ajax"
+      "Ajax",
+      "Tottenham",
+      "West Ham"
     ]
   },
   {
     "name": "Miguel Gutierrez",
     "clubs": [
-      "Real Madrid",
-      "Napoli"
+      "Napoli",
+      "Real Madrid"
     ]
   },
   {
     "name": "Miguel Lopes",
     "clubs": [
-      "Kayserispor",
+      "Benfica",
       "FC Porto",
-      "Benfica"
+      "Kayserispor"
     ]
   },
   {
@@ -8803,39 +18715,93 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Mikail Okyar",
+    "name": "Mijo Caktas",
     "clubs": [
-      "Genclerbirligi",
-      "Galatasaray"
+      "Kocaelispor",
+      "Sivasspor"
     ]
   },
   {
-    "name": "MikaÃ«l Silvestre",
+    "name": "Mika",
+    "clubs": [
+      "Benfica",
+      "Sunderland"
+    ]
+  },
+  {
+    "name": "Mikael Forssell",
+    "clubs": [
+      "Chelsea",
+      "Crystal Palace",
+      "Leeds United"
+    ]
+  },
+  {
+    "name": "Mikael Ndjoli",
+    "clubs": [
+      "Bournemouth",
+      "Brentford"
+    ]
+  },
+  {
+    "name": "Mikael Silvestre",
     "clubs": [
       "Arsenal",
       "Inter",
-      "Man Utd"
+      "Manchester United"
+    ]
+  },
+  {
+    "name": "Mikail Okyar",
+    "clubs": [
+      "Eyüpspor",
+      "Galatasaray",
+      "Gençlerbirliği"
     ]
   },
   {
     "name": "Mike Maignan",
     "clubs": [
       "AC Milan",
-      "PSG"
+      "Paris Saint-Germain"
+    ]
+  },
+  {
+    "name": "Mike Pollitt",
+    "clubs": [
+      "Burnley",
+      "Manchester United",
+      "Sunderland"
+    ]
+  },
+  {
+    "name": "Mike Williamson",
+    "clubs": [
+      "Newcastle United",
+      "Wolverhampton"
     ]
   },
   {
     "name": "Mikel Arteta",
     "clubs": [
       "Arsenal",
-      "Barcelona"
+      "Barcelona",
+      "Everton"
     ]
   },
   {
     "name": "Mikel Merino",
     "clubs": [
-      "Bor. Dortmund",
-      "Arsenal"
+      "Arsenal",
+      "Borussia Dortmund",
+      "Newcastle United"
+    ]
+  },
+  {
+    "name": "Mikkel Andersen",
+    "clubs": [
+      "Brentford",
+      "Brighton"
     ]
   },
   {
@@ -8863,8 +18829,10 @@ export const PLAYERS = [
   {
     "name": "Mile Jedinak",
     "clubs": [
-      "Genclerbirligi",
-      "Antalyaspor"
+      "Antalyaspor",
+      "Aston Villa",
+      "Crystal Palace",
+      "Gençlerbirliği"
     ]
   },
   {
@@ -8877,39 +18845,47 @@ export const PLAYERS = [
   {
     "name": "Milos Jojic",
     "clubs": [
-      "Bor. Dortmund",
-      "Başakşehir"
+      "Başakşehir",
+      "Borussia Dortmund"
+    ]
+  },
+  {
+    "name": "Milos Kerkez",
+    "clubs": [
+      "Bournemouth",
+      "Liverpool"
     ]
   },
   {
     "name": "Milot Rashica",
     "clubs": [
-      "Galatasaray",
-      "Beşiktaş"
+      "Beşiktaş",
+      "Galatasaray"
     ]
   },
   {
     "name": "Min-jae Kim",
     "clubs": [
+      "Bayern Munich",
       "Fenerbahçe",
-      "Napoli",
-      "Bayern Munich"
+      "Napoli"
     ]
   },
   {
     "name": "Mipo Odubeko",
     "clubs": [
-      "Man Utd",
-      "Man City"
+      "Manchester City",
+      "Manchester United",
+      "West Ham"
     ]
   },
   {
     "name": "Miralem Pjanic",
     "clubs": [
-      "Juventus",
+      "AS Roma",
       "Barcelona",
       "Beşiktaş",
-      "AS Roma"
+      "Juventus"
     ]
   },
   {
@@ -8922,7 +18898,7 @@ export const PLAYERS = [
   {
     "name": "Miranda",
     "clubs": [
-      "Atletico Madrid",
+      "Atlético Madrid",
       "Inter"
     ]
   },
@@ -8930,8 +18906,8 @@ export const PLAYERS = [
     "name": "Miraç Asıltekin",
     "clubs": [
       "Başakşehir",
-      "Genclerbirligi",
-      "Beşiktaş"
+      "Beşiktaş",
+      "Gençlerbirliği"
     ]
   },
   {
@@ -8944,29 +18920,75 @@ export const PLAYERS = [
   {
     "name": "Mirko Vucinic",
     "clubs": [
-      "Juventus",
-      "AS Roma"
+      "AS Roma",
+      "Juventus"
+    ]
+  },
+  {
+    "name": "Mirza Cihan",
+    "clubs": [
+      "Galatasaray",
+      "Gaziantep FK"
+    ]
+  },
+  {
+    "name": "Misko Mirkovic",
+    "clubs": [
+      "Fenerbahçe",
+      "Kocaelispor"
     ]
   },
   {
     "name": "Mista",
     "clubs": [
-      "Atletico Madrid",
+      "Atlético Madrid",
       "Real Madrid"
+    ]
+  },
+  {
+    "name": "Mitchell Thomas",
+    "clubs": [
+      "Burnley",
+      "Tottenham",
+      "West Ham"
+    ]
+  },
+  {
+    "name": "Mithat Yaşar",
+    "clubs": [
+      "Fenerbahçe",
+      "Göztepe",
+      "Çaykur Rizespor"
+    ]
+  },
+  {
+    "name": "Mladen Petric",
+    "clubs": [
+      "Borussia Dortmund",
+      "Fulham",
+      "West Ham"
     ]
   },
   {
     "name": "Modou Barrow",
     "clubs": [
-      "Sivasspor",
-      "Denizlispor"
+      "Denizlispor",
+      "Sivasspor"
     ]
   },
   {
     "name": "Mohamed Ali",
     "clubs": [
+      "Denizlispor",
       "Sivasspor",
-      "Denizlispor"
+      "Çaykur Rizespor"
+    ]
+  },
+  {
+    "name": "Mohamed Diame",
+    "clubs": [
+      "Newcastle United",
+      "West Ham"
     ]
   },
   {
@@ -8979,15 +19001,16 @@ export const PLAYERS = [
   {
     "name": "Mohamed Ihattaren",
     "clubs": [
+      "Ajax",
       "Juventus",
-      "Ajax"
+      "Samsunspor"
     ]
   },
   {
     "name": "Mohamed Salah",
     "clubs": [
-      "Chelsea",
       "AS Roma",
+      "Chelsea",
       "Liverpool"
     ]
   },
@@ -8999,126 +19022,337 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Mohamed-Ali Cho",
+    "clubs": [
+      "Everton",
+      "Paris Saint-Germain"
+    ]
+  },
+  {
     "name": "Mohammed Kudus",
     "clubs": [
+      "Ajax",
       "Tottenham",
-      "Ajax"
+      "West Ham"
+    ]
+  },
+  {
+    "name": "Moise Kean",
+    "clubs": [
+      "Everton",
+      "Juventus"
+    ]
+  },
+  {
+    "name": "Moises Caicedo",
+    "clubs": [
+      "Brighton",
+      "Chelsea"
     ]
   },
   {
     "name": "Morgan De Sanctis",
     "clubs": [
-      "Juventus",
-      "Galatasaray",
       "AS Roma",
+      "Galatasaray",
+      "Juventus",
       "Napoli"
+    ]
+  },
+  {
+    "name": "Morgan Feeney",
+    "clubs": [
+      "Everton",
+      "Sunderland"
+    ]
+  },
+  {
+    "name": "Morgan Rogers",
+    "clubs": [
+      "Aston Villa",
+      "Bournemouth",
+      "Manchester City"
     ]
   },
   {
     "name": "Morgan Schneiderlin",
     "clubs": [
+      "Everton",
       "Konyaspor",
-      "Man Utd"
+      "Manchester United"
+    ]
+  },
+  {
+    "name": "Morten Spencer",
+    "clubs": [
+      "Leeds United",
+      "Sunderland"
+    ]
+  },
+  {
+    "name": "Moryke Fofana",
+    "clubs": [
+      "Konyaspor",
+      "Samsunspor"
     ]
   },
   {
     "name": "Mostapha El Kabir",
     "clubs": [
-      "Genclerbirligi",
+      "Ajax",
       "Antalyaspor",
-      "Ajax"
+      "Gençlerbirliği",
+      "Çaykur Rizespor"
+    ]
+  },
+  {
+    "name": "Mounir Chouiar",
+    "clubs": [
+      "Başakşehir",
+      "Kasımpaşa"
     ]
   },
   {
     "name": "Mounir El Hamdaoui",
     "clubs": [
-      "Tottenham",
-      "Ajax"
+      "Ajax",
+      "Tottenham"
+    ]
+  },
+  {
+    "name": "Mousa Dembele",
+    "clubs": [
+      "Fulham",
+      "Tottenham"
     ]
   },
   {
     "name": "Moussa Dembele",
     "clubs": [
-      "Atletico Madrid",
-      "PSG"
+      "Atlético Madrid",
+      "Fulham",
+      "Paris Saint-Germain"
+    ]
+  },
+  {
+    "name": "Moussa Diaby",
+    "clubs": [
+      "Aston Villa",
+      "Paris Saint-Germain"
+    ]
+  },
+  {
+    "name": "Moussa Sissoko",
+    "clubs": [
+      "Newcastle United",
+      "Tottenham"
+    ]
+  },
+  {
+    "name": "Muammer Sürmeli",
+    "clubs": [
+      "Alanyaspor",
+      "Antalyaspor",
+      "Göztepe"
     ]
   },
   {
     "name": "Muammer Yıldırım",
     "clubs": [
       "Kayserispor",
+      "Samsunspor",
       "Sivasspor"
     ]
   },
   {
     "name": "Muhammed Ertürk",
     "clubs": [
-      "Genclerbirligi",
+      "Beşiktaş",
       "Denizlispor",
-      "Beşiktaş"
+      "Gençlerbirliği"
+    ]
+  },
+  {
+    "name": "Muhammed Gümüşkaya",
+    "clubs": [
+      "Fenerbahçe",
+      "Gaziantep FK",
+      "Samsunspor"
+    ]
+  },
+  {
+    "name": "Muhammed Türkmen",
+    "clubs": [
+      "Fenerbahçe",
+      "Kocaelispor"
+    ]
+  },
+  {
+    "name": "Muhammet Beşir",
+    "clubs": [
+      "Samsunspor",
+      "Trabzonspor"
     ]
   },
   {
     "name": "Muhammet Demir",
     "clubs": [
-      "Sivasspor",
-      "Konyaspor",
       "Başakşehir",
+      "Gaziantep FK",
+      "Gaziantepspor",
+      "Konyaspor",
+      "Sivasspor",
       "Trabzonspor"
+    ]
+  },
+  {
+    "name": "Muhammet Fatih Karasu",
+    "clubs": [
+      "Başakşehir",
+      "Karagümrük"
+    ]
+  },
+  {
+    "name": "Muharrem Uz",
+    "clubs": [
+      "Gaziantepspor",
+      "Sivasspor"
+    ]
+  },
+  {
+    "name": "Muhsin Yıldırım",
+    "clubs": [
+      "Kasımpaşa",
+      "Samsunspor"
+    ]
+  },
+  {
+    "name": "Murat Akarsu",
+    "clubs": [
+      "Kayserispor",
+      "Samsunspor"
     ]
   },
   {
     "name": "Murat Akça",
     "clubs": [
-      "Sivasspor",
       "Denizlispor",
-      "Galatasaray"
+      "Galatasaray",
+      "Sivasspor"
     ]
   },
   {
     "name": "Murat Akın",
     "clubs": [
-      "Kayserispor",
-      "Konyaspor",
+      "Antalyaspor",
       "Başakşehir",
-      "Antalyaspor"
+      "Göztepe",
+      "Kasımpaşa",
+      "Kayserispor",
+      "Konyaspor"
+    ]
+  },
+  {
+    "name": "Murat Alaçayır",
+    "clubs": [
+      "Beşiktaş",
+      "Kocaelispor"
+    ]
+  },
+  {
+    "name": "Murat Cem Akpınar",
+    "clubs": [
+      "Kocaelispor",
+      "Trabzonspor"
+    ]
+  },
+  {
+    "name": "Murat Ceylan",
+    "clubs": [
+      "Gaziantepspor",
+      "Karagümrük",
+      "Samsunspor"
     ]
   },
   {
     "name": "Murat Duman",
     "clubs": [
       "Kayserispor",
-      "Sivasspor",
-      "Konyaspor"
+      "Konyaspor",
+      "Samsunspor",
+      "Sivasspor"
     ]
   },
   {
     "name": "Murat Erdoğan",
     "clubs": [
-      "Sivasspor",
-      "Galatasaray"
+      "Galatasaray",
+      "Gaziantepspor",
+      "Kasımpaşa",
+      "Sivasspor"
     ]
   },
   {
     "name": "Murat Hacıoğlu",
     "clubs": [
-      "Konyaspor",
+      "Denizlispor",
       "Fenerbahçe",
-      "Denizlispor"
+      "Kocaelispor",
+      "Konyaspor",
+      "Çaykur Rizespor"
     ]
   },
   {
     "name": "Murat Kalkan",
     "clubs": [
-      "Konyaspor",
-      "Genclerbirligi"
+      "Gençlerbirliği",
+      "Konyaspor"
+    ]
+  },
+  {
+    "name": "Murat Ocak",
+    "clubs": [
+      "Samsunspor",
+      "Trabzonspor",
+      "Çaykur Rizespor"
+    ]
+  },
+  {
+    "name": "Murat Paluli",
+    "clubs": [
+      "Göztepe",
+      "Sivasspor"
+    ]
+  },
+  {
+    "name": "Murat Salar",
+    "clubs": [
+      "Gaziantepspor",
+      "Gençlerbirliği",
+      "Çaykur Rizespor"
+    ]
+  },
+  {
+    "name": "Murat Sarıgül",
+    "clubs": [
+      "Galatasaray",
+      "Karagümrük"
     ]
   },
   {
     "name": "Murat Sözgelmez",
     "clubs": [
+      "Antalyaspor",
       "Sivasspor",
-      "Antalyaspor"
+      "Çaykur Rizespor"
+    ]
+  },
+  {
+    "name": "Murat Sözkesen",
+    "clubs": [
+      "Galatasaray",
+      "Samsunspor",
+      "Çaykur Rizespor"
     ]
   },
   {
@@ -9131,66 +19365,116 @@ export const PLAYERS = [
   {
     "name": "Murat Yıldırım",
     "clubs": [
-      "Genclerbirligi",
-      "Ajax"
+      "Ajax",
+      "Gençlerbirliği",
+      "Samsunspor"
+    ]
+  },
+  {
+    "name": "Murat Yılmaz",
+    "clubs": [
+      "Başakşehir",
+      "Eyüpspor",
+      "Gaziantepspor"
+    ]
+  },
+  {
+    "name": "Murat Çolak",
+    "clubs": [
+      "Kasımpaşa",
+      "Kocaelispor"
+    ]
+  },
+  {
+    "name": "Murat Özkan",
+    "clubs": [
+      "Beşiktaş",
+      "Gaziantepspor"
     ]
   },
   {
     "name": "Murat Şahin",
     "clubs": [
-      "Konyaspor",
+      "Beşiktaş",
+      "Eyüpspor",
       "Fenerbahçe",
-      "Beşiktaş"
+      "Gaziantepspor",
+      "Kasımpaşa",
+      "Konyaspor",
+      "Çaykur Rizespor"
     ]
   },
   {
     "name": "Musa Aydın",
     "clubs": [
-      "Sivasspor",
-      "Antalyaspor"
+      "Antalyaspor",
+      "Samsunspor",
+      "Sivasspor"
     ]
   },
   {
     "name": "Musa Büyük",
     "clubs": [
+      "Kocaelispor",
       "Konyaspor",
+      "Samsunspor",
       "Trabzonspor"
     ]
   },
   {
     "name": "Musa Kuş",
     "clubs": [
-      "Sivasspor",
-      "Denizlispor"
+      "Denizlispor",
+      "Kocaelispor",
+      "Sivasspor"
     ]
   },
   {
     "name": "Musa Nizam",
     "clubs": [
-      "Trabzonspor",
       "Antalyaspor",
-      "Denizlispor"
+      "Denizlispor",
+      "Gaziantepspor",
+      "Kocaelispor",
+      "Trabzonspor"
     ]
   },
   {
     "name": "Mustafa Akhanım",
     "clubs": [
-      "Konyaspor",
-      "Antalyaspor"
+      "Alanyaspor",
+      "Antalyaspor",
+      "Göztepe",
+      "Konyaspor"
+    ]
+  },
+  {
+    "name": "Mustafa Aksoy",
+    "clubs": [
+      "Antalyaspor",
+      "Gaziantepspor"
     ]
   },
   {
     "name": "Mustafa Dogan",
     "clubs": [
-      "Fenerbahçe",
-      "Beşiktaş"
+      "Beşiktaş",
+      "Fenerbahçe"
     ]
   },
   {
     "name": "Mustafa Er",
     "clubs": [
-      "Konyaspor",
-      "Denizlispor"
+      "Denizlispor",
+      "Konyaspor"
+    ]
+  },
+  {
+    "name": "Mustafa Eskihellaç",
+    "clubs": [
+      "Gaziantep FK",
+      "Kasımpaşa",
+      "Trabzonspor"
     ]
   },
   {
@@ -9203,150 +19487,332 @@ export const PLAYERS = [
   {
     "name": "Mustafa Keçeli",
     "clubs": [
-      "Trabzonspor",
-      "Denizlispor"
+      "Denizlispor",
+      "Trabzonspor"
+    ]
+  },
+  {
+    "name": "Mustafa Marangoz",
+    "clubs": [
+      "Gaziantepspor",
+      "Kasımpaşa"
     ]
   },
   {
     "name": "Mustafa Pektemek",
     "clubs": [
-      "Kayserispor",
+      "Alanyaspor",
       "Başakşehir",
-      "Genclerbirligi",
-      "Beşiktaş"
+      "Beşiktaş",
+      "Eyüpspor",
+      "Gençlerbirliği",
+      "Kasımpaşa",
+      "Kayserispor"
     ]
   },
   {
     "name": "Mustafa Sarp",
     "clubs": [
       "Başakşehir",
-      "Galatasaray"
+      "Galatasaray",
+      "Samsunspor"
     ]
   },
   {
     "name": "Mustafa Yalçınkaya",
     "clubs": [
+      "Alanyaspor",
+      "Antalyaspor",
       "Kayserispor",
-      "Trabzonspor",
-      "Antalyaspor"
+      "Trabzonspor"
     ]
   },
   {
     "name": "Mustafa Yumlu",
     "clubs": [
-      "Trabzonspor",
-      "Denizlispor"
+      "Denizlispor",
+      "Trabzonspor"
     ]
   },
   {
     "name": "Mustafa Çeçenoğlu",
     "clubs": [
+      "Denizlispor",
       "Fenerbahçe",
-      "Genclerbirligi",
-      "Denizlispor"
+      "Gençlerbirliği"
     ]
   },
   {
     "name": "Mustafa Çiçek",
     "clubs": [
-      "Genclerbirligi",
-      "Galatasaray"
+      "Eyüpspor",
+      "Galatasaray",
+      "Gençlerbirliği",
+      "Samsunspor",
+      "Çaykur Rizespor"
     ]
   },
   {
     "name": "Mustafa Özkan",
     "clubs": [
-      "Genclerbirligi",
       "Antalyaspor",
+      "Beşiktaş",
       "Denizlispor",
-      "Beşiktaş"
+      "Gençlerbirliği",
+      "Göztepe",
+      "Kocaelispor",
+      "Çaykur Rizespor"
+    ]
+  },
+  {
+    "name": "Mustapha Carayol",
+    "clubs": [
+      "Brighton",
+      "Leeds United"
     ]
   },
   {
     "name": "Mustapha Yatabare",
     "clubs": [
-      "Sivasspor",
+      "Gençlerbirliği",
       "Konyaspor",
-      "Trabzonspor",
-      "Genclerbirligi"
+      "Sivasspor",
+      "Trabzonspor"
     ]
   },
   {
     "name": "Mutlu Aksu Doğan",
     "clubs": [
       "Fenerbahçe",
-      "Galatasaray"
+      "Galatasaray",
+      "Kocaelispor"
+    ]
+  },
+  {
+    "name": "Mutlu Sezer",
+    "clubs": [
+      "Denizlispor",
+      "Samsunspor",
+      "Çaykur Rizespor"
     ]
   },
   {
     "name": "Muzaffer Bilazer",
     "clubs": [
-      "Trabzonspor",
-      "Denizlispor"
+      "Denizlispor",
+      "Trabzonspor"
+    ]
+  },
+  {
+    "name": "Muzaffer Taşkın",
+    "clubs": [
+      "Antalyaspor",
+      "Samsunspor"
+    ]
+  },
+  {
+    "name": "Myles Peart-Harris",
+    "clubs": [
+      "Brentford",
+      "Chelsea"
+    ]
+  },
+  {
+    "name": "Mücahid Albayrak",
+    "clubs": [
+      "Gaziantep FK",
+      "Samsunspor"
+    ]
+  },
+  {
+    "name": "Mümin Hayırsever",
+    "clubs": [
+      "Antalyaspor",
+      "Eyüpspor"
+    ]
+  },
+  {
+    "name": "Nabil Ghilas",
+    "clubs": [
+      "FC Porto",
+      "Gaziantepspor",
+      "Göztepe"
     ]
   },
   {
     "name": "Naby Sarr",
     "clubs": [
-      "PSG",
-      "Olymp. Lyon"
+      "Olympique Lyon",
+      "Paris Saint-Germain"
     ]
   },
   {
     "name": "Nacer Chadli",
     "clubs": [
-      "Tottenham",
-      "Başakşehir"
+      "Başakşehir",
+      "Tottenham"
     ]
   },
   {
     "name": "Naci Ünüvar",
     "clubs": [
-      "Trabzonspor",
-      "Ajax"
+      "Ajax",
+      "Trabzonspor"
     ]
   },
   {
     "name": "Nadir Çiftçi",
     "clubs": [
+      "Gençlerbirliği",
       "Kayserispor",
-      "Genclerbirligi"
+      "Samsunspor",
+      "Çaykur Rizespor"
     ]
   },
   {
     "name": "Nani",
     "clubs": [
       "Fenerbahçe",
-      "Real Madrid",
-      "Man Utd"
+      "Manchester United",
+      "Real Madrid"
     ]
   },
   {
     "name": "Nanu",
     "clubs": [
+      "Benfica",
       "FC Porto",
-      "Benfica"
+      "Samsunspor"
+    ]
+  },
+  {
+    "name": "Naouirou Ahamada",
+    "clubs": [
+      "Crystal Palace",
+      "Juventus"
+    ]
+  },
+  {
+    "name": "Nat Phillips",
+    "clubs": [
+      "Bournemouth",
+      "Liverpool"
+    ]
+  },
+  {
+    "name": "Nathan Abbey",
+    "clubs": [
+      "Brentford",
+      "Burnley"
     ]
   },
   {
     "name": "Nathan Ake",
     "clubs": [
+      "Bournemouth",
       "Chelsea",
-      "Man City"
+      "Manchester City"
+    ]
+  },
+  {
+    "name": "Nathan Collins",
+    "clubs": [
+      "Brentford",
+      "Burnley",
+      "Wolverhampton"
+    ]
+  },
+  {
+    "name": "Nathan Delfouneso",
+    "clubs": [
+      "Aston Villa",
+      "Burnley"
+    ]
+  },
+  {
+    "name": "Nathan Holland",
+    "clubs": [
+      "Everton",
+      "West Ham"
+    ]
+  },
+  {
+    "name": "Nathan Moriah-Welsh",
+    "clubs": [
+      "Bournemouth",
+      "Brentford"
+    ]
+  },
+  {
+    "name": "Nathan Redmond",
+    "clubs": [
+      "Beşiktaş",
+      "Burnley"
+    ]
+  },
+  {
+    "name": "Nathan Tella",
+    "clubs": [
+      "Arsenal",
+      "Burnley"
+    ]
+  },
+  {
+    "name": "Nathan Young-Coombes",
+    "clubs": [
+      "Brentford",
+      "Chelsea",
+      "Crystal Palace"
     ]
   },
   {
     "name": "Nathaniel Chalobah",
     "clubs": [
+      "Burnley",
       "Chelsea",
+      "Fulham",
       "Napoli"
+    ]
+  },
+  {
+    "name": "Nathaniel Clyne",
+    "clubs": [
+      "Bournemouth",
+      "Crystal Palace",
+      "Liverpool"
+    ]
+  },
+  {
+    "name": "Nathanroadhead",
+    "clubs": [
+      "Everton",
+      "Sunderland"
+    ]
+  },
+  {
+    "name": "Nathanyrne",
+    "clubs": [
+      "Bournemouth",
+      "Brentford",
+      "Wolverhampton"
     ]
   },
   {
     "name": "Nazım Sangare",
     "clubs": [
+      "Antalyaspor",
       "Fenerbahçe",
-      "Antalyaspor"
+      "Gaziantep FK",
+      "Göztepe",
+      "Karagümrük"
+    ]
+  },
+  {
+    "name": "Neal Maupay",
+    "clubs": [
+      "Brentford",
+      "Brighton",
+      "Everton"
     ]
   },
   {
@@ -9359,51 +19825,142 @@ export const PLAYERS = [
   {
     "name": "Necati Yılmaz",
     "clubs": [
+      "Denizlispor",
       "Fenerbahçe",
-      "Denizlispor"
+      "Çaykur Rizespor"
     ]
   },
   {
     "name": "Necdet Sekmen",
     "clubs": [
-      "Kayserispor",
-      "Antalyaspor"
+      "Antalyaspor",
+      "Kayserispor"
+    ]
+  },
+  {
+    "name": "Neco Williams",
+    "clubs": [
+      "Fulham",
+      "Liverpool"
+    ]
+  },
+  {
+    "name": "Ned Zelic",
+    "clubs": [
+      "Borussia Dortmund",
+      "Newcastle United"
+    ]
+  },
+  {
+    "name": "Nedum Onuoha",
+    "clubs": [
+      "Manchester City",
+      "Sunderland"
     ]
   },
   {
     "name": "Nehuen Perez",
     "clubs": [
-      "FC Porto",
-      "Atletico Madrid"
+      "Atlético Madrid",
+      "FC Porto"
+    ]
+  },
+  {
+    "name": "Neil Clement",
+    "clubs": [
+      "Brentford",
+      "Chelsea"
+    ]
+  },
+  {
+    "name": "Neil Emblen",
+    "clubs": [
+      "Crystal Palace",
+      "Wolverhampton"
+    ]
+  },
+  {
+    "name": "Neil Etheridge",
+    "clubs": [
+      "Chelsea",
+      "Fulham"
+    ]
+  },
+  {
+    "name": "Neil Kilkenny",
+    "clubs": [
+      "Arsenal",
+      "Leeds United"
+    ]
+  },
+  {
+    "name": "Neil Mellor",
+    "clubs": [
+      "Liverpool",
+      "West Ham"
+    ]
+  },
+  {
+    "name": "Neil Shipperley",
+    "clubs": [
+      "Brentford",
+      "Chelsea",
+      "Crystal Palace"
     ]
   },
   {
     "name": "Neil Sullivan",
     "clubs": [
       "Chelsea",
+      "Crystal Palace",
+      "Leeds United",
       "Tottenham"
+    ]
+  },
+  {
+    "name": "Neil Wood",
+    "clubs": [
+      "Burnley",
+      "Manchester United"
+    ]
+  },
+  {
+    "name": "Neil Young",
+    "clubs": [
+      "Bournemouth",
+      "Tottenham"
+    ]
+  },
+  {
+    "name": "Neill Collins",
+    "clubs": [
+      "Leeds United",
+      "Sunderland",
+      "Wolverhampton"
     ]
   },
   {
     "name": "Nelson",
     "clubs": [
-      "FC Porto",
-      "Benfica"
+      "Aston Villa",
+      "Benfica",
+      "FC Porto"
     ]
   },
   {
     "name": "Nelson Oliveira",
     "clubs": [
-      "Konyaspor",
-      "Benfica"
+      "Benfica",
+      "Konyaspor"
     ]
   },
   {
     "name": "Nelson Semedo",
     "clubs": [
-      "Fenerbahçe",
       "Barcelona",
-      "Benfica"
+      "Benfica",
+      "Fenerbahçe",
+      "Wolverhampton"
     ]
   },
   {
@@ -9416,10 +19973,10 @@ export const PLAYERS = [
   {
     "name": "Nemanja Matic",
     "clubs": [
-      "Chelsea",
       "AS Roma",
       "Benfica",
-      "Man Utd"
+      "Chelsea",
+      "Manchester United"
     ]
   },
   {
@@ -9433,46 +19990,140 @@ export const PLAYERS = [
     "name": "Nemanja Vidicâ€",
     "clubs": [
       "Inter",
-      "Man Utd"
+      "Manchester United"
     ]
   },
   {
     "name": "Neto",
     "clubs": [
-      "Juventus",
       "Arsenal",
-      "Barcelona"
+      "Barcelona",
+      "Bournemouth",
+      "Juventus"
     ]
   },
   {
     "name": "Neven Subotic",
     "clubs": [
-      "Bor. Dortmund",
+      "Borussia Dortmund",
       "Denizlispor"
+    ]
+  },
+  {
+    "name": "Niall Huggins",
+    "clubs": [
+      "Leeds United",
+      "Sunderland"
+    ]
+  },
+  {
+    "name": "Nick Colgan",
+    "clubs": [
+      "Bournemouth",
+      "Chelsea",
+      "Sunderland"
+    ]
+  },
+  {
+    "name": "Nick Fenton",
+    "clubs": [
+      "Bournemouth",
+      "Manchester City"
+    ]
+  },
+  {
+    "name": "Nick Pope",
+    "clubs": [
+      "Burnley",
+      "Newcastle United"
+    ]
+  },
+  {
+    "name": "Nick Tsaroulla",
+    "clubs": [
+      "Brentford",
+      "Tottenham"
     ]
   },
   {
     "name": "Nicklas Bendtner",
     "clubs": [
-      "Juventus",
-      "Arsenal"
+      "Arsenal",
+      "Juventus"
+    ]
+  },
+  {
+    "name": "Nicky Forster",
+    "clubs": [
+      "Brentford",
+      "Brighton"
+    ]
+  },
+  {
+    "name": "Nicky Rizzo",
+    "clubs": [
+      "Crystal Palace",
+      "Liverpool"
+    ]
+  },
+  {
+    "name": "Nicky Shorey",
+    "clubs": [
+      "Aston Villa",
+      "Fulham"
+    ]
+  },
+  {
+    "name": "Nicky Summerbee",
+    "clubs": [
+      "Manchester City",
+      "Sunderland"
+    ]
+  },
+  {
+    "name": "Nicky Weaver",
+    "clubs": [
+      "Burnley",
+      "Manchester City"
+    ]
+  },
+  {
+    "name": "Niclas Füllkrug",
+    "clubs": [
+      "Borussia Dortmund",
+      "West Ham"
     ]
   },
   {
     "name": "Nico Gaitan",
     "clubs": [
-      "Atletico Madrid",
+      "Atlético Madrid",
       "Benfica"
     ]
   },
   {
     "name": "Nico Gonzalez",
     "clubs": [
-      "Juventus",
-      "FC Porto",
+      "Atlético Madrid",
       "Barcelona",
-      "Atletico Madrid",
-      "Man City"
+      "FC Porto",
+      "Juventus",
+      "Manchester City"
+    ]
+  },
+  {
+    "name": "Nico Jones",
+    "clubs": [
+      "Brentford",
+      "Fulham"
+    ]
+  },
+  {
+    "name": "Nico Yennaris",
+    "clubs": [
+      "Arsenal",
+      "Bournemouth",
+      "Brentford"
     ]
   },
   {
@@ -9485,8 +20136,8 @@ export const PLAYERS = [
   {
     "name": "Nicola Legrottaglie",
     "clubs": [
-      "Juventus",
-      "AC Milan"
+      "AC Milan",
+      "Juventus"
     ]
   },
   {
@@ -9494,6 +20145,13 @@ export const PLAYERS = [
     "clubs": [
       "AC Milan",
       "Napoli"
+    ]
+  },
+  {
+    "name": "Nicola Ventola",
+    "clubs": [
+      "Crystal Palace",
+      "Inter"
     ]
   },
   {
@@ -9506,13 +20164,13 @@ export const PLAYERS = [
   {
     "name": "Nicolas Anelka",
     "clubs": [
-      "Chelsea",
-      "Juventus",
       "Arsenal",
+      "Chelsea",
       "Fenerbahçe",
-      "Real Madrid",
+      "Juventus",
       "Liverpool",
-      "Man City"
+      "Manchester City",
+      "Real Madrid"
     ]
   },
   {
@@ -9525,8 +20183,8 @@ export const PLAYERS = [
   {
     "name": "Nicolas Jackson",
     "clubs": [
-      "Chelsea",
-      "Bayern Munich"
+      "Bayern Munich",
+      "Chelsea"
     ]
   },
   {
@@ -9539,9 +20197,9 @@ export const PLAYERS = [
   {
     "name": "Nicolas Otamendi",
     "clubs": [
-      "FC Porto",
       "Benfica",
-      "Man City"
+      "FC Porto",
+      "Manchester City"
     ]
   },
   {
@@ -9552,71 +20210,117 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "NicolÃ² Zaniolo",
+    "name": "Nicolo Zaniolo",
     "clubs": [
-      "Galatasaray",
       "AS Roma",
+      "Aston Villa",
+      "Galatasaray",
       "Inter"
+    ]
+  },
+  {
+    "name": "Nigel Quashie",
+    "clubs": [
+      "West Ham",
+      "Wolverhampton"
+    ]
+  },
+  {
+    "name": "Nigel Reo-Coker",
+    "clubs": [
+      "Aston Villa",
+      "West Ham"
+    ]
+  },
+  {
+    "name": "Nigel Winterburn",
+    "clubs": [
+      "Arsenal",
+      "West Ham"
     ]
   },
   {
     "name": "Nigel de Jong",
     "clubs": [
-      "Galatasaray",
       "AC Milan",
       "Ajax",
-      "Man City"
+      "Galatasaray",
+      "Manchester City"
     ]
   },
   {
     "name": "Nihat Baştürk",
     "clubs": [
-      "Genclerbirligi",
-      "Antalyaspor"
+      "Antalyaspor",
+      "Gençlerbirliği"
     ]
   },
   {
     "name": "Nihat Şahin",
     "clubs": [
-      "Sivasspor",
-      "Genclerbirligi",
-      "Antalyaspor"
+      "Antalyaspor",
+      "Gaziantep FK",
+      "Gençlerbirliği",
+      "Sivasspor"
+    ]
+  },
+  {
+    "name": "Nikica Jelavic",
+    "clubs": [
+      "Everton",
+      "West Ham"
     ]
   },
   {
     "name": "Niklas Süle",
     "clubs": [
-      "Bor. Dortmund",
-      "Bayern Munich"
+      "Bayern Munich",
+      "Borussia Dortmund"
     ]
   },
   {
     "name": "Nikola Kalinic",
     "clubs": [
       "AC Milan",
-      "Atletico Madrid",
-      "AS Roma"
+      "AS Roma",
+      "Atlético Madrid"
+    ]
+  },
+  {
+    "name": "Nikola VlaÅ¡iÄ‡",
+    "clubs": [
+      "Everton",
+      "West Ham"
+    ]
+  },
+  {
+    "name": "Nikolaos Michopoulos",
+    "clubs": [
+      "Burnley",
+      "Crystal Palace"
     ]
   },
   {
     "name": "Niyazi Güney",
     "clubs": [
-      "Konyaspor",
-      "Beşiktaş"
+      "Beşiktaş",
+      "Gaziantepspor",
+      "Konyaspor"
     ]
   },
   {
     "name": "Nizamettin Çalışkan",
     "clubs": [
-      "Bor. Dortmund",
-      "Genclerbirligi"
+      "Borussia Dortmund",
+      "Gençlerbirliği"
     ]
   },
   {
     "name": "Njitap Geremi",
     "clubs": [
       "Chelsea",
-      "Genclerbirligi",
+      "Gençlerbirliği",
+      "Newcastle United",
       "Real Madrid"
     ]
   },
@@ -9630,38 +20334,62 @@ export const PLAYERS = [
   {
     "name": "Noah Ohio",
     "clubs": [
-      "Man Utd",
-      "Man City"
+      "Manchester City",
+      "Manchester United"
     ]
   },
   {
     "name": "Noah Okafor",
     "clubs": [
       "AC Milan",
+      "Leeds United",
       "Napoli"
+    ]
+  },
+  {
+    "name": "Noel Whelan",
+    "clubs": [
+      "Crystal Palace",
+      "Leeds United"
+    ]
+  },
+  {
+    "name": "Noha Lemina",
+    "clubs": [
+      "Paris Saint-Germain",
+      "Wolverhampton"
+    ]
+  },
+  {
+    "name": "Nolberto Solano",
+    "clubs": [
+      "Aston Villa",
+      "Newcastle United",
+      "West Ham"
     ]
   },
   {
     "name": "Nolito",
     "clubs": [
       "Benfica",
-      "Man City"
+      "Manchester City"
     ]
   },
   {
     "name": "Noni Madueke",
     "clubs": [
+      "Arsenal",
       "Chelsea",
-      "Tottenham",
-      "Arsenal"
+      "Crystal Palace",
+      "Tottenham"
     ]
   },
   {
     "name": "Nordin Amrabat",
     "clubs": [
-      "Kayserispor",
+      "Ajax",
       "Galatasaray",
-      "Ajax"
+      "Kayserispor"
     ]
   },
   {
@@ -9672,32 +20400,62 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Nouha Dicko",
+    "clubs": [
+      "Gaziantep FK",
+      "Wolverhampton"
+    ]
+  },
+  {
+    "name": "Nourdin Boukhari",
+    "clubs": [
+      "Ajax",
+      "Kasımpaşa"
+    ]
+  },
+  {
     "name": "Noussair Mazraoui",
     "clubs": [
       "Ajax",
-      "Man Utd",
-      "Bayern Munich"
+      "Bayern Munich",
+      "Manchester United"
     ]
   },
   {
     "name": "Ntumba Massanka",
     "clubs": [
-      "Man Utd",
-      "Man City"
+      "Burnley",
+      "Manchester City",
+      "Manchester United"
     ]
   },
   {
     "name": "Nuno Coelho",
     "clubs": [
-      "FC Porto",
-      "Benfica"
+      "Benfica",
+      "FC Porto"
+    ]
+  },
+  {
+    "name": "Nuno Da Costa",
+    "clubs": [
+      "Başakşehir",
+      "Kasımpaşa"
+    ]
+  },
+  {
+    "name": "Nuno Lima",
+    "clubs": [
+      "Alanyaspor",
+      "FC Porto"
     ]
   },
   {
     "name": "Nuno Santos",
     "clubs": [
+      "Benfica",
       "FC Porto",
-      "Benfica"
+      "Leeds United"
     ]
   },
   {
@@ -9710,54 +20468,110 @@ export const PLAYERS = [
   {
     "name": "Nuri Kamburoğlu",
     "clubs": [
-      "Fenerbahçe",
-      "Antalyaspor"
+      "Antalyaspor",
+      "Fenerbahçe"
     ]
   },
   {
     "name": "Nuri Şahin",
     "clubs": [
-      "Bor. Dortmund",
       "Antalyaspor",
-      "Real Madrid",
-      "Liverpool"
+      "Borussia Dortmund",
+      "Liverpool",
+      "Real Madrid"
     ]
   },
   {
     "name": "Nwankwo Kanu",
     "clubs": [
-      "Arsenal",
       "Ajax",
+      "Arsenal",
       "Inter"
+    ]
+  },
+  {
+    "name": "Obafemi Martins",
+    "clubs": [
+      "Inter",
+      "Newcastle United"
+    ]
+  },
+  {
+    "name": "Odsonne Edouard",
+    "clubs": [
+      "Crystal Palace",
+      "Paris Saint-Germain"
+    ]
+  },
+  {
+    "name": "Odysseas Vlachodimos",
+    "clubs": [
+      "Benfica",
+      "Newcastle United"
     ]
   },
   {
     "name": "Ogenyi Onazi",
     "clubs": [
-      "Trabzonspor",
-      "Denizlispor"
+      "Denizlispor",
+      "Trabzonspor"
+    ]
+  },
+  {
+    "name": "Oguchi Onyewu",
+    "clubs": [
+      "AC Milan",
+      "Newcastle United"
     ]
   },
   {
     "name": "Ogulcan Evin",
     "clubs": [
-      "Sivasspor",
-      "Antalyaspor"
+      "Antalyaspor",
+      "Sivasspor"
+    ]
+  },
+  {
+    "name": "Ogün Özçiçek",
+    "clubs": [
+      "Gaziantep FK",
+      "Çaykur Rizespor"
     ]
   },
   {
     "name": "Okan Alkan",
     "clubs": [
-      "Kayserispor",
-      "Fenerbahçe"
+      "Fenerbahçe",
+      "Kayserispor"
     ]
   },
   {
     "name": "Okan Buruk",
     "clubs": [
-      "Galatasaray",
       "Beşiktaş",
+      "Galatasaray",
       "Inter"
+    ]
+  },
+  {
+    "name": "Okan Dernek",
+    "clubs": [
+      "Karagümrük",
+      "Samsunspor"
+    ]
+  },
+  {
+    "name": "Okan Kocuk",
+    "clubs": [
+      "Galatasaray",
+      "Samsunspor"
+    ]
+  },
+  {
+    "name": "Okan Yılmaz",
+    "clubs": [
+      "Alanyaspor",
+      "Konyaspor"
     ]
   },
   {
@@ -9770,222 +20584,375 @@ export const PLAYERS = [
   {
     "name": "Okechukwu Azubuike",
     "clubs": [
+      "Başakşehir",
       "Sivasspor",
-      "Başakşehir"
+      "Çaykur Rizespor"
     ]
   },
   {
     "name": "Oktay Delibalta",
     "clubs": [
-      "Genclerbirligi",
-      "Antalyaspor"
+      "Antalyaspor",
+      "Gaziantepspor",
+      "Gençlerbirliği",
+      "Samsunspor"
     ]
   },
   {
     "name": "Oktay Derelioğlu",
     "clubs": [
+      "Beşiktaş",
       "Fenerbahçe",
-      "Trabzonspor",
-      "Beşiktaş"
+      "Gaziantepspor",
+      "Karagümrük",
+      "Samsunspor",
+      "Trabzonspor"
+    ]
+  },
+  {
+    "name": "Ola Aina",
+    "clubs": [
+      "Chelsea",
+      "Fulham"
+    ]
+  },
+  {
+    "name": "Ola John",
+    "clubs": [
+      "Benfica",
+      "Wolverhampton"
     ]
   },
   {
     "name": "Olarenwaju Kayode",
     "clubs": [
-      "Sivasspor",
-      "Genclerbirligi",
-      "Man City"
+      "Gaziantep FK",
+      "Gençlerbirliği",
+      "Manchester City",
+      "Sivasspor"
     ]
   },
   {
     "name": "Olcan Adın",
     "clubs": [
-      "Fenerbahçe",
-      "Trabzonspor",
       "Antalyaspor",
-      "Galatasaray"
+      "Fenerbahçe",
+      "Galatasaray",
+      "Gaziantepspor",
+      "Trabzonspor"
     ]
   },
   {
     "name": "Olcay Şahan",
     "clubs": [
-      "Trabzonspor",
+      "Beşiktaş",
       "Denizlispor",
-      "Beşiktaş"
+      "Trabzonspor"
     ]
   },
   {
     "name": "Oleguer",
     "clubs": [
-      "Barcelona",
-      "Ajax"
+      "Ajax",
+      "Barcelona"
     ]
   },
   {
     "name": "Oleksandr Zinchenko",
     "clubs": [
       "Arsenal",
-      "Man City"
+      "Manchester City"
+    ]
+  },
+  {
+    "name": "Oliver Norwood",
+    "clubs": [
+      "Brighton",
+      "Fulham",
+      "Manchester United"
     ]
   },
   {
     "name": "Oliver Torres",
     "clubs": [
-      "FC Porto",
-      "Atletico Madrid"
+      "Atlético Madrid",
+      "FC Porto"
     ]
   },
   {
     "name": "Olivier Dacourt",
     "clubs": [
       "AS Roma",
-      "Inter"
+      "Everton",
+      "Fulham",
+      "Inter",
+      "Leeds United"
     ]
   },
   {
     "name": "Olivier Giroud",
     "clubs": [
-      "Chelsea",
+      "AC Milan",
       "Arsenal",
-      "AC Milan"
+      "Chelsea"
+    ]
+  },
+  {
+    "name": "Olivier Ntcham",
+    "clubs": [
+      "Manchester City",
+      "Samsunspor"
+    ]
+  },
+  {
+    "name": "Ollie Harrison",
+    "clubs": [
+      "Chelsea",
+      "Newcastle United"
+    ]
+  },
+  {
+    "name": "Ollie Watkins",
+    "clubs": [
+      "Aston Villa",
+      "Brentford"
+    ]
+  },
+  {
+    "name": "Ollie Younger",
+    "clubs": [
+      "Burnley",
+      "Sunderland"
+    ]
+  },
+  {
+    "name": "Olof Mellberg",
+    "clubs": [
+      "Aston Villa",
+      "Juventus"
     ]
   },
   {
     "name": "Omar Elabdellaoui",
     "clubs": [
       "Galatasaray",
-      "Man City"
+      "Manchester City"
     ]
   },
   {
     "name": "Omar Rekik",
     "clubs": [
       "Arsenal",
-      "Man City"
+      "Manchester City"
     ]
   },
   {
     "name": "Omari Hutchinson",
     "clubs": [
-      "Chelsea",
-      "Arsenal"
+      "Arsenal",
+      "Chelsea"
+    ]
+  },
+  {
+    "name": "Onur Başyiğit",
+    "clubs": [
+      "Fenerbahçe",
+      "Gaziantep FK"
     ]
   },
   {
     "name": "Onur Bulut",
     "clubs": [
-      "Kayserispor",
+      "Alanyaspor",
       "Başakşehir",
-      "Beşiktaş"
+      "Beşiktaş",
+      "Kayserispor",
+      "Çaykur Rizespor"
     ]
   },
   {
     "name": "Onur Tuncer",
     "clubs": [
-      "Sivasspor",
+      "Antalyaspor",
       "Fenerbahçe",
-      "Antalyaspor"
+      "Sivasspor"
+    ]
+  },
+  {
+    "name": "Onur Çubukçu",
+    "clubs": [
+      "Galatasaray",
+      "Kasımpaşa"
+    ]
+  },
+  {
+    "name": "Orhan Taşdelen",
+    "clubs": [
+      "Başakşehir",
+      "Gaziantepspor",
+      "Göztepe",
+      "Samsunspor"
     ]
   },
   {
     "name": "Orhan Şam",
     "clubs": [
       "Fenerbahçe",
-      "Genclerbirligi"
+      "Gençlerbirliği",
+      "Kasımpaşa"
     ]
   },
   {
     "name": "Oriol Romeu",
     "clubs": [
-      "Chelsea",
-      "Barcelona"
+      "Barcelona",
+      "Chelsea"
+    ]
+  },
+  {
+    "name": "Orjan Nyland",
+    "clubs": [
+      "Aston Villa",
+      "Bournemouth"
     ]
   },
   {
     "name": "Orkan Çınar",
     "clubs": [
-      "Konyaspor",
-      "Beşiktaş"
+      "Beşiktaş",
+      "Gaziantepspor",
+      "Konyaspor"
     ]
   },
   {
     "name": "Orkun Kökçü",
     "clubs": [
-      "Beşiktaş",
-      "Benfica"
+      "Benfica",
+      "Beşiktaş"
     ]
   },
   {
     "name": "Orkun Usak",
     "clubs": [
-      "Konyaspor",
-      "Başakşehir",
       "Antalyaspor",
-      "Galatasaray"
+      "Başakşehir",
+      "Galatasaray",
+      "Konyaspor"
     ]
   },
   {
     "name": "Orkun Özdemir",
     "clubs": [
-      "Genclerbirligi",
-      "Beşiktaş"
+      "Beşiktaş",
+      "Gençlerbirliği",
+      "Karagümrük"
+    ]
+  },
+  {
+    "name": "Orlando Sa",
+    "clubs": [
+      "FC Porto",
+      "Fulham"
     ]
   },
   {
     "name": "Osazee Aghatise",
     "clubs": [
-      "Man Utd",
-      "Man City"
+      "Manchester City",
+      "Manchester United"
     ]
   },
   {
     "name": "Oscar Cardozo",
     "clubs": [
-      "Trabzonspor",
-      "Benfica"
+      "Benfica",
+      "Trabzonspor"
+    ]
+  },
+  {
+    "name": "Oscarorg",
+    "clubs": [
+      "Aston Villa",
+      "West Ham"
     ]
   },
   {
     "name": "Osman Yeşilmeşe",
     "clubs": [
-      "Kayserispor",
-      "Antalyaspor"
+      "Antalyaspor",
+      "Kayserispor"
+    ]
+  },
+  {
+    "name": "Otabek Shukurov",
+    "clubs": [
+      "Karagümrük",
+      "Kayserispor"
     ]
   },
   {
     "name": "Ouasim Bouy",
     "clubs": [
-      "Juventus",
-      "Ajax"
+      "Ajax",
+      "Juventus"
     ]
   },
   {
     "name": "Oumar Dieng",
     "clubs": [
       "Konyaspor",
-      "Trabzonspor"
+      "Trabzonspor",
+      "Çaykur Rizespor"
     ]
   },
   {
     "name": "Ousmane Dabo",
     "clubs": [
       "Inter",
-      "Man City"
+      "Manchester City"
     ]
   },
   {
     "name": "Ousmane Dembele",
     "clubs": [
-      "Bor. Dortmund",
-      "Barcelona"
+      "Barcelona",
+      "Borussia Dortmund"
+    ]
+  },
+  {
+    "name": "Oussama Tannane",
+    "clubs": [
+      "Ajax",
+      "Göztepe"
+    ]
+  },
+  {
+    "name": "Owen Dodgson",
+    "clubs": [
+      "Burnley",
+      "Manchester United"
+    ]
+  },
+  {
+    "name": "Owen Gallacher",
+    "clubs": [
+      "Newcastle United",
+      "Nottingham Forest"
     ]
   },
   {
     "name": "Owen Hargreaves",
     "clubs": [
-      "Man Utd",
       "Bayern Munich",
-      "Man City"
+      "Manchester City",
+      "Manchester United"
+    ]
+  },
+  {
+    "name": "Owen Hesketh",
+    "clubs": [
+      "Manchester City",
+      "Wolverhampton"
     ]
   },
   {
@@ -9996,8 +20963,16 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Ozan Tahtaişleyen",
+    "clubs": [
+      "Beşiktaş",
+      "Gaziantepspor"
+    ]
+  },
+  {
     "name": "Ozan Tufan",
     "clubs": [
+      "Alanyaspor",
       "Fenerbahçe",
       "Trabzonspor"
     ]
@@ -10005,44 +20980,79 @@ export const PLAYERS = [
   {
     "name": "Ozan Özkan",
     "clubs": [
+      "Denizlispor",
       "Konyaspor",
-      "Denizlispor"
+      "Samsunspor"
     ]
   },
   {
     "name": "Oğulcan Çağlayan",
     "clubs": [
+      "Eyüpspor",
+      "Galatasaray",
+      "Gaziantep FK",
+      "Gaziantepspor",
+      "Kasımpaşa",
       "Kayserispor",
-      "Galatasaray"
+      "Kocaelispor",
+      "Çaykur Rizespor"
+    ]
+  },
+  {
+    "name": "Oğuz Ceylan",
+    "clubs": [
+      "Beşiktaş",
+      "Gaziantep FK",
+      "Kocaelispor",
+      "Çaykur Rizespor"
     ]
   },
   {
     "name": "Oğuz Dağlaroğlu",
     "clubs": [
-      "Sivasspor",
-      "Fenerbahçe"
+      "Fenerbahçe",
+      "Gaziantepspor",
+      "Sivasspor"
     ]
   },
   {
     "name": "Oğuz Kağan Güçtekin",
     "clubs": [
+      "Fenerbahçe",
       "Konyaspor",
-      "Fenerbahçe"
+      "Çaykur Rizespor"
+    ]
+  },
+  {
+    "name": "Oğuz Sabankay",
+    "clubs": [
+      "Eyüpspor",
+      "Galatasaray"
     ]
   },
   {
     "name": "Oğuzhan Bahadır",
     "clubs": [
-      "Konyaspor",
-      "Başakşehir"
+      "Başakşehir",
+      "Göztepe",
+      "Konyaspor"
     ]
   },
   {
     "name": "Oğuzhan Berber",
     "clubs": [
+      "Denizlispor",
+      "Gençlerbirliği",
       "Kayserispor",
-      "Genclerbirligi",
-      "Denizlispor"
+      "Samsunspor",
+      "Çaykur Rizespor"
+    ]
+  },
+  {
+    "name": "Oğuzhan Yılmaz",
+    "clubs": [
+      "Kasımpaşa",
+      "Trabzonspor"
     ]
   },
   {
@@ -10056,107 +21066,276 @@ export const PLAYERS = [
     "name": "Pablo Armero",
     "clubs": [
       "AC Milan",
-      "Napoli"
+      "Napoli",
+      "West Ham"
     ]
   },
   {
     "name": "Pablo Mari",
     "clubs": [
       "Arsenal",
-      "Man City"
+      "Manchester City"
     ]
   },
   {
     "name": "Pablo Moreno",
     "clubs": [
       "Juventus",
-      "Man City"
+      "Manchester City"
     ]
   },
   {
     "name": "Pablo Rosario",
     "clubs": [
-      "FC Porto",
-      "Ajax"
+      "Ajax",
+      "FC Porto"
+    ]
+  },
+  {
+    "name": "Pablo Sarabia",
+    "clubs": [
+      "Real Madrid",
+      "Wolverhampton"
+    ]
+  },
+  {
+    "name": "Pablo Zabaleta",
+    "clubs": [
+      "Manchester City",
+      "West Ham"
     ]
   },
   {
     "name": "Paco Alcacer",
     "clubs": [
-      "Bor. Dortmund",
-      "Barcelona"
+      "Barcelona",
+      "Borussia Dortmund"
+    ]
+  },
+  {
+    "name": "Paddy McNair",
+    "clubs": [
+      "Manchester United",
+      "Sunderland"
+    ]
+  },
+  {
+    "name": "Pajtim Kasami",
+    "clubs": [
+      "Fulham",
+      "Liverpool"
     ]
   },
   {
     "name": "Paolo Di Canio",
     "clubs": [
       "Juventus",
-      "Napoli"
+      "Napoli",
+      "West Ham"
     ]
   },
   {
     "name": "Paolo Medina",
     "clubs": [
-      "Real Madrid",
-      "Benfica"
+      "Benfica",
+      "Real Madrid"
     ]
   },
   {
     "name": "Paolo Tramezzani",
     "clubs": [
-      "Tottenham",
-      "Inter"
+      "Inter",
+      "Tottenham"
+    ]
+  },
+  {
+    "name": "Papaouba Diop",
+    "clubs": [
+      "Fulham",
+      "West Ham"
+    ]
+  },
+  {
+    "name": "Papiss Demba Cisse",
+    "clubs": [
+      "Alanyaspor",
+      "Fenerbahçe",
+      "Newcastle United",
+      "Çaykur Rizespor"
+    ]
+  },
+  {
+    "name": "Papy Djilobodji",
+    "clubs": [
+      "Chelsea",
+      "Gaziantep FK",
+      "Karagümrük",
+      "Kasımpaşa",
+      "Sunderland"
+    ]
+  },
+  {
+    "name": "Paris Maghoma",
+    "clubs": [
+      "Brentford",
+      "Tottenham"
+    ]
+  },
+  {
+    "name": "Pascal Chimbonda",
+    "clubs": [
+      "Sunderland",
+      "Tottenham"
+    ]
+  },
+  {
+    "name": "Pascal Grob",
+    "clubs": [
+      "Borussia Dortmund",
+      "Brighton"
+    ]
+  },
+  {
+    "name": "Pascal Struijk",
+    "clubs": [
+      "Ajax",
+      "Leeds United"
     ]
   },
   {
     "name": "Patrice Evra",
     "clubs": [
       "Juventus",
-      "Man Utd"
+      "Manchester United",
+      "West Ham"
+    ]
+  },
+  {
+    "name": "Patrick",
+    "clubs": [
+      "Benfica",
+      "Gaziantepspor"
     ]
   },
   {
     "name": "Patrick Cregg",
     "clubs": [
       "Arsenal",
-      "Man Utd"
+      "Manchester United"
+    ]
+  },
+  {
+    "name": "Patrick Cutrone",
+    "clubs": [
+      "AC Milan",
+      "Wolverhampton"
     ]
   },
   {
     "name": "Patrick Friday Eze",
     "clubs": [
-      "Konyaspor",
-      "Denizlispor"
+      "Denizlispor",
+      "Konyaspor"
+    ]
+  },
+  {
+    "name": "Patrick McCarthy",
+    "clubs": [
+      "Crystal Palace",
+      "Manchester City"
+    ]
+  },
+  {
+    "name": "Patrick Roberts",
+    "clubs": [
+      "Fulham",
+      "Manchester City",
+      "Sunderland"
+    ]
+  },
+  {
+    "name": "Patrick Vieira",
+    "clubs": [
+      "Arsenal",
+      "Inter",
+      "Juventus",
+      "Manchester City"
     ]
   },
   {
     "name": "Patrick van Aanholt",
     "clubs": [
       "Chelsea",
-      "Galatasaray"
+      "Crystal Palace",
+      "Galatasaray",
+      "Newcastle United",
+      "Sunderland"
     ]
   },
   {
-    "name": "Patrick Vieira",
+    "name": "Patrickamford",
     "clubs": [
-      "Juventus",
-      "Arsenal",
-      "Inter",
-      "Man City"
+      "Burnley",
+      "Crystal Palace",
+      "Leeds United",
+      "Nottingham Forest"
     ]
   },
   {
     "name": "Patrik Berger",
     "clubs": [
-      "Bor. Dortmund",
+      "Borussia Dortmund",
       "Liverpool"
     ]
   },
   {
     "name": "Pau Lopez",
     "clubs": [
-      "Tottenham",
-      "AS Roma"
+      "AS Roma",
+      "Tottenham"
+    ]
+  },
+  {
+    "name": "Paul Appiah",
+    "clubs": [
+      "Aston Villa",
+      "Chelsea"
+    ]
+  },
+  {
+    "name": "Paul Cook",
+    "clubs": [
+      "Burnley",
+      "Wolverhampton"
+    ]
+  },
+  {
+    "name": "Paul Crichton",
+    "clubs": [
+      "Burnley",
+      "Nottingham Forest"
+    ]
+  },
+  {
+    "name": "Paul Evans",
+    "clubs": [
+      "Crystal Palace",
+      "Leeds United"
+    ]
+  },
+  {
+    "name": "Paul Harrison",
+    "clubs": [
+      "Leeds United",
+      "Liverpool",
+      "Wolverhampton"
+    ]
+  },
+  {
+    "name": "Paul Huntington",
+    "clubs": [
+      "Leeds United",
+      "Newcastle United"
     ]
   },
   {
@@ -10164,123 +21343,280 @@ export const PLAYERS = [
     "clubs": [
       "Inter",
       "Liverpool",
-      "Man Utd"
+      "Manchester United",
+      "West Ham",
+      "Wolverhampton"
+    ]
+  },
+  {
+    "name": "Paul Jones",
+    "clubs": [
+      "Liverpool",
+      "Wolverhampton"
+    ]
+  },
+  {
+    "name": "Paul Kitson",
+    "clubs": [
+      "Brighton",
+      "Crystal Palace",
+      "Newcastle United",
+      "West Ham"
     ]
   },
   {
     "name": "Paul Konchesky",
     "clubs": [
+      "Fulham",
+      "Liverpool",
       "Tottenham",
-      "Liverpool"
+      "West Ham"
+    ]
+  },
+  {
+    "name": "Paul McShane",
+    "clubs": [
+      "Brighton",
+      "Crystal Palace",
+      "Manchester United",
+      "Sunderland"
+    ]
+  },
+  {
+    "name": "Paul Merson",
+    "clubs": [
+      "Arsenal",
+      "Aston Villa",
+      "Brentford"
+    ]
+  },
+  {
+    "name": "Paul Okon",
+    "clubs": [
+      "Benfica",
+      "Leeds United",
+      "Newcastle United"
     ]
   },
   {
     "name": "Paul Pogba",
     "clubs": [
       "Juventus",
-      "Man Utd"
+      "Manchester United"
+    ]
+  },
+  {
+    "name": "Paul Rachubka",
+    "clubs": [
+      "Burnley",
+      "Leeds United",
+      "Manchester United"
+    ]
+  },
+  {
+    "name": "Paul Robinson",
+    "clubs": [
+      "Burnley",
+      "Leeds United",
+      "Newcastle United",
+      "Tottenham"
+    ]
+  },
+  {
+    "name": "Paul Shaw",
+    "clubs": [
+      "Arsenal",
+      "Burnley"
+    ]
+  },
+  {
+    "name": "Paul Smith",
+    "clubs": [
+      "Brentford",
+      "Burnley"
+    ]
+  },
+  {
+    "name": "Paul Stalteri",
+    "clubs": [
+      "Fulham",
+      "Tottenham"
+    ]
+  },
+  {
+    "name": "Paul Stephenson",
+    "clubs": [
+      "Brentford",
+      "Newcastle United"
+    ]
+  },
+  {
+    "name": "Paul Warhurst",
+    "clubs": [
+      "Crystal Palace",
+      "Manchester City"
     ]
   },
   {
     "name": "Paul-Jose Mpoku",
     "clubs": [
-      "Tottenham",
-      "Konyaspor"
+      "Konyaspor",
+      "Tottenham"
     ]
   },
   {
     "name": "Paulinho",
     "clubs": [
-      "Tottenham",
-      "FC Porto",
       "Barcelona",
-      "Liverpool"
+      "FC Porto",
+      "Liverpool",
+      "Tottenham",
+      "Wolverhampton"
+    ]
+  },
+  {
+    "name": "Paulo Alves",
+    "clubs": [
+      "FC Porto",
+      "West Ham"
     ]
   },
   {
     "name": "Paulo Dybala",
     "clubs": [
-      "Juventus",
-      "AS Roma"
+      "AS Roma",
+      "Juventus"
+    ]
+  },
+  {
+    "name": "Paulo Gazzaniga",
+    "clubs": [
+      "Fulham",
+      "Tottenham"
     ]
   },
   {
     "name": "Paulo Jorge",
     "clubs": [
-      "FC Porto",
-      "Benfica"
+      "Benfica",
+      "FC Porto"
+    ]
+  },
+  {
+    "name": "Paulo Victor",
+    "clubs": [
+      "Alanyaspor",
+      "Gaziantepspor"
+    ]
+  },
+  {
+    "name": "Paulrooker",
+    "clubs": [
+      "Brentford",
+      "Brighton",
+      "Fulham"
+    ]
+  },
+  {
+    "name": "Paulutler",
+    "clubs": [
+      "Leeds United",
+      "Sunderland",
+      "Wolverhampton"
+    ]
+  },
+  {
+    "name": "Pavel Srnicek",
+    "clubs": [
+      "Newcastle United",
+      "West Ham"
     ]
   },
   {
     "name": "Pedrinho",
     "clubs": [
-      "Konyaspor",
-      "Benfica"
+      "Benfica",
+      "Konyaspor"
     ]
   },
   {
     "name": "Pedro",
     "clubs": [
-      "Chelsea",
+      "AS Roma",
       "Barcelona",
-      "AS Roma"
+      "Chelsea"
     ]
   },
   {
     "name": "Pedro Alves",
     "clubs": [
-      "FC Porto",
-      "Benfica"
+      "Benfica",
+      "FC Porto"
     ]
   },
   {
     "name": "Pedro Henrique",
     "clubs": [
+      "Inter",
       "Kayserispor",
-      "Sivasspor",
-      "Inter"
+      "Sivasspor"
     ]
   },
   {
     "name": "Pedro Justiniano",
     "clubs": [
-      "Juventus",
-      "FC Porto"
+      "FC Porto",
+      "Juventus"
+    ]
+  },
+  {
+    "name": "Pedro Lima",
+    "clubs": [
+      "FC Porto",
+      "Wolverhampton"
+    ]
+  },
+  {
+    "name": "Pedro Neto",
+    "clubs": [
+      "Chelsea",
+      "Wolverhampton"
     ]
   },
   {
     "name": "Pedro Nuno",
     "clubs": [
-      "FC Porto",
-      "Benfica"
+      "Benfica",
+      "FC Porto"
     ]
   },
   {
     "name": "Pedro Pereira",
     "clubs": [
-      "Genclerbirligi",
-      "Benfica"
+      "Alanyaspor",
+      "Benfica",
+      "Gençlerbirliği"
     ]
   },
   {
     "name": "Pedro Porro",
     "clubs": [
-      "Tottenham",
-      "Man City"
+      "Manchester City",
+      "Tottenham"
     ]
   },
   {
     "name": "Pedro Rebocho",
     "clubs": [
-      "Beşiktaş",
-      "Benfica"
+      "Benfica",
+      "Beşiktaş"
     ]
   },
   {
     "name": "Pedro Santos",
     "clubs": [
-      "FC Porto",
-      "Benfica"
+      "Benfica",
+      "FC Porto"
     ]
   },
   {
@@ -10293,78 +21629,135 @@ export const PLAYERS = [
   {
     "name": "Pele",
     "clubs": [
+      "Benfica",
       "FC Porto",
-      "Inter",
-      "Benfica"
+      "Inter"
     ]
   },
   {
     "name": "Pepe",
     "clubs": [
-      "FC Porto",
       "Beşiktaş",
+      "FC Porto",
       "Real Madrid"
     ]
   },
   {
     "name": "Pepe Reina",
     "clubs": [
-      "Barcelona",
       "AC Milan",
-      "Napoli",
+      "Aston Villa",
+      "Barcelona",
+      "Bayern Munich",
       "Liverpool",
-      "Bayern Munich"
+      "Napoli"
+    ]
+  },
+  {
+    "name": "Pervis Estupinan",
+    "clubs": [
+      "AC Milan",
+      "Brighton"
     ]
   },
   {
     "name": "Petar Skuletic",
     "clubs": [
-      "Sivasspor",
-      "Genclerbirligi"
+      "Gençlerbirliği",
+      "Sivasspor"
     ]
   },
   {
     "name": "Peter Crouch",
     "clubs": [
-      "Tottenham",
-      "Liverpool"
+      "Aston Villa",
+      "Burnley",
+      "Liverpool",
+      "Tottenham"
     ]
   },
   {
     "name": "Peter Etebo",
     "clubs": [
-      "Genclerbirligi",
-      "Galatasaray"
+      "Galatasaray",
+      "Gençlerbirliği"
     ]
   },
   {
     "name": "Peter Schmeichel",
     "clubs": [
-      "Man Utd",
-      "Man City"
+      "Aston Villa",
+      "Manchester City",
+      "Manchester United"
+    ]
+  },
+  {
+    "name": "Peter Whittingham",
+    "clubs": [
+      "Aston Villa",
+      "Burnley"
+    ]
+  },
+  {
+    "name": "Peter Zulj",
+    "clubs": [
+      "Başakşehir",
+      "Göztepe"
     ]
   },
   {
     "name": "Petr Cech",
     "clubs": [
-      "Chelsea",
-      "Arsenal"
+      "Arsenal",
+      "Chelsea"
+    ]
+  },
+  {
+    "name": "Petr Pavlik",
+    "clubs": [
+      "Kasımpaşa",
+      "Samsunspor"
+    ]
+  },
+  {
+    "name": "Phil Gray",
+    "clubs": [
+      "Burnley",
+      "Fulham",
+      "Sunderland",
+      "Tottenham"
+    ]
+  },
+  {
+    "name": "Phil Neville",
+    "clubs": [
+      "Everton",
+      "Manchester United"
+    ]
+  },
+  {
+    "name": "Philardsley",
+    "clubs": [
+      "Aston Villa",
+      "Burnley",
+      "Sunderland"
     ]
   },
   {
     "name": "Philipp Degen",
     "clubs": [
-      "Bor. Dortmund",
+      "Borussia Dortmund",
       "Liverpool"
     ]
   },
   {
     "name": "Philippe Coutinho",
     "clubs": [
+      "Aston Villa",
       "Barcelona",
+      "Bayern Munich",
       "Inter",
-      "Liverpool",
-      "Bayern Munich"
+      "Liverpool"
     ]
   },
   {
@@ -10378,14 +21771,17 @@ export const PLAYERS = [
     "name": "Philippe Sandler",
     "clubs": [
       "Ajax",
-      "Man City"
+      "Manchester City"
     ]
   },
   {
     "name": "Philippe Senderos",
     "clubs": [
+      "AC Milan",
       "Arsenal",
-      "AC Milan"
+      "Aston Villa",
+      "Everton",
+      "Fulham"
     ]
   },
   {
@@ -10398,57 +21794,67 @@ export const PLAYERS = [
   {
     "name": "Pierluigi Gollini",
     "clubs": [
-      "Tottenham",
       "AS Roma",
+      "Aston Villa",
+      "Manchester United",
       "Napoli",
-      "Man Utd"
+      "Tottenham"
+    ]
+  },
+  {
+    "name": "Pierre Ekwah",
+    "clubs": [
+      "Chelsea",
+      "Sunderland",
+      "West Ham"
     ]
   },
   {
     "name": "Pierre Kalulu",
     "clubs": [
-      "Juventus",
       "AC Milan",
-      "Olymp. Lyon"
-    ]
-  },
-  {
-    "name": "Pierre van Hooijdonk",
-    "clubs": [
-      "Fenerbahçe",
-      "Benfica"
+      "Juventus",
+      "Olympique Lyon"
     ]
   },
   {
     "name": "Pierre Wome",
     "clubs": [
       "AS Roma",
+      "Fulham",
       "Inter"
+    ]
+  },
+  {
+    "name": "Pierre van Hooijdonk",
+    "clubs": [
+      "Benfica",
+      "Fenerbahçe"
     ]
   },
   {
     "name": "Pierre-Emerick Aubameyang",
     "clubs": [
-      "Bor. Dortmund",
-      "Chelsea",
+      "AC Milan",
       "Arsenal",
       "Barcelona",
-      "AC Milan"
+      "Borussia Dortmund",
+      "Chelsea"
     ]
   },
   {
     "name": "Pierre-Emile Hojbjerg",
     "clubs": [
-      "Tottenham",
-      "Bayern Munich"
+      "Bayern Munich",
+      "Tottenham"
     ]
   },
   {
     "name": "Pini Balili",
     "clubs": [
+      "Antalyaspor",
       "Kayserispor",
-      "Sivasspor",
-      "Antalyaspor"
+      "Sivasspor"
     ]
   },
   {
@@ -10461,47 +21867,83 @@ export const PLAYERS = [
   {
     "name": "Pizzi",
     "clubs": [
+      "Atlético Madrid",
       "Başakşehir",
-      "Atletico Madrid",
       "Benfica"
+    ]
+  },
+  {
+    "name": "Ponck",
+    "clubs": [
+      "Başakşehir",
+      "Çaykur Rizespor"
+    ]
+  },
+  {
+    "name": "Pontus Jansson",
+    "clubs": [
+      "Brentford",
+      "Leeds United"
+    ]
+  },
+  {
+    "name": "Prejuce Nakoulma",
+    "clubs": [
+      "Kayserispor",
+      "Çaykur Rizespor"
+    ]
+  },
+  {
+    "name": "Preston Fearon",
+    "clubs": [
+      "Chelsea",
+      "West Ham"
+    ]
+  },
+  {
+    "name": "Prince Gouano",
+    "clubs": [
+      "Gaziantepspor",
+      "Juventus"
     ]
   },
   {
     "name": "Queensy Menig",
     "clubs": [
-      "Sivasspor",
-      "Ajax"
+      "Ajax",
+      "Sivasspor"
     ]
   },
   {
     "name": "Quincy Owusu-Abeyie",
     "clubs": [
-      "Arsenal",
-      "Ajax"
+      "Ajax",
+      "Arsenal"
     ]
   },
   {
     "name": "Quinton Fortune",
     "clubs": [
-      "Atletico Madrid",
-      "Man Utd"
+      "Atlético Madrid",
+      "Manchester United"
     ]
   },
   {
     "name": "Rachid Ghezzal",
     "clubs": [
       "Beşiktaş",
-      "Olymp. Lyon"
+      "Olympique Lyon",
+      "Çaykur Rizespor"
     ]
   },
   {
     "name": "Radamel Falcao",
     "clubs": [
+      "Atlético Madrid",
       "Chelsea",
       "FC Porto",
       "Galatasaray",
-      "Atletico Madrid",
-      "Man Utd"
+      "Manchester United"
     ]
   },
   {
@@ -10514,104 +21956,191 @@ export const PLAYERS = [
   {
     "name": "Radoslaw Zelezny",
     "clubs": [
-      "Juventus",
-      "AS Roma"
+      "AS Roma",
+      "Juventus"
+    ]
+  },
+  {
+    "name": "Radostin Kishishev",
+    "clubs": [
+      "Brighton",
+      "Leeds United"
     ]
   },
   {
     "name": "Radu DrÄƒguşin",
     "clubs": [
-      "Tottenham",
-      "Juventus"
+      "Juventus",
+      "Tottenham"
     ]
   },
   {
     "name": "Rafa Marin",
     "clubs": [
-      "Real Madrid",
-      "Napoli"
+      "Napoli",
+      "Real Madrid"
     ]
   },
   {
     "name": "Rafa Obrador",
     "clubs": [
-      "Real Madrid",
-      "Benfica"
+      "Benfica",
+      "Real Madrid"
     ]
   },
   {
     "name": "Rafa Paez",
     "clubs": [
-      "Real Madrid",
-      "Liverpool"
+      "Liverpool",
+      "Real Madrid"
     ]
   },
   {
     "name": "Rafa Silva",
     "clubs": [
-      "Beşiktaş",
-      "Benfica"
+      "Benfica",
+      "Beşiktaş"
+    ]
+  },
+  {
+    "name": "Rafa Soares",
+    "clubs": [
+      "FC Porto",
+      "Fulham"
     ]
   },
   {
     "name": "Rafael",
     "clubs": [
       "Başakşehir",
-      "Man Utd"
+      "Manchester United"
+    ]
+  },
+  {
+    "name": "Rafael Garci­a",
+    "clubs": [
+      "Everton",
+      "Fulham"
     ]
   },
   {
     "name": "Rafael van der Vaart",
     "clubs": [
-      "Tottenham",
       "Ajax",
-      "Real Madrid"
+      "Real Madrid",
+      "Tottenham"
+    ]
+  },
+  {
+    "name": "Rafik Halliche",
+    "clubs": [
+      "Benfica",
+      "Fulham"
     ]
   },
   {
     "name": "Rafinha",
     "clubs": [
       "Barcelona",
-      "Inter",
-      "Bayern Munich"
+      "Bayern Munich",
+      "Inter"
     ]
   },
   {
     "name": "Ragıp Başdağ",
     "clubs": [
+      "Denizlispor",
       "Kayserispor",
-      "Trabzonspor",
-      "Denizlispor"
+      "Trabzonspor"
+    ]
+  },
+  {
+    "name": "Raheem Lawal",
+    "clubs": [
+      "Karagümrük",
+      "Kayserispor"
     ]
   },
   {
     "name": "Raheem Sterling",
     "clubs": [
-      "Chelsea",
       "Arsenal",
+      "Chelsea",
       "Liverpool",
-      "Man City"
+      "Manchester City"
+    ]
+  },
+  {
+    "name": "Raimond van der Gouw",
+    "clubs": [
+      "Manchester United",
+      "West Ham"
+    ]
+  },
+  {
+    "name": "Rajiv van La Parra",
+    "clubs": [
+      "Brighton",
+      "Wolverhampton"
     ]
   },
   {
     "name": "Rajko Rotman",
     "clubs": [
+      "Başakşehir",
+      "Göztepe",
+      "Kayserispor"
+    ]
+  },
+  {
+    "name": "Raman Chibsah",
+    "clubs": [
+      "Gaziantep FK",
+      "Juventus"
+    ]
+  },
+  {
+    "name": "Ramazan Durdu",
+    "clubs": [
       "Kayserispor",
-      "Başakşehir"
+      "Çaykur Rizespor"
+    ]
+  },
+  {
+    "name": "Ramazan Kahya",
+    "clubs": [
+      "Göztepe",
+      "Konyaspor"
+    ]
+  },
+  {
+    "name": "Ramazan Sal",
+    "clubs": [
+      "Göztepe",
+      "Samsunspor"
+    ]
+  },
+  {
+    "name": "Ramazan Çevik",
+    "clubs": [
+      "Antalyaspor",
+      "Eyüpspor",
+      "Kocaelispor",
+      "Samsunspor"
     ]
   },
   {
     "name": "Ramires",
     "clubs": [
-      "Chelsea",
-      "Benfica"
+      "Benfica",
+      "Chelsea"
     ]
   },
   {
     "name": "Randal Kolo Muani",
     "clubs": [
-      "Tottenham",
-      "Juventus"
+      "Juventus",
+      "Tottenham"
     ]
   },
   {
@@ -10622,87 +22151,169 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "RaphaÃ«l Guerreiro",
+    "name": "Raphael Guerreiro",
     "clubs": [
-      "Bor. Dortmund",
-      "Bayern Munich"
+      "Bayern Munich",
+      "Borussia Dortmund"
     ]
   },
   {
-    "name": "RaphaÃ«l Varane",
+    "name": "Raphael Nya",
     "clubs": [
-      "Real Madrid",
-      "Man Utd"
+      "Paris Saint-Germain",
+      "Wolverhampton"
+    ]
+  },
+  {
+    "name": "Raphael Varane",
+    "clubs": [
+      "Manchester United",
+      "Real Madrid"
     ]
   },
   {
     "name": "Raphinha",
     "clubs": [
       "Barcelona",
-      "Inter"
+      "Inter",
+      "Leeds United"
     ]
   },
   {
     "name": "Rasmus Hojlund",
     "clubs": [
-      "Napoli",
-      "Man Utd"
+      "Manchester United",
+      "Napoli"
     ]
   },
   {
     "name": "Rasmus Kristensen",
     "clubs": [
       "AS Roma",
-      "Ajax"
-    ]
-  },
-  {
-    "name": "Raul de Tomas",
-    "clubs": [
-      "Real Madrid",
-      "Benfica"
+      "Ajax",
+      "Leeds United"
     ]
   },
   {
     "name": "Raul Jimenez",
     "clubs": [
-      "Atletico Madrid",
-      "Benfica"
+      "Atlético Madrid",
+      "Benfica",
+      "Fulham",
+      "Wolverhampton"
+    ]
+  },
+  {
+    "name": "Raul de Tomas",
+    "clubs": [
+      "Benfica",
+      "Real Madrid"
+    ]
+  },
+  {
+    "name": "Ravel Morrison",
+    "clubs": [
+      "Manchester United",
+      "West Ham"
+    ]
+  },
+  {
+    "name": "Rayan Ait-Nouri",
+    "clubs": [
+      "Manchester City",
+      "Wolverhampton"
     ]
   },
   {
     "name": "Rayan Cherki",
     "clubs": [
-      "Man City",
-      "Olymp. Lyon"
+      "Manchester City",
+      "Olympique Lyon"
+    ]
+  },
+  {
+    "name": "Raymond Atteveld",
+    "clubs": [
+      "Everton",
+      "West Ham"
+    ]
+  },
+  {
+    "name": "Rayyan Baniya",
+    "clubs": [
+      "Karagümrük",
+      "Trabzonspor"
+    ]
+  },
+  {
+    "name": "Razundara Tjikuzu",
+    "clubs": [
+      "Kasımpaşa",
+      "Trabzonspor",
+      "Çaykur Rizespor"
+    ]
+  },
+  {
+    "name": "Recep Biler",
+    "clubs": [
+      "Fenerbahçe",
+      "Gaziantepspor"
+    ]
+  },
+  {
+    "name": "Recep Kutun",
+    "clubs": [
+      "Fenerbahçe",
+      "Karagümrük"
     ]
   },
   {
     "name": "Recep Niyaz",
     "clubs": [
+      "Denizlispor",
+      "Eyüpspor",
       "Fenerbahçe",
-      "Denizlispor"
+      "Gaziantep FK",
+      "Samsunspor",
+      "Çaykur Rizespor"
     ]
   },
   {
     "name": "Reece Devine",
     "clubs": [
-      "Man Utd",
-      "Man City"
+      "Manchester City",
+      "Manchester United",
+      "Wolverhampton"
     ]
   },
   {
     "name": "Reece James",
     "clubs": [
       "Chelsea",
-      "Man Utd"
+      "Manchester United",
+      "Sunderland"
     ]
   },
   {
     "name": "Reinier",
     "clubs": [
-      "Bor. Dortmund",
+      "Borussia Dortmund",
       "Real Madrid"
+    ]
+  },
+  {
+    "name": "Reinildo Mandava",
+    "clubs": [
+      "Atlético Madrid",
+      "Sunderland"
+    ]
+  },
+  {
+    "name": "Reiss Nelson",
+    "clubs": [
+      "Arsenal",
+      "Brentford",
+      "Fulham"
     ]
   },
   {
@@ -10713,11 +22324,25 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Remi Matthews",
+    "clubs": [
+      "Crystal Palace",
+      "Sunderland"
+    ]
+  },
+  {
+    "name": "Remi Savage",
+    "clubs": [
+      "Liverpool",
+      "Newcastle United"
+    ]
+  },
+  {
     "name": "Renato Sanches",
     "clubs": [
       "AS Roma",
-      "Benfica",
-      "Bayern Munich"
+      "Bayern Munich",
+      "Benfica"
     ]
   },
   {
@@ -10730,16 +22355,24 @@ export const PLAYERS = [
   {
     "name": "Renny Smith",
     "clubs": [
-      "Chelsea",
-      "Arsenal"
+      "Arsenal",
+      "Burnley",
+      "Chelsea"
+    ]
+  },
+  {
+    "name": "Reno Piscopo",
+    "clubs": [
+      "Inter",
+      "Newcastle United"
     ]
   },
   {
     "name": "Rey Manaj",
     "clubs": [
-      "Sivasspor",
       "Barcelona",
-      "Inter"
+      "Inter",
+      "Sivasspor"
     ]
   },
   {
@@ -10750,85 +22383,196 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Rhys Murphy",
+    "clubs": [
+      "Arsenal",
+      "Brentford"
+    ]
+  },
+  {
+    "name": "Rhys Williams",
+    "clubs": [
+      "Burnley",
+      "Liverpool"
+    ]
+  },
+  {
     "name": "Riad Bajic",
     "clubs": [
-      "Konyaspor",
-      "Başakşehir"
+      "Başakşehir",
+      "Konyaspor"
     ]
   },
   {
     "name": "Ricardinho",
     "clubs": [
-      "FC Porto",
-      "Beşiktaş"
+      "Beşiktaş",
+      "FC Porto"
+    ]
+  },
+  {
+    "name": "Ricardo Alvarez",
+    "clubs": [
+      "Inter",
+      "Sunderland"
     ]
   },
   {
     "name": "Ricardo Farcaş",
     "clubs": [
-      "Arsenal",
-      "Ajax"
+      "Ajax",
+      "Arsenal"
     ]
   },
   {
     "name": "Ricardo Quaresma",
     "clubs": [
-      "Chelsea",
-      "FC Porto",
       "Barcelona",
       "Beşiktaş",
-      "Inter"
+      "Chelsea",
+      "FC Porto",
+      "Inter",
+      "Kasımpaşa"
     ]
   },
   {
     "name": "Ricardo Rocha",
     "clubs": [
-      "Tottenham",
-      "Benfica"
+      "Benfica",
+      "Tottenham"
     ]
   },
   {
     "name": "Ricardo Silva",
     "clubs": [
-      "FC Porto",
-      "Benfica"
+      "Benfica",
+      "FC Porto"
     ]
   },
   {
     "name": "Ricardo Velho",
     "clubs": [
       "FC Porto",
-      "Genclerbirligi"
+      "Gençlerbirliği"
     ]
   },
   {
     "name": "Riccardo Calafiori",
     "clubs": [
-      "Arsenal",
-      "AS Roma"
+      "AS Roma",
+      "Arsenal"
+    ]
+  },
+  {
+    "name": "Richard Cadette",
+    "clubs": [
+      "Bournemouth",
+      "Brentford"
+    ]
+  },
+  {
+    "name": "Richard Dunne",
+    "clubs": [
+      "Aston Villa",
+      "Everton",
+      "Manchester City"
+    ]
+  },
+  {
+    "name": "Richard Eckersley",
+    "clubs": [
+      "Burnley",
+      "Manchester United"
     ]
   },
   {
     "name": "Richard Kingson",
     "clubs": [
       "Antalyaspor",
-      "Galatasaray"
+      "Galatasaray",
+      "Göztepe"
+    ]
+  },
+  {
+    "name": "Richard Lee",
+    "clubs": [
+      "Brentford",
+      "Fulham"
+    ]
+  },
+  {
+    "name": "Richard Nartey",
+    "clubs": [
+      "Burnley",
+      "Chelsea"
+    ]
+  },
+  {
+    "name": "Richard Stearman",
+    "clubs": [
+      "Fulham",
+      "Wolverhampton"
+    ]
+  },
+  {
+    "name": "Richardryan",
+    "clubs": [
+      "Aston Villa",
+      "Leeds United"
+    ]
+  },
+  {
+    "name": "Richarlison",
+    "clubs": [
+      "Everton",
+      "Tottenham"
+    ]
+  },
+  {
+    "name": "Ricky Newman",
+    "clubs": [
+      "Brentford",
+      "Crystal Palace"
     ]
   },
   {
     "name": "Riechedly Bazoer",
     "clubs": [
-      "Konyaspor",
+      "Ajax",
       "FC Porto",
-      "Ajax"
+      "Konyaspor"
     ]
   },
   {
     "name": "Rigobert Song",
     "clubs": [
-      "Trabzonspor",
       "Galatasaray",
-      "Liverpool"
+      "Liverpool",
+      "Trabzonspor",
+      "West Ham"
+    ]
+  },
+  {
+    "name": "Rigoberto Rivas",
+    "clubs": [
+      "Inter",
+      "Kocaelispor"
+    ]
+  },
+  {
+    "name": "Rincon",
+    "clubs": [
+      "Inter",
+      "Samsunspor"
+    ]
+  },
+  {
+    "name": "Rio Ferdinand",
+    "clubs": [
+      "Bournemouth",
+      "Leeds United",
+      "Manchester United",
+      "West Ham"
     ]
   },
   {
@@ -10839,26 +22583,88 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Ritchie De Laet",
+    "clubs": [
+      "Aston Villa",
+      "Manchester United"
+    ]
+  },
+  {
     "name": "Rivaldo",
     "clubs": [
-      "Barcelona",
-      "AC Milan"
+      "AC Milan",
+      "Barcelona"
+    ]
+  },
+  {
+    "name": "Rob Edwards",
+    "clubs": [
+      "Aston Villa",
+      "Crystal Palace",
+      "Wolverhampton"
+    ]
+  },
+  {
+    "name": "Rob Green",
+    "clubs": [
+      "Chelsea",
+      "Leeds United",
+      "West Ham"
+    ]
+  },
+  {
+    "name": "Rob Holding",
+    "clubs": [
+      "Arsenal",
+      "Crystal Palace"
+    ]
+  },
+  {
+    "name": "Rob Milsom",
+    "clubs": [
+      "Brentford",
+      "Fulham"
     ]
   },
   {
     "name": "Robbie Keane",
     "clubs": [
-      "Tottenham",
+      "Aston Villa",
       "Inter",
-      "Liverpool"
+      "Leeds United",
+      "Liverpool",
+      "Tottenham",
+      "West Ham",
+      "Wolverhampton"
+    ]
+  },
+  {
+    "name": "Robbie Savage",
+    "clubs": [
+      "Brighton",
+      "Manchester United"
+    ]
+  },
+  {
+    "name": "Robbielake",
+    "clubs": [
+      "Burnley",
+      "Leeds United"
+    ]
+  },
+  {
+    "name": "Robbierady",
+    "clubs": [
+      "Bournemouth",
+      "Burnley"
     ]
   },
   {
     "name": "Robert Enke",
     "clubs": [
-      "Fenerbahçe",
       "Barcelona",
-      "Benfica"
+      "Benfica",
+      "Fenerbahçe"
     ]
   },
   {
@@ -10871,42 +22677,81 @@ export const PLAYERS = [
   {
     "name": "Robert Kovac",
     "clubs": [
-      "Bor. Dortmund",
-      "Juventus",
-      "Bayern Munich"
+      "Bayern Munich",
+      "Borussia Dortmund",
+      "Juventus"
     ]
   },
   {
     "name": "Robert Lewandowski",
     "clubs": [
-      "Bor. Dortmund",
       "Barcelona",
-      "Bayern Munich"
+      "Bayern Munich",
+      "Borussia Dortmund"
+    ]
+  },
+  {
+    "name": "Robert Pires",
+    "clubs": [
+      "Arsenal",
+      "Aston Villa"
+    ]
+  },
+  {
+    "name": "Robert Sanchez",
+    "clubs": [
+      "Brighton",
+      "Chelsea"
+    ]
+  },
+  {
+    "name": "Robert Snodgrass",
+    "clubs": [
+      "Aston Villa",
+      "Leeds United",
+      "West Ham"
     ]
   },
   {
     "name": "Roberto",
     "clubs": [
+      "Atlético Madrid",
+      "Benfica",
       "FC Porto",
-      "Atletico Madrid",
       "Inter",
-      "Benfica"
+      "West Ham"
     ]
   },
   {
     "name": "Roberto Carlos",
     "clubs": [
       "Fenerbahçe",
-      "Real Madrid",
-      "Inter"
+      "Inter",
+      "Real Madrid"
     ]
   },
   {
     "name": "Roberto Soldado",
     "clubs": [
-      "Tottenham",
       "Fenerbahçe",
-      "Real Madrid"
+      "Real Madrid",
+      "Tottenham"
+    ]
+  },
+  {
+    "name": "Robin Olsen",
+    "clubs": [
+      "AS Roma",
+      "Aston Villa",
+      "Everton"
+    ]
+  },
+  {
+    "name": "Robin Yalçın",
+    "clubs": [
+      "Eyüpspor",
+      "Sivasspor",
+      "Çaykur Rizespor"
     ]
   },
   {
@@ -10914,170 +22759,342 @@ export const PLAYERS = [
     "clubs": [
       "Arsenal",
       "Fenerbahçe",
-      "Man Utd"
+      "Manchester United"
     ]
   },
   {
     "name": "Robinho",
     "clubs": [
-      "Sivasspor",
-      "Başakşehir",
       "AC Milan",
+      "Başakşehir",
+      "Manchester City",
       "Real Madrid",
-      "Man City"
+      "Sivasspor"
     ]
   },
   {
     "name": "Rochinha",
     "clubs": [
+      "Benfica",
       "FC Porto",
-      "Benfica"
+      "Kasımpaşa"
+    ]
+  },
+  {
+    "name": "Roderick Miranda",
+    "clubs": [
+      "Benfica",
+      "Gaziantep FK",
+      "Wolverhampton"
     ]
   },
   {
     "name": "Rodri",
     "clubs": [
-      "Atletico Madrid",
-      "Real Madrid",
+      "Atlético Madrid",
       "Benfica",
-      "Man City"
+      "Manchester City",
+      "Real Madrid"
+    ]
+  },
+  {
+    "name": "Rodrigo",
+    "clubs": [
+      "Benfica",
+      "Leeds United"
     ]
   },
   {
     "name": "Rodrigo Bentancur",
     "clubs": [
-      "Tottenham",
-      "Juventus"
+      "Juventus",
+      "Tottenham"
     ]
   },
   {
     "name": "Rodrigo Conceiçao",
     "clubs": [
-      "FC Porto",
-      "Benfica"
+      "Benfica",
+      "FC Porto"
     ]
   },
   {
     "name": "Rodrigo Defendi",
     "clubs": [
-      "Tottenham",
-      "AS Roma"
+      "AS Roma",
+      "Tottenham"
+    ]
+  },
+  {
+    "name": "Rodrigo Gomes",
+    "clubs": [
+      "Benfica",
+      "Wolverhampton"
+    ]
+  },
+  {
+    "name": "Rodrigo Riquelme",
+    "clubs": [
+      "Atlético Madrid",
+      "Bournemouth"
     ]
   },
   {
     "name": "Rodrigo Rodrigues",
     "clubs": [
-      "Real Madrid",
-      "Benfica"
+      "Benfica",
+      "Real Madrid"
+    ]
+  },
+  {
+    "name": "Rodrigo Tabata",
+    "clubs": [
+      "Beşiktaş",
+      "Gaziantepspor"
+    ]
+  },
+  {
+    "name": "Roger Johnson",
+    "clubs": [
+      "West Ham",
+      "Wolverhampton"
     ]
   },
   {
     "name": "Rogerio",
     "clubs": [
-      "Juventus",
-      "Inter"
+      "Inter",
+      "Juventus"
+    ]
+  },
+  {
+    "name": "Rohan Ince",
+    "clubs": [
+      "Brighton",
+      "Chelsea",
+      "Fulham"
     ]
   },
   {
     "name": "Rohan Ricketts",
     "clubs": [
+      "Arsenal",
       "Tottenham",
-      "Arsenal"
+      "Wolverhampton"
+    ]
+  },
+  {
+    "name": "Romain Saiss",
+    "clubs": [
+      "Beşiktaş",
+      "Wolverhampton"
+    ]
+  },
+  {
+    "name": "Romaine Mundle",
+    "clubs": [
+      "Sunderland",
+      "Tottenham"
+    ]
+  },
+  {
+    "name": "Romal Palmer",
+    "clubs": [
+      "Göztepe",
+      "Manchester City"
+    ]
+  },
+  {
+    "name": "Romaric Yapi",
+    "clubs": [
+      "Brighton",
+      "Paris Saint-Germain"
     ]
   },
   {
     "name": "Romeo Lavia",
     "clubs": [
       "Chelsea",
-      "Man City"
+      "Manchester City"
+    ]
+  },
+  {
+    "name": "Ron-Thorben Hoffmann",
+    "clubs": [
+      "Bayern Munich",
+      "Sunderland"
     ]
   },
   {
     "name": "Ronald de Boer",
     "clubs": [
-      "Barcelona",
-      "Ajax"
+      "Ajax",
+      "Barcelona"
     ]
   },
   {
     "name": "Ronaldinho",
     "clubs": [
-      "Barcelona",
-      "AC Milan"
+      "AC Milan",
+      "Barcelona"
     ]
   },
   {
     "name": "Ronaldo",
     "clubs": [
-      "Barcelona",
-      "Beşiktaş",
       "AC Milan",
-      "Real Madrid",
+      "Barcelona",
+      "Benfica",
+      "Beşiktaş",
       "Inter",
-      "Benfica"
+      "Real Madrid"
+    ]
+  },
+  {
+    "name": "Ronnie Stutter",
+    "clubs": [
+      "Chelsea",
+      "West Ham"
     ]
   },
   {
     "name": "Ronny Johnsen",
     "clubs": [
+      "Aston Villa",
       "Beşiktaş",
-      "Man Utd"
+      "Manchester United",
+      "Newcastle United"
     ]
   },
   {
     "name": "Rony Lopes",
     "clubs": [
+      "Alanyaspor",
       "Benfica",
-      "Man City"
+      "Manchester City"
+    ]
+  },
+  {
+    "name": "Roque Junior",
+    "clubs": [
+      "AC Milan",
+      "Leeds United"
     ]
   },
   {
     "name": "Roque Santa Cruz",
     "clubs": [
       "Bayern Munich",
-      "Man City"
+      "Manchester City"
+    ]
+  },
+  {
+    "name": "Rosaire Longelo",
+    "clubs": [
+      "Newcastle United",
+      "West Ham"
+    ]
+  },
+  {
+    "name": "Ross McCormack",
+    "clubs": [
+      "Aston Villa",
+      "Fulham",
+      "Leeds United"
+    ]
+  },
+  {
+    "name": "Ross Turnbull",
+    "clubs": [
+      "Chelsea",
+      "Leeds United"
+    ]
+  },
+  {
+    "name": "Rossarkley",
+    "clubs": [
+      "Aston Villa",
+      "Everton",
+      "Leeds United"
+    ]
+  },
+  {
+    "name": "Roy Carroll",
+    "clubs": [
+      "Manchester United",
+      "West Ham"
+    ]
+  },
+  {
+    "name": "Royston Drenthe",
+    "clubs": [
+      "Everton",
+      "Real Madrid"
+    ]
+  },
+  {
+    "name": "Ruan",
+    "clubs": [
+      "Alanyaspor",
+      "Göztepe"
     ]
   },
   {
     "name": "Ruben Cardoso",
     "clubs": [
-      "FC Porto",
-      "Benfica"
+      "Benfica",
+      "FC Porto"
     ]
   },
   {
     "name": "Ruben Dias",
     "clubs": [
       "Benfica",
-      "Man City"
+      "Manchester City"
     ]
   },
   {
     "name": "Ruben Loftus-Cheek",
     "clubs": [
+      "AC Milan",
       "Chelsea",
-      "AC Milan"
+      "Crystal Palace",
+      "Fulham"
+    ]
+  },
+  {
+    "name": "Ruben Neves",
+    "clubs": [
+      "FC Porto",
+      "Wolverhampton"
     ]
   },
   {
     "name": "Ruben Olivera",
     "clubs": [
-      "Juventus",
-      "Atletico Madrid"
+      "Atlético Madrid",
+      "Juventus"
     ]
   },
   {
     "name": "Ruben Providence",
     "clubs": [
       "AS Roma",
-      "PSG"
+      "Paris Saint-Germain"
     ]
   },
   {
     "name": "Ruben Sobrino",
     "clubs": [
-      "Real Madrid",
-      "Man City"
+      "Manchester City",
+      "Real Madrid"
+    ]
+  },
+  {
+    "name": "Ruben Vinagre",
+    "clubs": [
+      "Everton",
+      "Wolverhampton"
     ]
   },
   {
@@ -11088,6 +23105,13 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Ruel Fox",
+    "clubs": [
+      "Newcastle United",
+      "Tottenham"
+    ]
+  },
+  {
     "name": "Rui Costa",
     "clubs": [
       "AC Milan",
@@ -11095,34 +23119,88 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Runar Alex Runarsson",
+    "clubs": [
+      "Alanyaspor",
+      "Arsenal"
+    ]
+  },
+  {
+    "name": "Russell Anderson",
+    "clubs": [
+      "Burnley",
+      "Sunderland"
+    ]
+  },
+  {
     "name": "Ruud van Nistelrooy",
     "clubs": [
-      "Real Madrid",
-      "Man Utd"
+      "Manchester United",
+      "Real Madrid"
     ]
   },
   {
     "name": "Ryan Babel",
     "clubs": [
-      "Galatasaray",
-      "Beşiktaş",
       "Ajax",
+      "Beşiktaş",
+      "Eyüpspor",
+      "Galatasaray",
+      "Kasımpaşa",
       "Liverpool"
+    ]
+  },
+  {
+    "name": "Ryan Donk",
+    "clubs": [
+      "Galatasaray",
+      "Kasımpaşa"
+    ]
+  },
+  {
+    "name": "Ryan Fraser",
+    "clubs": [
+      "Bournemouth",
+      "Newcastle United"
+    ]
+  },
+  {
+    "name": "Ryan Fredericks",
+    "clubs": [
+      "Bournemouth",
+      "Brentford",
+      "Fulham",
+      "Tottenham",
+      "West Ham"
+    ]
+  },
+  {
+    "name": "Ryan Garry",
+    "clubs": [
+      "Arsenal",
+      "Bournemouth"
     ]
   },
   {
     "name": "Ryan Giggs",
     "clubs": [
-      "Man Utd",
-      "Man City"
+      "Manchester City",
+      "Manchester United"
     ]
   },
   {
     "name": "Ryan Gravenberch",
     "clubs": [
       "Ajax",
-      "Liverpool",
-      "Bayern Munich"
+      "Bayern Munich",
+      "Liverpool"
+    ]
+  },
+  {
+    "name": "Ryan Hall",
+    "clubs": [
+      "Crystal Palace",
+      "Leeds United"
     ]
   },
   {
@@ -11136,80 +23214,178 @@ export const PLAYERS = [
     "name": "Ryan McAidoo",
     "clubs": [
       "Chelsea",
-      "Man City"
+      "Manchester City"
+    ]
+  },
+  {
+    "name": "Ryan McGivern",
+    "clubs": [
+      "Crystal Palace",
+      "Manchester City"
+    ]
+  },
+  {
+    "name": "Ryan Mendes",
+    "clubs": [
+      "Karagümrük",
+      "Kayserispor",
+      "Kocaelispor"
+    ]
+  },
+  {
+    "name": "Ryan Noble",
+    "clubs": [
+      "Burnley",
+      "Sunderland"
+    ]
+  },
+  {
+    "name": "Ryan Sessegnon",
+    "clubs": [
+      "Fulham",
+      "Tottenham"
+    ]
+  },
+  {
+    "name": "Ryan Tunnicliffe",
+    "clubs": [
+      "Fulham",
+      "Manchester United"
+    ]
+  },
+  {
+    "name": "Ryan Williams",
+    "clubs": [
+      "Brentford",
+      "Fulham"
+    ]
+  },
+  {
+    "name": "Ryanertrand",
+    "clubs": [
+      "Aston Villa",
+      "Bournemouth"
+    ]
+  },
+  {
+    "name": "Rydell Poepon",
+    "clubs": [
+      "Ajax",
+      "Gaziantep FK"
     ]
   },
   {
     "name": "Rüştü Reçber",
     "clubs": [
-      "Fenerbahçe",
       "Antalyaspor",
       "Barcelona",
-      "Beşiktaş"
+      "Beşiktaş",
+      "Fenerbahçe"
+    ]
+  },
+  {
+    "name": "Saban Genisyürek",
+    "clubs": [
+      "Denizlispor",
+      "Göztepe"
     ]
   },
   {
     "name": "Sacha Boey",
     "clubs": [
-      "Galatasaray",
-      "Bayern Munich"
+      "Bayern Munich",
+      "Galatasaray"
+    ]
+  },
+  {
+    "name": "Sacit Serkan Erok",
+    "clubs": [
+      "Beşiktaş",
+      "Kasımpaşa"
     ]
   },
   {
     "name": "Sadio Mane",
     "clubs": [
-      "Liverpool",
-      "Bayern Munich"
+      "Bayern Munich",
+      "Liverpool"
     ]
   },
   {
     "name": "Sadık Çiftpınar",
     "clubs": [
       "Fenerbahçe",
-      "Galatasaray"
+      "Galatasaray",
+      "Kasımpaşa"
     ]
   },
   {
     "name": "Saffet Akyüz",
     "clubs": [
-      "Trabzonspor",
       "Antalyaspor",
-      "Galatasaray"
+      "Galatasaray",
+      "Kocaelispor",
+      "Trabzonspor",
+      "Çaykur Rizespor"
+    ]
+  },
+  {
+    "name": "Saheed Olagunju",
+    "clubs": [
+      "Chelsea",
+      "Wolverhampton"
+    ]
+  },
+  {
+    "name": "Saidenrahma",
+    "clubs": [
+      "Brentford",
+      "West Ham"
     ]
   },
   {
     "name": "Saidy Janko",
     "clubs": [
       "FC Porto",
-      "Man Utd"
+      "Manchester United"
     ]
   },
   {
     "name": "Sakıb Aytaç",
     "clubs": [
-      "Kayserispor",
-      "Genclerbirligi",
       "Antalyaspor",
-      "Denizlispor"
+      "Denizlispor",
+      "Gençlerbirliği",
+      "Kasımpaşa",
+      "Kayserispor"
     ]
   },
   {
     "name": "Salih Dursun",
     "clubs": [
-      "Kayserispor",
-      "Trabzonspor",
-      "Genclerbirligi",
       "Antalyaspor",
-      "Galatasaray"
+      "Galatasaray",
+      "Gençlerbirliği",
+      "Karagümrük",
+      "Kayserispor",
+      "Trabzonspor"
     ]
   },
   {
     "name": "Salih Uçan",
     "clubs": [
-      "Fenerbahçe",
+      "AS Roma",
+      "Alanyaspor",
       "Başakşehir",
       "Beşiktaş",
-      "AS Roma"
+      "Fenerbahçe"
+    ]
+  },
+  {
+    "name": "Salomon Rondon",
+    "clubs": [
+      "Everton",
+      "Newcastle United"
     ]
   },
   {
@@ -11222,23 +23398,109 @@ export const PLAYERS = [
   {
     "name": "Salvatore Fresi",
     "clubs": [
-      "Juventus",
       "Inter",
+      "Juventus",
       "Napoli"
+    ]
+  },
+  {
+    "name": "Salvatore Sirigu",
+    "clubs": [
+      "Karagümrük",
+      "Napoli"
+    ]
+  },
+  {
+    "name": "Sam Greenwood",
+    "clubs": [
+      "Arsenal",
+      "Leeds United",
+      "Sunderland"
+    ]
+  },
+  {
+    "name": "Sam Griffiths",
+    "clubs": [
+      "Brentford",
+      "Wolverhampton"
     ]
   },
   {
     "name": "Sam Hart",
     "clubs": [
       "Liverpool",
-      "Man Utd"
+      "Manchester United"
+    ]
+  },
+  {
+    "name": "Sam Johnstone",
+    "clubs": [
+      "Aston Villa",
+      "Crystal Palace",
+      "Manchester United",
+      "Wolverhampton"
+    ]
+  },
+  {
+    "name": "Sam Larsson",
+    "clubs": [
+      "Antalyaspor",
+      "Karagümrük"
+    ]
+  },
+  {
+    "name": "Sam Robinson",
+    "clubs": [
+      "Leeds United",
+      "Manchester City"
+    ]
+  },
+  {
+    "name": "Sam Vokes",
+    "clubs": [
+      "Bournemouth",
+      "Brighton",
+      "Burnley",
+      "Leeds United",
+      "Wolverhampton"
+    ]
+  },
+  {
+    "name": "Sam Williams",
+    "clubs": [
+      "Aston Villa",
+      "Brentford",
+      "Brighton"
+    ]
+  },
+  {
+    "name": "Samaldock",
+    "clubs": [
+      "Brighton",
+      "West Ham"
+    ]
+  },
+  {
+    "name": "Samed Kaya",
+    "clubs": [
+      "Göztepe",
+      "Kayserispor",
+      "Kocaelispor"
+    ]
+  },
+  {
+    "name": "Samed Onur",
+    "clubs": [
+      "Gençlerbirliği",
+      "Karagümrük"
     ]
   },
   {
     "name": "Samet Akaydin",
     "clubs": [
       "Fenerbahçe",
-      "Trabzonspor"
+      "Trabzonspor",
+      "Çaykur Rizespor"
     ]
   },
   {
@@ -11249,18 +23511,42 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Samir Nasri",
+    "name": "Samican Keskin",
+    "clubs": [
+      "Eyüpspor",
+      "Gaziantep FK"
+    ]
+  },
+  {
+    "name": "Samir Carruthers",
     "clubs": [
       "Arsenal",
+      "Aston Villa"
+    ]
+  },
+  {
+    "name": "Samir Nasri",
+    "clubs": [
       "Antalyaspor",
-      "Man City"
+      "Arsenal",
+      "Manchester City",
+      "West Ham"
     ]
   },
   {
     "name": "Samu Saiz",
     "clubs": [
-      "Sivasspor",
-      "Real Madrid"
+      "Eyüpspor",
+      "Leeds United",
+      "Real Madrid",
+      "Sivasspor"
+    ]
+  },
+  {
+    "name": "Samuel Chukwueze",
+    "clubs": [
+      "AC Milan",
+      "Fulham"
     ]
   },
   {
@@ -11273,14 +23559,15 @@ export const PLAYERS = [
   {
     "name": "Samuel Holmen",
     "clubs": [
-      "Konyaspor",
+      "Başakşehir",
       "Fenerbahçe",
-      "Başakşehir"
+      "Konyaspor"
     ]
   },
   {
     "name": "Samuel Iling-Junior",
     "clubs": [
+      "Aston Villa",
       "Chelsea",
       "Juventus"
     ]
@@ -11296,116 +23583,259 @@ export const PLAYERS = [
   {
     "name": "Samuel Moutoussamy",
     "clubs": [
-      "Sivasspor",
-      "Olymp. Lyon"
+      "Olympique Lyon",
+      "Sivasspor"
     ]
   },
   {
     "name": "Samuel Umtiti",
     "clubs": [
       "Barcelona",
-      "Olymp. Lyon"
+      "Olympique Lyon"
     ]
   },
   {
     "name": "Samuele Dalla Bona",
     "clubs": [
-      "Chelsea",
       "AC Milan",
+      "Chelsea",
       "Napoli"
+    ]
+  },
+  {
+    "name": "Samyram",
+    "clubs": [
+      "Leeds United",
+      "West Ham"
+    ]
+  },
+  {
+    "name": "Sanchez Watt",
+    "clubs": [
+      "Arsenal",
+      "Leeds United"
+    ]
+  },
+  {
+    "name": "Sandererge",
+    "clubs": [
+      "Burnley",
+      "Fulham"
     ]
   },
   {
     "name": "Sandro",
     "clubs": [
-      "Tottenham",
       "Antalyaspor",
-      "Real Madrid"
+      "Real Madrid",
+      "Tottenham"
     ]
   },
   {
     "name": "Sandro Mendonça",
     "clubs": [
-      "Sivasspor",
-      "Genclerbirligi"
+      "Gençlerbirliği",
+      "Sivasspor"
+    ]
+  },
+  {
+    "name": "Sandro Souza",
+    "clubs": [
+      "Gençlerbirliği",
+      "Samsunspor"
+    ]
+  },
+  {
+    "name": "Sandro Tonali",
+    "clubs": [
+      "AC Milan",
+      "Newcastle United"
+    ]
+  },
+  {
+    "name": "Sanharib Malki",
+    "clubs": [
+      "Karagümrük",
+      "Kasımpaşa"
     ]
   },
   {
     "name": "Santiago Ezquerro",
     "clubs": [
-      "Barcelona",
-      "Atletico Madrid"
+      "Atlético Madrid",
+      "Barcelona"
     ]
   },
   {
     "name": "Santiago Solari",
     "clubs": [
-      "Atletico Madrid",
-      "Real Madrid",
-      "Inter"
+      "Atlético Madrid",
+      "Inter",
+      "Real Madrid"
     ]
   },
   {
-    "name": "Saul Ã‘iguez",
+    "name": "Sasa Ilic",
     "clubs": [
-      "Chelsea",
-      "Atletico Madrid"
+      "Leeds United",
+      "West Ham"
+    ]
+  },
+  {
+    "name": "Saul i‘iguez",
+    "clubs": [
+      "Atlético Madrid",
+      "Chelsea"
+    ]
+  },
+  {
+    "name": "Savaş Esen",
+    "clubs": [
+      "Eyüpspor",
+      "Samsunspor"
+    ]
+  },
+  {
+    "name": "Savaş Kaya",
+    "clubs": [
+      "Beşiktaş",
+      "Kocaelispor"
     ]
   },
   {
     "name": "Savaş Polat",
     "clubs": [
-      "Konyaspor",
-      "Fenerbahçe"
+      "Fenerbahçe",
+      "Konyaspor"
     ]
   },
   {
     "name": "Scott Carson",
     "clubs": [
+      "Aston Villa",
+      "Leeds United",
       "Liverpool",
-      "Man City"
+      "Manchester City"
+    ]
+  },
+  {
+    "name": "Scott Flinders",
+    "clubs": [
+      "Brighton",
+      "Crystal Palace"
+    ]
+  },
+  {
+    "name": "Scott Golbourne",
+    "clubs": [
+      "Bournemouth",
+      "Wolverhampton"
+    ]
+  },
+  {
+    "name": "Scott Hogan",
+    "clubs": [
+      "Aston Villa",
+      "Brentford"
+    ]
+  },
+  {
+    "name": "Scott Malone",
+    "clubs": [
+      "Bournemouth",
+      "Fulham",
+      "Wolverhampton"
     ]
   },
   {
     "name": "Scott McTominay",
     "clubs": [
-      "Napoli",
-      "Man Utd"
+      "Manchester United",
+      "Napoli"
     ]
   },
   {
     "name": "Scott Minto",
     "clubs": [
+      "Benfica",
       "Chelsea",
-      "Benfica"
+      "West Ham"
     ]
   },
   {
     "name": "Scott Parker",
     "clubs": [
       "Chelsea",
-      "Tottenham"
+      "Fulham",
+      "Newcastle United",
+      "Tottenham",
+      "West Ham"
     ]
   },
   {
     "name": "Scott Sinclair",
     "clubs": [
+      "Aston Villa",
       "Chelsea",
-      "Man City"
+      "Crystal Palace",
+      "Manchester City"
     ]
   },
   {
     "name": "Scott Wootton",
     "clubs": [
+      "Leeds United",
       "Liverpool",
-      "Man Utd"
+      "Manchester United"
+    ]
+  },
+  {
+    "name": "Sean Davis",
+    "clubs": [
+      "Fulham",
+      "Tottenham"
+    ]
+  },
+  {
+    "name": "Sean Doherty",
+    "clubs": [
+      "Everton",
+      "Fulham"
+    ]
+  },
+  {
+    "name": "Sean Longstaff",
+    "clubs": [
+      "Leeds United",
+      "Newcastle United"
+    ]
+  },
+  {
+    "name": "Sean McDermott",
+    "clubs": [
+      "Arsenal",
+      "Leeds United"
+    ]
+  },
+  {
+    "name": "Sebastian Coates",
+    "clubs": [
+      "Liverpool",
+      "Sunderland"
+    ]
+  },
+  {
+    "name": "Sebastian Larsson",
+    "clubs": [
+      "Arsenal",
+      "Sunderland"
     ]
   },
   {
     "name": "Sebastian Rode",
     "clubs": [
-      "Bor. Dortmund",
-      "Bayern Munich"
+      "Bayern Munich",
+      "Borussia Dortmund"
     ]
   },
   {
@@ -11416,71 +23846,128 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Sebastien Carole",
+    "clubs": [
+      "Brighton",
+      "Leeds United",
+      "West Ham"
+    ]
+  },
+  {
     "name": "Sebastien Corchia",
     "clubs": [
       "Benfica",
-      "PSG"
+      "Paris Saint-Germain"
     ]
   },
   {
     "name": "Sebastien Haller",
     "clubs": [
-      "Bor. Dortmund",
-      "Ajax"
+      "Ajax",
+      "Borussia Dortmund",
+      "West Ham"
+    ]
+  },
+  {
+    "name": "Sebastienassong",
+    "clubs": [
+      "Newcastle United",
+      "Wolverhampton"
     ]
   },
   {
     "name": "Sedat Ağçay",
     "clubs": [
-      "Konyaspor",
+      "Antalyaspor",
       "Başakşehir",
-      "Genclerbirligi",
-      "Antalyaspor"
+      "Gaziantepspor",
+      "Gençlerbirliği",
+      "Konyaspor"
     ]
   },
   {
     "name": "Sedat Bayrak",
     "clubs": [
+      "Gençlerbirliği",
       "Sivasspor",
-      "Trabzonspor",
-      "Genclerbirligi"
+      "Trabzonspor"
+    ]
+  },
+  {
+    "name": "Sedat Cengiz",
+    "clubs": [
+      "Denizlispor",
+      "Karagümrük"
+    ]
+  },
+  {
+    "name": "Sedat Debreli",
+    "clubs": [
+      "Eyüpspor",
+      "Galatasaray",
+      "Çaykur Rizespor"
     ]
   },
   {
     "name": "Sedat Şahintürk",
     "clubs": [
-      "Denizlispor",
-      "Beşiktaş"
+      "Beşiktaş",
+      "Denizlispor"
     ]
   },
   {
     "name": "Seddar Karaman",
     "clubs": [
-      "Konyaspor",
       "Antalyaspor",
-      "Denizlispor"
+      "Denizlispor",
+      "Konyaspor"
     ]
   },
   {
     "name": "Sefa Yılmaz",
     "clubs": [
+      "Alanyaspor",
+      "Gaziantepspor",
+      "Gençlerbirliği",
       "Kayserispor",
       "Sivasspor",
       "Trabzonspor",
-      "Genclerbirligi"
+      "Çaykur Rizespor"
+    ]
+  },
+  {
+    "name": "Segundo Castillo",
+    "clubs": [
+      "Everton",
+      "Wolverhampton"
+    ]
+  },
+  {
+    "name": "Seko Fofana",
+    "clubs": [
+      "Fulham",
+      "Manchester City"
     ]
   },
   {
     "name": "Selahattin Kınalı",
     "clubs": [
-      "Trabzonspor",
       "Antalyaspor",
-      "Denizlispor"
+      "Denizlispor",
+      "Trabzonspor"
+    ]
+  },
+  {
+    "name": "Selim Ay",
+    "clubs": [
+      "Konyaspor",
+      "Çaykur Rizespor"
     ]
   },
   {
     "name": "Selim Dilli",
     "clubs": [
+      "Kasımpaşa",
       "Konyaspor",
       "Trabzonspor"
     ]
@@ -11488,120 +23975,178 @@ export const PLAYERS = [
   {
     "name": "Selim Teber",
     "clubs": [
+      "Denizlispor",
       "Kayserispor",
-      "Denizlispor"
+      "Samsunspor"
+    ]
+  },
+  {
+    "name": "Selçuk Alibaz",
+    "clubs": [
+      "Karagümrük",
+      "Konyaspor"
     ]
   },
   {
     "name": "Selçuk Şahin",
     "clubs": [
       "Fenerbahçe",
-      "Genclerbirligi"
+      "Gençlerbirliği",
+      "Göztepe"
     ]
   },
   {
     "name": "Semavi Uzun",
     "clubs": [
+      "Denizlispor",
+      "Gaziantepspor",
       "Kayserispor",
       "Konyaspor",
-      "Trabzonspor",
-      "Denizlispor"
+      "Trabzonspor"
     ]
   },
   {
     "name": "Semih Beyaz",
     "clubs": [
+      "Beşiktaş",
       "Fenerbahçe",
-      "Beşiktaş"
+      "Kasımpaşa"
+    ]
+  },
+  {
+    "name": "Semih Güler",
+    "clubs": [
+      "Eyüpspor",
+      "Gaziantep FK"
+    ]
+  },
+  {
+    "name": "Semih Karadeniz",
+    "clubs": [
+      "Kocaelispor",
+      "Trabzonspor"
+    ]
+  },
+  {
+    "name": "Semih Kaya",
+    "clubs": [
+      "Galatasaray",
+      "Gaziantepspor"
     ]
   },
   {
     "name": "Semih Şentürk",
     "clubs": [
-      "Fenerbahçe",
+      "Antalyaspor",
       "Başakşehir",
-      "Antalyaspor"
+      "Fenerbahçe"
     ]
   },
   {
     "name": "Sercan Yıldırım",
     "clubs": [
-      "Sivasspor",
-      "Galatasaray"
+      "Galatasaray",
+      "Karagümrük",
+      "Sivasspor"
     ]
   },
   {
     "name": "Serdal Boyraz",
     "clubs": [
-      "Kayserispor",
-      "Denizlispor"
+      "Denizlispor",
+      "Kayserispor"
     ]
   },
   {
     "name": "Serdar Akdoğan",
     "clubs": [
-      "Sivasspor",
-      "Galatasaray"
+      "Alanyaspor",
+      "Galatasaray",
+      "Kasımpaşa",
+      "Sivasspor"
     ]
   },
   {
     "name": "Serdar Dursun",
     "clubs": [
+      "Alanyaspor",
+      "Denizlispor",
       "Fenerbahçe",
-      "Denizlispor"
+      "Karagümrük",
+      "Kocaelispor"
     ]
   },
   {
     "name": "Serdar Eylik",
     "clubs": [
       "Denizlispor",
-      "Galatasaray"
+      "Galatasaray",
+      "Samsunspor"
     ]
   },
   {
     "name": "Serdar Kulbilge",
     "clubs": [
-      "Kayserispor",
       "Fenerbahçe",
-      "Genclerbirligi"
+      "Gaziantepspor",
+      "Gençlerbirliği",
+      "Kayserispor",
+      "Kocaelispor"
+    ]
+  },
+  {
+    "name": "Serdar Kurtuluş",
+    "clubs": [
+      "Beşiktaş",
+      "Gaziantepspor"
     ]
   },
   {
     "name": "Serdar Saatçı",
     "clubs": [
-      "Trabzonspor",
-      "Beşiktaş"
+      "Beşiktaş",
+      "Trabzonspor"
     ]
   },
   {
     "name": "Serdar Taşçı",
     "clubs": [
-      "Başakşehir",
-      "Bayern Munich"
+      "Bayern Munich",
+      "Başakşehir"
+    ]
+  },
+  {
+    "name": "Serdar Özbayraktar",
+    "clubs": [
+      "Gaziantepspor",
+      "Gençlerbirliği",
+      "Göztepe",
+      "Karagümrük"
     ]
   },
   {
     "name": "Serdar Özkan",
     "clubs": [
-      "Sivasspor",
-      "Genclerbirligi",
       "Antalyaspor",
+      "Beşiktaş",
       "Galatasaray",
-      "Beşiktaş"
+      "Gençlerbirliği",
+      "Samsunspor",
+      "Sivasspor"
     ]
   },
   {
     "name": "Sereno",
     "clubs": [
-      "Kayserispor",
-      "FC Porto"
+      "FC Porto",
+      "Kayserispor"
     ]
   },
   {
     "name": "Serge Aurier",
     "clubs": [
-      "Tottenham",
-      "Galatasaray"
+      "Galatasaray",
+      "Tottenham"
     ]
   },
   {
@@ -11612,28 +24157,36 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Sergi Canos",
+    "clubs": [
+      "Brentford",
+      "Liverpool"
+    ]
+  },
+  {
     "name": "Serginho",
     "clubs": [
-      "FC Porto",
       "AC Milan",
+      "Benfica",
+      "FC Porto",
       "Inter",
-      "Benfica"
+      "Karagümrük"
     ]
   },
   {
     "name": "Sergino Dest",
     "clubs": [
-      "Barcelona",
       "AC Milan",
-      "Ajax"
+      "Ajax",
+      "Barcelona"
     ]
   },
   {
     "name": "Sergio Agüero",
     "clubs": [
+      "Atlético Madrid",
       "Barcelona",
-      "Atletico Madrid",
-      "Man City"
+      "Manchester City"
     ]
   },
   {
@@ -11644,214 +24197,444 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Sergio de Windt",
-    "clubs": [
-      "Juventus",
-      "Ajax"
-    ]
-  },
-  {
     "name": "Sergio Gomez",
     "clubs": [
-      "Bor. Dortmund",
-      "Man City"
+      "Borussia Dortmund",
+      "Manchester City"
     ]
   },
   {
     "name": "Sergio Oliveira",
     "clubs": [
+      "AS Roma",
       "FC Porto",
-      "Galatasaray",
-      "AS Roma"
+      "Galatasaray"
     ]
   },
   {
     "name": "Sergio Porrini",
     "clubs": [
-      "Juventus",
-      "AC Milan"
+      "AC Milan",
+      "Juventus"
     ]
   },
   {
     "name": "Sergio Reguilon",
     "clubs": [
-      "Tottenham",
-      "Atletico Madrid",
+      "Atlético Madrid",
+      "Brentford",
+      "Manchester United",
       "Real Madrid",
-      "Man Utd"
+      "Tottenham"
+    ]
+  },
+  {
+    "name": "Sergio de Windt",
+    "clubs": [
+      "Ajax",
+      "Juventus"
+    ]
+  },
+  {
+    "name": "Serhat Akyüz",
+    "clubs": [
+      "Eyüpspor",
+      "Konyaspor",
+      "Çaykur Rizespor"
     ]
   },
   {
     "name": "Serhat Akın",
     "clubs": [
-      "Konyaspor",
-      "Fenerbahçe"
+      "Fenerbahçe",
+      "Kocaelispor",
+      "Konyaspor"
     ]
   },
   {
     "name": "Serkan Atak",
     "clubs": [
       "Antalyaspor",
-      "Denizlispor"
+      "Denizlispor",
+      "Gaziantepspor",
+      "Çaykur Rizespor"
     ]
   },
   {
     "name": "Serkan Balcı",
     "clubs": [
+      "Antalyaspor",
       "Fenerbahçe",
-      "Trabzonspor",
-      "Genclerbirligi",
-      "Antalyaspor"
+      "Gençlerbirliği",
+      "Trabzonspor"
     ]
   },
   {
     "name": "Serkan Damla",
     "clubs": [
+      "Gençlerbirliği",
+      "Kayserispor"
+    ]
+  },
+  {
+    "name": "Serkan Karababa",
+    "clubs": [
       "Kayserispor",
-      "Genclerbirligi"
+      "Samsunspor"
     ]
   },
   {
     "name": "Serkan Kurtuluş",
     "clubs": [
-      "Kayserispor",
-      "Genclerbirligi",
-      "Galatasaray"
+      "Galatasaray",
+      "Gençlerbirliği",
+      "Göztepe",
+      "Kayserispor"
     ]
   },
   {
     "name": "Serkan Kırıntılı",
     "clubs": [
+      "Alanyaspor",
+      "Fenerbahçe",
       "Konyaspor",
-      "Fenerbahçe"
+      "Çaykur Rizespor"
+    ]
+  },
+  {
+    "name": "Serkan Odabaşoğlu",
+    "clubs": [
+      "Karagümrük",
+      "Samsunspor"
+    ]
+  },
+  {
+    "name": "Serkan Polat",
+    "clubs": [
+      "Göztepe",
+      "Karagümrük"
+    ]
+  },
+  {
+    "name": "Serkan Yanık",
+    "clubs": [
+      "Gençlerbirliği",
+      "Kocaelispor"
+    ]
+  },
+  {
+    "name": "Serkan Özdemir",
+    "clubs": [
+      "Samsunspor",
+      "Çaykur Rizespor"
     ]
   },
   {
     "name": "Serkan Özsoy",
     "clubs": [
       "Fenerbahçe",
+      "Gaziantepspor",
       "Trabzonspor"
     ]
   },
   {
     "name": "Sertan Eser",
     "clubs": [
-      "Konyaspor",
-      "Genclerbirligi",
-      "Beşiktaş"
+      "Beşiktaş",
+      "Gençlerbirliği",
+      "Kasımpaşa",
+      "Konyaspor"
     ]
   },
   {
     "name": "Servet Çetin",
     "clubs": [
-      "Sivasspor",
-      "Fenerbahçe",
       "Denizlispor",
-      "Galatasaray"
+      "Fenerbahçe",
+      "Galatasaray",
+      "Göztepe",
+      "Sivasspor"
     ]
   },
   {
     "name": "Seydou Keita",
     "clubs": [
-      "Barcelona",
-      "AS Roma"
+      "AS Roma",
+      "Barcelona"
     ]
   },
   {
     "name": "Seyit Cem Ünsal",
     "clubs": [
+      "Barcelona",
+      "Gençlerbirliği",
       "Kayserispor",
-      "Trabzonspor",
-      "Genclerbirligi",
-      "Barcelona"
+      "Kocaelispor",
+      "Trabzonspor"
     ]
   },
   {
     "name": "Sezer Badur",
     "clubs": [
+      "Antalyaspor",
+      "Gaziantepspor",
       "Sivasspor",
-      "Trabzonspor",
-      "Antalyaspor"
+      "Trabzonspor"
     ]
   },
   {
     "name": "Sezer Sezgin",
     "clubs": [
+      "Beşiktaş",
+      "Eyüpspor",
       "Kayserispor",
-      "Beşiktaş"
+      "Samsunspor"
+    ]
+  },
+  {
+    "name": "Sezer Özmen",
+    "clubs": [
+      "Alanyaspor",
+      "Beşiktaş",
+      "Samsunspor",
+      "Çaykur Rizespor"
+    ]
+  },
+  {
+    "name": "Sezgin Bektaş",
+    "clubs": [
+      "Eyüpspor",
+      "Karagümrük",
+      "Sivasspor"
+    ]
+  },
+  {
+    "name": "Shaka Hislop",
+    "clubs": [
+      "Newcastle United",
+      "West Ham"
+    ]
+  },
+  {
+    "name": "Shane Duffy",
+    "clubs": [
+      "Brighton",
+      "Burnley",
+      "Everton",
+      "Fulham"
+    ]
+  },
+  {
+    "name": "Shane Lowry",
+    "clubs": [
+      "Aston Villa",
+      "Leeds United"
     ]
   },
   {
     "name": "Shaocong Wu",
     "clubs": [
       "Başakşehir",
-      "Genclerbirligi"
+      "Gençlerbirliği"
+    ]
+  },
+  {
+    "name": "Shaun Derry",
+    "clubs": [
+      "Crystal Palace",
+      "Leeds United"
     ]
   },
   {
     "name": "Shaun Goater",
     "clubs": [
-      "Man Utd",
-      "Man City"
+      "Manchester City",
+      "Manchester United"
+    ]
+  },
+  {
+    "name": "Shaun Maher",
+    "clubs": [
+      "Bournemouth",
+      "Fulham"
+    ]
+  },
+  {
+    "name": "Shaun Mavididi",
+    "clubs": [
+      "Arsenal",
+      "Newcastle United"
     ]
   },
   {
     "name": "Shaun Wright-Phillips",
     "clubs": [
       "Chelsea",
-      "Man City"
+      "Manchester City",
+      "Nottingham Forest"
+    ]
+  },
+  {
+    "name": "Shay Given",
+    "clubs": [
+      "Aston Villa",
+      "Manchester City",
+      "Newcastle United",
+      "Sunderland"
+    ]
+  },
+  {
+    "name": "Shay Logan",
+    "clubs": [
+      "Brentford",
+      "Manchester City"
+    ]
+  },
+  {
+    "name": "Shefki Kuqi",
+    "clubs": [
+      "Crystal Palace",
+      "Fulham",
+      "Newcastle United"
+    ]
+  },
+  {
+    "name": "Sheyi Ojo",
+    "clubs": [
+      "Fulham",
+      "Liverpool",
+      "Wolverhampton"
     ]
   },
   {
     "name": "Shinji Kagawa",
     "clubs": [
-      "Bor. Dortmund",
       "Beşiktaş",
-      "Man Utd"
+      "Borussia Dortmund",
+      "Manchester United"
+    ]
+  },
+  {
+    "name": "Shkodran Mustafi",
+    "clubs": [
+      "Arsenal",
+      "Everton"
+    ]
+  },
+  {
+    "name": "Showkat Tahir",
+    "clubs": [
+      "Brentford",
+      "Fulham"
     ]
   },
   {
     "name": "Shoya Nakajima",
     "clubs": [
-      "FC Porto",
-      "Antalyaspor"
+      "Antalyaspor",
+      "FC Porto"
     ]
   },
   {
     "name": "Sidnei",
     "clubs": [
-      "Beşiktaş",
-      "Benfica"
+      "Benfica",
+      "Beşiktaş"
+    ]
+  },
+  {
+    "name": "Siem de Jong",
+    "clubs": [
+      "Ajax",
+      "Newcastle United"
     ]
   },
   {
     "name": "Silvio",
     "clubs": [
-      "Atletico Madrid",
+      "Atlético Madrid",
       "Benfica"
     ]
   },
   {
     "name": "Simao",
     "clubs": [
+      "Atlético Madrid",
       "Barcelona",
-      "Beşiktaş",
-      "Atletico Madrid",
-      "Benfica"
+      "Benfica",
+      "Beşiktaş"
     ]
   },
   {
     "name": "Sime Vrsaljko",
     "clubs": [
-      "Atletico Madrid",
+      "Atlético Madrid",
       "Inter"
+    ]
+  },
+  {
+    "name": "Simon Adingra",
+    "clubs": [
+      "Brighton",
+      "Sunderland"
     ]
   },
   {
     "name": "Simon Colosimo",
     "clubs": [
-      "Sivasspor",
-      "Man City"
+      "Manchester City",
+      "Sivasspor"
+    ]
+  },
+  {
+    "name": "Simon Davies",
+    "clubs": [
+      "Everton",
+      "Fulham",
+      "Tottenham"
+    ]
+  },
+  {
+    "name": "Simon Dawkins",
+    "clubs": [
+      "Aston Villa",
+      "Tottenham"
+    ]
+  },
+  {
+    "name": "Simon Grayson",
+    "clubs": [
+      "Aston Villa",
+      "Leeds United"
+    ]
+  },
+  {
+    "name": "Simon Mignolet",
+    "clubs": [
+      "Liverpool",
+      "Sunderland"
+    ]
+  },
+  {
+    "name": "Simon Moore",
+    "clubs": [
+      "Brentford",
+      "Sunderland"
+    ]
+  },
+  {
+    "name": "Simon Osborn",
+    "clubs": [
+      "Crystal Palace",
+      "Wolverhampton"
+    ]
+  },
+  {
+    "name": "Simon Royce",
+    "clubs": [
+      "Brentford",
+      "Brighton",
+      "Manchester City"
     ]
   },
   {
@@ -11864,22 +24647,22 @@ export const PLAYERS = [
   {
     "name": "Simone Ganz",
     "clubs": [
-      "Juventus",
-      "AC Milan"
+      "AC Milan",
+      "Juventus"
     ]
   },
   {
     "name": "Simone Loria",
     "clubs": [
-      "Juventus",
-      "AS Roma"
+      "AS Roma",
+      "Juventus"
     ]
   },
   {
     "name": "Simone Perrotta",
     "clubs": [
-      "Juventus",
-      "AS Roma"
+      "AS Roma",
+      "Juventus"
     ]
   },
   {
@@ -11892,16 +24675,18 @@ export const PLAYERS = [
   {
     "name": "Sinan Bolat",
     "clubs": [
-      "Kayserispor",
       "FC Porto",
-      "Galatasaray"
+      "Galatasaray",
+      "Kasımpaşa",
+      "Kayserispor"
     ]
   },
   {
     "name": "Sinan Gümüş",
     "clubs": [
-      "Fenerbahçe",
       "Antalyaspor",
+      "Eyüpspor",
+      "Fenerbahçe",
       "Galatasaray"
     ]
   },
@@ -11909,77 +24694,127 @@ export const PLAYERS = [
     "name": "Sinan Kaloğlu",
     "clubs": [
       "Antalyaspor",
-      "Beşiktaş"
+      "Beşiktaş",
+      "Göztepe"
     ]
   },
   {
     "name": "Sinan Osmanoğlu",
     "clubs": [
-      "Genclerbirligi",
-      "Galatasaray"
+      "Galatasaray",
+      "Gençlerbirliği",
+      "Çaykur Rizespor"
+    ]
+  },
+  {
+    "name": "Sofiane Feghouli",
+    "clubs": [
+      "Galatasaray",
+      "Karagümrük",
+      "West Ham"
     ]
   },
   {
     "name": "Sofyan Amrabat",
     "clubs": [
       "Fenerbahçe",
-      "Man Utd"
+      "Manchester United"
     ]
   },
   {
     "name": "Sokratis Papastathopoulos",
     "clubs": [
-      "Bor. Dortmund",
+      "AC Milan",
       "Arsenal",
-      "AC Milan"
+      "Borussia Dortmund"
     ]
   },
   {
     "name": "Sol Campbell",
     "clubs": [
-      "Tottenham",
-      "Arsenal"
+      "Arsenal",
+      "Newcastle United",
+      "Tottenham"
     ]
   },
   {
     "name": "Soner Aydoğdu",
     "clubs": [
+      "Antalyaspor",
       "Başakşehir",
-      "Trabzonspor",
-      "Genclerbirligi",
-      "Antalyaspor"
+      "Gençlerbirliği",
+      "Göztepe",
+      "Samsunspor",
+      "Trabzonspor"
     ]
   },
   {
     "name": "Soner Dikmen",
     "clubs": [
-      "Konyaspor",
-      "Genclerbirligi",
-      "Antalyaspor"
+      "Antalyaspor",
+      "Gençlerbirliği",
+      "Göztepe",
+      "Konyaspor"
+    ]
+  },
+  {
+    "name": "Soner Ergençay",
+    "clubs": [
+      "Beşiktaş",
+      "Eyüpspor"
+    ]
+  },
+  {
+    "name": "Soner Gönül",
+    "clubs": [
+      "Galatasaray",
+      "Samsunspor"
+    ]
+  },
+  {
+    "name": "Soner Salih Yavuz",
+    "clubs": [
+      "Beşiktaş",
+      "Eyüpspor"
+    ]
+  },
+  {
+    "name": "Soner Şahin",
+    "clubs": [
+      "Denizlispor",
+      "Samsunspor"
+    ]
+  },
+  {
+    "name": "Sonny Perkins",
+    "clubs": [
+      "Leeds United",
+      "West Ham"
     ]
   },
   {
     "name": "Souleymane Doukara",
     "clubs": [
-      "Genclerbirligi",
-      "Antalyaspor"
+      "Antalyaspor",
+      "Gençlerbirliği",
+      "Leeds United"
     ]
   },
   {
     "name": "Souleymane Youla",
     "clubs": [
-      "Genclerbirligi",
+      "Beşiktaş",
       "Denizlispor",
-      "Beşiktaş"
+      "Gençlerbirliği"
     ]
   },
   {
     "name": "Souza",
     "clubs": [
-      "FC Porto",
-      "Fenerbahçe",
       "Başakşehir",
-      "Beşiktaş"
+      "Beşiktaş",
+      "FC Porto",
+      "Fenerbahçe"
     ]
   },
   {
@@ -11990,135 +24825,499 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Stanley Flaherty",
+    "clubs": [
+      "Arsenal",
+      "Newcastle United"
+    ]
+  },
+  {
+    "name": "Stanley Mills",
+    "clubs": [
+      "Everton",
+      "Leeds United"
+    ]
+  },
+  {
     "name": "Steed Malbranque",
     "clubs": [
-      "Tottenham",
-      "Olymp. Lyon"
+      "Fulham",
+      "Olympique Lyon",
+      "Sunderland",
+      "Tottenham"
+    ]
+  },
+  {
+    "name": "Stefan Postma",
+    "clubs": [
+      "Aston Villa",
+      "Wolverhampton"
     ]
   },
   {
     "name": "Stefan Savic",
     "clubs": [
-      "Trabzonspor",
-      "Atletico Madrid",
-      "Man City"
+      "Atlético Madrid",
+      "Manchester City",
+      "Trabzonspor"
+    ]
+  },
+  {
+    "name": "Stefan Wessels",
+    "clubs": [
+      "Bayern Munich",
+      "Everton"
     ]
   },
   {
     "name": "Stefano Denswil",
     "clubs": [
+      "Ajax",
       "Kayserispor",
-      "Trabzonspor",
-      "Ajax"
+      "Trabzonspor"
+    ]
+  },
+  {
+    "name": "Stefano Napoleoni",
+    "clubs": [
+      "Başakşehir",
+      "Göztepe"
     ]
   },
   {
     "name": "Stefano Okaka",
     "clubs": [
+      "AS Roma",
       "Başakşehir",
-      "AS Roma"
+      "Fulham"
+    ]
+  },
+  {
+    "name": "Stefano Sturaro",
+    "clubs": [
+      "Juventus",
+      "Karagümrük"
     ]
   },
   {
     "name": "Stephan Lichtsteiner",
     "clubs": [
-      "Juventus",
-      "Arsenal"
+      "Arsenal",
+      "Juventus"
     ]
   },
   {
     "name": "Stephane Badji",
     "clubs": [
-      "Kayserispor",
-      "Başakşehir"
+      "Başakşehir",
+      "Eyüpspor",
+      "Kayserispor"
+    ]
+  },
+  {
+    "name": "Stephane Bahoken",
+    "clubs": [
+      "Kasımpaşa",
+      "Kayserispor"
     ]
   },
   {
     "name": "Stephane Dalmat",
     "clubs": [
-      "Tottenham",
-      "Inter"
+      "Inter",
+      "Tottenham"
+    ]
+  },
+  {
+    "name": "Stephane Sessegnon",
+    "clubs": [
+      "Gençlerbirliği",
+      "Sunderland"
     ]
   },
   {
     "name": "Stephen Appiah",
     "clubs": [
-      "Juventus",
-      "Fenerbahçe"
+      "Fenerbahçe",
+      "Juventus"
+    ]
+  },
+  {
+    "name": "Stephen Cooke",
+    "clubs": [
+      "Aston Villa",
+      "Bournemouth"
+    ]
+  },
+  {
+    "name": "Stephen Dobbie",
+    "clubs": [
+      "Brighton",
+      "Crystal Palace"
+    ]
+  },
+  {
+    "name": "Stephen Elliott",
+    "clubs": [
+      "Manchester City",
+      "Sunderland",
+      "Wolverhampton"
+    ]
+  },
+  {
+    "name": "Stephen Henderson",
+    "clubs": [
+      "Aston Villa",
+      "Bournemouth",
+      "Crystal Palace",
+      "West Ham"
+    ]
+  },
+  {
+    "name": "Stephen Hunt",
+    "clubs": [
+      "Brentford",
+      "Wolverhampton"
+    ]
+  },
+  {
+    "name": "Stephen Ireland",
+    "clubs": [
+      "Aston Villa",
+      "Manchester City",
+      "Newcastle United"
+    ]
+  },
+  {
+    "name": "Stephen Kelly",
+    "clubs": [
+      "Fulham",
+      "Tottenham"
+    ]
+  },
+  {
+    "name": "Stephen Purches",
+    "clubs": [
+      "Bournemouth",
+      "West Ham"
+    ]
+  },
+  {
+    "name": "Stephen Ward",
+    "clubs": [
+      "Brighton",
+      "Burnley",
+      "Wolverhampton"
+    ]
+  },
+  {
+    "name": "Stephen Warnock",
+    "clubs": [
+      "Aston Villa",
+      "Leeds United",
+      "Liverpool"
+    ]
+  },
+  {
+    "name": "Stephen Wearne",
+    "clubs": [
+      "Newcastle United",
+      "Sunderland"
+    ]
+  },
+  {
+    "name": "Stephen Wright",
+    "clubs": [
+      "Brentford",
+      "Liverpool",
+      "Sunderland"
+    ]
+  },
+  {
+    "name": "Stephenywater",
+    "clubs": [
+      "West Ham",
+      "Wolverhampton"
     ]
   },
   {
     "name": "Stephy Mavididi",
     "clubs": [
-      "Juventus",
-      "Arsenal"
+      "Arsenal",
+      "Juventus"
+    ]
+  },
+  {
+    "name": "Stern John",
+    "clubs": [
+      "Crystal Palace",
+      "Sunderland"
     ]
   },
   {
     "name": "Stevan Jovetic",
     "clubs": [
       "Inter",
-      "Man City"
+      "Manchester City"
+    ]
+  },
+  {
+    "name": "Steve Claridge",
+    "clubs": [
+      "Bournemouth",
+      "Brentford",
+      "Brighton",
+      "Crystal Palace",
+      "Wolverhampton"
+    ]
+  },
+  {
+    "name": "Steve Finnan",
+    "clubs": [
+      "Fulham",
+      "Liverpool"
+    ]
+  },
+  {
+    "name": "Steve Kabba",
+    "clubs": [
+      "Brentford",
+      "Crystal Palace"
+    ]
+  },
+  {
+    "name": "Steve Lomas",
+    "clubs": [
+      "Manchester City",
+      "West Ham"
     ]
   },
   {
     "name": "Steve Sidwell",
     "clubs": [
+      "Arsenal",
+      "Aston Villa",
+      "Brentford",
+      "Brighton",
       "Chelsea",
-      "Arsenal"
+      "Fulham"
+    ]
+  },
+  {
+    "name": "Steve Simonsen",
+    "clubs": [
+      "Everton",
+      "Nottingham Forest"
+    ]
+  },
+  {
+    "name": "Steve Slade",
+    "clubs": [
+      "Brentford",
+      "Tottenham"
+    ]
+  },
+  {
+    "name": "Steve Staunton",
+    "clubs": [
+      "Aston Villa",
+      "Crystal Palace",
+      "Liverpool"
+    ]
+  },
+  {
+    "name": "Steve Stone",
+    "clubs": [
+      "Aston Villa",
+      "Leeds United",
+      "Nottingham Forest"
     ]
   },
   {
     "name": "Steven Bergwijn",
     "clubs": [
-      "Tottenham",
-      "Ajax"
+      "Ajax",
+      "Tottenham"
+    ]
+  },
+  {
+    "name": "Steven Caldwell",
+    "clubs": [
+      "Burnley",
+      "Leeds United",
+      "Newcastle United",
+      "Sunderland"
     ]
   },
   {
     "name": "Steven Caulker",
     "clubs": [
-      "Tottenham",
+      "Alanyaspor",
       "Fenerbahçe",
-      "Liverpool"
+      "Gaziantep FK",
+      "Karagümrük",
+      "Liverpool",
+      "Tottenham"
+    ]
+  },
+  {
+    "name": "Steven Davis",
+    "clubs": [
+      "Aston Villa",
+      "Fulham"
+    ]
+  },
+  {
+    "name": "Steven Defour",
+    "clubs": [
+      "Burnley",
+      "FC Porto"
+    ]
+  },
+  {
+    "name": "Steven Fletcher",
+    "clubs": [
+      "Burnley",
+      "Sunderland",
+      "Wolverhampton"
+    ]
+  },
+  {
+    "name": "Steven Foley",
+    "clubs": [
+      "Aston Villa",
+      "Bournemouth"
     ]
   },
   {
     "name": "Steven Nzonzi",
     "clubs": [
-      "Konyaspor",
-      "Galatasaray",
       "AS Roma",
-      "PSG"
+      "Galatasaray",
+      "Konyaspor",
+      "Paris Saint-Germain"
     ]
   },
   {
     "name": "Steven Pienaar",
     "clubs": [
-      "Bor. Dortmund",
-      "Tottenham",
-      "Ajax"
+      "Ajax",
+      "Borussia Dortmund",
+      "Everton",
+      "Sunderland",
+      "Tottenham"
+    ]
+  },
+  {
+    "name": "Steven Thomson",
+    "clubs": [
+      "Brighton",
+      "Crystal Palace"
     ]
   },
   {
     "name": "Steven Vitoria",
     "clubs": [
-      "FC Porto",
-      "Benfica"
+      "Benfica",
+      "FC Porto"
+    ]
+  },
+  {
+    "name": "Stevland Angus",
+    "clubs": [
+      "Bournemouth",
+      "West Ham"
+    ]
+  },
+  {
+    "name": "Stewart Downing",
+    "clubs": [
+      "Aston Villa",
+      "Liverpool",
+      "Sunderland",
+      "West Ham"
+    ]
+  },
+  {
+    "name": "Stipe Perica",
+    "clubs": [
+      "Chelsea",
+      "Kasımpaşa"
+    ]
+  },
+  {
+    "name": "Strahil Popov",
+    "clubs": [
+      "Eyüpspor",
+      "Kasımpaşa"
+    ]
+  },
+  {
+    "name": "Stredair Appuah",
+    "clubs": [
+      "Fulham",
+      "Tottenham"
+    ]
+  },
+  {
+    "name": "Stuart Dallas",
+    "clubs": [
+      "Brentford",
+      "Leeds United"
+    ]
+  },
+  {
+    "name": "Stuart Green",
+    "clubs": [
+      "Crystal Palace",
+      "Newcastle United"
+    ]
+  },
+  {
+    "name": "Stuart Pearce",
+    "clubs": [
+      "Manchester City",
+      "Newcastle United",
+      "West Ham"
     ]
   },
   {
     "name": "Stuart Taylor",
     "clubs": [
       "Arsenal",
-      "Man City"
+      "Aston Villa",
+      "Crystal Palace",
+      "Leeds United",
+      "Manchester City"
+    ]
+  },
+  {
+    "name": "Sullay Kaikai",
+    "clubs": [
+      "Brentford",
+      "Crystal Palace"
     ]
   },
   {
     "name": "Sulley Muntari",
     "clubs": [
       "AC Milan",
-      "Inter"
+      "Inter",
+      "Sunderland"
+    ]
+  },
+  {
+    "name": "Sunay Kahraman",
+    "clubs": [
+      "Eyüpspor",
+      "Gençlerbirliği"
+    ]
+  },
+  {
+    "name": "Sung-yueng Ki",
+    "clubs": [
+      "Newcastle United",
+      "Sunderland"
     ]
   },
   {
@@ -12129,10 +25328,34 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Sven Scheuer",
+    "clubs": [
+      "Bayern Munich",
+      "Crystal Palace"
+    ]
+  },
+  {
+    "name": "Syam Ben Youssef",
+    "clubs": [
+      "Denizlispor",
+      "Kasımpaşa"
+    ]
+  },
+  {
     "name": "Sylvain Distin",
     "clubs": [
-      "PSG",
-      "Man City"
+      "Bournemouth",
+      "Everton",
+      "Manchester City",
+      "Newcastle United",
+      "Paris Saint-Germain"
+    ]
+  },
+  {
+    "name": "Sylvan Ebanks-Blake",
+    "clubs": [
+      "Manchester United",
+      "Wolverhampton"
     ]
   },
   {
@@ -12140,69 +25363,167 @@ export const PLAYERS = [
     "clubs": [
       "Arsenal",
       "Barcelona",
-      "Man City"
+      "Manchester City"
+    ]
+  },
+  {
+    "name": "Taha Altıkardeş",
+    "clubs": [
+      "Göztepe",
+      "Trabzonspor"
+    ]
+  },
+  {
+    "name": "Taha Can Velioğlu",
+    "clubs": [
+      "Denizlispor",
+      "Eyüpspor"
+    ]
+  },
+  {
+    "name": "Taha Yalçıner",
+    "clubs": [
+      "Alanyaspor",
+      "Fenerbahçe",
+      "Samsunspor"
+    ]
+  },
+  {
+    "name": "Taha Özgür",
+    "clubs": [
+      "Başakşehir",
+      "Karagümrük"
+    ]
+  },
+  {
+    "name": "Taha Şahin",
+    "clubs": [
+      "Kasımpaşa",
+      "Çaykur Rizespor"
     ]
   },
   {
     "name": "Tahir Alegöz",
     "clubs": [
-      "Sivasspor",
-      "Konyaspor"
+      "Konyaspor",
+      "Sivasspor"
+    ]
+  },
+  {
+    "name": "Tahir Babaoğlu",
+    "clubs": [
+      "Göztepe",
+      "Kocaelispor"
     ]
   },
   {
     "name": "Tal Ben Haim",
     "clubs": [
       "Chelsea",
-      "Man City"
+      "Manchester City"
+    ]
+  },
+  {
+    "name": "Talen Haim",
+    "clubs": [
+      "Sunderland",
+      "West Ham"
+    ]
+  },
+  {
+    "name": "Talha Ülvan",
+    "clubs": [
+      "Eyüpspor",
+      "Karagümrük",
+      "Samsunspor"
     ]
   },
   {
     "name": "Talisca",
     "clubs": [
-      "Fenerbahçe",
+      "Benfica",
       "Beşiktaş",
-      "Benfica"
+      "Fenerbahçe"
     ]
   },
   {
     "name": "Tamer Tuna",
     "clubs": [
-      "Trabzonspor",
+      "Beşiktaş",
       "Denizlispor",
       "Galatasaray",
-      "Beşiktaş"
+      "Gaziantepspor",
+      "Samsunspor",
+      "Trabzonspor"
     ]
   },
   {
     "name": "Tammy Abraham",
     "clubs": [
-      "Chelsea",
-      "Beşiktaş",
       "AC Milan",
-      "AS Roma"
+      "AS Roma",
+      "Aston Villa",
+      "Beşiktaş",
+      "Chelsea"
     ]
   },
   {
     "name": "Tanguy Ndombele",
     "clubs": [
-      "Tottenham",
       "Galatasaray",
-      "Napoli"
+      "Napoli",
+      "Tottenham"
     ]
   },
   {
     "name": "Tanguy Nianzou",
     "clubs": [
-      "PSG",
-      "Bayern Munich"
+      "Bayern Munich",
+      "Paris Saint-Germain"
+    ]
+  },
+  {
+    "name": "Tanju Kayhan",
+    "clubs": [
+      "Beşiktaş",
+      "Göztepe"
+    ]
+  },
+  {
+    "name": "Tanju Yavuz",
+    "clubs": [
+      "Alanyaspor",
+      "Göztepe"
+    ]
+  },
+  {
+    "name": "Tariq Lamptey",
+    "clubs": [
+      "Brighton",
+      "Chelsea"
     ]
   },
   {
     "name": "Tarık Çamdal",
     "clubs": [
       "Antalyaspor",
-      "Galatasaray"
+      "Galatasaray",
+      "Göztepe"
+    ]
+  },
+  {
+    "name": "Tarık Çetin",
+    "clubs": [
+      "Fenerbahçe",
+      "Karagümrük",
+      "Çaykur Rizespor"
+    ]
+  },
+  {
+    "name": "Tayfun Aydoğan",
+    "clubs": [
+      "Beşiktaş",
+      "Kocaelispor"
     ]
   },
   {
@@ -12215,120 +25536,220 @@ export const PLAYERS = [
   {
     "name": "Tayfun Seven",
     "clubs": [
-      "Konyaspor",
+      "Alanyaspor",
+      "Antalyaspor",
       "Fenerbahçe",
-      "Genclerbirligi",
-      "Antalyaspor"
+      "Gençlerbirliği",
+      "Konyaspor"
+    ]
+  },
+  {
+    "name": "Tayfun Taner",
+    "clubs": [
+      "Eyüpspor",
+      "Galatasaray",
+      "Kocaelispor",
+      "Çaykur Rizespor"
     ]
   },
   {
     "name": "Tayfur Bingöl",
     "clubs": [
-      "Genclerbirligi",
-      "Beşiktaş"
+      "Alanyaspor",
+      "Beşiktaş",
+      "Eyüpspor",
+      "Gençlerbirliği",
+      "Göztepe",
+      "Kocaelispor"
     ]
   },
   {
     "name": "Tayfur Havutçu",
     "clubs": [
+      "Beşiktaş",
       "Fenerbahçe",
-      "Beşiktaş"
+      "Kocaelispor"
     ]
   },
   {
     "name": "Taylan Antalyalı",
     "clubs": [
-      "Genclerbirligi",
-      "Galatasaray"
+      "Galatasaray",
+      "Gençlerbirliği",
+      "Samsunspor",
+      "Çaykur Rizespor"
+    ]
+  },
+  {
+    "name": "Taylan Işıldar",
+    "clubs": [
+      "Fenerbahçe",
+      "Kocaelispor"
+    ]
+  },
+  {
+    "name": "Taylan Uzunoğlu",
+    "clubs": [
+      "Denizlispor",
+      "Eyüpspor",
+      "Göztepe"
+    ]
+  },
+  {
+    "name": "Taylor Harwood-Bellis",
+    "clubs": [
+      "Burnley",
+      "Manchester City"
+    ]
+  },
+  {
+    "name": "Taylor Richards",
+    "clubs": [
+      "Brighton",
+      "Manchester City"
     ]
   },
   {
     "name": "Teddy Sheringham",
     "clubs": [
+      "Manchester United",
       "Tottenham",
-      "Man Utd"
+      "West Ham"
     ]
   },
   {
     "name": "Teemu Tainio",
     "clubs": [
-      "Tottenham",
-      "Ajax"
+      "Ajax",
+      "Sunderland",
+      "Tottenham"
+    ]
+  },
+  {
+    "name": "Terrell Forbes",
+    "clubs": [
+      "Bournemouth",
+      "West Ham"
     ]
   },
   {
     "name": "Terry Cooke",
     "clubs": [
-      "Man Utd",
-      "Man City"
+      "Manchester City",
+      "Manchester United",
+      "Sunderland"
+    ]
+  },
+  {
+    "name": "Testimony Igbinoghene",
+    "clubs": [
+      "Manchester City",
+      "Wolverhampton"
+    ]
+  },
+  {
+    "name": "Tevfik Altındağ",
+    "clubs": [
+      "Eyüpspor",
+      "Kocaelispor",
+      "Sivasspor"
     ]
   },
   {
     "name": "Thalisson",
     "clubs": [
-      "Genclerbirligi",
-      "Antalyaspor"
+      "Antalyaspor",
+      "Gençlerbirliği"
+    ]
+  },
+  {
+    "name": "Theo Walcott",
+    "clubs": [
+      "Arsenal",
+      "Everton"
     ]
   },
   {
     "name": "Theofanis Gekas",
     "clubs": [
-      "Sivasspor",
-      "Konyaspor"
+      "Konyaspor",
+      "Samsunspor",
+      "Sivasspor"
     ]
   },
   {
     "name": "Thiago Alcantara",
     "clubs": [
       "Barcelona",
-      "Liverpool",
-      "Bayern Munich"
+      "Bayern Munich",
+      "Liverpool"
     ]
   },
   {
     "name": "Thiago Motta",
     "clubs": [
+      "Atlético Madrid",
       "Barcelona",
-      "Atletico Madrid",
       "Inter"
     ]
   },
   {
     "name": "Thiago Silva",
     "clubs": [
+      "AC Milan",
       "Chelsea",
-      "FC Porto",
-      "AC Milan"
+      "FC Porto"
     ]
   },
   {
     "name": "Thibaut Courtois",
     "clubs": [
+      "Atlético Madrid",
       "Chelsea",
-      "Atletico Madrid",
       "Real Madrid"
     ]
   },
   {
     "name": "Thierry Henry",
     "clubs": [
-      "Juventus",
       "Arsenal",
-      "Barcelona"
+      "Barcelona",
+      "Juventus"
     ]
   },
   {
     "name": "Thimothee Atouba",
     "clubs": [
-      "Tottenham",
-      "Ajax"
+      "Ajax",
+      "Tottenham"
+    ]
+  },
+  {
+    "name": "Thimothee Lo-Tutala",
+    "clubs": [
+      "Brentford",
+      "Tottenham"
+    ]
+  },
+  {
+    "name": "Thomas Eisfeld",
+    "clubs": [
+      "Arsenal",
+      "Fulham"
     ]
   },
   {
     "name": "Thomas Fontaine",
     "clubs": [
-      "Genclerbirligi",
-      "Olymp. Lyon"
+      "Gençlerbirliği",
+      "Olympique Lyon"
+    ]
+  },
+  {
+    "name": "Thomas Gravesen",
+    "clubs": [
+      "Everton",
+      "Real Madrid"
     ]
   },
   {
@@ -12341,45 +25762,83 @@ export const PLAYERS = [
   {
     "name": "Thomas Hengen",
     "clubs": [
-      "Bor. Dortmund",
-      "Beşiktaş"
+      "Beşiktaş",
+      "Borussia Dortmund"
+    ]
+  },
+  {
+    "name": "Thomas Hitzlsperger",
+    "clubs": [
+      "Aston Villa",
+      "Everton",
+      "West Ham"
     ]
   },
   {
     "name": "Thomas Meunier",
     "clubs": [
-      "Bor. Dortmund",
+      "Borussia Dortmund",
       "Trabzonspor"
+    ]
+  },
+  {
+    "name": "Thomas Myhre",
+    "clubs": [
+      "Beşiktaş",
+      "Crystal Palace",
+      "Everton",
+      "Sunderland"
     ]
   },
   {
     "name": "Thomas Partey",
     "clubs": [
       "Arsenal",
-      "Atletico Madrid"
+      "Atlético Madrid"
+    ]
+  },
+  {
+    "name": "Thomas Sörensen",
+    "clubs": [
+      "Aston Villa",
+      "Sunderland"
     ]
   },
   {
     "name": "Thomas Vermaelen",
     "clubs": [
-      "Arsenal",
-      "Barcelona",
       "AS Roma",
-      "Ajax"
+      "Ajax",
+      "Arsenal",
+      "Barcelona"
     ]
   },
   {
     "name": "Thorgan Hazard",
     "clubs": [
-      "Bor. Dortmund",
+      "Borussia Dortmund",
       "Chelsea"
+    ]
+  },
+  {
+    "name": "Thuram",
+    "clubs": [
+      "Eyüpspor",
+      "Konyaspor"
+    ]
+  },
+  {
+    "name": "Tiago Casasola",
+    "clubs": [
+      "AS Roma",
+      "Fulham"
     ]
   },
   {
     "name": "Tiago Dantas",
     "clubs": [
-      "Benfica",
-      "Bayern Munich"
+      "Bayern Munich",
+      "Benfica"
     ]
   },
   {
@@ -12392,83 +25851,126 @@ export const PLAYERS = [
   {
     "name": "Tiago Djalo(420465)",
     "clubs": [
-      "Juventus",
+      "Beşiktaş",
       "FC Porto",
-      "Beşiktaş"
+      "Juventus"
     ]
   },
   {
     "name": "Tiago Ferreira",
     "clubs": [
-      "FC Porto",
-      "Benfica"
+      "Benfica",
+      "FC Porto"
+    ]
+  },
+  {
+    "name": "Tiago Ilori",
+    "clubs": [
+      "Aston Villa",
+      "Liverpool"
     ]
   },
   {
     "name": "Tiago Lopes",
     "clubs": [
-      "Kayserispor",
+      "Denizlispor",
       "FC Porto",
-      "Denizlispor"
+      "Kayserispor"
     ]
   },
   {
     "name": "Tiago Mendes",
     "clubs": [
+      "Atlético Madrid",
+      "Benfica",
       "Chelsea",
-      "Juventus",
-      "Atletico Madrid",
-      "Benfica"
+      "Juventus"
     ]
   },
   {
     "name": "Tiago Ribeiro",
     "clubs": [
-      "FC Porto",
-      "Benfica"
+      "Benfica",
+      "FC Porto"
     ]
   },
   {
     "name": "Tiago Rodrigues",
     "clubs": [
       "FC Porto",
-      "Genclerbirligi"
+      "Gençlerbirliği"
     ]
   },
   {
     "name": "Tiago Silva",
     "clubs": [
-      "FC Porto",
-      "Benfica"
+      "Benfica",
+      "FC Porto"
+    ]
+  },
+  {
+    "name": "Tiago Çukur",
+    "clubs": [
+      "Fenerbahçe",
+      "Karagümrük"
     ]
   },
   {
     "name": "Tiemoue Bakayoko",
     "clubs": [
-      "Chelsea",
       "AC Milan",
+      "Chelsea",
       "Napoli"
     ]
   },
   {
     "name": "Tijani Babangida",
     "clubs": [
-      "Genclerbirligi",
-      "Ajax"
+      "Ajax",
+      "Gençlerbirliği"
     ]
   },
   {
     "name": "Tijjani Reijnders",
     "clubs": [
       "AC Milan",
-      "Man City"
+      "Manchester City"
+    ]
+  },
+  {
+    "name": "Tim Flowers",
+    "clubs": [
+      "Manchester City",
+      "Wolverhampton"
+    ]
+  },
+  {
+    "name": "Tim Howard",
+    "clubs": [
+      "Everton",
+      "Manchester United"
+    ]
+  },
+  {
+    "name": "Tim Iroegbunam",
+    "clubs": [
+      "Aston Villa",
+      "Everton"
+    ]
+  },
+  {
+    "name": "Tim Krul",
+    "clubs": [
+      "Ajax",
+      "Brighton",
+      "Newcastle United"
     ]
   },
   {
     "name": "Timi Davies",
     "clubs": [
       "Arsenal",
-      "Man City"
+      "Manchester City"
     ]
   },
   {
@@ -12479,210 +25981,632 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Timothee Pembele",
+    "clubs": [
+      "Paris Saint-Germain",
+      "Sunderland"
+    ]
+  },
+  {
     "name": "Timothy Fosu-Mensah",
     "clubs": [
       "Ajax",
-      "Man Utd"
+      "Crystal Palace",
+      "Fulham",
+      "Manchester United"
     ]
   },
   {
     "name": "Timothy Weah",
     "clubs": [
       "Juventus",
-      "PSG"
+      "Paris Saint-Germain"
+    ]
+  },
+  {
+    "name": "Timur Kosovalı",
+    "clubs": [
+      "Antalyaspor",
+      "Göztepe"
+    ]
+  },
+  {
+    "name": "Tino Livramento",
+    "clubs": [
+      "Chelsea",
+      "Newcastle United"
+    ]
+  },
+  {
+    "name": "Titi",
+    "clubs": [
+      "Göztepe",
+      "Inter",
+      "Kasımpaşa"
+    ]
+  },
+  {
+    "name": "Titi Camara",
+    "clubs": [
+      "Liverpool",
+      "West Ham"
     ]
   },
   {
     "name": "Tobi Omole",
     "clubs": [
-      "Tottenham",
-      "Arsenal"
+      "Arsenal",
+      "Tottenham"
     ]
   },
   {
     "name": "Toby Alderweireld",
     "clubs": [
-      "Tottenham",
-      "Atletico Madrid",
-      "Ajax"
+      "Ajax",
+      "Atlético Madrid",
+      "Tottenham"
+    ]
+  },
+  {
+    "name": "Toby Collyer",
+    "clubs": [
+      "Brighton",
+      "Manchester United"
     ]
   },
   {
     "name": "Tolga Doğantez",
     "clubs": [
+      "Beşiktaş",
+      "Gençlerbirliği",
+      "Samsunspor",
       "Sivasspor",
-      "Genclerbirligi",
-      "Beşiktaş"
+      "Çaykur Rizespor"
     ]
   },
   {
     "name": "Tolga Zengin",
     "clubs": [
-      "Trabzonspor",
-      "Beşiktaş"
+      "Beşiktaş",
+      "Trabzonspor"
     ]
   },
   {
     "name": "Tolgahan Acar",
     "clubs": [
-      "Sivasspor",
-      "Denizlispor"
+      "Denizlispor",
+      "Gaziantepspor",
+      "Göztepe",
+      "Sivasspor"
     ]
   },
   {
     "name": "Tolgay Arslan",
     "clubs": [
-      "Fenerbahçe",
-      "Beşiktaş"
+      "Beşiktaş",
+      "Fenerbahçe"
+    ]
+  },
+  {
+    "name": "Tom Adeyemi",
+    "clubs": [
+      "Brentford",
+      "Leeds United"
+    ]
+  },
+  {
+    "name": "Tom Cairney",
+    "clubs": [
+      "Fulham",
+      "Leeds United"
+    ]
+  },
+  {
+    "name": "Tom Carroll",
+    "clubs": [
+      "Aston Villa",
+      "Tottenham"
+    ]
+  },
+  {
+    "name": "Tom Cleverley",
+    "clubs": [
+      "Aston Villa",
+      "Everton",
+      "Manchester United"
+    ]
+  },
+  {
+    "name": "Tom Dallison",
+    "clubs": [
+      "Arsenal",
+      "Brighton",
+      "West Ham"
     ]
   },
   {
     "name": "Tom Dele-Bashiru",
     "clubs": [
-      "Genclerbirligi",
-      "Man City"
+      "Gençlerbirliği",
+      "Manchester City"
+    ]
+  },
+  {
+    "name": "Tom Donegan",
+    "clubs": [
+      "Everton",
+      "Fulham"
+    ]
+  },
+  {
+    "name": "Tom Heaton",
+    "clubs": [
+      "Aston Villa",
+      "Burnley",
+      "Manchester United"
     ]
   },
   {
     "name": "Tom Huddlestone",
     "clubs": [
+      "Manchester United",
       "Tottenham",
-      "Man Utd"
+      "Wolverhampton"
+    ]
+  },
+  {
+    "name": "Tom Ince",
+    "clubs": [
+      "Crystal Palace",
+      "Liverpool"
+    ]
+  },
+  {
+    "name": "Tom King",
+    "clubs": [
+      "Everton",
+      "Wolverhampton"
+    ]
+  },
+  {
+    "name": "Tom Lawrence",
+    "clubs": [
+      "Everton",
+      "Manchester United"
+    ]
+  },
+  {
+    "name": "Tom Olyott",
+    "clubs": [
+      "Fulham",
+      "Manchester City"
+    ]
+  },
+  {
+    "name": "Tom Pearce",
+    "clubs": [
+      "Everton",
+      "Leeds United"
+    ]
+  },
+  {
+    "name": "Tom Scott",
+    "clubs": [
+      "Manchester City",
+      "Sunderland"
+    ]
+  },
+  {
+    "name": "Tomas Kalas",
+    "clubs": [
+      "Chelsea",
+      "Fulham"
     ]
   },
   {
     "name": "Tomas Moreira",
     "clubs": [
-      "FC Porto",
-      "Benfica"
+      "Benfica",
+      "FC Porto"
+    ]
+  },
+  {
+    "name": "Tomas Pekhart",
+    "clubs": [
+      "Gaziantep FK",
+      "Tottenham"
+    ]
+  },
+  {
+    "name": "Tomas Reymao",
+    "clubs": [
+      "Chelsea",
+      "Wolverhampton"
     ]
   },
   {
     "name": "Tomas Rosicky",
     "clubs": [
-      "Bor. Dortmund",
-      "Arsenal"
+      "Arsenal",
+      "Borussia Dortmund"
+    ]
+  },
+  {
+    "name": "Tomasz Kuszczak",
+    "clubs": [
+      "Brighton",
+      "Manchester United",
+      "Wolverhampton"
+    ]
+  },
+  {
+    "name": "Tomi Ameobi",
+    "clubs": [
+      "Leeds United",
+      "Newcastle United"
     ]
   },
   {
     "name": "Tomislav Sokota",
     "clubs": [
-      "FC Porto",
-      "Benfica"
+      "Benfica",
+      "FC Porto"
     ]
   },
   {
     "name": "Tommaso Rocchi",
     "clubs": [
-      "Juventus",
-      "Inter"
+      "Inter",
+      "Juventus"
+    ]
+  },
+  {
+    "name": "Tommy Doyle",
+    "clubs": [
+      "Manchester City",
+      "Wolverhampton"
+    ]
+  },
+  {
+    "name": "Tommy Elphick",
+    "clubs": [
+      "Aston Villa",
+      "Bournemouth",
+      "Brighton"
+    ]
+  },
+  {
+    "name": "Tommy Johnson",
+    "clubs": [
+      "Aston Villa",
+      "Everton"
+    ]
+  },
+  {
+    "name": "Tommy Rowe",
+    "clubs": [
+      "Manchester United",
+      "Wolverhampton"
     ]
   },
   {
     "name": "Tommy Setford",
     "clubs": [
-      "Arsenal",
-      "Ajax"
+      "Ajax",
+      "Arsenal"
+    ]
+  },
+  {
+    "name": "Tommy Smith",
+    "clubs": [
+      "Brentford",
+      "Manchester City",
+      "Sunderland"
     ]
   },
   {
     "name": "Toni Kroos",
     "clubs": [
-      "Real Madrid",
-      "Bayern Munich"
+      "Bayern Munich",
+      "Real Madrid"
+    ]
+  },
+  {
+    "name": "Tonio Teklic",
+    "clubs": [
+      "Karagümrük",
+      "Trabzonspor"
+    ]
+  },
+  {
+    "name": "Tony Craig",
+    "clubs": [
+      "Brentford",
+      "Crystal Palace"
+    ]
+  },
+  {
+    "name": "Tony Dinning",
+    "clubs": [
+      "Newcastle United",
+      "Wolverhampton"
+    ]
+  },
+  {
+    "name": "Tony Stokes",
+    "clubs": [
+      "Brighton",
+      "West Ham"
+    ]
+  },
+  {
+    "name": "Tony Warner",
+    "clubs": [
+      "Fulham",
+      "Leeds United",
+      "Liverpool"
+    ]
+  },
+  {
+    "name": "Tore Andre Flo",
+    "clubs": [
+      "Chelsea",
+      "Leeds United",
+      "Sunderland"
     ]
   },
   {
     "name": "Torsten Frings",
     "clubs": [
-      "Bor. Dortmund",
-      "Bayern Munich"
+      "Bayern Munich",
+      "Borussia Dortmund"
     ]
   },
   {
     "name": "Tosin Adarabioyo",
     "clubs": [
       "Chelsea",
-      "Man City"
+      "Fulham",
+      "Manchester City"
     ]
   },
   {
     "name": "Tosin Kehinde",
     "clubs": [
-      "Man Utd",
-      "Man City"
+      "Manchester City",
+      "Manchester United"
+    ]
+  },
+  {
+    "name": "Toumani Diagouraga",
+    "clubs": [
+      "Brentford",
+      "Leeds United"
     ]
   },
   {
     "name": "Trent Alexander-Arnold",
     "clubs": [
-      "Real Madrid",
-      "Liverpool"
+      "Liverpool",
+      "Real Madrid"
+    ]
+  },
+  {
+    "name": "Tresor Kandol",
+    "clubs": [
+      "Bournemouth",
+      "Leeds United"
+    ]
+  },
+  {
+    "name": "Trevoh Chalobah",
+    "clubs": [
+      "Chelsea",
+      "Crystal Palace"
+    ]
+  },
+  {
+    "name": "Trevor Carson",
+    "clubs": [
+      "Brentford",
+      "Sunderland"
+    ]
+  },
+  {
+    "name": "Trevor Sinclair",
+    "clubs": [
+      "Manchester City",
+      "West Ham"
+    ]
+  },
+  {
+    "name": "Tugay Kacar",
+    "clubs": [
+      "Denizlispor",
+      "Eyüpspor"
     ]
   },
   {
     "name": "Tugay Kerimoğlu",
     "clubs": [
-      "Trabzonspor",
-      "Galatasaray"
+      "Galatasaray",
+      "Trabzonspor"
     ]
   },
   {
     "name": "Tuna Üzümcü",
     "clubs": [
-      "Genclerbirligi",
       "Antalyaspor",
+      "Beşiktaş",
       "Denizlispor",
-      "Beşiktaş"
+      "Gençlerbirliği",
+      "Samsunspor"
+    ]
+  },
+  {
+    "name": "Tunahan Ergül",
+    "clubs": [
+      "Galatasaray",
+      "Kocaelispor"
+    ]
+  },
+  {
+    "name": "Tunay Torun",
+    "clubs": [
+      "Başakşehir",
+      "Karagümrük",
+      "Kasımpaşa",
+      "Çaykur Rizespor"
+    ]
+  },
+  {
+    "name": "Tunç Kip",
+    "clubs": [
+      "Beşiktaş",
+      "Göztepe"
+    ]
+  },
+  {
+    "name": "Turgay Gemicibaşı",
+    "clubs": [
+      "Göztepe",
+      "Kasımpaşa"
     ]
   },
   {
     "name": "Turgut Şahin",
     "clubs": [
+      "Gaziantepspor",
+      "Gençlerbirliği",
+      "Karagümrük",
+      "Kasımpaşa",
       "Kayserispor",
+      "Samsunspor",
       "Trabzonspor",
-      "Genclerbirligi"
+      "Çaykur Rizespor"
+    ]
+  },
+  {
+    "name": "Tuğbey Akgün",
+    "clubs": [
+      "Göztepe",
+      "Karagümrük"
+    ]
+  },
+  {
+    "name": "Tyiasrowning",
+    "clubs": [
+      "Everton",
+      "Sunderland"
+    ]
+  },
+  {
+    "name": "Tyler Adams",
+    "clubs": [
+      "Bournemouth",
+      "Leeds United"
     ]
   },
   {
     "name": "Tyler Boyd",
     "clubs": [
+      "Beşiktaş",
       "Sivasspor",
-      "Beşiktaş"
+      "Çaykur Rizespor"
+    ]
+  },
+  {
+    "name": "Tyler Dibling",
+    "clubs": [
+      "Chelsea",
+      "Everton"
     ]
   },
   {
     "name": "Tyler Fletcher",
     "clubs": [
-      "Man Utd",
-      "Man City"
+      "Manchester City",
+      "Manchester United"
+    ]
+  },
+  {
+    "name": "Tyler Roberts",
+    "clubs": [
+      "Leeds United",
+      "Wolverhampton"
+    ]
+  },
+  {
+    "name": "Tyrese Fornah",
+    "clubs": [
+      "Brighton",
+      "Nottingham Forest"
+    ]
+  },
+  {
+    "name": "Tyrick Mitchell",
+    "clubs": [
+      "Brentford",
+      "Crystal Palace"
+    ]
+  },
+  {
+    "name": "Tyrone Mings",
+    "clubs": [
+      "Aston Villa",
+      "Bournemouth"
     ]
   },
   {
     "name": "Tümer Metin",
     "clubs": [
+      "Beşiktaş",
       "Fenerbahçe",
-      "Beşiktaş"
+      "Samsunspor"
     ]
   },
   {
     "name": "Ufuk Akyol",
     "clubs": [
-      "Konyaspor",
-      "Antalyaspor"
+      "Antalyaspor",
+      "Karagümrük",
+      "Konyaspor"
+    ]
+  },
+  {
+    "name": "Ufuk Arslan",
+    "clubs": [
+      "Eyüpspor",
+      "Gençlerbirliği"
     ]
   },
   {
     "name": "Ufuk Ateş",
     "clubs": [
-      "Sivasspor",
+      "Antalyaspor",
       "Konyaspor",
-      "Antalyaspor"
+      "Sivasspor"
+    ]
+  },
+  {
+    "name": "Ufuk Bayraktar",
+    "clubs": [
+      "Eyüpspor",
+      "Samsunspor",
+      "Trabzonspor"
+    ]
+  },
+  {
+    "name": "Ufuk Budak",
+    "clubs": [
+      "Kayserispor",
+      "Samsunspor"
     ]
   },
   {
     "name": "Ufuk Ceylan",
     "clubs": [
+      "Alanyaspor",
       "Başakşehir",
       "Galatasaray"
     ]
@@ -12691,34 +26615,53 @@ export const PLAYERS = [
     "name": "Ufuk Çam",
     "clubs": [
       "Antalyaspor",
-      "Galatasaray"
+      "Galatasaray",
+      "Kocaelispor"
     ]
   },
   {
     "name": "Ufukhan Bayraktar",
     "clubs": [
       "Konyaspor",
-      "Trabzonspor"
+      "Trabzonspor",
+      "Çaykur Rizespor"
+    ]
+  },
+  {
+    "name": "Ugo Ehiogu",
+    "clubs": [
+      "Aston Villa",
+      "Leeds United"
     ]
   },
   {
     "name": "Umaro Cande",
     "clubs": [
-      "FC Porto",
-      "Benfica"
+      "Benfica",
+      "FC Porto"
+    ]
+  },
+  {
+    "name": "Umut Bozok",
+    "clubs": [
+      "Eyüpspor",
+      "Kasımpaşa",
+      "Trabzonspor"
     ]
   },
   {
     "name": "Umut Bulut",
     "clubs": [
+      "Eyüpspor",
+      "Galatasaray",
       "Kayserispor",
-      "Trabzonspor",
-      "Galatasaray"
+      "Trabzonspor"
     ]
   },
   {
     "name": "Umut Güneş",
     "clubs": [
+      "Alanyaspor",
       "Başakşehir",
       "Trabzonspor"
     ]
@@ -12726,24 +26669,42 @@ export const PLAYERS = [
   {
     "name": "Umut Kaya",
     "clubs": [
-      "Kayserispor",
+      "Alanyaspor",
+      "Beşiktaş",
       "Denizlispor",
-      "Beşiktaş"
+      "Göztepe",
+      "Kayserispor"
+    ]
+  },
+  {
+    "name": "Umut Meraş",
+    "clubs": [
+      "Beşiktaş",
+      "Eyüpspor"
+    ]
+  },
+  {
+    "name": "Umut Mert Toy",
+    "clubs": [
+      "Alanyaspor",
+      "Sivasspor"
     ]
   },
   {
     "name": "Umut Nayir",
     "clubs": [
-      "Konyaspor",
+      "Beşiktaş",
+      "Eyüpspor",
       "Fenerbahçe",
-      "Beşiktaş"
+      "Göztepe",
+      "Konyaspor"
     ]
   },
   {
     "name": "Umut Sözen",
     "clubs": [
-      "Kayserispor",
-      "Genclerbirligi"
+      "Gençlerbirliği",
+      "Kayserispor"
     ]
   },
   {
@@ -12751,25 +26712,51 @@ export const PLAYERS = [
     "clubs": [
       "AC Milan",
       "AS Roma",
-      "Ajax"
+      "Ajax",
+      "Fulham"
+    ]
+  },
+  {
+    "name": "Utku Yuvakuran",
+    "clubs": [
+      "Beşiktaş",
+      "Karagümrük"
+    ]
+  },
+  {
+    "name": "Utku Yılmaz",
+    "clubs": [
+      "Eyüpspor",
+      "Gençlerbirliği"
+    ]
+  },
+  {
+    "name": "Uwe Hünemeier",
+    "clubs": [
+      "Borussia Dortmund",
+      "Brighton"
     ]
   },
   {
     "name": "Uğur Akdemir",
     "clubs": [
-      "Sivasspor",
+      "Eyüpspor",
+      "Galatasaray",
+      "Gençlerbirliği",
       "Konyaspor",
-      "Genclerbirligi",
-      "Galatasaray"
+      "Sivasspor",
+      "Çaykur Rizespor"
     ]
   },
   {
     "name": "Uğur Demirok",
     "clubs": [
+      "Eyüpspor",
+      "Galatasaray",
+      "Gaziantepspor",
       "Kayserispor",
       "Konyaspor",
-      "Trabzonspor",
-      "Galatasaray"
+      "Trabzonspor"
     ]
   },
   {
@@ -12780,149 +26767,252 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Uğur Kaan Yıldız",
+    "clubs": [
+      "Fenerbahçe",
+      "Göztepe"
+    ]
+  },
+  {
+    "name": "Uğur Taner",
+    "clubs": [
+      "Eyüpspor",
+      "Galatasaray"
+    ]
+  },
+  {
     "name": "Uğur Uçar",
     "clubs": [
-      "Kayserispor",
       "Başakşehir",
-      "Galatasaray"
+      "Galatasaray",
+      "Kayserispor"
+    ]
+  },
+  {
+    "name": "Uğur Yıldırım",
+    "clubs": [
+      "Gaziantepspor",
+      "Kasımpaşa",
+      "Sivasspor"
     ]
   },
   {
     "name": "Uğur Çiftçi",
     "clubs": [
-      "Sivasspor",
-      "Genclerbirligi"
+      "Gençlerbirliği",
+      "Sivasspor"
+    ]
+  },
+  {
+    "name": "Uğurcan Yazğılı",
+    "clubs": [
+      "Kasımpaşa",
+      "Konyaspor"
     ]
   },
   {
     "name": "Uğurcan Çakır",
     "clubs": [
-      "Trabzonspor",
-      "Galatasaray"
+      "Galatasaray",
+      "Trabzonspor"
+    ]
+  },
+  {
+    "name": "Uğurhan Uğurlu",
+    "clubs": [
+      "Başakşehir",
+      "Eyüpspor"
+    ]
+  },
+  {
+    "name": "Uğurtan Çepni",
+    "clubs": [
+      "Eyüpspor",
+      "Göztepe",
+      "Kocaelispor",
+      "Samsunspor",
+      "Çaykur Rizespor"
     ]
   },
   {
     "name": "Vaclav Cerny",
     "clubs": [
-      "Beşiktaş",
-      "Ajax"
+      "Ajax",
+      "Beşiktaş"
+    ]
+  },
+  {
+    "name": "Vagner Love",
+    "clubs": [
+      "Alanyaspor",
+      "Beşiktaş"
     ]
   },
   {
     "name": "Valdo",
     "clubs": [
-      "Real Madrid",
-      "Benfica"
+      "Benfica",
+      "Real Madrid"
+    ]
+  },
+  {
+    "name": "Valentin Eysseric",
+    "clubs": [
+      "Karagümrük",
+      "Kasımpaşa"
     ]
   },
   {
     "name": "Valentino Lazaro",
     "clubs": [
+      "Benfica",
       "Inter",
-      "Benfica"
+      "Newcastle United"
     ]
   },
   {
     "name": "Valeri Bozhinov",
     "clubs": [
       "Juventus",
-      "Man City"
+      "Manchester City"
     ]
   },
   {
     "name": "Valon Ethemi",
     "clubs": [
-      "Sivasspor",
-      "Konyaspor"
+      "Konyaspor",
+      "Sivasspor"
     ]
   },
   {
     "name": "Vanja Milinkovic-Savic",
     "clubs": [
-      "Napoli",
-      "Man Utd"
+      "Manchester United",
+      "Napoli"
     ]
   },
   {
     "name": "Varela",
     "clubs": [
-      "Kayserispor",
+      "FC Porto",
+      "Kayserispor"
+    ]
+  },
+  {
+    "name": "Vasco Paciiªncia",
+    "clubs": [
+      "Benfica",
       "FC Porto"
     ]
   },
   {
-    "name": "Vasco PaciÃªncia",
+    "name": "Vedat Bora",
     "clubs": [
-      "FC Porto",
-      "Benfica"
-    ]
-  },
-  {
-    "name": "Vedat İnceefe",
-    "clubs": [
-      "Galatasaray",
-      "Beşiktaş"
+      "Konyaspor",
+      "Samsunspor"
     ]
   },
   {
     "name": "Vedat Muriqi",
     "clubs": [
       "Fenerbahçe",
-      "Genclerbirligi"
+      "Gençlerbirliği",
+      "Çaykur Rizespor"
+    ]
+  },
+  {
+    "name": "Vedat İnceefe",
+    "clubs": [
+      "Beşiktaş",
+      "Galatasaray"
     ]
   },
   {
     "name": "Vedran Corluka",
     "clubs": [
-      "Tottenham",
-      "Man City"
+      "Manchester City",
+      "Tottenham"
     ]
   },
   {
     "name": "Veli Acar",
     "clubs": [
-      "Konyaspor",
-      "Denizlispor"
+      "Denizlispor",
+      "Konyaspor"
+    ]
+  },
+  {
+    "name": "Veli Çetin",
+    "clubs": [
+      "Beşiktaş",
+      "Göztepe",
+      "Samsunspor"
+    ]
+  },
+  {
+    "name": "Veron Parkes",
+    "clubs": [
+      "Crystal Palace",
+      "West Ham"
     ]
   },
   {
     "name": "Veysel Cihan",
     "clubs": [
-      "Konyaspor",
-      "Genclerbirligi",
       "Antalyaspor",
+      "Beşiktaş",
       "Denizlispor",
-      "Beşiktaş"
+      "Gaziantepspor",
+      "Gençlerbirliği",
+      "Konyaspor"
     ]
   },
   {
     "name": "Veysel Sarı",
     "clubs": [
       "Antalyaspor",
-      "Galatasaray"
+      "Galatasaray",
+      "Kasımpaşa"
+    ]
+  },
+  {
+    "name": "Victor Anichebe",
+    "clubs": [
+      "Everton",
+      "Sunderland"
     ]
   },
   {
     "name": "Victor Lindelöf",
     "clubs": [
+      "Aston Villa",
       "Benfica",
-      "Man Utd"
+      "Manchester United"
     ]
   },
   {
     "name": "Victor Moses",
     "clubs": [
       "Chelsea",
+      "Crystal Palace",
       "Fenerbahçe",
       "Inter",
-      "Liverpool"
+      "Liverpool",
+      "West Ham"
     ]
   },
   {
     "name": "Victor Nelsson",
     "clubs": [
-      "Galatasaray",
-      "AS Roma"
+      "AS Roma",
+      "Galatasaray"
+    ]
+  },
+  {
+    "name": "Victor Obinna",
+    "clubs": [
+      "Inter",
+      "West Ham"
     ]
   },
   {
@@ -12943,28 +27033,42 @@ export const PLAYERS = [
     "name": "Victor Valdes",
     "clubs": [
       "Barcelona",
-      "Man Utd"
+      "Manchester United"
     ]
   },
   {
     "name": "Vid Belec",
     "clubs": [
-      "Konyaspor",
-      "Inter"
+      "Inter",
+      "Konyaspor"
+    ]
+  },
+  {
+    "name": "Viktor Gyökeres",
+    "clubs": [
+      "Arsenal",
+      "Brighton"
+    ]
+  },
+  {
+    "name": "Vinceartram",
+    "clubs": [
+      "Bournemouth",
+      "Wolverhampton"
     ]
   },
   {
     "name": "Vincent Aboubakar",
     "clubs": [
-      "FC Porto",
-      "Beşiktaş"
+      "Beşiktaş",
+      "FC Porto"
     ]
   },
   {
     "name": "Vincent Janssen",
     "clubs": [
-      "Tottenham",
-      "Fenerbahçe"
+      "Fenerbahçe",
+      "Tottenham"
     ]
   },
   {
@@ -12975,6 +27079,21 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Vincenzo Montella",
+    "clubs": [
+      "AS Roma",
+      "Fulham"
+    ]
+  },
+  {
+    "name": "Vinny Samways",
+    "clubs": [
+      "Everton",
+      "Tottenham",
+      "Wolverhampton"
+    ]
+  },
+  {
     "name": "Vitezslav Jaros",
     "clubs": [
       "Ajax",
@@ -12982,42 +27101,108 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Vitinha",
+    "clubs": [
+      "FC Porto",
+      "Wolverhampton"
+    ]
+  },
+  {
+    "name": "Vitinho",
+    "clubs": [
+      "Burnley",
+      "Inter"
+    ]
+  },
+  {
+    "name": "Vito Mannone",
+    "clubs": [
+      "Arsenal",
+      "Sunderland"
+    ]
+  },
+  {
     "name": "Vlad Chiricheş",
     "clubs": [
-      "Tottenham",
+      "Benfica",
       "Napoli",
-      "Benfica"
+      "Tottenham"
     ]
   },
   {
     "name": "Volkan Al",
     "clubs": [
-      "Konyaspor",
-      "Denizlispor"
+      "Denizlispor",
+      "Konyaspor"
+    ]
+  },
+  {
+    "name": "Volkan Altin",
+    "clubs": [
+      "Antalyaspor",
+      "Göztepe"
     ]
   },
   {
     "name": "Volkan Babacan",
     "clubs": [
-      "Kayserispor",
+      "Başakşehir",
       "Fenerbahçe",
-      "Başakşehir"
+      "Kayserispor"
+    ]
+  },
+  {
+    "name": "Volkan Koçaloğlu",
+    "clubs": [
+      "Konyaspor",
+      "Çaykur Rizespor"
+    ]
+  },
+  {
+    "name": "Volkan Pala",
+    "clubs": [
+      "Galatasaray",
+      "Çaykur Rizespor"
     ]
   },
   {
     "name": "Volkan Yaman",
     "clubs": [
       "Antalyaspor",
-      "Galatasaray"
+      "Galatasaray",
+      "Kasımpaşa"
+    ]
+  },
+  {
+    "name": "Volkan Çekiç",
+    "clubs": [
+      "Konyaspor",
+      "Samsunspor"
     ]
   },
   {
     "name": "Volkan Ünlü",
     "clubs": [
-      "Sivasspor",
       "Başakşehir",
+      "Beşiktaş",
+      "Sivasspor",
       "Trabzonspor",
-      "Beşiktaş"
+      "Çaykur Rizespor"
+    ]
+  },
+  {
+    "name": "Vurnon Anita",
+    "clubs": [
+      "Ajax",
+      "Leeds United",
+      "Newcastle United"
+    ]
+  },
+  {
+    "name": "Wallace",
+    "clubs": [
+      "Gaziantepspor",
+      "Göztepe"
     ]
   },
   {
@@ -13031,216 +27216,491 @@ export const PLAYERS = [
     "name": "Walter Samuel",
     "clubs": [
       "AS Roma",
-      "Real Madrid",
-      "Inter"
+      "Inter",
+      "Real Madrid"
+    ]
+  },
+  {
+    "name": "Wanderson",
+    "clubs": [
+      "Ajax",
+      "Alanyaspor"
+    ]
+  },
+  {
+    "name": "Warren Cummings",
+    "clubs": [
+      "Bournemouth",
+      "Chelsea"
+    ]
+  },
+  {
+    "name": "Wayne Andrews",
+    "clubs": [
+      "Crystal Palace",
+      "Leeds United"
     ]
   },
   {
     "name": "Wayne Bridge",
     "clubs": [
       "Chelsea",
-      "Man City"
+      "Manchester City"
+    ]
+  },
+  {
+    "name": "Wayne Henderson",
+    "clubs": [
+      "Aston Villa",
+      "Brighton"
+    ]
+  },
+  {
+    "name": "Wayne Hennessey",
+    "clubs": [
+      "Burnley",
+      "Crystal Palace",
+      "Manchester City",
+      "Wolverhampton"
+    ]
+  },
+  {
+    "name": "Wayne Rooney",
+    "clubs": [
+      "Everton",
+      "Manchester United"
+    ]
+  },
+  {
+    "name": "Wayne Routledge",
+    "clubs": [
+      "Aston Villa",
+      "Crystal Palace",
+      "Fulham",
+      "Newcastle United",
+      "Tottenham"
+    ]
+  },
+  {
+    "name": "Wayneridge",
+    "clubs": [
+      "Brighton",
+      "Fulham",
+      "Sunderland",
+      "West Ham"
+    ]
+  },
+  {
+    "name": "Waynerown",
+    "clubs": [
+      "Brentford",
+      "Fulham",
+      "Newcastle United"
     ]
   },
   {
     "name": "Wederson",
     "clubs": [
-      "Fenerbahçe",
-      "Antalyaspor"
+      "Antalyaspor",
+      "Fenerbahçe"
+    ]
+  },
+  {
+    "name": "Wes Fletcher",
+    "clubs": [
+      "Burnley",
+      "Liverpool"
+    ]
+  },
+  {
+    "name": "Wes Foderingham",
+    "clubs": [
+      "Fulham",
+      "West Ham"
+    ]
+  },
+  {
+    "name": "Wesley Moraes",
+    "clubs": [
+      "Aston Villa",
+      "Karagümrük"
+    ]
+  },
+  {
+    "name": "Weston McKennie",
+    "clubs": [
+      "Juventus",
+      "Leeds United"
+    ]
+  },
+  {
+    "name": "Wilfried Gnonto",
+    "clubs": [
+      "Inter",
+      "Leeds United"
     ]
   },
   {
     "name": "Wilfried Kanga",
     "clubs": [
       "Kayserispor",
-      "PSG"
+      "Paris Saint-Germain"
     ]
   },
   {
     "name": "Wilfried Zaha",
     "clubs": [
+      "Crystal Palace",
       "Galatasaray",
-      "Man Utd"
+      "Manchester United"
+    ]
+  },
+  {
+    "name": "Will Grigg",
+    "clubs": [
+      "Brentford",
+      "Sunderland"
     ]
   },
   {
     "name": "Will Lankshear",
     "clubs": [
-      "Tottenham",
-      "Arsenal"
+      "Arsenal",
+      "Tottenham"
+    ]
+  },
+  {
+    "name": "Will Norris",
+    "clubs": [
+      "Burnley",
+      "Wolverhampton"
     ]
   },
   {
     "name": "William",
     "clubs": [
-      "Kayserispor",
+      "Benfica",
       "Inter",
-      "Benfica"
+      "Kayserispor"
     ]
   },
   {
     "name": "William Gallas",
     "clubs": [
+      "Arsenal",
       "Chelsea",
-      "Tottenham",
-      "Arsenal"
+      "Tottenham"
+    ]
+  },
+  {
+    "name": "William Troost-Ekong",
+    "clubs": [
+      "Fulham",
+      "Tottenham"
     ]
   },
   {
     "name": "William Vainqueur",
     "clubs": [
-      "Antalyaspor",
-      "AS Roma"
+      "AS Roma",
+      "Antalyaspor"
     ]
   },
   {
     "name": "Willian",
     "clubs": [
+      "Arsenal",
       "Chelsea",
-      "Arsenal"
+      "Fulham"
+    ]
+  },
+  {
+    "name": "Willrook",
+    "clubs": [
+      "Leeds United",
+      "Nottingham Forest"
+    ]
+  },
+  {
+    "name": "Willuckley",
+    "clubs": [
+      "Brighton",
+      "Leeds United",
+      "Sunderland"
     ]
   },
   {
     "name": "Willy Caballero",
     "clubs": [
       "Chelsea",
-      "Man City"
+      "Manchester City"
+    ]
+  },
+  {
+    "name": "Wilson Eduardo",
+    "clubs": [
+      "Alanyaspor",
+      "FC Porto"
     ]
   },
   {
     "name": "Wilson Odobert",
     "clubs": [
-      "Tottenham",
-      "PSG"
+      "Burnley",
+      "Paris Saint-Germain",
+      "Tottenham"
     ]
   },
   {
     "name": "Winston Bogarde",
     "clubs": [
-      "Chelsea",
+      "Ajax",
       "Barcelona",
-      "Ajax"
+      "Chelsea"
+    ]
+  },
+  {
+    "name": "Winston Reid",
+    "clubs": [
+      "Brentford",
+      "West Ham"
     ]
   },
   {
     "name": "Wojciech Szczesny",
     "clubs": [
-      "Juventus",
+      "AS Roma",
       "Arsenal",
       "Barcelona",
-      "AS Roma"
+      "Brentford",
+      "Juventus"
     ]
   },
   {
     "name": "Wout Weghorst",
     "clubs": [
-      "Beşiktaş",
       "Ajax",
-      "Man Utd"
+      "Beşiktaş",
+      "Burnley",
+      "Manchester United"
     ]
   },
   {
     "name": "Xabi Alonso",
     "clubs": [
-      "Real Madrid",
+      "Bayern Munich",
       "Liverpool",
-      "Bayern Munich"
+      "Real Madrid"
+    ]
+  },
+  {
+    "name": "Xavier Amaechi",
+    "clubs": [
+      "Arsenal",
+      "Fulham"
     ]
   },
   {
     "name": "Xherdan Shaqiri",
     "clubs": [
+      "Bayern Munich",
       "Inter",
-      "Liverpool",
-      "Bayern Munich"
+      "Liverpool"
     ]
   },
   {
     "name": "Yacine Adli",
     "clubs": [
       "AC Milan",
-      "PSG"
+      "Paris Saint-Germain"
+    ]
+  },
+  {
+    "name": "Yakubu Aiyegbeni",
+    "clubs": [
+      "Everton",
+      "Kayserispor"
     ]
   },
   {
     "name": "Yakup Bugun",
     "clubs": [
-      "Trabzonspor",
-      "Denizlispor"
+      "Alanyaspor",
+      "Denizlispor",
+      "Trabzonspor"
     ]
   },
   {
     "name": "Yalçın Ayhan",
     "clubs": [
-      "Başakşehir",
       "Antalyaspor",
+      "Başakşehir",
+      "Beşiktaş",
       "Galatasaray",
-      "Beşiktaş"
+      "Gaziantepspor",
+      "Karagümrük",
+      "Kasımpaşa"
+    ]
+  },
+  {
+    "name": "Yalçın Kayan",
+    "clubs": [
+      "Eyüpspor",
+      "Göztepe"
+    ]
+  },
+  {
+    "name": "Yalçın Kılınç",
+    "clubs": [
+      "Eyüpspor",
+      "Gaziantep FK",
+      "Kocaelispor",
+      "Samsunspor"
     ]
   },
   {
     "name": "Yan Couto",
     "clubs": [
-      "Bor. Dortmund",
-      "Man City"
+      "Borussia Dortmund",
+      "Manchester City"
+    ]
+  },
+  {
+    "name": "Yankuba Minteh",
+    "clubs": [
+      "Brighton",
+      "Newcastle United"
+    ]
+  },
+  {
+    "name": "Yann Karamoh",
+    "clubs": [
+      "Inter",
+      "Karagümrük"
     ]
   },
   {
     "name": "Yann Sommer",
     "clubs": [
-      "Inter",
-      "Bayern Munich"
+      "Bayern Munich",
+      "Inter"
+    ]
+  },
+  {
+    "name": "Yannickolasie",
+    "clubs": [
+      "Aston Villa",
+      "Crystal Palace",
+      "Everton"
+    ]
+  },
+  {
+    "name": "Yaser Kasim",
+    "clubs": [
+      "Brighton",
+      "Fulham"
     ]
   },
   {
     "name": "Yaser Yıldız",
     "clubs": [
+      "Beşiktaş",
       "Denizlispor",
+      "Galatasaray"
+    ]
+  },
+  {
+    "name": "Yasin Markal",
+    "clubs": [
+      "Eyüpspor",
       "Galatasaray",
-      "Beşiktaş"
+      "Karagümrük",
+      "Kasımpaşa"
+    ]
+  },
+  {
+    "name": "Yasin Sülün",
+    "clubs": [
+      "Beşiktaş",
+      "Kasımpaşa",
+      "Kocaelispor"
+    ]
+  },
+  {
+    "name": "Yasin Tosun",
+    "clubs": [
+      "Denizlispor",
+      "Kasımpaşa"
     ]
   },
   {
     "name": "Yasin Yiğit",
     "clubs": [
+      "Alanyaspor",
       "Antalyaspor",
-      "Beşiktaş"
+      "Beşiktaş",
+      "Karagümrük"
     ]
   },
   {
     "name": "Yasin Çakmak",
     "clubs": [
-      "Sivasspor",
+      "Denizlispor",
       "Fenerbahçe",
-      "Denizlispor"
+      "Sivasspor",
+      "Çaykur Rizespor"
+    ]
+  },
+  {
+    "name": "Yasin Özcan",
+    "clubs": [
+      "Aston Villa",
+      "Kasımpaşa"
     ]
   },
   {
     "name": "Yasir Elmacı",
     "clubs": [
-      "Sivasspor",
-      "Genclerbirligi"
+      "Gençlerbirliği",
+      "Göztepe",
+      "Kasımpaşa",
+      "Sivasspor"
     ]
   },
   {
     "name": "Yassine Benzia",
     "clubs": [
       "Fenerbahçe",
-      "Olymp. Lyon"
+      "Olympique Lyon"
+    ]
+  },
+  {
+    "name": "Yavuz Özsevim",
+    "clubs": [
+      "Antalyaspor",
+      "Eyüpspor"
     ]
   },
   {
     "name": "Yaya Sanogo",
     "clubs": [
+      "Ajax",
       "Arsenal",
-      "Ajax"
+      "Crystal Palace"
     ]
   },
   {
     "name": "Yaya Toure",
     "clubs": [
       "Barcelona",
-      "Man City"
+      "Manchester City"
+    ]
+  },
+  {
+    "name": "Yağızcan Erdem",
+    "clubs": [
+      "Karagümrük",
+      "Trabzonspor"
     ]
   },
   {
@@ -13253,66 +27713,136 @@ export const PLAYERS = [
   {
     "name": "Yekta Kurtuluş",
     "clubs": [
-      "Sivasspor",
       "Antalyaspor",
-      "Galatasaray"
+      "Galatasaray",
+      "Kasımpaşa",
+      "Sivasspor"
     ]
   },
   {
     "name": "Yenal Tuncer",
     "clubs": [
       "Antalyaspor",
-      "Denizlispor"
+      "Denizlispor",
+      "Samsunspor"
     ]
   },
   {
     "name": "Yener Arıca",
     "clubs": [
-      "Kayserispor",
-      "Ajax"
+      "Ajax",
+      "Kayserispor"
+    ]
+  },
+  {
+    "name": "Yerry Mina",
+    "clubs": [
+      "Barcelona",
+      "Everton"
     ]
   },
   {
     "name": "Yiğit Efe Demir",
     "clubs": [
       "Fenerbahçe",
-      "Genclerbirligi"
+      "Gençlerbirliği",
+      "Karagümrük"
+    ]
+  },
+  {
+    "name": "Yiğit Fidan",
+    "clubs": [
+      "Fenerbahçe",
+      "Karagümrük"
+    ]
+  },
+  {
+    "name": "Yiğit Gökoğlan",
+    "clubs": [
+      "Galatasaray",
+      "Göztepe"
     ]
   },
   {
     "name": "Yoan Severin",
     "clubs": [
       "Juventus",
-      "Olymp. Lyon"
+      "Olympique Lyon"
+    ]
+  },
+  {
+    "name": "Yoane Wissa",
+    "clubs": [
+      "Brentford",
+      "Newcastle United"
+    ]
+  },
+  {
+    "name": "Yohan Cabaye",
+    "clubs": [
+      "Crystal Palace",
+      "Newcastle United"
+    ]
+  },
+  {
+    "name": "Yonathan Del Valle",
+    "clubs": [
+      "Eyüpspor",
+      "Gaziantep FK",
+      "Kasımpaşa"
     ]
   },
   {
     "name": "Yossi Benayoun",
     "clubs": [
-      "Chelsea",
-      "Arsenal",
       "Ajax",
+      "Arsenal",
+      "Chelsea",
       "Liverpool"
+    ]
+  },
+  {
+    "name": "Younes Kaboul",
+    "clubs": [
+      "Sunderland",
+      "Tottenham"
     ]
   },
   {
     "name": "Young-pyo Lee",
     "clubs": [
-      "Bor. Dortmund",
+      "Borussia Dortmund",
       "Tottenham"
+    ]
+  },
+  {
+    "name": "Youssef Ait Bennasser",
+    "clubs": [
+      "Kayserispor",
+      "Samsunspor"
     ]
   },
   {
     "name": "Yunus Altun",
     "clubs": [
+      "Fenerbahçe",
       "Kayserispor",
+      "Kocaelispor",
       "Konyaspor",
-      "Fenerbahçe"
+      "Çaykur Rizespor"
+    ]
+  },
+  {
+    "name": "Yunus Konak",
+    "clubs": [
+      "Brentford",
+      "Sivasspor"
     ]
   },
   {
     "name": "Yunus Mallı",
     "clubs": [
+      "Kasımpaşa",
       "Konyaspor",
       "Trabzonspor"
     ]
@@ -13320,8 +27850,29 @@ export const PLAYERS = [
   {
     "name": "Yunus Musah",
     "clubs": [
-      "Arsenal",
-      "AC Milan"
+      "AC Milan",
+      "Arsenal"
+    ]
+  },
+  {
+    "name": "Yussif Owusu",
+    "clubs": [
+      "Brighton",
+      "Chelsea"
+    ]
+  },
+  {
+    "name": "Yusuf Abdioğlu",
+    "clubs": [
+      "Kocaelispor",
+      "Samsunspor"
+    ]
+  },
+  {
+    "name": "Yusuf Aydin",
+    "clubs": [
+      "Galatasaray",
+      "Göztepe"
     ]
   },
   {
@@ -13341,29 +27892,63 @@ export const PLAYERS = [
   {
     "name": "Yusuf Erdoğan",
     "clubs": [
+      "Karagümrük",
+      "Kasımpaşa",
       "Konyaspor",
       "Trabzonspor"
+    ]
+  },
+  {
+    "name": "Yusuf Gültekin",
+    "clubs": [
+      "Gençlerbirliği",
+      "Kocaelispor",
+      "Samsunspor"
+    ]
+  },
+  {
+    "name": "Yusuf Peken",
+    "clubs": [
+      "Alanyaspor",
+      "Karagümrük",
+      "Sivasspor"
     ]
   },
   {
     "name": "Yusuf Sarı",
     "clubs": [
       "Başakşehir",
-      "Trabzonspor"
+      "Trabzonspor",
+      "Çaykur Rizespor"
     ]
   },
   {
     "name": "Yusuf Soysal",
     "clubs": [
-      "Kayserispor",
-      "Genclerbirligi"
+      "Gençlerbirliği",
+      "Kayserispor"
+    ]
+  },
+  {
+    "name": "Yusuf Tokuş",
+    "clubs": [
+      "Kocaelispor",
+      "Sivasspor",
+      "Çaykur Rizespor"
     ]
   },
   {
     "name": "Yusuf Tunç",
     "clubs": [
+      "Beşiktaş",
+      "Fenerbahçe"
+    ]
+  },
+  {
+    "name": "Yusuf Türk",
+    "clubs": [
       "Fenerbahçe",
-      "Beşiktaş"
+      "Gaziantep FK"
     ]
   },
   {
@@ -13374,60 +27959,150 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Yüksel Kayaalp",
+    "clubs": [
+      "Alanyaspor",
+      "Beşiktaş",
+      "Eyüpspor",
+      "Göztepe"
+    ]
+  },
+  {
     "name": "Zafer Demiray",
     "clubs": [
-      "Trabzonspor",
       "Antalyaspor",
-      "Beşiktaş"
+      "Beşiktaş",
+      "Trabzonspor",
+      "Çaykur Rizespor"
+    ]
+  },
+  {
+    "name": "Zafer Görgen",
+    "clubs": [
+      "Gaziantep FK",
+      "Çaykur Rizespor"
     ]
   },
   {
     "name": "Zafer Türkmen",
     "clubs": [
-      "Kayserispor",
-      "Genclerbirligi"
+      "Gençlerbirliği",
+      "Kayserispor"
+    ]
+  },
+  {
+    "name": "Zafer Uysal",
+    "clubs": [
+      "Göztepe",
+      "Kayserispor"
+    ]
+  },
+  {
+    "name": "Zain Silcott-Duberry",
+    "clubs": [
+      "Bournemouth",
+      "Chelsea"
+    ]
+  },
+  {
+    "name": "Zain Westbrooke",
+    "clubs": [
+      "Brentford",
+      "Chelsea"
+    ]
+  },
+  {
+    "name": "Zak Sturge",
+    "clubs": [
+      "Brighton",
+      "Chelsea"
+    ]
+  },
+  {
+    "name": "Zakaria Labyad",
+    "clubs": [
+      "Ajax",
+      "Fulham"
+    ]
+  },
+  {
+    "name": "Zanka",
+    "clubs": [
+      "Brentford",
+      "Fenerbahçe"
     ]
   },
   {
     "name": "Zargo Toure",
     "clubs": [
-      "Trabzonspor",
-      "Genclerbirligi"
+      "Gençlerbirliği",
+      "Trabzonspor"
+    ]
+  },
+  {
+    "name": "Zavon Hines",
+    "clubs": [
+      "Bournemouth",
+      "Burnley",
+      "West Ham"
     ]
   },
   {
     "name": "Zdenek Grygera",
     "clubs": [
-      "Juventus",
-      "Ajax"
+      "Ajax",
+      "Fulham",
+      "Juventus"
+    ]
+  },
+  {
+    "name": "Zdravko Lazarov",
+    "clubs": [
+      "Gaziantepspor",
+      "Kocaelispor"
     ]
   },
   {
     "name": "Ze Pedro",
     "clubs": [
-      "FC Porto",
-      "Benfica"
+      "Benfica",
+      "FC Porto"
     ]
   },
   {
     "name": "Ze Roberto",
     "clubs": [
-      "Real Madrid",
-      "Bayern Munich"
+      "Bayern Munich",
+      "Real Madrid"
     ]
   },
   {
     "name": "Zech Medley",
     "clubs": [
-      "Chelsea",
-      "Arsenal"
+      "Arsenal",
+      "Chelsea"
+    ]
+  },
+  {
+    "name": "Zeki Amdouni",
+    "clubs": [
+      "Benfica",
+      "Burnley"
     ]
   },
   {
     "name": "Zeki Fryers",
     "clubs": [
-      "Tottenham",
-      "Man Utd"
+      "Crystal Palace",
+      "Manchester United",
+      "Tottenham"
+    ]
+  },
+  {
+    "name": "Zian Flemming",
+    "clubs": [
+      "Ajax",
+      "Burnley"
     ]
   },
   {
@@ -13438,45 +28113,104 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Ziya Aydın",
+    "clubs": [
+      "Eyüpspor",
+      "Gençlerbirliği",
+      "Kasımpaşa"
+    ]
+  },
+  {
+    "name": "Ziya Şahin",
+    "clubs": [
+      "Gaziantepspor",
+      "Konyaspor"
+    ]
+  },
+  {
+    "name": "Ziyad Larkeche",
+    "clubs": [
+      "Fulham",
+      "Paris Saint-Germain"
+    ]
+  },
+  {
     "name": "Zlatan Ibrahimovic",
     "clubs": [
-      "Juventus",
-      "Barcelona",
       "AC Milan",
       "Ajax",
+      "Barcelona",
       "Inter",
-      "Man Utd"
+      "Juventus",
+      "Manchester United"
     ]
   },
   {
     "name": "Zlatko Zahovic",
     "clubs": [
-      "FC Porto",
-      "Benfica"
+      "Benfica",
+      "FC Porto"
+    ]
+  },
+  {
+    "name": "Zvonimir Kozulj",
+    "clubs": [
+      "Eyüpspor",
+      "Gaziantep FK"
     ]
   },
   {
     "name": "Zymer Bytyqi",
     "clubs": [
-      "Konyaspor",
-      "Antalyaspor"
+      "Antalyaspor",
+      "Konyaspor"
+    ]
+  },
+  {
+    "name": "ivar Ingimarsson",
+    "clubs": [
+      "Brentford",
+      "Brighton",
+      "Wolverhampton"
+    ]
+  },
+  {
+    "name": "Çağatay Tekin",
+    "clubs": [
+      "Karagümrük",
+      "Samsunspor"
     ]
   },
   {
     "name": "Çağdaş Atan",
     "clubs": [
-      "Trabzonspor",
+      "Beşiktaş",
       "Denizlispor",
-      "Beşiktaş"
+      "Trabzonspor"
+    ]
+  },
+  {
+    "name": "Çağlar Akbaba",
+    "clubs": [
+      "Eyüpspor",
+      "Gaziantep FK"
     ]
   },
   {
     "name": "Çağlar Birinci",
     "clubs": [
-      "Kayserispor",
-      "Trabzonspor",
       "Denizlispor",
-      "Galatasaray"
+      "Galatasaray",
+      "Kayserispor",
+      "Trabzonspor"
+    ]
+  },
+  {
+    "name": "Çağtay Kurukalıp",
+    "clubs": [
+      "Fenerbahçe",
+      "Karagümrük",
+      "Kasımpaşa"
     ]
   },
   {
@@ -13487,133 +28221,552 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Çetin Güner",
+    "clubs": [
+      "Gaziantepspor",
+      "Trabzonspor"
+    ]
+  },
+  {
     "name": "Ömer Ali Şahiner",
     "clubs": [
-      "Konyaspor",
-      "Başakşehir"
+      "Başakşehir",
+      "Konyaspor"
+    ]
+  },
+  {
+    "name": "Ömer Aysan Barış",
+    "clubs": [
+      "Kocaelispor",
+      "Trabzonspor"
     ]
   },
   {
     "name": "Ömer Bayram",
     "clubs": [
-      "Kayserispor",
-      "Galatasaray"
+      "Eyüpspor",
+      "Galatasaray",
+      "Kayserispor"
+    ]
+  },
+  {
+    "name": "Ömer Ersoy",
+    "clubs": [
+      "Eyüpspor",
+      "Karagümrük"
     ]
   },
   {
     "name": "Ömer Gümüş",
     "clubs": [
       "Başakşehir",
+      "Beşiktaş",
       "Galatasaray",
-      "Beşiktaş"
+      "Göztepe",
+      "Karagümrük"
+    ]
+  },
+  {
+    "name": "Ömer Hacısalihoğlu",
+    "clubs": [
+      "Kasımpaşa",
+      "Konyaspor"
+    ]
+  },
+  {
+    "name": "Ömer Karslıoğlu",
+    "clubs": [
+      "Alanyaspor",
+      "Antalyaspor"
     ]
   },
   {
     "name": "Ömer Kulga",
     "clubs": [
-      "Kayserispor",
-      "Denizlispor"
+      "Denizlispor",
+      "Kayserispor"
+    ]
+  },
+  {
+    "name": "Ömer Közen",
+    "clubs": [
+      "Gaziantepspor",
+      "Kayserispor"
     ]
   },
   {
     "name": "Ömer Riza",
     "clubs": [
       "Arsenal",
+      "Denizlispor",
       "Trabzonspor",
-      "Denizlispor"
+      "West Ham"
     ]
   },
   {
     "name": "Ömer Toprak",
     "clubs": [
-      "Bor. Dortmund",
-      "Antalyaspor"
+      "Antalyaspor",
+      "Borussia Dortmund"
+    ]
+  },
+  {
+    "name": "Ömer Tuğ",
+    "clubs": [
+      "Fenerbahçe",
+      "Kocaelispor"
     ]
   },
   {
     "name": "Ömer Çatkıç",
     "clubs": [
-      "Genclerbirligi",
-      "Antalyaspor"
+      "Antalyaspor",
+      "Gaziantepspor",
+      "Gençlerbirliği"
     ]
   },
   {
     "name": "Ömer Şişmanoğlu",
     "clubs": [
-      "Kayserispor",
-      "Konyaspor",
       "Antalyaspor",
+      "Beşiktaş",
       "Denizlispor",
-      "Beşiktaş"
+      "Göztepe",
+      "Kayserispor",
+      "Konyaspor"
+    ]
+  },
+  {
+    "name": "Ömürcan Artan",
+    "clubs": [
+      "Gaziantep FK",
+      "Gençlerbirliği"
+    ]
+  },
+  {
+    "name": "Önder Dalkıran",
+    "clubs": [
+      "Alanyaspor",
+      "Sivasspor"
     ]
   },
   {
     "name": "Önder Turacı",
     "clubs": [
-      "Kayserispor",
+      "Antalyaspor",
       "Fenerbahçe",
-      "Antalyaspor"
+      "Göztepe",
+      "Kayserispor"
+    ]
+  },
+  {
+    "name": "Önder Çengel",
+    "clubs": [
+      "Eyüpspor",
+      "Gaziantepspor"
     ]
   },
   {
     "name": "Özden Öngün",
     "clubs": [
+      "Denizlispor",
+      "Gaziantepspor",
       "Kayserispor",
+      "Kocaelispor",
       "Konyaspor",
-      "Denizlispor"
+      "Çaykur Rizespor"
+    ]
+  },
+  {
+    "name": "Özgür Atılgan",
+    "clubs": [
+      "Denizlispor",
+      "Eyüpspor",
+      "Göztepe"
     ]
   },
   {
     "name": "Özgür Can Özcan",
     "clubs": [
-      "Kayserispor",
       "Denizlispor",
-      "Galatasaray"
+      "Galatasaray",
+      "Gaziantepspor",
+      "Kayserispor",
+      "Çaykur Rizespor"
+    ]
+  },
+  {
+    "name": "Özgür Vurur",
+    "clubs": [
+      "Kocaelispor",
+      "Çaykur Rizespor"
+    ]
+  },
+  {
+    "name": "Özgür Yıldırım",
+    "clubs": [
+      "Gaziantepspor",
+      "Çaykur Rizespor"
     ]
   },
   {
     "name": "Özgür Çek",
     "clubs": [
+      "Alanyaspor",
+      "Denizlispor",
       "Fenerbahçe",
-      "Genclerbirligi",
-      "Denizlispor"
+      "Gençlerbirliği",
+      "Kasımpaşa",
+      "Çaykur Rizespor"
     ]
   },
   {
     "name": "Ümit Bozkurt",
     "clubs": [
-      "Konyaspor",
-      "Genclerbirligi",
+      "Beşiktaş",
       "Denizlispor",
-      "Beşiktaş"
+      "Gençlerbirliği",
+      "Konyaspor"
     ]
   },
   {
     "name": "Ümit Karan",
     "clubs": [
-      "Genclerbirligi",
-      "Galatasaray"
+      "Galatasaray",
+      "Gençlerbirliği"
+    ]
+  },
+  {
+    "name": "Ümit Kurt",
+    "clubs": [
+      "Sivasspor",
+      "Çaykur Rizespor"
     ]
   },
   {
     "name": "Ümit Özat",
     "clubs": [
       "Fenerbahçe",
-      "Genclerbirligi"
+      "Gençlerbirliği"
+    ]
+  },
+  {
+    "name": "Ümit Özışık",
+    "clubs": [
+      "Göztepe",
+      "Konyaspor"
+    ]
+  },
+  {
+    "name": "Ünal Sarı",
+    "clubs": [
+      "Gençlerbirliği",
+      "Kasımpaşa"
+    ]
+  },
+  {
+    "name": "İbrahim Akdağ",
+    "clubs": [
+      "Başakşehir",
+      "Eyüpspor",
+      "Kayserispor",
+      "Sivasspor"
+    ]
+  },
+  {
+    "name": "İbrahim Akın",
+    "clubs": [
+      "Beşiktaş",
+      "Gaziantepspor",
+      "Sivasspor"
+    ]
+  },
+  {
+    "name": "İbrahim Dağaşan",
+    "clubs": [
+      "Antalyaspor",
+      "Kayserispor",
+      "Sivasspor"
+    ]
+  },
+  {
+    "name": "İbrahim Ege",
+    "clubs": [
+      "Denizlispor",
+      "Konyaspor",
+      "Trabzonspor"
+    ]
+  },
+  {
+    "name": "İbrahim Kaya",
+    "clubs": [
+      "Alanyaspor",
+      "Kasımpaşa"
+    ]
+  },
+  {
+    "name": "İbrahim Kaş",
+    "clubs": [
+      "Beşiktaş",
+      "Eyüpspor",
+      "Kocaelispor"
+    ]
+  },
+  {
+    "name": "İbrahim Pehlivan",
+    "clubs": [
+      "Gaziantep FK",
+      "Gençlerbirliği",
+      "Çaykur Rizespor"
+    ]
+  },
+  {
+    "name": "İbrahim Toraman",
+    "clubs": [
+      "Beşiktaş",
+      "Gaziantepspor",
+      "Sivasspor"
+    ]
+  },
+  {
+    "name": "İbrahim Üzülmez",
+    "clubs": [
+      "Beşiktaş",
+      "Gaziantepspor",
+      "Kocaelispor"
+    ]
+  },
+  {
+    "name": "İdris Gümüşdere",
+    "clubs": [
+      "Gençlerbirliği",
+      "Kocaelispor"
+    ]
+  },
+  {
+    "name": "İlhan Mansız",
+    "clubs": [
+      "Beşiktaş",
+      "Gençlerbirliği",
+      "Samsunspor"
+    ]
+  },
+  {
+    "name": "İlhan Ummak",
+    "clubs": [
+      "Samsunspor",
+      "Sivasspor",
+      "Çaykur Rizespor"
+    ]
+  },
+  {
+    "name": "İlhan Çelikay",
+    "clubs": [
+      "Alanyaspor",
+      "Eyüpspor",
+      "Galatasaray",
+      "Kasımpaşa"
+    ]
+  },
+  {
+    "name": "İlhan Özbay",
+    "clubs": [
+      "Denizlispor",
+      "Gaziantepspor"
+    ]
+  },
+  {
+    "name": "İlhan Şahin",
+    "clubs": [
+      "Beşiktaş",
+      "Göztepe"
+    ]
+  },
+  {
+    "name": "İlkay Durmuş",
+    "clubs": [
+      "Antalyaspor",
+      "Gençlerbirliği"
+    ]
+  },
+  {
+    "name": "İlkay Gündoğan",
+    "clubs": [
+      "Barcelona",
+      "Borussia Dortmund",
+      "Galatasaray",
+      "Manchester City"
+    ]
+  },
+  {
+    "name": "İlker Avcıbay",
+    "clubs": [
+      "Antalyaspor",
+      "Denizlispor",
+      "Kasımpaşa",
+      "Konyaspor"
+    ]
+  },
+  {
+    "name": "İlker Erbay",
+    "clubs": [
+      "Alanyaspor",
+      "Galatasaray",
+      "Kocaelispor"
+    ]
+  },
+  {
+    "name": "İlker Karakaş",
+    "clubs": [
+      "Gaziantep FK",
+      "Gençlerbirliği"
+    ]
+  },
+  {
+    "name": "İlker Sayan",
+    "clubs": [
+      "Göztepe",
+      "Sivasspor"
+    ]
+  },
+  {
+    "name": "İlyas Kahraman",
+    "clubs": [
+      "Antalyaspor",
+      "Denizlispor",
+      "Eyüpspor",
+      "Galatasaray",
+      "Gaziantepspor"
+    ]
+  },
+  {
+    "name": "İlyas Yılmazer",
+    "clubs": [
+      "Antalyaspor",
+      "Fenerbahçe",
+      "Samsunspor"
+    ]
+  },
+  {
+    "name": "İrfan Can Eğribayat",
+    "clubs": [
+      "Fenerbahçe",
+      "Göztepe"
+    ]
+  },
+  {
+    "name": "İrfan Can Kahveci",
+    "clubs": [
+      "Başakşehir",
+      "Fenerbahçe",
+      "Gençlerbirliği"
+    ]
+  },
+  {
+    "name": "İsa Kaykun",
+    "clubs": [
+      "Eyüpspor",
+      "Kasımpaşa"
+    ]
+  },
+  {
+    "name": "İslam Aydın",
+    "clubs": [
+      "Alanyaspor",
+      "Beşiktaş"
+    ]
+  },
+  {
+    "name": "İsmail Doğan",
+    "clubs": [
+      "Denizlispor",
+      "Gençlerbirliği",
+      "Kayserispor"
+    ]
+  },
+  {
+    "name": "İsmail Güldüren",
+    "clubs": [
+      "Fenerbahçe",
+      "Gençlerbirliği",
+      "Konyaspor"
+    ]
+  },
+  {
+    "name": "İsmail Kayalı",
+    "clubs": [
+      "Antalyaspor",
+      "Fenerbahçe"
+    ]
+  },
+  {
+    "name": "İsmail Köybaşı",
+    "clubs": [
+      "Beşiktaş",
+      "Fenerbahçe",
+      "Gaziantepspor",
+      "Göztepe",
+      "Trabzonspor",
+      "Çaykur Rizespor"
+    ]
+  },
+  {
+    "name": "İsmail Zehir",
+    "clubs": [
+      "Alanyaspor",
+      "Galatasaray"
+    ]
+  },
+  {
+    "name": "İsmail Çipe",
+    "clubs": [
+      "Galatasaray",
+      "Karagümrük",
+      "Kayserispor"
+    ]
+  },
+  {
+    "name": "İsmail Şahmalı",
+    "clubs": [
+      "Alanyaspor",
+      "Denizlispor"
+    ]
+  },
+  {
+    "name": "İsmet Yumakoğulları",
+    "clubs": [
+      "Fenerbahçe",
+      "Kocaelispor"
+    ]
+  },
+  {
+    "name": "İzzet Akgül",
+    "clubs": [
+      "Denizlispor",
+      "Galatasaray",
+      "Samsunspor"
+    ]
+  },
+  {
+    "name": "Şadi Çolak",
+    "clubs": [
+      "Göztepe",
+      "Çaykur Rizespor"
     ]
   },
   {
     "name": "Şener Aşkaroğlu",
     "clubs": [
+      "Denizlispor",
       "Konyaspor",
-      "Denizlispor"
+      "Çaykur Rizespor"
     ]
   },
   {
     "name": "Şenol Akın",
     "clubs": [
-      "Konyaspor",
-      "Denizlispor"
+      "Denizlispor",
+      "Konyaspor"
     ]
   },
   {

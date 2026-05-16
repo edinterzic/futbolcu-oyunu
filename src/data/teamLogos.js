@@ -1,158 +1,292 @@
+// Auto-generated from cleaned player-team data
+// Each team has: initials (2-4 chars), primary color, secondary color
+// Logo URLs intentionally not included to avoid copyright/trademark issues
+// Color-and-initials badges are rendered in the UI instead of actual club logos
+
 export const TEAM_LOGOS = {
-  "Real Madrid": {
-    "initials": "RMA",
-    "primary": "#ffffff",
-    "secondary": "#facc15",
-    "logo": "https://highlightly.net/soccer/images/teams/461175.png"
-  },
-  "Barcelona": {
-    "initials": "BAR",
-    "primary": "#a50044",
-    "secondary": "#004d98",
-    "logo": "https://highlightly.net/soccer/images/teams/450963.png"
-  },
-  "Atletico Madrid": {
-    "initials": "ATM",
-    "primary": "#c8102e",
-    "secondary": "#1f4aa8",
-    "logo": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Atletico%20Madrid%20Logo%202024.svg"
-  },
-  "Sevilla": {
-    "initials": "SEV",
-    "primary": "#ffffff",
-    "secondary": "#d71920",
-    "logo": "https://highlightly.net/soccer/images/teams/456920.png"
-  },
-  "Milan": {
-    "initials": "MIL",
-    "primary": "#fb090b",
-    "secondary": "#000000",
-    "logo": "https://highlightly.net/soccer/images/teams/14300137.png"
-  },
-  "Inter": {
-    "initials": "INT",
-    "primary": "#0057b8",
-    "secondary": "#000000",
-    "logo": "https://highlightly.net/soccer/images/teams/430539.png"
-  },
-  "Juventus": {
-    "initials": "JUV",
-    "primary": "#ffffff",
-    "secondary": "#000000",
-    "logo": "https://highlightly.net/soccer/images/teams/422880.png"
-  },
-  "Roma": {
-    "initials": "ROM",
-    "primary": "#8e1f2f",
-    "secondary": "#f0bc42",
-    "logo": "https://highlightly.net/soccer/images/teams/423731.png"
-  },
-  "PSG": {
-    "initials": "PSG",
-    "primary": "#004170",
-    "secondary": "#da291c",
-    "logo": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Paris%20Saint-Germain%20Logo.svg"
-  },
-  "Lyon": {
-    "initials": "LYO",
-    "primary": "#ffffff",
-    "secondary": "#1d428a",
-    "logo": "https://highlightly.net/soccer/images/teams/68864.png"
-  },
-  "Nice": {
-    "initials": "NIC",
-    "primary": "#d71920",
-    "secondary": "#000000",
-    "logo": "https://highlightly.net/soccer/images/teams/72268.png"
-  },
   "Chelsea": {
     "initials": "CHE",
     "primary": "#034694",
-    "secondary": "#ffffff",
-    "logo": "https://highlightly.net/soccer/images/teams/42483.png"
+    "secondary": "#FFFFFF"
   },
-  "Manchester United": {
-    "initials": "MUN",
-    "primary": "#da291c",
-    "secondary": "#fbe122",
-    "logo": "https://highlightly.net/soccer/images/teams/28867.png"
+  "Galatasaray": {
+    "initials": "GS",
+    "primary": "#A90432",
+    "secondary": "#FDB912"
   },
   "Manchester City": {
     "initials": "MCI",
-    "primary": "#6cabdd",
-    "secondary": "#ffffff",
-    "logo": "https://highlightly.net/soccer/images/teams/43334.png"
-  },
-  "Liverpool": {
-    "initials": "LIV",
-    "primary": "#c8102e",
-    "secondary": "#00b2a9",
-    "logo": "https://highlightly.net/soccer/images/teams/34824.png"
-  },
-  "Tottenham": {
-    "initials": "TOT",
-    "primary": "#132257",
-    "secondary": "#ffffff",
-    "logo": "https://highlightly.net/soccer/images/teams/40781.png"
-  },
-  "Arsenal": {
-    "initials": "ARS",
-    "primary": "#ef0107",
-    "secondary": "#ffffff",
-    "logo": "https://highlightly.net/soccer/images/teams/36526.png"
-  },
-  "Ajax": {
-    "initials": "AJA",
-    "primary": "#ffffff",
-    "secondary": "#d2122e",
-    "logo": "https://highlightly.net/soccer/images/teams/165878.png"
+    "primary": "#6CABDD",
+    "secondary": "#1C2C5B"
   },
   "Beşiktaş": {
     "initials": "BJK",
     "primary": "#000000",
-    "secondary": "#ffffff",
-    "logo": "https://commons.wikimedia.org/wiki/Special:Redirect/file/BesiktasJK-Logo.svg"
+    "secondary": "#FFFFFF"
+  },
+  "West Ham": {
+    "initials": "WHU",
+    "primary": "#7A263A",
+    "secondary": "#1BB1E7"
+  },
+  "Arsenal": {
+    "initials": "ARS",
+    "primary": "#EF0107",
+    "secondary": "#FFFFFF"
+  },
+  "Manchester United": {
+    "initials": "MUN",
+    "primary": "#DA291C",
+    "secondary": "#FBE122"
+  },
+  "Benfica": {
+    "initials": "SLB",
+    "primary": "#E30613",
+    "secondary": "#FFFFFF"
+  },
+  "Inter": {
+    "initials": "INT",
+    "primary": "#0057B8",
+    "secondary": "#000000"
   },
   "Fenerbahçe": {
     "initials": "FB",
-    "primary": "#002d72",
-    "secondary": "#fedd00",
-    "logo": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Fenerbahce%20Spor%20Kulubu.svg"
+    "primary": "#002D72",
+    "secondary": "#FEDD00"
   },
-  "Galatasaray": {
-    "initials": "GS",
-    "primary": "#a90432",
-    "secondary": "#fdb912",
-    "logo": "https://highlightly.net/soccer/images/teams/549679.png"
+  "Leeds United": {
+    "initials": "LEE",
+    "primary": "#FFCD00",
+    "secondary": "#1D428A"
+  },
+  "Gençlerbirliği": {
+    "initials": "GB",
+    "primary": "#CC0000",
+    "secondary": "#000000"
+  },
+  "Sunderland": {
+    "initials": "SUN",
+    "primary": "#EB172B",
+    "secondary": "#000000"
+  },
+  "Fulham": {
+    "initials": "FUL",
+    "primary": "#FFFFFF",
+    "secondary": "#000000"
   },
   "Trabzonspor": {
     "initials": "TS",
-    "primary": "#781f35",
-    "secondary": "#55acee",
-    "logo": "https://highlightly.net/soccer/images/teams/850082.png"
-  },
-  "Başakşehir": {
-    "initials": "IBFK",
-    "primary": "#f58220",
-    "secondary": "#003b79",
-    "logo": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Logo%20%C4%B0stanbul%20Ba%C5%9Fak%C5%9Fehir%20FK.svg"
-  },
-  "Sivasspor": {
-    "initials": "SIV",
-    "primary": "#d71920",
-    "secondary": "#ffffff",
-    "logo": "https://highlightly.net/soccer/images/teams/853486.png"
-  },
-  "Kayserispor": {
-    "initials": "KAY",
-    "primary": "#e31b23",
-    "secondary": "#ffd100",
-    "logo": "https://highlightly.net/soccer/images/teams/852635.png"
+    "primary": "#781F35",
+    "secondary": "#55ACEE"
   },
   "Antalyaspor": {
     "initials": "ANT",
-    "primary": "#e30613",
-    "secondary": "#ffffff",
-    "logo": "https://highlightly.net/soccer/images/teams/856039.png"
+    "primary": "#E30613",
+    "secondary": "#FFFFFF"
+  },
+  "Aston Villa": {
+    "initials": "AVL",
+    "primary": "#670E36",
+    "secondary": "#94BEE5"
+  },
+  "Liverpool": {
+    "initials": "LIV",
+    "primary": "#C8102E",
+    "secondary": "#00B2A9"
+  },
+  "Juventus": {
+    "initials": "JUV",
+    "primary": "#000000",
+    "secondary": "#FFFFFF"
+  },
+  "Çaykur Rizespor": {
+    "initials": "RİZ",
+    "primary": "#005DAB",
+    "secondary": "#008C45"
+  },
+  "Kayserispor": {
+    "initials": "KAY",
+    "primary": "#E31B23",
+    "secondary": "#FFD100"
+  },
+  "Wolverhampton": {
+    "initials": "WOL",
+    "primary": "#FDB913",
+    "secondary": "#231F20"
+  },
+  "FC Porto": {
+    "initials": "POR",
+    "primary": "#00428C",
+    "secondary": "#FFFFFF"
+  },
+  "Göztepe": {
+    "initials": "GÖZ",
+    "primary": "#FFCD00",
+    "secondary": "#D71920"
+  },
+  "Tottenham": {
+    "initials": "TOT",
+    "primary": "#132257",
+    "secondary": "#FFFFFF"
+  },
+  "Burnley": {
+    "initials": "BUR",
+    "primary": "#6C1D45",
+    "secondary": "#99D6EA"
+  },
+  "Everton": {
+    "initials": "EVE",
+    "primary": "#003399",
+    "secondary": "#FFFFFF"
+  },
+  "Crystal Palace": {
+    "initials": "CRY",
+    "primary": "#1B458F",
+    "secondary": "#C4122E"
+  },
+  "Newcastle United": {
+    "initials": "NEW",
+    "primary": "#241F20",
+    "secondary": "#FFFFFF"
+  },
+  "Konyaspor": {
+    "initials": "KON",
+    "primary": "#00A651",
+    "secondary": "#FFFFFF"
+  },
+  "Samsunspor": {
+    "initials": "SAM",
+    "primary": "#D71920",
+    "secondary": "#FFFFFF"
+  },
+  "AC Milan": {
+    "initials": "MIL",
+    "primary": "#FB090B",
+    "secondary": "#000000"
+  },
+  "Sivasspor": {
+    "initials": "SİV",
+    "primary": "#D71920",
+    "secondary": "#FFFFFF"
+  },
+  "Ajax": {
+    "initials": "AJA",
+    "primary": "#FFFFFF",
+    "secondary": "#D2122E"
+  },
+  "Kasımpaşa": {
+    "initials": "KAS",
+    "primary": "#1F3A93",
+    "secondary": "#FFFFFF"
+  },
+  "Brentford": {
+    "initials": "BRE",
+    "primary": "#E30613",
+    "secondary": "#FFFFFF"
+  },
+  "Karagümrük": {
+    "initials": "KGM",
+    "primary": "#C8102E",
+    "secondary": "#000000"
+  },
+  "Denizlispor": {
+    "initials": "DEN",
+    "primary": "#00A19A",
+    "secondary": "#000000"
+  },
+  "Brighton": {
+    "initials": "BHA",
+    "primary": "#0057B8",
+    "secondary": "#FFCD00"
+  },
+  "Eyüpspor": {
+    "initials": "EYÜ",
+    "primary": "#5C2D91",
+    "secondary": "#FFCD00"
+  },
+  "AS Roma": {
+    "initials": "ROM",
+    "primary": "#8E1F2F",
+    "secondary": "#F0BC42"
+  },
+  "Kocaelispor": {
+    "initials": "KOC",
+    "primary": "#00A651",
+    "secondary": "#000000"
+  },
+  "Bournemouth": {
+    "initials": "BOU",
+    "primary": "#DA291C",
+    "secondary": "#000000"
+  },
+  "Real Madrid": {
+    "initials": "RMA",
+    "primary": "#FFFFFF",
+    "secondary": "#FEBE10"
+  },
+  "Gaziantepspor": {
+    "initials": "GAZ",
+    "primary": "#D71920",
+    "secondary": "#000000"
+  },
+  "Alanyaspor": {
+    "initials": "ALA",
+    "primary": "#F37021",
+    "secondary": "#005F3C"
+  },
+  "Başakşehir": {
+    "initials": "İBFK",
+    "primary": "#F58220",
+    "secondary": "#003B79"
+  },
+  "Barcelona": {
+    "initials": "BAR",
+    "primary": "#A50044",
+    "secondary": "#004D98"
+  },
+  "Napoli": {
+    "initials": "NAP",
+    "primary": "#12A0D7",
+    "secondary": "#003C82"
+  },
+  "Atlético Madrid": {
+    "initials": "ATM",
+    "primary": "#CB3524",
+    "secondary": "#272E61"
+  },
+  "Bayern Munich": {
+    "initials": "BAY",
+    "primary": "#DC052D",
+    "secondary": "#0066B2"
+  },
+  "Borussia Dortmund": {
+    "initials": "BVB",
+    "primary": "#FDE100",
+    "secondary": "#000000"
+  },
+  "Gaziantep FK": {
+    "initials": "GFK",
+    "primary": "#D71920",
+    "secondary": "#000000"
+  },
+  "Paris Saint-Germain": {
+    "initials": "PSG",
+    "primary": "#004170",
+    "secondary": "#DA291C"
+  },
+  "Nottingham Forest": {
+    "initials": "NFO",
+    "primary": "#DD0000",
+    "secondary": "#FFFFFF"
+  },
+  "Olympique Lyon": {
+    "initials": "OL",
+    "primary": "#001A57",
+    "secondary": "#E30613"
+  },
+  "Sevilla": {
+    "initials": "SEV",
+    "primary": "#FFFFFF",
+    "secondary": "#D71920"
   }
 };

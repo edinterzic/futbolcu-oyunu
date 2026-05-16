@@ -1,5 +1,6 @@
-// Auto-generated from active_teams.csv and active_player_teams.csv
-// Team names must match exactly. Do not edit accents/spelling unless you update the CSV too.
+// Auto-generated barrel file — exports all game data
+// Source files: teams.js (team list), players.js (eligible players),
+// answerIndex.js (pair → answers map), teamLogos.js (team styles)
 
 export { TEAMS } from './teams';
 export { PLAYERS } from './players';
