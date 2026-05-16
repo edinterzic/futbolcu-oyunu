@@ -8440,4 +8440,411 @@ body,
     font-size: 26px !important;
   }
 }
+
+
+/* v31: final stacked challenge layout - no animation, no overlapping */
+@media (max-width: 760px) {
+  /* Remove animation area completely to open space */
+  .challenge-panel.challenge-live .goal-animation,
+  .challenge-panel.challenge-live .wrong-animation,
+  .challenge-panel.challenge-live .round-animation,
+  .challenge-panel.challenge-live .concede-animation,
+  .challenge-panel.challenge-feedback .goal-animation,
+  .challenge-panel.challenge-feedback .wrong-animation,
+  .challenge-panel.challenge-feedback .round-animation,
+  .challenge-panel.challenge-feedback .concede-animation,
+  .challenge-panel.challenge-ended .goal-animation,
+  .challenge-panel.challenge-ended .wrong-animation,
+  .challenge-panel.challenge-ended .round-animation,
+  .challenge-panel.challenge-ended .concede-animation {
+    display: none !important;
+  }
+
+  /* While round is over, hide controls that are no longer useful */
+  .challenge-panel.challenge-ended .timer-box,
+  .challenge-panel.challenge-ended .challenge-tools,
+  .challenge-panel.challenge-feedback .timer-box,
+  .challenge-panel.challenge-feedback .challenge-tools {
+    display: none !important;
+  }
+
+  .challenge-panel.challenge-ended .single-answer-card,
+  .challenge-panel.challenge-feedback .single-answer-card {
+    display: none !important;
+  }
+
+  /* Stack teams exactly as requested: Team 1 row, VS row, Team 2 row */
+  .challenge-panel.challenge-live .teams-grid,
+  .challenge-panel.challenge-feedback .teams-grid,
+  .challenge-panel.challenge-ended .teams-grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    grid-template-rows: auto 28px auto !important;
+    gap: 8px !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    margin: 4px 0 6px !important;
+    align-items: stretch !important;
+    overflow: visible !important;
+  }
+
+  .challenge-panel.challenge-live .versus,
+  .challenge-panel.challenge-feedback .versus,
+  .challenge-panel.challenge-ended .versus {
+    min-height: 28px !important;
+    height: 28px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 21px !important;
+    line-height: 1 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .challenge-panel.challenge-live .team-card,
+  .challenge-panel.challenge-feedback .team-card,
+  .challenge-panel.challenge-ended .team-card {
+    display: grid !important;
+    grid-template-columns: 58px minmax(0, 1fr) !important;
+    grid-template-rows: 16px auto !important;
+    column-gap: 12px !important;
+    row-gap: 3px !important;
+    align-items: center !important;
+    justify-items: start !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 82px !important;
+    max-height: none !important;
+    padding: 10px 14px !important;
+    border-radius: 20px !important;
+    text-align: left !important;
+    overflow: hidden !important;
+  }
+
+  .challenge-panel.challenge-live .team-card > span,
+  .challenge-panel.challenge-feedback .team-card > span,
+  .challenge-panel.challenge-ended .team-card > span {
+    grid-column: 2 !important;
+    grid-row: 1 !important;
+    justify-self: start !important;
+    align-self: end !important;
+    font-size: 12px !important;
+    line-height: 1 !important;
+    margin: 0 !important;
+    max-width: 100% !important;
+  }
+
+  .challenge-panel.challenge-live .team-card > .team-logo,
+  .challenge-panel.challenge-feedback .team-card > .team-logo,
+  .challenge-panel.challenge-ended .team-card > .team-logo {
+    grid-column: 1 !important;
+    grid-row: 1 / span 2 !important;
+    width: 52px !important;
+    height: 52px !important;
+    min-width: 52px !important;
+    min-height: 52px !important;
+    margin: 0 !important;
+    padding: 4px !important;
+    align-self: center !important;
+    justify-self: center !important;
+    border-radius: 16px !important;
+  }
+
+  .challenge-panel.challenge-live .team-card > .team-logo .team-logo__inner,
+  .challenge-panel.challenge-feedback .team-card > .team-logo .team-logo__inner,
+  .challenge-panel.challenge-ended .team-card > .team-logo .team-logo__inner {
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: 12px !important;
+  }
+
+  .challenge-panel.challenge-live .team-card > .team-logo span,
+  .challenge-panel.challenge-feedback .team-card > .team-logo span,
+  .challenge-panel.challenge-ended .team-card > .team-logo span {
+    font-size: 15px !important;
+  }
+
+  .challenge-panel.challenge-live .team-card > strong,
+  .challenge-panel.challenge-feedback .team-card > strong,
+  .challenge-panel.challenge-ended .team-card > strong {
+    grid-column: 2 !important;
+    grid-row: 2 !important;
+    justify-self: start !important;
+    align-self: start !important;
+    text-align: left !important;
+    margin: 0 !important;
+    max-width: 100% !important;
+    font-size: 23px !important;
+    line-height: 1.05 !important;
+    white-space: normal !important;
+    overflow-wrap: anywhere !important;
+    word-break: normal !important;
+    hyphens: none !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+  }
+
+  /* Live screen uses the freed animation space for cleaner layout */
+  .challenge-panel.challenge-live {
+    justify-content: start !important;
+    gap: 10px !important;
+  }
+
+  .challenge-panel.challenge-live .top-row {
+    min-height: 42px !important;
+  }
+
+  .challenge-panel.challenge-live .timer-box {
+    min-height: 50px !important;
+    height: 50px !important;
+    max-height: 50px !important;
+  }
+
+  .challenge-panel.challenge-live .challenge-tools {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 10px !important;
+    margin: 0 !important;
+  }
+
+  .challenge-panel.challenge-live .challenge-tools .light-button {
+    min-height: 44px !important;
+    height: auto !important;
+    padding: 8px 10px !important;
+    font-size: 13px !important;
+    line-height: 1.16 !important;
+    white-space: normal !important;
+  }
+
+  .challenge-panel.challenge-live .single-answer-card {
+    margin-top: 2px !important;
+    padding: 10px 12px !important;
+  }
+
+  .challenge-panel.challenge-live .answer-row {
+    grid-template-columns: minmax(0, 1fr) 108px !important;
+    gap: 10px !important;
+  }
+
+  .challenge-panel.challenge-live .single-answer-card input,
+  .challenge-panel.challenge-live .answer-row .primary-button {
+    height: 50px !important;
+    min-height: 50px !important;
+  }
+
+  .challenge-panel.challenge-live .answer-row .primary-button {
+    width: 108px !important;
+    min-width: 108px !important;
+    font-size: 15px !important;
+  }
+
+  /* End/error screens: compact and readable */
+  .challenge-panel.challenge-ended,
+  .challenge-panel.challenge-feedback {
+    justify-content: start !important;
+    gap: 9px !important;
+    overflow: hidden !important;
+  }
+
+  .challenge-panel.challenge-ended .wrong-explanation-card,
+  .challenge-panel.challenge-feedback .wrong-explanation-card {
+    display: grid !important;
+    grid-template-columns: 34px minmax(0, 1fr) !important;
+    gap: 10px !important;
+    padding: 10px !important;
+    margin: 0 !important;
+    border-radius: 16px !important;
+  }
+
+  .challenge-panel.challenge-ended .wrong-icon,
+  .challenge-panel.challenge-feedback .wrong-icon {
+    width: 34px !important;
+    height: 34px !important;
+    flex-basis: 34px !important;
+    font-size: 17px !important;
+    border-radius: 12px !important;
+  }
+
+  .challenge-panel.challenge-ended .wrong-explanation-card strong,
+  .challenge-panel.challenge-feedback .wrong-explanation-card strong {
+    font-size: 14px !important;
+  }
+
+  .challenge-panel.challenge-ended .wrong-explanation-card p,
+  .challenge-panel.challenge-feedback .wrong-explanation-card p {
+    margin: 3px 0 7px !important;
+    font-size: 12px !important;
+    line-height: 1.25 !important;
+  }
+
+  .challenge-panel.challenge-ended .wrong-explanation-card .light-button,
+  .challenge-panel.challenge-feedback .wrong-explanation-card .light-button {
+    min-height: 34px !important;
+    padding: 6px 9px !important;
+    font-size: 12px !important;
+  }
+
+  .challenge-panel.challenge-ended .report-box,
+  .challenge-panel.challenge-feedback .report-box {
+    margin: 0 !important;
+    padding: 10px !important;
+    border-radius: 16px !important;
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 8px !important;
+  }
+
+  .challenge-panel.challenge-ended .report-box span,
+  .challenge-panel.challenge-feedback .report-box span {
+    font-size: 13px !important;
+    line-height: 1.22 !important;
+    text-align: center !important;
+  }
+
+  .challenge-panel.challenge-ended .report-box .light-button,
+  .challenge-panel.challenge-feedback .report-box .light-button {
+    width: 100% !important;
+    min-height: 42px !important;
+    height: 42px !important;
+    font-size: 14px !important;
+    border-radius: 14px !important;
+  }
+
+  .challenge-panel.challenge-ended .status-message,
+  .challenge-panel.challenge-feedback .status-message {
+    min-height: 38px !important;
+    max-height: 50px !important;
+    padding: 8px 10px !important;
+    font-size: 12px !important;
+    line-height: 1.22 !important;
+    margin: 0 !important;
+  }
+
+  .challenge-panel.challenge-ended .answers-box,
+  .challenge-panel.challenge-feedback .answers-box {
+    min-height: 116px !important;
+    max-height: 132px !important;
+    padding: 10px !important;
+    margin: 0 !important;
+    border-radius: 16px !important;
+    overflow: hidden !important;
+  }
+
+  .challenge-panel.challenge-ended .answers-box strong,
+  .challenge-panel.challenge-feedback .answers-box strong {
+    font-size: 15px !important;
+    line-height: 1.15 !important;
+    margin: 0 0 7px !important;
+    display: block !important;
+  }
+
+  .challenge-panel.challenge-ended .answers-box p,
+  .challenge-panel.challenge-feedback .answers-box p {
+    display: none !important;
+  }
+
+  .challenge-panel.challenge-ended .answer-tags,
+  .challenge-panel.challenge-feedback .answer-tags {
+    margin-top: 0 !important;
+    gap: 8px !important;
+    max-height: 78px !important;
+    overflow: auto !important;
+  }
+
+  .challenge-panel.challenge-ended .answer-tags span,
+  .challenge-panel.challenge-ended .answer-tags.clickable button,
+  .challenge-panel.challenge-feedback .answer-tags span,
+  .challenge-panel.challenge-feedback .answer-tags.clickable button {
+    padding: 8px 11px !important;
+    font-size: 12px !important;
+    border-radius: 999px !important;
+  }
+
+  .challenge-panel.challenge-ended .challenge-result {
+    margin: 0 !important;
+    padding: 10px !important;
+    gap: 5px !important;
+    border-radius: 16px !important;
+  }
+
+  .challenge-panel.challenge-ended .challenge-result strong {
+    font-size: 16px !important;
+  }
+
+  .challenge-panel.challenge-ended .challenge-result span {
+    font-size: 13px !important;
+  }
+
+  .challenge-panel.challenge-ended .challenge-result .primary-button.big {
+    min-height: 42px !important;
+    height: 42px !important;
+    font-size: 14px !important;
+    border-radius: 14px !important;
+  }
+}
+
+@media (max-width: 760px) and (max-height: 650px) {
+  .challenge-panel.challenge-live .team-card,
+  .challenge-panel.challenge-ended .team-card,
+  .challenge-panel.challenge-feedback .team-card {
+    min-height: 72px !important;
+    padding: 8px 12px !important;
+    grid-template-columns: 48px minmax(0, 1fr) !important;
+  }
+
+  .challenge-panel.challenge-live .team-card > .team-logo,
+  .challenge-panel.challenge-ended .team-card > .team-logo,
+  .challenge-panel.challenge-feedback .team-card > .team-logo {
+    width: 44px !important;
+    height: 44px !important;
+  }
+
+  .challenge-panel.challenge-live .team-card > .team-logo .team-logo__inner,
+  .challenge-panel.challenge-ended .team-card > .team-logo .team-logo__inner,
+  .challenge-panel.challenge-feedback .team-card > .team-logo .team-logo__inner {
+    width: 34px !important;
+    height: 34px !important;
+  }
+
+  .challenge-panel.challenge-live .team-card > strong,
+  .challenge-panel.challenge-ended .team-card > strong,
+  .challenge-panel.challenge-feedback .team-card > strong {
+    font-size: 19px !important;
+  }
+
+  .challenge-panel.challenge-live .versus,
+  .challenge-panel.challenge-ended .versus,
+  .challenge-panel.challenge-feedback .versus {
+    height: 22px !important;
+    min-height: 22px !important;
+    font-size: 18px !important;
+  }
+
+  .challenge-panel.challenge-live .teams-grid,
+  .challenge-panel.challenge-ended .teams-grid,
+  .challenge-panel.challenge-feedback .teams-grid {
+    grid-template-rows: auto 22px auto !important;
+    gap: 6px !important;
+  }
+
+  .challenge-panel.challenge-live .timer-box {
+    min-height: 42px !important;
+    height: 42px !important;
+  }
+
+  .challenge-panel.challenge-live .challenge-tools .light-button {
+    min-height: 38px !important;
+    font-size: 11px !important;
+  }
+
+  .challenge-panel.challenge-live .single-answer-card input,
+  .challenge-panel.challenge-live .answer-row .primary-button {
+    height: 44px !important;
+    min-height: 44px !important;
+  }
+}
 `;
