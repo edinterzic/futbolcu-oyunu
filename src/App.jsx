@@ -7704,4 +7704,221 @@ body,
     font-size: 22px !important;
   }
 }
+
+
+/* v28 fix overflow / mobile keyboard / compact result */
+@media (max-width: 760px) {
+  .challenge-panel.challenge-feedback .status-message,
+  .challenge-panel.challenge-ended .status-message {
+    max-height: none !important;
+    min-height: 44px !important;
+    padding: 8px 10px !important;
+    font-size: 12px !important;
+    line-height: 1.28 !important;
+    white-space: normal !important;
+  }
+
+  .challenge-panel.challenge-ended .answers-box {
+    min-height: 112px !important;
+    max-height: 124px !important;
+    padding: 10px !important;
+  }
+
+  .challenge-panel.challenge-ended .challenge-result {
+    margin-top: 4px !important;
+    gap: 6px !important;
+    padding: 10px 12px !important;
+  }
+
+  .challenge-panel.challenge-ended .challenge-result strong {
+    font-size: 17px !important;
+  }
+
+  .challenge-panel.challenge-ended .challenge-result span {
+    font-size: 14px !important;
+  }
+
+  .challenge-panel.challenge-ended .challenge-result .primary-button.big {
+    height: 48px !important;
+    min-height: 48px !important;
+    font-size: 15px !important;
+    border-radius: 14px !important;
+  }
+
+  .challenge-panel.challenge-feedback .team-card strong,
+  .challenge-panel.challenge-ended .team-card strong,
+  .challenge-panel.challenge-live .team-card strong {
+    word-break: normal !important;
+    overflow-wrap: break-word !important;
+    hyphens: none !important;
+  }
+
+  .challenge-panel.challenge-live .challenge-tools .light-button,
+  .challenge-panel.challenge-feedback .challenge-tools .light-button,
+  .challenge-panel.challenge-ended .challenge-tools .light-button {
+    line-height: 1.15 !important;
+    text-align: center !important;
+  }
+}
+
+@media (max-width: 760px) and (max-height: 720px) {
+  .challenge-panel.challenge-feedback .teams-grid,
+  .challenge-panel.challenge-ended .teams-grid {
+    height: 132px !important;
+    min-height: 132px !important;
+    max-height: 132px !important;
+  }
+
+  .challenge-panel.challenge-feedback .team-card,
+  .challenge-panel.challenge-ended .team-card {
+    height: 132px !important;
+    min-height: 132px !important;
+    max-height: 132px !important;
+    grid-template-rows: 16px 42px 1fr !important;
+  }
+
+  .challenge-panel.challenge-feedback .team-logo,
+  .challenge-panel.challenge-ended .team-logo {
+    width: 40px !important;
+    height: 40px !important;
+  }
+
+  .challenge-panel.challenge-feedback .team-logo__inner,
+  .challenge-panel.challenge-ended .team-logo__inner {
+    width: 31px !important;
+    height: 31px !important;
+  }
+
+  .challenge-panel.challenge-feedback .team-card strong,
+  .challenge-panel.challenge-ended .team-card strong {
+    font-size: 16px !important;
+    line-height: 1.05 !important;
+  }
+
+  .challenge-panel.challenge-feedback .answers-box,
+  .challenge-panel.challenge-ended .answers-box {
+    min-height: 100px !important;
+    max-height: 110px !important;
+  }
+
+  .challenge-panel.challenge-feedback .answer-tags span,
+  .challenge-panel.challenge-feedback .answer-tags.clickable button,
+  .challenge-panel.challenge-ended .answer-tags span,
+  .challenge-panel.challenge-ended .answer-tags.clickable button {
+    padding: 8px 11px !important;
+    font-size: 12px !important;
+  }
+
+  .challenge-panel.challenge-ended .challenge-result .primary-button.big {
+    height: 44px !important;
+    min-height: 44px !important;
+    font-size: 14px !important;
+  }
+}
+
+@media (max-width: 760px) and (max-height: 620px) {
+  .challenge-panel.challenge-live .top-row {
+    gap: 6px !important;
+  }
+
+  .challenge-panel.challenge-live .top-row .light-button {
+    min-height: 36px !important;
+    height: 36px !important;
+    padding: 6px 10px !important;
+    font-size: 12px !important;
+  }
+
+  .challenge-panel.challenge-live .round-pill {
+    min-height: 28px !important;
+    font-size: 11px !important;
+  }
+
+  .challenge-panel.challenge-live .timer-box {
+    min-height: 42px !important;
+    height: 42px !important;
+    max-height: 42px !important;
+    padding: 5px 10px !important;
+  }
+
+  .challenge-panel.challenge-live .timer-box span,
+  .challenge-panel.challenge-live .timer-box em {
+    font-size: 12px !important;
+  }
+
+  .challenge-panel.challenge-live .timer-box strong {
+    font-size: 26px !important;
+  }
+
+  .challenge-panel.challenge-live .challenge-tools .light-button {
+    min-height: 40px !important;
+    height: 40px !important;
+    font-size: 11px !important;
+    padding: 6px 8px !important;
+  }
+
+  .challenge-panel.challenge-live .teams-grid {
+    height: 168px !important;
+    min-height: 168px !important;
+    max-height: 168px !important;
+    grid-template-columns: minmax(0, 1fr) 34px minmax(0, 1fr) !important;
+    gap: 8px !important;
+  }
+
+  .challenge-panel.challenge-live .team-card {
+    height: 168px !important;
+    min-height: 168px !important;
+    max-height: 168px !important;
+    grid-template-rows: 18px 52px 1fr !important;
+    padding: 8px 7px !important;
+    border-radius: 22px !important;
+  }
+
+  .challenge-panel.challenge-live .team-card span {
+    font-size: 11px !important;
+  }
+
+  .challenge-panel.challenge-live .team-logo {
+    width: 46px !important;
+    height: 46px !important;
+    border-radius: 16px !important;
+  }
+
+  .challenge-panel.challenge-live .team-logo__inner {
+    width: 35px !important;
+    height: 35px !important;
+    border-radius: 12px !important;
+  }
+
+  .challenge-panel.challenge-live .team-logo span {
+    font-size: 15px !important;
+  }
+
+  .challenge-panel.challenge-live .team-card strong {
+    font-size: 16px !important;
+    line-height: 1.03 !important;
+    -webkit-line-clamp: 3 !important;
+  }
+
+  .challenge-panel.challenge-live .versus {
+    font-size: 18px !important;
+  }
+
+  .challenge-panel.challenge-live .single-answer-card input {
+    height: 46px !important;
+    min-height: 46px !important;
+    font-size: 15px !important;
+  }
+
+  .challenge-panel.challenge-live .answer-row {
+    grid-template-columns: minmax(0, 1fr) 98px !important;
+  }
+
+  .challenge-panel.challenge-live .answer-row .primary-button {
+    width: 98px !important;
+    min-width: 98px !important;
+    height: 46px !important;
+    min-height: 46px !important;
+    font-size: 14px !important;
+  }
+}
 `;
