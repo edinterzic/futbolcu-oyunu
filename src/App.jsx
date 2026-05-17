@@ -421,6 +421,88 @@ function WrongExplanationCard({ report, onReport }) {
   );
 }
 
+function ChallengeGameOver({
+  score, best, isNewBest, lastWrongAnswer, correctPlayers,
+  teamA, teamB, wrongReport, reportStatus,
+  onSubmitWrongReport, onReportAcceptedPlayer, onRestart
+}) {
+  const showWrongReport = wrongReport && lastWrongAnswer;
+  const playerCount = correctPlayers?.length || 0;
+
+  return (
+    <div className="challenge-gameover">
+      <div className="gameover-header">
+        <div className={`gameover-icon ${isNewBest ? "trophy" : ""}`}>
+          {isNewBest ? "🏆" : "🎯"}
+        </div>
+        <div className="gameover-headline">
+          <h3>{isNewBest ? "Yeni Rekor!" : "Seri Bitti"}</h3>
+          {lastWrongAnswer && (
+            <p className="gameover-detail">
+              "<strong>{lastWrongAnswer}</strong>" bu eşleşmede yok
+            </p>
+          )}
+        </div>
+      </div>
+
+      <div className="gameover-stats">
+        <div className="gameover-stat">
+          <span>Bu seri</span>
+          <strong>{score}</strong>
+        </div>
+        <div className={`gameover-stat ${isNewBest ? "highlight" : ""}`}>
+          <span>{isNewBest ? "🔥 Yeni En iyi" : "En iyi"}</span>
+          <strong>{best}</strong>
+        </div>
+      </div>
+
+      {playerCount > 0 && (
+        <div className="gameover-section">
+          <span className="gameover-label">
+            Doğru cevaplar {playerCount > 6 && `(${playerCount})`}
+          </span>
+          <div className="gameover-players">
+            {correctPlayers.slice(0, 6).map((p) => (
+              <button
+                key={p.name}
+                type="button"
+                onClick={() => onReportAcceptedPlayer?.(p)}
+                title="Hatalı mı? Tıkla bildir"
+                className="gameover-player-chip"
+              >
+                {p.name}
+              </button>
+            ))}
+            {playerCount > 6 && (
+              <span className="gameover-more">+{playerCount - 6}</span>
+            )}
+          </div>
+        </div>
+      )}
+
+      {showWrongReport && (
+        <button
+          type="button"
+          className="gameover-report-button"
+          onClick={onSubmitWrongReport}
+        >
+          ❗ "{lastWrongAnswer}" doğru olmalıydı? Bildir
+        </button>
+      )}
+
+      <StatusMessage message={reportStatus} />
+
+      <button
+        type="button"
+        onClick={onRestart}
+        className="primary-button big gameover-restart"
+      >
+        🔁 Yeni Challenge
+      </button>
+    </div>
+  );
+}
+
 function MatchSummary({ playerNames, scores, winner, targetScore, seriesWins, currentCorrectRounds = [] }) {
   if (winner === null || winner === undefined) return null;
 
@@ -1910,88 +1992,81 @@ export default function App() {
                     </div>
                   </div>
 
-                  {challengeLastAction && (
-                    <div className={challengeLastAction.type === "correct" ? "action-banner success" : "action-banner error"}>
-                      <span className="action-emoji">{challengeLastAction.type === "correct" ? "⚽" : "❌"}</span>
-                      <strong>{challengeLastAction.type === "correct" ? "GOOOL!" : "Challenge bitti"}</strong>
-                    </div>
-                  )}
-
-                  <div className="answer-card">
-                    <div className="answer-row">
-                      <div className="autocomplete-wrap">
-                        <input
-                          value={challengeInput}
-                          disabled={!challengeCanAnswer}
-                          onFocus={() => {
-                            if (challengeCanAnswer && challengeInput) setChallengeFocused(true);
-                          }}
-                          onBlur={() => setTimeout(() => setChallengeFocused(false), 120)}
-                          onChange={(event) => updateChallengeInput(event.target.value)}
-                          onKeyDown={(event) => {
-                            if (event.key === "Enter") submitChallengeAnswer();
-                          }}
-                          placeholder="Futbolcu adı yaz..."
-                        />
-
-                        {challengeCanAnswer && challengeFocused && challengeSuggestions.length > 0 && (
-                          <div className="suggestions">
-                            {challengeSuggestions.map((player) => (
-                              <button
-                                key={player.name}
-                                type="button"
-                                onMouseDown={(event) => {
-                                  event.preventDefault();
-                                  selectChallengeSuggestion(player.name);
-                                }}
-                                onClick={() => selectChallengeSuggestion(player.name)}
-                              >
-                                {player.name}
-                              </button>
-                            ))}
-                          </div>
-                        )}
-                      </div>
-
-                      <button
-                        type="button"
-                        disabled={!challengeCanAnswer}
-                        onClick={submitChallengeAnswer}
-                        className="primary-button"
-                      >
-                        Kontrol
-                      </button>
-                    </div>
-                  </div>
-
-                  <StatusMessage message={challengeMessage} />
-                  <WrongExplanationCard
-                    report={challengeLastWrongReport}
-                    onReport={() =>
-                      submitAnswerReport(challengeLastWrongReport, setChallengeReportStatus, () => setChallengeLastWrongReport(null))
-                    }
-                  />
-                  <StatusMessage message={challengeReportStatus} />
-
-                  {challengeShowAnswers && (
-                    <AcceptedPlayersBox
-                      title="Kabul edilen oyuncular"
-                      players={challengeCorrectPlayers}
-                      actualAnswer={challengeLastAction?.answer}
-                      onReportPlayer={(player) => reportAcceptedPlayer("challenge", challengeRound, player)}
+                  {challengeRoundLocked ? (
+                    <ChallengeGameOver
+                      score={challengeLastScore ?? 0}
+                      best={challengeBest}
+                      isNewBest={(challengeLastScore ?? 0) >= challengeBest && (challengeLastScore ?? 0) > 0}
+                      lastWrongAnswer={challengeLastAction?.type === "wrong" ? challengeLastAction.answer : null}
+                      correctPlayers={challengeCorrectPlayers}
+                      teamA={challengeRound.teams[0]}
+                      teamB={challengeRound.teams[1]}
+                      wrongReport={challengeLastWrongReport}
+                      reportStatus={challengeReportStatus}
+                      onSubmitWrongReport={() =>
+                        submitAnswerReport(challengeLastWrongReport, setChallengeReportStatus, () => setChallengeLastWrongReport(null))
+                      }
+                      onReportAcceptedPlayer={(player) => reportAcceptedPlayer("challenge", challengeRound, player)}
+                      onRestart={startChallenge}
                     />
-                  )}
+                  ) : (
+                    <>
+                      {challengeLastAction && challengeLastAction.type === "correct" && (
+                        <div className="action-banner success">
+                          <span className="action-emoji">⚽</span>
+                          <strong>GOOOL!</strong>
+                        </div>
+                      )}
 
-                  {challengeRoundLocked && (
-                    <div className="challenge-result">
-                      <div>
-                        <strong>Son seri: {challengeLastScore ?? 0}</strong>
-                        <span>En iyi: {challengeBest}</span>
+                      <div className="answer-card">
+                        <div className="answer-row">
+                          <div className="autocomplete-wrap">
+                            <input
+                              value={challengeInput}
+                              disabled={!challengeCanAnswer}
+                              onFocus={() => {
+                                if (challengeCanAnswer && challengeInput) setChallengeFocused(true);
+                              }}
+                              onBlur={() => setTimeout(() => setChallengeFocused(false), 120)}
+                              onChange={(event) => updateChallengeInput(event.target.value)}
+                              onKeyDown={(event) => {
+                                if (event.key === "Enter") submitChallengeAnswer();
+                              }}
+                              placeholder="Futbolcu adı yaz..."
+                            />
+
+                            {challengeCanAnswer && challengeFocused && challengeSuggestions.length > 0 && (
+                              <div className="suggestions">
+                                {challengeSuggestions.map((player) => (
+                                  <button
+                                    key={player.name}
+                                    type="button"
+                                    onMouseDown={(event) => {
+                                      event.preventDefault();
+                                      selectChallengeSuggestion(player.name);
+                                    }}
+                                    onClick={() => selectChallengeSuggestion(player.name)}
+                                  >
+                                    {player.name}
+                                  </button>
+                                ))}
+                              </div>
+                            )}
+                          </div>
+
+                          <button
+                            type="button"
+                            disabled={!challengeCanAnswer}
+                            onClick={submitChallengeAnswer}
+                            className="primary-button"
+                          >
+                            Kontrol
+                          </button>
+                        </div>
                       </div>
-                      <button type="button" onClick={startChallenge} className="primary-button big">
-                        🔁 Yeni Challenge
-                      </button>
-                    </div>
+
+                      <StatusMessage message={challengeMessage} />
+                    </>
                   )}
                 </div>
               )}
@@ -3956,6 +4031,183 @@ button:focus-visible {
 .challenge-result span {
   font-size: 12px;
   color: var(--text-muted);
+}
+
+/* ========================================================================
+   Challenge Game Over (yeni bitiş ekranı)
+   ======================================================================== */
+.challenge-gameover {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px;
+  background: linear-gradient(135deg, var(--surface-strong) 0%, var(--surface) 100%);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  animation: gameoverIn 0.4s var(--ease-bounce);
+}
+
+@keyframes gameoverIn {
+  0%   { transform: scale(0.95); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.gameover-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.gameover-icon {
+  font-size: 32px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.gameover-icon.trophy {
+  animation: trophyBounce 0.6s var(--ease-bounce);
+}
+
+@keyframes trophyBounce {
+  0%   { transform: scale(0) rotate(-15deg); }
+  60%  { transform: scale(1.2) rotate(8deg); }
+  100% { transform: scale(1) rotate(0deg); }
+}
+
+.gameover-headline {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+  flex: 1;
+}
+
+.gameover-headline h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--text);
+}
+
+.gameover-detail {
+  margin: 0;
+  font-size: 12px;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+.gameover-detail strong {
+  color: var(--danger);
+  font-weight: 700;
+}
+
+.gameover-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.gameover-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 10px 14px;
+  background: var(--surface-soft);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  text-align: center;
+}
+
+.gameover-stat span {
+  font-size: 11px;
+  color: var(--text-muted);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.gameover-stat strong {
+  font-size: 28px;
+  font-weight: 900;
+  color: var(--text);
+  line-height: 1;
+}
+
+.gameover-stat.highlight {
+  background: linear-gradient(135deg, var(--accent-soft) 0%, rgba(245, 158, 11, 0.05) 100%);
+  border-color: rgba(245, 158, 11, 0.4);
+}
+
+.gameover-stat.highlight strong {
+  color: var(--accent);
+  text-shadow: 0 0 12px rgba(245, 158, 11, 0.5);
+}
+
+.gameover-section {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.gameover-label {
+  font-size: 11px;
+  color: var(--text-muted);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.gameover-players {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.gameover-player-chip {
+  padding: 5px 10px;
+  background: var(--primary-soft);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--primary-text);
+  cursor: pointer;
+  transition: all 0.15s var(--ease);
+}
+
+.gameover-player-chip:hover {
+  background: rgba(16, 185, 129, 0.25);
+  transform: translateY(-1px);
+}
+
+.gameover-more {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 10px;
+  color: var(--text-muted);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.gameover-report-button {
+  padding: 8px 12px;
+  background: var(--danger-soft);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  border-radius: 10px;
+  color: #fca5a5;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: left;
+}
+
+.gameover-report-button:hover {
+  background: rgba(239, 68, 68, 0.18);
+}
+
+.gameover-restart {
+  margin-top: 4px;
+  width: 100%;
 }
 
 /* ========================================================================
