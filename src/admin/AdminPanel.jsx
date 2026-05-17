@@ -240,9 +240,23 @@ function AdminShell({ onLogout }) {
           </div>
         </div>
 
-        {diff.hasChanges && (
-          <div className="admin-unsaved-badge" title="Kaydedilmemiş değişikliklerin var. Dışa Aktar sekmesinden dosyaları indir.">
-            ⚠️ {diff.totalPlayerChanges + diff.totalTeamChanges} değişiklik kaydedilmedi
+        {/* Save status — always visible */}
+        {diff.hasChanges ? (
+          <button
+            type="button"
+            className="admin-publish-cta"
+            onClick={() => setActiveTab("export")}
+            title="Tıkla → Dışa Aktar sekmesine git → Dosyaları indir → git push"
+          >
+            <span className="admin-publish-icon">📥</span>
+            <span className="admin-publish-text">
+              <strong>{diff.totalPlayerChanges + diff.totalTeamChanges} değişiklik</strong>
+              <small>Canlıya almak için tıkla</small>
+            </span>
+          </button>
+        ) : (
+          <div className="admin-saved-indicator" title="Tüm değişiklikler tarayıcıda otomatik kaydediliyor">
+            ✓ Otomatik kaydedildi
           </div>
         )}
 

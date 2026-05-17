@@ -158,6 +158,40 @@ export const ADMIN_STYLES = `
   color: #fcd34d; font-size: 12px; font-weight: 600;
 }
 
+/* ===== SAVE STATUS (topbar) ===== */
+.admin-saved-indicator {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 7px 14px;
+  background: rgba(34, 197, 94, 0.12);
+  border: 1px solid rgba(34, 197, 94, 0.25);
+  border-radius: 999px;
+  color: #86efac; font-size: 12px; font-weight: 600;
+}
+.admin-publish-cta {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 8px 16px 8px 12px;
+  background: linear-gradient(135deg, #f59e0b 0%, #f97316 100%);
+  color: white; border: none; border-radius: 999px;
+  cursor: pointer; transition: all 0.2s;
+  box-shadow: 0 4px 14px rgba(245, 158, 11, 0.4);
+  animation: publishPulse 2.5s ease-in-out infinite;
+}
+.admin-publish-cta:hover {
+  transform: translateY(-1px) scale(1.02);
+  box-shadow: 0 6px 20px rgba(245, 158, 11, 0.55);
+}
+.admin-publish-icon { font-size: 16px; }
+.admin-publish-text { display: flex; flex-direction: column; align-items: flex-start; line-height: 1.1; }
+.admin-publish-text strong { font-size: 13px; font-weight: 800; }
+.admin-publish-text small { font-size: 10px; opacity: 0.9; font-weight: 600; }
+@keyframes publishPulse {
+  0%, 100% { box-shadow: 0 4px 14px rgba(245, 158, 11, 0.4); }
+  50% { box-shadow: 0 6px 22px rgba(245, 158, 11, 0.65); }
+}
+@media (max-width: 700px) {
+  .admin-publish-text small { display: none; }
+}
+
 .admin-topbar-actions { display: flex; align-items: center; gap: 8px; margin-left: auto; }
 
 /* ===== BODY ===== */

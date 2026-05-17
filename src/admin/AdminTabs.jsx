@@ -1015,8 +1015,14 @@ export function ExportTab({ snapshot, resetToOriginal, logActivity }) {
       )}
       <div className="admin-export-card">
         <div>
-          <h3>📦 Dosyaları İndir</h3>
-          <p>4 adet .js dosyası: <code>teams.js</code>, <code>players.js</code>, <code>answerIndex.js</code>, <code>teamLogos.js</code>. Bunları <code>src/data/</code> klasörüne kopyala, sonra git push.</p>
+          <h3>🚀 Canlıya Gönder</h3>
+          <p><strong>Adım adım:</strong></p>
+          <ol style={{ margin: "8px 0", paddingLeft: 20, color: "var(--admin-text-muted)", fontSize: 13, lineHeight: 1.7 }}>
+            <li>Aşağıdaki butona bas → 4 dosya iner: <code>teams.js</code>, <code>players.js</code>, <code>answerIndex.js</code>, <code>teamLogos.js</code></li>
+            <li>Bu 4 dosyayı projede <code>src/data/</code> klasörüne kopyala (üzerine yaz)</li>
+            <li>Terminale yaz: <code>git add -A && git commit -m "data update" && git push</code></li>
+            <li>Vercel 1-2 dakikada canlıya alır ✨</li>
+          </ol>
           {lastExport && <small style={{ color: "var(--admin-text-muted)" }}>Son indirme: {lastExport}</small>}
         </div>
         <button type="button" className="admin-big-button" onClick={handleDownload} disabled={dl}>{dl ? "İndiriliyor..." : "📥 Dosyaları İndir"}</button>
