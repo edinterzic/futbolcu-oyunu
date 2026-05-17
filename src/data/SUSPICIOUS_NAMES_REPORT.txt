@@ -1,0 +1,275 @@
+ŞÜPHELİ İSİM LİSTESİ (87 adet)
+============================================================
+
+Bu isimler muhtemelen boşluk eksik veya hatalı yazılmış.
+Excel kaynağında bir boşluk kaybolma sorunu var gibi görünüyor.
+Admin panel → Oyuncular tab'ından tek tek düzeltebilirsin.
+
+Olası düzeltme örnekleri (sen kontrol etmelisin):
+  Abdülkerimardakcı -> Abdülkerim Bardakcı
+  Anastasiosakasetas -> Anastasios Bakasetas
+  Bilalaşaçıkoğlu -> Bilal Başaçıkoğlu
+
+------------------------------------------------------------
+
+Abdülkerimardakcı
+   Galatasaray, Konyaspor, Samsunspor
+
+Albertoarazzetta
+   AC Milan, Inter
+
+Alessandroassoli
+   Bologna, Cremonese
+
+Alessandroastoni
+   Atalanta, Inter, Parma
+
+Alessandroianconi
+   Bologna, Como
+
+Alessandrouongiorno
+   Napoli, Torino
+
+Alessandrourlamaqui
+   Espanyol, Valencia
+
+Alessioenedetti
+   Cremonese, Genoa, Torino
+
+Alex Oxlade-Chamberlain
+   Arsenal, Beşiktaş, Liverpool
+
+Alexanderüttner
+   Ajax, Manchester United
+
+Ali Cansunegeçarslan
+   Antalyaspor, Beşiktaş, Eyüpspor, Gaziantep FK, Gençlerbirliği, Kocaelispor
+
+Anastasiosakasetas
+   Alanyaspor, Trabzonspor
+
+Andrearacaletti
+   Genoa, Sassuolo
+
+Andres Guglielminpietro
+   Bologna, Inter
+
+Andri Fannaraldursson
+   Bologna, Kasımpaşa
+
+Angeloencivenga
+   Como, Lecce, Parma, Udinese
+
+Anthony Driscoll-Glennon
+   Burnley, Liverpool
+
+Antoninoernardini
+   AS Roma, Torino
+
+Benoitadiashile
+   Chelsea, Monaco
+
+Bilalaşaçıkoğlu
+   Ajax, Feyenoord, Gaziantep FK, Kayserispor, Trabzonspor
+
+Calen Gallagher-Allison
+   Burnley, Manchester United
+
+Cameronorthwick-Jackson
+   Leeds United, Manchester United, Wolves
+
+Celal Emiştekinkaraca
+   Eyüpspor, Fenerbahçe
+
+Celestineabayaro
+   Chelsea, Newcastle
+
+Christianassila
+   Sunderland, West Ham
+
+Christianenteke
+   Aston Villa, Crystal Palace, Liverpool
+
+Christopheruchtmann
+   Borussia Dortmund, Fulham, Liverpool
+
+Cristianoiraghi
+   Fiorentina, Inter, Torino
+
+Danielradaschia
+   Como, Udinese
+
+Eduardoauermann
+   Alanyaspor, Inter
+
+Emanueleerrettoni
+   Lazio, Napoli
+
+Emilianoiliotti
+   Fiorentina, Lecce
+
+Fabrizioagheria
+   Inter, Parma
+
+Federicoalzaretti
+   AS Roma, Fiorentina, Juventus, Torino
+
+Federicoaschirotto
+   Cremonese, Lecce
+
+Federicoernardeschi
+   Bologna, Fiorentina, Juventus
+
+Federicoertagnon
+   Como, Inter
+
+Federicoonazzoli
+   Cremonese, Inter, Torino
+
+Federicorancolini
+   Fiorentina, Lecce
+
+Fernandoelluschi
+   FC Porto, Genoa
+
+Filippoandinelli
+   Fiorentina, Sassuolo
+
+Filippooniperti
+   Juventus, Parma
+
+Francescoellucci
+   Cagliari, Lecce
+
+Francescoenussi
+   Lecce, Torino, Udinese
+
+Francescoolzoni
+   Genoa, Inter
+
+Giacomoanchelli
+   Cagliari, Fiorentina, Udinese
+
+Giacomoonaventura
+   AC Milan, Atalanta, Fiorentina
+
+Giovanniartolucci
+   Fiorentina, Juventus
+
+Giovannionfanti
+   Atalanta, Pisa
+
+Giuseppearonchelli
+   Fiorentina, Lecce
+
+Gökdenizayrakdar
+   Antalyaspor, Kocaelispor
+
+Ilias Chatzitheodoridis
+   Arsenal, Brentford
+
+Jacobutterfield
+   Crystal Palace, Manchester United
+
+Jean-Alainoumsong
+   Juventus, Newcastle
+
+Jean-Ricnerellegarde
+   Lens, Wolves
+
+Jermaineeckford
+   Chelsea, Everton, Leeds United
+
+Jonathaniabiany
+   Inter, Parma
+
+Juan Familia-Castillo
+   Ajax, Chelsea
+
+Kevin-Princeoateng
+   AC Milan, Barcelona, Beşiktaş, Borussia Dortmund, E. Frankfurt, Fiorentina, Genoa, Sassuolo, Tottenham
+
+Khalidoulahrouz
+   Ajax, Chelsea, Feyenoord, Sporting CP
+
+Kristijanistrovic
+   Karagümrük, Kasımpaşa, Lecce
+
+Leonardoevilacqua
+   Juventus, Parma
+
+Lorenzoernasconi
+   Atalanta, Cremonese
+
+Marcusettinelli
+   Chelsea, Fulham, Manchester City
+
+Marianoogliacino
+   Lecce, Napoli
+
+Martell Taylor-Crossdale
+   Chelsea, Fulham
+
+Massimorambilla
+   Bologna, Cagliari, Torino
+
+Matteoianchetti
+   Cremonese, Inter
+
+Matthewondswell
+   Newcastle, Nottingham
+
+Milanerckeelenkamp
+   Ajax, Genoa
+
+Mouhamedelkheir
+   Inter, Torino
+
+Nathanuayi-Kiala
+   LOSC Lille, Parma
+
+Nicholasonfanti
+   Inter, Pisa
+
+Rodrigoattaglia
+   Alaves, RCD Mallorca, Sporting CP
+
+Rodrigoentancur
+   Juventus, Tottenham
+
+Rubenentancourt
+   Bologna, PSV
+
+Salvatoreocchetti
+   AC Milan, Genoa
+
+Sebastienassong
+   Newcastle, Tottenham, Wolves
+
+Sokratis Papastathopoulos
+   AC Milan, Arsenal, Borussia Dortmund, Genoa
+
+Stefanoettarini
+   Bologna, Cagliari, Fiorentina, Inter, Parma
+
+Tim Jabol-Folcarelli
+   Rennes, Trabzonspor
+
+Tommasoellazzini
+   Fiorentina, Lecce
+
+Trent Alexander-Arnold
+   Liverpool, Real Madrid
+
+Ufukhanayraktar
+   Konyaspor, Rizespor, Trabzonspor
+
+Vanja Milinkovic-Savic
+   Manchester United, Napoli, Torino
+
+Viktorudyanskiy
+   Juventus, Lecce, Udinese
+
+Yves Makabu-Makalambay
+   Chelsea, PSV
+
