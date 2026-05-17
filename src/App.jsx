@@ -189,21 +189,25 @@ function getRoundKey(round) {
 // Popüler takımlar daha sık çıkar, Tier 3 birbiriyle veya Tier 2 ile hiç eşleşmez.
 
 const TIER_1_TEAMS = [
-  // Türk takımları (hepsi popüler)
+  // Türk takımları (hepsi popüler) — yeni data ile uyumlu isimler
   "Galatasaray", "Beşiktaş", "Fenerbahçe", "Trabzonspor", "Başakşehir",
   "Antalyaspor", "Konyaspor", "Sivasspor", "Kayserispor", "Alanyaspor",
-  "Samsunspor", "Kasımpaşa", "Gaziantep FK", "Gaziantepspor",
-  "Çaykur Rizespor", "Gençlerbirliği", "Göztepe", "Denizlispor",
+  "Samsunspor", "Kasımpaşa", "Gaziantep FK",
+  "Rizespor", "Gençlerbirliği", "Göztepe",
   "Karagümrük", "Eyüpspor", "Kocaelispor",
-  // Avrupa devleri
-  "Real Madrid", "Barcelona", "Atlético Madrid", "Bayern Munich",
+  // Avrupa devleri (yeni data isimleriyle)
+  "Real Madrid", "Barcelona", "Atletico Madrid", "Bayern Munich",
   "Manchester United", "Manchester City", "Liverpool", "Chelsea", "Arsenal",
-  "Juventus", "AC Milan", "Inter", "Paris Saint-Germain", "Borussia Dortmund",
+  "Juventus", "AC Milan", "Inter", "Borussia Dortmund"
 ];
 
 const TIER_2_TEAMS = [
   "Tottenham", "Napoli", "AS Roma", "Ajax", "FC Porto",
-  "Benfica", "Sevilla", "Olympique Lyon", "Newcastle United", "LOSC Lille"
+  "Benfica", "Sevilla", "Newcastle", "LOSC Lille",
+  "Atalanta", "Lazio", "Leverkusen", "Sporting CP",
+  "Aston Villa", "Valencia", "Villarreal", "Real Sociedad",
+  "Athletic Bilbao", "Fiorentina", "Marsilya", "Monaco",
+  "Feyenoord", "PSV", "West Ham", "Everton"
 ];
 
 const TIER_1_SET = new Set(TIER_1_TEAMS);
@@ -237,8 +241,12 @@ const PLAYABLE_TEAM_PAIRS = Object.keys(ANSWER_INDEX).map((key) => {
   return { teams: [teamA, teamB] };
 });
 
-// Sıfır ağırlıklı çiftleri tamamen havuzdan çıkar
-const WEIGHTED_TEAM_PAIRS = PLAYABLE_TEAM_PAIRS.filter((pair) => getPairWeight(pair) > 0);
+// Sıfır ağırlıklı çiftleri ve yalnızca 1 ortak oyuncusu olan çiftleri havuzdan çıkar
+const WEIGHTED_TEAM_PAIRS = PLAYABLE_TEAM_PAIRS.filter((pair) => {
+  if (getPairWeight(pair) <= 0) return false;
+  const key = getPairKey(pair.teams[0], pair.teams[1]);
+  return (ANSWER_INDEX[key] || []).length >= 2;
+});
 
 function getPlayableTeamPairs() {
   return WEIGHTED_TEAM_PAIRS;
