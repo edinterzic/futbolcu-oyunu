@@ -2340,10 +2340,17 @@ export default function App() {
 
                   <StatusMessage message={message} />
 
-                  <WrongExplanationCard
-                    report={lastWrongReport}
-                    onReport={() => submitAnswerReport(lastWrongReport, setReportStatus, () => setLastWrongReport(null))}
-                  />
+                  {lastWrongReport && (
+                    <button
+                      type="button"
+                      className="report-link-button"
+                      onClick={() => submitAnswerReport(lastWrongReport, setReportStatus, () => setLastWrongReport(null))}
+                    >
+                      <span className="report-link-icon">❗</span>
+                      <span>"<strong>{lastWrongReport.answer}</strong>" doğru olmalıydı?</span>
+                      <span className="report-link-cta">Bildir →</span>
+                    </button>
+                  )}
 
                   <StatusMessage message={reportStatus} />
 
@@ -2357,10 +2364,7 @@ export default function App() {
                   )}
 
                   <div className="bottom-actions">
-                    <button type="button" disabled={roundLocked || playerIndex !== 0} onClick={skipRound} className="light-button">
-                      👀 Cevapları Göster
-                    </button>
-                    <button type="button" disabled={playerIndex !== 0} onClick={nextRound} className="primary-button">
+                    <button type="button" disabled={playerIndex !== 0} onClick={nextRound} className="primary-button big full-width">
                       ⏭️ Sonraki Tur
                     </button>
                   </div>
@@ -2386,11 +2390,11 @@ const css = `
   --bg-0: #0a0f1f;
   --bg-1: #0f1729;
   --bg-2: #1a2540;
-  --surface: rgba(255, 255, 255, 0.06);
-  --surface-strong: rgba(255, 255, 255, 0.1);
-  --surface-soft: rgba(255, 255, 255, 0.04);
-  --border: rgba(255, 255, 255, 0.12);
-  --border-strong: rgba(255, 255, 255, 0.2);
+  --surface: #141d36;
+  --surface-strong: #1c2748;
+  --surface-soft: #0f1828;
+  --border: #243151;
+  --border-strong: #2e3a5b;
 
   --text: #f8fafc;
   --text-muted: rgba(248, 250, 252, 0.68);
@@ -2494,6 +2498,10 @@ button:focus-visible {
   align-items: stretch;
   justify-content: center;
   padding: 12px;
+  padding-top: max(12px, env(safe-area-inset-top));
+  padding-bottom: max(12px, env(safe-area-inset-bottom));
+  padding-left: max(12px, env(safe-area-inset-left));
+  padding-right: max(12px, env(safe-area-inset-right));
 }
 
 .app-frame {
@@ -2523,8 +2531,6 @@ button:focus-visible {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
   flex-shrink: 0;
 }
 
@@ -2748,8 +2754,6 @@ button:focus-visible {
   border-radius: var(--radius-lg);
   text-align: left;
   transition: all 0.2s var(--ease);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
   min-height: 130px;
 }
 
@@ -2809,8 +2813,6 @@ button:focus-visible {
   display: flex;
   flex-direction: column;
   gap: 8px;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
 }
 
 .input-card label {
@@ -2882,8 +2884,6 @@ button:focus-visible {
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   padding: 8px;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
 }
 
 .join-box input {
@@ -2935,8 +2935,6 @@ button:focus-visible {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
 }
 
 .info-chip {
@@ -3018,8 +3016,6 @@ button:focus-visible {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
 }
 
 .score-side {
@@ -3174,8 +3170,6 @@ button:focus-visible {
   border: 1px solid var(--border);
   border-radius: var(--radius-xl);
   box-shadow: var(--shadow);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
   padding: 18px;
   flex: 1;
   min-height: 0;
@@ -4522,12 +4516,82 @@ button:focus-visible {
   width: 100%;
 }
 
+/* Online mod yanlış cevap rapor butonu */
+.report-link-button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.18) 0%, rgba(239, 68, 68, 0.08) 100%);
+  border: 1px solid rgba(239, 68, 68, 0.4);
+  border-radius: 12px;
+  color: #fee2e2;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: left;
+  width: 100%;
+  transition: all 0.18s var(--ease);
+  box-shadow: 0 2px 8px rgba(239, 68, 68, 0.08);
+}
+
+.report-link-button:hover {
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.28) 0%, rgba(239, 68, 68, 0.14) 100%);
+  border-color: rgba(239, 68, 68, 0.55);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(239, 68, 68, 0.16);
+}
+
+.report-link-button:active {
+  transform: translateY(0);
+}
+
+.report-link-icon {
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.report-link-button > span:nth-child(2) {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.report-link-button strong {
+  color: #ffffff;
+  font-weight: 800;
+}
+
+.report-link-cta {
+  flex-shrink: 0;
+  padding: 6px 10px;
+  background: rgba(239, 68, 68, 0.35);
+  border: 1px solid rgba(239, 68, 68, 0.5);
+  border-radius: 8px;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+.report-link-button:hover .report-link-cta {
+  background: rgba(239, 68, 68, 0.5);
+  border-color: rgba(239, 68, 68, 0.7);
+}
+
 /* ========================================================================
    Mobile-first: single screen layouts
    ======================================================================== */
 @media (max-width: 720px) {
   .app-shell {
     padding: 8px;
+    padding-top: max(8px, env(safe-area-inset-top));
+    padding-bottom: max(8px, env(safe-area-inset-bottom));
+    padding-left: max(8px, env(safe-area-inset-left));
+    padding-right: max(8px, env(safe-area-inset-right));
   }
 
   .app-frame {
