@@ -221,7 +221,7 @@ function AdminShell({ onLogout }) {
       case "import":
         return <ImportTab snapshot={snapshot} updateSnapshot={updateSnapshot} logActivity={logActivity} />;
       case "reports":
-        return <ReportsTab />;
+        return <ReportsTab snapshot={snapshot} updateSnapshot={updateSnapshot} logActivity={logActivity} />;
       case "export":
         return <ExportTab snapshot={snapshot} resetToOriginal={resetToOriginal} logActivity={logActivity} />;
       default:

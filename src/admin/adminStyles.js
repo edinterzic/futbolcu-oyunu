@@ -539,10 +539,133 @@ export const ADMIN_STYLES = `
 .admin-export-card h3, .admin-reset-card h3 { margin: 0 0 6px; font-size: 17px; }
 .admin-export-card p, .admin-reset-card p { margin: 0 0 8px; font-size: 13px; color: var(--admin-text-muted); max-width: 480px; }
 .admin-export-card code, .admin-reset-card code {
-  background: rgba(15, 23, 42, 0.6); padding: 2px 6px;
+  background: rgba(15, 23, 42, 0.7); padding: 2px 8px;
   border-radius: 4px; font-size: 12px;
+  color: var(--admin-primary-hover);
+  font-family: 'Courier New', monospace;
+  font-weight: 600;
+  border: 1px solid rgba(16, 185, 129, 0.2);
 }
 .admin-reset-card { border-color: rgba(239, 68, 68, 0.2); }
+
+/* ===== REPORTS TAB ===== */
+.admin-reports-toolbar {
+  display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+  padding: 12px 16px; background: rgba(30, 41, 59, 0.4);
+  border: 1px solid var(--admin-border); border-radius: 12px;
+}
+.admin-reports-toolbar-info {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 13px; color: var(--admin-text-muted);
+}
+.admin-reports-count {
+  padding: 4px 10px; background: var(--admin-primary-soft);
+  color: var(--admin-primary-hover); border-radius: 999px;
+  font-size: 12px; font-weight: 700;
+}
+.admin-reports-list { display: flex; flex-direction: column; gap: 12px; }
+.admin-report-card {
+  padding: 16px 18px; background: rgba(30, 41, 59, 0.5);
+  border: 1px solid var(--admin-border); border-radius: 14px;
+  display: flex; flex-direction: column; gap: 12px;
+  transition: all 0.15s;
+}
+.admin-report-card.has-existing { border-color: rgba(34, 197, 94, 0.3); background: rgba(34, 197, 94, 0.04); }
+.admin-report-card.has-new { border-color: rgba(245, 158, 11, 0.3); background: rgba(245, 158, 11, 0.04); }
+.admin-report-card:hover { border-color: var(--admin-primary); }
+
+.admin-report-header {
+  display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+  font-size: 13px;
+}
+.admin-report-teams {
+  display: flex; align-items: center; gap: 8px;
+  font-weight: 700; font-size: 15px; color: var(--admin-text);
+}
+.admin-report-vs { color: var(--admin-text-muted); font-weight: 400; font-size: 12px; }
+.admin-report-status {
+  margin-left: auto; padding: 4px 10px;
+  border-radius: 999px; font-size: 11px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.04em;
+}
+.admin-report-status-existing {
+  background: rgba(34, 197, 94, 0.15); color: var(--admin-success);
+  border: 1px solid rgba(34, 197, 94, 0.3);
+}
+.admin-report-status-new {
+  background: rgba(245, 158, 11, 0.15); color: var(--admin-warning);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+.admin-report-body { padding: 12px 14px; background: rgba(15, 23, 42, 0.5); border-radius: 10px; }
+.admin-report-answer {
+  font-size: 17px; font-weight: 700; color: var(--admin-text);
+  margin-bottom: 4px;
+}
+.admin-report-answer-label {
+  display: block; font-size: 11px; color: var(--admin-text-muted);
+  text-transform: uppercase; letter-spacing: 0.04em; font-weight: 600;
+  margin-bottom: 4px;
+}
+.admin-report-mode {
+  display: inline-block; margin-left: 8px; padding: 2px 8px;
+  background: rgba(56, 189, 248, 0.15); color: var(--admin-info);
+  font-size: 11px; border-radius: 6px; font-weight: 600;
+}
+.admin-report-feedback {
+  margin-top: 10px; padding: 10px 14px;
+  background: rgba(15, 23, 42, 0.7); border-left: 3px solid var(--admin-info);
+  border-radius: 0 8px 8px 0; font-size: 13px; color: var(--admin-text);
+  font-style: italic; line-height: 1.5;
+}
+
+.admin-report-meta {
+  display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+  font-size: 12px; color: var(--admin-text-muted);
+}
+.admin-report-meta-item { display: inline-flex; align-items: center; gap: 4px; }
+
+.admin-report-actions {
+  display: flex; gap: 8px; padding-top: 8px;
+  border-top: 1px solid var(--admin-border); flex-wrap: wrap;
+}
+.admin-report-actions button { flex: 1; min-width: 120px; }
+
+.admin-reports-empty {
+  padding: 60px 20px; text-align: center;
+  background: rgba(30, 41, 59, 0.3); border: 1px dashed var(--admin-border);
+  border-radius: 16px; color: var(--admin-text-muted);
+}
+.admin-reports-empty-icon { font-size: 48px; opacity: 0.5; margin-bottom: 12px; }
+.admin-reports-empty h3 { margin: 0 0 8px; color: var(--admin-text); font-size: 17px; }
+.admin-reports-empty p { margin: 0; font-size: 13px; }
+
+.admin-reports-loading {
+  padding: 40px 20px; text-align: center;
+  color: var(--admin-text-muted); font-size: 13px;
+}
+
+/* ===== REPORT EDITOR MODAL ===== */
+.admin-report-edit-context {
+  padding: 14px; margin-bottom: 16px;
+  background: rgba(15, 23, 42, 0.5); border: 1px solid var(--admin-border);
+  border-radius: 12px;
+}
+.admin-report-edit-context-label {
+  display: block; font-size: 11px; color: var(--admin-text-muted);
+  text-transform: uppercase; letter-spacing: 0.05em;
+  font-weight: 700; margin-bottom: 6px;
+}
+.admin-report-edit-context-teams {
+  font-size: 15px; font-weight: 700;
+  display: flex; align-items: center; gap: 10px;
+}
+.admin-report-edit-original {
+  margin-bottom: 12px; padding: 8px 12px;
+  background: rgba(56, 189, 248, 0.08); border: 1px solid rgba(56, 189, 248, 0.2);
+  border-radius: 8px; font-size: 12px;
+}
+.admin-report-edit-original strong { color: var(--admin-info); }
 
 /* ===== ACTIVITY LOG ===== */
 .admin-log-panel {

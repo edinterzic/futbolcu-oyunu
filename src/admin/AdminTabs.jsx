@@ -1,7 +1,15 @@
 import React, { useState, useEffect, useCallback, useMemo } from "react";
+import { createClient } from "@supabase/supabase-js";
 import { PLAYERS } from "../data/players";
 import { TEAMS } from "../data/teams";
 import { TEAM_LOGOS } from "../data/teamLogos";
+
+// =================== SUPABASE ===================
+const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL;
+const SUPABASE_ANON_KEY = import.meta.env.VITE_SUPABASE_ANON_KEY;
+const supabase = (SUPABASE_URL && SUPABASE_ANON_KEY)
+  ? createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
+  : null;
 
 // =================== CONSTANTS ===================
 const SNAPSHOT_KEY = "pairfc_admin_snapshot_v1";
@@ -937,14 +945,340 @@ Wesley Sneijder	Real Madrid	Inter	Galatasaray`}</pre>
   );
 }
 
-// =================== REPORTS TAB (placeholder) ===================
-export function ReportsTab() {
+// =================== REPORT EDITOR MODAL ===================
+function ReportEditor({ open, onClose, report, onApprove, snapshotPlayers }) {
+  const [editedName, setEditedName] = useState("");
+  const [error, setError] = useState("");
+
+  useEffect(() => {
+    if (open && report) {
+      setEditedName(report.answer || "");
+      setError("");
+    }
+  }, [open, report]);
+
+  if (!report) return null;
+
+  const finalName = editedName.trim();
+  const isNameChanged = finalName !== (report.answer || "").trim();
+  const existingPlayer = snapshotPlayers.find((p) => normalizeText(p.name) === normalizeText(finalName));
+
+  const handleApprove = () => {
+    if (!finalName) { setError("Oyuncu adı boş olamaz."); return; }
+    onApprove({ reportId: report.id, finalName, isExisting: !!existingPlayer });
+  };
+
   return (
-    <div className="admin-tab-placeholder">
-      <div className="admin-tab-icon">🚨</div>
-      <h2>Raporlar</h2>
-      <p>Supabase'e bağlanıp gelen raporları gösterecek. Düzenleyerek onaylayabileceksin.</p>
-      <span className="admin-coming-soon">Faz 3'te geliyor</span>
+    <Modal open={open} onClose={onClose} title="✏️ Raporu Düzenle ve Onayla" maxWidth={520}>
+      <div className="admin-report-edit-context">
+        <span className="admin-report-edit-context-label">Takım Çifti</span>
+        <div className="admin-report-edit-context-teams">
+          <span>{report.team_a}</span>
+          <span style={{ color: "var(--admin-text-muted)" }}>↔</span>
+          <span>{report.team_b}</span>
+        </div>
+      </div>
+
+      {isNameChanged && (
+        <div className="admin-report-edit-original">
+          <strong>Orijinal öneri:</strong> "{report.answer}" → düzeltme yapılıyor
+        </div>
+      )}
+
+      <div className="admin-form-row">
+        <label>Oyuncu Adı (düzeltebilirsin)</label>
+        <input
+          type="text"
+          value={editedName}
+          onChange={(e) => setEditedName(e.target.value)}
+          placeholder="Örn: Mert Günok"
+          autoFocus
+        />
+        <small style={{ color: "var(--admin-text-muted)", fontSize: 12, marginTop: 6, display: "block" }}>
+          {existingPlayer
+            ? `✓ "${existingPlayer.name}" zaten veride mevcut. Onaylanırsa bu iki takım onun kulüp listesine eklenir.`
+            : `🆕 Bu isim veride yok. Onaylanırsa "${finalName || "..."}" yeni oyuncu olarak eklenecek.`}
+        </small>
+      </div>
+
+      {report.feedback && (
+        <div className="admin-form-row">
+          <label>Kullanıcı Notu</label>
+          <div className="admin-report-feedback" style={{ marginTop: 0 }}>{report.feedback}</div>
+        </div>
+      )}
+
+      {error && <div className="admin-error">{error}</div>}
+
+      <div className="admin-modal-actions">
+        <button type="button" className="admin-secondary-button" onClick={onClose}>Vazgeç</button>
+        <button type="button" className="admin-primary-button" onClick={handleApprove}>
+          ✅ Onayla ve Veriye Ekle
+        </button>
+      </div>
+    </Modal>
+  );
+}
+
+// =================== REPORTS TAB ===================
+export function ReportsTab({ snapshot, updateSnapshot, logActivity }) {
+  const [reports, setReports] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
+  const [search, setSearch] = useState("");
+  const [editingReport, setEditingReport] = useState(null);
+  const { confirm, dialog } = useConfirm();
+
+  const playerIndex = useMemo(() => {
+    const map = new Map();
+    snapshot.players.forEach((p) => map.set(normalizeText(p.name), p));
+    return map;
+  }, [snapshot.players]);
+
+  const fetchReports = useCallback(async () => {
+    if (!supabase) {
+      setError("Supabase bağlantısı yapılandırılmamış. .env.local içindeki VITE_SUPABASE_URL ve VITE_SUPABASE_ANON_KEY değerlerini kontrol et.");
+      setLoading(false);
+      return;
+    }
+    setLoading(true);
+    setError("");
+    try {
+      const { data, error: err } = await supabase
+        .from("answer_reports")
+        .select("*")
+        .order("created_at", { ascending: false })
+        .limit(500);
+      if (err) throw err;
+      setReports(data || []);
+    } catch (e) {
+      setError(`Raporlar yüklenemedi: ${e.message}`);
+    } finally {
+      setLoading(false);
+    }
+  }, []);
+
+  useEffect(() => { fetchReports(); }, [fetchReports]);
+
+  const filtered = useMemo(() => {
+    if (!search.trim()) return reports;
+    const q = normalizeText(search);
+    return reports.filter((r) =>
+      normalizeText(r.answer || "").includes(q) ||
+      normalizeText(r.team_a || "").includes(q) ||
+      normalizeText(r.team_b || "").includes(q) ||
+      normalizeText(r.player_name || "").includes(q) ||
+      normalizeText(r.feedback || "").includes(q)
+    );
+  }, [reports, search]);
+
+  const deleteReport = async (reportId) => {
+    if (!supabase) return;
+    const { error: err } = await supabase.from("answer_reports").delete().eq("id", reportId);
+    if (err) throw err;
+    setReports((prev) => prev.filter((r) => r.id !== reportId));
+  };
+
+  const handleApprove = async ({ reportId, finalName, isExisting }) => {
+    const report = reports.find((r) => r.id === reportId);
+    if (!report) return;
+
+    try {
+      // Update snapshot: add player or extend existing player's clubs
+      updateSnapshot((prev) => {
+        const teams = [report.team_a, report.team_b].filter(Boolean);
+        const existing = prev.players.find((p) => normalizeText(p.name) === normalizeText(finalName));
+        if (existing) {
+          // Add new clubs to existing player
+          const newClubs = teams.filter((t) => !existing.clubs.includes(t));
+          if (newClubs.length === 0) return prev;
+          return {
+            ...prev,
+            players: prev.players.map((p) =>
+              p === existing ? { ...p, clubs: [...p.clubs, ...newClubs] } : p
+            )
+          };
+        }
+        // New player
+        return {
+          ...prev,
+          players: [...prev.players, { name: finalName, clubs: teams, nationality: "", birthYear: null, isActive: null }]
+        };
+      });
+
+      // Delete report from Supabase
+      await deleteReport(reportId);
+
+      logActivity({
+        type: "import",
+        message: `Rapor onaylandı: "${finalName}" (${report.team_a} - ${report.team_b})${isExisting ? " — mevcut oyuncuya takım eklendi" : " — yeni oyuncu"}`
+      });
+
+      setEditingReport(null);
+    } catch (e) {
+      alert(`Hata: ${e.message}`);
+    }
+  };
+
+  const handleReject = async (report) => {
+    const ok = await confirm({
+      title: "Raporu reddet?",
+      message: `"${report.answer}" önerisi reddedilecek ve rapor silinecek. Veriye eklenmeyecek.`,
+      confirmText: "Reddet ve Sil",
+      danger: true
+    });
+    if (!ok) return;
+    try {
+      await deleteReport(report.id);
+      logActivity({ type: "delete", message: `Rapor reddedildi: "${report.answer}" (${report.team_a} - ${report.team_b})` });
+    } catch (e) {
+      alert(`Hata: ${e.message}`);
+    }
+  };
+
+  const handleQuickAccept = async (report) => {
+    // For reports where the answer matches an existing player exactly,
+    // offer a one-click confirm without opening the modal
+    const existing = playerIndex.get(normalizeText(report.answer || ""));
+    const teams = [report.team_a, report.team_b].filter(Boolean);
+    const newClubs = existing ? teams.filter((t) => !existing.clubs.includes(t)) : [];
+    if (existing && newClubs.length === 0) {
+      // Player already has both clubs — just delete the report
+      const ok = await confirm({
+        title: "Zaten veride var",
+        message: `"${existing.name}" oyuncusu zaten ${teams.join(" ve ")} takımları için kayıtlı. Raporu silmek ister misin?`,
+        confirmText: "Raporu Sil",
+        danger: false
+      });
+      if (!ok) return;
+      try {
+        await deleteReport(report.id);
+        logActivity({ type: "delete", message: `Rapor silindi (zaten mevcut): "${report.answer}"` });
+      } catch (e) {
+        alert(`Hata: ${e.message}`);
+      }
+      return;
+    }
+    // Otherwise open the editor
+    setEditingReport(report);
+  };
+
+  return (
+    <div className="admin-tab-content">
+      <header className="admin-tab-header">
+        <div>
+          <h2>🚨 Kullanıcı Raporları</h2>
+          <p className="admin-tab-subtitle">Eksik veya yanlış olduğunu düşündüğün önerileri burada görüp düzelterek veriye ekleyebilirsin.</p>
+        </div>
+        <button type="button" className="admin-secondary-button" onClick={fetchReports} disabled={loading}>
+          {loading ? "Yükleniyor..." : "🔄 Yenile"}
+        </button>
+      </header>
+
+      <div className="admin-reports-toolbar">
+        <div className="admin-reports-toolbar-info">
+          <span className="admin-reports-count">{filtered.length}</span>
+          <span>{filtered.length === reports.length ? "rapor" : `/ ${reports.length} rapor (filtrelenmiş)`}</span>
+        </div>
+        <input
+          type="text"
+          className="admin-search"
+          placeholder="🔍 İsim, takım veya not ara..."
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          style={{ flex: 1, minWidth: 240 }}
+        />
+      </div>
+
+      {error && <div className="admin-error">{error}</div>}
+
+      {loading ? (
+        <div className="admin-reports-loading">Raporlar yükleniyor...</div>
+      ) : filtered.length === 0 ? (
+        <div className="admin-reports-empty">
+          <div className="admin-reports-empty-icon">🎉</div>
+          <h3>{reports.length === 0 ? "Henüz rapor yok" : "Filtreyle eşleşen rapor yok"}</h3>
+          <p>{reports.length === 0 ? "Kullanıcılar oyunda eksik gördükleri yanıtları buraya bildirir." : "Arama terimini değiştir veya temizle."}</p>
+        </div>
+      ) : (
+        <div className="admin-reports-list">
+          {filtered.map((report) => {
+            const existing = playerIndex.get(normalizeText(report.answer || ""));
+            const teams = [report.team_a, report.team_b].filter(Boolean);
+            const alreadyHasBoth = existing && teams.every((t) => existing.clubs.includes(t));
+            const isExisting = !!existing;
+
+            return (
+              <div
+                key={report.id}
+                className={`admin-report-card ${alreadyHasBoth ? "has-existing" : isExisting ? "has-existing" : "has-new"}`}
+              >
+                <div className="admin-report-header">
+                  <div className="admin-report-teams">
+                    <span>{report.team_a || "?"}</span>
+                    <span className="admin-report-vs">vs</span>
+                    <span>{report.team_b || "?"}</span>
+                  </div>
+                  {alreadyHasBoth ? (
+                    <span className="admin-report-status admin-report-status-existing">✓ Zaten veride</span>
+                  ) : isExisting ? (
+                    <span className="admin-report-status admin-report-status-existing">↗ Mevcut oyuncu</span>
+                  ) : (
+                    <span className="admin-report-status admin-report-status-new">🆕 Yeni öneri</span>
+                  )}
+                </div>
+
+                <div className="admin-report-body">
+                  <span className="admin-report-answer-label">Önerilen Yanıt</span>
+                  <div className="admin-report-answer">
+                    {report.answer || <em style={{ color: "var(--admin-text-muted)" }}>(boş)</em>}
+                    {report.mode && <span className="admin-report-mode">{report.mode}</span>}
+                  </div>
+                  {report.feedback && <div className="admin-report-feedback">"{report.feedback}"</div>}
+                </div>
+
+                <div className="admin-report-meta">
+                  {report.player_name && (
+                    <span className="admin-report-meta-item">👤 {report.player_name}</span>
+                  )}
+                  {report.room_code && (
+                    <span className="admin-report-meta-item">🎮 {report.room_code}</span>
+                  )}
+                  <span className="admin-report-meta-item">
+                    🕐 {report.created_at ? formatRelativeTime(new Date(report.created_at).getTime()) : "—"}
+                  </span>
+                </div>
+
+                <div className="admin-report-actions">
+                  <button
+                    type="button"
+                    className="admin-primary-button"
+                    onClick={() => handleQuickAccept(report)}
+                  >
+                    {alreadyHasBoth ? "🗑️ Raporu Sil (Zaten Var)" : "✏️ Düzenle ve Onayla"}
+                  </button>
+                  <button
+                    type="button"
+                    className="admin-danger-button"
+                    onClick={() => handleReject(report)}
+                  >
+                    ✗ Reddet
+                  </button>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      )}
+
+      <ReportEditor
+        open={!!editingReport}
+        onClose={() => setEditingReport(null)}
+        report={editingReport}
+        onApprove={handleApprove}
+        snapshotPlayers={snapshot.players}
+      />
+      {dialog}
     </div>
   );
 }
