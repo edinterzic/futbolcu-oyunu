@@ -1,5 +1,5 @@
 // Auto-generated from admin panel
-// Generated: 2026-05-17T23:00:20.094Z
+// Generated: 2026-05-17T23:07:20.483Z
 
 export const TEAM_LOGOS = {
   "Inter": {
@@ -442,6 +442,11 @@ export const TEAM_LOGOS = {
     "primary": "#0F4FA0",
     "secondary": "#000000"
   },
+  "Sivasspor": {
+    "initials": "SVS",
+    "primary": "#E30613",
+    "secondary": "#FFFFFF"
+  },
   "Betis": {
     "initials": "BET",
     "primary": "#0BB363",
@@ -475,11 +480,6 @@ export const TEAM_LOGOS = {
   "Qarabag FK": {
     "initials": "QAR",
     "primary": "#000000",
-    "secondary": "#FFFFFF"
-  },
-  "Sivasspor": {
-    "initials": "SVS",
-    "primary": "#E30613",
     "secondary": "#FFFFFF"
   }
 };

@@ -1,5 +1,5 @@
 // Auto-generated from admin panel
-// Generated: 2026-05-17T23:00:19.521Z
+// Generated: 2026-05-17T23:07:19.898Z
 
 export const PLAYERS = [
   {
@@ -161,7 +161,8 @@ export const PLAYERS = [
       "Antalyaspor",
       "Fenerbahçe",
       "Karagümrük",
-      "Rizespor"
+      "Rizespor",
+      "Sivasspor"
     ]
   },
   {
@@ -242,7 +243,8 @@ export const PLAYERS = [
     "name": "Abdou Traore",
     "clubs": [
       "Gaziantep FK",
-      "Konyaspor"
+      "Konyaspor",
+      "Sivasspor"
     ]
   },
   {
@@ -381,7 +383,8 @@ export const PLAYERS = [
     "clubs": [
       "Gaziantep FK",
       "Kayserispor",
-      "Trabzonspor"
+      "Trabzonspor",
+      "Sivasspor"
     ]
   },
   {
@@ -1228,7 +1231,8 @@ export const PLAYERS = [
     "name": "Ahmet Aras",
     "clubs": [
       "Antalyaspor",
-      "Karagümrük"
+      "Karagümrük",
+      "Sivasspor"
     ]
   },
   {
@@ -1291,7 +1295,8 @@ export const PLAYERS = [
       "Gençlerbirliği",
       "Kasımpaşa",
       "Kocaelispor",
-      "Konyaspor"
+      "Konyaspor",
+      "Sivasspor"
     ]
   },
   {
@@ -1474,7 +1479,8 @@ export const PLAYERS = [
     "name": "Akeem Agbetu",
     "clubs": [
       "Kocaelispor",
-      "Samsunspor"
+      "Samsunspor",
+      "Sivasspor"
     ]
   },
   {
@@ -1505,7 +1511,8 @@ export const PLAYERS = [
     "name": "Alaaddin Okumuş",
     "clubs": [
       "Gençlerbirliği",
-      "Samsunspor"
+      "Samsunspor",
+      "Sivasspor"
     ]
   },
   {
@@ -3225,7 +3232,8 @@ export const PLAYERS = [
       "Brentford",
       "Sunderland",
       "Tottenham",
-      "West Ham"
+      "West Ham",
+      "Sivasspor"
     ]
   },
   {
@@ -3737,7 +3745,8 @@ export const PLAYERS = [
       "Beşiktaş",
       "Gençlerbirliği",
       "Kocaelispor",
-      "Rizespor"
+      "Rizespor",
+      "Sivasspor"
     ]
   },
   {
@@ -3842,7 +3851,8 @@ export const PLAYERS = [
     "clubs": [
       "Fenerbahçe",
       "Karagümrük",
-      "Kocaelispor"
+      "Kocaelispor",
+      "Sivasspor"
     ]
   },
   {
@@ -4327,7 +4337,8 @@ export const PLAYERS = [
     "name": "Aly Malle",
     "clubs": [
       "Eyüpspor",
-      "Udinese"
+      "Udinese",
+      "Sivasspor"
     ]
   },
   {
@@ -6841,7 +6852,8 @@ export const PLAYERS = [
     "name": "Arouna Kone",
     "clubs": [
       "Everton",
-      "Levante"
+      "Levante",
+      "Sivasspor"
     ]
   },
   {
@@ -7137,7 +7149,8 @@ export const PLAYERS = [
     "name": "Atilla Koca",
     "clubs": [
       "Fenerbahçe",
-      "Rizespor"
+      "Rizespor",
+      "Sivasspor"
     ]
   },
   {
@@ -7247,7 +7260,8 @@ export const PLAYERS = [
       "Beşiktaş",
       "Gençlerbirliği",
       "Göztepe",
-      "Kocaelispor"
+      "Kocaelispor",
+      "Sivasspor"
     ]
   },
   {
@@ -7268,7 +7282,8 @@ export const PLAYERS = [
     "name": "Aydın Yıldırım",
     "clubs": [
       "Kocaelispor",
-      "Samsunspor"
+      "Samsunspor",
+      "Sivasspor"
     ]
   },
   {
@@ -7652,7 +7667,8 @@ export const PLAYERS = [
     "clubs": [
       "Fenerbahçe",
       "Galatasaray",
-      "Marsilya"
+      "Marsilya",
+      "Sivasspor"
     ]
   },
   {
@@ -7702,7 +7718,8 @@ export const PLAYERS = [
     "name": "Batuhan Karadeniz",
     "clubs": [
       "Beşiktaş",
-      "Trabzonspor"
+      "Trabzonspor",
+      "Sivasspor"
     ]
   },
   {
@@ -8356,7 +8373,8 @@ export const PLAYERS = [
     "clubs": [
       "Fenerbahçe",
       "Göztepe",
-      "Kocaelispor"
+      "Kocaelispor",
+      "Sivasspor"
     ]
   },
   {
@@ -9385,7 +9403,8 @@ export const PLAYERS = [
     "clubs": [
       "Galatasaray",
       "Göztepe",
-      "Kayserispor"
+      "Kayserispor",
+      "Sivasspor"
     ]
   },
   {
@@ -9400,7 +9419,8 @@ export const PLAYERS = [
     "clubs": [
       "Fenerbahçe",
       "Karagümrük",
-      "Kayserispor"
+      "Kayserispor",
+      "Sivasspor"
     ]
   },
   {
@@ -9744,7 +9764,8 @@ export const PLAYERS = [
     "name": "Caner Osmanpaşa",
     "clubs": [
       "Kocaelispor",
-      "Trabzonspor"
+      "Trabzonspor",
+      "Sivasspor"
     ]
   },
   {
@@ -9752,7 +9773,8 @@ export const PLAYERS = [
     "clubs": [
       "Alanyaspor",
       "Antalyaspor",
-      "Samsunspor"
+      "Samsunspor",
+      "Sivasspor"
     ]
   },
   {
@@ -9798,7 +9820,8 @@ export const PLAYERS = [
       "Levante",
       "Liverpool",
       "Monaco",
-      "Trabzonspor"
+      "Trabzonspor",
+      "Sivasspor"
     ]
   },
   {
@@ -10478,7 +10501,8 @@ export const PLAYERS = [
     "name": "Cem Can",
     "clubs": [
       "Gençlerbirliği",
-      "Kayserispor"
+      "Kayserispor",
+      "Sivasspor"
     ]
   },
   {
@@ -10718,7 +10742,8 @@ export const PLAYERS = [
       "Konyaspor",
       "Rizespor",
       "Samsunspor",
-      "Trabzonspor"
+      "Trabzonspor",
+      "Sivasspor"
     ]
   },
   {
@@ -11429,7 +11454,8 @@ export const PLAYERS = [
     "clubs": [
       "AS Roma",
       "Real Madrid",
-      "Villarreal"
+      "Villarreal",
+      "Sivasspor"
     ]
   },
   {
@@ -11444,7 +11470,8 @@ export const PLAYERS = [
     "name": "Cihat Çelik",
     "clubs": [
       "Gaziantep FK",
-      "Kocaelispor"
+      "Kocaelispor",
+      "Sivasspor"
     ]
   },
   {
@@ -12716,7 +12743,8 @@ export const PLAYERS = [
     "name": "Dani Abalo",
     "clubs": [
       "Alaves",
-      "Celta Vigo"
+      "Celta Vigo",
+      "Sivasspor"
     ]
   },
   {
@@ -15423,7 +15451,8 @@ export const PLAYERS = [
       "Beşiktaş",
       "Gaziantep FK",
       "Qarabag FK",
-      "Rizespor"
+      "Rizespor",
+      "Sivasspor"
     ]
   },
   {
@@ -16276,7 +16305,8 @@ export const PLAYERS = [
       "Antalyaspor",
       "Gençlerbirliği",
       "Göztepe",
-      "Kayserispor"
+      "Kayserispor",
+      "Sivasspor"
     ]
   },
   {
@@ -16550,7 +16580,8 @@ export const PLAYERS = [
       "Beşiktaş",
       "Rizespor",
       "Sporting CP",
-      "Trabzonspor"
+      "Trabzonspor",
+      "Sivasspor"
     ]
   },
   {
@@ -17335,7 +17366,8 @@ export const PLAYERS = [
     "name": "Elderson",
     "clubs": [
       "Monaco",
-      "Rennes"
+      "Rennes",
+      "Sivasspor"
     ]
   },
   {
@@ -18109,7 +18141,8 @@ export const PLAYERS = [
     "name": "Emre Kılınç",
     "clubs": [
       "Galatasaray",
-      "Samsunspor"
+      "Samsunspor",
+      "Sivasspor"
     ]
   },
   {
@@ -18671,7 +18704,8 @@ export const PLAYERS = [
     "name": "Ergin Keleş",
     "clubs": [
       "Göztepe",
-      "Trabzonspor"
+      "Trabzonspor",
+      "Sivasspor"
     ]
   },
   {
@@ -18697,7 +18731,8 @@ export const PLAYERS = [
     "name": "Erhan Erentürk",
     "clubs": [
       "Gençlerbirliği",
-      "Konyaspor"
+      "Konyaspor",
+      "Sivasspor"
     ]
   },
   {
@@ -18915,7 +18950,8 @@ export const PLAYERS = [
     "clubs": [
       "Beşiktaş",
       "Kayserispor",
-      "Rizespor"
+      "Rizespor",
+      "Sivasspor"
     ]
   },
   {
@@ -18966,7 +19002,8 @@ export const PLAYERS = [
     "clubs": [
       "Antalyaspor",
       "Galatasaray",
-      "Göztepe"
+      "Göztepe",
+      "Sivasspor"
     ]
   },
   {
@@ -19094,7 +19131,8 @@ export const PLAYERS = [
       "Antalyaspor",
       "Göztepe",
       "Kayserispor",
-      "Konyaspor"
+      "Konyaspor",
+      "Sivasspor"
     ]
   },
   {
@@ -19976,7 +20014,8 @@ export const PLAYERS = [
     "name": "Fatih Aksoy",
     "clubs": [
       "Alanyaspor",
-      "Beşiktaş"
+      "Beşiktaş",
+      "Sivasspor"
     ]
   },
   {
@@ -20701,7 +20740,8 @@ export const PLAYERS = [
     "name": "Fernando Andrade",
     "clubs": [
       "FC Porto",
-      "Rizespor"
+      "Rizespor",
+      "Sivasspor"
     ]
   },
   {
@@ -21420,7 +21460,8 @@ export const PLAYERS = [
     "clubs": [
       "Kasımpaşa",
       "Lens",
-      "Trabzonspor"
+      "Trabzonspor",
+      "Sivasspor"
     ]
   },
   {
@@ -21465,7 +21506,8 @@ export const PLAYERS = [
     "clubs": [
       "Göztepe",
       "Kasımpaşa",
-      "Trabzonspor"
+      "Trabzonspor",
+      "Sivasspor"
     ]
   },
   {
@@ -22662,7 +22704,8 @@ export const PLAYERS = [
       "Espanyol",
       "Gençlerbirliği",
       "Konyaspor",
-      "Udinese"
+      "Udinese",
+      "Sivasspor"
     ]
   },
   {
@@ -22919,7 +22962,8 @@ export const PLAYERS = [
       "Alanyaspor",
       "Galatasaray",
       "Karagümrük",
-      "Rizespor"
+      "Rizespor",
+      "Sivasspor"
     ]
   },
   {
@@ -22980,7 +23024,8 @@ export const PLAYERS = [
       "Elche",
       "Fenerbahçe",
       "Feyenoord",
-      "Galatasaray"
+      "Galatasaray",
+      "Sivasspor"
     ]
   },
   {
@@ -24798,7 +24843,8 @@ export const PLAYERS = [
     "clubs": [
       "Beşiktaş",
       "Galatasaray",
-      "Gaziantep FK"
+      "Gaziantep FK",
+      "Sivasspor"
     ]
   },
   {
@@ -25260,7 +25306,8 @@ export const PLAYERS = [
     "clubs": [
       "Galatasaray",
       "Kasımpaşa",
-      "Rizespor"
+      "Rizespor",
+      "Sivasspor"
     ]
   },
   {
@@ -25277,7 +25324,8 @@ export const PLAYERS = [
     "clubs": [
       "Antalyaspor",
       "Fenerbahçe",
-      "Göztepe"
+      "Göztepe",
+      "Sivasspor"
     ]
   },
   {
@@ -25387,7 +25435,8 @@ export const PLAYERS = [
     "name": "Hakan Arslan",
     "clubs": [
       "Kasımpaşa",
-      "Samsunspor"
+      "Samsunspor",
+      "Sivasspor"
     ]
   },
   {
@@ -25435,7 +25484,8 @@ export const PLAYERS = [
     "clubs": [
       "Antalyaspor",
       "Başakşehir",
-      "Kasımpaşa"
+      "Kasımpaşa",
+      "Sivasspor"
     ]
   },
   {
@@ -25818,14 +25868,16 @@ export const PLAYERS = [
     "name": "Hasan Hatipoğlu",
     "clubs": [
       "Kocaelispor",
-      "Samsunspor"
+      "Samsunspor",
+      "Sivasspor"
     ]
   },
   {
     "name": "Hasan Kabze",
     "clubs": [
       "Galatasaray",
-      "Konyaspor"
+      "Konyaspor",
+      "Sivasspor"
     ]
   },
   {
@@ -26170,7 +26222,8 @@ export const PLAYERS = [
     "name": "Herve Tum",
     "clubs": [
       "Gençlerbirliği",
-      "Göztepe"
+      "Göztepe",
+      "Sivasspor"
     ]
   },
   {
@@ -26890,7 +26943,8 @@ export const PLAYERS = [
     "name": "Ilqar Qurbanov",
     "clubs": [
       "Fenerbahçe",
-      "Qarabag FK"
+      "Qarabag FK",
+      "Sivasspor"
     ]
   },
   {
@@ -27663,21 +27717,24 @@ export const PLAYERS = [
     "clubs": [
       "Başakşehir",
       "Eyüpspor",
-      "Kayserispor"
+      "Kayserispor",
+      "Sivasspor"
     ]
   },
   {
     "name": "İbrahim Akın",
     "clubs": [
       "Beşiktaş",
-      "Gaziantep FK"
+      "Gaziantep FK",
+      "Sivasspor"
     ]
   },
   {
     "name": "İbrahim Dağaşan",
     "clubs": [
       "Antalyaspor",
-      "Kayserispor"
+      "Kayserispor",
+      "Sivasspor"
     ]
   },
   {
@@ -27715,7 +27772,8 @@ export const PLAYERS = [
     "name": "İbrahim Toraman",
     "clubs": [
       "Beşiktaş",
-      "Gaziantep FK"
+      "Gaziantep FK",
+      "Sivasspor"
     ]
   },
   {
@@ -27761,7 +27819,8 @@ export const PLAYERS = [
     "name": "İlhan Ummak",
     "clubs": [
       "Rizespor",
-      "Samsunspor"
+      "Samsunspor",
+      "Sivasspor"
     ]
   },
   {
@@ -31789,7 +31848,8 @@ export const PLAYERS = [
     "name": "Jorge Felix",
     "clubs": [
       "Atletico Madrid",
-      "Getafe"
+      "Getafe",
+      "Sivasspor"
     ]
   },
   {
@@ -33755,7 +33815,8 @@ export const PLAYERS = [
     "name": "Karim Saidi",
     "clubs": [
       "Feyenoord",
-      "Lecce"
+      "Lecce",
+      "Sivasspor"
     ]
   },
   {
@@ -34098,7 +34159,8 @@ export const PLAYERS = [
     "clubs": [
       "Beşiktaş",
       "Göztepe",
-      "Karagümrük"
+      "Karagümrük",
+      "Sivasspor"
     ]
   },
   {
@@ -34173,7 +34235,8 @@ export const PLAYERS = [
     "name": "Kerim Avcı",
     "clubs": [
       "Gaziantep FK",
-      "Gençlerbirliği"
+      "Gençlerbirliği",
+      "Sivasspor"
     ]
   },
   {
@@ -34821,7 +34884,8 @@ export const PLAYERS = [
     "name": "Koray Altınay",
     "clubs": [
       "Karagümrük",
-      "Rizespor"
+      "Rizespor",
+      "Sivasspor"
     ]
   },
   {
@@ -34872,7 +34936,8 @@ export const PLAYERS = [
     "name": "Korcan Çelikay",
     "clubs": [
       "Beşiktaş",
-      "Kocaelispor"
+      "Kocaelispor",
+      "Sivasspor"
     ]
   },
   {
@@ -38277,7 +38342,8 @@ export const PLAYERS = [
     "name": "Mahmut Hanefi Erdoğdu",
     "clubs": [
       "Fenerbahçe",
-      "Gaziantep FK"
+      "Gaziantep FK",
+      "Sivasspor"
     ]
   },
   {
@@ -38670,7 +38736,8 @@ export const PLAYERS = [
       "Başakşehir",
       "Fiorentina",
       "Trabzonspor",
-      "West Ham"
+      "West Ham",
+      "Sivasspor"
     ]
   },
   {
@@ -42221,7 +42288,8 @@ export const PLAYERS = [
     "clubs": [
       "Bournemouth",
       "Gaziantep FK",
-      "Leeds United"
+      "Leeds United",
+      "Sivasspor"
     ]
   },
   {
@@ -44697,7 +44765,8 @@ export const PLAYERS = [
     "name": "Muammer Yıldırım",
     "clubs": [
       "Kayserispor",
-      "Samsunspor"
+      "Samsunspor",
+      "Sivasspor"
     ]
   },
   {
@@ -44738,7 +44807,8 @@ export const PLAYERS = [
       "Başakşehir",
       "Gaziantep FK",
       "Konyaspor",
-      "Trabzonspor"
+      "Trabzonspor",
+      "Sivasspor"
     ]
   },
   {
@@ -44846,7 +44916,8 @@ export const PLAYERS = [
     "clubs": [
       "Kayserispor",
       "Konyaspor",
-      "Samsunspor"
+      "Samsunspor",
+      "Sivasspor"
     ]
   },
   {
@@ -44854,7 +44925,8 @@ export const PLAYERS = [
     "clubs": [
       "Galatasaray",
       "Gaziantep FK",
-      "Kasımpaşa"
+      "Kasımpaşa",
+      "Sivasspor"
     ]
   },
   {
@@ -44907,7 +44979,8 @@ export const PLAYERS = [
     "name": "Murat Sözgelmez",
     "clubs": [
       "Antalyaspor",
-      "Rizespor"
+      "Rizespor",
+      "Sivasspor"
     ]
   },
   {
@@ -44971,7 +45044,8 @@ export const PLAYERS = [
     "name": "Musa Aydın",
     "clubs": [
       "Antalyaspor",
-      "Samsunspor"
+      "Samsunspor",
+      "Sivasspor"
     ]
   },
   {
@@ -45136,7 +45210,8 @@ export const PLAYERS = [
     "clubs": [
       "Gençlerbirliği",
       "Konyaspor",
-      "Trabzonspor"
+      "Trabzonspor",
+      "Sivasspor"
     ]
   },
   {
@@ -46574,7 +46649,8 @@ export const PLAYERS = [
     "clubs": [
       "Antalyaspor",
       "Gaziantep FK",
-      "Gençlerbirliği"
+      "Gençlerbirliği",
+      "Sivasspor"
     ]
   },
   {
@@ -47136,7 +47212,8 @@ export const PLAYERS = [
     "name": "Oğuz Dağlaroğlu",
     "clubs": [
       "Fenerbahçe",
-      "Gaziantep FK"
+      "Gaziantep FK",
+      "Sivasspor"
     ]
   },
   {
@@ -47265,7 +47342,8 @@ export const PLAYERS = [
     "name": "Okechukwu Azubuike",
     "clubs": [
       "Başakşehir",
-      "Rizespor"
+      "Rizespor",
+      "Sivasspor"
     ]
   },
   {
@@ -47323,7 +47401,8 @@ export const PLAYERS = [
       "Gaziantep FK",
       "Gençlerbirliği",
       "Girona",
-      "Manchester City"
+      "Manchester City",
+      "Sivasspor"
     ]
   },
   {
@@ -47592,7 +47671,8 @@ export const PLAYERS = [
     "name": "Onur Tuncer",
     "clubs": [
       "Antalyaspor",
-      "Fenerbahçe"
+      "Fenerbahçe",
+      "Sivasspor"
     ]
   },
   {
@@ -49580,7 +49660,8 @@ export const PLAYERS = [
       "Benfica",
       "Inter",
       "Kayserispor",
-      "Qarabag FK"
+      "Qarabag FK",
+      "Sivasspor"
     ]
   },
   {
@@ -51627,7 +51708,8 @@ export const PLAYERS = [
     "clubs": [
       "Barcelona",
       "Cremonese",
-      "Inter"
+      "Inter",
+      "Sivasspor"
     ]
   },
   {
@@ -52678,7 +52760,8 @@ export const PLAYERS = [
     "name": "Robin Yalçın",
     "clubs": [
       "Eyüpspor",
-      "Rizespor"
+      "Rizespor",
+      "Sivasspor"
     ]
   },
   {
@@ -52688,7 +52771,8 @@ export const PLAYERS = [
       "Athletic Bilbao",
       "Başakşehir",
       "Manchester City",
-      "Real Madrid"
+      "Real Madrid",
+      "Sivasspor"
     ]
   },
   {
@@ -54355,7 +54439,8 @@ export const PLAYERS = [
       "Getafe",
       "Girona",
       "Leeds United",
-      "Real Madrid"
+      "Real Madrid",
+      "Sivasspor"
     ]
   },
   {
@@ -55199,7 +55284,8 @@ export const PLAYERS = [
       "Gençlerbirliği",
       "Kayserispor",
       "Rizespor",
-      "Trabzonspor"
+      "Trabzonspor",
+      "Sivasspor"
     ]
   },
   {
@@ -55341,7 +55427,8 @@ export const PLAYERS = [
     "name": "Sercan Yıldırım",
     "clubs": [
       "Galatasaray",
-      "Karagümrük"
+      "Karagümrük",
+      "Sivasspor"
     ]
   },
   {
@@ -55349,7 +55436,8 @@ export const PLAYERS = [
     "clubs": [
       "Alanyaspor",
       "Galatasaray",
-      "Kasımpaşa"
+      "Kasımpaşa",
+      "Sivasspor"
     ]
   },
   {
@@ -55415,7 +55503,8 @@ export const PLAYERS = [
       "Beşiktaş",
       "Galatasaray",
       "Gençlerbirliği",
-      "Samsunspor"
+      "Samsunspor",
+      "Sivasspor"
     ]
   },
   {
@@ -56038,7 +56127,8 @@ export const PLAYERS = [
     "clubs": [
       "Fenerbahçe",
       "Galatasaray",
-      "Göztepe"
+      "Göztepe",
+      "Sivasspor"
     ]
   },
   {
@@ -58323,7 +58413,8 @@ export const PLAYERS = [
     "name": "Tevfik Altındağ",
     "clubs": [
       "Eyüpspor",
-      "Kocaelispor"
+      "Kocaelispor",
+      "Sivasspor"
     ]
   },
   {
@@ -58361,7 +58452,8 @@ export const PLAYERS = [
       "Konyaspor",
       "Levante",
       "Leverkusen",
-      "Samsunspor"
+      "Samsunspor",
+      "Sivasspor"
     ]
   },
   {
@@ -59119,7 +59211,8 @@ export const PLAYERS = [
       "Beşiktaş",
       "Gençlerbirliği",
       "Rizespor",
-      "Samsunspor"
+      "Samsunspor",
+      "Sivasspor"
     ]
   },
   {
@@ -59133,7 +59226,8 @@ export const PLAYERS = [
     "name": "Tolgahan Acar",
     "clubs": [
       "Gaziantep FK",
-      "Göztepe"
+      "Göztepe",
+      "Sivasspor"
     ]
   },
   {
@@ -60038,7 +60132,8 @@ export const PLAYERS = [
     "name": "Ufuk Ateş",
     "clubs": [
       "Antalyaspor",
-      "Konyaspor"
+      "Konyaspor",
+      "Sivasspor"
     ]
   },
   {
@@ -60095,7 +60190,8 @@ export const PLAYERS = [
       "Gaziantep FK",
       "Gençlerbirliği",
       "Konyaspor",
-      "Rizespor"
+      "Rizespor",
+      "Sivasspor"
     ]
   },
   {
@@ -60135,7 +60231,8 @@ export const PLAYERS = [
     "name": "Uğur Yıldırım",
     "clubs": [
       "Gaziantep FK",
-      "Kasımpaşa"
+      "Kasımpaşa",
+      "Sivasspor"
     ]
   },
   {
@@ -61286,7 +61383,8 @@ export const PLAYERS = [
       "Başakşehir",
       "Beşiktaş",
       "Rizespor",
-      "Trabzonspor"
+      "Trabzonspor",
+      "Sivasspor"
     ]
   },
   {
@@ -62200,7 +62298,8 @@ export const PLAYERS = [
     "name": "Yasin Çakmak",
     "clubs": [
       "Fenerbahçe",
-      "Rizespor"
+      "Rizespor",
+      "Sivasspor"
     ]
   },
   {
@@ -62241,7 +62340,8 @@ export const PLAYERS = [
     "clubs": [
       "Gençlerbirliği",
       "Göztepe",
-      "Kasımpaşa"
+      "Kasımpaşa",
+      "Sivasspor"
     ]
   },
   {
@@ -62301,7 +62401,8 @@ export const PLAYERS = [
     "clubs": [
       "Antalyaspor",
       "Galatasaray",
-      "Kasımpaşa"
+      "Kasımpaşa",
+      "Sivasspor"
     ]
   },
   {
@@ -62648,7 +62749,8 @@ export const PLAYERS = [
     "name": "Yusuf Peken",
     "clubs": [
       "Alanyaspor",
-      "Karagümrük"
+      "Karagümrük",
+      "Sivasspor"
     ]
   },
   {
@@ -62671,7 +62773,8 @@ export const PLAYERS = [
     "name": "Yusuf Tokuş",
     "clubs": [
       "Kocaelispor",
-      "Rizespor"
+      "Rizespor",
+      "Sivasspor"
     ]
   },
   {
