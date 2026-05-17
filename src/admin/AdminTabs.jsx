@@ -82,7 +82,7 @@ function buildFreshSnapshot() {
     birthYear: p.birthYear || null,
     isActive: p.isActive ?? null
   }));
-  return { schemaVersion: 2, createdAt: Date.now(), lastModified: Date.now(), players, teams };
+  return { schemaVersion: 3, createdAt: Date.now(), lastModified: Date.now(), players, teams };
 }
 
 function loadSnapshot() {
@@ -90,7 +90,7 @@ function loadSnapshot() {
     const raw = localStorage.getItem(SNAPSHOT_KEY);
     if (!raw) return null;
     const snap = JSON.parse(raw);
-    if (snap.schemaVersion !== 2) return null;
+    if (snap.schemaVersion !== 3) return null;
     return snap;
   } catch { return null; }
 }
