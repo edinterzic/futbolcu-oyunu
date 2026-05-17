@@ -1,5 +1,5 @@
 // Auto-generated from admin panel
-// Generated: 2026-05-17T09:41:09.870Z
+// Generated: 2026-05-17T13:56:12.882Z
 
 export const TEAM_LOGOS = {
   "Chelsea": {
@@ -92,6 +92,11 @@ export const TEAM_LOGOS = {
     "primary": "#C8102E",
     "secondary": "#00B2A9"
   },
+  "Kayserispor": {
+    "initials": "KAY",
+    "primary": "#E31B23",
+    "secondary": "#FFD100"
+  },
   "Juventus": {
     "initials": "JUV",
     "primary": "#000000",
@@ -101,11 +106,6 @@ export const TEAM_LOGOS = {
     "initials": "RİZ",
     "primary": "#005DAB",
     "secondary": "#008C45"
-  },
-  "Kayserispor": {
-    "initials": "KAY",
-    "primary": "#E31B23",
-    "secondary": "#FFD100"
   },
   "Wolverhampton": {
     "initials": "WOL",

@@ -1,5 +1,5 @@
 // Auto-generated from admin panel
-// Generated: 2026-05-17T09:40:18.551Z
+// Generated: 2026-05-17T13:56:12.033Z
 
 export const TEAMS = [
   "Chelsea",
@@ -20,9 +20,9 @@ export const TEAMS = [
   "Antalyaspor",
   "Aston Villa",
   "Liverpool",
+  "Kayserispor",
   "Juventus",
   "Çaykur Rizespor",
-  "Kayserispor",
   "Wolverhampton",
   "FC Porto",
   "Göztepe",

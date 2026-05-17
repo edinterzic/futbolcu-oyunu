@@ -1,5 +1,5 @@
 // Auto-generated from admin panel
-// Generated: 2026-05-17T09:41:09.327Z
+// Generated: 2026-05-17T13:56:12.316Z
 
 export const PLAYERS = [
   {
@@ -6274,7 +6274,8 @@ export const PLAYERS = [
     "clubs": [
       "Arsenal",
       "Benfica",
-      "Chelsea"
+      "Chelsea",
+      "Paris Saint-Germain"
     ]
   },
   {
@@ -14721,6 +14722,13 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Junior Olaitan",
+    "clubs": [
+      "Beşiktaş",
+      "Göztepe"
+    ]
+  },
+  {
     "name": "Junior Stanislas",
     "clubs": [
       "Bournemouth",
@@ -20522,7 +20530,8 @@ export const PLAYERS = [
       "Juventus",
       "Liverpool",
       "Manchester City",
-      "Real Madrid"
+      "Real Madrid",
+      "Paris Saint-Germain"
     ]
   },
   {
@@ -21127,6 +21136,14 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Olivier Kemen",
+    "clubs": [
+      "Kayserispor",
+      "Başakşehir",
+      "Olympique Lyon"
+    ]
+  },
+  {
     "name": "Olivier Ntcham",
     "clubs": [
       "Manchester City",
@@ -21345,7 +21362,8 @@ export const PLAYERS = [
     "name": "Ousmane Dembele",
     "clubs": [
       "Barcelona",
-      "Borussia Dortmund"
+      "Borussia Dortmund",
+      "Paris Saint-Germain"
     ]
   },
   {
@@ -28714,6 +28732,16 @@ export const PLAYERS = [
       "Crystal Palace",
       "Manchester United",
       "Tottenham"
+    ]
+  },
+  {
+    "name": "Zeki Yavru",
+    "clubs": [
+      "Samsunspor",
+      "Denizlispor",
+      "Trabzonspor",
+      "Gençlerbirliği",
+      "Kayserispor"
     ]
   },
   {
