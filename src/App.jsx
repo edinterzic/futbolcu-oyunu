@@ -198,12 +198,12 @@ const TIER_1_TEAMS = [
   // Avrupa devleri
   "Real Madrid", "Barcelona", "Atlético Madrid", "Bayern Munich",
   "Manchester United", "Manchester City", "Liverpool", "Chelsea", "Arsenal",
-  "Juventus", "AC Milan", "Inter", "Paris Saint-Germain", "Borussia Dortmund"
+  "Juventus", "AC Milan", "Inter", "Paris Saint-Germain", "Borussia Dortmund",
 ];
 
 const TIER_2_TEAMS = [
   "Tottenham", "Napoli", "AS Roma", "Ajax", "FC Porto",
-  "Benfica", "Sevilla", "Olympique Lyon", "Newcastle United"
+  "Benfica", "Sevilla", "Olympique Lyon", "Newcastle United", "LOSC Lille"
 ];
 
 const TIER_1_SET = new Set(TIER_1_TEAMS);
