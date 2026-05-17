@@ -5,7 +5,7 @@ import { TEAM_LOGOS } from "./data/teamLogos";
 import AdminPanel from "./admin/AdminPanel";
 
 const WINNING_SCORE = 3;
-const ROUND_SECONDS = 15;
+const ROUND_SECONDS = 20;
 const ROUND_REVEAL_SECONDS = 3;
 
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
@@ -1278,6 +1278,24 @@ export default function App() {
     setScreen("home");
   };
 
+  const goToHome = () => {
+    if (screen === "challenge") {
+      backToHomeFromChallenge();
+      return;
+    }
+    if (screen === "game" || screen === "winner") {
+      // Online oyundan ayrıl
+      if (channelRef.current && supabase) {
+        supabase.removeChannel(channelRef.current);
+        channelRef.current = null;
+      }
+      setRoomCode("");
+      setRoundEndsAt(null);
+      setPreRoundEndsAt(null);
+    }
+    setScreen("home");
+  };
+
   const startChallengeAnswerPhase = () => {
     if (screen !== "challenge" || challengeRoundLocked || !challengePreRoundEndsAt || challengeRoundEndsAt) return;
 
@@ -1601,9 +1619,16 @@ export default function App() {
               {isHome && <small>İki takım, tek futbolcu. Sen bul.</small>}
             </div>
           </div>
-          <button type="button" onClick={toggleSound} className="icon-button" aria-label={soundEnabled ? "Sesi kapat" : "Sesi aç"} title={soundEnabled ? "Ses açık" : "Ses kapalı"}>
-            {soundEnabled ? "🔊" : "🔇"}
-          </button>
+          <div className="topbar-actions">
+            {!isHome && (
+              <button type="button" onClick={goToHome} className="icon-button home-button" aria-label="Ana Menü" title="Ana Menü">
+                🏠
+              </button>
+            )}
+            <button type="button" onClick={toggleSound} className="icon-button" aria-label={soundEnabled ? "Sesi kapat" : "Sesi aç"} title={soundEnabled ? "Ses açık" : "Ses kapalı"}>
+              {soundEnabled ? "🔊" : "🔇"}
+            </button>
+          </div>
         </header>
 
         <main className="app-main">
@@ -1692,7 +1717,6 @@ export default function App() {
                 <div className="info-chip">
                   <span>En iyi</span><strong>{challengeBest}</strong>
                 </div>
-                <button type="button" onClick={backToHomeFromChallenge} className="mini-button">Ana Menü</button>
               </div>
 
               {challengeIsPreRound ? (
@@ -2283,6 +2307,21 @@ button:focus-visible {
   background: var(--primary-soft);
   border-color: var(--primary);
   transform: scale(1.05);
+}
+
+.topbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.home-button {
+  background: rgba(16, 185, 129, 0.12);
+  border-color: rgba(16, 185, 129, 0.3);
+}
+
+.home-button:hover {
+  background: rgba(16, 185, 129, 0.2);
 }
 
 /* ========================================================================
