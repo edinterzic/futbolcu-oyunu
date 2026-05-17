@@ -1,5 +1,5 @@
 // Auto-generated from admin panel
-// Generated: 2026-05-17T14:39:42.261Z
+// Generated: 2026-05-17T20:44:20.459Z
 
 export const TEAM_LOGOS = {
   "Chelsea": {
