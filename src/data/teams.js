@@ -1,6 +1,5 @@
-// Auto-generated from cleaned player-team data
-// Team names must match exactly across teams.js, players.js, and answerIndex.js
-// Do not edit accents/spelling without regenerating the data files.
+// Auto-generated from admin panel
+// Generated: 2026-05-17T09:40:18.551Z
 
 export const TEAMS = [
   "Chelsea",
@@ -38,8 +37,8 @@ export const TEAMS = [
   "Sivasspor",
   "Ajax",
   "Kasımpaşa",
-  "Brentford",
   "Karagümrük",
+  "Brentford",
   "Denizlispor",
   "Brighton",
   "Eyüpspor",

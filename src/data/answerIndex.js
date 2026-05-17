@@ -1,6 +1,5 @@
-// Auto-generated from cleaned player-team data
-// Maps "TeamA|TeamB" → list of players who played for both teams
-// Pair key order is determined by team position in TEAMS array (lower index first)
+// Auto-generated from admin panel
+// Generated: 2026-05-17T09:41:09.602Z
 
 import { TEAMS } from './teams';
 
@@ -520,21 +519,21 @@ export const ANSWER_INDEX = {
     "Dursun Karaman",
     "Gökhan Bozkaya",
     "Gürhan Gürsoy",
+    "İlyas Yılmazer",
+    "İsmail Kayalı",
     "Metincan Cici",
     "Mevlüt Erdinç",
     "Nazım Sangare",
     "Nuri Kamburoğlu",
     "Olcan Adın",
     "Onur Tuncer",
+    "Önder Turacı",
     "Rüştü Reçber",
     "Semih Şentürk",
     "Serkan Balcı",
     "Sinan Gümüş",
     "Tayfun Seven",
-    "Wederson",
-    "Önder Turacı",
-    "İlyas Yılmazer",
-    "İsmail Kayalı"
+    "Wederson"
   ],
   "Fenerbahçe|Çaykur Rizespor": [
     "Aatif Chahechouhe",
@@ -545,6 +544,7 @@ export const ANSWER_INDEX = {
     "Erhan Albayrak",
     "Fahri Tatan",
     "Gökhan Gönül",
+    "İsmail Köybaşı",
     "Kemal Aslan",
     "Lincoln",
     "Mehmet Yozgatlı",
@@ -553,6 +553,7 @@ export const ANSWER_INDEX = {
     "Murat Şahin",
     "Necati Yılmaz",
     "Oğuz Kağan Güçtekin",
+    "Özgür Çek",
     "Papiss Demba Cisse",
     "Recep Niyaz",
     "Samet Akaydin",
@@ -560,9 +561,7 @@ export const ANSWER_INDEX = {
     "Tarık Çetin",
     "Vedat Muriqi",
     "Yasin Çakmak",
-    "Yunus Altun",
-    "Özgür Çek",
-    "İsmail Köybaşı"
+    "Yunus Altun"
   ],
   "Fenerbahçe|Sivasspor": [
     "Aatif Chahechouhe",
@@ -579,8 +578,8 @@ export const ANSWER_INDEX = {
     "Hakan Bayraktar",
     "Ilqar Qurbanov",
     "Mahmut Hanefi Erdoğdu",
-    "Onur Tuncer",
     "Oğuz Dağlaroğlu",
+    "Onur Tuncer",
     "Servet Çetin",
     "Yasin Çakmak"
   ],
@@ -592,10 +591,12 @@ export const ANSWER_INDEX = {
     "Burak Kapacak",
     "Caner Erkin",
     "Colin Kazım-Richards",
+    "Çağtay Kurukalıp",
     "Efecan Mızrakcı",
     "Emirhan Parmaksız",
     "Emre Mor",
     "Erdem Özgenç",
+    "Gökhan Sazdağı",
     "Jeremain Lens",
     "Kemal Ademi",
     "Kemal Cingirt",
@@ -611,8 +612,7 @@ export const ANSWER_INDEX = {
     "Tarık Çetin",
     "Tiago Çukur",
     "Yiğit Efe Demir",
-    "Yiğit Fidan",
-    "Çağtay Kurukalıp"
+    "Yiğit Fidan"
   ],
   "Antalyaspor|Çaykur Rizespor": [
     "Aatif Chahechouhe",
@@ -647,6 +647,7 @@ export const ANSWER_INDEX = {
     "Gökhan Bozkaya",
     "Gürhan Gürsoy",
     "Hakan Özmert",
+    "İbrahim Dağaşan",
     "Kadir Bekmezci",
     "Mehmet Yıldız",
     "Murat Sözgelmez",
@@ -658,8 +659,7 @@ export const ANSWER_INDEX = {
     "Serdar Özkan",
     "Sezer Badur",
     "Ufuk Ateş",
-    "Yekta Kurtuluş",
-    "İbrahim Dağaşan"
+    "Yekta Kurtuluş"
   ],
   "Antalyaspor|Karagümrük": [
     "Aatif Chahechouhe",
@@ -688,6 +688,7 @@ export const ANSWER_INDEX = {
     "Fernando Andrade",
     "Galip Güzel",
     "Gündüz Gürol Azer",
+    "İlhan Ummak",
     "Koray Altınay",
     "Mohamed Ali",
     "Murat Sözgelmez",
@@ -697,11 +698,10 @@ export const ANSWER_INDEX = {
     "Tolga Doğantez",
     "Tyler Boyd",
     "Uğur Akdemir",
+    "Ümit Kurt",
     "Volkan Ünlü",
     "Yasin Çakmak",
-    "Yusuf Tokuş",
-    "Ümit Kurt",
-    "İlhan Ummak"
+    "Yusuf Tokuş"
   ],
   "Çaykur Rizespor|Karagümrük": [
     "Aatif Chahechouhe",
@@ -760,18 +760,18 @@ export const ANSWER_INDEX = {
     "Erman Özgür",
     "Fatih Şen",
     "Kaya Tarakçı",
-    "Mehmet Sedef",
     "Mehmet Çoğum",
+    "Mehmet Sedef",
     "Muhammet Demir",
     "Murat Şahin",
     "Niyazi Güney",
     "Orkan Çınar",
+    "Özden Öngün",
     "Sedat Ağçay",
     "Semavi Uzun",
     "Uğur Demirok",
     "Veysel Cihan",
-    "Ziya Şahin",
-    "Özden Öngün"
+    "Ziya Şahin"
   ],
   "Sivasspor|Gaziantepspor": [
     "Abdou Traore",
@@ -781,6 +781,8 @@ export const ANSWER_INDEX = {
     "Gökhan Süzen",
     "Hakan Bayraktar",
     "Hasan Yurt",
+    "İbrahim Akın",
+    "İbrahim Toraman",
     "Mahmut Bezgin",
     "Mahmut Hanefi Erdoğdu",
     "Muhammet Demir",
@@ -790,9 +792,7 @@ export const ANSWER_INDEX = {
     "Sefa Yılmaz",
     "Sezer Badur",
     "Tolgahan Acar",
-    "Uğur Yıldırım",
-    "İbrahim Akın",
-    "İbrahim Toraman"
+    "Uğur Yıldırım"
   ],
   "Fenerbahçe|FC Porto": [
     "Abdoulaye Ba",
@@ -808,14 +808,14 @@ export const ANSWER_INDEX = {
     "Alpay Çelebi",
     "Merih Demiral",
     "Ozan Tufan",
+    "Özgür Çek",
     "Papiss Demba Cisse",
     "Salih Uçan",
     "Serdar Dursun",
     "Serkan Kırıntılı",
     "Steven Caulker",
     "Taha Yalçıner",
-    "Tayfun Seven",
-    "Özgür Çek"
+    "Tayfun Seven"
   ],
   "FC Porto|Alanyaspor": [
     "Abdoulaye Ba",
@@ -839,6 +839,7 @@ export const ANSWER_INDEX = {
     "Engin Bekdemir",
     "Fabricio Baiano",
     "Gökhan Gönül",
+    "İbrahim Pehlivan",
     "Koray Avcı",
     "Mehmet Polat",
     "Mehmet Sedef",
@@ -849,15 +850,14 @@ export const ANSWER_INDEX = {
     "Mustafa Özkan",
     "Nadir Çiftçi",
     "Oğuzhan Berber",
+    "Özgür Çek",
     "Sefa Yılmaz",
     "Sinan Osmanoğlu",
     "Taylan Antalyalı",
     "Tolga Doğantez",
     "Turgut Şahin",
     "Uğur Akdemir",
-    "Vedat Muriqi",
-    "Özgür Çek",
-    "İbrahim Pehlivan"
+    "Vedat Muriqi"
   ],
   "West Ham|Newcastle United": [
     "Abdoulaye Faye",
@@ -901,13 +901,13 @@ export const ANSWER_INDEX = {
     "Korhan Öztürk",
     "Mustafa Pektemek",
     "Orhan Şam",
+    "Özgür Çek",
     "Sakıb Aytaç",
     "Sertan Eser",
     "Turgut Şahin",
+    "Ünal Sarı",
     "Yasir Elmacı",
-    "Ziya Aydın",
-    "Özgür Çek",
-    "Ünal Sarı"
+    "Ziya Aydın"
   ],
   "Manchester City|West Ham": [
     "Abdul Razak",
@@ -967,12 +967,12 @@ export const ANSWER_INDEX = {
     "Mehmet Ayaz",
     "Murat Akın",
     "Murat Duman",
+    "Ömer Şişmanoğlu",
+    "Özden Öngün",
     "Semavi Uzun",
     "Uğur Demirok",
     "Yaşar Aydın",
-    "Yunus Altun",
-    "Ömer Şişmanoğlu",
-    "Özden Öngün"
+    "Yunus Altun"
   ],
   "Trabzonspor|Samsunspor": [
     "Abdulaziz Solmaz",
@@ -980,8 +980,8 @@ export const ANSWER_INDEX = {
     "Ahmet Şahin",
     "Alim Öztürk",
     "Anıl Taşdemir",
-    "Burak Yılmaz",
     "Buğra Çağıran",
+    "Burak Yılmaz",
     "Ceyhun Eriş",
     "Erman Güraçar",
     "Feridun Sungur",
@@ -1029,6 +1029,7 @@ export const ANSWER_INDEX = {
     "Barış Özbek",
     "Bilal Başaçıkoğlu",
     "Ceyhun Gülselam",
+    "Çağlar Birinci",
     "Dorukhan Toköz",
     "Erdinç Yavuz",
     "Gökhan Ünal",
@@ -1048,9 +1049,8 @@ export const ANSWER_INDEX = {
     "Stefano Denswil",
     "Tayfun Cora",
     "Turgut Şahin",
-    "Umut Bulut",
     "Uğur Demirok",
-    "Çağlar Birinci"
+    "Umut Bulut"
   ],
   "Trabzonspor|Sivasspor": [
     "Abdulkadir Parmak",
@@ -1094,13 +1094,13 @@ export const ANSWER_INDEX = {
     "Emrah Başsan",
     "Erkan Kaş",
     "Ertuğrul Arslan",
+    "İbrahim Akdağ",
+    "İbrahim Dağaşan",
     "Muammer Yıldırım",
     "Murat Duman",
     "Pedro Henrique",
     "Pini Balili",
-    "Sefa Yılmaz",
-    "İbrahim Akdağ",
-    "İbrahim Dağaşan"
+    "Sefa Yılmaz"
   ],
   "Kayserispor|Gaziantep FK": [
     "Abdulkadir Parmak",
@@ -1141,10 +1141,11 @@ export const ANSWER_INDEX = {
     "Hakan Aslantas",
     "Hasan Gültang",
     "Hasan Sönmez",
+    "İsmail Doğan",
     "James Troisi",
     "Mehmet Şimşek",
-    "Mert Nobre",
     "Mert Çetin",
+    "Mert Nobre",
     "Mustafa Pektemek",
     "Nadir Çiftçi",
     "Oğuzhan Berber",
@@ -1158,8 +1159,7 @@ export const ANSWER_INDEX = {
     "Turgut Şahin",
     "Umut Sözen",
     "Yusuf Soysal",
-    "Zafer Türkmen",
-    "İsmail Doğan"
+    "Zafer Türkmen"
   ],
   "Çaykur Rizespor|Kayserispor": [
     "Abdullah Durak",
@@ -1174,16 +1174,16 @@ export const ANSWER_INDEX = {
     "Joseph Attamah",
     "Metin Aktaş",
     "Nadir Çiftçi",
-    "Onur Bulut",
     "Oğulcan Çağlayan",
     "Oğuzhan Berber",
+    "Onur Bulut",
+    "Özden Öngün",
+    "Özgür Can Özcan",
     "Prejuce Nakoulma",
     "Ramazan Durdu",
     "Sefa Yılmaz",
     "Turgut Şahin",
-    "Yunus Altun",
-    "Özden Öngün",
-    "Özgür Can Özcan"
+    "Yunus Altun"
   ],
   "Çaykur Rizespor|Kasımpaşa": [
     "Abdullah Durak",
@@ -1195,11 +1195,11 @@ export const ANSWER_INDEX = {
     "Kubilay Kanatsızkuş",
     "Murat Şahin",
     "Oğulcan Çağlayan",
+    "Özgür Çek",
     "Razundara Tjikuzu",
     "Taha Şahin",
     "Tunay Torun",
-    "Turgut Şahin",
-    "Özgür Çek"
+    "Turgut Şahin"
   ],
   "Kayserispor|Kasımpaşa": [
     "Abdullah Durak",
@@ -1251,6 +1251,7 @@ export const ANSWER_INDEX = {
     "Burak Yılmaz",
     "Ceyhun Eriş",
     "Ceyhun Gülselam",
+    "Çağlar Birinci",
     "Emrah Eren",
     "Eren Elmalı",
     "Erhan Namlı",
@@ -1265,10 +1266,9 @@ export const ANSWER_INDEX = {
     "Salih Dursun",
     "Tamer Tuna",
     "Tugay Kerimoğlu",
-    "Umut Bulut",
     "Uğur Demirok",
     "Uğurcan Çakır",
-    "Çağlar Birinci"
+    "Umut Bulut"
   ],
   "Fenerbahçe|Trabzonspor": [
     "Abdullah Ercan",
@@ -1278,6 +1278,7 @@ export const ANSWER_INDEX = {
     "Egemen Korkmaz",
     "Fatih Akyel",
     "Gökhan Ünal",
+    "İsmail Köybaşı",
     "Jose Sosa",
     "Lazar Markovic",
     "Mehmet Aurelio",
@@ -1286,13 +1287,13 @@ export const ANSWER_INDEX = {
     "Ozan Tufan",
     "Samet Akaydin",
     "Serkan Balcı",
-    "Serkan Özsoy",
-    "İsmail Köybaşı"
+    "Serkan Özsoy"
   ],
   "Kasımpaşa|Karagümrük": [
     "Abdullah Koparan",
     "Barış Başdaş",
     "Can Keleş",
+    "Çağtay Kurukalıp",
     "Derrick Luckassen",
     "Egemen Pehlivan",
     "Faruk Atalay",
@@ -1308,8 +1309,7 @@ export const ANSWER_INDEX = {
     "Valentin Eysseric",
     "Yalçın Ayhan",
     "Yasin Markal",
-    "Yusuf Erdoğan",
-    "Çağtay Kurukalıp"
+    "Yusuf Erdoğan"
   ],
   "Antalyaspor|Göztepe": [
     "Abdullah Çetin",
@@ -1335,15 +1335,15 @@ export const ANSWER_INDEX = {
     "Mustafa Akhanım",
     "Mustafa Özkan",
     "Nazım Sangare",
+    "Ömer Şişmanoğlu",
+    "Önder Turacı",
     "Richard Kingson",
     "Sinan Kaloğlu",
     "Soner Aydoğdu",
     "Soner Dikmen",
     "Tarık Çamdal",
     "Timur Kosovalı",
-    "Volkan Altin",
-    "Ömer Şişmanoğlu",
-    "Önder Turacı"
+    "Volkan Altin"
   ],
   "Antalyaspor|Kayserispor": [
     "Abdulsamet Burak",
@@ -1360,18 +1360,18 @@ export const ANSWER_INDEX = {
     "Güray Vural",
     "Hakan Arıkan",
     "Hasan Sönmez",
+    "İbrahim Dağaşan",
     "Köksal Yedek",
     "Mehmet Eren Boyraz",
     "Murat Akın",
     "Mustafa Yalçınkaya",
     "Necdet Sekmen",
     "Osman Yeşilmeşe",
-    "Pini Balili",
-    "Sakıb Aytaç",
-    "Salih Dursun",
     "Ömer Şişmanoğlu",
     "Önder Turacı",
-    "İbrahim Dağaşan"
+    "Pini Balili",
+    "Sakıb Aytaç",
+    "Salih Dursun"
   ],
   "Gençlerbirliği|Trabzonspor": [
     "Abdurrahim Dursun",
@@ -1418,6 +1418,7 @@ export const ANSWER_INDEX = {
     "Hasan Sönmez",
     "Isaac Promise",
     "Ivan Radeljic",
+    "İlkay Durmuş",
     "Kerem Şeras",
     "Korhan Öztürk",
     "Mehmet Sedef",
@@ -1427,6 +1428,7 @@ export const ANSWER_INDEX = {
     "Nihat Baştürk",
     "Nihat Şahin",
     "Oktay Delibalta",
+    "Ömer Çatkıç",
     "Sakıb Aytaç",
     "Salih Dursun",
     "Sedat Ağçay",
@@ -1438,9 +1440,7 @@ export const ANSWER_INDEX = {
     "Tayfun Seven",
     "Thalisson",
     "Tuna Üzümcü",
-    "Veysel Cihan",
-    "Ömer Çatkıç",
-    "İlkay Durmuş"
+    "Veysel Cihan"
   ],
   "Trabzonspor|Antalyaspor": [
     "Abdurrahim Dursun",
@@ -1453,8 +1453,8 @@ export const ANSWER_INDEX = {
     "Güray Vural",
     "Hakan Arıkan",
     "Hasan Sönmez",
-    "Hüseyin Türkmen",
     "Hüseyin Çimşir",
+    "Hüseyin Türkmen",
     "Isaac Promise",
     "Mehmet Yılmaz",
     "Musa Nizam",
@@ -1477,21 +1477,21 @@ export const ANSWER_INDEX = {
     "Fatih Ceylan",
     "Güray Vural",
     "Ismail Aissati",
+    "İlker Avcıbay",
+    "İlyas Kahraman",
     "Mame Adama Gueye",
-    "Mehmet Yılmaz",
     "Mehmet Öncan",
+    "Mehmet Yılmaz",
     "Musa Nizam",
     "Mustafa Özkan",
+    "Ömer Şişmanoğlu",
     "Sakıb Aytaç",
     "Seddar Karaman",
     "Selahattin Kınalı",
     "Serkan Atak",
     "Tuna Üzümcü",
     "Veysel Cihan",
-    "Yenal Tuncer",
-    "Ömer Şişmanoğlu",
-    "İlker Avcıbay",
-    "İlyas Kahraman"
+    "Yenal Tuncer"
   ],
   "Antalyaspor|Alanyaspor": [
     "Abdurrahman Ayhanoğlu",
@@ -1508,9 +1508,9 @@ export const ANSWER_INDEX = {
     "Muammer Sürmeli",
     "Mustafa Akhanım",
     "Mustafa Yalçınkaya",
+    "Ömer Karslıoğlu",
     "Tayfun Seven",
-    "Yasin Yiğit",
-    "Ömer Karslıoğlu"
+    "Yasin Yiğit"
   ],
   "Denizlispor|Alanyaspor": [
     "Abdurrahman Ayhanoğlu",
@@ -1522,15 +1522,15 @@ export const ANSWER_INDEX = {
     "Hasan Ayaroğlu",
     "Isaac Sackey",
     "Ismail Aissati",
+    "İsmail Şahmalı",
     "Kazım Sarı",
     "Kerem Gülbahar",
     "Koray Çölgeçen",
     "Mehmet Öncan",
+    "Özgür Çek",
     "Serdar Dursun",
     "Umut Kaya",
-    "Yakup Bugun",
-    "Özgür Çek",
-    "İsmail Şahmalı"
+    "Yakup Bugun"
   ],
   "Sivasspor|Kasımpaşa": [
     "Abdurrahman Dereli",
@@ -1556,17 +1556,17 @@ export const ANSWER_INDEX = {
     "Erhan Albayrak",
     "Hakan Bayraktar",
     "Hakan Çinemre",
+    "İsmail Köybaşı",
     "Kemal Aslan",
     "Mahmut Hanefi Erdoğdu",
     "Mehmet Yozgatlı",
     "Murat Şahin",
+    "Oğuz Dağlaroğlu",
     "Oktay Derelioğlu",
     "Olcan Adın",
-    "Oğuz Dağlaroğlu",
     "Recep Biler",
     "Serdar Kulbilge",
-    "Serkan Özsoy",
-    "İsmail Köybaşı"
+    "Serkan Özsoy"
   ],
   "Trabzonspor|Çaykur Rizespor": [
     "Abdülkadir Ömür",
@@ -1584,6 +1584,7 @@ export const ANSWER_INDEX = {
     "Halil İbrahim Sönmez",
     "Hasan Üçüncü",
     "Ivanildo Fernandes",
+    "İsmail Köybaşı",
     "Kürşat Duymuş",
     "Mete Akkaya",
     "Metin Aktaş",
@@ -1597,8 +1598,7 @@ export const ANSWER_INDEX = {
     "Ufukhan Bayraktar",
     "Volkan Ünlü",
     "Yusuf Sarı",
-    "Zafer Demiray",
-    "İsmail Köybaşı"
+    "Zafer Demiray"
   ],
   "Galatasaray|Konyaspor": [
     "Abdülkerim Bardakcı",
@@ -1627,19 +1627,19 @@ export const ANSWER_INDEX = {
     "Ceyhun Eriş",
     "Emre Kılınç",
     "Erhan Şentürk",
+    "İzzet Akgül",
     "Kerem İnan",
     "Mehmet Bölükbaşı",
     "Mehmet Polat",
     "Murat Sözkesen",
-    "Mustafa Sarp",
     "Mustafa Çiçek",
+    "Mustafa Sarp",
     "Okan Kocuk",
     "Serdar Eylik",
     "Serdar Özkan",
     "Soner Gönül",
     "Tamer Tuna",
-    "Taylan Antalyalı",
-    "İzzet Akgül"
+    "Taylan Antalyalı"
   ],
   "Galatasaray|Denizlispor": [
     "Abdülkerim Bardakcı",
@@ -1649,19 +1649,19 @@ export const ANSWER_INDEX = {
     "Atalay Babacan",
     "Cenk Gönen",
     "Ceyhun Eriş",
+    "Çağlar Birinci",
     "Emrah Eren",
     "Erhan Namlı",
     "Gökhan Süzen",
+    "İlyas Kahraman",
+    "İzzet Akgül",
     "Murat Akça",
+    "Özgür Can Özcan",
     "Serdar Eylik",
     "Servet Çetin",
     "Tamer Tuna",
     "Uğur Erdoğan",
-    "Yaser Yıldız",
-    "Çağlar Birinci",
-    "Özgür Can Özcan",
-    "İlyas Kahraman",
-    "İzzet Akgül"
+    "Yaser Yıldız"
   ],
   "Konyaspor|Samsunspor": [
     "Abdülkerim Bardakcı",
@@ -1692,24 +1692,24 @@ export const ANSWER_INDEX = {
     "Fatih Egedik",
     "Ibrahima Bangoura",
     "Ivan Lietava",
+    "İbrahim Ege",
+    "İlker Avcıbay",
     "Marc Kibong Mbamba",
     "Mehmet Çoğum",
     "Murat Hacıoğlu",
     "Mustafa Er",
     "Ozan Özkan",
+    "Ömer Şişmanoğlu",
+    "Özden Öngün",
     "Patrick Friday Eze",
     "Seddar Karaman",
     "Semavi Uzun",
+    "Şener Aşkaroğlu",
+    "Şenol Akın",
+    "Ümit Bozkurt",
     "Veli Acar",
     "Veysel Cihan",
-    "Volkan Al",
-    "Ömer Şişmanoğlu",
-    "Özden Öngün",
-    "Ümit Bozkurt",
-    "İbrahim Ege",
-    "İlker Avcıbay",
-    "Şener Aşkaroğlu",
-    "Şenol Akın"
+    "Volkan Al"
   ],
   "Samsunspor|Denizlispor": [
     "Abdülkerim Bardakcı",
@@ -1728,18 +1728,18 @@ export const ANSWER_INDEX = {
     "Feridun Sungur",
     "Haluk Türkeri",
     "Hasan Kılıç",
+    "İzzet Akgül",
     "Mehmet Yılmaz",
     "Mutlu Sezer",
-    "Ozan Özkan",
     "Oğuzhan Berber",
+    "Ozan Özkan",
     "Recep Niyaz",
     "Selim Teber",
     "Serdar Eylik",
     "Soner Şahin",
     "Tamer Tuna",
     "Tuna Üzümcü",
-    "Yenal Tuncer",
-    "İzzet Akgül"
+    "Yenal Tuncer"
   ],
   "Inter|Real Madrid": [
     "Achraf Hakimi",
@@ -2017,8 +2017,8 @@ export const ANSWER_INDEX = {
     "Ceyhun Eriş",
     "Doğa Kaya",
     "Emre Aygün",
-    "Furkan Şeker",
     "Fıratcan Üzüm",
+    "Furkan Şeker",
     "Göksel Akıncı",
     "Hakan Demir",
     "Herve Tum",
@@ -2113,14 +2113,14 @@ export const ANSWER_INDEX = {
     "Craig Davies",
     "Elliottennett",
     "Greg Halford",
+    "ivar Ingimarsson",
     "Keith Andrews",
     "Keith Lowe",
     "Rajiv van La Parra",
     "Sam Vokes",
     "Stephen Ward",
     "Steve Claridge",
-    "Tomasz Kuszczak",
-    "ivar Ingimarsson"
+    "Tomasz Kuszczak"
   ],
   "Burnley|Crystal Palace": [
     "Ade Akinbiyi",
@@ -2264,13 +2264,13 @@ export const ANSWER_INDEX = {
     "Michy Batshuayi",
     "Milot Rashica",
     "Okan Buruk",
+    "Ömer Gümüş",
     "Ryan Babel",
     "Serdar Özkan",
     "Tamer Tuna",
     "Vedat İnceefe",
     "Yalçın Ayhan",
-    "Yaser Yıldız",
-    "Ömer Gümüş"
+    "Yaser Yıldız"
   ],
   "Galatasaray|Kasımpaşa": [
     "Adem Büyük",
@@ -2286,10 +2286,11 @@ export const ANSWER_INDEX = {
     "Fatih Öztürk",
     "Günay Güvenç",
     "Gündüz Gürol Azer",
+    "İlhan Çelikay",
     "Mbaye Diagne",
     "Murat Erdoğan",
-    "Onur Çubukçu",
     "Oğulcan Çağlayan",
+    "Onur Çubukçu",
     "Ryan Babel",
     "Ryan Donk",
     "Sadık Çiftpınar",
@@ -2299,8 +2300,7 @@ export const ANSWER_INDEX = {
     "Volkan Yaman",
     "Yalçın Ayhan",
     "Yasin Markal",
-    "Yekta Kurtuluş",
-    "İlhan Çelikay"
+    "Yekta Kurtuluş"
   ],
   "Beşiktaş|Kasımpaşa": [
     "Adem Büyük",
@@ -2335,14 +2335,15 @@ export const ANSWER_INDEX = {
     "Furkan Şeker",
     "Gökhan Gönül",
     "Hakan Arıkan",
+    "İlhan Mansız",
     "Koray Avcı",
     "Mehmet Sedef",
     "Mehmet Yozgatlı",
     "Mert Nobre",
     "Miraç Asıltekin",
     "Muhammed Ertürk",
-    "Mustafa Pektemek",
     "Mustafa Özkan",
+    "Mustafa Pektemek",
     "Orkun Özdemir",
     "Serdar Özkan",
     "Sertan Eser",
@@ -2350,9 +2351,8 @@ export const ANSWER_INDEX = {
     "Tayfur Bingöl",
     "Tolga Doğantez",
     "Tuna Üzümcü",
-    "Veysel Cihan",
     "Ümit Bozkurt",
-    "İlhan Mansız"
+    "Veysel Cihan"
   ],
   "Beşiktaş|Gaziantepspor": [
     "Adem Dursun",
@@ -2368,6 +2368,10 @@ export const ANSWER_INDEX = {
     "Gökhan Güleç",
     "Gökhan Süzen",
     "Gökhan Zan",
+    "İbrahim Akın",
+    "İbrahim Toraman",
+    "İbrahim Üzülmez",
+    "İsmail Köybaşı",
     "Mehmet Sedef",
     "Mehmet Yozgatlı",
     "Murat Özkan",
@@ -2380,11 +2384,7 @@ export const ANSWER_INDEX = {
     "Serdar Kurtuluş",
     "Tamer Tuna",
     "Veysel Cihan",
-    "Yalçın Ayhan",
-    "İbrahim Akın",
-    "İbrahim Toraman",
-    "İbrahim Üzülmez",
-    "İsmail Köybaşı"
+    "Yalçın Ayhan"
   ],
   "Gençlerbirliği|Gaziantepspor": [
     "Adem Dursun",
@@ -2399,18 +2399,18 @@ export const ANSWER_INDEX = {
     "Mehmet Yozgatlı",
     "Murat Salar",
     "Oktay Delibalta",
+    "Ömer Çatkıç",
     "Sedat Ağçay",
     "Sefa Yılmaz",
     "Serdar Kulbilge",
     "Serdar Özbayraktar",
     "Turgut Şahin",
-    "Veysel Cihan",
-    "Ömer Çatkıç"
+    "Veysel Cihan"
   ],
   "Gençlerbirliği|Konyaspor": [
     "Adem Eren Kabak",
-    "Ahmet Oğuz",
     "Ahmet Çalık",
+    "Ahmet Oğuz",
     "Aleksandr Hleb",
     "Alper Uludağ",
     "Amilton",
@@ -2424,6 +2424,7 @@ export const ANSWER_INDEX = {
     "Gabriel Torje",
     "Gökhan Tokgöz",
     "Hakan Aslantas",
+    "İsmail Güldüren",
     "Mehmet Sedef",
     "Melih Bostan",
     "Metehan Mert",
@@ -2434,9 +2435,8 @@ export const ANSWER_INDEX = {
     "Soner Dikmen",
     "Tayfun Seven",
     "Uğur Akdemir",
-    "Veysel Cihan",
     "Ümit Bozkurt",
-    "İsmail Güldüren"
+    "Veysel Cihan"
   ],
   "Beşiktaş|Inter": [
     "Adem Ljajic",
@@ -2462,16 +2462,17 @@ export const ANSWER_INDEX = {
     "Erkan Sekman",
     "Erkan Zengin",
     "Erkut Şentürk",
+    "Gökhan Sazdağı",
     "Güven Yalçın",
     "Jeremain Lens",
     "Kerem Atakan Kesgin",
     "Kerim Frei",
     "Oktay Derelioğlu",
     "Orkun Özdemir",
+    "Ömer Gümüş",
     "Utku Yuvakuran",
     "Yalçın Ayhan",
-    "Yasin Yiğit",
-    "Ömer Gümüş"
+    "Yasin Yiğit"
   ],
   "Beşiktaş|AS Roma": [
     "Adem Ljajic",
@@ -2546,13 +2547,13 @@ export const ANSWER_INDEX = {
     "Kerem Gülbahar",
     "Koray Çölgeçen",
     "Mustafa Özkan",
+    "Ömer Şişmanoğlu",
+    "Özgür Atılgan",
     "Saban Genisyürek",
     "Servet Çetin",
     "Taylan Uzunoğlu",
     "Tolgahan Acar",
-    "Umut Kaya",
-    "Ömer Şişmanoğlu",
-    "Özgür Atılgan"
+    "Umut Kaya"
   ],
   "Göztepe|Kocaelispor": [
     "Adem Çalık",
@@ -2596,8 +2597,8 @@ export const ANSWER_INDEX = {
     "Musa Kuş",
     "Musa Nizam",
     "Mustafa Özkan",
-    "Serdar Dursun",
-    "Özden Öngün"
+    "Özden Öngün",
+    "Serdar Dursun"
   ],
   "Fulham|Everton": [
     "Ademola Lookman",
@@ -2681,6 +2682,7 @@ export const ANSWER_INDEX = {
     "Furkan Çolak",
     "Hakan Akbaş",
     "Halit Güven Kocabal",
+    "İbrahim Kaş",
     "Kubilay Yavuz",
     "Mahmut Demirgan",
     "Mehmet Aksu",
@@ -2694,8 +2696,7 @@ export const ANSWER_INDEX = {
     "Tayfur Bingöl",
     "Umut Meraş",
     "Umut Nayir",
-    "Yüksel Kayaalp",
-    "İbrahim Kaş"
+    "Yüksel Kayaalp"
   ],
   "Karagümrük|Eyüpspor": [
     "Adnan Efe Durmuşoğlu",
@@ -2709,10 +2710,10 @@ export const ANSWER_INDEX = {
     "Gökhan Caba",
     "Hakan Konaş",
     "Kerem Yusuf Sirkeci",
+    "Ömer Ersoy",
     "Sezgin Bektaş",
     "Talha Ülvan",
-    "Yasin Markal",
-    "Ömer Ersoy"
+    "Yasin Markal"
   ],
   "Trabzonspor|Konyaspor": [
     "Adnan Güngör",
@@ -2731,6 +2732,7 @@ export const ANSWER_INDEX = {
     "Erman Özgür",
     "Ferhat Öztorun",
     "Halil İbrahim Sönmez",
+    "İbrahim Ege",
     "Jefferson",
     "Muhammet Demir",
     "Murat Tosun",
@@ -2742,8 +2744,7 @@ export const ANSWER_INDEX = {
     "Ufukhan Bayraktar",
     "Uğur Demirok",
     "Yunus Mallı",
-    "Yusuf Erdoğan",
-    "İbrahim Ege"
+    "Yusuf Erdoğan"
   ],
   "Manchester United|Sunderland": [
     "Adnan Januzaj",
@@ -3101,13 +3102,13 @@ export const ANSWER_INDEX = {
     "Göksel Akıncı",
     "Halil Akbunar",
     "Halil Çelik",
+    "Özgür Atılgan",
     "Tayfur Bingöl",
     "Taylan Uzunoğlu",
-    "Umut Nayir",
     "Uğurtan Çepni",
+    "Umut Nayir",
     "Yalçın Kayan",
-    "Yüksel Kayaalp",
-    "Özgür Atılgan"
+    "Yüksel Kayaalp"
   ],
   "Kasımpaşa|Eyüpspor": [
     "Ahmed Ildız",
@@ -3121,6 +3122,8 @@ export const ANSWER_INDEX = {
     "Gökhan Caba",
     "Göksel Akıncı",
     "Harun Tekin",
+    "İlhan Çelikay",
+    "İsa Kaykun",
     "Mehmet Tosun",
     "Murat Şahin",
     "Mustafa Pektemek",
@@ -3130,9 +3133,7 @@ export const ANSWER_INDEX = {
     "Umut Bozok",
     "Yasin Markal",
     "Yonathan Del Valle",
-    "Ziya Aydın",
-    "İlhan Çelikay",
-    "İsa Kaykun"
+    "Ziya Aydın"
   ],
   "Kasımpaşa|Alanyaspor": [
     "Ahmed Ildız",
@@ -3140,13 +3141,13 @@ export const ANSWER_INDEX = {
     "Djalma",
     "Erhan Kartal",
     "Florent Hadergjonaj",
+    "İbrahim Kaya",
+    "İlhan Çelikay",
     "Kenneth Omeruo",
     "Kerem Hayta",
     "Mustafa Pektemek",
-    "Serdar Akdoğan",
     "Özgür Çek",
-    "İbrahim Kaya",
-    "İlhan Çelikay"
+    "Serdar Akdoğan"
   ],
   "Eyüpspor|Alanyaspor": [
     "Ahmed Ildız",
@@ -3158,10 +3159,10 @@ export const ANSWER_INDEX = {
     "Enes Keskin",
     "Erencan Yardımcı",
     "Ethem Bayburt",
+    "İlhan Çelikay",
     "Mustafa Pektemek",
     "Tayfur Bingöl",
-    "Yüksel Kayaalp",
-    "İlhan Çelikay"
+    "Yüksel Kayaalp"
   ],
   "Galatasaray|Eyüpspor": [
     "Ahmed Kutucu",
@@ -3174,9 +3175,11 @@ export const ANSWER_INDEX = {
     "Erencan Yardımcı",
     "Erkan Ferin",
     "Ersoy Uçtu",
-    "Fatih Taşdelen",
     "Fatih Öztürk",
+    "Fatih Taşdelen",
     "Hamza Akman",
+    "İlhan Çelikay",
+    "İlyas Kahraman",
     "Jesse Sekidika",
     "Kerem Demirbay",
     "Leo Dubois",
@@ -3186,18 +3189,16 @@ export const ANSWER_INDEX = {
     "Mustafa Çiçek",
     "Oğulcan Çağlayan",
     "Oğuz Sabankay",
+    "Ömer Bayram",
     "Ryan Babel",
     "Sedat Debreli",
     "Sinan Gümüş",
     "Tayfun Taner",
-    "Umut Bulut",
     "Uğur Akdemir",
     "Uğur Demirok",
     "Uğur Taner",
-    "Yasin Markal",
-    "Ömer Bayram",
-    "İlhan Çelikay",
-    "İlyas Kahraman"
+    "Umut Bulut",
+    "Yasin Markal"
   ],
   "Galatasaray|Başakşehir": [
     "Ahmed Kutucu",
@@ -3215,11 +3216,11 @@ export const ANSWER_INDEX = {
     "Mehmet Topal",
     "Mustafa Sarp",
     "Orkun Usak",
+    "Ömer Gümüş",
     "Ufuk Ceylan",
     "Uğur Uçar",
     "Yalçın Ayhan",
-    "Yusuf Deniz Şaş",
-    "Ömer Gümüş"
+    "Yusuf Deniz Şaş"
   ],
   "Eyüpspor|Başakşehir": [
     "Ahmed Kutucu",
@@ -3228,13 +3229,13 @@ export const ANSWER_INDEX = {
     "Cenk Ahmet Alkılıç",
     "Eren Toksoy",
     "Eşref Korkmazoğlu",
+    "İbrahim Akdağ",
     "Leo Dubois",
     "Mete Demir",
     "Murat Yılmaz",
     "Mustafa Pektemek",
     "Stephane Badji",
-    "Uğurhan Uğurlu",
-    "İbrahim Akdağ"
+    "Uğurhan Uğurlu"
   ],
   "Samsunspor|Gaziantepspor": [
     "Ahmet Burak Solakel",
@@ -3269,19 +3270,19 @@ export const ANSWER_INDEX = {
     "Gökhan Süzen",
     "Göksel Akıncı",
     "Hakan Çinemre",
+    "İlhan Özbay",
+    "İlyas Kahraman",
     "Kemal Aslan",
-    "Mehmet Yılmaz",
     "Mehmet Çoğum",
+    "Mehmet Yılmaz",
     "Musa Nizam",
+    "Özden Öngün",
+    "Özgür Can Özcan",
     "Semavi Uzun",
     "Serkan Atak",
     "Tamer Tuna",
     "Tolgahan Acar",
-    "Veysel Cihan",
-    "Özden Öngün",
-    "Özgür Can Özcan",
-    "İlhan Özbay",
-    "İlyas Kahraman"
+    "Veysel Cihan"
   ],
   "Samsunspor|Sivasspor": [
     "Ahmet Cebe",
@@ -3295,13 +3296,13 @@ export const ANSWER_INDEX = {
     "Hakan Arslan",
     "Hakan Bayraktar",
     "Hasan Hatipoğlu",
+    "İlhan Ummak",
     "Muammer Yıldırım",
     "Murat Duman",
     "Musa Aydın",
     "Serdar Özkan",
     "Theofanis Gekas",
-    "Tolga Doğantez",
-    "İlhan Ummak"
+    "Tolga Doğantez"
   ],
   "Sivasspor|Denizlispor": [
     "Ahmet Cebe",
@@ -3336,16 +3337,16 @@ export const ANSWER_INDEX = {
     "Mehmet Aksu",
     "Mehmet Sedef",
     "Mustafa Özkan",
+    "Ömer Şişmanoğlu",
     "Rüştü Reçber",
     "Serdar Özkan",
     "Sinan Kaloğlu",
+    "Şiyar Kepir",
     "Tuna Üzümcü",
     "Veysel Cihan",
     "Yalçın Ayhan",
     "Yasin Yiğit",
-    "Zafer Demiray",
-    "Ömer Şişmanoğlu",
-    "Şiyar Kepir"
+    "Zafer Demiray"
   ],
   "Beşiktaş|Kocaelispor": [
     "Ahmet Dursun",
@@ -3362,6 +3363,8 @@ export const ANSWER_INDEX = {
     "Erman Güraçar",
     "Fevzi Tuncay",
     "Hakan Arıkan",
+    "İbrahim Kaş",
+    "İbrahim Üzülmez",
     "Korcan Çelikay",
     "Kubilay Yavuz",
     "Mert Günok",
@@ -3372,9 +3375,7 @@ export const ANSWER_INDEX = {
     "Tayfun Aydoğan",
     "Tayfur Bingöl",
     "Tayfur Havutçu",
-    "Yasin Sülün",
-    "İbrahim Kaş",
-    "İbrahim Üzülmez"
+    "Yasin Sülün"
   ],
   "Antalyaspor|Eyüpspor": [
     "Ahmet Dursun",
@@ -3385,12 +3386,12 @@ export const ANSWER_INDEX = {
     "Fredy",
     "Halil Akbunar",
     "Hasan Altıparmak",
+    "İlyas Kahraman",
     "Mehmet Aksu",
     "Mümin Hayırsever",
     "Ramazan Çevik",
     "Sinan Gümüş",
-    "Yavuz Özsevim",
-    "İlyas Kahraman"
+    "Yavuz Özsevim"
   ],
   "Antalyaspor|Kocaelispor": [
     "Ahmet Dursun",
@@ -3419,6 +3420,7 @@ export const ANSWER_INDEX = {
     "Emre Gedik",
     "Halit Matlı",
     "Harun Tekin",
+    "İbrahim Kaş",
     "Kubilay Yavuz",
     "Oğulcan Çağlayan",
     "Ramazan Çevik",
@@ -3426,8 +3428,7 @@ export const ANSWER_INDEX = {
     "Tayfur Bingöl",
     "Tevfik Altındağ",
     "Uğurtan Çepni",
-    "Yalçın Kılınç",
-    "İbrahim Kaş"
+    "Yalçın Kılınç"
   ],
   "Beşiktaş|Alanyaspor": [
     "Ahmet Gülay",
@@ -3438,6 +3439,7 @@ export const ANSWER_INDEX = {
     "Emircan Altıntaş",
     "Fatih Aksoy",
     "Güven Yalçın",
+    "İslam Aydın",
     "Mustafa Pektemek",
     "Onur Bulut",
     "Salih Uçan",
@@ -3446,15 +3448,14 @@ export const ANSWER_INDEX = {
     "Umut Kaya",
     "Vagner Love",
     "Yasin Yiğit",
-    "Yüksel Kayaalp",
-    "İslam Aydın"
+    "Yüksel Kayaalp"
   ],
   "Karagümrük|Kocaelispor": [
     "Ahmet Hasan Göcen",
     "Ahmet Şahin",
     "Alihan Kubalas",
-    "Batuhan Yayıkcı",
     "Batuhan Şen",
+    "Batuhan Yayıkcı",
     "Berkay Dabanlı",
     "Can Keleş",
     "Doğan Baykuş",
@@ -3475,10 +3476,10 @@ export const ANSWER_INDEX = {
     "Mehmet Batdal",
     "Mevlüt Erdinç",
     "Muhammet Fatih Karasu",
+    "Ömer Gümüş",
     "Taha Özgür",
     "Tunay Torun",
-    "Yalçın Ayhan",
-    "Ömer Gümüş"
+    "Yalçın Ayhan"
   ],
   "Kocaelispor|Başakşehir": [
     "Ahmet Hasan Göcen",
@@ -3495,12 +3496,12 @@ export const ANSWER_INDEX = {
     "Efecan Karaca",
     "Erencan Yardımcı",
     "Galip Güzel",
-    "Korhan Güler",
-    "Serdar Akdoğan",
-    "Ufuk Ceylan",
     "İlhan Çelikay",
     "İlker Erbay",
-    "İsmail Zehir"
+    "İsmail Zehir",
+    "Korhan Güler",
+    "Serdar Akdoğan",
+    "Ufuk Ceylan"
   ],
   "Galatasaray|Gaziantep FK": [
     "Ahmet Kesim",
@@ -3559,6 +3560,7 @@ export const ANSWER_INDEX = {
     "Daniel Candeias",
     "Fatih Akyel",
     "Hakan Arıkan",
+    "İdris Gümüşdere",
     "John Moshoeu",
     "Mehmet Taş",
     "Mustafa Özkan",
@@ -3566,8 +3568,7 @@ export const ANSWER_INDEX = {
     "Serkan Yanık",
     "Seyit Cem Ünsal",
     "Tayfur Bingöl",
-    "Yusuf Gültekin",
-    "İdris Gümüşdere"
+    "Yusuf Gültekin"
   ],
   "Konyaspor|Kasımpaşa": [
     "Ahmet Oğuz",
@@ -3575,16 +3576,16 @@ export const ANSWER_INDEX = {
     "Djalma",
     "Emre Toraman",
     "Gustave Bebbe",
+    "İlker Avcıbay",
     "Jonathan Tehoue",
     "Murat Akın",
     "Murat Şahin",
+    "Ömer Hacısalihoğlu",
     "Selim Dilli",
     "Sertan Eser",
     "Uğurcan Yazğılı",
     "Yunus Mallı",
-    "Yusuf Erdoğan",
-    "Ömer Hacısalihoğlu",
-    "İlker Avcıbay"
+    "Yusuf Erdoğan"
   ],
   "Konyaspor|Kocaelispor": [
     "Ahmet Oğuz",
@@ -3600,9 +3601,9 @@ export const ANSWER_INDEX = {
     "Kaya Tarakçı",
     "Murat Hacıoğlu",
     "Musa Büyük",
+    "Özden Öngün",
     "Serhat Akın",
-    "Yunus Altun",
-    "Özden Öngün"
+    "Yunus Altun"
   ],
   "Kasımpaşa|Kocaelispor": [
     "Ahmet Oğuz",
@@ -3661,24 +3662,24 @@ export const ANSWER_INDEX = {
     "Efe Tatlı",
     "Emir Kaan Baş",
     "Emir Tintiş",
-    "Emre Mor",
     "Emre Çolak",
+    "Emre Mor",
     "Erhan Kara",
     "Faruk Atalay",
     "Galip Güzel",
+    "İsmail Çipe",
     "Jimmy Durmaz",
     "Koray Günter",
     "Marcao",
     "Mbaye Diagne",
     "Mehmet Batdal",
     "Murat Sarıgül",
+    "Ömer Gümüş",
     "Salih Dursun",
     "Sercan Yıldırım",
     "Sofiane Feghouli",
     "Yalçın Ayhan",
-    "Yasin Markal",
-    "Ömer Gümüş",
-    "İsmail Çipe"
+    "Yasin Markal"
   ],
   "Beşiktaş|Fenerbahçe": [
     "Ahmet Yıldırım",
@@ -3693,6 +3694,8 @@ export const ANSWER_INDEX = {
     "Enes Durmuş",
     "Fahri Tatan",
     "Gökhan Gönül",
+    "Gökhan Sazdağı",
+    "İsmail Köybaşı",
     "Jeremain Lens",
     "Jose Sosa",
     "Mehmet Aurelio",
@@ -3713,8 +3716,7 @@ export const ANSWER_INDEX = {
     "Tolgay Arslan",
     "Tümer Metin",
     "Umut Nayir",
-    "Yusuf Tunç",
-    "İsmail Köybaşı"
+    "Yusuf Tunç"
   ],
   "Beşiktaş|Samsunspor": [
     "Ahmet Yıldırım",
@@ -3722,18 +3724,18 @@ export const ANSWER_INDEX = {
     "Erkam Reşmen",
     "Erman Güraçar",
     "Fevzi Tuncay",
+    "İlhan Mansız",
     "Kubilay Yavuz",
     "Michael Fink",
     "Oktay Derelioğlu",
     "Serdar Özkan",
-    "Sezer Sezgin",
     "Sezer Özmen",
+    "Sezer Sezgin",
     "Tamer Tuna",
     "Tolga Doğantez",
     "Tuna Üzümcü",
     "Tümer Metin",
-    "Veli Çetin",
-    "İlhan Mansız"
+    "Veli Çetin"
   ],
   "Fenerbahçe|Samsunspor": [
     "Ahmet Yıldırım",
@@ -3743,13 +3745,13 @@ export const ANSWER_INDEX = {
     "Emre Demir",
     "Ferhat Çulcuoğlu",
     "Hakan Bayraktar",
+    "İlyas Yılmazer",
     "Metincan Cici",
     "Muhammed Gümüşkaya",
     "Oktay Derelioğlu",
     "Recep Niyaz",
     "Taha Yalçıner",
-    "Tümer Metin",
-    "İlyas Yılmazer"
+    "Tümer Metin"
   ],
   "Galatasaray|Gençlerbirliği": [
     "Ahmet Çalık",
@@ -3792,13 +3794,13 @@ export const ANSWER_INDEX = {
     "Mutlu Sezer",
     "Necati Yılmaz",
     "Oğuzhan Berber",
-    "Recep Niyaz",
-    "Serkan Atak",
-    "Yasin Çakmak",
     "Özden Öngün",
     "Özgür Can Özcan",
     "Özgür Çek",
-    "Şener Aşkaroğlu"
+    "Recep Niyaz",
+    "Serkan Atak",
+    "Şener Aşkaroğlu",
+    "Yasin Çakmak"
   ],
   "Trabzonspor|Karagümrük": [
     "Ahmet Şahin",
@@ -3835,10 +3837,10 @@ export const ANSWER_INDEX = {
     "Murat Cem Akpınar",
     "Musa Büyük",
     "Musa Nizam",
+    "Ömer Aysan Barış",
     "Saffet Akyüz",
     "Semih Karadeniz",
-    "Seyit Cem Ünsal",
-    "Ömer Aysan Barış"
+    "Seyit Cem Ünsal"
   ],
   "Samsunspor|Karagümrük": [
     "Ahmet Şahin",
@@ -3846,14 +3848,14 @@ export const ANSWER_INDEX = {
     "Barış Başdaş",
     "Baykal Aydınlı",
     "Brahim Darri",
+    "Çağatay Tekin",
     "Mehmet Yılmaz",
     "Murat Ceylan",
     "Okan Dernek",
     "Oktay Derelioğlu",
     "Serkan Odabaşoğlu",
     "Talha Ülvan",
-    "Turgut Şahin",
-    "Çağatay Tekin"
+    "Turgut Şahin"
   ],
   "Trabzonspor|Ajax": [
     "Ahmetcan Kaplan",
@@ -3936,8 +3938,12 @@ export const ANSWER_INDEX = {
     "Erkan Sekman",
     "Furkan Şeker",
     "Günay Güvenç",
+    "İlhan Şahin",
+    "İsmail Köybaşı",
     "Kerem Atakan Kesgin",
     "Mustafa Özkan",
+    "Ömer Gümüş",
+    "Ömer Şişmanoğlu",
     "Sinan Kaloğlu",
     "Tanju Kayhan",
     "Tayfur Bingöl",
@@ -3945,11 +3951,7 @@ export const ANSWER_INDEX = {
     "Umut Kaya",
     "Umut Nayir",
     "Veli Çetin",
-    "Yüksel Kayaalp",
-    "Ömer Gümüş",
-    "Ömer Şişmanoğlu",
-    "İlhan Şahin",
-    "İsmail Köybaşı"
+    "Yüksel Kayaalp"
   ],
   "West Ham|Sunderland": [
     "Aji Alese",
@@ -4005,15 +4007,16 @@ export const ANSWER_INDEX = {
     "Burak Kapacak",
     "Engin Bekdemir",
     "Erdal Öztürk",
+    "Gökhan Sazdağı",
     "Halil Cengiz",
+    "İsmail Çipe",
     "Joseph Attamah",
     "Merter Yüce",
     "Otabek Shukurov",
     "Raheem Lawal",
     "Ryan Mendes",
     "Salih Dursun",
-    "Turgut Şahin",
-    "İsmail Çipe"
+    "Turgut Şahin"
   ],
   "Antalyaspor|Samsunspor": [
     "Akın Dağdelen",
@@ -4025,6 +4028,7 @@ export const ANSWER_INDEX = {
     "Fatih Sezer",
     "Gökhan Karadeniz",
     "Hasan Sönmez",
+    "İlyas Yılmazer",
     "Mbilla Etame",
     "Mehmet Yılmaz",
     "Mesut Çaytemel",
@@ -4036,8 +4040,7 @@ export const ANSWER_INDEX = {
     "Serdar Özkan",
     "Soner Aydoğdu",
     "Tuna Üzümcü",
-    "Yenal Tuncer",
-    "İlyas Yılmazer"
+    "Yenal Tuncer"
   ],
   "Göztepe|Samsunspor": [
     "Akın Dağdelen",
@@ -4092,12 +4095,13 @@ export const ANSWER_INDEX = {
     "Gaetan Laura",
     "Guido Kocer",
     "Hasan Sönmez",
+    "İlhan Mansız",
     "Mehmet Polat",
     "Murat Yıldırım",
     "Mustafa Çiçek",
     "Nadir Çiftçi",
-    "Oktay Delibalta",
     "Oğuzhan Berber",
+    "Oktay Delibalta",
     "Sandro Souza",
     "Serdar Özkan",
     "Soner Aydoğdu",
@@ -4105,8 +4109,7 @@ export const ANSWER_INDEX = {
     "Tolga Doğantez",
     "Tuna Üzümcü",
     "Turgut Şahin",
-    "Yusuf Gültekin",
-    "İlhan Mansız"
+    "Yusuf Gültekin"
   ],
   "Brentford|Bournemouth": [
     "Alan Connell",
@@ -4214,11 +4217,13 @@ export const ANSWER_INDEX = {
     "Erkan Sekman",
     "Ertuğrul Arslan",
     "Fatih Sezer",
+    "İlker Avcıbay",
     "Kenan Özer",
     "Mehmet Sedef",
     "Murat Akın",
     "Mustafa Akhanım",
     "Orkun Usak",
+    "Ömer Şişmanoğlu",
     "Sedat Ağçay",
     "Seddar Karaman",
     "Soner Dikmen",
@@ -4226,9 +4231,7 @@ export const ANSWER_INDEX = {
     "Ufuk Akyol",
     "Ufuk Ateş",
     "Veysel Cihan",
-    "Zymer Bytyqi",
-    "Ömer Şişmanoğlu",
-    "İlker Avcıbay"
+    "Zymer Bytyqi"
   ],
   "Çaykur Rizespor|Konyaspor": [
     "Alberk Koç",
@@ -4252,21 +4255,21 @@ export const ANSWER_INDEX = {
     "Konrad Michalak",
     "Mariusz Pawelek",
     "Mehmet Sedef",
-    "Mehmet Uslu",
     "Mehmet Şen",
+    "Mehmet Uslu",
     "Murat Hacıoğlu",
     "Murat Şahin",
-    "Oumar Dieng",
     "Oğuz Kağan Güçtekin",
+    "Oumar Dieng",
+    "Özden Öngün",
     "Selim Ay",
     "Serhat Akyüz",
     "Serkan Kırıntılı",
+    "Şener Aşkaroğlu",
     "Ufukhan Bayraktar",
     "Uğur Akdemir",
     "Volkan Koçaloğlu",
-    "Yunus Altun",
-    "Özden Öngün",
-    "Şener Aşkaroğlu"
+    "Yunus Altun"
   ],
   "Real Madrid|Barcelona": [
     "Albert Celades",
@@ -4322,13 +4325,13 @@ export const ANSWER_INDEX = {
     "Albert Riera",
     "Angelino",
     "Fernando",
+    "İlkay Gündoğan",
     "Jason Denayer",
     "Ji´",
     "Leroy Sane",
     "Maicon",
     "Nigel de Jong",
-    "Omar Elabdellaoui",
-    "İlkay Gündoğan"
+    "Omar Elabdellaoui"
   ],
   "Galatasaray|Liverpool": [
     "Albert Riera",
@@ -4663,12 +4666,12 @@ export const ANSWER_INDEX = {
     "Hakan Arıkan",
     "Koray Çölgeçen",
     "Oğulcan Çağlayan",
+    "Özden Öngün",
     "Ryan Mendes",
     "Samed Kaya",
     "Serdar Kulbilge",
     "Seyit Cem Ünsal",
-    "Yunus Altun",
-    "Özden Öngün"
+    "Yunus Altun"
   ],
   "Manchester City|Inter": [
     "Aleksandar Kolarov",
@@ -5213,9 +5216,9 @@ export const ANSWER_INDEX = {
     "Marouane Chamakh",
     "Matthew Upson",
     "Nigel Winterburn",
+    "Ömer Riza",
     "Samir Nasri",
-    "Tom Dallison",
-    "Ömer Riza"
+    "Tom Dallison"
   ],
   "West Ham|Barcelona": [
     "Alex Song",
@@ -5389,6 +5392,7 @@ export const ANSWER_INDEX = {
     "Gedson Fernandes",
     "Gökhan Gönül",
     "Hakan Akbaş",
+    "İsmail Köybaşı",
     "Kenan Özer",
     "Kerem Kalafat",
     "Koray Avcı",
@@ -5397,15 +5401,14 @@ export const ANSWER_INDEX = {
     "Mehmet Yozgatlı",
     "Murat Şahin",
     "Mustafa Özkan",
-    "Onur Bulut",
     "Oğuz Ceylan",
+    "Onur Bulut",
     "Rachid Ghezzal",
     "Sezer Özmen",
     "Tolga Doğantez",
     "Tyler Boyd",
     "Volkan Ünlü",
-    "Zafer Demiray",
-    "İsmail Köybaşı"
+    "Zafer Demiray"
   ],
   "Trabzonspor|Crystal Palace": [
     "Alexander Sorloth"
@@ -5499,15 +5502,15 @@ export const ANSWER_INDEX = {
     "Fatih Şen",
     "Fevzi Tuncay",
     "Gökhan Değirmenci",
+    "İbrahim Üzülmez",
     "Kaya Tarakçı",
     "Kemal Aslan",
     "Mehmet Yılmaz",
     "Musa Nizam",
     "Oğulcan Çağlayan",
-    "Serdar Kulbilge",
-    "Zdravko Lazarov",
     "Özden Öngün",
-    "İbrahim Üzülmez"
+    "Serdar Kulbilge",
+    "Zdravko Lazarov"
   ],
   "Gençlerbirliği|Eyüpspor": [
     "Ali Cansun Begeçarslan",
@@ -5522,13 +5525,13 @@ export const ANSWER_INDEX = {
     "Mete Demir",
     "Metehan Mimaroğlu",
     "Mikail Okyar",
-    "Mustafa Pektemek",
     "Mustafa Çiçek",
+    "Mustafa Pektemek",
     "Sunay Kahraman",
     "Tayfur Bingöl",
     "Ufuk Arslan",
-    "Utku Yılmaz",
     "Uğur Akdemir",
+    "Utku Yılmaz",
     "Ziya Aydın"
   ],
   "Antalyaspor|Gaziantepspor": [
@@ -5537,6 +5540,7 @@ export const ANSWER_INDEX = {
     "Chico",
     "Erkan Sekman",
     "Erol Kapusuz",
+    "İlyas Kahraman",
     "Koray Arslan",
     "Mehmet Sedef",
     "Mehmet Yılmaz",
@@ -5544,23 +5548,22 @@ export const ANSWER_INDEX = {
     "Mustafa Aksoy",
     "Oktay Delibalta",
     "Olcan Adın",
+    "Ömer Çatkıç",
     "Sedat Ağçay",
     "Serkan Atak",
     "Sezer Badur",
     "Veysel Cihan",
-    "Yalçın Ayhan",
-    "Ömer Çatkıç",
-    "İlyas Kahraman"
+    "Yalçın Ayhan"
   ],
   "Eyüpspor|Gaziantepspor": [
     "Ali Cansun Begeçarslan",
     "Göksel Akıncı",
-    "Murat Yılmaz",
+    "İlyas Kahraman",
     "Murat Şahin",
+    "Murat Yılmaz",
     "Oğulcan Çağlayan",
-    "Uğur Demirok",
     "Önder Çengel",
-    "İlyas Kahraman"
+    "Uğur Demirok"
   ],
   "Göztepe|Konyaspor": [
     "Ali Dere",
@@ -5574,10 +5577,10 @@ export const ANSWER_INDEX = {
     "Murat Akın",
     "Mustafa Akhanım",
     "Oğuzhan Bahadır",
+    "Ömer Şişmanoğlu",
     "Ramazan Kahya",
     "Soner Dikmen",
     "Umut Nayir",
-    "Ömer Şişmanoğlu",
     "Ümit Özışık"
   ],
   "Beşiktaş|Sivasspor": [
@@ -5589,14 +5592,14 @@ export const ANSWER_INDEX = {
     "Erkan Kaş",
     "Fatih Aksoy",
     "Gökhan Süzen",
+    "İbrahim Akın",
+    "İbrahim Toraman",
     "Kerem Atakan Kesgin",
     "Korcan Çelikay",
     "Serdar Özkan",
     "Tolga Doğantez",
     "Tyler Boyd",
-    "Volkan Ünlü",
-    "İbrahim Akın",
-    "İbrahim Toraman"
+    "Volkan Ünlü"
   ],
   "Çaykur Rizespor|Kocaelispor": [
     "Ali Eren Beşerler",
@@ -5613,28 +5616,28 @@ export const ANSWER_INDEX = {
     "Mustafa Özkan",
     "Oğulcan Çağlayan",
     "Oğuz Ceylan",
+    "Özden Öngün",
+    "Özgür Vurur",
     "Saffet Akyüz",
     "Tayfun Taner",
     "Uğurtan Çepni",
     "Yunus Altun",
-    "Yusuf Tokuş",
-    "Özden Öngün",
-    "Özgür Vurur"
+    "Yusuf Tokuş"
   ],
   "Fenerbahçe|Kasımpaşa": [
     "Ali Güneş",
     "Attila Szalai",
     "Barış Demircan",
+    "Çağtay Kurukalıp",
     "Duhan Aksu",
     "Fabiano",
     "Fatih Akyel",
     "Harun Tekin",
     "Murat Şahin",
     "Orhan Şam",
+    "Özgür Çek",
     "Sadık Çiftpınar",
-    "Semih Beyaz",
-    "Çağtay Kurukalıp",
-    "Özgür Çek"
+    "Semih Beyaz"
   ],
   "Trabzonspor|Kasımpaşa": [
     "Ali Kandil",
@@ -5662,6 +5665,7 @@ export const ANSWER_INDEX = {
     "Atakan Üner",
     "Can Erdem",
     "Cenk Gönen",
+    "Çağdaş Atan",
     "Erkan Sekman",
     "Erman Güraçar",
     "Eser Yağmur",
@@ -5672,16 +5676,15 @@ export const ANSWER_INDEX = {
     "Muhammed Ertürk",
     "Mustafa Özkan",
     "Olcay Şahan",
+    "Ömer Şişmanoğlu",
     "Sedat Şahintürk",
     "Souleymane Youla",
     "Tamer Tuna",
     "Tuna Üzümcü",
     "Umut Kaya",
+    "Ümit Bozkurt",
     "Veysel Cihan",
-    "Yaser Yıldız",
-    "Çağdaş Atan",
-    "Ömer Şişmanoğlu",
-    "Ümit Bozkurt"
+    "Yaser Yıldız"
   ],
   "Gençlerbirliği|Denizlispor": [
     "Ali Tandoğan",
@@ -5689,6 +5692,7 @@ export const ANSWER_INDEX = {
     "Ceyhun Eriş",
     "Furkan Şeker",
     "Göksel Akıncı",
+    "İsmail Doğan",
     "Kahiª",
     "Mehmet Altıparmak",
     "Mehmet Taş",
@@ -5696,13 +5700,12 @@ export const ANSWER_INDEX = {
     "Mustafa Çeçenoğlu",
     "Mustafa Özkan",
     "Oğuzhan Berber",
+    "Özgür Çek",
     "Sakıb Aytaç",
     "Souleymane Youla",
     "Tuna Üzümcü",
-    "Veysel Cihan",
-    "Özgür Çek",
     "Ümit Bozkurt",
-    "İsmail Doğan"
+    "Veysel Cihan"
   ],
   "Sivasspor|Eyüpspor": [
     "Ali Tuna Tanyıldız",
@@ -5710,12 +5713,12 @@ export const ANSWER_INDEX = {
     "Caner Bağ",
     "Ferhat Yayla",
     "Gerson Rodrigues",
+    "İbrahim Akdağ",
     "Robin Yalçın",
     "Samu Saiz",
     "Sezgin Bektaş",
     "Tevfik Altındağ",
-    "Uğur Akdemir",
-    "İbrahim Akdağ"
+    "Uğur Akdemir"
   ],
   "Galatasaray|Antalyaspor": [
     "Ali Turan",
@@ -5725,11 +5728,13 @@ export const ANSWER_INDEX = {
     "Burak Yılmaz",
     "Cemal Taşlı",
     "Christian Luyindama",
+    "Çekdar Orhan",
     "Emrah Başsan",
     "Emrecan Uzunhan",
     "Erman Kılıç",
     "Fernando",
     "Fevzi Elmas",
+    "İlyas Kahraman",
     "Lukas Podolski",
     "Mehmet Aksu",
     "Milan Baros",
@@ -5747,9 +5752,7 @@ export const ANSWER_INDEX = {
     "Veysel Sarı",
     "Volkan Yaman",
     "Yalçın Ayhan",
-    "Yekta Kurtuluş",
-    "Çekdar Orhan",
-    "İlyas Kahraman"
+    "Yekta Kurtuluş"
   ],
   "Galatasaray|Kayserispor": [
     "Ali Turan",
@@ -5759,30 +5762,31 @@ export const ANSWER_INDEX = {
     "Cem Sultan",
     "Cenk Gönen",
     "Ceyhun Gülselam",
+    "Çağlar Birinci",
     "Emrah Başsan",
     "Emre Taşdemir",
     "Fazlı Ulusoy",
     "Furkan Özçal",
+    "İsmail Çipe",
     "Lionel Carole",
     "Nordin Amrabat",
     "Oğulcan Çağlayan",
+    "Ömer Bayram",
+    "Özgür Can Özcan",
     "Salih Dursun",
     "Serkan Kurtuluş",
     "Sinan Bolat",
-    "Umut Bulut",
     "Uğur Demirok",
     "Uğur Uçar",
-    "Çağlar Birinci",
-    "Ömer Bayram",
-    "Özgür Can Özcan",
-    "İsmail Çipe"
+    "Umut Bulut"
   ],
   "Antalyaspor|Kasımpaşa": [
     "Ali Yavuz Kol",
     "Anıl Koç",
     "Aydın Küçükkaya",
-    "Hakan Saral",
     "Hakan Özmert",
+    "Hakan Saral",
+    "İlker Avcıbay",
     "Kerem Şeras",
     "Koray Tekin Bulman",
     "Korhan Öztürk",
@@ -5791,8 +5795,7 @@ export const ANSWER_INDEX = {
     "Veysel Sarı",
     "Volkan Yaman",
     "Yalçın Ayhan",
-    "Yekta Kurtuluş",
-    "İlker Avcıbay"
+    "Yekta Kurtuluş"
   ],
   "Kasımpaşa|Denizlispor": [
     "Ali Yavuz Kol",
@@ -5806,12 +5809,12 @@ export const ANSWER_INDEX = {
     "Gökhan Güleç",
     "Göksel Akıncı",
     "Hüseyin Kartal",
+    "İlker Avcıbay",
     "Kubilay Aktaş",
+    "Özgür Çek",
     "Sakıb Aytaç",
     "Syam Ben Youssef",
-    "Yasin Tosun",
-    "Özgür Çek",
-    "İlker Avcıbay"
+    "Yasin Tosun"
   ],
   "Fenerbahçe|Kocaelispor": [
     "Alihan Kubalas",
@@ -5826,6 +5829,7 @@ export const ANSWER_INDEX = {
     "Fatih Kanber",
     "Gökhan Bozkaya",
     "Harun Tekin",
+    "İsmet Yumakoğulları",
     "John Moshoeu",
     "Kemal Aslan",
     "Mert Günok",
@@ -5834,14 +5838,13 @@ export const ANSWER_INDEX = {
     "Muhammed Türkmen",
     "Murat Hacıoğlu",
     "Mutlu Aksu Doğan",
+    "Ömer Tuğ",
     "Serdar Dursun",
     "Serdar Kulbilge",
     "Serhat Akın",
     "Tayfur Havutçu",
     "Taylan Işıldar",
-    "Yunus Altun",
-    "Ömer Tuğ",
-    "İsmet Yumakoğulları"
+    "Yunus Altun"
   ],
   "Sunderland|Trabzonspor": [
     "Alim Öztürk"
@@ -5941,14 +5944,14 @@ export const ANSWER_INDEX = {
     "Murat Sözkesen",
     "Mustafa Çiçek",
     "Oğulcan Çağlayan",
+    "Özgür Can Özcan",
     "Saffet Akyüz",
     "Sedat Debreli",
     "Sinan Osmanoğlu",
     "Tayfun Taner",
     "Taylan Antalyalı",
     "Uğur Akdemir",
-    "Volkan Pala",
-    "Özgür Can Özcan"
+    "Volkan Pala"
   ],
   "Galatasaray|Göztepe": [
     "Alp Küçükvardar",
@@ -5965,13 +5968,13 @@ export const ANSWER_INDEX = {
     "Erman Kılıç",
     "Günay Güvenç",
     "Koray Günter",
+    "Ömer Gümüş",
     "Richard Kingson",
     "Serkan Kurtuluş",
     "Servet Çetin",
     "Tarık Çamdal",
     "Yiğit Gökoğlan",
-    "Yusuf Aydin",
-    "Ömer Gümüş"
+    "Yusuf Aydin"
   ],
   "Galatasaray|Gaziantepspor": [
     "Alp Küçükvardar",
@@ -5982,17 +5985,17 @@ export const ANSWER_INDEX = {
     "Erhan Namlı",
     "Gökhan Süzen",
     "Gökhan Zan",
+    "İlyas Kahraman",
     "Mehmet Polat",
     "Mehmet Yozgatlı",
     "Murat Erdoğan",
-    "Olcan Adın",
     "Oğulcan Çağlayan",
+    "Olcan Adın",
+    "Özgür Can Özcan",
     "Semih Kaya",
     "Tamer Tuna",
     "Uğur Demirok",
-    "Yalçın Ayhan",
-    "Özgür Can Özcan",
-    "İlyas Kahraman"
+    "Yalçın Ayhan"
   ],
   "Çaykur Rizespor|Göztepe": [
     "Alp Küçükvardar",
@@ -6005,12 +6008,12 @@ export const ANSWER_INDEX = {
     "Ersin Güreler",
     "Evren Kürkçü",
     "Hüseyin Bak",
+    "İsmail Köybaşı",
     "Kubilay Kanatsızkuş",
     "Mithat Yaşar",
     "Mustafa Özkan",
-    "Uğurtan Çepni",
-    "İsmail Köybaşı",
-    "Şadi Çolak"
+    "Şadi Çolak",
+    "Uğurtan Çepni"
   ],
   "Çaykur Rizespor|Gaziantepspor": [
     "Alp Küçükvardar",
@@ -6022,6 +6025,7 @@ export const ANSWER_INDEX = {
     "Erdem Sen",
     "Erhan Albayrak",
     "Erhan Namlı",
+    "İsmail Köybaşı",
     "Kaya Tarakçı",
     "Kemal Aslan",
     "Mehmet Polat",
@@ -6030,13 +6034,12 @@ export const ANSWER_INDEX = {
     "Murat Salar",
     "Murat Şahin",
     "Oğulcan Çağlayan",
-    "Sefa Yılmaz",
-    "Serkan Atak",
-    "Turgut Şahin",
     "Özden Öngün",
     "Özgür Can Özcan",
     "Özgür Yıldırım",
-    "İsmail Köybaşı"
+    "Sefa Yılmaz",
+    "Serkan Atak",
+    "Turgut Şahin"
   ],
   "Göztepe|Karagümrük": [
     "Alp Küçükvardar",
@@ -6050,10 +6053,10 @@ export const ANSWER_INDEX = {
     "Kerem Atakan Kesgin",
     "Koray Günter",
     "Nazım Sangare",
+    "Ömer Gümüş",
     "Serdar Özbayraktar",
     "Serkan Polat",
-    "Tuğbey Akgün",
-    "Ömer Gümüş"
+    "Tuğbey Akgün"
   ],
   "Göztepe|Gaziantepspor": [
     "Alp Küçükvardar",
@@ -6063,13 +6066,13 @@ export const ANSWER_INDEX = {
     "Gökhan Değirmenci",
     "Göksel Akıncı",
     "Hakan Çinemre",
+    "İsmail Köybaşı",
     "Koray Arslan",
     "Nabil Ghilas",
     "Orhan Taşdelen",
     "Serdar Özbayraktar",
     "Tolgahan Acar",
-    "Wallace",
-    "İsmail Köybaşı"
+    "Wallace"
   ],
   "Karagümrük|Denizlispor": [
     "Alp Küçükvardar",
@@ -6104,13 +6107,13 @@ export const ANSWER_INDEX = {
     "Alparslan Erdem",
     "Atabey Çiçek",
     "Berat Özdemir",
+    "İrfan Can Kahveci",
     "Mete Demir",
     "Miraç Asıltekin",
     "Mustafa Pektemek",
     "Sedat Ağçay",
     "Shaocong Wu",
-    "Soner Aydoğdu",
-    "İrfan Can Kahveci"
+    "Soner Aydoğdu"
   ],
   "Kayserispor|Samsunspor": [
     "Alpaslan Kartal",
@@ -6143,23 +6146,23 @@ export const ANSWER_INDEX = {
     "Berkay Değirmencioğlu",
     "Cenk Gönen",
     "Cristian SÄƒpunaru",
+    "Çağlar Birinci",
     "Fatih Ceylan",
     "Güray Vural",
+    "İsmail Doğan",
     "Koray Çölgeçen",
     "Oğuzhan Berber",
+    "Ömer Kulga",
+    "Ömer Şişmanoğlu",
+    "Özden Öngün",
+    "Özgür Can Özcan",
     "Ragıp Başdağ",
     "Sakıb Aytaç",
     "Selim Teber",
     "Semavi Uzun",
     "Serdal Boyraz",
     "Tiago Lopes",
-    "Umut Kaya",
-    "Çağlar Birinci",
-    "Ömer Kulga",
-    "Ömer Şişmanoğlu",
-    "Özden Öngün",
-    "Özgür Can Özcan",
-    "İsmail Doğan"
+    "Umut Kaya"
   ],
   "Samsunspor|Kasımpaşa": [
     "Alpaslan Kartal",
@@ -6182,15 +6185,16 @@ export const ANSWER_INDEX = {
     "Dorukhan Toköz",
     "Erkam Reşmen",
     "Erkan Kaş",
+    "Gökhan Sazdağı",
     "Hakan Arıkan",
     "Kartal Yılmaz",
     "Manuel Fernandes",
     "Mert Nobre",
     "Mustafa Pektemek",
     "Onur Bulut",
+    "Ömer Şişmanoğlu",
     "Sezer Sezgin",
-    "Umut Kaya",
-    "Ömer Şişmanoğlu"
+    "Umut Kaya"
   ],
   "Fenerbahçe|Kayserispor": [
     "Alpay Çelebi",
@@ -6199,15 +6203,16 @@ export const ANSWER_INDEX = {
     "Deniz Türüç",
     "Emre Demir",
     "Gökhan Emreciksin",
+    "Gökhan Sazdağı",
     "Gökhan Ünal",
     "Hasan Ali Kaldırım",
     "Mehmet Ayaz",
     "Mert Nobre",
     "Okan Alkan",
+    "Önder Turacı",
     "Serdar Kulbilge",
     "Volkan Babacan",
-    "Yunus Altun",
-    "Önder Turacı"
+    "Yunus Altun"
   ],
   "Kayserispor|Alanyaspor": [
     "Alpay Çelebi",
@@ -6230,10 +6235,10 @@ export const ANSWER_INDEX = {
     "Berkan Emir",
     "Daniel Candeias",
     "Emre Nefiz",
+    "İlker Erbay",
     "Koray Çölgeçen",
     "Serdar Dursun",
-    "Tayfur Bingöl",
-    "İlker Erbay"
+    "Tayfur Bingöl"
   ],
   "Beşiktaş|Aston Villa": [
     "Alpay Özalan",
@@ -6632,13 +6637,13 @@ export const ANSWER_INDEX = {
     "Amedej Vetrih",
     "Ertuğrul Ersoy",
     "Halil Dervişoğlu",
+    "İbrahim Pehlivan",
     "Kenan Özer",
     "Ogün Özçiçek",
     "Oğulcan Çağlayan",
     "Oğuz Ceylan",
     "Recep Niyaz",
-    "Zafer Görgen",
-    "İbrahim Pehlivan"
+    "Zafer Görgen"
   ],
   "Beşiktaş|Konyaspor": [
     "Amir Hadziahmetovic",
@@ -6652,11 +6657,11 @@ export const ANSWER_INDEX = {
     "Murat Şahin",
     "Niyazi Güney",
     "Orkan Çınar",
+    "Ömer Şişmanoğlu",
     "Sertan Eser",
     "Umut Nayir",
-    "Veysel Cihan",
-    "Ömer Şişmanoğlu",
-    "Ümit Bozkurt"
+    "Ümit Bozkurt",
+    "Veysel Cihan"
   ],
   "Trabzonspor|Alanyaspor": [
     "Anastasios Bakasetas",
@@ -6782,6 +6787,9 @@ export const ANSWER_INDEX = {
     "Mikel Arteta",
     "Yerry Mina"
   ],
+  "Burnley|Karagümrük": [
+    "Andre Gray"
+  ],
   "Burnley|Brentford": [
     "Andre Gray",
     "Ben Mee",
@@ -6796,10 +6804,7 @@ export const ANSWER_INDEX = {
     "Nathan Collins",
     "Paul Smith"
   ],
-  "Burnley|Karagümrük": [
-    "Andre Gray"
-  ],
-  "Brentford|Karagümrük": [
+  "Karagümrük|Brentford": [
     "Andre Gray"
   ],
   "FC Porto|Gaziantepspor": [
@@ -7412,8 +7417,8 @@ export const ANSWER_INDEX = {
     "Fabrizio Miccoli",
     "Gabriel Pires",
     "Joao Cancelo",
-    "Joao Mario",
     "Joao da Silva",
+    "Joao Mario",
     "Tiago Mendes"
   ],
   "West Ham|Juventus": [
@@ -7584,25 +7589,28 @@ export const ANSWER_INDEX = {
     "Ceyhun Eriş",
     "Emre Aygün",
     "Ergin Keleş",
-    "Fousseni Diabate",
     "Fıratcan Üzüm",
-    "Guilherme",
+    "Fousseni Diabate",
     "Gökhan Karadeniz",
     "Göksel Yaman",
+    "Guilherme",
+    "İsmail Köybaşı",
     "Soner Aydoğdu",
-    "Taha Altıkardeş",
-    "İsmail Köybaşı"
+    "Taha Altıkardeş"
   ],
   "Trabzonspor|Denizlispor": [
     "Anıl Taşdemir",
     "Caner Osmanpaşa",
     "Ceyhun Eriş",
+    "Çağdaş Atan",
+    "Çağlar Birinci",
     "Emrah Eren",
     "Erhan Namlı",
     "Erman Güraçar",
     "Feridun Sungur",
     "Güray Vural",
     "Hugo Rodallega",
+    "İbrahim Ege",
     "Mehmet Yılmaz",
     "Musa Nizam",
     "Mustafa Keçeli",
@@ -7610,15 +7618,12 @@ export const ANSWER_INDEX = {
     "Muzaffer Bilazer",
     "Ogenyi Onazi",
     "Olcay Şahan",
+    "Ömer Riza",
     "Ragıp Başdağ",
     "Selahattin Kınalı",
     "Semavi Uzun",
     "Tamer Tuna",
-    "Yakup Bugun",
-    "Çağdaş Atan",
-    "Çağlar Birinci",
-    "Ömer Riza",
-    "İbrahim Ege"
+    "Yakup Bugun"
   ],
   "Kayserispor|Göztepe": [
     "Anıl Taşdemir",
@@ -7633,13 +7638,13 @@ export const ANSWER_INDEX = {
     "Koray Çölgeçen",
     "Kubilay Sönmez",
     "Murat Akın",
+    "Ömer Şişmanoğlu",
+    "Önder Turacı",
     "Rajko Rotman",
     "Samed Kaya",
     "Serkan Kurtuluş",
     "Umut Kaya",
-    "Zafer Uysal",
-    "Ömer Şişmanoğlu",
-    "Önder Turacı"
+    "Zafer Uysal"
   ],
   "Beşiktaş|Ajax": [
     "Aras Özbiliz",
@@ -7661,12 +7666,12 @@ export const ANSWER_INDEX = {
   ],
   "Gençlerbirliği|Gaziantep FK": [
     "Arda Kızıldağ",
+    "İbrahim Pehlivan",
+    "İlker Karakaş",
     "Kerim Avcı",
     "Nihat Şahin",
     "Olarenwaju Kayode",
-    "Ömürcan Artan",
-    "İbrahim Pehlivan",
-    "İlker Karakaş"
+    "Ömürcan Artan"
   ],
   "Fenerbahçe|Göztepe": [
     "Arda Okan Kurtulan",
@@ -7680,22 +7685,22 @@ export const ANSWER_INDEX = {
     "Gökhan Emreciksin",
     "Gürhan Gürsoy",
     "Hakan Çinemre",
+    "İrfan Can Eğribayat",
+    "İsmail Köybaşı",
     "Mithat Yaşar",
     "Nazım Sangare",
+    "Önder Turacı",
     "Selçuk Şahin",
     "Servet Çetin",
-    "Umut Nayir",
     "Uğur Kaan Yıldız",
-    "Önder Turacı",
-    "İrfan Can Eğribayat",
-    "İsmail Köybaşı"
+    "Umut Nayir"
   ],
   "Galatasaray|Barcelona": [
     "Arda Turan",
     "Giovani dos Santos",
     "Inaki Pena",
-    "Yusuf Demir",
-    "İlkay Gündoğan"
+    "İlkay Gündoğan",
+    "Yusuf Demir"
   ],
   "Başakşehir|Barcelona": [
     "Arda Turan"
@@ -7817,11 +7822,11 @@ export const ANSWER_INDEX = {
     "Enes Keskin",
     "Guy-Michel Landel",
     "Mustafa Pektemek",
+    "Özgür Çek",
     "Pedro Pereira",
     "Sefa Yılmaz",
     "Tayfun Seven",
-    "Tayfur Bingöl",
-    "Özgür Çek"
+    "Tayfur Bingöl"
   ],
   "Inter|Bayern Munich": [
     "Arturo Vidal",
@@ -7975,12 +7980,12 @@ export const ANSWER_INDEX = {
     "Göktuğ Bakırbaş",
     "Gürhan Gürsoy",
     "Herve Tum",
+    "İlker Sayan",
     "Kerem Atakan Kesgin",
     "Murat Paluli",
     "Servet Çetin",
     "Tolgahan Acar",
-    "Yasir Elmacı",
-    "İlker Sayan"
+    "Yasir Elmacı"
   ],
   "Benfica|Kasımpaşa": [
     "Azar Karadas",
@@ -7997,6 +8002,7 @@ export const ANSWER_INDEX = {
     "Emmanuel Adebayor",
     "Furkan Soyalp",
     "Hasan Ali Kaldırım",
+    "İbrahim Akdağ",
     "Joseph Attamah",
     "Murat Akın",
     "Mustafa Pektemek",
@@ -8004,8 +8010,7 @@ export const ANSWER_INDEX = {
     "Rajko Rotman",
     "Stephane Badji",
     "Uğur Uçar",
-    "Volkan Babacan",
-    "İbrahim Akdağ"
+    "Volkan Babacan"
   ],
   "Karagümrük|Gaziantep FK": [
     "Badou Ndiaye",
@@ -8066,9 +8071,9 @@ export const ANSWER_INDEX = {
     "Fatih Öztürk",
     "Feridun Sungur",
     "Ufuk Bayraktar",
+    "Uğur Demirok",
     "Umut Bozok",
-    "Umut Bulut",
-    "Uğur Demirok"
+    "Umut Bulut"
   ],
   "Chelsea|Burnley": [
     "Bashir Humphreys",
@@ -8099,6 +8104,7 @@ export const ANSWER_INDEX = {
     "Batuhan Karadeniz",
     "Bayram Bektaş",
     "Burak Yılmaz",
+    "Çağdaş Atan",
     "Dorukhan Toköz",
     "Douglas",
     "Egemen Korkmaz",
@@ -8107,6 +8113,7 @@ export const ANSWER_INDEX = {
     "Ernest Muci",
     "Fatih Tekke",
     "Hakan Arıkan",
+    "İsmail Köybaşı",
     "Jose Sosa",
     "Kürşat Duymuş",
     "Mehmet Aurelio",
@@ -8116,9 +8123,7 @@ export const ANSWER_INDEX = {
     "Tamer Tuna",
     "Tolga Zengin",
     "Volkan Ünlü",
-    "Zafer Demiray",
-    "Çağdaş Atan",
-    "İsmail Köybaşı"
+    "Zafer Demiray"
   ],
   "Çaykur Rizespor|Başakşehir": [
     "Batuhan Çakır",
@@ -8140,6 +8145,7 @@ export const ANSWER_INDEX = {
     "Emrah Eren",
     "Fatih Akyel",
     "Fazlı Ulusoy",
+    "İlker Erbay",
     "Marcao",
     "Mertan Öztürk",
     "Mutlu Aksu Doğan",
@@ -8147,8 +8153,7 @@ export const ANSWER_INDEX = {
     "Saffet Akyüz",
     "Tayfun Taner",
     "Tunahan Ergül",
-    "Ufuk Çam",
-    "İlker Erbay"
+    "Ufuk Çam"
   ],
   "Kocaelispor|Gaziantep FK": [
     "Batuhan Şen",
@@ -8204,6 +8209,7 @@ export const ANSWER_INDEX = {
     "Emre Belözoğlu",
     "Giuliano",
     "Hasan Ali Kaldırım",
+    "İrfan Can Kahveci",
     "Kerem Aktürkoğlu",
     "Martin Skrtel",
     "Mehmet Topal",
@@ -8214,8 +8220,7 @@ export const ANSWER_INDEX = {
     "Samuel Holmen",
     "Semih Şentürk",
     "Souza",
-    "Volkan Babacan",
-    "İrfan Can Kahveci"
+    "Volkan Babacan"
   ],
   "Gaziantepspor|Başakşehir": [
     "Bekir İrtegün",
@@ -8296,8 +8301,8 @@ export const ANSWER_INDEX = {
   ],
   "Kayserispor|Ajax": [
     "Ben Rienstra",
-    "Bilal Bayazıt",
     "Bilal Başaçıkoğlu",
+    "Bilal Bayazıt",
     "Diego Biseswar",
     "Nordin Amrabat",
     "Stefano Denswil",
@@ -8401,14 +8406,14 @@ export const ANSWER_INDEX = {
   "Kayserispor|Eyüpspor": [
     "Berkan Emir",
     "Dorukhan Toköz",
+    "İbrahim Akdağ",
     "Mustafa Pektemek",
     "Oğulcan Çağlayan",
+    "Ömer Bayram",
     "Sezer Sezgin",
     "Stephane Badji",
-    "Umut Bulut",
     "Uğur Demirok",
-    "Ömer Bayram",
-    "İbrahim Akdağ"
+    "Umut Bulut"
   ],
   "Fenerbahçe|Denizlispor": [
     "Berkay Değirmencioğlu",
@@ -8420,11 +8425,11 @@ export const ANSWER_INDEX = {
     "Murat Hacıoğlu",
     "Mustafa Çeçenoğlu",
     "Necati Yılmaz",
+    "Özgür Çek",
     "Recep Niyaz",
     "Serdar Dursun",
     "Servet Çetin",
-    "Yasin Çakmak",
-    "Özgür Çek"
+    "Yasin Çakmak"
   ],
   "Fenerbahçe|Eyüpspor": [
     "Berke Özer",
@@ -8782,14 +8787,14 @@ export const ANSWER_INDEX = {
     "Gökhan Değirmenci",
     "Hasan Gültang",
     "Oğulcan Çağlayan",
+    "Ömer Közen",
+    "Özden Öngün",
+    "Özgür Can Özcan",
     "Sefa Yılmaz",
     "Semavi Uzun",
     "Serdar Kulbilge",
     "Turgut Şahin",
-    "Uğur Demirok",
-    "Ömer Közen",
-    "Özden Öngün",
-    "Özgür Can Özcan"
+    "Uğur Demirok"
   ],
   "Kasımpaşa|Başakşehir": [
     "Bünyamin Çetinkaya",
@@ -8821,13 +8826,13 @@ export const ANSWER_INDEX = {
     "Feridun Sungur",
     "Fırat Çakmak",
     "Göksel Akıncı",
+    "İlyas Kahraman",
     "Kenan Sahin",
+    "Özgür Atılgan",
     "Recep Niyaz",
     "Taha Can Velioğlu",
     "Taylan Uzunoğlu",
-    "Tugay Kacar",
-    "Özgür Atılgan",
-    "İlyas Kahraman"
+    "Tugay Kacar"
   ],
   "Beşiktaş|Başakşehir": [
     "Caner Erkin",
@@ -8843,11 +8848,11 @@ export const ANSWER_INDEX = {
     "Miraç Asıltekin",
     "Mustafa Pektemek",
     "Onur Bulut",
+    "Ömer Gümüş",
     "Salih Uçan",
     "Souza",
     "Volkan Ünlü",
-    "Yalçın Ayhan",
-    "Ömer Gümüş"
+    "Yalçın Ayhan"
   ],
   "Inter|Eyüpspor": [
     "Caner Erkin"
@@ -8863,11 +8868,11 @@ export const ANSWER_INDEX = {
     "Fatih Aksoy",
     "Fuat Özpenbe",
     "Galip Güzel",
+    "Önder Dalkıran",
     "Sefa Yılmaz",
     "Serdar Akdoğan",
     "Umut Mert Toy",
-    "Yusuf Peken",
-    "Önder Dalkıran"
+    "Yusuf Peken"
   ],
   "Crystal Palace|Bournemouth": [
     "Carl Fletcher",
@@ -9109,11 +9114,13 @@ export const ANSWER_INDEX = {
   ],
   "Trabzonspor|Gaziantepspor": [
     "Cem Beceren",
+    "Çetin Güner",
     "Emrah Eren",
     "Erhan Namlı",
     "Erman Güraçar",
     "Erman Özgür",
     "Fatih Tekke",
+    "İsmail Köybaşı",
     "Mehmet Yılmaz",
     "Muhammet Demir",
     "Musa Nizam",
@@ -9125,9 +9132,7 @@ export const ANSWER_INDEX = {
     "Sezer Badur",
     "Tamer Tuna",
     "Turgut Şahin",
-    "Uğur Demirok",
-    "Çetin Güner",
-    "İsmail Köybaşı"
+    "Uğur Demirok"
   ],
   "Fenerbahçe|AS Roma": [
     "Cengiz Ünder",
@@ -9166,11 +9171,11 @@ export const ANSWER_INDEX = {
     "Galip Güzel",
     "Loide Augusto",
     "Onur Bulut",
+    "Özgür Çek",
     "Papiss Demba Cisse",
     "Sefa Yılmaz",
     "Serkan Kırıntılı",
-    "Sezer Özmen",
-    "Özgür Çek"
+    "Sezer Özmen"
   ],
   "Beşiktaş|Everton": [
     "Cenk Tosun",
@@ -9223,28 +9228,29 @@ export const ANSWER_INDEX = {
     "Fatih Akyel",
     "Gökhan Gönül",
     "Gökhan Ünal",
+    "İrfan Can Kahveci",
+    "İsmail Güldüren",
     "John Moshoeu",
     "Mehmet Yozgatlı",
     "Melih Bostan",
     "Mert Nobre",
     "Mustafa Çeçenoğlu",
     "Orhan Şam",
+    "Özgür Çek",
     "Selçuk Şahin",
     "Serdar Kulbilge",
     "Serkan Balcı",
     "Tayfun Seven",
-    "Vedat Muriqi",
-    "Yiğit Efe Demir",
-    "Özgür Çek",
     "Ümit Özat",
-    "İrfan Can Kahveci",
-    "İsmail Güldüren"
+    "Vedat Muriqi",
+    "Yiğit Efe Demir"
   ],
   "Fenerbahçe|Konyaspor": [
     "Ceyhun Eriş",
     "Erhan Albayrak",
     "Fahri Tatan",
     "Gökhan Emreciksin",
+    "İsmail Güldüren",
     "Mehmet Ayaz",
     "Melih Bostan",
     "Murat Hacıoğlu",
@@ -9256,8 +9262,7 @@ export const ANSWER_INDEX = {
     "Serkan Kırıntılı",
     "Tayfun Seven",
     "Umut Nayir",
-    "Yunus Altun",
-    "İsmail Güldüren"
+    "Yunus Altun"
   ],
   "Çaykur Rizespor|Samsunspor": [
     "Ceyhun Eriş",
@@ -9270,6 +9275,7 @@ export const ANSWER_INDEX = {
     "Evren Kürkçü",
     "Fernando Boldrin",
     "Ismael Diomande",
+    "İlhan Ummak",
     "Kerem İnan",
     "Mehmet Bölükbaşı",
     "Mehmet Polat",
@@ -9285,8 +9291,7 @@ export const ANSWER_INDEX = {
     "Taylan Antalyalı",
     "Tolga Doğantez",
     "Turgut Şahin",
-    "Uğurtan Çepni",
-    "İlhan Ummak"
+    "Uğurtan Çepni"
   ],
   "Crystal Palace|Barcelona": [
     "Chadi Riad",
@@ -9501,6 +9506,7 @@ export const ANSWER_INDEX = {
     "Davidutton",
     "Deanowditch",
     "Emmanuel Ledesma",
+    "ivar Ingimarsson",
     "James Wilson",
     "Jayden Onen",
     "Joao Carlos Teixeira",
@@ -9515,8 +9521,7 @@ export const ANSWER_INDEX = {
     "Sam Williams",
     "Simon Royce",
     "Steve Claridge",
-    "Steve Sidwell",
-    "ivar Ingimarsson"
+    "Steve Sidwell"
   ],
   "Sivasspor|AS Roma": [
     "Cicinho"
@@ -9555,12 +9560,12 @@ export const ANSWER_INDEX = {
     "Eric Garcia",
     "Ferran Torres",
     "Geovanni",
+    "İlkay Gündoğan",
     "Joao Cancelo",
     "Nico Gonzalez",
     "Sergio Agüero",
     "Sylvinho",
-    "Yaya Toure",
-    "İlkay Gündoğan"
+    "Yaya Toure"
   ],
   "Manchester City|Paris Saint-Germain": [
     "Claudio Gomes",
@@ -9790,13 +9795,13 @@ export const ANSWER_INDEX = {
     "Danielentley",
     "Gavin Mahon",
     "George Saville",
+    "ivar Ingimarsson",
     "Lewis Richards",
     "Nathan Collins",
     "Nathanyrne",
     "Sam Griffiths",
     "Stephen Hunt",
-    "Steve Claridge",
-    "ivar Ingimarsson"
+    "Steve Claridge"
   ],
   "Konyaspor|Başakşehir": [
     "Danijel Aleksic",
@@ -9805,12 +9810,12 @@ export const ANSWER_INDEX = {
     "Mehmet Batdal",
     "Muhammet Demir",
     "Murat Akın",
-    "Orkun Usak",
     "Oğuzhan Bahadır",
+    "Orkun Usak",
+    "Ömer Ali Şahiner",
     "Riad Bajic",
     "Samuel Holmen",
-    "Sedat Ağçay",
-    "Ömer Ali Şahiner"
+    "Sedat Ağçay"
   ],
   "Manchester City|Antalyaspor": [
     "Danilo",
@@ -10102,15 +10107,16 @@ export const ANSWER_INDEX = {
     "Demba Ba",
     "Emre Çolak",
     "Murat Akın",
-    "Orhan Taşdelen",
     "Oğuzhan Bahadır",
+    "Orhan Taşdelen",
+    "Ömer Gümüş",
     "Peter Zulj",
     "Rajko Rotman",
     "Soner Aydoğdu",
-    "Stefano Napoleoni",
-    "Ömer Gümüş"
+    "Stefano Napoleoni"
   ],
   "Eyüpspor|Gaziantep FK": [
+    "Çağlar Akbaba",
     "Denis DrÄƒguÈ™",
     "Oğulcan Çağlayan",
     "Recep Niyaz",
@@ -10118,8 +10124,7 @@ export const ANSWER_INDEX = {
     "Semih Güler",
     "Yalçın Kılınç",
     "Yonathan Del Valle",
-    "Zvonimir Kozulj",
-    "Çağlar Akbaba"
+    "Zvonimir Kozulj"
   ],
   "West Ham|Kayserispor": [
     "Deniz Mehmet"
@@ -10385,10 +10390,10 @@ export const ANSWER_INDEX = {
   ],
   "Galatasaray|Borussia Dortmund": [
     "Emre Mor",
+    "İlkay Gündoğan",
     "Kevin Grobkreutz",
     "Koray Günter",
-    "Michy Batshuayi",
-    "İlkay Gündoğan"
+    "Michy Batshuayi"
   ],
   "Fenerbahçe|Borussia Dortmund": [
     "Emre Mor",
@@ -10419,9 +10424,9 @@ export const ANSWER_INDEX = {
     "Murat Şahin",
     "Serhat Akyüz",
     "Thuram",
-    "Umut Nayir",
     "Uğur Akdemir",
-    "Uğur Demirok"
+    "Uğur Demirok",
+    "Umut Nayir"
   ],
   "FC Porto|Karagümrük": [
     "Engin Bekdemir",
@@ -10469,12 +10474,12 @@ export const ANSWER_INDEX = {
   "Manchester City|Borussia Dortmund": [
     "Erling Haaland",
     "Felix Nmecha",
+    "İlkay Gündoğan",
     "Jadon Sancho",
     "Jamie Gittens",
     "Manuel Akanji",
     "Sergio Gomez",
-    "Yan Couto",
-    "İlkay Gündoğan"
+    "Yan Couto"
   ],
   "Manchester United|Sivasspor": [
     "Etzaz Hussain"
@@ -10673,12 +10678,12 @@ export const ANSWER_INDEX = {
   ],
   "Sivasspor|Başakşehir": [
     "Hakan Özmert",
+    "İbrahim Akdağ",
     "Manuel da Costa",
     "Muhammet Demir",
     "Okechukwu Azubuike",
     "Robinho",
-    "Volkan Ünlü",
-    "İbrahim Akdağ"
+    "Volkan Ünlü"
   ],
   "Galatasaray|Burnley": [
     "Halil Dervişoğlu"
@@ -11111,12 +11116,12 @@ export const ANSWER_INDEX = {
     "Kevin Mirallas"
   ],
   "Barcelona|Borussia Dortmund": [
+    "İlkay Gündoğan",
     "Kevin-Prince Boateng",
     "Ousmane Dembele",
     "Paco Alcacer",
     "Pierre-Emerick Aubameyang",
-    "Robert Lewandowski",
-    "İlkay Gündoğan"
+    "Robert Lewandowski"
   ],
   "Juventus|Paris Saint-Germain": [
     "Kingsley Coman",
@@ -11237,8 +11242,8 @@ export const ANSWER_INDEX = {
   ],
   "West Ham|Trabzonspor": [
     "Manuel da Costa",
-    "Rigobert Song",
-    "Ömer Riza"
+    "Ömer Riza",
+    "Rigobert Song"
   ],
   "West Ham|Başakşehir": [
     "Manuel da Costa"

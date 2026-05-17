@@ -1,7 +1,5 @@
-// Auto-generated from cleaned player-team data
-// Each team has: initials (2-4 chars), primary color, secondary color
-// Logo URLs intentionally not included to avoid copyright/trademark issues
-// Color-and-initials badges are rendered in the UI instead of actual club logos
+// Auto-generated from admin panel
+// Generated: 2026-05-17T09:41:09.870Z
 
 export const TEAM_LOGOS = {
   "Chelsea": {
@@ -179,15 +177,15 @@ export const TEAM_LOGOS = {
     "primary": "#1F3A93",
     "secondary": "#FFFFFF"
   },
-  "Brentford": {
-    "initials": "BRE",
-    "primary": "#E30613",
-    "secondary": "#FFFFFF"
-  },
   "Karagümrük": {
     "initials": "KGM",
     "primary": "#C8102E",
     "secondary": "#000000"
+  },
+  "Brentford": {
+    "initials": "BRE",
+    "primary": "#E30613",
+    "secondary": "#FFFFFF"
   },
   "Denizlispor": {
     "initials": "DEN",

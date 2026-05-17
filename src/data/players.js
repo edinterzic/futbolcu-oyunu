@@ -1,6 +1,5 @@
-// Auto-generated from cleaned player-team data
-// Each player has 2+ clubs (single-club players are excluded; they cannot form quiz pairs)
-// Team names must match exactly with teams.js
+// Auto-generated from admin panel
+// Generated: 2026-05-17T09:41:09.327Z
 
 export const PLAYERS = [
   {
@@ -190,6 +189,13 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Abdullah Çetin",
+    "clubs": [
+      "Antalyaspor",
+      "Göztepe"
+    ]
+  },
+  {
     "name": "Abdullah Durak",
     "clubs": [
       "Gençlerbirliği",
@@ -219,13 +225,6 @@ export const PLAYERS = [
       "Antalyaspor",
       "Fenerbahçe",
       "Çaykur Rizespor"
-    ]
-  },
-  {
-    "name": "Abdullah Çetin",
-    "clubs": [
-      "Antalyaspor",
-      "Göztepe"
     ]
   },
   {
@@ -409,6 +408,14 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Adem Çalık",
+    "clubs": [
+      "Denizlispor",
+      "Göztepe",
+      "Kocaelispor"
+    ]
+  },
+  {
     "name": "Adem Dursun",
     "clubs": [
       "Beşiktaş",
@@ -430,14 +437,6 @@ export const PLAYERS = [
       "Beşiktaş",
       "Inter",
       "Karagümrük"
-    ]
-  },
-  {
-    "name": "Adem Çalık",
-    "clubs": [
-      "Denizlispor",
-      "Göztepe",
-      "Kocaelispor"
     ]
   },
   {
@@ -642,6 +641,13 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Ahmet Buğra Güven",
+    "clubs": [
+      "Fenerbahçe",
+      "Galatasaray"
+    ]
+  },
+  {
     "name": "Ahmet Burak Solakel",
     "clubs": [
       "Denizlispor",
@@ -650,18 +656,26 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Ahmet Buğra Güven",
-    "clubs": [
-      "Fenerbahçe",
-      "Galatasaray"
-    ]
-  },
-  {
     "name": "Ahmet Cebe",
     "clubs": [
       "Denizlispor",
       "Samsunspor",
       "Sivasspor"
+    ]
+  },
+  {
+    "name": "Ahmet Çağıran",
+    "clubs": [
+      "Denizlispor",
+      "Çaykur Rizespor"
+    ]
+  },
+  {
+    "name": "Ahmet Çalık",
+    "clubs": [
+      "Galatasaray",
+      "Gençlerbirliği",
+      "Konyaspor"
     ]
   },
   {
@@ -689,6 +703,13 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Ahmet İlhan Özek",
+    "clubs": [
+      "Gençlerbirliği",
+      "Çaykur Rizespor"
+    ]
+  },
+  {
     "name": "Ahmet Kesim",
     "clubs": [
       "Alanyaspor",
@@ -704,6 +725,13 @@ export const PLAYERS = [
       "Kocaelispor",
       "Konyaspor",
       "Sivasspor"
+    ]
+  },
+  {
+    "name": "Ahmet Özcan",
+    "clubs": [
+      "Gençlerbirliği",
+      "Kayserispor"
     ]
   },
   {
@@ -728,34 +756,12 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Ahmet Yıldırım",
+    "name": "Ahmet Şahin",
     "clubs": [
-      "Beşiktaş",
-      "Fenerbahçe",
-      "Galatasaray",
-      "Samsunspor"
-    ]
-  },
-  {
-    "name": "Ahmet Çalık",
-    "clubs": [
-      "Galatasaray",
-      "Gençlerbirliği",
-      "Konyaspor"
-    ]
-  },
-  {
-    "name": "Ahmet Çağıran",
-    "clubs": [
-      "Denizlispor",
-      "Çaykur Rizespor"
-    ]
-  },
-  {
-    "name": "Ahmet Özcan",
-    "clubs": [
-      "Gençlerbirliği",
-      "Kayserispor"
+      "Karagümrük",
+      "Kocaelispor",
+      "Samsunspor",
+      "Trabzonspor"
     ]
   },
   {
@@ -766,19 +772,12 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Ahmet İlhan Özek",
+    "name": "Ahmet Yıldırım",
     "clubs": [
-      "Gençlerbirliği",
-      "Çaykur Rizespor"
-    ]
-  },
-  {
-    "name": "Ahmet Şahin",
-    "clubs": [
-      "Karagümrük",
-      "Kocaelispor",
-      "Samsunspor",
-      "Trabzonspor"
+      "Beşiktaş",
+      "Fenerbahçe",
+      "Galatasaray",
+      "Samsunspor"
     ]
   },
   {
@@ -839,20 +838,20 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Aksel Aktaş",
-    "clubs": [
-      "Gençlerbirliği",
-      "Karagümrük",
-      "Kayserispor"
-    ]
-  },
-  {
     "name": "Akın Dağdelen",
     "clubs": [
       "Antalyaspor",
       "Eyüpspor",
       "Göztepe",
       "Samsunspor"
+    ]
+  },
+  {
+    "name": "Aksel Aktaş",
+    "clubs": [
+      "Gençlerbirliği",
+      "Karagümrük",
+      "Kayserispor"
     ]
   },
   {
@@ -1399,6 +1398,13 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Ali Çakır",
+    "clubs": [
+      "Antalyaspor",
+      "Kocaelispor"
+    ]
+  },
+  {
     "name": "Ali Dere",
     "clubs": [
       "Göztepe",
@@ -1457,6 +1463,13 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Ali Ülgen",
+    "clubs": [
+      "Galatasaray",
+      "Samsunspor"
+    ]
+  },
+  {
     "name": "Ali Yavuz Kol",
     "clubs": [
       "Antalyaspor",
@@ -1470,20 +1483,6 @@ export const PLAYERS = [
     "clubs": [
       "Antalyaspor",
       "Konyaspor"
-    ]
-  },
-  {
-    "name": "Ali Çakır",
-    "clubs": [
-      "Antalyaspor",
-      "Kocaelispor"
-    ]
-  },
-  {
-    "name": "Ali Ülgen",
-    "clubs": [
-      "Galatasaray",
-      "Samsunspor"
     ]
   },
   {
@@ -2258,6 +2257,48 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Anıl Batın Aydın",
+    "clubs": [
+      "Galatasaray",
+      "Sivasspor"
+    ]
+  },
+  {
+    "name": "Anıl Dilaver",
+    "clubs": [
+      "Denizlispor",
+      "Galatasaray",
+      "Samsunspor"
+    ]
+  },
+  {
+    "name": "Anıl Karaer",
+    "clubs": [
+      "Galatasaray",
+      "Gençlerbirliği",
+      "Kayserispor",
+      "Çaykur Rizespor"
+    ]
+  },
+  {
+    "name": "Anıl Koç",
+    "clubs": [
+      "Antalyaspor",
+      "Kasımpaşa"
+    ]
+  },
+  {
+    "name": "Anıl Taşdemir",
+    "clubs": [
+      "Denizlispor",
+      "Göztepe",
+      "Karagümrük",
+      "Kayserispor",
+      "Samsunspor",
+      "Trabzonspor"
+    ]
+  },
+  {
     "name": "Anis Mehmeti",
     "clubs": [
       "Fulham",
@@ -2452,48 +2493,6 @@ export const PLAYERS = [
       "Ajax",
       "Aston Villa",
       "Everton"
-    ]
-  },
-  {
-    "name": "Anıl Batın Aydın",
-    "clubs": [
-      "Galatasaray",
-      "Sivasspor"
-    ]
-  },
-  {
-    "name": "Anıl Dilaver",
-    "clubs": [
-      "Denizlispor",
-      "Galatasaray",
-      "Samsunspor"
-    ]
-  },
-  {
-    "name": "Anıl Karaer",
-    "clubs": [
-      "Galatasaray",
-      "Gençlerbirliği",
-      "Kayserispor",
-      "Çaykur Rizespor"
-    ]
-  },
-  {
-    "name": "Anıl Koç",
-    "clubs": [
-      "Antalyaspor",
-      "Kasımpaşa"
-    ]
-  },
-  {
-    "name": "Anıl Taşdemir",
-    "clubs": [
-      "Denizlispor",
-      "Göztepe",
-      "Karagümrük",
-      "Kayserispor",
-      "Samsunspor",
-      "Trabzonspor"
     ]
   },
   {
@@ -2784,6 +2783,13 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Atınç Nukan",
+    "clubs": [
+      "Beşiktaş",
+      "Göztepe"
+    ]
+  },
+  {
     "name": "Atila Turan",
     "clubs": [
       "Kasımpaşa",
@@ -2819,13 +2825,6 @@ export const PLAYERS = [
     "clubs": [
       "Fenerbahçe",
       "Kasımpaşa"
-    ]
-  },
-  {
-    "name": "Atınç Nukan",
-    "clubs": [
-      "Beşiktaş",
-      "Göztepe"
     ]
   },
   {
@@ -3015,16 +3014,16 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Bahadır Sekizkardeş",
+    "name": "Bahadır Öztürk",
     "clubs": [
-      "Beşiktaş",
+      "Antalyaspor",
       "Çaykur Rizespor"
     ]
   },
   {
-    "name": "Bahadır Öztürk",
+    "name": "Bahadır Sekizkardeş",
     "clubs": [
-      "Antalyaspor",
+      "Beşiktaş",
       "Çaykur Rizespor"
     ]
   },
@@ -3086,29 +3085,6 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Barryannan",
-    "clubs": [
-      "Aston Villa",
-      "Crystal Palace",
-      "Leeds United"
-    ]
-  },
-  {
-    "name": "Bartuğ Elmaz",
-    "clubs": [
-      "Fenerbahçe",
-      "Galatasaray",
-      "Sivasspor"
-    ]
-  },
-  {
-    "name": "Barış Bayram",
-    "clubs": [
-      "Antalyaspor",
-      "Kayserispor"
-    ]
-  },
-  {
     "name": "Barış Başdaş",
     "clubs": [
       "Alanyaspor",
@@ -3117,6 +3093,13 @@ export const PLAYERS = [
       "Karagümrük",
       "Kasımpaşa",
       "Samsunspor"
+    ]
+  },
+  {
+    "name": "Barış Bayram",
+    "clubs": [
+      "Antalyaspor",
+      "Kayserispor"
     ]
   },
   {
@@ -3141,6 +3124,15 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Barış Özbek",
+    "clubs": [
+      "Galatasaray",
+      "Karagümrük",
+      "Kayserispor",
+      "Trabzonspor"
+    ]
+  },
+  {
     "name": "Barış Sağır",
     "clubs": [
       "Antalyaspor",
@@ -3148,12 +3140,19 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Barış Özbek",
+    "name": "Barryannan",
     "clubs": [
+      "Aston Villa",
+      "Crystal Palace",
+      "Leeds United"
+    ]
+  },
+  {
+    "name": "Bartuğ Elmaz",
+    "clubs": [
+      "Fenerbahçe",
       "Galatasaray",
-      "Karagümrük",
-      "Kayserispor",
-      "Trabzonspor"
+      "Sivasspor"
     ]
   },
   {
@@ -3171,22 +3170,6 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Batuhan Karadeniz",
-    "clubs": [
-      "Beşiktaş",
-      "Sivasspor",
-      "Trabzonspor"
-    ]
-  },
-  {
-    "name": "Batuhan Yayıkcı",
-    "clubs": [
-      "Fenerbahçe",
-      "Karagümrük",
-      "Kocaelispor"
-    ]
-  },
-  {
     "name": "Batuhan Çakır",
     "clubs": [
       "Başakşehir",
@@ -3201,10 +3184,26 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Batuhan Karadeniz",
+    "clubs": [
+      "Beşiktaş",
+      "Sivasspor",
+      "Trabzonspor"
+    ]
+  },
+  {
     "name": "Batuhan Şen",
     "clubs": [
       "Galatasaray",
       "Gaziantep FK",
+      "Karagümrük",
+      "Kocaelispor"
+    ]
+  },
+  {
+    "name": "Batuhan Yayıkcı",
+    "clubs": [
+      "Fenerbahçe",
       "Karagümrük",
       "Kocaelispor"
     ]
@@ -3249,18 +3248,18 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Bekir Yılmaz",
-    "clubs": [
-      "Eyüpspor",
-      "Gençlerbirliği"
-    ]
-  },
-  {
     "name": "Bekir İrtegün",
     "clubs": [
       "Başakşehir",
       "Fenerbahçe",
       "Gaziantepspor"
+    ]
+  },
+  {
+    "name": "Bekir Yılmaz",
+    "clubs": [
+      "Eyüpspor",
+      "Gençlerbirliği"
     ]
   },
   {
@@ -3511,6 +3510,21 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Berkay Özcan",
+    "clubs": [
+      "Başakşehir",
+      "Karagümrük",
+      "Çaykur Rizespor"
+    ]
+  },
+  {
+    "name": "Berkay Öztuvan",
+    "clubs": [
+      "Fenerbahçe",
+      "Göztepe"
+    ]
+  },
+  {
     "name": "Berkay Sefa Kara",
     "clubs": [
       "Fenerbahçe",
@@ -3529,21 +3543,6 @@ export const PLAYERS = [
     "clubs": [
       "Beşiktaş",
       "Karagümrük"
-    ]
-  },
-  {
-    "name": "Berkay Özcan",
-    "clubs": [
-      "Başakşehir",
-      "Karagümrük",
-      "Çaykur Rizespor"
-    ]
-  },
-  {
-    "name": "Berkay Öztuvan",
-    "clubs": [
-      "Fenerbahçe",
-      "Göztepe"
     ]
   },
   {
@@ -3649,19 +3648,19 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Bilal Bayazıt",
-    "clubs": [
-      "Ajax",
-      "Kayserispor"
-    ]
-  },
-  {
     "name": "Bilal Başaçıkoğlu",
     "clubs": [
       "Ajax",
       "Gaziantep FK",
       "Kayserispor",
       "Trabzonspor"
+    ]
+  },
+  {
+    "name": "Bilal Bayazıt",
+    "clubs": [
+      "Ajax",
+      "Kayserispor"
     ]
   },
   {
@@ -4044,6 +4043,14 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Buğra Çağıran",
+    "clubs": [
+      "Gençlerbirliği",
+      "Samsunspor",
+      "Trabzonspor"
+    ]
+  },
+  {
     "name": "Buluthan Bulut",
     "clubs": [
       "Alanyaspor",
@@ -4137,14 +4144,6 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Buğra Çağıran",
-    "clubs": [
-      "Gençlerbirliği",
-      "Samsunspor",
-      "Trabzonspor"
-    ]
-  },
-  {
     "name": "Bülent Aslan",
     "clubs": [
       "Alanyaspor",
@@ -4190,13 +4189,6 @@ export const PLAYERS = [
     "clubs": [
       "Başakşehir",
       "Kasımpaşa"
-    ]
-  },
-  {
-    "name": "CJ Egan-Riley",
-    "clubs": [
-      "Burnley",
-      "Manchester City"
     ]
   },
   {
@@ -4702,6 +4694,14 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Cenk Şahin",
+    "clubs": [
+      "Başakşehir",
+      "Gaziantep FK",
+      "Kayserispor"
+    ]
+  },
+  {
     "name": "Cenk Tosun",
     "clubs": [
       "Beşiktaş",
@@ -4709,14 +4709,6 @@ export const PLAYERS = [
       "Everton",
       "Fenerbahçe",
       "Gaziantepspor"
-    ]
-  },
-  {
-    "name": "Cenk Şahin",
-    "clubs": [
-      "Başakşehir",
-      "Gaziantep FK",
-      "Kayserispor"
     ]
   },
   {
@@ -5094,6 +5086,13 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Ci¢ndido Costa",
+    "clubs": [
+      "Benfica",
+      "FC Porto"
+    ]
+  },
+  {
     "name": "Cicinho",
     "clubs": [
       "AS Roma",
@@ -5110,17 +5109,17 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Cihan Yilmaz",
-    "clubs": [
-      "Göztepe",
-      "Sivasspor"
-    ]
-  },
-  {
     "name": "Cihan Özkaymak",
     "clubs": [
       "Alanyaspor",
       "Denizlispor"
+    ]
+  },
+  {
+    "name": "Cihan Yilmaz",
+    "clubs": [
+      "Göztepe",
+      "Sivasspor"
     ]
   },
   {
@@ -5147,10 +5146,10 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Ci¢ndido Costa",
+    "name": "CJ Egan-Riley",
     "clubs": [
-      "Benfica",
-      "FC Porto"
+      "Burnley",
+      "Manchester City"
     ]
   },
   {
@@ -5506,10 +5505,56 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "DJ Campbell",
+    "name": "Çağatay Tekin",
     "clubs": [
-      "Aston Villa",
-      "Brentford"
+      "Karagümrük",
+      "Samsunspor"
+    ]
+  },
+  {
+    "name": "Çağdaş Atan",
+    "clubs": [
+      "Beşiktaş",
+      "Denizlispor",
+      "Trabzonspor"
+    ]
+  },
+  {
+    "name": "Çağlar Akbaba",
+    "clubs": [
+      "Eyüpspor",
+      "Gaziantep FK"
+    ]
+  },
+  {
+    "name": "Çağlar Birinci",
+    "clubs": [
+      "Denizlispor",
+      "Galatasaray",
+      "Kayserispor",
+      "Trabzonspor"
+    ]
+  },
+  {
+    "name": "Çağtay Kurukalıp",
+    "clubs": [
+      "Fenerbahçe",
+      "Karagümrük",
+      "Kasımpaşa"
+    ]
+  },
+  {
+    "name": "Çekdar Orhan",
+    "clubs": [
+      "Antalyaspor",
+      "Galatasaray"
+    ]
+  },
+  {
+    "name": "Çetin Güner",
+    "clubs": [
+      "Gaziantepspor",
+      "Trabzonspor"
     ]
   },
   {
@@ -6154,6 +6199,13 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "David de Gea",
+    "clubs": [
+      "Atlético Madrid",
+      "Manchester United"
+    ]
+  },
+  {
     "name": "David Edgar",
     "clubs": [
       "Burnley",
@@ -6329,13 +6381,6 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "David de Gea",
-    "clubs": [
-      "Atlético Madrid",
-      "Manchester United"
-    ]
-  },
-  {
     "name": "Davide Astori",
     "clubs": [
       "AC Milan",
@@ -6419,15 +6464,6 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "DeAndre Yedlin",
-    "clubs": [
-      "Galatasaray",
-      "Newcastle United",
-      "Sunderland",
-      "Tottenham"
-    ]
-  },
-  {
     "name": "Dean Henderson",
     "clubs": [
       "Crystal Palace",
@@ -6455,6 +6491,15 @@ export const PLAYERS = [
     "clubs": [
       "Tottenham",
       "Wolverhampton"
+    ]
+  },
+  {
+    "name": "DeAndre Yedlin",
+    "clubs": [
+      "Galatasaray",
+      "Newcastle United",
+      "Sunderland",
+      "Tottenham"
     ]
   },
   {
@@ -6989,6 +7034,13 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "DJ Campbell",
+    "clubs": [
+      "Aston Villa",
+      "Brentford"
+    ]
+  },
+  {
     "name": "Djalma",
     "clubs": [
       "Alanyaspor",
@@ -7032,6 +7084,44 @@ export const PLAYERS = [
     "clubs": [
       "AS Roma",
       "Inter"
+    ]
+  },
+  {
+    "name": "Doğa Kaya",
+    "clubs": [
+      "Antalyaspor",
+      "Gençlerbirliği",
+      "Göztepe",
+      "Kayserispor",
+      "Sivasspor"
+    ]
+  },
+  {
+    "name": "Doğan Alemdar",
+    "clubs": [
+      "Başakşehir",
+      "Kayserispor"
+    ]
+  },
+  {
+    "name": "Doğan Baykuş",
+    "clubs": [
+      "Karagümrük",
+      "Kocaelispor"
+    ]
+  },
+  {
+    "name": "Doğucan Haspolat",
+    "clubs": [
+      "Kasımpaşa",
+      "Trabzonspor"
+    ]
+  },
+  {
+    "name": "Doğukan Özkan",
+    "clubs": [
+      "Antalyaspor",
+      "Beşiktaş"
     ]
   },
   {
@@ -7172,44 +7262,6 @@ export const PLAYERS = [
     "clubs": [
       "Kocaelispor",
       "Samsunspor"
-    ]
-  },
-  {
-    "name": "Doğa Kaya",
-    "clubs": [
-      "Antalyaspor",
-      "Gençlerbirliği",
-      "Göztepe",
-      "Kayserispor",
-      "Sivasspor"
-    ]
-  },
-  {
-    "name": "Doğan Alemdar",
-    "clubs": [
-      "Başakşehir",
-      "Kayserispor"
-    ]
-  },
-  {
-    "name": "Doğan Baykuş",
-    "clubs": [
-      "Karagümrük",
-      "Kocaelispor"
-    ]
-  },
-  {
-    "name": "Doğucan Haspolat",
-    "clubs": [
-      "Kasımpaşa",
-      "Trabzonspor"
-    ]
-  },
-  {
-    "name": "Doğukan Özkan",
-    "clubs": [
-      "Antalyaspor",
-      "Beşiktaş"
     ]
   },
   {
@@ -7447,6 +7499,13 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Efe Özarslan",
+    "clubs": [
+      "Gençlerbirliği",
+      "Kayserispor"
+    ]
+  },
+  {
     "name": "Efe Tatlı",
     "clubs": [
       "Galatasaray",
@@ -7458,13 +7517,6 @@ export const PLAYERS = [
     "clubs": [
       "Beşiktaş",
       "Çaykur Rizespor"
-    ]
-  },
-  {
-    "name": "Efe Özarslan",
-    "clubs": [
-      "Gençlerbirliği",
-      "Kayserispor"
     ]
   },
   {
@@ -7543,17 +7595,17 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Ekrem Köse",
-    "clubs": [
-      "Beşiktaş",
-      "Kocaelispor"
-    ]
-  },
-  {
     "name": "Ekrem Kılıçarslan",
     "clubs": [
       "Gaziantep FK",
       "Göztepe"
+    ]
+  },
+  {
+    "name": "Ekrem Köse",
+    "clubs": [
+      "Beşiktaş",
+      "Kocaelispor"
     ]
   },
   {
@@ -7826,6 +7878,13 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Emirhan İlkhan",
+    "clubs": [
+      "Başakşehir",
+      "Beşiktaş"
+    ]
+  },
+  {
     "name": "Emirhan Parmaksız",
     "clubs": [
       "Fenerbahçe",
@@ -7837,13 +7896,6 @@ export const PLAYERS = [
     "clubs": [
       "Beşiktaş",
       "Çaykur Rizespor"
-    ]
-  },
-  {
-    "name": "Emirhan İlkhan",
-    "clubs": [
-      "Başakşehir",
-      "Beşiktaş"
     ]
   },
   {
@@ -7951,6 +8003,15 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Emre Çolak",
+    "clubs": [
+      "Başakşehir",
+      "Galatasaray",
+      "Göztepe",
+      "Karagümrük"
+    ]
+  },
+  {
     "name": "Emre Demir",
     "clubs": [
       "Fenerbahçe",
@@ -8026,15 +8087,6 @@ export const PLAYERS = [
     "clubs": [
       "Galatasaray",
       "Konyaspor"
-    ]
-  },
-  {
-    "name": "Emre Çolak",
-    "clubs": [
-      "Başakşehir",
-      "Galatasaray",
-      "Göztepe",
-      "Karagümrük"
     ]
   },
   {
@@ -8242,6 +8294,14 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Erdal Öztürk",
+    "clubs": [
+      "Gençlerbirliği",
+      "Karagümrük",
+      "Kayserispor"
+    ]
+  },
+  {
     "name": "Erdal Rakip",
     "clubs": [
       "Antalyaspor",
@@ -8257,18 +8317,18 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Erdal Öztürk",
-    "clubs": [
-      "Gençlerbirliği",
-      "Karagümrük",
-      "Kayserispor"
-    ]
-  },
-  {
     "name": "Erdem Canpolat",
     "clubs": [
       "Kasımpaşa",
       "Çaykur Rizespor"
+    ]
+  },
+  {
+    "name": "Erdem Özgenç",
+    "clubs": [
+      "Fenerbahçe",
+      "Gençlerbirliği",
+      "Karagümrük"
     ]
   },
   {
@@ -8284,14 +8344,6 @@ export const PLAYERS = [
     "clubs": [
       "Gaziantep FK",
       "Göztepe"
-    ]
-  },
-  {
-    "name": "Erdem Özgenç",
-    "clubs": [
-      "Fenerbahçe",
-      "Gençlerbirliği",
-      "Karagümrük"
     ]
   },
   {
@@ -8670,17 +8722,17 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Ertuğrul Ersoy",
-    "clubs": [
-      "Gaziantep FK",
-      "Çaykur Rizespor"
-    ]
-  },
-  {
     "name": "Ertuğrul Çetin",
     "clubs": [
       "Fenerbahçe",
       "Gençlerbirliği"
+    ]
+  },
+  {
+    "name": "Ertuğrul Ersoy",
+    "clubs": [
+      "Gaziantep FK",
+      "Çaykur Rizespor"
     ]
   },
   {
@@ -8703,6 +8755,13 @@ export const PLAYERS = [
     "clubs": [
       "Inter",
       "Real Madrid"
+    ]
+  },
+  {
+    "name": "Eşref Korkmazoğlu",
+    "clubs": [
+      "Başakşehir",
+      "Eyüpspor"
     ]
   },
   {
@@ -8819,13 +8878,6 @@ export const PLAYERS = [
     "clubs": [
       "Aston Villa",
       "Brentford"
-    ]
-  },
-  {
-    "name": "Eşref Korkmazoğlu",
-    "clubs": [
-      "Başakşehir",
-      "Eyüpspor"
     ]
   },
   {
@@ -9062,13 +9114,6 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Fatih Kurucuk",
-    "clubs": [
-      "Göztepe",
-      "Karagümrük"
-    ]
-  },
-  {
     "name": "Fatih Kıran",
     "clubs": [
       "Göztepe",
@@ -9076,10 +9121,35 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Fatih Kurucuk",
+    "clubs": [
+      "Göztepe",
+      "Karagümrük"
+    ]
+  },
+  {
+    "name": "Fatih Öztürk",
+    "clubs": [
+      "Eyüpspor",
+      "Galatasaray",
+      "Kasımpaşa",
+      "Trabzonspor"
+    ]
+  },
+  {
     "name": "Fatih Sezer",
     "clubs": [
       "Antalyaspor",
       "Kayserispor",
+      "Konyaspor",
+      "Samsunspor"
+    ]
+  },
+  {
+    "name": "Fatih Şen",
+    "clubs": [
+      "Gaziantepspor",
+      "Kocaelispor",
       "Konyaspor",
       "Samsunspor"
     ]
@@ -9104,24 +9174,6 @@ export const PLAYERS = [
     "clubs": [
       "Denizlispor",
       "Göztepe"
-    ]
-  },
-  {
-    "name": "Fatih Öztürk",
-    "clubs": [
-      "Eyüpspor",
-      "Galatasaray",
-      "Kasımpaşa",
-      "Trabzonspor"
-    ]
-  },
-  {
-    "name": "Fatih Şen",
-    "clubs": [
-      "Gaziantepspor",
-      "Kocaelispor",
-      "Konyaspor",
-      "Samsunspor"
     ]
   },
   {
@@ -9262,25 +9314,18 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Ferhat Kiraz",
-    "clubs": [
-      "Gençlerbirliği",
-      "Kasımpaşa"
-    ]
-  },
-  {
-    "name": "Ferhat Yayla",
-    "clubs": [
-      "Eyüpspor",
-      "Sivasspor"
-    ]
-  },
-  {
     "name": "Ferhat Çulcuoğlu",
     "clubs": [
       "Fenerbahçe",
       "Göztepe",
       "Samsunspor"
+    ]
+  },
+  {
+    "name": "Ferhat Kiraz",
+    "clubs": [
+      "Gençlerbirliği",
+      "Kasımpaşa"
     ]
   },
   {
@@ -9290,6 +9335,13 @@ export const PLAYERS = [
       "Galatasaray",
       "Konyaspor",
       "Trabzonspor"
+    ]
+  },
+  {
+    "name": "Ferhat Yayla",
+    "clubs": [
+      "Eyüpspor",
+      "Sivasspor"
     ]
   },
   {
@@ -9403,6 +9455,36 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Fırat Akkoyun",
+    "clubs": [
+      "Alanyaspor",
+      "Kayserispor",
+      "Konyaspor"
+    ]
+  },
+  {
+    "name": "Fırat Arıkan",
+    "clubs": [
+      "Alanyaspor",
+      "Antalyaspor"
+    ]
+  },
+  {
+    "name": "Fırat Çakmak",
+    "clubs": [
+      "Denizlispor",
+      "Eyüpspor"
+    ]
+  },
+  {
+    "name": "Fıratcan Üzüm",
+    "clubs": [
+      "Gençlerbirliği",
+      "Göztepe",
+      "Trabzonspor"
+    ]
+  },
+  {
     "name": "Fikayo Tomori",
     "clubs": [
       "AC Milan",
@@ -9425,18 +9507,18 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Filipe da Costa",
+    "clubs": [
+      "Benfica",
+      "Leeds United"
+    ]
+  },
+  {
     "name": "Filipe Luis",
     "clubs": [
       "Ajax",
       "Atlético Madrid",
       "Chelsea"
-    ]
-  },
-  {
-    "name": "Filipe da Costa",
-    "clubs": [
-      "Benfica",
-      "Leeds United"
     ]
   },
   {
@@ -9644,6 +9726,13 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "François Moubandje",
+    "clubs": [
+      "Alanyaspor",
+      "Göztepe"
+    ]
+  },
+  {
     "name": "Frank Anguissa",
     "clubs": [
       "Fulham",
@@ -9685,13 +9774,6 @@ export const PLAYERS = [
     "clubs": [
       "Ajax",
       "Newcastle United"
-    ]
-  },
-  {
-    "name": "François Moubandje",
-    "clubs": [
-      "Alanyaspor",
-      "Göztepe"
     ]
   },
   {
@@ -9817,21 +9899,6 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Furkan Korkut",
-    "clubs": [
-      "Galatasaray",
-      "Gençlerbirliği"
-    ]
-  },
-  {
-    "name": "Furkan Soyalp",
-    "clubs": [
-      "Başakşehir",
-      "Gaziantep FK",
-      "Kayserispor"
-    ]
-  },
-  {
     "name": "Furkan Çolak",
     "clubs": [
       "Beşiktaş",
@@ -9839,9 +9906,24 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Furkan Korkut",
+    "clubs": [
+      "Galatasaray",
+      "Gençlerbirliği"
+    ]
+  },
+  {
     "name": "Furkan Özçal",
     "clubs": [
       "Galatasaray",
+      "Kayserispor"
+    ]
+  },
+  {
+    "name": "Furkan Soyalp",
+    "clubs": [
+      "Başakşehir",
+      "Gaziantep FK",
       "Kayserispor"
     ]
   },
@@ -9859,36 +9941,6 @@ export const PLAYERS = [
     "clubs": [
       "Arsenal",
       "Brighton"
-    ]
-  },
-  {
-    "name": "Fırat Akkoyun",
-    "clubs": [
-      "Alanyaspor",
-      "Kayserispor",
-      "Konyaspor"
-    ]
-  },
-  {
-    "name": "Fırat Arıkan",
-    "clubs": [
-      "Alanyaspor",
-      "Antalyaspor"
-    ]
-  },
-  {
-    "name": "Fırat Çakmak",
-    "clubs": [
-      "Denizlispor",
-      "Eyüpspor"
-    ]
-  },
-  {
-    "name": "Fıratcan Üzüm",
-    "clubs": [
-      "Gençlerbirliği",
-      "Göztepe",
-      "Trabzonspor"
     ]
   },
   {
@@ -10531,6 +10583,20 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Gonçalo Borges",
+    "clubs": [
+      "Benfica",
+      "FC Porto"
+    ]
+  },
+  {
+    "name": "Gonçalo Guedes",
+    "clubs": [
+      "Benfica",
+      "Wolverhampton"
+    ]
+  },
+  {
     "name": "Gonzalo Higuain",
     "clubs": [
       "AC Milan",
@@ -10548,20 +10614,6 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Gonçalo Borges",
-    "clubs": [
-      "Benfica",
-      "FC Porto"
-    ]
-  },
-  {
-    "name": "Gonçalo Guedes",
-    "clubs": [
-      "Benfica",
-      "Wolverhampton"
-    ]
-  },
-  {
     "name": "Goran Pandev",
     "clubs": [
       "Galatasaray",
@@ -10574,6 +10626,190 @@ export const PLAYERS = [
     "clubs": [
       "Burnley",
       "Sunderland"
+    ]
+  },
+  {
+    "name": "Gökay Keleş",
+    "clubs": [
+      "Sivasspor",
+      "Trabzonspor"
+    ]
+  },
+  {
+    "name": "Gökdeniz Bayrakdar",
+    "clubs": [
+      "Antalyaspor",
+      "Kocaelispor"
+    ]
+  },
+  {
+    "name": "Gökhan Alsan",
+    "clubs": [
+      "Gaziantep FK",
+      "Samsunspor",
+      "Trabzonspor"
+    ]
+  },
+  {
+    "name": "Gökhan Bozkaya",
+    "clubs": [
+      "Antalyaspor",
+      "Fenerbahçe",
+      "Kocaelispor",
+      "Sivasspor"
+    ]
+  },
+  {
+    "name": "Gökhan Caba",
+    "clubs": [
+      "Eyüpspor",
+      "Karagümrük",
+      "Kasımpaşa"
+    ]
+  },
+  {
+    "name": "Gökhan Değirmenci",
+    "clubs": [
+      "Gaziantepspor",
+      "Göztepe",
+      "Kayserispor",
+      "Kocaelispor"
+    ]
+  },
+  {
+    "name": "Gökhan Emreciksin",
+    "clubs": [
+      "Fenerbahçe",
+      "Göztepe",
+      "Kayserispor",
+      "Konyaspor"
+    ]
+  },
+  {
+    "name": "Gökhan Gönül",
+    "clubs": [
+      "Beşiktaş",
+      "Fenerbahçe",
+      "Gençlerbirliği",
+      "Çaykur Rizespor"
+    ]
+  },
+  {
+    "name": "Gökhan Gül",
+    "clubs": [
+      "Gençlerbirliği",
+      "Kasımpaşa"
+    ]
+  },
+  {
+    "name": "Gökhan Güleç",
+    "clubs": [
+      "Beşiktaş",
+      "Denizlispor",
+      "Gaziantepspor",
+      "Kasımpaşa"
+    ]
+  },
+  {
+    "name": "Gökhan Inler",
+    "clubs": [
+      "Başakşehir",
+      "Beşiktaş",
+      "Napoli"
+    ]
+  },
+  {
+    "name": "Gökhan Karadeniz",
+    "clubs": [
+      "Antalyaspor",
+      "Göztepe",
+      "Samsunspor",
+      "Trabzonspor"
+    ]
+  },
+  {
+    "name": "Gökhan Sazdağı",
+    "clubs": [
+      "Beşiktaş",
+      "Kayserispor",
+      "Karagümrük",
+      "Fenerbahçe"
+    ]
+  },
+  {
+    "name": "Gökhan Süzen",
+    "clubs": [
+      "Beşiktaş",
+      "Denizlispor",
+      "Galatasaray",
+      "Gaziantepspor",
+      "Sivasspor"
+    ]
+  },
+  {
+    "name": "Gökhan Tokgöz",
+    "clubs": [
+      "Gençlerbirliği",
+      "Konyaspor"
+    ]
+  },
+  {
+    "name": "Gökhan Töre",
+    "clubs": [
+      "Beşiktaş",
+      "Chelsea",
+      "Konyaspor",
+      "West Ham"
+    ]
+  },
+  {
+    "name": "Gökhan Ünal",
+    "clubs": [
+      "Fenerbahçe",
+      "Gençlerbirliği",
+      "Kayserispor",
+      "Trabzonspor"
+    ]
+  },
+  {
+    "name": "Gökhan Zan",
+    "clubs": [
+      "Beşiktaş",
+      "Galatasaray",
+      "Gaziantepspor"
+    ]
+  },
+  {
+    "name": "Göksel Akıncı",
+    "clubs": [
+      "Denizlispor",
+      "Eyüpspor",
+      "Gaziantepspor",
+      "Gençlerbirliği",
+      "Göztepe",
+      "Kasımpaşa"
+    ]
+  },
+  {
+    "name": "Göksel Yaman",
+    "clubs": [
+      "Göztepe",
+      "Trabzonspor"
+    ]
+  },
+  {
+    "name": "Göktan Gürpüz",
+    "clubs": [
+      "Gençlerbirliği",
+      "Karagümrük",
+      "Trabzonspor"
+    ]
+  },
+  {
+    "name": "Göktuğ Bakırbaş",
+    "clubs": [
+      "Göztepe",
+      "Sivasspor"
     ]
   },
   {
@@ -10714,195 +10950,6 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Gylfi Sigurdsson",
-    "clubs": [
-      "Everton",
-      "Tottenham"
-    ]
-  },
-  {
-    "name": "Gyliano van Velzen",
-    "clubs": [
-      "Ajax",
-      "Manchester United"
-    ]
-  },
-  {
-    "name": "Gökay Keleş",
-    "clubs": [
-      "Sivasspor",
-      "Trabzonspor"
-    ]
-  },
-  {
-    "name": "Gökdeniz Bayrakdar",
-    "clubs": [
-      "Antalyaspor",
-      "Kocaelispor"
-    ]
-  },
-  {
-    "name": "Gökhan Alsan",
-    "clubs": [
-      "Gaziantep FK",
-      "Samsunspor",
-      "Trabzonspor"
-    ]
-  },
-  {
-    "name": "Gökhan Bozkaya",
-    "clubs": [
-      "Antalyaspor",
-      "Fenerbahçe",
-      "Kocaelispor",
-      "Sivasspor"
-    ]
-  },
-  {
-    "name": "Gökhan Caba",
-    "clubs": [
-      "Eyüpspor",
-      "Karagümrük",
-      "Kasımpaşa"
-    ]
-  },
-  {
-    "name": "Gökhan Değirmenci",
-    "clubs": [
-      "Gaziantepspor",
-      "Göztepe",
-      "Kayserispor",
-      "Kocaelispor"
-    ]
-  },
-  {
-    "name": "Gökhan Emreciksin",
-    "clubs": [
-      "Fenerbahçe",
-      "Göztepe",
-      "Kayserispor",
-      "Konyaspor"
-    ]
-  },
-  {
-    "name": "Gökhan Gönül",
-    "clubs": [
-      "Beşiktaş",
-      "Fenerbahçe",
-      "Gençlerbirliği",
-      "Çaykur Rizespor"
-    ]
-  },
-  {
-    "name": "Gökhan Gül",
-    "clubs": [
-      "Gençlerbirliği",
-      "Kasımpaşa"
-    ]
-  },
-  {
-    "name": "Gökhan Güleç",
-    "clubs": [
-      "Beşiktaş",
-      "Denizlispor",
-      "Gaziantepspor",
-      "Kasımpaşa"
-    ]
-  },
-  {
-    "name": "Gökhan Inler",
-    "clubs": [
-      "Başakşehir",
-      "Beşiktaş",
-      "Napoli"
-    ]
-  },
-  {
-    "name": "Gökhan Karadeniz",
-    "clubs": [
-      "Antalyaspor",
-      "Göztepe",
-      "Samsunspor",
-      "Trabzonspor"
-    ]
-  },
-  {
-    "name": "Gökhan Süzen",
-    "clubs": [
-      "Beşiktaş",
-      "Denizlispor",
-      "Galatasaray",
-      "Gaziantepspor",
-      "Sivasspor"
-    ]
-  },
-  {
-    "name": "Gökhan Tokgöz",
-    "clubs": [
-      "Gençlerbirliği",
-      "Konyaspor"
-    ]
-  },
-  {
-    "name": "Gökhan Töre",
-    "clubs": [
-      "Beşiktaş",
-      "Chelsea",
-      "Konyaspor",
-      "West Ham"
-    ]
-  },
-  {
-    "name": "Gökhan Zan",
-    "clubs": [
-      "Beşiktaş",
-      "Galatasaray",
-      "Gaziantepspor"
-    ]
-  },
-  {
-    "name": "Gökhan Ünal",
-    "clubs": [
-      "Fenerbahçe",
-      "Gençlerbirliği",
-      "Kayserispor",
-      "Trabzonspor"
-    ]
-  },
-  {
-    "name": "Göksel Akıncı",
-    "clubs": [
-      "Denizlispor",
-      "Eyüpspor",
-      "Gaziantepspor",
-      "Gençlerbirliği",
-      "Göztepe",
-      "Kasımpaşa"
-    ]
-  },
-  {
-    "name": "Göksel Yaman",
-    "clubs": [
-      "Göztepe",
-      "Trabzonspor"
-    ]
-  },
-  {
-    "name": "Göktan Gürpüz",
-    "clubs": [
-      "Gençlerbirliği",
-      "Karagümrük",
-      "Trabzonspor"
-    ]
-  },
-  {
-    "name": "Göktuğ Bakırbaş",
-    "clubs": [
-      "Göztepe",
-      "Sivasspor"
-    ]
-  },
-  {
     "name": "Günay Güvenç",
     "clubs": [
       "Beşiktaş",
@@ -10956,6 +11003,20 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Gylfi Sigurdsson",
+    "clubs": [
+      "Everton",
+      "Tottenham"
+    ]
+  },
+  {
+    "name": "Gyliano van Velzen",
+    "clubs": [
+      "Ajax",
+      "Manchester United"
+    ]
+  },
+  {
     "name": "Habib Habibou",
     "clubs": [
       "Gaziantepspor",
@@ -10985,14 +11046,6 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Hakan Arslan",
-    "clubs": [
-      "Kasımpaşa",
-      "Samsunspor",
-      "Sivasspor"
-    ]
-  },
-  {
     "name": "Hakan Arıkan",
     "clubs": [
       "Antalyaspor",
@@ -11001,6 +11054,14 @@ export const PLAYERS = [
       "Kayserispor",
       "Kocaelispor",
       "Trabzonspor"
+    ]
+  },
+  {
+    "name": "Hakan Arslan",
+    "clubs": [
+      "Kasımpaşa",
+      "Samsunspor",
+      "Sivasspor"
     ]
   },
   {
@@ -11035,6 +11096,22 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Hakan Çalhanoğlu",
+    "clubs": [
+      "AC Milan",
+      "Inter"
+    ]
+  },
+  {
+    "name": "Hakan Çinemre",
+    "clubs": [
+      "Denizlispor",
+      "Fenerbahçe",
+      "Gaziantepspor",
+      "Göztepe"
+    ]
+  },
+  {
     "name": "Hakan Demir",
     "clubs": [
       "Antalyaspor",
@@ -11057,29 +11134,6 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Hakan Saral",
-    "clubs": [
-      "Antalyaspor",
-      "Kasımpaşa"
-    ]
-  },
-  {
-    "name": "Hakan Çalhanoğlu",
-    "clubs": [
-      "AC Milan",
-      "Inter"
-    ]
-  },
-  {
-    "name": "Hakan Çinemre",
-    "clubs": [
-      "Denizlispor",
-      "Fenerbahçe",
-      "Gaziantepspor",
-      "Göztepe"
-    ]
-  },
-  {
     "name": "Hakan Özmert",
     "clubs": [
       "Antalyaspor",
@@ -11089,10 +11143,10 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Hakan Ünsal",
+    "name": "Hakan Saral",
     "clubs": [
-      "Galatasaray",
-      "Çaykur Rizespor"
+      "Antalyaspor",
+      "Kasımpaşa"
     ]
   },
   {
@@ -11100,6 +11154,13 @@ export const PLAYERS = [
     "clubs": [
       "Galatasaray",
       "Inter"
+    ]
+  },
+  {
+    "name": "Hakan Ünsal",
+    "clubs": [
+      "Galatasaray",
+      "Çaykur Rizespor"
     ]
   },
   {
@@ -11133,6 +11194,13 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Halil Çelik",
+    "clubs": [
+      "Eyüpspor",
+      "Göztepe"
+    ]
+  },
+  {
     "name": "Halil Dervişoğlu",
     "clubs": [
       "Brentford",
@@ -11143,25 +11211,18 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Halil Yeral",
-    "clubs": [
-      "Eyüpspor",
-      "Samsunspor"
-    ]
-  },
-  {
-    "name": "Halil Çelik",
-    "clubs": [
-      "Eyüpspor",
-      "Göztepe"
-    ]
-  },
-  {
     "name": "Halil İbrahim Sönmez",
     "clubs": [
       "Konyaspor",
       "Trabzonspor",
       "Çaykur Rizespor"
+    ]
+  },
+  {
+    "name": "Halil Yeral",
+    "clubs": [
+      "Eyüpspor",
+      "Samsunspor"
     ]
   },
   {
@@ -11426,17 +11487,17 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Hasan Yurt",
-    "clubs": [
-      "Gaziantepspor",
-      "Sivasspor"
-    ]
-  },
-  {
     "name": "Hasan Üçüncü",
     "clubs": [
       "Trabzonspor",
       "Çaykur Rizespor"
+    ]
+  },
+  {
+    "name": "Hasan Yurt",
+    "clubs": [
+      "Gaziantepspor",
+      "Sivasspor"
     ]
   },
   {
@@ -11690,18 +11751,17 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Hyun-jun Suk",
-    "clubs": [
-      "Ajax",
-      "FC Porto",
-      "Trabzonspor"
-    ]
-  },
-  {
     "name": "Hüseyin Bak",
     "clubs": [
       "Göztepe",
       "Çaykur Rizespor"
+    ]
+  },
+  {
+    "name": "Hüseyin Çimşir",
+    "clubs": [
+      "Antalyaspor",
+      "Trabzonspor"
     ]
   },
   {
@@ -11734,17 +11794,18 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Hüseyin Çimşir",
-    "clubs": [
-      "Antalyaspor",
-      "Trabzonspor"
-    ]
-  },
-  {
     "name": "Hüsnü Zeybekoğlu",
     "clubs": [
       "Eyüpspor",
       "Fenerbahçe"
+    ]
+  },
+  {
+    "name": "Hyun-jun Suk",
+    "clubs": [
+      "Ajax",
+      "FC Porto",
+      "Trabzonspor"
     ]
   },
   {
@@ -12065,6 +12126,297 @@ export const PLAYERS = [
     "clubs": [
       "Brighton",
       "Leeds United"
+    ]
+  },
+  {
+    "name": "İbrahim Akdağ",
+    "clubs": [
+      "Başakşehir",
+      "Eyüpspor",
+      "Kayserispor",
+      "Sivasspor"
+    ]
+  },
+  {
+    "name": "İbrahim Akın",
+    "clubs": [
+      "Beşiktaş",
+      "Gaziantepspor",
+      "Sivasspor"
+    ]
+  },
+  {
+    "name": "İbrahim Dağaşan",
+    "clubs": [
+      "Antalyaspor",
+      "Kayserispor",
+      "Sivasspor"
+    ]
+  },
+  {
+    "name": "İbrahim Ege",
+    "clubs": [
+      "Denizlispor",
+      "Konyaspor",
+      "Trabzonspor"
+    ]
+  },
+  {
+    "name": "İbrahim Kaş",
+    "clubs": [
+      "Beşiktaş",
+      "Eyüpspor",
+      "Kocaelispor"
+    ]
+  },
+  {
+    "name": "İbrahim Kaya",
+    "clubs": [
+      "Alanyaspor",
+      "Kasımpaşa"
+    ]
+  },
+  {
+    "name": "İbrahim Pehlivan",
+    "clubs": [
+      "Gaziantep FK",
+      "Gençlerbirliği",
+      "Çaykur Rizespor"
+    ]
+  },
+  {
+    "name": "İbrahim Toraman",
+    "clubs": [
+      "Beşiktaş",
+      "Gaziantepspor",
+      "Sivasspor"
+    ]
+  },
+  {
+    "name": "İbrahim Üzülmez",
+    "clubs": [
+      "Beşiktaş",
+      "Gaziantepspor",
+      "Kocaelispor"
+    ]
+  },
+  {
+    "name": "İdris Gümüşdere",
+    "clubs": [
+      "Gençlerbirliği",
+      "Kocaelispor"
+    ]
+  },
+  {
+    "name": "İlhan Çelikay",
+    "clubs": [
+      "Alanyaspor",
+      "Eyüpspor",
+      "Galatasaray",
+      "Kasımpaşa"
+    ]
+  },
+  {
+    "name": "İlhan Mansız",
+    "clubs": [
+      "Beşiktaş",
+      "Gençlerbirliği",
+      "Samsunspor"
+    ]
+  },
+  {
+    "name": "İlhan Özbay",
+    "clubs": [
+      "Denizlispor",
+      "Gaziantepspor"
+    ]
+  },
+  {
+    "name": "İlhan Şahin",
+    "clubs": [
+      "Beşiktaş",
+      "Göztepe"
+    ]
+  },
+  {
+    "name": "İlhan Ummak",
+    "clubs": [
+      "Samsunspor",
+      "Sivasspor",
+      "Çaykur Rizespor"
+    ]
+  },
+  {
+    "name": "İlkay Durmuş",
+    "clubs": [
+      "Antalyaspor",
+      "Gençlerbirliği"
+    ]
+  },
+  {
+    "name": "İlkay Gündoğan",
+    "clubs": [
+      "Barcelona",
+      "Borussia Dortmund",
+      "Galatasaray",
+      "Manchester City"
+    ]
+  },
+  {
+    "name": "İlker Avcıbay",
+    "clubs": [
+      "Antalyaspor",
+      "Denizlispor",
+      "Kasımpaşa",
+      "Konyaspor"
+    ]
+  },
+  {
+    "name": "İlker Erbay",
+    "clubs": [
+      "Alanyaspor",
+      "Galatasaray",
+      "Kocaelispor"
+    ]
+  },
+  {
+    "name": "İlker Karakaş",
+    "clubs": [
+      "Gaziantep FK",
+      "Gençlerbirliği"
+    ]
+  },
+  {
+    "name": "İlker Sayan",
+    "clubs": [
+      "Göztepe",
+      "Sivasspor"
+    ]
+  },
+  {
+    "name": "İlyas Kahraman",
+    "clubs": [
+      "Antalyaspor",
+      "Denizlispor",
+      "Eyüpspor",
+      "Galatasaray",
+      "Gaziantepspor"
+    ]
+  },
+  {
+    "name": "İlyas Yılmazer",
+    "clubs": [
+      "Antalyaspor",
+      "Fenerbahçe",
+      "Samsunspor"
+    ]
+  },
+  {
+    "name": "İrfan Can Eğribayat",
+    "clubs": [
+      "Fenerbahçe",
+      "Göztepe"
+    ]
+  },
+  {
+    "name": "İrfan Can Kahveci",
+    "clubs": [
+      "Başakşehir",
+      "Fenerbahçe",
+      "Gençlerbirliği"
+    ]
+  },
+  {
+    "name": "İsa Kaykun",
+    "clubs": [
+      "Eyüpspor",
+      "Kasımpaşa"
+    ]
+  },
+  {
+    "name": "İslam Aydın",
+    "clubs": [
+      "Alanyaspor",
+      "Beşiktaş"
+    ]
+  },
+  {
+    "name": "İsmail Çipe",
+    "clubs": [
+      "Galatasaray",
+      "Karagümrük",
+      "Kayserispor"
+    ]
+  },
+  {
+    "name": "İsmail Doğan",
+    "clubs": [
+      "Denizlispor",
+      "Gençlerbirliği",
+      "Kayserispor"
+    ]
+  },
+  {
+    "name": "İsmail Güldüren",
+    "clubs": [
+      "Fenerbahçe",
+      "Gençlerbirliği",
+      "Konyaspor"
+    ]
+  },
+  {
+    "name": "İsmail Kayalı",
+    "clubs": [
+      "Antalyaspor",
+      "Fenerbahçe"
+    ]
+  },
+  {
+    "name": "İsmail Köybaşı",
+    "clubs": [
+      "Beşiktaş",
+      "Fenerbahçe",
+      "Gaziantepspor",
+      "Göztepe",
+      "Trabzonspor",
+      "Çaykur Rizespor"
+    ]
+  },
+  {
+    "name": "İsmail Şahmalı",
+    "clubs": [
+      "Alanyaspor",
+      "Denizlispor"
+    ]
+  },
+  {
+    "name": "İsmail Zehir",
+    "clubs": [
+      "Alanyaspor",
+      "Galatasaray"
+    ]
+  },
+  {
+    "name": "İsmet Yumakoğulları",
+    "clubs": [
+      "Fenerbahçe",
+      "Kocaelispor"
+    ]
+  },
+  {
+    "name": "ivar Ingimarsson",
+    "clubs": [
+      "Brentford",
+      "Brighton",
+      "Wolverhampton"
+    ]
+  },
+  {
+    "name": "İzzet Akgül",
+    "clubs": [
+      "Denizlispor",
+      "Galatasaray",
+      "Samsunspor"
     ]
   },
   {
@@ -13079,6 +13431,14 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Ji´",
+    "clubs": [
+      "Everton",
+      "Galatasaray",
+      "Manchester City"
+    ]
+  },
+  {
     "name": "Jim McNulty",
     "clubs": [
       "Brighton",
@@ -13115,14 +13475,6 @@ export const PLAYERS = [
     "clubs": [
       "Tottenham",
       "West Ham"
-    ]
-  },
-  {
-    "name": "Ji´",
-    "clubs": [
-      "Everton",
-      "Galatasaray",
-      "Manchester City"
     ]
   },
   {
@@ -13171,6 +13523,13 @@ export const PLAYERS = [
       "Brighton",
       "FC Porto",
       "Liverpool"
+    ]
+  },
+  {
+    "name": "Joao da Silva",
+    "clubs": [
+      "Benfica",
+      "Juventus"
     ]
   },
   {
@@ -13291,13 +13650,6 @@ export const PLAYERS = [
     "clubs": [
       "Gaziantepspor",
       "Inter"
-    ]
-  },
-  {
-    "name": "Joao da Silva",
-    "clubs": [
-      "Benfica",
-      "Juventus"
     ]
   },
   {
@@ -14692,13 +15044,6 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Kenan Sahin",
-    "clubs": [
-      "Denizlispor",
-      "Eyüpspor"
-    ]
-  },
-  {
     "name": "Kenan Özer",
     "clubs": [
       "Antalyaspor",
@@ -14706,6 +15051,13 @@ export const PLAYERS = [
       "Gaziantep FK",
       "Konyaspor",
       "Çaykur Rizespor"
+    ]
+  },
+  {
+    "name": "Kenan Sahin",
+    "clubs": [
+      "Denizlispor",
+      "Eyüpspor"
     ]
   },
   {
@@ -14794,31 +15146,17 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Kerem Kalafat",
-    "clubs": [
-      "Beşiktaş",
-      "Çaykur Rizespor"
-    ]
-  },
-  {
-    "name": "Kerem Yandal",
-    "clubs": [
-      "Fenerbahçe",
-      "Karagümrük"
-    ]
-  },
-  {
-    "name": "Kerem Yusuf Sirkeci",
-    "clubs": [
-      "Eyüpspor",
-      "Karagümrük"
-    ]
-  },
-  {
     "name": "Kerem İnan",
     "clubs": [
       "Galatasaray",
       "Samsunspor",
+      "Çaykur Rizespor"
+    ]
+  },
+  {
+    "name": "Kerem Kalafat",
+    "clubs": [
+      "Beşiktaş",
       "Çaykur Rizespor"
     ]
   },
@@ -14836,6 +15174,20 @@ export const PLAYERS = [
       "Gençlerbirliği",
       "Göztepe",
       "Kasımpaşa"
+    ]
+  },
+  {
+    "name": "Kerem Yandal",
+    "clubs": [
+      "Fenerbahçe",
+      "Karagümrük"
+    ]
+  },
+  {
+    "name": "Kerem Yusuf Sirkeci",
+    "clubs": [
+      "Eyüpspor",
+      "Karagümrük"
     ]
   },
   {
@@ -15227,6 +15579,16 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Koray Çölgeçen",
+    "clubs": [
+      "Alanyaspor",
+      "Denizlispor",
+      "Göztepe",
+      "Kayserispor",
+      "Kocaelispor"
+    ]
+  },
+  {
     "name": "Koray Günter",
     "clubs": [
       "Borussia Dortmund",
@@ -15241,16 +15603,6 @@ export const PLAYERS = [
       "Antalyaspor",
       "Karagümrük",
       "Kasımpaşa"
-    ]
-  },
-  {
-    "name": "Koray Çölgeçen",
-    "clubs": [
-      "Alanyaspor",
-      "Denizlispor",
-      "Göztepe",
-      "Kayserispor",
-      "Kocaelispor"
     ]
   },
   {
@@ -15283,6 +15635,13 @@ export const PLAYERS = [
       "Aston Villa",
       "West Ham",
       "Wolverhampton"
+    ]
+  },
+  {
+    "name": "Köksal Yedek",
+    "clubs": [
+      "Antalyaspor",
+      "Kayserispor"
     ]
   },
   {
@@ -15354,6 +15713,14 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Kürşat Duymuş",
+    "clubs": [
+      "Beşiktaş",
+      "Trabzonspor",
+      "Çaykur Rizespor"
+    ]
+  },
+  {
     "name": "Kwadwo Asamoah",
     "clubs": [
       "Inter",
@@ -15395,21 +15762,6 @@ export const PLAYERS = [
     "clubs": [
       "Aston Villa",
       "Brentford"
-    ]
-  },
-  {
-    "name": "Köksal Yedek",
-    "clubs": [
-      "Antalyaspor",
-      "Kayserispor"
-    ]
-  },
-  {
-    "name": "Kürşat Duymuş",
-    "clubs": [
-      "Beşiktaş",
-      "Trabzonspor",
-      "Çaykur Rizespor"
     ]
   },
   {
@@ -16339,6 +16691,13 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Lui­soa Morte",
+    "clubs": [
+      "Fulham",
+      "West Ham"
+    ]
+  },
+  {
     "name": "Luiz Adriano",
     "clubs": [
       "AC Milan",
@@ -16352,13 +16711,6 @@ export const PLAYERS = [
       "Bayern Munich",
       "Benfica",
       "Fenerbahçe"
-    ]
-  },
-  {
-    "name": "Lui­soa Morte",
-    "clubs": [
-      "Fulham",
-      "West Ham"
     ]
   },
   {
@@ -16698,6 +17050,15 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Manuel da Costa",
+    "clubs": [
+      "Başakşehir",
+      "Sivasspor",
+      "Trabzonspor",
+      "West Ham"
+    ]
+  },
+  {
     "name": "Manuel Fernandes",
     "clubs": [
       "Benfica",
@@ -16711,15 +17072,6 @@ export const PLAYERS = [
     "clubs": [
       "AC Milan",
       "Juventus"
-    ]
-  },
-  {
-    "name": "Manuel da Costa",
-    "clubs": [
-      "Başakşehir",
-      "Sivasspor",
-      "Trabzonspor",
-      "West Ham"
     ]
   },
   {
@@ -16944,17 +17296,17 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Marco Zamboni",
-    "clubs": [
-      "Juventus",
-      "Napoli"
-    ]
-  },
-  {
     "name": "Marco van Ginkel",
     "clubs": [
       "AC Milan",
       "Chelsea"
+    ]
+  },
+  {
+    "name": "Marco Zamboni",
+    "clubs": [
+      "Juventus",
+      "Napoli"
     ]
   },
   {
@@ -17022,6 +17374,14 @@ export const PLAYERS = [
       "Aston Villa",
       "Barcelona",
       "Manchester United"
+    ]
+  },
+  {
+    "name": "Marçal",
+    "clubs": [
+      "Benfica",
+      "Gaziantepspor",
+      "Wolverhampton"
     ]
   },
   {
@@ -17491,14 +17851,6 @@ export const PLAYERS = [
     "clubs": [
       "Bournemouth",
       "Burnley"
-    ]
-  },
-  {
-    "name": "Marçal",
-    "clubs": [
-      "Benfica",
-      "Gaziantepspor",
-      "Wolverhampton"
     ]
   },
   {
@@ -18054,6 +18406,14 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Mehmet Bölükbaşı",
+    "clubs": [
+      "Galatasaray",
+      "Samsunspor",
+      "Çaykur Rizespor"
+    ]
+  },
+  {
     "name": "Mehmet Burak Çeneli",
     "clubs": [
       "Alanyaspor",
@@ -18061,11 +18421,11 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Mehmet Bölükbaşı",
+    "name": "Mehmet Çoğum",
     "clubs": [
-      "Galatasaray",
-      "Samsunspor",
-      "Çaykur Rizespor"
+      "Denizlispor",
+      "Gaziantepspor",
+      "Konyaspor"
     ]
   },
   {
@@ -18104,6 +18464,14 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Mehmet Öncan",
+    "clubs": [
+      "Alanyaspor",
+      "Antalyaspor",
+      "Denizlispor"
+    ]
+  },
+  {
     "name": "Mehmet Polat",
     "clubs": [
       "Galatasaray",
@@ -18130,6 +18498,20 @@ export const PLAYERS = [
       "Gençlerbirliği",
       "Konyaspor",
       "Çaykur Rizespor"
+    ]
+  },
+  {
+    "name": "Mehmet Şen",
+    "clubs": [
+      "Konyaspor",
+      "Çaykur Rizespor"
+    ]
+  },
+  {
+    "name": "Mehmet Şimşek",
+    "clubs": [
+      "Gençlerbirliği",
+      "Kayserispor"
     ]
   },
   {
@@ -18172,17 +18554,6 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Mehmet Yozgatlı",
-    "clubs": [
-      "Beşiktaş",
-      "Fenerbahçe",
-      "Galatasaray",
-      "Gaziantepspor",
-      "Gençlerbirliği",
-      "Çaykur Rizespor"
-    ]
-  },
-  {
     "name": "Mehmet Yıldız",
     "clubs": [
       "Antalyaspor",
@@ -18202,33 +18573,14 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Mehmet Çoğum",
+    "name": "Mehmet Yozgatlı",
     "clubs": [
-      "Denizlispor",
+      "Beşiktaş",
+      "Fenerbahçe",
+      "Galatasaray",
       "Gaziantepspor",
-      "Konyaspor"
-    ]
-  },
-  {
-    "name": "Mehmet Öncan",
-    "clubs": [
-      "Alanyaspor",
-      "Antalyaspor",
-      "Denizlispor"
-    ]
-  },
-  {
-    "name": "Mehmet Şen",
-    "clubs": [
-      "Konyaspor",
-      "Çaykur Rizespor"
-    ]
-  },
-  {
-    "name": "Mehmet Şimşek",
-    "clubs": [
       "Gençlerbirliği",
-      "Kayserispor"
+      "Çaykur Rizespor"
     ]
   },
   {
@@ -18270,6 +18622,22 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Mert Çetin",
+    "clubs": [
+      "AS Roma",
+      "Gençlerbirliği",
+      "Kayserispor"
+    ]
+  },
+  {
+    "name": "Mert Çölgeçen",
+    "clubs": [
+      "Antalyaspor",
+      "Göztepe",
+      "Kocaelispor"
+    ]
+  },
+  {
     "name": "Mert Günok",
     "clubs": [
       "Başakşehir",
@@ -18285,22 +18653,6 @@ export const PLAYERS = [
       "Fenerbahçe",
       "Gençlerbirliği",
       "Kayserispor"
-    ]
-  },
-  {
-    "name": "Mert Çetin",
-    "clubs": [
-      "AS Roma",
-      "Gençlerbirliği",
-      "Kayserispor"
-    ]
-  },
-  {
-    "name": "Mert Çölgeçen",
-    "clubs": [
-      "Antalyaspor",
-      "Göztepe",
-      "Kocaelispor"
     ]
   },
   {
@@ -18880,6 +19232,14 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Miraç Asıltekin",
+    "clubs": [
+      "Başakşehir",
+      "Beşiktaş",
+      "Gençlerbirliği"
+    ]
+  },
+  {
     "name": "Miralem Pjanic",
     "clubs": [
       "AS Roma",
@@ -18900,14 +19260,6 @@ export const PLAYERS = [
     "clubs": [
       "Atlético Madrid",
       "Inter"
-    ]
-  },
-  {
-    "name": "Miraç Asıltekin",
-    "clubs": [
-      "Başakşehir",
-      "Beşiktaş",
-      "Gençlerbirliği"
     ]
   },
   {
@@ -19275,6 +19627,13 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Murat Çolak",
+    "clubs": [
+      "Kasımpaşa",
+      "Kocaelispor"
+    ]
+  },
+  {
     "name": "Murat Duman",
     "clubs": [
       "Kayserispor",
@@ -19318,6 +19677,13 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Murat Özkan",
+    "clubs": [
+      "Beşiktaş",
+      "Gaziantepspor"
+    ]
+  },
+  {
     "name": "Murat Paluli",
     "clubs": [
       "Göztepe",
@@ -19356,6 +19722,18 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Murat Şahin",
+    "clubs": [
+      "Beşiktaş",
+      "Eyüpspor",
+      "Fenerbahçe",
+      "Gaziantepspor",
+      "Kasımpaşa",
+      "Konyaspor",
+      "Çaykur Rizespor"
+    ]
+  },
+  {
     "name": "Murat Tosun",
     "clubs": [
       "Konyaspor",
@@ -19376,32 +19754,6 @@ export const PLAYERS = [
       "Başakşehir",
       "Eyüpspor",
       "Gaziantepspor"
-    ]
-  },
-  {
-    "name": "Murat Çolak",
-    "clubs": [
-      "Kasımpaşa",
-      "Kocaelispor"
-    ]
-  },
-  {
-    "name": "Murat Özkan",
-    "clubs": [
-      "Beşiktaş",
-      "Gaziantepspor"
-    ]
-  },
-  {
-    "name": "Murat Şahin",
-    "clubs": [
-      "Beşiktaş",
-      "Eyüpspor",
-      "Fenerbahçe",
-      "Gaziantepspor",
-      "Kasımpaşa",
-      "Konyaspor",
-      "Çaykur Rizespor"
     ]
   },
   {
@@ -19456,6 +19808,24 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Mustafa Çeçenoğlu",
+    "clubs": [
+      "Denizlispor",
+      "Fenerbahçe",
+      "Gençlerbirliği"
+    ]
+  },
+  {
+    "name": "Mustafa Çiçek",
+    "clubs": [
+      "Eyüpspor",
+      "Galatasaray",
+      "Gençlerbirliği",
+      "Samsunspor",
+      "Çaykur Rizespor"
+    ]
+  },
+  {
     "name": "Mustafa Dogan",
     "clubs": [
       "Beşiktaş",
@@ -19499,6 +19869,18 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Mustafa Özkan",
+    "clubs": [
+      "Antalyaspor",
+      "Beşiktaş",
+      "Denizlispor",
+      "Gençlerbirliği",
+      "Göztepe",
+      "Kocaelispor",
+      "Çaykur Rizespor"
+    ]
+  },
+  {
     "name": "Mustafa Pektemek",
     "clubs": [
       "Alanyaspor",
@@ -19532,36 +19914,6 @@ export const PLAYERS = [
     "clubs": [
       "Denizlispor",
       "Trabzonspor"
-    ]
-  },
-  {
-    "name": "Mustafa Çeçenoğlu",
-    "clubs": [
-      "Denizlispor",
-      "Fenerbahçe",
-      "Gençlerbirliği"
-    ]
-  },
-  {
-    "name": "Mustafa Çiçek",
-    "clubs": [
-      "Eyüpspor",
-      "Galatasaray",
-      "Gençlerbirliği",
-      "Samsunspor",
-      "Çaykur Rizespor"
-    ]
-  },
-  {
-    "name": "Mustafa Özkan",
-    "clubs": [
-      "Antalyaspor",
-      "Beşiktaş",
-      "Denizlispor",
-      "Gençlerbirliği",
-      "Göztepe",
-      "Kocaelispor",
-      "Çaykur Rizespor"
     ]
   },
   {
@@ -19611,13 +19963,6 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Myles Peart-Harris",
-    "clubs": [
-      "Brentford",
-      "Chelsea"
-    ]
-  },
-  {
     "name": "Mücahid Albayrak",
     "clubs": [
       "Gaziantep FK",
@@ -19629,6 +19974,13 @@ export const PLAYERS = [
     "clubs": [
       "Antalyaspor",
       "Eyüpspor"
+    ]
+  },
+  {
+    "name": "Myles Peart-Harris",
+    "clubs": [
+      "Brentford",
+      "Chelsea"
     ]
   },
   {
@@ -20219,6 +20571,15 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Nigel de Jong",
+    "clubs": [
+      "AC Milan",
+      "Ajax",
+      "Galatasaray",
+      "Manchester City"
+    ]
+  },
+  {
     "name": "Nigel Quashie",
     "clubs": [
       "West Ham",
@@ -20237,15 +20598,6 @@ export const PLAYERS = [
     "clubs": [
       "Arsenal",
       "West Ham"
-    ]
-  },
-  {
-    "name": "Nigel de Jong",
-    "clubs": [
-      "AC Milan",
-      "Ajax",
-      "Galatasaray",
-      "Manchester City"
     ]
   },
   {
@@ -20539,6 +20891,83 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Oğulcan Çağlayan",
+    "clubs": [
+      "Eyüpspor",
+      "Galatasaray",
+      "Gaziantep FK",
+      "Gaziantepspor",
+      "Kasımpaşa",
+      "Kayserispor",
+      "Kocaelispor",
+      "Çaykur Rizespor"
+    ]
+  },
+  {
+    "name": "Oğuz Ceylan",
+    "clubs": [
+      "Beşiktaş",
+      "Gaziantep FK",
+      "Kocaelispor",
+      "Çaykur Rizespor"
+    ]
+  },
+  {
+    "name": "Oğuz Dağlaroğlu",
+    "clubs": [
+      "Fenerbahçe",
+      "Gaziantepspor",
+      "Sivasspor"
+    ]
+  },
+  {
+    "name": "Oğuz Kağan Güçtekin",
+    "clubs": [
+      "Fenerbahçe",
+      "Konyaspor",
+      "Çaykur Rizespor"
+    ]
+  },
+  {
+    "name": "Oğuz Sabankay",
+    "clubs": [
+      "Eyüpspor",
+      "Galatasaray"
+    ]
+  },
+  {
+    "name": "Oğuzhan Bahadır",
+    "clubs": [
+      "Başakşehir",
+      "Göztepe",
+      "Konyaspor"
+    ]
+  },
+  {
+    "name": "Oğuzhan Berber",
+    "clubs": [
+      "Denizlispor",
+      "Gençlerbirliği",
+      "Kayserispor",
+      "Samsunspor",
+      "Çaykur Rizespor"
+    ]
+  },
+  {
+    "name": "Oğuzhan Özyakup",
+    "clubs": [
+      "Arsenal",
+      "Beşiktaş"
+    ]
+  },
+  {
+    "name": "Oğuzhan Yılmaz",
+    "clubs": [
+      "Kasımpaşa",
+      "Trabzonspor"
+    ]
+  },
+  {
     "name": "Okan Alkan",
     "clubs": [
       "Fenerbahçe",
@@ -20771,6 +21200,13 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Onur Çubukçu",
+    "clubs": [
+      "Galatasaray",
+      "Kasımpaşa"
+    ]
+  },
+  {
     "name": "Onur Tuncer",
     "clubs": [
       "Antalyaspor",
@@ -20779,9 +21215,10 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Onur Çubukçu",
+    "name": "Orhan Şam",
     "clubs": [
-      "Galatasaray",
+      "Fenerbahçe",
+      "Gençlerbirliği",
       "Kasımpaşa"
     ]
   },
@@ -20792,14 +21229,6 @@ export const PLAYERS = [
       "Gaziantepspor",
       "Göztepe",
       "Samsunspor"
-    ]
-  },
-  {
-    "name": "Orhan Şam",
-    "clubs": [
-      "Fenerbahçe",
-      "Gençlerbirliği",
-      "Kasımpaşa"
     ]
   },
   {
@@ -20832,20 +21261,20 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Orkun Özdemir",
+    "clubs": [
+      "Beşiktaş",
+      "Gençlerbirliği",
+      "Karagümrük"
+    ]
+  },
+  {
     "name": "Orkun Usak",
     "clubs": [
       "Antalyaspor",
       "Başakşehir",
       "Galatasaray",
       "Konyaspor"
-    ]
-  },
-  {
-    "name": "Orkun Özdemir",
-    "clubs": [
-      "Beşiktaş",
-      "Gençlerbirliği",
-      "Karagümrük"
     ]
   },
   {
@@ -20963,6 +21392,14 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Ozan Özkan",
+    "clubs": [
+      "Denizlispor",
+      "Konyaspor",
+      "Samsunspor"
+    ]
+  },
+  {
     "name": "Ozan Tahtaişleyen",
     "clubs": [
       "Beşiktaş",
@@ -20978,88 +21415,196 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Ozan Özkan",
-    "clubs": [
-      "Denizlispor",
-      "Konyaspor",
-      "Samsunspor"
-    ]
-  },
-  {
-    "name": "Oğulcan Çağlayan",
-    "clubs": [
-      "Eyüpspor",
-      "Galatasaray",
-      "Gaziantep FK",
-      "Gaziantepspor",
-      "Kasımpaşa",
-      "Kayserispor",
-      "Kocaelispor",
-      "Çaykur Rizespor"
-    ]
-  },
-  {
-    "name": "Oğuz Ceylan",
-    "clubs": [
-      "Beşiktaş",
-      "Gaziantep FK",
-      "Kocaelispor",
-      "Çaykur Rizespor"
-    ]
-  },
-  {
-    "name": "Oğuz Dağlaroğlu",
-    "clubs": [
-      "Fenerbahçe",
-      "Gaziantepspor",
-      "Sivasspor"
-    ]
-  },
-  {
-    "name": "Oğuz Kağan Güçtekin",
-    "clubs": [
-      "Fenerbahçe",
-      "Konyaspor",
-      "Çaykur Rizespor"
-    ]
-  },
-  {
-    "name": "Oğuz Sabankay",
-    "clubs": [
-      "Eyüpspor",
-      "Galatasaray"
-    ]
-  },
-  {
-    "name": "Oğuzhan Bahadır",
+    "name": "Ömer Ali Şahiner",
     "clubs": [
       "Başakşehir",
-      "Göztepe",
       "Konyaspor"
     ]
   },
   {
-    "name": "Oğuzhan Berber",
+    "name": "Ömer Aysan Barış",
     "clubs": [
-      "Denizlispor",
-      "Gençlerbirliği",
-      "Kayserispor",
-      "Samsunspor",
-      "Çaykur Rizespor"
-    ]
-  },
-  {
-    "name": "Oğuzhan Yılmaz",
-    "clubs": [
-      "Kasımpaşa",
+      "Kocaelispor",
       "Trabzonspor"
     ]
   },
   {
-    "name": "Oğuzhan Özyakup",
+    "name": "Ömer Bayram",
+    "clubs": [
+      "Eyüpspor",
+      "Galatasaray",
+      "Kayserispor"
+    ]
+  },
+  {
+    "name": "Ömer Çatkıç",
+    "clubs": [
+      "Antalyaspor",
+      "Gaziantepspor",
+      "Gençlerbirliği"
+    ]
+  },
+  {
+    "name": "Ömer Ersoy",
+    "clubs": [
+      "Eyüpspor",
+      "Karagümrük"
+    ]
+  },
+  {
+    "name": "Ömer Gümüş",
+    "clubs": [
+      "Başakşehir",
+      "Beşiktaş",
+      "Galatasaray",
+      "Göztepe",
+      "Karagümrük"
+    ]
+  },
+  {
+    "name": "Ömer Hacısalihoğlu",
+    "clubs": [
+      "Kasımpaşa",
+      "Konyaspor"
+    ]
+  },
+  {
+    "name": "Ömer Karslıoğlu",
+    "clubs": [
+      "Alanyaspor",
+      "Antalyaspor"
+    ]
+  },
+  {
+    "name": "Ömer Közen",
+    "clubs": [
+      "Gaziantepspor",
+      "Kayserispor"
+    ]
+  },
+  {
+    "name": "Ömer Kulga",
+    "clubs": [
+      "Denizlispor",
+      "Kayserispor"
+    ]
+  },
+  {
+    "name": "Ömer Riza",
     "clubs": [
       "Arsenal",
-      "Beşiktaş"
+      "Denizlispor",
+      "Trabzonspor",
+      "West Ham"
+    ]
+  },
+  {
+    "name": "Ömer Şişmanoğlu",
+    "clubs": [
+      "Antalyaspor",
+      "Beşiktaş",
+      "Denizlispor",
+      "Göztepe",
+      "Kayserispor",
+      "Konyaspor"
+    ]
+  },
+  {
+    "name": "Ömer Toprak",
+    "clubs": [
+      "Antalyaspor",
+      "Borussia Dortmund"
+    ]
+  },
+  {
+    "name": "Ömer Tuğ",
+    "clubs": [
+      "Fenerbahçe",
+      "Kocaelispor"
+    ]
+  },
+  {
+    "name": "Ömürcan Artan",
+    "clubs": [
+      "Gaziantep FK",
+      "Gençlerbirliği"
+    ]
+  },
+  {
+    "name": "Önder Çengel",
+    "clubs": [
+      "Eyüpspor",
+      "Gaziantepspor"
+    ]
+  },
+  {
+    "name": "Önder Dalkıran",
+    "clubs": [
+      "Alanyaspor",
+      "Sivasspor"
+    ]
+  },
+  {
+    "name": "Önder Turacı",
+    "clubs": [
+      "Antalyaspor",
+      "Fenerbahçe",
+      "Göztepe",
+      "Kayserispor"
+    ]
+  },
+  {
+    "name": "Özden Öngün",
+    "clubs": [
+      "Denizlispor",
+      "Gaziantepspor",
+      "Kayserispor",
+      "Kocaelispor",
+      "Konyaspor",
+      "Çaykur Rizespor"
+    ]
+  },
+  {
+    "name": "Özgür Atılgan",
+    "clubs": [
+      "Denizlispor",
+      "Eyüpspor",
+      "Göztepe"
+    ]
+  },
+  {
+    "name": "Özgür Can Özcan",
+    "clubs": [
+      "Denizlispor",
+      "Galatasaray",
+      "Gaziantepspor",
+      "Kayserispor",
+      "Çaykur Rizespor"
+    ]
+  },
+  {
+    "name": "Özgür Çek",
+    "clubs": [
+      "Alanyaspor",
+      "Denizlispor",
+      "Fenerbahçe",
+      "Gençlerbirliği",
+      "Kasımpaşa",
+      "Çaykur Rizespor"
+    ]
+  },
+  {
+    "name": "Özgür Vurur",
+    "clubs": [
+      "Kocaelispor",
+      "Çaykur Rizespor"
+    ]
+  },
+  {
+    "name": "Özgür Yıldırım",
+    "clubs": [
+      "Gaziantepspor",
+      "Çaykur Rizespor"
     ]
   },
   {
@@ -21254,15 +21799,6 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Patrick Vieira",
-    "clubs": [
-      "Arsenal",
-      "Inter",
-      "Juventus",
-      "Manchester City"
-    ]
-  },
-  {
     "name": "Patrick van Aanholt",
     "clubs": [
       "Chelsea",
@@ -21270,6 +21806,15 @@ export const PLAYERS = [
       "Galatasaray",
       "Newcastle United",
       "Sunderland"
+    ]
+  },
+  {
+    "name": "Patrick Vieira",
+    "clubs": [
+      "Arsenal",
+      "Inter",
+      "Juventus",
+      "Manchester City"
     ]
   },
   {
@@ -21818,18 +22363,18 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Pierre van Hooijdonk",
+    "clubs": [
+      "Benfica",
+      "Fenerbahçe"
+    ]
+  },
+  {
     "name": "Pierre Wome",
     "clubs": [
       "AS Roma",
       "Fulham",
       "Inter"
-    ]
-  },
-  {
-    "name": "Pierre van Hooijdonk",
-    "clubs": [
-      "Benfica",
-      "Fenerbahçe"
     ]
   },
   {
@@ -22100,6 +22645,15 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Ramazan Çevik",
+    "clubs": [
+      "Antalyaspor",
+      "Eyüpspor",
+      "Kocaelispor",
+      "Samsunspor"
+    ]
+  },
+  {
     "name": "Ramazan Durdu",
     "clubs": [
       "Kayserispor",
@@ -22117,15 +22671,6 @@ export const PLAYERS = [
     "name": "Ramazan Sal",
     "clubs": [
       "Göztepe",
-      "Samsunspor"
-    ]
-  },
-  {
-    "name": "Ramazan Çevik",
-    "clubs": [
-      "Antalyaspor",
-      "Eyüpspor",
-      "Kocaelispor",
       "Samsunspor"
     ]
   },
@@ -22195,19 +22740,19 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Raul de Tomas",
+    "clubs": [
+      "Benfica",
+      "Real Madrid"
+    ]
+  },
+  {
     "name": "Raul Jimenez",
     "clubs": [
       "Atlético Madrid",
       "Benfica",
       "Fulham",
       "Wolverhampton"
-    ]
-  },
-  {
-    "name": "Raul de Tomas",
-    "clubs": [
-      "Benfica",
-      "Real Madrid"
     ]
   },
   {
@@ -22747,19 +23292,19 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Robin Yalçın",
-    "clubs": [
-      "Eyüpspor",
-      "Sivasspor",
-      "Çaykur Rizespor"
-    ]
-  },
-  {
     "name": "Robin van Persie",
     "clubs": [
       "Arsenal",
       "Fenerbahçe",
       "Manchester United"
+    ]
+  },
+  {
+    "name": "Robin Yalçın",
+    "clubs": [
+      "Eyüpspor",
+      "Sivasspor",
+      "Çaykur Rizespor"
     ]
   },
   {
@@ -23140,6 +23685,15 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Rüştü Reçber",
+    "clubs": [
+      "Antalyaspor",
+      "Barcelona",
+      "Beşiktaş",
+      "Fenerbahçe"
+    ]
+  },
+  {
     "name": "Ryan Babel",
     "clubs": [
       "Ajax",
@@ -23275,15 +23829,6 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Rüştü Reçber",
-    "clubs": [
-      "Antalyaspor",
-      "Barcelona",
-      "Beşiktaş",
-      "Fenerbahçe"
-    ]
-  },
-  {
     "name": "Saban Genisyürek",
     "clubs": [
       "Denizlispor",
@@ -23305,18 +23850,18 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Sadio Mane",
-    "clubs": [
-      "Bayern Munich",
-      "Liverpool"
-    ]
-  },
-  {
     "name": "Sadık Çiftpınar",
     "clubs": [
       "Fenerbahçe",
       "Galatasaray",
       "Kasımpaşa"
+    ]
+  },
+  {
+    "name": "Sadio Mane",
+    "clubs": [
+      "Bayern Munich",
+      "Liverpool"
     ]
   },
   {
@@ -23958,6 +24503,21 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Selçuk Alibaz",
+    "clubs": [
+      "Karagümrük",
+      "Konyaspor"
+    ]
+  },
+  {
+    "name": "Selçuk Şahin",
+    "clubs": [
+      "Fenerbahçe",
+      "Gençlerbirliği",
+      "Göztepe"
+    ]
+  },
+  {
     "name": "Selim Ay",
     "clubs": [
       "Konyaspor",
@@ -23978,21 +24538,6 @@ export const PLAYERS = [
       "Denizlispor",
       "Kayserispor",
       "Samsunspor"
-    ]
-  },
-  {
-    "name": "Selçuk Alibaz",
-    "clubs": [
-      "Karagümrük",
-      "Konyaspor"
-    ]
-  },
-  {
-    "name": "Selçuk Şahin",
-    "clubs": [
-      "Fenerbahçe",
-      "Gençlerbirliği",
-      "Göztepe"
     ]
   },
   {
@@ -24102,20 +24647,6 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Serdar Saatçı",
-    "clubs": [
-      "Beşiktaş",
-      "Trabzonspor"
-    ]
-  },
-  {
-    "name": "Serdar Taşçı",
-    "clubs": [
-      "Bayern Munich",
-      "Başakşehir"
-    ]
-  },
-  {
     "name": "Serdar Özbayraktar",
     "clubs": [
       "Gaziantepspor",
@@ -24133,6 +24664,20 @@ export const PLAYERS = [
       "Gençlerbirliği",
       "Samsunspor",
       "Sivasspor"
+    ]
+  },
+  {
+    "name": "Serdar Saatçı",
+    "clubs": [
+      "Beşiktaş",
+      "Trabzonspor"
+    ]
+  },
+  {
+    "name": "Serdar Taşçı",
+    "clubs": [
+      "Bayern Munich",
+      "Başakşehir"
     ]
   },
   {
@@ -24197,6 +24742,13 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Sergio de Windt",
+    "clubs": [
+      "Ajax",
+      "Juventus"
+    ]
+  },
+  {
     "name": "Sergio Gomez",
     "clubs": [
       "Borussia Dortmund",
@@ -24229,10 +24781,11 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Sergio de Windt",
+    "name": "Serhat Akın",
     "clubs": [
-      "Ajax",
-      "Juventus"
+      "Fenerbahçe",
+      "Kocaelispor",
+      "Konyaspor"
     ]
   },
   {
@@ -24241,14 +24794,6 @@ export const PLAYERS = [
       "Eyüpspor",
       "Konyaspor",
       "Çaykur Rizespor"
-    ]
-  },
-  {
-    "name": "Serhat Akın",
-    "clubs": [
-      "Fenerbahçe",
-      "Kocaelispor",
-      "Konyaspor"
     ]
   },
   {
@@ -24284,15 +24829,6 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Serkan Kurtuluş",
-    "clubs": [
-      "Galatasaray",
-      "Gençlerbirliği",
-      "Göztepe",
-      "Kayserispor"
-    ]
-  },
-  {
     "name": "Serkan Kırıntılı",
     "clubs": [
       "Alanyaspor",
@@ -24302,24 +24838,19 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Serkan Kurtuluş",
+    "clubs": [
+      "Galatasaray",
+      "Gençlerbirliği",
+      "Göztepe",
+      "Kayserispor"
+    ]
+  },
+  {
     "name": "Serkan Odabaşoğlu",
     "clubs": [
       "Karagümrük",
       "Samsunspor"
-    ]
-  },
-  {
-    "name": "Serkan Polat",
-    "clubs": [
-      "Göztepe",
-      "Karagümrük"
-    ]
-  },
-  {
-    "name": "Serkan Yanık",
-    "clubs": [
-      "Gençlerbirliği",
-      "Kocaelispor"
     ]
   },
   {
@@ -24335,6 +24866,20 @@ export const PLAYERS = [
       "Fenerbahçe",
       "Gaziantepspor",
       "Trabzonspor"
+    ]
+  },
+  {
+    "name": "Serkan Polat",
+    "clubs": [
+      "Göztepe",
+      "Karagümrük"
+    ]
+  },
+  {
+    "name": "Serkan Yanık",
+    "clubs": [
+      "Gençlerbirliği",
+      "Kocaelispor"
     ]
   },
   {
@@ -24383,21 +24928,21 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Sezer Sezgin",
-    "clubs": [
-      "Beşiktaş",
-      "Eyüpspor",
-      "Kayserispor",
-      "Samsunspor"
-    ]
-  },
-  {
     "name": "Sezer Özmen",
     "clubs": [
       "Alanyaspor",
       "Beşiktaş",
       "Samsunspor",
       "Çaykur Rizespor"
+    ]
+  },
+  {
+    "name": "Sezer Sezgin",
+    "clubs": [
+      "Beşiktaş",
+      "Eyüpspor",
+      "Kayserispor",
+      "Samsunspor"
     ]
   },
   {
@@ -25367,6 +25912,35 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Şadi Çolak",
+    "clubs": [
+      "Göztepe",
+      "Çaykur Rizespor"
+    ]
+  },
+  {
+    "name": "Şener Aşkaroğlu",
+    "clubs": [
+      "Denizlispor",
+      "Konyaspor",
+      "Çaykur Rizespor"
+    ]
+  },
+  {
+    "name": "Şenol Akın",
+    "clubs": [
+      "Denizlispor",
+      "Konyaspor"
+    ]
+  },
+  {
+    "name": "Şiyar Kepir",
+    "clubs": [
+      "Antalyaspor",
+      "Beşiktaş"
+    ]
+  },
+  {
     "name": "Taha Altıkardeş",
     "clubs": [
       "Göztepe",
@@ -25381,14 +25955,6 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Taha Yalçıner",
-    "clubs": [
-      "Alanyaspor",
-      "Fenerbahçe",
-      "Samsunspor"
-    ]
-  },
-  {
     "name": "Taha Özgür",
     "clubs": [
       "Başakşehir",
@@ -25400,6 +25966,14 @@ export const PLAYERS = [
     "clubs": [
       "Kasımpaşa",
       "Çaykur Rizespor"
+    ]
+  },
+  {
+    "name": "Taha Yalçıner",
+    "clubs": [
+      "Alanyaspor",
+      "Fenerbahçe",
+      "Samsunspor"
     ]
   },
   {
@@ -25497,13 +26071,6 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Tariq Lamptey",
-    "clubs": [
-      "Brighton",
-      "Chelsea"
-    ]
-  },
-  {
     "name": "Tarık Çamdal",
     "clubs": [
       "Antalyaspor",
@@ -25517,6 +26084,13 @@ export const PLAYERS = [
       "Fenerbahçe",
       "Karagümrük",
       "Çaykur Rizespor"
+    ]
+  },
+  {
+    "name": "Tariq Lamptey",
+    "clubs": [
+      "Brighton",
+      "Chelsea"
     ]
   },
   {
@@ -25835,6 +26409,13 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Tiago Çukur",
+    "clubs": [
+      "Fenerbahçe",
+      "Karagümrük"
+    ]
+  },
+  {
     "name": "Tiago Dantas",
     "clubs": [
       "Bayern Munich",
@@ -25906,13 +26487,6 @@ export const PLAYERS = [
     "clubs": [
       "Benfica",
       "FC Porto"
-    ]
-  },
-  {
-    "name": "Tiago Çukur",
-    "clubs": [
-      "Fenerbahçe",
-      "Karagümrük"
     ]
   },
   {
@@ -26434,6 +27008,13 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Tuğbey Akgün",
+    "clubs": [
+      "Göztepe",
+      "Karagümrük"
+    ]
+  },
+  {
     "name": "Tuna Üzümcü",
     "clubs": [
       "Antalyaspor",
@@ -26487,10 +27068,11 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Tuğbey Akgün",
+    "name": "Tümer Metin",
     "clubs": [
-      "Göztepe",
-      "Karagümrük"
+      "Beşiktaş",
+      "Fenerbahçe",
+      "Samsunspor"
     ]
   },
   {
@@ -26555,14 +27137,6 @@ export const PLAYERS = [
     "clubs": [
       "Aston Villa",
       "Bournemouth"
-    ]
-  },
-  {
-    "name": "Tümer Metin",
-    "clubs": [
-      "Beşiktaş",
-      "Fenerbahçe",
-      "Samsunspor"
     ]
   },
   {
@@ -26632,6 +27206,103 @@ export const PLAYERS = [
     "clubs": [
       "Aston Villa",
       "Leeds United"
+    ]
+  },
+  {
+    "name": "Uğur Akdemir",
+    "clubs": [
+      "Eyüpspor",
+      "Galatasaray",
+      "Gençlerbirliği",
+      "Konyaspor",
+      "Sivasspor",
+      "Çaykur Rizespor"
+    ]
+  },
+  {
+    "name": "Uğur Çiftçi",
+    "clubs": [
+      "Gençlerbirliği",
+      "Sivasspor"
+    ]
+  },
+  {
+    "name": "Uğur Demirok",
+    "clubs": [
+      "Eyüpspor",
+      "Galatasaray",
+      "Gaziantepspor",
+      "Kayserispor",
+      "Konyaspor",
+      "Trabzonspor"
+    ]
+  },
+  {
+    "name": "Uğur Erdoğan",
+    "clubs": [
+      "Denizlispor",
+      "Galatasaray"
+    ]
+  },
+  {
+    "name": "Uğur Kaan Yıldız",
+    "clubs": [
+      "Fenerbahçe",
+      "Göztepe"
+    ]
+  },
+  {
+    "name": "Uğur Taner",
+    "clubs": [
+      "Eyüpspor",
+      "Galatasaray"
+    ]
+  },
+  {
+    "name": "Uğur Uçar",
+    "clubs": [
+      "Başakşehir",
+      "Galatasaray",
+      "Kayserispor"
+    ]
+  },
+  {
+    "name": "Uğur Yıldırım",
+    "clubs": [
+      "Gaziantepspor",
+      "Kasımpaşa",
+      "Sivasspor"
+    ]
+  },
+  {
+    "name": "Uğurcan Çakır",
+    "clubs": [
+      "Galatasaray",
+      "Trabzonspor"
+    ]
+  },
+  {
+    "name": "Uğurcan Yazğılı",
+    "clubs": [
+      "Kasımpaşa",
+      "Konyaspor"
+    ]
+  },
+  {
+    "name": "Uğurhan Uğurlu",
+    "clubs": [
+      "Başakşehir",
+      "Eyüpspor"
+    ]
+  },
+  {
+    "name": "Uğurtan Çepni",
+    "clubs": [
+      "Eyüpspor",
+      "Göztepe",
+      "Kocaelispor",
+      "Samsunspor",
+      "Çaykur Rizespor"
     ]
   },
   {
@@ -26717,17 +27388,17 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Utku Yuvakuran",
-    "clubs": [
-      "Beşiktaş",
-      "Karagümrük"
-    ]
-  },
-  {
     "name": "Utku Yılmaz",
     "clubs": [
       "Eyüpspor",
       "Gençlerbirliği"
+    ]
+  },
+  {
+    "name": "Utku Yuvakuran",
+    "clubs": [
+      "Beşiktaş",
+      "Karagümrük"
     ]
   },
   {
@@ -26738,100 +27409,47 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Uğur Akdemir",
+    "name": "Ümit Bozkurt",
     "clubs": [
-      "Eyüpspor",
-      "Galatasaray",
+      "Beşiktaş",
+      "Denizlispor",
       "Gençlerbirliği",
-      "Konyaspor",
+      "Konyaspor"
+    ]
+  },
+  {
+    "name": "Ümit Karan",
+    "clubs": [
+      "Galatasaray",
+      "Gençlerbirliği"
+    ]
+  },
+  {
+    "name": "Ümit Kurt",
+    "clubs": [
       "Sivasspor",
       "Çaykur Rizespor"
     ]
   },
   {
-    "name": "Uğur Demirok",
-    "clubs": [
-      "Eyüpspor",
-      "Galatasaray",
-      "Gaziantepspor",
-      "Kayserispor",
-      "Konyaspor",
-      "Trabzonspor"
-    ]
-  },
-  {
-    "name": "Uğur Erdoğan",
-    "clubs": [
-      "Denizlispor",
-      "Galatasaray"
-    ]
-  },
-  {
-    "name": "Uğur Kaan Yıldız",
+    "name": "Ümit Özat",
     "clubs": [
       "Fenerbahçe",
-      "Göztepe"
+      "Gençlerbirliği"
     ]
   },
   {
-    "name": "Uğur Taner",
+    "name": "Ümit Özışık",
     "clubs": [
-      "Eyüpspor",
-      "Galatasaray"
-    ]
-  },
-  {
-    "name": "Uğur Uçar",
-    "clubs": [
-      "Başakşehir",
-      "Galatasaray",
-      "Kayserispor"
-    ]
-  },
-  {
-    "name": "Uğur Yıldırım",
-    "clubs": [
-      "Gaziantepspor",
-      "Kasımpaşa",
-      "Sivasspor"
-    ]
-  },
-  {
-    "name": "Uğur Çiftçi",
-    "clubs": [
-      "Gençlerbirliği",
-      "Sivasspor"
-    ]
-  },
-  {
-    "name": "Uğurcan Yazğılı",
-    "clubs": [
-      "Kasımpaşa",
+      "Göztepe",
       "Konyaspor"
     ]
   },
   {
-    "name": "Uğurcan Çakır",
+    "name": "Ünal Sarı",
     "clubs": [
-      "Galatasaray",
-      "Trabzonspor"
-    ]
-  },
-  {
-    "name": "Uğurhan Uğurlu",
-    "clubs": [
-      "Başakşehir",
-      "Eyüpspor"
-    ]
-  },
-  {
-    "name": "Uğurtan Çepni",
-    "clubs": [
-      "Eyüpspor",
-      "Göztepe",
-      "Kocaelispor",
-      "Samsunspor",
-      "Çaykur Rizespor"
+      "Gençlerbirliği",
+      "Kasımpaşa"
     ]
   },
   {
@@ -26913,18 +27531,18 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Vedat İnceefe",
+    "clubs": [
+      "Beşiktaş",
+      "Galatasaray"
+    ]
+  },
+  {
     "name": "Vedat Muriqi",
     "clubs": [
       "Fenerbahçe",
       "Gençlerbirliği",
       "Çaykur Rizespor"
-    ]
-  },
-  {
-    "name": "Vedat İnceefe",
-    "clubs": [
-      "Beşiktaş",
-      "Galatasaray"
     ]
   },
   {
@@ -27152,6 +27770,13 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Volkan Çekiç",
+    "clubs": [
+      "Konyaspor",
+      "Samsunspor"
+    ]
+  },
+  {
     "name": "Volkan Koçaloğlu",
     "clubs": [
       "Konyaspor",
@@ -27166,21 +27791,6 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Volkan Yaman",
-    "clubs": [
-      "Antalyaspor",
-      "Galatasaray",
-      "Kasımpaşa"
-    ]
-  },
-  {
-    "name": "Volkan Çekiç",
-    "clubs": [
-      "Konyaspor",
-      "Samsunspor"
-    ]
-  },
-  {
     "name": "Volkan Ünlü",
     "clubs": [
       "Başakşehir",
@@ -27188,6 +27798,14 @@ export const PLAYERS = [
       "Sivasspor",
       "Trabzonspor",
       "Çaykur Rizespor"
+    ]
+  },
+  {
+    "name": "Volkan Yaman",
+    "clubs": [
+      "Antalyaspor",
+      "Galatasaray",
+      "Kasımpaşa"
     ]
   },
   {
@@ -27516,6 +28134,13 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Yağızcan Erdem",
+    "clubs": [
+      "Karagümrük",
+      "Trabzonspor"
+    ]
+  },
+  {
     "name": "Yakubu Aiyegbeni",
     "clubs": [
       "Everton",
@@ -27610,11 +28235,27 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Yasin Çakmak",
+    "clubs": [
+      "Denizlispor",
+      "Fenerbahçe",
+      "Sivasspor",
+      "Çaykur Rizespor"
+    ]
+  },
+  {
     "name": "Yasin Markal",
     "clubs": [
       "Eyüpspor",
       "Galatasaray",
       "Karagümrük",
+      "Kasımpaşa"
+    ]
+  },
+  {
+    "name": "Yasin Özcan",
+    "clubs": [
+      "Aston Villa",
       "Kasımpaşa"
     ]
   },
@@ -27643,22 +28284,6 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Yasin Çakmak",
-    "clubs": [
-      "Denizlispor",
-      "Fenerbahçe",
-      "Sivasspor",
-      "Çaykur Rizespor"
-    ]
-  },
-  {
-    "name": "Yasin Özcan",
-    "clubs": [
-      "Aston Villa",
-      "Kasımpaşa"
-    ]
-  },
-  {
     "name": "Yasir Elmacı",
     "clubs": [
       "Gençlerbirliği",
@@ -27672,6 +28297,13 @@ export const PLAYERS = [
     "clubs": [
       "Fenerbahçe",
       "Olympique Lyon"
+    ]
+  },
+  {
+    "name": "Yaşar Aydın",
+    "clubs": [
+      "Kayserispor",
+      "Konyaspor"
     ]
   },
   {
@@ -27694,20 +28326,6 @@ export const PLAYERS = [
     "clubs": [
       "Barcelona",
       "Manchester City"
-    ]
-  },
-  {
-    "name": "Yağızcan Erdem",
-    "clubs": [
-      "Karagümrük",
-      "Trabzonspor"
-    ]
-  },
-  {
-    "name": "Yaşar Aydın",
-    "clubs": [
-      "Kayserispor",
-      "Konyaspor"
     ]
   },
   {
@@ -28164,616 +28782,6 @@ export const PLAYERS = [
     "clubs": [
       "Antalyaspor",
       "Konyaspor"
-    ]
-  },
-  {
-    "name": "ivar Ingimarsson",
-    "clubs": [
-      "Brentford",
-      "Brighton",
-      "Wolverhampton"
-    ]
-  },
-  {
-    "name": "Çağatay Tekin",
-    "clubs": [
-      "Karagümrük",
-      "Samsunspor"
-    ]
-  },
-  {
-    "name": "Çağdaş Atan",
-    "clubs": [
-      "Beşiktaş",
-      "Denizlispor",
-      "Trabzonspor"
-    ]
-  },
-  {
-    "name": "Çağlar Akbaba",
-    "clubs": [
-      "Eyüpspor",
-      "Gaziantep FK"
-    ]
-  },
-  {
-    "name": "Çağlar Birinci",
-    "clubs": [
-      "Denizlispor",
-      "Galatasaray",
-      "Kayserispor",
-      "Trabzonspor"
-    ]
-  },
-  {
-    "name": "Çağtay Kurukalıp",
-    "clubs": [
-      "Fenerbahçe",
-      "Karagümrük",
-      "Kasımpaşa"
-    ]
-  },
-  {
-    "name": "Çekdar Orhan",
-    "clubs": [
-      "Antalyaspor",
-      "Galatasaray"
-    ]
-  },
-  {
-    "name": "Çetin Güner",
-    "clubs": [
-      "Gaziantepspor",
-      "Trabzonspor"
-    ]
-  },
-  {
-    "name": "Ömer Ali Şahiner",
-    "clubs": [
-      "Başakşehir",
-      "Konyaspor"
-    ]
-  },
-  {
-    "name": "Ömer Aysan Barış",
-    "clubs": [
-      "Kocaelispor",
-      "Trabzonspor"
-    ]
-  },
-  {
-    "name": "Ömer Bayram",
-    "clubs": [
-      "Eyüpspor",
-      "Galatasaray",
-      "Kayserispor"
-    ]
-  },
-  {
-    "name": "Ömer Ersoy",
-    "clubs": [
-      "Eyüpspor",
-      "Karagümrük"
-    ]
-  },
-  {
-    "name": "Ömer Gümüş",
-    "clubs": [
-      "Başakşehir",
-      "Beşiktaş",
-      "Galatasaray",
-      "Göztepe",
-      "Karagümrük"
-    ]
-  },
-  {
-    "name": "Ömer Hacısalihoğlu",
-    "clubs": [
-      "Kasımpaşa",
-      "Konyaspor"
-    ]
-  },
-  {
-    "name": "Ömer Karslıoğlu",
-    "clubs": [
-      "Alanyaspor",
-      "Antalyaspor"
-    ]
-  },
-  {
-    "name": "Ömer Kulga",
-    "clubs": [
-      "Denizlispor",
-      "Kayserispor"
-    ]
-  },
-  {
-    "name": "Ömer Közen",
-    "clubs": [
-      "Gaziantepspor",
-      "Kayserispor"
-    ]
-  },
-  {
-    "name": "Ömer Riza",
-    "clubs": [
-      "Arsenal",
-      "Denizlispor",
-      "Trabzonspor",
-      "West Ham"
-    ]
-  },
-  {
-    "name": "Ömer Toprak",
-    "clubs": [
-      "Antalyaspor",
-      "Borussia Dortmund"
-    ]
-  },
-  {
-    "name": "Ömer Tuğ",
-    "clubs": [
-      "Fenerbahçe",
-      "Kocaelispor"
-    ]
-  },
-  {
-    "name": "Ömer Çatkıç",
-    "clubs": [
-      "Antalyaspor",
-      "Gaziantepspor",
-      "Gençlerbirliği"
-    ]
-  },
-  {
-    "name": "Ömer Şişmanoğlu",
-    "clubs": [
-      "Antalyaspor",
-      "Beşiktaş",
-      "Denizlispor",
-      "Göztepe",
-      "Kayserispor",
-      "Konyaspor"
-    ]
-  },
-  {
-    "name": "Ömürcan Artan",
-    "clubs": [
-      "Gaziantep FK",
-      "Gençlerbirliği"
-    ]
-  },
-  {
-    "name": "Önder Dalkıran",
-    "clubs": [
-      "Alanyaspor",
-      "Sivasspor"
-    ]
-  },
-  {
-    "name": "Önder Turacı",
-    "clubs": [
-      "Antalyaspor",
-      "Fenerbahçe",
-      "Göztepe",
-      "Kayserispor"
-    ]
-  },
-  {
-    "name": "Önder Çengel",
-    "clubs": [
-      "Eyüpspor",
-      "Gaziantepspor"
-    ]
-  },
-  {
-    "name": "Özden Öngün",
-    "clubs": [
-      "Denizlispor",
-      "Gaziantepspor",
-      "Kayserispor",
-      "Kocaelispor",
-      "Konyaspor",
-      "Çaykur Rizespor"
-    ]
-  },
-  {
-    "name": "Özgür Atılgan",
-    "clubs": [
-      "Denizlispor",
-      "Eyüpspor",
-      "Göztepe"
-    ]
-  },
-  {
-    "name": "Özgür Can Özcan",
-    "clubs": [
-      "Denizlispor",
-      "Galatasaray",
-      "Gaziantepspor",
-      "Kayserispor",
-      "Çaykur Rizespor"
-    ]
-  },
-  {
-    "name": "Özgür Vurur",
-    "clubs": [
-      "Kocaelispor",
-      "Çaykur Rizespor"
-    ]
-  },
-  {
-    "name": "Özgür Yıldırım",
-    "clubs": [
-      "Gaziantepspor",
-      "Çaykur Rizespor"
-    ]
-  },
-  {
-    "name": "Özgür Çek",
-    "clubs": [
-      "Alanyaspor",
-      "Denizlispor",
-      "Fenerbahçe",
-      "Gençlerbirliği",
-      "Kasımpaşa",
-      "Çaykur Rizespor"
-    ]
-  },
-  {
-    "name": "Ümit Bozkurt",
-    "clubs": [
-      "Beşiktaş",
-      "Denizlispor",
-      "Gençlerbirliği",
-      "Konyaspor"
-    ]
-  },
-  {
-    "name": "Ümit Karan",
-    "clubs": [
-      "Galatasaray",
-      "Gençlerbirliği"
-    ]
-  },
-  {
-    "name": "Ümit Kurt",
-    "clubs": [
-      "Sivasspor",
-      "Çaykur Rizespor"
-    ]
-  },
-  {
-    "name": "Ümit Özat",
-    "clubs": [
-      "Fenerbahçe",
-      "Gençlerbirliği"
-    ]
-  },
-  {
-    "name": "Ümit Özışık",
-    "clubs": [
-      "Göztepe",
-      "Konyaspor"
-    ]
-  },
-  {
-    "name": "Ünal Sarı",
-    "clubs": [
-      "Gençlerbirliği",
-      "Kasımpaşa"
-    ]
-  },
-  {
-    "name": "İbrahim Akdağ",
-    "clubs": [
-      "Başakşehir",
-      "Eyüpspor",
-      "Kayserispor",
-      "Sivasspor"
-    ]
-  },
-  {
-    "name": "İbrahim Akın",
-    "clubs": [
-      "Beşiktaş",
-      "Gaziantepspor",
-      "Sivasspor"
-    ]
-  },
-  {
-    "name": "İbrahim Dağaşan",
-    "clubs": [
-      "Antalyaspor",
-      "Kayserispor",
-      "Sivasspor"
-    ]
-  },
-  {
-    "name": "İbrahim Ege",
-    "clubs": [
-      "Denizlispor",
-      "Konyaspor",
-      "Trabzonspor"
-    ]
-  },
-  {
-    "name": "İbrahim Kaya",
-    "clubs": [
-      "Alanyaspor",
-      "Kasımpaşa"
-    ]
-  },
-  {
-    "name": "İbrahim Kaş",
-    "clubs": [
-      "Beşiktaş",
-      "Eyüpspor",
-      "Kocaelispor"
-    ]
-  },
-  {
-    "name": "İbrahim Pehlivan",
-    "clubs": [
-      "Gaziantep FK",
-      "Gençlerbirliği",
-      "Çaykur Rizespor"
-    ]
-  },
-  {
-    "name": "İbrahim Toraman",
-    "clubs": [
-      "Beşiktaş",
-      "Gaziantepspor",
-      "Sivasspor"
-    ]
-  },
-  {
-    "name": "İbrahim Üzülmez",
-    "clubs": [
-      "Beşiktaş",
-      "Gaziantepspor",
-      "Kocaelispor"
-    ]
-  },
-  {
-    "name": "İdris Gümüşdere",
-    "clubs": [
-      "Gençlerbirliği",
-      "Kocaelispor"
-    ]
-  },
-  {
-    "name": "İlhan Mansız",
-    "clubs": [
-      "Beşiktaş",
-      "Gençlerbirliği",
-      "Samsunspor"
-    ]
-  },
-  {
-    "name": "İlhan Ummak",
-    "clubs": [
-      "Samsunspor",
-      "Sivasspor",
-      "Çaykur Rizespor"
-    ]
-  },
-  {
-    "name": "İlhan Çelikay",
-    "clubs": [
-      "Alanyaspor",
-      "Eyüpspor",
-      "Galatasaray",
-      "Kasımpaşa"
-    ]
-  },
-  {
-    "name": "İlhan Özbay",
-    "clubs": [
-      "Denizlispor",
-      "Gaziantepspor"
-    ]
-  },
-  {
-    "name": "İlhan Şahin",
-    "clubs": [
-      "Beşiktaş",
-      "Göztepe"
-    ]
-  },
-  {
-    "name": "İlkay Durmuş",
-    "clubs": [
-      "Antalyaspor",
-      "Gençlerbirliği"
-    ]
-  },
-  {
-    "name": "İlkay Gündoğan",
-    "clubs": [
-      "Barcelona",
-      "Borussia Dortmund",
-      "Galatasaray",
-      "Manchester City"
-    ]
-  },
-  {
-    "name": "İlker Avcıbay",
-    "clubs": [
-      "Antalyaspor",
-      "Denizlispor",
-      "Kasımpaşa",
-      "Konyaspor"
-    ]
-  },
-  {
-    "name": "İlker Erbay",
-    "clubs": [
-      "Alanyaspor",
-      "Galatasaray",
-      "Kocaelispor"
-    ]
-  },
-  {
-    "name": "İlker Karakaş",
-    "clubs": [
-      "Gaziantep FK",
-      "Gençlerbirliği"
-    ]
-  },
-  {
-    "name": "İlker Sayan",
-    "clubs": [
-      "Göztepe",
-      "Sivasspor"
-    ]
-  },
-  {
-    "name": "İlyas Kahraman",
-    "clubs": [
-      "Antalyaspor",
-      "Denizlispor",
-      "Eyüpspor",
-      "Galatasaray",
-      "Gaziantepspor"
-    ]
-  },
-  {
-    "name": "İlyas Yılmazer",
-    "clubs": [
-      "Antalyaspor",
-      "Fenerbahçe",
-      "Samsunspor"
-    ]
-  },
-  {
-    "name": "İrfan Can Eğribayat",
-    "clubs": [
-      "Fenerbahçe",
-      "Göztepe"
-    ]
-  },
-  {
-    "name": "İrfan Can Kahveci",
-    "clubs": [
-      "Başakşehir",
-      "Fenerbahçe",
-      "Gençlerbirliği"
-    ]
-  },
-  {
-    "name": "İsa Kaykun",
-    "clubs": [
-      "Eyüpspor",
-      "Kasımpaşa"
-    ]
-  },
-  {
-    "name": "İslam Aydın",
-    "clubs": [
-      "Alanyaspor",
-      "Beşiktaş"
-    ]
-  },
-  {
-    "name": "İsmail Doğan",
-    "clubs": [
-      "Denizlispor",
-      "Gençlerbirliği",
-      "Kayserispor"
-    ]
-  },
-  {
-    "name": "İsmail Güldüren",
-    "clubs": [
-      "Fenerbahçe",
-      "Gençlerbirliği",
-      "Konyaspor"
-    ]
-  },
-  {
-    "name": "İsmail Kayalı",
-    "clubs": [
-      "Antalyaspor",
-      "Fenerbahçe"
-    ]
-  },
-  {
-    "name": "İsmail Köybaşı",
-    "clubs": [
-      "Beşiktaş",
-      "Fenerbahçe",
-      "Gaziantepspor",
-      "Göztepe",
-      "Trabzonspor",
-      "Çaykur Rizespor"
-    ]
-  },
-  {
-    "name": "İsmail Zehir",
-    "clubs": [
-      "Alanyaspor",
-      "Galatasaray"
-    ]
-  },
-  {
-    "name": "İsmail Çipe",
-    "clubs": [
-      "Galatasaray",
-      "Karagümrük",
-      "Kayserispor"
-    ]
-  },
-  {
-    "name": "İsmail Şahmalı",
-    "clubs": [
-      "Alanyaspor",
-      "Denizlispor"
-    ]
-  },
-  {
-    "name": "İsmet Yumakoğulları",
-    "clubs": [
-      "Fenerbahçe",
-      "Kocaelispor"
-    ]
-  },
-  {
-    "name": "İzzet Akgül",
-    "clubs": [
-      "Denizlispor",
-      "Galatasaray",
-      "Samsunspor"
-    ]
-  },
-  {
-    "name": "Şadi Çolak",
-    "clubs": [
-      "Göztepe",
-      "Çaykur Rizespor"
-    ]
-  },
-  {
-    "name": "Şener Aşkaroğlu",
-    "clubs": [
-      "Denizlispor",
-      "Konyaspor",
-      "Çaykur Rizespor"
-    ]
-  },
-  {
-    "name": "Şenol Akın",
-    "clubs": [
-      "Denizlispor",
-      "Konyaspor"
-    ]
-  },
-  {
-    "name": "Şiyar Kepir",
-    "clubs": [
-      "Antalyaspor",
-      "Beşiktaş"
     ]
   }
 ];
