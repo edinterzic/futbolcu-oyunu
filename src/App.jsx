@@ -263,6 +263,33 @@ function getRandomRound(usedRoundKeys = []) {
   return pool[pool.length - 1] || { teams: ["Fenerbahçe", "Galatasaray"] };
 }
 
+// =================== EFEKT HELPERS ===================
+// Konfeti: 40 parça rastgele renkli div ekrana ekler, 3 saniye sonra siler
+function triggerConfetti() {
+  if (typeof document === "undefined") return;
+  const colors = ["#10b981", "#f59e0b", "#38bdf8", "#ef4444", "#a855f7", "#22c55e", "#ec4899"];
+  for (let i = 0; i < 40; i += 1) {
+    const c = document.createElement("div");
+    c.className = "confetti-particle";
+    c.style.left = `${Math.random() * 100}vw`;
+    c.style.background = colors[i % colors.length];
+    c.style.animationDelay = `${Math.random() * 0.3}s`;
+    c.style.animationDuration = `${1.6 + Math.random() * 0.8}s`;
+    c.style.transform = `rotate(${Math.random() * 360}deg)`;
+    document.body.appendChild(c);
+    setTimeout(() => { c.remove(); }, 3000);
+  }
+}
+
+// Ekran flash: kırmızı (yanlış) veya yeşil (doğru) yarı saydam katman
+function triggerScreenFlash(type) {
+  if (typeof document === "undefined") return;
+  const flash = document.createElement("div");
+  flash.className = `screen-flash screen-flash-${type}`;
+  document.body.appendChild(flash);
+  setTimeout(() => { flash.remove(); }, 400);
+}
+
 function runSelfTests() {
   console.assert(normalizeText("Mesut Özil") === normalizeText("mesut ozil"), "Turkish character normalization failed");
   console.assert(normalizeText("Hakan Şükür") === normalizeText("hakan sukur"), "Turkish s/ü normalization failed");
@@ -563,6 +590,7 @@ export default function App() {
   const [challengeSwapUsed, setChallengeSwapUsed] = useState(false);
   const [challengeTimeAddUsed, setChallengeTimeAddUsed] = useState(false);
   const [challengeJokerHint, setChallengeJokerHint] = useState(null);
+  const [challengeFeedback, setChallengeFeedback] = useState(null); // "correct" | "wrong" | null
 
   const suggestions = useMemo(() => getPlayerSuggestions(answerInput), [answerInput]);
   const correctPlayers = useMemo(() => getCorrectPlayersForRound(round), [round]);
@@ -1412,6 +1440,9 @@ export default function App() {
     setChallengeTimeLeft(0);
     setChallengeFocused(false);
     setChallengeLastAction({ type: "wrong", answer: reportAnswer });
+    setChallengeFeedback("wrong");
+    triggerScreenFlash("error");
+    setTimeout(() => setChallengeFeedback(null), 600);
     if (reportAnswer) {
       setChallengeLastWrongReport({
         mode: "challenge",
@@ -1592,6 +1623,10 @@ export default function App() {
       setChallengeLastWrongReport(null);
       setChallengeReportStatus(null);
       setChallengeJokerHint(null);
+      setChallengeFeedback("correct");
+      triggerConfetti();
+      triggerScreenFlash("success");
+      setTimeout(() => setChallengeFeedback(null), 800);
       setChallengeMessage({ type: "success", text: `Doğru! Seri: ${nextScore}. 3 sn sonra yeni tur.` });
       return;
     }
@@ -1821,7 +1856,7 @@ export default function App() {
                   <span>Mod</span><strong>Challenge</strong>
                 </div>
                 <div className="info-chip accent">
-                  <span>Seri</span><strong>{challengeScore}</strong>
+                  <span>Seri</span><strong className={challengeFeedback === "correct" ? "score-pop" : ""}>{challengeScore}</strong>
                 </div>
                 <div className="info-chip">
                   <span>En iyi</span><strong>{challengeBest}</strong>
@@ -1835,7 +1870,7 @@ export default function App() {
                   <p>Hazır ol!</p>
                 </div>
               ) : (
-                <div className="play-panel">
+                <div className={`play-panel ${challengeFeedback === "correct" ? "feedback-correct" : ""} ${challengeFeedback === "wrong" ? "feedback-wrong" : ""}`}>
                   <div className="play-header">
                     <CircularTimer value={challengeTimeLeft} max={ROUND_SECONDS} urgent={challengeTimeLeft <= 3 && !challengeRoundLocked} />
                     <div className="play-tools">
@@ -3344,6 +3379,81 @@ button:focus-visible {
 @keyframes slideDown {
   0% { transform: translateY(-10px); opacity: 0; }
   100% { transform: translateY(0); opacity: 1; }
+}
+
+/* ========================================================================
+   Doğru / Yanlış Animasyonları
+   ======================================================================== */
+.feedback-correct {
+  animation: pulseGreen 0.8s var(--ease);
+}
+
+.feedback-wrong {
+  animation: shake 0.5s var(--ease);
+}
+
+@keyframes pulseGreen {
+  0%   { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.6); }
+  50%  { box-shadow: 0 0 0 18px rgba(16, 185, 129, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-8px); }
+  20%, 40%, 60%, 80%       { transform: translateX(8px); }
+}
+
+/* Skor pop */
+.score-pop {
+  display: inline-block;
+  animation: scorePop 0.6s var(--ease-bounce);
+}
+
+@keyframes scorePop {
+  0%   { transform: scale(1); color: inherit; }
+  40%  { transform: scale(1.5); color: var(--primary); text-shadow: 0 0 12px var(--primary); }
+  100% { transform: scale(1); color: inherit; }
+}
+
+/* Ekran flash */
+.screen-flash {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9998;
+  animation: screenFlash 0.4s ease-out forwards;
+}
+
+.screen-flash-success {
+  background: radial-gradient(circle at center, rgba(16, 185, 129, 0.25) 0%, transparent 70%);
+}
+
+.screen-flash-error {
+  background: radial-gradient(circle at center, rgba(239, 68, 68, 0.25) 0%, transparent 70%);
+}
+
+@keyframes screenFlash {
+  0%   { opacity: 0; }
+  30%  { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+/* Konfeti */
+.confetti-particle {
+  position: fixed;
+  top: -20px;
+  width: 10px;
+  height: 14px;
+  pointer-events: none;
+  z-index: 9999;
+  border-radius: 2px;
+  animation: confettiFall linear forwards;
+}
+
+@keyframes confettiFall {
+  0%   { transform: translateY(0) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(105vh) rotate(720deg); opacity: 0; }
 }
 
 .action-emoji {
