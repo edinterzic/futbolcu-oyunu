@@ -486,7 +486,13 @@ function ChallengeGameOver({
           className="gameover-report-button"
           onClick={onSubmitWrongReport}
         >
-          ❗ "{lastWrongAnswer}" doğru olmalıydı? Bildir
+          <span className="gameover-report-label">
+            <span className="gameover-report-icon" aria-hidden="true">❗</span>
+            <span className="gameover-report-text">
+              <strong>"{lastWrongAnswer}"</strong> doğru olmalıydı?
+            </span>
+          </span>
+          <span className="gameover-report-cta">Bildir →</span>
         </button>
       )}
 
@@ -628,6 +634,8 @@ export default function App() {
   const [gameStarted, setGameStarted] = useState(false);
 
   const [scores, setScores] = useState([0, 0]);
+  const [scoreFlash, setScoreFlash] = useState([null, null]);
+  const prevScoresRef = useRef([0, 0]);
   const [round, setRound] = useState(() => getRandomRound());
   const [usedRoundKeys, setUsedRoundKeys] = useState([]);
   const [answerInput, setAnswerInput] = useState("");
@@ -716,8 +724,29 @@ export default function App() {
   useEffect(() => {
     if (screen === "winner" && winner !== null) {
       playGameSound("matchEnd");
+      if (winner === playerIndex) {
+        triggerConfetti();
+        // Multi-burst for extra celebration
+        setTimeout(() => triggerConfetti(), 400);
+        setTimeout(() => triggerConfetti(), 800);
+      }
     }
-  }, [screen, winner]);
+  }, [screen, winner, playerIndex]);
+
+  // Score flash effect — kim puan aldıysa onun tarafı parlasın
+  useEffect(() => {
+    const prev = prevScoresRef.current;
+    if (scores[0] === prev[0] && scores[1] === prev[1]) return;
+
+    const newFlash = [null, null];
+    if (scores[0] > prev[0]) newFlash[0] = "gain";
+    if (scores[1] > prev[1]) newFlash[1] = "gain";
+    setScoreFlash(newFlash);
+    prevScoresRef.current = [scores[0], scores[1]];
+
+    const t = setTimeout(() => setScoreFlash([null, null]), 800);
+    return () => clearTimeout(t);
+  }, [scores]);
 
   useEffect(() => {
     stateRef.current = {
@@ -2090,24 +2119,58 @@ export default function App() {
               </div>
 
               <div className="score-bar">
-                <div className={`score-side ${playerIndex === 0 ? "me" : ""} ${winner === 0 ? "winner" : ""}`}>
+                <div className={`score-side ${playerIndex === 0 ? "me" : ""} ${winner === 0 ? "winner" : ""} ${scoreFlash[0] === "gain" ? "flash-gain" : ""}`}>
                   <span className="score-name">{playerNames[0]}</span>
                   <strong className="score-value">{scores[0]}</strong>
                   <em className="score-meta">Seri {seriesWins[0]}</em>
                 </div>
                 <div className="score-vs">vs</div>
-                <div className={`score-side ${playerIndex === 1 ? "me" : ""} ${winner === 1 ? "winner" : ""}`}>
+                <div className={`score-side ${playerIndex === 1 ? "me" : ""} ${winner === 1 ? "winner" : ""} ${scoreFlash[1] === "gain" ? "flash-gain" : ""}`}>
                   <span className="score-name">{playerNames[1]}</span>
                   <strong className="score-value">{scores[1]}</strong>
                   <em className="score-meta">Seri {seriesWins[1]}</em>
                 </div>
               </div>
 
+              {gameStarted && screen === "game" && winner === null && (scores[0] === targetScore - 1 || scores[1] === targetScore - 1) && (
+                <div className={`match-point-banner ${scores[playerIndex] === targetScore - 1 ? "me" : "opp"}`}>
+                  <span className="match-point-flag">⚡</span>
+                  <strong>
+                    {scores[playerIndex] === targetScore - 1 && scores[1 - playerIndex] === targetScore - 1
+                      ? "MAÇ TOPU — Çok kritik!"
+                      : scores[playerIndex] === targetScore - 1
+                      ? "Maç topu sende! Kazanabilirsin"
+                      : "Dikkat! Rakip kazanmak üzere"}
+                  </strong>
+                </div>
+              )}
+
               {screen === "winner" && winner !== null ? (
-                <div className="panel winner-panel">
-                  <div className="trophy" aria-hidden="true">🏆</div>
-                  <h2>Kazanan: {playerNames[winner]}</h2>
-                  <p>Final: {scores[0]} - {scores[1]}</p>
+                <div className={`panel winner-panel ${winner === playerIndex ? "you-won" : "you-lost"}`}>
+                  {winner === playerIndex ? (
+                    <>
+                      <div className="trophy trophy-big" aria-hidden="true">🏆</div>
+                      <h2>Kazandın!</h2>
+                      <p className="winner-subtitle">Tebrikler, harika oyundu</p>
+                    </>
+                  ) : (
+                    <>
+                      <div className="trophy trophy-loser" aria-hidden="true">💪</div>
+                      <h2>Bu sefer olmadı</h2>
+                      <p className="winner-subtitle">{playerNames[winner]} kazandı. Rövanşta daha iyi olabilirsin!</p>
+                    </>
+                  )}
+                  <div className="final-score-display">
+                    <div className={`final-score-side ${winner === 0 ? "won" : "lost"}`}>
+                      <span>{playerNames[0]}</span>
+                      <strong>{scores[0]}</strong>
+                    </div>
+                    <span className="final-score-dash">-</span>
+                    <div className={`final-score-side ${winner === 1 ? "won" : "lost"}`}>
+                      <span>{playerNames[1]}</span>
+                      <strong>{scores[1]}</strong>
+                    </div>
+                  </div>
 
                   <MatchSummary
                     playerNames={playerNames}
@@ -2988,6 +3051,81 @@ button:focus-visible {
 .score-side.winner {
   background: var(--accent-soft);
   box-shadow: 0 0 24px rgba(245, 158, 11, 0.25);
+}
+
+/* Score gain flash — kim puan aldıysa onun tarafı yeşil parlasın */
+.score-side.flash-gain {
+  animation: scoreGainFlash 0.8s var(--ease-out);
+}
+
+@keyframes scoreGainFlash {
+  0% {
+    background: var(--primary-soft);
+    box-shadow: 0 0 0 rgba(16, 185, 129, 0);
+    transform: scale(1);
+  }
+  30% {
+    background: rgba(16, 185, 129, 0.35);
+    box-shadow: 0 0 32px rgba(16, 185, 129, 0.55);
+    transform: scale(1.06);
+  }
+  100% {
+    background: transparent;
+    box-shadow: 0 0 0 rgba(16, 185, 129, 0);
+    transform: scale(1);
+  }
+}
+
+.score-side.flash-gain .score-value {
+  animation: scoreValuePop 0.6s var(--ease-bounce);
+  color: var(--primary);
+}
+
+@keyframes scoreValuePop {
+  0%   { transform: scale(1); }
+  40%  { transform: scale(1.35); }
+  100% { transform: scale(1); }
+}
+
+/* Match point banner */
+.match-point-banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  animation: matchPointPulse 1.4s ease-in-out infinite;
+}
+
+.match-point-banner.me {
+  background: linear-gradient(135deg, var(--primary-soft) 0%, rgba(16, 185, 129, 0.08) 100%);
+  border: 1px solid rgba(16, 185, 129, 0.45);
+  color: var(--primary);
+}
+
+.match-point-banner.opp {
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.18) 0%, rgba(239, 68, 68, 0.06) 100%);
+  border: 1px solid rgba(239, 68, 68, 0.45);
+  color: #fca5a5;
+}
+
+.match-point-flag {
+  font-size: 16px;
+  animation: matchPointFlag 0.8s ease-in-out infinite alternate;
+}
+
+@keyframes matchPointPulse {
+  0%, 100% { box-shadow: 0 0 0 rgba(245, 158, 11, 0); transform: scale(1); }
+  50%      { box-shadow: 0 0 20px rgba(245, 158, 11, 0.3); transform: scale(1.02); }
+}
+
+@keyframes matchPointFlag {
+  0%   { transform: scale(1) rotate(-8deg); }
+  100% { transform: scale(1.15) rotate(8deg); }
 }
 
 .score-name {
@@ -3881,11 +4019,45 @@ button:focus-visible {
   border-color: rgba(245, 158, 11, 0.3);
 }
 
+.winner-panel.you-won {
+  background: linear-gradient(180deg, rgba(16, 185, 129, 0.12) 0%, var(--surface) 100%);
+  border-color: rgba(16, 185, 129, 0.4);
+  box-shadow: 0 8px 32px rgba(16, 185, 129, 0.15);
+}
+
+.winner-panel.you-lost {
+  background: linear-gradient(180deg, rgba(56, 189, 248, 0.08) 0%, var(--surface) 100%);
+  border-color: rgba(56, 189, 248, 0.3);
+}
+
 .trophy {
   font-size: 64px;
   line-height: 1;
   filter: drop-shadow(0 6px 16px rgba(245, 158, 11, 0.5));
   animation: trophy-bounce 0.8s var(--ease-bounce);
+}
+
+.trophy-big {
+  filter: drop-shadow(0 8px 24px rgba(16, 185, 129, 0.6));
+  animation: trophyWinBounce 1s var(--ease-bounce);
+}
+
+@keyframes trophyWinBounce {
+  0%   { transform: scale(0) rotate(-30deg); }
+  40%  { transform: scale(1.3) rotate(15deg); }
+  70%  { transform: scale(0.95) rotate(-5deg); }
+  100% { transform: scale(1) rotate(0); }
+}
+
+.trophy-loser {
+  font-size: 56px;
+  filter: drop-shadow(0 4px 12px rgba(56, 189, 248, 0.4));
+  animation: trophyLoserShake 0.6s var(--ease-out);
+}
+
+@keyframes trophyLoserShake {
+  0%   { transform: scale(0.8); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
 }
 
 @keyframes trophy-bounce {
@@ -3903,6 +4075,85 @@ button:focus-visible {
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+.winner-panel.you-won h2 {
+  background: linear-gradient(135deg, var(--primary) 0%, #6ee7b7 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 28px;
+}
+
+.winner-panel.you-lost h2 {
+  background: linear-gradient(135deg, #93c5fd 0%, #cbd5e1 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.winner-subtitle {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 13px;
+  max-width: 280px;
+}
+
+.final-score-display {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin: 4px 0 8px;
+}
+
+.final-score-side {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 8px 14px;
+  border-radius: 10px;
+  background: var(--surface-soft);
+  border: 1px solid var(--border);
+  min-width: 80px;
+}
+
+.final-score-side span {
+  font-size: 11px;
+  color: var(--text-muted);
+  font-weight: 600;
+  text-transform: uppercase;
+  max-width: 100px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.final-score-side strong {
+  font-size: 28px;
+  font-weight: 900;
+  color: var(--text);
+  line-height: 1;
+}
+
+.final-score-side.won {
+  background: var(--primary-soft);
+  border-color: rgba(16, 185, 129, 0.4);
+}
+
+.final-score-side.won strong {
+  color: var(--primary);
+}
+
+.final-score-side.lost {
+  opacity: 0.6;
+}
+
+.final-score-dash {
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--text-muted);
 }
 
 .winner-panel p {
@@ -4190,19 +4441,80 @@ button:focus-visible {
 }
 
 .gameover-report-button {
-  padding: 8px 12px;
-  background: var(--danger-soft);
-  border: 1px solid rgba(239, 68, 68, 0.3);
-  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px 12px;
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.18) 0%, rgba(239, 68, 68, 0.08) 100%);
+  border: 1px solid rgba(239, 68, 68, 0.4);
+  border-radius: 12px;
   color: #fca5a5;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 600;
   cursor: pointer;
   text-align: left;
+  width: 100%;
+  transition: all 0.18s var(--ease);
+  box-shadow: 0 2px 8px rgba(239, 68, 68, 0.08);
 }
 
 .gameover-report-button:hover {
-  background: rgba(239, 68, 68, 0.18);
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.28) 0%, rgba(239, 68, 68, 0.14) 100%);
+  border-color: rgba(239, 68, 68, 0.55);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(239, 68, 68, 0.16);
+}
+
+.gameover-report-button:active {
+  transform: translateY(0);
+  box-shadow: 0 1px 4px rgba(239, 68, 68, 0.12);
+}
+
+.gameover-report-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+  min-width: 0;
+}
+
+.gameover-report-icon {
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.gameover-report-text {
+  font-size: 12px;
+  line-height: 1.3;
+  color: #fee2e2;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.gameover-report-text strong {
+  color: #ffffff;
+  font-weight: 800;
+}
+
+.gameover-report-cta {
+  flex-shrink: 0;
+  padding: 6px 10px;
+  background: rgba(239, 68, 68, 0.35);
+  border: 1px solid rgba(239, 68, 68, 0.5);
+  border-radius: 8px;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.gameover-report-button:hover .gameover-report-cta {
+  background: rgba(239, 68, 68, 0.5);
+  border-color: rgba(239, 68, 68, 0.7);
 }
 
 .gameover-restart {
