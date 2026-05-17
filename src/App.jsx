@@ -185,27 +185,89 @@ function getRoundKey(round) {
   return getPairKey(round.teams[0], round.teams[1]);
 }
 
+// =================== TAKIM AĞIRLIKLI SEÇİM ===================
+// Popüler takımlar daha sık çıkar, Tier 3 birbiriyle veya Tier 2 ile hiç eşleşmez.
+
+const TIER_1_TEAMS = [
+  // Türk takımları (hepsi popüler)
+  "Galatasaray", "Beşiktaş", "Fenerbahçe", "Trabzonspor", "Başakşehir",
+  "Antalyaspor", "Konyaspor", "Sivasspor", "Kayserispor", "Alanyaspor",
+  "Samsunspor", "Kasımpaşa", "Gaziantep FK", "Gaziantepspor",
+  "Çaykur Rizespor", "Gençlerbirliği", "Göztepe", "Denizlispor",
+  "Karagümrük", "Eyüpspor", "Kocaelispor",
+  // Avrupa devleri
+  "Real Madrid", "Barcelona", "Atlético Madrid", "Bayern Munich",
+  "Manchester United", "Manchester City", "Liverpool", "Chelsea", "Arsenal",
+  "Juventus", "AC Milan", "Inter", "Paris Saint-Germain", "Borussia Dortmund"
+];
+
+const TIER_2_TEAMS = [
+  "Tottenham", "Napoli", "AS Roma", "Ajax", "FC Porto",
+  "Benfica", "Sevilla", "Olympique Lyon", "Newcastle United"
+];
+
+const TIER_1_SET = new Set(TIER_1_TEAMS);
+const TIER_2_SET = new Set(TIER_2_TEAMS);
+
+function getTier(teamName) {
+  if (TIER_1_SET.has(teamName)) return 1;
+  if (TIER_2_SET.has(teamName)) return 2;
+  return 3;
+}
+
+// Tier çiftine göre ağırlık (0 = hiç çıkmaz)
+// {1,1}=10, {1,2}=5, {2,2}=3, {1,3}=1, {2,3}=0, {3,3}=0
+function getPairWeight(pair) {
+  const t1 = getTier(pair.teams[0]);
+  const t2 = getTier(pair.teams[1]);
+  const tierKey = [t1, t2].sort().join("-");
+  switch (tierKey) {
+    case "1-1": return 10;
+    case "1-2": return 5;
+    case "2-2": return 3;
+    case "1-3": return 1;
+    case "2-3": return 0;
+    case "3-3": return 0;
+    default: return 1;
+  }
+}
+
 const PLAYABLE_TEAM_PAIRS = Object.keys(ANSWER_INDEX).map((key) => {
   const [teamA, teamB] = key.split("|");
   return { teams: [teamA, teamB] };
 });
 
+// Sıfır ağırlıklı çiftleri tamamen havuzdan çıkar
+const WEIGHTED_TEAM_PAIRS = PLAYABLE_TEAM_PAIRS.filter((pair) => getPairWeight(pair) > 0);
+
 function getPlayableTeamPairs() {
-  return PLAYABLE_TEAM_PAIRS;
+  return WEIGHTED_TEAM_PAIRS;
 }
 
 function getRandomRound(usedRoundKeys = []) {
-  const available = PLAYABLE_TEAM_PAIRS.filter((round) => !usedRoundKeys.includes(getRoundKey(round)));
-  const pool = available.length > 0 ? available : PLAYABLE_TEAM_PAIRS;
-  const selected = pool[Math.floor(Math.random() * pool.length)] || { teams: ["Fenerbahçe", "Galatasaray"] };
-  return selected;
+  const available = WEIGHTED_TEAM_PAIRS.filter((round) => !usedRoundKeys.includes(getRoundKey(round)));
+  const pool = available.length > 0 ? available : WEIGHTED_TEAM_PAIRS;
+
+  // Ağırlıklı rastgele seçim
+  const totalWeight = pool.reduce((sum, pair) => sum + getPairWeight(pair), 0);
+  if (totalWeight <= 0) {
+    return pool[Math.floor(Math.random() * pool.length)] || { teams: ["Fenerbahçe", "Galatasaray"] };
+  }
+
+  let random = Math.random() * totalWeight;
+  for (const pair of pool) {
+    random -= getPairWeight(pair);
+    if (random <= 0) return pair;
+  }
+
+  return pool[pool.length - 1] || { teams: ["Fenerbahçe", "Galatasaray"] };
 }
 
 function runSelfTests() {
   console.assert(normalizeText("Mesut Özil") === normalizeText("mesut ozil"), "Turkish character normalization failed");
   console.assert(normalizeText("Hakan Şükür") === normalizeText("hakan sukur"), "Turkish s/ü normalization failed");
   console.assert(getPlayerSuggestions("xzy").length === 0, "Suggestions should be empty when there is no match");
-  console.assert(getPlayableTeamPairs().length === Object.keys(ANSWER_INDEX).length, "Playable pairs must come from ANSWER_INDEX");
+  console.assert(getPlayableTeamPairs().length > 0 && getPlayableTeamPairs().length <= Object.keys(ANSWER_INDEX).length, "Playable pairs subset of ANSWER_INDEX");
   console.assert(getPlayableTeamPairs().length > 0, "There should be playable team pairs");
   console.assert(WINNING_SCORE === 3, "Winning score should be 3");
 }
@@ -497,7 +559,9 @@ export default function App() {
   const [challengeLastAction, setChallengeLastAction] = useState(null);
   const [challengeLastWrongReport, setChallengeLastWrongReport] = useState(null);
   const [challengeReportStatus, setChallengeReportStatus] = useState(null);
-  const [challengeJokerUsed, setChallengeJokerUsed] = useState(false);
+  const [challengeFirstLetterUsed, setChallengeFirstLetterUsed] = useState(false);
+  const [challengeSwapUsed, setChallengeSwapUsed] = useState(false);
+  const [challengeTimeAddUsed, setChallengeTimeAddUsed] = useState(false);
   const [challengeJokerHint, setChallengeJokerHint] = useState(null);
 
   const suggestions = useMemo(() => getPlayerSuggestions(answerInput), [answerInput]);
@@ -1266,7 +1330,9 @@ export default function App() {
     setChallengeLastAction(null);
     setChallengeLastWrongReport(null);
     setChallengeReportStatus(null);
-    setChallengeJokerUsed(false);
+    setChallengeFirstLetterUsed(false);
+    setChallengeSwapUsed(false);
+    setChallengeTimeAddUsed(false);
     setChallengeJokerHint(null);
     setScreen("challenge");
   };
@@ -1394,31 +1460,74 @@ export default function App() {
     setChallengeFocused(false);
   };
 
-  const useChallengeJoker = () => {
-    if (challengeJokerUsed) {
-      setChallengeMessage({ type: "info", text: "Joker hakkını bu challenge'da zaten kullandın." });
+  // ===== JOKER: İlk Harf =====
+  const useFirstLetterJoker = () => {
+    if (challengeFirstLetterUsed) {
+      setChallengeMessage({ type: "info", text: "İlk harf jokerini bu maçta zaten kullandın." });
       return;
     }
-
     if (challengeIsPreRound || challengeRoundLocked) {
       setChallengeMessage({ type: "info", text: "Jokeri sadece aktif turda kullanabilirsin." });
       return;
     }
-
     const first = challengeCorrectPlayers[0];
-
     if (!first) {
       setChallengeMessage({ type: "info", text: "Bu tur için joker üretilemedi." });
       return;
     }
-
     const parts = first.name.split(" ").filter(Boolean);
     const last = parts[parts.length - 1] || first.name;
     const hint = `${first.name[0]?.toUpperCase() || "?"} ile başlıyor, soyadı ${last[0]?.toUpperCase() || "?"} ile başlıyor.`;
-
-    setChallengeJokerUsed(true);
+    setChallengeFirstLetterUsed(true);
     setChallengeJokerHint(hint);
-    setChallengeMessage({ type: "info", text: `Joker: ${hint}` });
+    setChallengeMessage({ type: "info", text: `🎯 İpucu: ${hint}` });
+  };
+
+  // ===== JOKER: Çift Değiştir =====
+  const useSwapPairJoker = () => {
+    if (challengeSwapUsed) {
+      setChallengeMessage({ type: "info", text: "Çift değiştir jokerini bu maçta zaten kullandın." });
+      return;
+    }
+    if (challengeIsPreRound || challengeRoundLocked) {
+      setChallengeMessage({ type: "info", text: "Jokeri sadece aktif turda kullanabilirsin." });
+      return;
+    }
+    const currentKey = getRoundKey(challengeRound);
+    const nextUsed = [...challengeUsedRoundKeys, currentKey];
+    const nextRound = getRandomRound(nextUsed);
+    setChallengeSwapUsed(true);
+    setChallengeRound(nextRound);
+    setChallengeUsedRoundKeys(nextUsed);
+    setChallengeInput("");
+    setChallengeFocused(false);
+    setChallengeRoundLocked(false);
+    setChallengeShowAnswers(false);
+    setChallengeRoundEndsAt(null);
+    setChallengePreRoundEndsAt(Date.now() + ROUND_REVEAL_SECONDS * 1000);
+    setChallengeTimeLeft(ROUND_SECONDS);
+    setChallengePreRoundLeft(ROUND_REVEAL_SECONDS);
+    setChallengeLastAction(null);
+    setChallengeLastWrongReport(null);
+    setChallengeReportStatus(null);
+    setChallengeJokerHint(null);
+    setChallengeMessage({ type: "info", text: "🔄 Çift değiştirildi. Yeni takımlar geliyor." });
+  };
+
+  // ===== JOKER: Süre +5 =====
+  const useTimeAddJoker = () => {
+    if (challengeTimeAddUsed) {
+      setChallengeMessage({ type: "info", text: "Süre jokerini bu maçta zaten kullandın." });
+      return;
+    }
+    if (challengeIsPreRound || challengeRoundLocked || !challengeRoundEndsAt) {
+      setChallengeMessage({ type: "info", text: "Jokeri sadece aktif turda kullanabilirsin." });
+      return;
+    }
+    setChallengeTimeAddUsed(true);
+    setChallengeRoundEndsAt((prev) => prev + 5000);
+    setChallengeTimeLeft((prev) => prev + 5);
+    setChallengeMessage({ type: "info", text: "⏱️ Süreye 5 saniye eklendi!" });
   };
 
   const revealChallengeAnswerAndEnd = () => {
@@ -1730,9 +1839,20 @@ export default function App() {
                   <div className="play-header">
                     <CircularTimer value={challengeTimeLeft} max={ROUND_SECONDS} urgent={challengeTimeLeft <= 3 && !challengeRoundLocked} />
                     <div className="play-tools">
-                      <button type="button" className="light-button" onClick={useChallengeJoker} disabled={!challengeCanAnswer || challengeJokerUsed}>
-                        🃏 {challengeJokerUsed ? "Joker kullanıldı" : "Joker"}
-                      </button>
+                      <div className="joker-buttons">
+                        <button type="button" className="joker-button" onClick={useFirstLetterJoker} disabled={!challengeCanAnswer || challengeFirstLetterUsed} title="İlk harf">
+                          <span className="joker-icon">🎯</span>
+                          <span className="joker-label">İlk harf</span>
+                        </button>
+                        <button type="button" className="joker-button" onClick={useSwapPairJoker} disabled={!challengeCanAnswer || challengeSwapUsed} title="Çift değiştir">
+                          <span className="joker-icon">🔄</span>
+                          <span className="joker-label">Çift değiştir</span>
+                        </button>
+                        <button type="button" className="joker-button" onClick={useTimeAddJoker} disabled={!challengeCanAnswer || challengeTimeAddUsed} title="Süre +5">
+                          <span className="joker-icon">⏱️</span>
+                          <span className="joker-label">+5 sn</span>
+                        </button>
+                      </div>
                       <button type="button" className="light-button danger" onClick={revealChallengeAnswerAndEnd} disabled={challengeIsPreRound || challengeRoundLocked}>
                         👀 Cevabı göster
                       </button>
@@ -3489,6 +3609,62 @@ button:focus-visible {
   color: var(--accent);
   font-weight: 600;
   animation: slideDown 0.25s var(--ease);
+}
+
+/* Joker buttons */
+.joker-buttons {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.joker-button {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  background: rgba(245, 158, 11, 0.12);
+  border: 1px solid rgba(245, 158, 11, 0.35);
+  border-radius: 10px;
+  color: #fcd34d;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.15s var(--ease);
+  white-space: nowrap;
+}
+
+.joker-button:hover:not(:disabled) {
+  background: rgba(245, 158, 11, 0.22);
+  transform: translateY(-1px);
+}
+
+.joker-button:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+  background: rgba(100, 116, 139, 0.1);
+  border-color: rgba(100, 116, 139, 0.2);
+  color: #94a3b8;
+}
+
+.joker-icon {
+  font-size: 15px;
+}
+
+.joker-label {
+  font-size: 12px;
+}
+
+@media (max-width: 600px) {
+  .joker-label {
+    display: none;
+  }
+  .joker-button {
+    padding: 8px 10px;
+  }
+  .joker-icon {
+    font-size: 17px;
+  }
 }
 
 /* ========================================================================
