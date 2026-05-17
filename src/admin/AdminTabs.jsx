@@ -208,17 +208,22 @@ function generateTeamsJS(snapshot) {
     if (p.clubs.length >= 2) for (const c of p.clubs) counts.set(c, (counts.get(c) || 0) + 1);
   }
   const active = snapshot.teams.filter((t) => counts.has(t.name));
-  active.sort((a, b) => (counts.get(b.name) || 0) - (counts.get(a.name) || 0));
-  const list = active.map((t) => `  ${JSON.stringify(t.name)}`).join(",\n");
-  return `// Auto-generated from admin panel
-// Generated: ${new Date().toISOString()}
-
-export const TEAMS = [
-${list}
-];
-`;
+  active.sort((a, b) => a.name.localeCompare(b.name, "tr"));
+  const list = active.map((t) => {
+    const parts = [
+      `name: ${JSON.stringify(t.name)}`,
+      `initials: ${JSON.stringify(t.initials || "")}`,
+      `primary: ${JSON.stringify(t.primary || "#10b981")}`,
+      `secondary: ${JSON.stringify(t.secondary || "#ffffff")}`,
+      `country: ${JSON.stringify(t.country || "")}`,
+      `isActive: true`,
+    ];
+    if (t.league) parts.push(`league: ${JSON.stringify(t.league)}`);
+    if (t.founded) parts.push(`founded: ${JSON.stringify(t.founded)}`);
+    return `  { ${parts.join(", ")} }`;
+  }).join(",\n");
+  return `// Auto-generated from admin panel\n// Generated: ${new Date().toISOString()}\n\nexport const TEAMS = [\n${list}\n];\n`;
 }
-
 function generatePlayersJS(snapshot) {
   const eligible = snapshot.players.filter((p) => p.clubs.length >= 2);
   eligible.sort((a, b) => a.name.localeCompare(b.name, "tr"));
