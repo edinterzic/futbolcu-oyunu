@@ -2,7 +2,6 @@ import React, { useState, useEffect, useCallback, useMemo } from "react";
 import { createClient } from "@supabase/supabase-js";
 import { PLAYERS } from "../data/players";
 import { TEAMS } from "../data/teams";
-import { TEAM_LOGOS } from "../data/teamLogos";
 
 // =================== SUPABASE ===================
 const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL;
@@ -67,24 +66,21 @@ function getContrastColor(hex) {
 
 // =================== DATA STORE ===================
 function buildFreshSnapshot() {
-  const teams = TEAMS.map((name) => {
-    const style = TEAM_LOGOS[name] || {};
-    return {
-      name,
-      initials: style.initials || "",
-      primary: style.primary || "#10b981",
-      secondary: style.secondary || "#ffffff",
-      country: "",
-      league: "",
-      founded: null
-    };
-  });
+  const teams = TEAMS.map((t) => ({
+    name: t.name,
+    initials: t.initials || "",
+    primary: t.primary || "#10b981",
+    secondary: t.secondary || "#ffffff",
+    country: t.country || "",
+    league: t.league || "",
+    founded: t.founded || null
+  }));
   const players = PLAYERS.map((p) => ({
     name: p.name,
     clubs: [...p.clubs],
-    nationality: "",
-    birthYear: null,
-    isActive: null
+    nationality: p.nationality || "",
+    birthYear: p.birthYear || null,
+    isActive: p.isActive ?? null
   }));
   return { schemaVersion: 1, createdAt: Date.now(), lastModified: Date.now(), players, teams };
 }
@@ -137,7 +133,7 @@ export function useDataStore() {
 
 export function computeDiff(snapshot) {
   const origPlayerNames = new Set(PLAYERS.map((p) => p.name));
-  const origTeamNames = new Set(TEAMS);
+  const origTeamNames = new Set(TEAMS.map((t) => t.name));
   const curPlayerNames = new Set(snapshot.players.map((p) => p.name));
   const curTeamNames = new Set(snapshot.teams.map((t) => t.name));
 
@@ -154,8 +150,8 @@ export function computeDiff(snapshot) {
   });
 
   const addedTeams = snapshot.teams.filter((t) => !origTeamNames.has(t.name));
-  const removedTeams = TEAMS.filter((n) => !curTeamNames.has(n));
-  const origTeamMap = new Map(TEAMS.map((n) => [n, TEAM_LOGOS[n] || {}]));
+  const removedTeams = TEAMS.filter((t) => !curTeamNames.has(t.name)).map((t) => t.name);
+  const origTeamMap = new Map(TEAMS.map((t) => [t.name, t]));
   const modifiedTeams = snapshot.teams.filter((t) => {
     if (!origTeamMap.has(t.name)) return false;
     const orig = origTeamMap.get(t.name);
