@@ -1,5 +1,5 @@
 // Auto-generated from admin panel
-// Generated: 2026-05-17T22:48:29.788Z
+// Generated: 2026-05-17T23:00:19.829Z
 
 import { TEAMS } from './teams';
 
@@ -2083,6 +2083,7 @@ export const ANSWER_INDEX = {
     "Mutlu Aksu Doğan",
     "Olcan Adın",
     "Sadık Çiftpınar",
+    "Sergen Yalçın",
     "Servet Çetin",
     "Sinan Gümüş"
   ],
@@ -2107,6 +2108,7 @@ export const ANSWER_INDEX = {
     "Rigobert Song",
     "Saffet Akyüz",
     "Salih Dursun",
+    "Sergen Yalçın",
     "Tamer Tuna",
     "Tugay Kerimoğlu",
     "Uğur Demirok",
@@ -2129,6 +2131,7 @@ export const ANSWER_INDEX = {
     "Olcan Adın",
     "Ozan Tufan",
     "Samet Akaydin",
+    "Sergen Yalçın",
     "Serkan Özsoy",
     "Serkanalcı"
   ],
@@ -4374,6 +4377,7 @@ export const ANSWER_INDEX = {
     "Ömer Gümüş",
     "Ryanabel",
     "Serdar Özkan",
+    "Sergen Yalçın",
     "Tamer Tuna",
     "Vedat İnceefe",
     "Yalçın Ayhan",
@@ -7185,6 +7189,7 @@ export const ANSWER_INDEX = {
     "Rüştü Reçber",
     "Salih Uçan",
     "Semiheyaz",
+    "Sergen Yalçın",
     "Souza",
     "Talisca",
     "Tayfur Havutçu",
@@ -19009,6 +19014,7 @@ export const ANSWER_INDEX = {
     "Oktay Derelioğlu",
     "Olcay Şahan",
     "Serdar Saatçı",
+    "Sergen Yalçın",
     "Tamer Tuna",
     "Tolga Zengin",
     "Volkan Ünlü",

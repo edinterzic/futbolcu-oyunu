@@ -1,5 +1,5 @@
 // Auto-generated from admin panel
-// Generated: 2026-05-17T22:48:29.470Z
+// Generated: 2026-05-17T23:00:19.521Z
 
 export const PLAYERS = [
   {
@@ -55474,6 +55474,15 @@ export const PLAYERS = [
     "clubs": [
       "Atalanta",
       "Como"
+    ]
+  },
+  {
+    "name": "Sergen Yalçın",
+    "clubs": [
+      "Beşiktaş",
+      "Fenerbahçe",
+      "Trabzonspor",
+      "Galatasaray"
     ]
   },
   {
