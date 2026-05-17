@@ -2,6 +2,7 @@ import React, { useEffect, useMemo, useRef, useState } from "react";
 import { createClient } from "@supabase/supabase-js";
 import { PLAYERS, TEAMS, ANSWER_INDEX, getPairKey, getAnswers } from "./data/gameData";
 import { TEAM_LOGOS } from "./data/teamLogos";
+import AdminPanel from "./admin/AdminPanel";
 
 const WINNING_SCORE = 3;
 const ROUND_SECONDS = 15;
@@ -421,6 +422,22 @@ function playGameSound(soundName) {
 }
 
 export default function App() {
+  // ============ ROUTE: /admin ============
+  // Watch URL pathname and render AdminPanel for /admin
+  // This is a lightweight router — no react-router dependency
+  const [pathname, setPathname] = useState(() => window.location.pathname);
+
+  useEffect(() => {
+    const onPopState = () => setPathname(window.location.pathname);
+    window.addEventListener("popstate", onPopState);
+    return () => window.removeEventListener("popstate", onPopState);
+  }, []);
+
+  if (pathname === "/admin" || pathname.startsWith("/admin/")) {
+    return <AdminPanel />;
+  }
+  // ========================================
+
   const clientIdRef = useRef(makeClientId());
   const channelRef = useRef(null);
   const stateRef = useRef(null);
