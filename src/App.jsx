@@ -2346,7 +2346,9 @@ export default function App() {
                     </div>
                   </div>
 
-                  <StatusMessage message={message} />
+                  {(!lastAction || lastAction.type !== "correct") && (
+                    <StatusMessage message={message} />
+                  )}
 
                   {lastWrongReport && (
                     <button
@@ -2506,10 +2508,10 @@ button:focus-visible {
   align-items: stretch;
   justify-content: center;
   padding: 12px;
-  padding-top: max(12px, env(safe-area-inset-top));
-  padding-bottom: max(12px, env(safe-area-inset-bottom));
-  padding-left: max(12px, env(safe-area-inset-left));
-  padding-right: max(12px, env(safe-area-inset-right));
+  padding-top: max(16px, env(safe-area-inset-top, 50px));
+  padding-bottom: max(16px, env(safe-area-inset-bottom, 0px));
+  padding-left: max(12px, env(safe-area-inset-left, 0px));
+  padding-right: max(12px, env(safe-area-inset-right, 0px));
 }
 
 .app-frame {
@@ -4596,10 +4598,10 @@ button:focus-visible {
 @media (max-width: 720px) {
   .app-shell {
     padding: 8px;
-    padding-top: max(8px, env(safe-area-inset-top));
-    padding-bottom: max(8px, env(safe-area-inset-bottom));
-    padding-left: max(8px, env(safe-area-inset-left));
-    padding-right: max(8px, env(safe-area-inset-right));
+    padding-top: max(8px, env(safe-area-inset-top, 50px));
+    padding-bottom: max(8px, env(safe-area-inset-bottom, 0px));
+    padding-left: max(8px, env(safe-area-inset-left, 0px));
+    padding-right: max(8px, env(safe-area-inset-right, 0px));
   }
 
   .app-frame {
