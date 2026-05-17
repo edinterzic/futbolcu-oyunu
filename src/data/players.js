@@ -1,5 +1,5 @@
 // Auto-generated from admin panel
-// Generated: 2026-05-17T13:56:12.316Z
+// Generated: 2026-05-17T14:39:41.715Z
 
 export const PLAYERS = [
   {
@@ -2011,6 +2011,15 @@ export const PLAYERS = [
     "clubs": [
       "AS Roma",
       "Benfica"
+    ]
+  },
+  {
+    "name": "Andrea Bertolacci",
+    "clubs": [
+      "AS Roma",
+      "AC Milan",
+      "Kayserispor",
+      "Karagümrük"
     ]
   },
   {
@@ -7970,6 +7979,14 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Emre Akbaba",
+    "clubs": [
+      "Galatasaray",
+      "Alanyaspor",
+      "Antalyaspor"
+    ]
+  },
+  {
     "name": "Emre Aygün",
     "clubs": [
       "Gençlerbirliği",
@@ -7984,7 +8001,8 @@ export const PLAYERS = [
       "Başakşehir",
       "Fenerbahçe",
       "Galatasaray",
-      "Inter"
+      "Inter",
+      "Newcastle United"
     ]
   },
   {
@@ -8734,6 +8752,13 @@ export const PLAYERS = [
     "clubs": [
       "Gaziantep FK",
       "Çaykur Rizespor"
+    ]
+  },
+  {
+    "name": "Ertuğrul Sağlam",
+    "clubs": [
+      "Beşiktaş",
+      "Samsunspor"
     ]
   },
   {
@@ -12230,6 +12255,14 @@ export const PLAYERS = [
     "clubs": [
       "Denizlispor",
       "Gaziantepspor"
+    ]
+  },
+  {
+    "name": "İlhan Parlak",
+    "clubs": [
+      "Kayserispor",
+      "Gaziantep FK",
+      "Fenerbahçe"
     ]
   },
   {
@@ -17467,6 +17500,14 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Mario Jardel",
+    "clubs": [
+      "FC Porto",
+      "Galatasaray",
+      "Newcastle United"
+    ]
+  },
+  {
     "name": "Mario Lemina",
     "clubs": [
       "Fulham",
@@ -18794,7 +18835,8 @@ export const PLAYERS = [
       "Başakşehir",
       "Fenerbahçe",
       "Karagümrük",
-      "Kocaelispor"
+      "Kocaelispor",
+      "Paris Saint-Germain"
     ]
   },
   {
@@ -24120,6 +24162,18 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Samuel Eto'o",
+    "clubs": [
+      "Konyaspor",
+      "Antalyaspor",
+      "Everton",
+      "Chelsea",
+      "Inter",
+      "Barcelona",
+      "Real Madrid"
+    ]
+  },
+  {
     "name": "Samuel Holmen",
     "clubs": [
       "Başakşehir",
@@ -24717,6 +24771,15 @@ export const PLAYERS = [
     "clubs": [
       "Arsenal",
       "Bayern Munich"
+    ]
+  },
+  {
+    "name": "Sergen Yalçın",
+    "clubs": [
+      "Galatasaray",
+      "Fenerbahçe",
+      "Beşiktaş",
+      "Trabzonspor"
     ]
   },
   {
@@ -26370,7 +26433,8 @@ export const PLAYERS = [
     "name": "Thomas Meunier",
     "clubs": [
       "Borussia Dortmund",
-      "Trabzonspor"
+      "Trabzonspor",
+      "Paris Saint-Germain"
     ]
   },
   {
@@ -27809,6 +27873,14 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Volkan Şen",
+    "clubs": [
+      "Trabzonspor",
+      "Fenerbahçe",
+      "Konyaspor"
+    ]
+  },
+  {
     "name": "Volkan Ünlü",
     "clubs": [
       "Başakşehir",
@@ -27960,6 +28032,15 @@ export const PLAYERS = [
     "clubs": [
       "Aston Villa",
       "Karagümrük"
+    ]
+  },
+  {
+    "name": "Wesley Sneijder",
+    "clubs": [
+      "Galatasaray",
+      "Inter",
+      "Real Madrid",
+      "Ajax"
     ]
   },
   {

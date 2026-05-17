@@ -1,17 +1,18 @@
 {
-  "name": "İki Takım, Tek Futbolcu",
-  "short_name": "Futbolcu Oyunu",
-  "description": "İki takımda da oynamış futbolcuyu bul. Online kapışma ve kişisel challenge modu.",
+  "name": "PairFC — İki Takım, Tek Futbolcu",
+  "short_name": "PairFC",
+  "description": "İki takımda da oynamış futbolcuyu bul. Arkadaşınla online yarış veya solo challenge oyna.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
   "orientation": "portrait",
-  "background_color": "#022c22",
-  "theme_color": "#064e3b",
+  "background_color": "#0f172a",
+  "theme_color": "#10b981",
   "categories": [
     "games",
     "sports",
-    "entertainment"
+    "entertainment",
+    "trivia"
   ],
   "lang": "tr",
   "icons": [

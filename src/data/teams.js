@@ -1,5 +1,5 @@
 // Auto-generated from admin panel
-// Generated: 2026-05-17T13:56:12.033Z
+// Generated: 2026-05-17T14:39:41.432Z
 
 export const TEAMS = [
   "Chelsea",
@@ -9,8 +9,8 @@ export const TEAMS = [
   "West Ham",
   "Arsenal",
   "Manchester United",
-  "Benfica",
   "Inter",
+  "Benfica",
   "Fenerbahçe",
   "Leeds United",
   "Gençlerbirliği",
@@ -27,10 +27,10 @@ export const TEAMS = [
   "FC Porto",
   "Göztepe",
   "Tottenham",
-  "Burnley",
   "Everton",
-  "Crystal Palace",
+  "Burnley",
   "Newcastle United",
+  "Crystal Palace",
   "Konyaspor",
   "Samsunspor",
   "AC Milan",

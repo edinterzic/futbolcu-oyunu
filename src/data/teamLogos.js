@@ -1,5 +1,5 @@
 // Auto-generated from admin panel
-// Generated: 2026-05-17T13:56:12.882Z
+// Generated: 2026-05-17T14:39:42.261Z
 
 export const TEAM_LOGOS = {
   "Chelsea": {
@@ -37,15 +37,15 @@ export const TEAM_LOGOS = {
     "primary": "#DA291C",
     "secondary": "#FBE122"
   },
-  "Benfica": {
-    "initials": "SLB",
-    "primary": "#E30613",
-    "secondary": "#FFFFFF"
-  },
   "Inter": {
     "initials": "INT",
     "primary": "#0057B8",
     "secondary": "#000000"
+  },
+  "Benfica": {
+    "initials": "SLB",
+    "primary": "#E30613",
+    "secondary": "#FFFFFF"
   },
   "Fenerbahçe": {
     "initials": "FB",
@@ -127,25 +127,25 @@ export const TEAM_LOGOS = {
     "primary": "#132257",
     "secondary": "#FFFFFF"
   },
+  "Everton": {
+    "initials": "EVE",
+    "primary": "#003399",
+    "secondary": "#FFFFFF"
+  },
   "Burnley": {
     "initials": "BUR",
     "primary": "#6C1D45",
     "secondary": "#99D6EA"
   },
-  "Everton": {
-    "initials": "EVE",
-    "primary": "#003399",
+  "Newcastle United": {
+    "initials": "NEW",
+    "primary": "#241F20",
     "secondary": "#FFFFFF"
   },
   "Crystal Palace": {
     "initials": "CRY",
     "primary": "#1B458F",
     "secondary": "#C4122E"
-  },
-  "Newcastle United": {
-    "initials": "NEW",
-    "primary": "#241F20",
-    "secondary": "#FFFFFF"
   },
   "Konyaspor": {
     "initials": "KON",
