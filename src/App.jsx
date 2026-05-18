@@ -2464,6 +2464,8 @@ export default function App() {
               <StatusMessage message={message} />
               </>
               )}
+            </section>
+          )}
 
           {isChallenge && (
             <section className="play-content">
@@ -4119,7 +4121,7 @@ button:focus-visible {
   color: var(--text);
 }
 
-/* Online form (Create veya Join içi) */
+/* Online form */
 .online-form {
   display: flex;
   flex-direction: column;
