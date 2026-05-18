@@ -713,20 +713,14 @@ export default function App() {
   const [onlineDifficulty, setOnlineDifficulty] = useState("medium");
   const [showChallengeStartScreen, setShowChallengeStartScreen] = useState(false);
   const [showOnlineSetup, setShowOnlineSetup] = useState(false);
+  const [onlineSetupMode, setOnlineSetupMode] = useState(null); // null | "create" | "join"
 
-  // Splash screen — sadece ilk açılışta gösterilir
-  const [showSplash, setShowSplash] = useState(() => {
-    try {
-      return !window.localStorage.getItem("pairfc_splash_seen");
-    } catch { return true; }
-  });
+  // Splash screen — her açılışta 2.2sn gösterilir
+  const [showSplash, setShowSplash] = useState(true);
 
   useEffect(() => {
     if (!showSplash) return;
-    const t = setTimeout(() => {
-      setShowSplash(false);
-      try { window.localStorage.setItem("pairfc_splash_seen", "1"); } catch {}
-    }, 2200);
+    const t = setTimeout(() => setShowSplash(false), 2200);
     return () => clearTimeout(t);
   }, [showSplash]);
 
@@ -2301,7 +2295,7 @@ export default function App() {
             <section className="home-content">
               {showOnlineSetup && (
                 <div className="online-setup-header">
-                  <button type="button" onClick={() => setShowOnlineSetup(false)} className="back-button">
+                  <button type="button" onClick={() => { setShowOnlineSetup(false); setOnlineSetupMode(null); }} className="back-button">
                     ← Geri
                   </button>
                   <div className="online-setup-title">
@@ -2314,7 +2308,7 @@ export default function App() {
               {!showOnlineSetup && (
               <>
               <div className="mode-grid mode-grid-3">
-                <button type="button" onClick={() => setShowOnlineSetup(true)} className="mode-card">
+                <button type="button" onClick={() => { setShowOnlineSetup(true); setOnlineSetupMode(null); }} className="mode-card mode-card-online">
                   <span className="mode-icon">🌍</span>
                   <strong>Online Kapışma</strong>
                   <small>Oda kur, arkadaşınla karşılıklı oyna.</small>
@@ -2350,71 +2344,116 @@ export default function App() {
 
               {showOnlineSetup && (
               <>
-              <div className="setup-row">
-                <div className="input-card">
-                  <label htmlFor="playerNameInput">👤 Oyuncu adın</label>
-                  <input
-                    id="playerNameInput"
-                    value={playerName}
-                    onChange={(event) => setPlayerName(event.target.value)}
-                    placeholder="Örn. İsmet"
-                    maxLength={20}
-                  />
-                </div>
-
-                <div className="input-card">
-                  <label>🎯 Bitiş puanı</label>
-                  <div className="score-options">
-                    {[3, 5, 7].map((score) => (
-                      <button
-                        key={score}
-                        type="button"
-                        onClick={() => setTargetScore(score)}
-                        className={targetScore === score ? "score-option active" : "score-option"}
-                      >
-                        {score}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="config-row">
-                  <label>Zorluk</label>
-                  <div className="score-options">
-                    {[
-                      { v: "easy", label: "🟢 Kolay" },
-                      { v: "medium", label: "🟡 Orta" },
-                      { v: "hard", label: "🔴 Zor" }
-                    ].map((opt) => (
-                      <button
-                        key={opt.v}
-                        type="button"
-                        onClick={() => setOnlineDifficulty(opt.v)}
-                        className={onlineDifficulty === opt.v ? "score-option active" : "score-option"}
-                      >
-                        {opt.label}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-              </div>
-
-              <div className="room-actions">
-                <button type="button" onClick={createRoom} className="primary-button big">
-                  ✨ Oda Oluştur
-                </button>
-                <div className="join-box">
-                  <input
-                    value={roomInput}
-                    onChange={(event) => setRoomInput(event.target.value.toUpperCase())}
-                    placeholder="Oda kodu"
-                    maxLength={6}
-                  />
-                  <button type="button" onClick={joinRoom} className="light-button big">
-                    Katıl
+              {!onlineSetupMode && (
+                <div className="online-mode-picker">
+                  <button type="button" onClick={() => setOnlineSetupMode("create")} className="online-action-card create">
+                    <span className="online-action-icon">✨</span>
+                    <strong>Oda Kur</strong>
+                    <small>Yeni bir oyun başlat, arkadaşını davet et</small>
+                    <span className="online-action-arrow">→</span>
+                  </button>
+                  <button type="button" onClick={() => setOnlineSetupMode("join")} className="online-action-card join">
+                    <span className="online-action-icon">🔗</span>
+                    <strong>Odaya Katıl</strong>
+                    <small>Arkadaşının verdiği kodla bağlan</small>
+                    <span className="online-action-arrow">→</span>
                   </button>
                 </div>
-              </div>
+              )}
+
+              {onlineSetupMode === "create" && (
+                <div className="online-form">
+                  <button type="button" onClick={() => setOnlineSetupMode(null)} className="sub-back-button">
+                    ← Mod seçimine dön
+                  </button>
+
+                  <div className="input-card">
+                    <label htmlFor="playerNameInput">👤 Oyuncu adın</label>
+                    <input
+                      id="playerNameInput"
+                      value={playerName}
+                      onChange={(event) => setPlayerName(event.target.value)}
+                      placeholder="Örn. İsmet"
+                      maxLength={20}
+                    />
+                  </div>
+
+                  <div className="input-card">
+                    <label>🎯 Bitiş puanı</label>
+                    <div className="score-options">
+                      {[3, 5, 7].map((score) => (
+                        <button
+                          key={score}
+                          type="button"
+                          onClick={() => setTargetScore(score)}
+                          className={targetScore === score ? "score-option active" : "score-option"}
+                        >
+                          {score}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="input-card">
+                    <label>🎚️ Zorluk</label>
+                    <div className="score-options">
+                      {[
+                        { v: "easy", label: "🟢 Kolay" },
+                        { v: "medium", label: "🟡 Orta" },
+                        { v: "hard", label: "🔴 Zor" }
+                      ].map((opt) => (
+                        <button
+                          key={opt.v}
+                          type="button"
+                          onClick={() => setOnlineDifficulty(opt.v)}
+                          className={onlineDifficulty === opt.v ? "score-option active" : "score-option"}
+                        >
+                          {opt.label}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+
+                  <button type="button" onClick={createRoom} className="primary-button big full-width">
+                    ✨ Oda Oluştur
+                  </button>
+                </div>
+              )}
+
+              {onlineSetupMode === "join" && (
+                <div className="online-form">
+                  <button type="button" onClick={() => setOnlineSetupMode(null)} className="sub-back-button">
+                    ← Mod seçimine dön
+                  </button>
+
+                  <div className="input-card">
+                    <label htmlFor="playerNameInput2">👤 Oyuncu adın</label>
+                    <input
+                      id="playerNameInput2"
+                      value={playerName}
+                      onChange={(event) => setPlayerName(event.target.value)}
+                      placeholder="Örn. İsmet"
+                      maxLength={20}
+                    />
+                  </div>
+
+                  <div className="input-card">
+                    <label htmlFor="roomCodeInput">🔑 Oda kodu</label>
+                    <input
+                      id="roomCodeInput"
+                      value={roomInput}
+                      onChange={(event) => setRoomInput(event.target.value.toUpperCase())}
+                      placeholder="Örn. ABC123"
+                      maxLength={6}
+                      style={{ textTransform: "uppercase", letterSpacing: 4, fontSize: 18, fontWeight: 800, textAlign: "center" }}
+                    />
+                  </div>
+
+                  <button type="button" onClick={joinRoom} className="primary-button big full-width">
+                    🔗 Odaya Katıl
+                  </button>
+                </div>
+              )}
 
               {!supabase && (
                 <div className="setup-warning">
@@ -2425,8 +2464,6 @@ export default function App() {
               <StatusMessage message={message} />
               </>
               )}
-            </section>
-          )}
 
           {isChallenge && (
             <section className="play-content">
@@ -3947,26 +3984,166 @@ button:focus-visible {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 6px;
-  padding: 18px;
-  background: var(--surface);
+  gap: 8px;
+  padding: 22px;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, transparent 50%),
+    var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   text-align: left;
-  transition: all 0.2s var(--ease);
+  transition: all 0.22s var(--ease);
   min-height: 130px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.mode-card::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--border-strong);
+  opacity: 0.6;
+  transition: all 0.22s var(--ease);
 }
 
 .mode-card:hover {
-  transform: translateY(-2px);
+  transform: translateY(-3px);
   border-color: var(--border-strong);
-  background: var(--surface-strong);
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, transparent 50%),
+    var(--surface-strong);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
 }
+
+.mode-card:hover::before {
+  opacity: 1;
+  width: 6px;
+}
+
+.mode-card-online::before { background: linear-gradient(180deg, #3b82f6 0%, #06b6d4 100%); }
+.mode-card:nth-child(2)::before { background: linear-gradient(180deg, var(--accent) 0%, #ef4444 100%); }
+.mode-card-daily::before { background: linear-gradient(180deg, #f59e0b 0%, #ef4444 100%); }
 
 .mode-card.active {
   border-color: var(--primary);
   background: linear-gradient(135deg, var(--primary-soft) 0%, var(--surface) 100%);
   box-shadow: 0 8px 28px rgba(16, 185, 129, 0.2);
+}
+
+/* Online mode picker (Oda Kur / Odaya Katıl) */
+.online-mode-picker {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 4px;
+}
+
+@media (max-width: 540px) {
+  .online-mode-picker {
+    grid-template-columns: 1fr;
+  }
+}
+
+.online-action-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  padding: 22px;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, transparent 60%),
+    var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  text-align: left;
+  transition: all 0.22s var(--ease);
+  cursor: pointer;
+  overflow: hidden;
+  min-height: 140px;
+  color: var(--text);
+}
+
+.online-action-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
+}
+
+.online-action-card.create:hover {
+  border-color: var(--primary);
+  background:
+    linear-gradient(135deg, var(--primary-soft) 0%, transparent 60%),
+    var(--surface-strong);
+}
+
+.online-action-card.join:hover {
+  border-color: #3b82f6;
+  background:
+    linear-gradient(135deg, rgba(59, 130, 246, 0.15) 0%, transparent 60%),
+    var(--surface-strong);
+}
+
+.online-action-icon {
+  font-size: 36px;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.online-action-card strong {
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.online-action-card small {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+.online-action-arrow {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--text-muted);
+  transition: all 0.22s var(--ease);
+}
+
+.online-action-card:hover .online-action-arrow {
+  transform: translateX(4px);
+  color: var(--text);
+}
+
+/* Online form (Create veya Join içi) */
+.online-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.sub-back-button {
+  align-self: flex-start;
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 4px 0;
+  transition: color 0.18s var(--ease);
+}
+
+.sub-back-button:hover {
+  color: var(--text);
+}
+
+.primary-button.full-width {
+  width: 100%;
 }
 
 .mode-icon {
