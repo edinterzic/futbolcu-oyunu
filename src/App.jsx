@@ -2328,12 +2328,12 @@ export default function App() {
 
                   <div className="teams-grid">
                     <div className="team-card">
-                      <TeamBadge team={dailyData.puzzles[dailyIndex].teams[0]} size={64} />
+                      <TeamLogo teamName={dailyData.puzzles[dailyIndex].teams[0]} />
                       <strong>{dailyData.puzzles[dailyIndex].teams[0]}</strong>
                     </div>
-                    <div className="vs-orb"><span>VS</span></div>
+                    <div className="versus">VS</div>
                     <div className="team-card">
-                      <TeamBadge team={dailyData.puzzles[dailyIndex].teams[1]} size={64} />
+                      <TeamLogo teamName={dailyData.puzzles[dailyIndex].teams[1]} />
                       <strong>{dailyData.puzzles[dailyIndex].teams[1]}</strong>
                     </div>
                   </div>
