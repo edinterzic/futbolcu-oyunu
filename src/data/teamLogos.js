@@ -1,5 +1,5 @@
 // Auto-generated from admin panel
-// Generated: 2026-05-18T15:25:53.340Z
+// Generated: 2026-05-18T21:27:14.666Z
 
 export const TEAM_LOGOS = {
   "Inter": {
@@ -347,6 +347,11 @@ export const TEAM_LOGOS = {
     "primary": "#1E3A8A",
     "secondary": "#FFFFFF"
   },
+  "Konyaspor": {
+    "initials": "KON",
+    "primary": "#016630",
+    "secondary": "#FFFFFF"
+  },
   "Samsunspor": {
     "initials": "SAM",
     "primary": "#E30613",
@@ -355,11 +360,6 @@ export const TEAM_LOGOS = {
   "Feyenoord": {
     "initials": "FEY",
     "primary": "#CC0000",
-    "secondary": "#FFFFFF"
-  },
-  "Konyaspor": {
-    "initials": "KON",
-    "primary": "#016630",
     "secondary": "#FFFFFF"
   },
   "Braga": {

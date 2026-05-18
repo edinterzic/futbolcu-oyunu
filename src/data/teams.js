@@ -1,5 +1,5 @@
 // Auto-generated from admin panel
-// Generated: 2026-05-18T15:25:52.379Z
+// Generated: 2026-05-18T21:27:13.715Z
 
 export const TEAMS = [
   { name: "AC Milan", initials: "MIL", primary: "#FB090B", secondary: "#000000", country: "İtalya", isActive: true },
