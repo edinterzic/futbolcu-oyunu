@@ -604,12 +604,48 @@ function MatchSummary({ playerNames, scores, winner, targetScore, seriesWins, cu
   );
 }
 
+// Singleton AudioContext — iOS Safari user gesture içinde unlock etmek gerek
+let _audioContext = null;
+let _audioUnlocked = false;
+
+function getAudioContext() {
+  if (typeof window === "undefined") return null;
+  if (!_audioContext) {
+    const AC = window.AudioContext || window.webkitAudioContext;
+    if (!AC) return null;
+    try { _audioContext = new AC(); } catch { return null; }
+  }
+  if (_audioContext.state === "suspended") {
+    _audioContext.resume?.();
+  }
+  return _audioContext;
+}
+
+// İlk user interaction'da audio'yu unlock et (iOS şart)
+if (typeof window !== "undefined") {
+  const unlock = () => {
+    if (_audioUnlocked) return;
+    const ctx = getAudioContext();
+    if (!ctx) return;
+    // Bir sessiz buffer çal, iOS'ta context'i unlock eder
+    try {
+      const buffer = ctx.createBuffer(1, 1, 22050);
+      const source = ctx.createBufferSource();
+      source.buffer = buffer;
+      source.connect(ctx.destination);
+      source.start(0);
+      _audioUnlocked = true;
+    } catch {}
+  };
+  window.addEventListener("touchstart", unlock, { once: true, passive: true });
+  window.addEventListener("click", unlock, { once: true, passive: true });
+}
+
 function playTone({ frequencies = [440], duration = 0.18, type = "sine", volume = 0.08 }) {
   try {
-    const AudioContextClass = window.AudioContext || window.webkitAudioContext;
-    if (!AudioContextClass) return;
+    const audioContext = getAudioContext();
+    if (!audioContext) return;
 
-    const audioContext = new AudioContextClass();
     const now = audioContext.currentTime;
     const gain = audioContext.createGain();
 
@@ -627,10 +663,7 @@ function playTone({ frequencies = [440], duration = 0.18, type = "sine", volume 
       oscillator.start(now + index * 0.06);
       oscillator.stop(now + duration + index * 0.06);
     });
-
-    window.setTimeout(() => {
-      audioContext.close?.();
-    }, Math.ceil((duration + frequencies.length * 0.06) * 1000) + 80);
+    // Context'i kapatmıyoruz — yeniden kullanılacak
   } catch {
     // Sound is optional
   }
@@ -645,7 +678,10 @@ function playGameSound(soundName) {
     opponentGoal: { frequencies: [392, 349.23, 293.66], duration: 0.34, type: "sawtooth", volume: 0.055 },
     wrong: { frequencies: [180, 130], duration: 0.28, type: "square", volume: 0.045 },
     matchEnd: { frequencies: [392, 523.25, 659.25, 783.99, 1046.5], duration: 0.48, type: "triangle", volume: 0.085 },
-    countdown: { frequencies: [440], duration: 0.08, type: "sine", volume: 0.035 }
+    countdown: { frequencies: [440], duration: 0.08, type: "sine", volume: 0.035 },
+    tap: { frequencies: [800], duration: 0.04, type: "sine", volume: 0.025 },
+    combo: { frequencies: [659.25, 783.99, 987.77, 1318.51], duration: 0.4, type: "triangle", volume: 0.075 },
+    urgentTick: { frequencies: [880], duration: 0.06, type: "square", volume: 0.05 }
   };
 
   playTone(soundMap[soundName] || soundMap.countdown);
@@ -856,7 +892,12 @@ export default function App() {
     if (!challengeLastAction) return;
 
     if (challengeLastAction.type === "correct") {
-      playGameSound("ownGoal");
+      // Streak combo: her 3 doğruda özel ses
+      if (challengeScore > 0 && challengeScore % 3 === 0) {
+        playGameSound("combo");
+      } else {
+        playGameSound("ownGoal");
+      }
     }
 
     if (challengeLastAction.type === "wrong") {
@@ -1543,6 +1584,13 @@ export default function App() {
     }
   }, [preRoundLeft, screen]);
 
+  // Online round son 5sn tick
+  useEffect(() => {
+    if (timeLeft > 0 && timeLeft <= 5 && screen === "game" && !roundLocked && gameStarted) {
+      playGameSound("urgentTick");
+    }
+  }, [timeLeft, screen, roundLocked, gameStarted]);
+
   useEffect(() => {
     if (!gameStarted || roundLocked || !preRoundEndsAt || screen !== "game") return;
 
@@ -1773,9 +1821,12 @@ export default function App() {
     const correctCount = dailyResults.filter((r) => r === "correct").length;
     const total = dailyData.puzzles.length;
     const grid = dailyResults.map((r) => (r === "correct" ? "🟩" : "🟥")).join("");
-    const dateStr = new Intl.DateTimeFormat("tr-TR", { day: "numeric", month: "long" }).format(new Date(dailyData.date));
-    const streakLine = dailyStreak > 1 ? `\n🔥 ${dailyStreak} gün üst üste\n` : "\n";
-    return `PairFC ${dateStr} — ${correctCount}/${total}\n\n${grid}${streakLine}\nhttps://pairfc.com`;
+    // Günü 1'den başlat (2026-01-01 = gün 1)
+    const epoch = new Date("2026-01-01T00:00:00Z").getTime();
+    const today = new Date(dailyData.date).getTime();
+    const dayNum = Math.floor((today - epoch) / 86400000) + 1;
+    const streakLine = dailyStreak > 1 ? `\n🔥 ${dailyStreak} gün üst üste` : "";
+    return `PairFC #${dayNum} — ${correctCount}/${total}\n\n${grid}${streakLine}\n\npairfc.com`;
   };
 
   const [dailyShareStatus, setDailyShareStatus] = useState(null);
@@ -1866,6 +1917,13 @@ export default function App() {
       playGameSound("countdown");
     }
   }, [challengePreRoundLeft, screen]);
+
+  // Challenge round son 5sn tick
+  useEffect(() => {
+    if (challengeTimeLeft > 0 && challengeTimeLeft <= 5 && screen === "challenge" && !challengeRoundLocked) {
+      playGameSound("urgentTick");
+    }
+  }, [challengeTimeLeft, screen, challengeRoundLocked]);
 
   useEffect(() => {
     if (screen !== "challenge" || challengeRoundLocked || !challengePreRoundEndsAt) return;
@@ -2578,8 +2636,8 @@ export default function App() {
                           <span className="joker-label">+5 sn</span>
                         </button>
                       </div>
-                      <button type="button" className="light-button danger" onClick={revealChallengeAnswerAndEnd} disabled={challengeIsPreRound || challengeRoundLocked}>
-                        👀 Cevabı göster
+                      <button type="button" className="light-button skip-button" onClick={revealChallengeAnswerAndEnd} disabled={challengeIsPreRound || challengeRoundLocked}>
+                        👀 Pas geç
                       </button>
                     </div>
                   </div>
@@ -3359,16 +3417,27 @@ button:focus-visible {
 .topbar-actions {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
+}
+
+.topbar-actions .light-button {
+  padding: 8px 10px;
+  font-size: 12px;
+  min-height: 36px;
+  opacity: 0.85;
+}
+
+.topbar-actions .light-button:hover {
+  opacity: 1;
 }
 
 .home-button {
-  background: rgba(16, 185, 129, 0.12);
-  border-color: rgba(16, 185, 129, 0.3);
+  background: rgba(16, 185, 129, 0.08);
+  border-color: rgba(16, 185, 129, 0.2);
 }
 
 .home-button:hover {
-  background: rgba(16, 185, 129, 0.2);
+  background: rgba(16, 185, 129, 0.16);
 }
 
 /* ========================================================================
@@ -5103,20 +5172,56 @@ button:focus-visible {
   animation: pulseGreen 0.8s var(--ease);
 }
 
+.feedback-correct .team-card {
+  animation: teamCardCorrect 0.6s var(--ease);
+}
+
 .feedback-wrong {
   animation: shake 0.5s var(--ease);
 }
 
+.feedback-wrong .autocomplete-wrap input {
+  animation: inputShake 0.4s var(--ease);
+  border-color: var(--danger) !important;
+  background: rgba(239, 68, 68, 0.06) !important;
+}
+
 @keyframes pulseGreen {
   0%   { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.6); }
-  50%  { box-shadow: 0 0 0 18px rgba(16, 185, 129, 0); }
+  50%  { box-shadow: 0 0 0 24px rgba(16, 185, 129, 0); }
   100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+}
+
+@keyframes teamCardCorrect {
+  0%   { transform: scale(1); }
+  40%  { transform: scale(1.06); background: rgba(16, 185, 129, 0.18); border-color: var(--primary); }
+  100% { transform: scale(1); }
 }
 
 @keyframes shake {
   0%, 100% { transform: translateX(0); }
   10%, 30%, 50%, 70%, 90% { transform: translateX(-8px); }
   20%, 40%, 60%, 80%       { transform: translateX(8px); }
+}
+
+@keyframes inputShake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-6px); }
+  40%, 80% { transform: translateX(6px); }
+}
+
+/* "Pas geç" sessiz secondary button */
+.skip-button {
+  background: transparent !important;
+  border-color: var(--border) !important;
+  color: var(--text-muted) !important;
+  font-weight: 600;
+}
+
+.skip-button:hover:not(:disabled) {
+  background: var(--surface-soft) !important;
+  color: var(--text) !important;
+  border-color: var(--border-strong) !important;
 }
 
 /* Skor pop */
@@ -5733,8 +5838,15 @@ button:focus-visible {
   display: flex;
   flex-direction: column;
   gap: 4px;
-  max-height: 140px;
+  max-height: 120px;
   overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+  min-height: 0;
+}
+
+.correct-rounds-summary {
+  min-height: 0;
 }
 
 .correct-round-item {
