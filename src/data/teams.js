@@ -1,5 +1,5 @@
 // Auto-generated from admin panel
-// Generated: 2026-05-17T23:07:19.623Z
+// Generated: 2026-05-18T06:45:16.340Z
 
 export const TEAMS = [
   { name: "AC Milan", initials: "MIL", primary: "#FB090B", secondary: "#000000", country: "İtalya", isActive: true },
@@ -76,6 +76,7 @@ export const TEAMS = [
   { name: "Oviedo", initials: "OVI", primary: "#0033A0", secondary: "#FFFFFF", country: "İspanya", isActive: true },
   { name: "Parma", initials: "PAR", primary: "#FFCD00", secondary: "#0033A0", country: "İtalya", isActive: true },
   { name: "Pisa", initials: "PIS", primary: "#1E3A8A", secondary: "#FFFFFF", country: "İtalya", isActive: true },
+  { name: "PSG", initials: "P", primary: "#10b981", secondary: "#ffffff", country: "", isActive: true },
   { name: "PSV", initials: "PSV", primary: "#ED1C24", secondary: "#FFFFFF", country: "Hollanda", isActive: true },
   { name: "Qarabag FK", initials: "QAR", primary: "#000000", secondary: "#FFFFFF", country: "Azerbaycan", isActive: true },
   { name: "Rayo Vallecano", initials: "RAY", primary: "#FFFFFF", secondary: "#E30613", country: "İspanya", isActive: true },
