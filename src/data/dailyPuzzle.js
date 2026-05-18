@@ -1,0 +1,156 @@
+// =================== GÜNLÜK BULMACA ===================
+// Her gün herkes aynı 5 eşleşmeyi oynar. Tarih seed'i ile deterministik.
+// Türkiye saati 00:00'da yeni bulmaca.
+
+import { ANSWER_INDEX, getPairKey } from "./gameData";
+
+// Türkiye saatine göre günün tarih string'i (YYYY-MM-DD)
+export function getTodayKey() {
+  const now = new Date();
+  const tr = new Intl.DateTimeFormat("en-CA", {
+    timeZone: "Europe/Istanbul",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit"
+  }).format(now);
+  return tr; // "2026-05-18" formatında
+}
+
+// Bugünden bugünden bir sonraki TR gece yarısına kalan süre (ms)
+export function getMsUntilNextPuzzle() {
+  const now = new Date();
+  // TR ofseti +3 saat (yaz/kış değişmez)
+  const trOffsetMs = 3 * 60 * 60 * 1000;
+  const trNow = now.getTime() + trOffsetMs;
+  const trDate = new Date(trNow);
+  const tomorrow = new Date(Date.UTC(
+    trDate.getUTCFullYear(),
+    trDate.getUTCMonth(),
+    trDate.getUTCDate() + 1
+  ));
+  return tomorrow.getTime() - trNow;
+}
+
+// String'den deterministic 32-bit integer seed
+function hashString(s) {
+  let h = 0;
+  for (let i = 0; i < s.length; i += 1) {
+    h = (h << 5) - h + s.charCodeAt(i);
+    h |= 0;
+  }
+  return Math.abs(h);
+}
+
+// Mulberry32 — fast, deterministic PRNG
+function mulberry32(seed) {
+  let t = seed;
+  return function rand() {
+    t += 0x6d2b79f5;
+    let x = Math.imul(t ^ (t >>> 15), t | 1);
+    x ^= x + Math.imul(x ^ (x >>> 7), x | 61);
+    return ((x ^ (x >>> 14)) >>> 0) / 4294967296;
+  };
+}
+
+// Bugünün bulmacasını üret. weightedPairs: App.jsx'teki WEIGHTED_TEAM_PAIRS
+// Difficulty: easy (cevap çok) → hard (cevap az), kolaydan zora sıralanır.
+export function getDailyPuzzle(weightedPairs) {
+  const today = getTodayKey();
+  const seed = hashString(today);
+  const rng = mulberry32(seed);
+
+  // Pair'leri cevap sayısına göre tier'la
+  const enriched = weightedPairs.map((p) => {
+    const key = getPairKey(p.teams[0], p.teams[1]);
+    return {
+      teams: p.teams,
+      key,
+      answerCount: (ANSWER_INDEX[key] || []).length
+    };
+  });
+
+  // 4 zorluk seviyesi
+  const easy = enriched.filter((p) => p.answerCount >= 15);
+  const medEasy = enriched.filter((p) => p.answerCount >= 8 && p.answerCount < 15);
+  const med = enriched.filter((p) => p.answerCount >= 4 && p.answerCount < 8);
+  const hard = enriched.filter((p) => p.answerCount >= 2 && p.answerCount < 4);
+
+  // Seeded random pick (without replacement)
+  function pickN(pool, n, exclude) {
+    const available = pool.filter((p) => !exclude.has(p.key));
+    if (available.length === 0) return [];
+    const shuffled = [...available].sort(() => rng() - 0.5);
+    return shuffled.slice(0, n);
+  }
+
+  const exclude = new Set();
+  const picks = [];
+
+  // 2 easy + 1 medEasy + 1 med + 1 hard
+  const tiers = [
+    [easy, 2],
+    [medEasy, 1],
+    [med, 1],
+    [hard, 1]
+  ];
+
+  for (const [pool, count] of tiers) {
+    const got = pickN(pool, count, exclude);
+    got.forEach((g) => {
+      picks.push(g);
+      exclude.add(g.key);
+    });
+  }
+
+  // Eğer 5'e ulaşamadıysak (mesela hard pair yoksa), easy/medEasy'den doldur
+  const allPools = [easy, medEasy, med, hard];
+  while (picks.length < 5) {
+    let added = false;
+    for (const pool of allPools) {
+      if (picks.length >= 5) break;
+      const got = pickN(pool, 1, exclude);
+      if (got.length > 0) {
+        picks.push(got[0]);
+        exclude.add(got[0].key);
+        added = true;
+      }
+    }
+    if (!added) break;
+  }
+
+  return {
+    date: today,
+    puzzles: picks.slice(0, 5).map((p) => ({ teams: p.teams, key: p.key }))
+  };
+}
+
+// Streak hesaplaması — localStorage'daki sonuçlardan
+export function calculateStreak(history) {
+  // history: { "2026-05-17": { won: true|false, attempts: [...] }, ... }
+  if (!history) return 0;
+  const dates = Object.keys(history).sort().reverse();
+  if (dates.length === 0) return 0;
+
+  let streak = 0;
+  let cursor = getTodayKey();
+
+  // Eğer bugün henüz oynanmamışsa, dün'den başla
+  if (!history[cursor]) {
+    const d = new Date(cursor);
+    d.setDate(d.getDate() - 1);
+    cursor = d.toISOString().slice(0, 10);
+  }
+
+  while (history[cursor]) {
+    const entry = history[cursor];
+    // Sadece bitirilenler streak'e dahil (en az 1 doğru)
+    const solved = entry.attempts && entry.attempts.filter((a) => a === "correct").length > 0;
+    if (!solved) break;
+    streak += 1;
+    const d = new Date(cursor);
+    d.setDate(d.getDate() - 1);
+    cursor = d.toISOString().slice(0, 10);
+  }
+
+  return streak;
+}

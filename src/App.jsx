@@ -2,6 +2,7 @@ import React, { useEffect, useMemo, useRef, useState } from "react";
 import { createClient } from "@supabase/supabase-js";
 import { PLAYERS, TEAMS, ANSWER_INDEX, getPairKey, getAnswers } from "./data/gameData";
 import { TEAM_LOGOS } from "./data/teamLogos";
+import { getDailyPuzzle, getTodayKey, getMsUntilNextPuzzle, calculateStreak } from "./data/dailyPuzzle";
 import AdminPanel from "./admin/AdminPanel";
 
 const WINNING_SCORE = 3;
@@ -198,7 +199,7 @@ const TIER_1_TEAMS = [
   // Avrupa devleri (yeni data isimleriyle)
   "Real Madrid", "Barcelona", "Atletico Madrid", "Bayern Munich",
   "Manchester United", "Manchester City", "Liverpool", "Chelsea", "Arsenal",
-  "Juventus", "AC Milan", "Inter", "Borussia Dortmund", "PSG"
+  "Juventus", "AC Milan", "Inter", "Borussia Dortmund", "Paris Saint-Germain"
 ];
 
 const TIER_2_TEAMS = [
@@ -689,6 +690,29 @@ export default function App() {
   const [challengeTimeAddUsed, setChallengeTimeAddUsed] = useState(false);
   const [challengeJokerHint, setChallengeJokerHint] = useState(null);
   const [challengeFeedback, setChallengeFeedback] = useState(null); // "correct" | "wrong" | null
+
+  // =================== DAILY PUZZLE STATE ===================
+  const [dailyHistory, setDailyHistory] = useState(() => {
+    try {
+      const stored = window.localStorage.getItem("pairfc_daily_history");
+      return stored ? JSON.parse(stored) : {};
+    } catch (e) {
+      return {};
+    }
+  });
+  const dailyStreak = useMemo(() => calculateStreak(dailyHistory), [dailyHistory]);
+  const [dailyData, setDailyData] = useState(null); // { date, puzzles: [{teams, key}] }
+  const [dailyIndex, setDailyIndex] = useState(0);
+  const [dailyWrongCount, setDailyWrongCount] = useState(0);
+  const [dailyResults, setDailyResults] = useState([]); // ["correct"|"failed", ...]
+  const [dailyInput, setDailyInput] = useState("");
+  const [dailyFocused, setDailyFocused] = useState(false);
+  const [dailyMessage, setDailyMessage] = useState(null);
+  const [dailyDone, setDailyDone] = useState(false);
+  const [dailyAcceptedThisRound, setDailyAcceptedThisRound] = useState([]);
+  const [dailyShowAnswers, setDailyShowAnswers] = useState(false);
+  const [dailyFeedback, setDailyFeedback] = useState(null);
+  const [dailyCountdown, setDailyCountdown] = useState(""); // "5sa 23dk" gibi
 
   const suggestions = useMemo(() => getPlayerSuggestions(answerInput), [answerInput]);
   const correctPlayers = useMemo(() => getCorrectPlayersForRound(round), [round]);
@@ -1491,9 +1515,147 @@ export default function App() {
     setScreen("home");
   };
 
+  // =================== DAILY PUZZLE FUNCTIONS ===================
+  const startDaily = () => {
+    const today = getTodayKey();
+    const existingToday = dailyHistory[today];
+    const data = getDailyPuzzle(WEIGHTED_TEAM_PAIRS);
+    setDailyData(data);
+
+    if (existingToday && existingToday.completed) {
+      // Bugün zaten oynanmış — direkt sonuç ekranı
+      setDailyResults(existingToday.attempts || []);
+      setDailyIndex(data.puzzles.length);
+      setDailyDone(true);
+    } else {
+      setDailyIndex(0);
+      setDailyResults([]);
+      setDailyDone(false);
+    }
+    setDailyWrongCount(0);
+    setDailyInput("");
+    setDailyFocused(false);
+    setDailyMessage(null);
+    setDailyAcceptedThisRound([]);
+    setDailyShowAnswers(false);
+    setDailyFeedback(null);
+    setScreen("daily");
+  };
+
+  const advanceDailyToNext = (resultType) => {
+    const newResults = [...dailyResults, resultType];
+    setDailyResults(newResults);
+
+    const nextIdx = dailyIndex + 1;
+    const isLast = nextIdx >= (dailyData?.puzzles?.length || 5);
+
+    if (isLast) {
+      // Oyun bitti, kaydet
+      const today = getTodayKey();
+      const newHistory = {
+        ...dailyHistory,
+        [today]: { attempts: newResults, completed: true, finishedAt: Date.now() }
+      };
+      setDailyHistory(newHistory);
+      window.localStorage.setItem("pairfc_daily_history", JSON.stringify(newHistory));
+      setDailyDone(true);
+    } else {
+      setDailyIndex(nextIdx);
+      setDailyWrongCount(0);
+      setDailyInput("");
+      setDailyMessage(null);
+      setDailyShowAnswers(false);
+      setDailyAcceptedThisRound([]);
+      setDailyFeedback(null);
+    }
+  };
+
+  const submitDailyAnswer = () => {
+    if (!dailyData || dailyDone) return;
+    const currentPuzzle = dailyData.puzzles[dailyIndex];
+    if (!currentPuzzle) return;
+
+    const raw = dailyInput.trim();
+    if (!raw) return;
+
+    const round = { teams: currentPuzzle.teams };
+    const acceptedName = findAcceptedAnswer(round, raw);
+
+    if (acceptedName) {
+      if (dailyAcceptedThisRound.includes(acceptedName)) {
+        setDailyMessage({ type: "warning", text: "Bu cevabı zaten verdin." });
+        setDailyInput("");
+        return;
+      }
+      // Doğru!
+      setDailyAcceptedThisRound([...dailyAcceptedThisRound, acceptedName]);
+      setDailyInput("");
+      setDailyMessage({ type: "success", text: `Doğru: ${acceptedName}!` });
+      setDailyFeedback("correct");
+      triggerConfetti();
+      triggerScreenFlash("success");
+      playGameSound("ownGoal");
+      setTimeout(() => {
+        setDailyFeedback(null);
+        advanceDailyToNext("correct");
+      }, 1200);
+    } else {
+      // Yanlış
+      const nextWrong = dailyWrongCount + 1;
+      setDailyWrongCount(nextWrong);
+      setDailyInput("");
+      setDailyFeedback("wrong");
+      triggerScreenFlash("error");
+      playGameSound("wrong");
+      setTimeout(() => setDailyFeedback(null), 600);
+      if (nextWrong >= 3) {
+        // 3 yanlış — bu puzzle X, sonraki
+        setDailyShowAnswers(true);
+        setDailyMessage({ type: "error", text: "3 yanlış. Bu eşleşme X." });
+        setTimeout(() => advanceDailyToNext("failed"), 1800);
+      } else {
+        setDailyMessage({ type: "error", text: `Yanlış. Kalan hak: ${3 - nextWrong}` });
+      }
+    }
+  };
+
+  const skipDailyPuzzle = () => {
+    setDailyShowAnswers(true);
+    setDailyMessage({ type: "info", text: "Atlandı." });
+    setTimeout(() => advanceDailyToNext("failed"), 1200);
+  };
+
+  const dailySuggestions = useMemo(() => getPlayerSuggestions(dailyInput), [dailyInput]);
+  const updateDailyInput = (value) => {
+    setDailyInput(value);
+    if (value && value.length > 0) setDailyFocused(true);
+  };
+  const selectDailySuggestion = (name) => {
+    setDailyInput(name);
+    setDailyFocused(false);
+  };
+
+  // Countdown timer to next puzzle
+  useEffect(() => {
+    if (!dailyDone) return;
+    const update = () => {
+      const ms = getMsUntilNextPuzzle();
+      const h = Math.floor(ms / 3600000);
+      const m = Math.floor((ms % 3600000) / 60000);
+      setDailyCountdown(`${h}sa ${m}dk`);
+    };
+    update();
+    const interval = setInterval(update, 60000);
+    return () => clearInterval(interval);
+  }, [dailyDone]);
+
   const goToHome = () => {
     if (screen === "challenge") {
       backToHomeFromChallenge();
+      return;
+    }
+    if (screen === "daily") {
+      setScreen("home");
       return;
     }
     if (screen === "game" || screen === "winner") {
@@ -1858,6 +2020,7 @@ export default function App() {
   const isHome = screen === "home";
   const isGameLike = screen === "game" || screen === "winner";
   const isChallenge = screen === "challenge";
+  const isDaily = screen === "daily";
 
   return (
     <div className={`app-shell ${isHome ? "home-screen" : "play-screen"}`}>
@@ -1897,7 +2060,7 @@ export default function App() {
         <main className="app-main">
           {isHome && (
             <section className="home-content">
-              <div className="mode-grid">
+              <div className="mode-grid mode-grid-3">
                 <button type="button" className="mode-card active" aria-pressed="true">
                   <span className="mode-icon">🌍</span>
                   <strong>Online Kapışma</strong>
@@ -1906,9 +2069,16 @@ export default function App() {
 
                 <button type="button" onClick={startChallenge} className="mode-card">
                   <span className="mode-icon">🔥</span>
-                  <strong>Kişisel Challenge</strong>
+                  <strong>Challenge</strong>
                   <small>Tek başına üst üste kaç doğru?</small>
                   <em className="best-badge">En iyi: {challengeBest}</em>
+                </button>
+
+                <button type="button" onClick={startDaily} className="mode-card mode-card-daily">
+                  <span className="mode-icon">📅</span>
+                  <strong>Günün Bulmacası</strong>
+                  <small>Her gün 5 yeni eşleşme. Herkes aynı.</small>
+                  {dailyStreak > 0 && <em className="best-badge streak-badge">🔥 {dailyStreak} gün</em>}
                 </button>
               </div>
 
@@ -2105,6 +2275,156 @@ export default function App() {
                       <StatusMessage message={challengeMessage} />
                     </>
                   )}
+                </div>
+              )}
+            </section>
+          )}
+
+          {isDaily && (
+            <section className="play-content">
+              <div className="info-bar">
+                <div className="info-chip">
+                  <span>📅 Günlük</span>
+                </div>
+                {!dailyDone && dailyData && (
+                  <div className="info-chip">
+                    <span>Bulmaca</span>
+                    <strong>{dailyIndex + 1} / {dailyData.puzzles.length}</strong>
+                  </div>
+                )}
+                {dailyStreak > 0 && (
+                  <div className="info-chip">
+                    <span>🔥 Streak</span>
+                    <strong>{dailyStreak}</strong>
+                  </div>
+                )}
+              </div>
+
+              {!dailyData && (
+                <div className="panel">
+                  <p>Günlük bulmaca yükleniyor...</p>
+                </div>
+              )}
+
+              {dailyData && !dailyDone && dailyData.puzzles[dailyIndex] && (
+                <div className={`play-panel ${dailyFeedback === "correct" ? "feedback-correct" : ""} ${dailyFeedback === "wrong" ? "feedback-wrong" : ""}`}>
+                  <div className="play-header daily-header">
+                    <div className="daily-progress-dots">
+                      {dailyData.puzzles.map((_, i) => {
+                        const r = dailyResults[i];
+                        return (
+                          <span
+                            key={i}
+                            className={`daily-dot ${i === dailyIndex ? "current" : ""} ${r === "correct" ? "correct" : ""} ${r === "failed" ? "failed" : ""}`}
+                          />
+                        );
+                      })}
+                    </div>
+                    <div className="daily-wrong-meter">
+                      <span>Yanlış hakkı:</span>
+                      <strong className={dailyWrongCount >= 2 ? "danger" : ""}>{3 - dailyWrongCount}</strong>
+                    </div>
+                  </div>
+
+                  <div className="teams-grid">
+                    <div className="team-card">
+                      <TeamBadge team={dailyData.puzzles[dailyIndex].teams[0]} size={64} />
+                      <strong>{dailyData.puzzles[dailyIndex].teams[0]}</strong>
+                    </div>
+                    <div className="vs-orb"><span>VS</span></div>
+                    <div className="team-card">
+                      <TeamBadge team={dailyData.puzzles[dailyIndex].teams[1]} size={64} />
+                      <strong>{dailyData.puzzles[dailyIndex].teams[1]}</strong>
+                    </div>
+                  </div>
+
+                  {!dailyShowAnswers ? (
+                    <div className="answer-card">
+                      <div className="answer-row">
+                        <div className="autocomplete-wrap">
+                          <input
+                            value={dailyInput}
+                            onFocus={() => { if (dailyInput) setDailyFocused(true); }}
+                            onBlur={() => setTimeout(() => setDailyFocused(false), 120)}
+                            onChange={(event) => updateDailyInput(event.target.value)}
+                            onKeyDown={(event) => { if (event.key === "Enter") submitDailyAnswer(); }}
+                            placeholder="Futbolcu adı yaz..."
+                          />
+                          {dailyFocused && dailySuggestions.length > 0 && (
+                            <div className="suggestions">
+                              {dailySuggestions.map((player) => (
+                                <button
+                                  key={player.name}
+                                  type="button"
+                                  onMouseDown={(e) => { e.preventDefault(); selectDailySuggestion(player.name); }}
+                                  onClick={() => selectDailySuggestion(player.name)}
+                                >
+                                  {player.name}
+                                </button>
+                              ))}
+                            </div>
+                          )}
+                        </div>
+                        <button type="button" onClick={submitDailyAnswer} className="primary-button">
+                          Kontrol
+                        </button>
+                      </div>
+                    </div>
+                  ) : (
+                    <div className="action-banner error">
+                      <span className="action-emoji">❌</span>
+                      <strong>3 yanlış — sonraki eşleşmeye geçiliyor...</strong>
+                    </div>
+                  )}
+
+                  <StatusMessage message={dailyMessage} />
+
+                  {!dailyShowAnswers && (
+                    <button type="button" onClick={skipDailyPuzzle} className="light-button compact daily-skip">
+                      ⏭️ Bu eşleşmeyi atla
+                    </button>
+                  )}
+                </div>
+              )}
+
+              {dailyDone && dailyData && (
+                <div className="challenge-gameover">
+                  <div className="gameover-header">
+                    <div className="gameover-icon trophy">📅</div>
+                    <div className="gameover-headline">
+                      <h3>Günün Bulmacası Bitti</h3>
+                      <p className="gameover-detail">{dailyData.date}</p>
+                    </div>
+                  </div>
+
+                  <div className="gameover-stats">
+                    <div className="gameover-stat">
+                      <span>Doğru</span>
+                      <strong>{dailyResults.filter((r) => r === "correct").length} / {dailyData.puzzles.length}</strong>
+                    </div>
+                    <div className="gameover-stat highlight">
+                      <span>🔥 Streak</span>
+                      <strong>{dailyStreak}</strong>
+                    </div>
+                  </div>
+
+                  <div className="gameover-section">
+                    <span className="gameover-label">Bulmaca grid</span>
+                    <div className="daily-grid-emoji">
+                      {dailyResults.map((r, i) => (
+                        <span key={i}>{r === "correct" ? "🟩" : "🟥"}</span>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="gameover-section">
+                    <span className="gameover-label">⏳ Yarınki bulmacaya</span>
+                    <strong style={{ fontSize: "18px", color: "var(--accent)" }}>{dailyCountdown}</strong>
+                  </div>
+
+                  <button type="button" onClick={goToHome} className="primary-button big gameover-restart">
+                    🏠 Ana Menü
+                  </button>
                 </div>
               )}
             </section>
@@ -2750,6 +3070,102 @@ button:focus-visible {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 12px;
+}
+
+.mode-grid-3 {
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+@media (max-width: 720px) {
+  .mode-grid-3 {
+    grid-template-columns: 1fr;
+  }
+}
+
+.mode-card-daily {
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.12) 0%, var(--surface) 100%);
+  border-color: rgba(245, 158, 11, 0.3);
+}
+
+.streak-badge {
+  background: linear-gradient(135deg, var(--accent-soft) 0%, rgba(245, 158, 11, 0.06) 100%);
+  border: 1px solid rgba(245, 158, 11, 0.45);
+  color: var(--accent);
+}
+
+/* Daily puzzle progress dots */
+.daily-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.daily-progress-dots {
+  display: flex;
+  gap: 6px;
+}
+
+.daily-dot {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--surface-soft);
+  border: 1px solid var(--border);
+  transition: all 0.2s var(--ease);
+}
+
+.daily-dot.current {
+  background: var(--accent-soft);
+  border-color: var(--accent);
+  box-shadow: 0 0 8px rgba(245, 158, 11, 0.5);
+}
+
+.daily-dot.correct {
+  background: var(--primary);
+  border-color: var(--primary);
+}
+
+.daily-dot.failed {
+  background: var(--danger);
+  border-color: var(--danger);
+}
+
+.daily-wrong-meter {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+}
+
+.daily-wrong-meter span {
+  font-size: 10px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.daily-wrong-meter strong {
+  font-size: 18px;
+  color: var(--primary);
+  font-weight: 800;
+}
+
+.daily-wrong-meter strong.danger {
+  color: var(--danger);
+}
+
+.daily-skip {
+  align-self: center;
+  margin-top: 4px;
+}
+
+.daily-grid-emoji {
+  font-size: 28px;
+  letter-spacing: 4px;
+  text-align: center;
+  padding: 8px;
+  background: var(--surface-soft);
+  border-radius: 10px;
 }
 
 .mode-card {
