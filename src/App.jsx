@@ -1815,9 +1815,8 @@ export default function App() {
     setDailyFocused(false);
   };
 
-  // Countdown timer to next puzzle
+  // Countdown timer to next puzzle (her zaman çalışır — anasayfa ve sonuç ekranı için)
   useEffect(() => {
-    if (!dailyDone) return;
     const update = () => {
       const ms = getMsUntilNextPuzzle();
       const h = Math.floor(ms / 3600000);
@@ -1827,7 +1826,7 @@ export default function App() {
     update();
     const interval = setInterval(update, 60000);
     return () => clearInterval(interval);
-  }, [dailyDone]);
+  }, []);
 
   const goToHome = () => {
     if (screen === "challenge") {
@@ -2295,7 +2294,13 @@ export default function App() {
             <section className="home-content">
               {showOnlineSetup && (
                 <div className="online-setup-header">
-                  <button type="button" onClick={() => { setShowOnlineSetup(false); setOnlineSetupMode(null); }} className="back-button">
+                  <button type="button" onClick={() => {
+                    if (onlineSetupMode) {
+                      setOnlineSetupMode(null);
+                    } else {
+                      setShowOnlineSetup(false);
+                    }
+                  }} className="back-button">
                     ← Geri
                   </button>
                   <div className="online-setup-title">
@@ -2307,6 +2312,30 @@ export default function App() {
 
               {!showOnlineSetup && (
               <>
+              <div className="stats-bar">
+                <div className="stat-pill">
+                  <span className="stat-icon">🔥</span>
+                  <div className="stat-text">
+                    <strong>{dailyStreak}</strong>
+                    <small>Streak</small>
+                  </div>
+                </div>
+                <div className="stat-pill">
+                  <span className="stat-icon">🏆</span>
+                  <div className="stat-text">
+                    <strong>{challengeBest}</strong>
+                    <small>En iyi</small>
+                  </div>
+                </div>
+                <div className="stat-pill">
+                  <span className="stat-icon">📅</span>
+                  <div className="stat-text">
+                    <strong>{dailyCountdown || "—"}</strong>
+                    <small>Yarınki</small>
+                  </div>
+                </div>
+              </div>
+
               <div className="mode-grid mode-grid-3">
                 <button type="button" onClick={() => { setShowOnlineSetup(true); setOnlineSetupMode(null); }} className="mode-card mode-card-online">
                   <span className="mode-icon">🌍</span>
@@ -2363,10 +2392,6 @@ export default function App() {
 
               {onlineSetupMode === "create" && (
                 <div className="online-form">
-                  <button type="button" onClick={() => setOnlineSetupMode(null)} className="sub-back-button">
-                    ← Mod seçimine dön
-                  </button>
-
                   <div className="input-card">
                     <label htmlFor="playerNameInput">👤 Oyuncu adın</label>
                     <input
@@ -2422,10 +2447,6 @@ export default function App() {
 
               {onlineSetupMode === "join" && (
                 <div className="online-form">
-                  <button type="button" onClick={() => setOnlineSetupMode(null)} className="sub-back-button">
-                    ← Mod seçimine dön
-                  </button>
-
                   <div className="input-card">
                     <label htmlFor="playerNameInput2">👤 Oyuncu adın</label>
                     <input
@@ -3237,7 +3258,16 @@ button:focus-visible {
 }
 
 .topbar-compact {
-  padding: 10px 14px;
+  padding: 8px 12px;
+}
+
+.topbar-compact .brand-mark {
+  width: 22px;
+  height: 22px;
+}
+
+.topbar-compact .brand strong {
+  font-size: 15px;
 }
 
 .brand {
@@ -3981,13 +4011,75 @@ button:focus-visible {
   letter-spacing: 0.02em;
 }
 
+/* Stats bar (anasayfa üst kısmı) */
+.stats-bar {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.stat-pill {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  transition: all 0.2s var(--ease);
+}
+
+.stat-pill:hover {
+  border-color: var(--border-strong);
+  background: var(--surface-strong);
+}
+
+.stat-icon {
+  font-size: 22px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.stat-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.stat-text strong {
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: var(--text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.stat-text small {
+  font-size: 10px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-weight: 700;
+}
+
+@media (max-width: 420px) {
+  .stat-icon { font-size: 18px; }
+  .stat-text strong { font-size: 14px; }
+  .stat-pill { padding: 10px 12px; gap: 8px; }
+}
+
 .mode-card {
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 8px;
-  padding: 22px;
+  gap: 6px;
+  padding: 18px 18px 18px 22px;
   background:
     linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, transparent 50%),
     var(--surface);
@@ -3995,7 +4087,7 @@ button:focus-visible {
   border-radius: var(--radius-lg);
   text-align: left;
   transition: all 0.22s var(--ease);
-  min-height: 130px;
+  min-height: 110px;
   overflow: hidden;
   cursor: pointer;
 }
