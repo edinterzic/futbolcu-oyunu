@@ -3,6 +3,7 @@ import { createClient } from "@supabase/supabase-js";
 import { PLAYERS, TEAMS, ANSWER_INDEX, getPairKey, getAnswers } from "./data/gameData";
 import { TEAM_LOGOS } from "./data/teamLogos";
 import { getDailyPuzzle, getTodayKey, getMsUntilNextPuzzle, calculateStreak } from "./data/dailyPuzzle";
+import { SOUND_FILES } from "./data/sounds";
 import { initAnalytics, track, startTimer, endTimer } from "./analytics";
 import AdminPanel from "./admin/AdminPanel";
 
@@ -601,98 +602,90 @@ function MatchSummary({ playerNames, scores, winner, targetScore, seriesWins, cu
   );
 }
 
-// Singleton AudioContext — iOS Safari user gesture içinde unlock etmek gerek
-let _audioContext = null;
+// =================== SES SİSTEMİ ===================
+// HTML5 Audio kullanıyor — iOS Safari Web Audio API'yi engellediği için.
+// Tüm sesler inline base64 (sounds.js içinde), dosya yükleme yok.
+
+const _audioPool = {};
+
+function initAudioPool() {
+  if (typeof window === "undefined") return;
+  Object.keys(SOUND_FILES).forEach((name) => {
+    if (_audioPool[name]) return;
+    try {
+      const audio = new Audio(SOUND_FILES[name]);
+      audio.preload = "auto";
+      audio.volume = 0.55;
+      _audioPool[name] = audio;
+    } catch {}
+  });
+}
+
 let _audioUnlocked = false;
-
-function getAudioContext() {
-  if (typeof window === "undefined") return null;
-  if (!_audioContext) {
-    const AC = window.AudioContext || window.webkitAudioContext;
-    if (!AC) return null;
-    try { _audioContext = new AC(); } catch { return null; }
-  }
-  if (_audioContext.state === "suspended") {
-    try { _audioContext.resume(); } catch {}
-  }
-  return _audioContext;
-}
-
 function unlockAudio() {
-  const ctx = getAudioContext();
-  if (!ctx) return;
-  try {
-    if (ctx.state === "suspended") ctx.resume();
-    const buffer = ctx.createBuffer(1, 1, 22050);
-    const source = ctx.createBufferSource();
-    source.buffer = buffer;
-    source.connect(ctx.destination);
-    source.start(0);
-    source.stop?.(0.001);
-    _audioUnlocked = true;
-  } catch {}
+  if (_audioUnlocked) return;
+  initAudioPool();
+  // iOS unlock — her audio'yu user gesture içinde bir kez "uyandır"
+  Object.values(_audioPool).forEach((audio) => {
+    try {
+      const muted = audio.muted;
+      audio.muted = true;
+      const playPromise = audio.play();
+      if (playPromise && typeof playPromise.then === "function") {
+        playPromise
+          .then(() => {
+            audio.pause();
+            audio.currentTime = 0;
+            audio.muted = muted;
+          })
+          .catch(() => {
+            audio.muted = muted;
+          });
+      }
+    } catch {}
+  });
+  _audioUnlocked = true;
 }
 
-// Birden çok user interaction event'i (iOS bazen touchstart'ı kaçırıyor)
+// İlk user interaction'da audio'yu unlock et
 if (typeof window !== "undefined") {
   const events = ["touchstart", "touchend", "click", "keydown", "pointerdown"];
   const onFirst = () => {
     unlockAudio();
-    if (_audioUnlocked) {
-      events.forEach((e) => window.removeEventListener(e, onFirst));
-    }
+    events.forEach((e) => window.removeEventListener(e, onFirst));
   };
   events.forEach((e) => window.addEventListener(e, onFirst, { passive: true }));
-}
-
-function playTone({ frequencies = [440], duration = 0.18, type = "sine", volume = 0.08 }) {
-  try {
-    const audioContext = getAudioContext();
-    if (!audioContext) return;
-    // iOS — unlock olmadıysa skip et (gürültüsüz fail)
-    if (audioContext.state !== "running") {
-      audioContext.resume?.();
-      if (audioContext.state !== "running") return;
-    }
-
-    const now = audioContext.currentTime;
-    const gain = audioContext.createGain();
-
-    gain.gain.setValueAtTime(0.0001, now);
-    gain.gain.exponentialRampToValueAtTime(volume, now + 0.02);
-    gain.gain.exponentialRampToValueAtTime(0.0001, now + duration);
-
-    gain.connect(audioContext.destination);
-
-    frequencies.forEach((frequency, index) => {
-      const oscillator = audioContext.createOscillator();
-      oscillator.type = type;
-      oscillator.frequency.setValueAtTime(frequency, now + index * 0.06);
-      oscillator.connect(gain);
-      oscillator.start(now + index * 0.06);
-      oscillator.stop(now + duration + index * 0.06);
-    });
-  } catch {
-    // Sound is optional
-  }
 }
 
 function playGameSound(soundName) {
   if (typeof window === "undefined") return;
   if (window.localStorage.getItem("footballGameMuted") === "true") return;
 
+  // Çeşitli oyun seslerini dosya isimlerine eşle
   const soundMap = {
-    ownGoal: { frequencies: [523.25, 659.25, 783.99, 1046.5], duration: 0.34, type: "triangle", volume: 0.09 },
-    opponentGoal: { frequencies: [392, 349.23, 293.66], duration: 0.34, type: "sawtooth", volume: 0.055 },
-    wrong: { frequencies: [180, 130], duration: 0.28, type: "square", volume: 0.045 },
-    matchEnd: { frequencies: [392, 523.25, 659.25, 783.99, 1046.5], duration: 0.48, type: "triangle", volume: 0.085 },
-    countdown: { frequencies: [440], duration: 0.08, type: "sine", volume: 0.035 },
-    tap: { frequencies: [800], duration: 0.04, type: "sine", volume: 0.025 },
-    combo: { frequencies: [659.25, 783.99, 987.77, 1318.51], duration: 0.4, type: "triangle", volume: 0.075 },
-    urgentTick: { frequencies: [880], duration: 0.06, type: "square", volume: 0.05 }
+    ownGoal: "correct",
+    opponentGoal: "wrong",
+    wrong: "wrong",
+    matchEnd: "matchEnd",
+    countdown: "countdown",
+    tap: "countdown",
+    combo: "combo",
+    urgentTick: "urgentTick"
   };
 
-  playTone(soundMap[soundName] || soundMap.countdown);
+  const fileKey = soundMap[soundName] || soundName;
+  initAudioPool();
+  const audio = _audioPool[fileKey];
+  if (!audio) return;
+
+  try {
+    // Aynı sesi tekrar çalmadan önce başa sar
+    audio.currentTime = 0;
+    const p = audio.play();
+    if (p && typeof p.catch === "function") {
+      p.catch(() => {});
+    }
+  } catch {}
 }
 
 export default function App() {
