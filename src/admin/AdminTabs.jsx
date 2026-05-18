@@ -2,6 +2,7 @@ import React, { useState, useEffect, useCallback, useMemo } from "react";
 import { createClient } from "@supabase/supabase-js";
 import { PLAYERS } from "../data/players";
 import { TEAMS } from "../data/teams";
+import { TEAM_LOGOS } from "../data/teamLogos";
 
 // =================== SUPABASE ===================
 const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL;
@@ -66,23 +67,26 @@ function getContrastColor(hex) {
 
 // =================== DATA STORE ===================
 function buildFreshSnapshot() {
-  const teams = TEAMS.map((t) => ({
-    name: t.name,
-    initials: t.initials || "",
-    primary: t.primary || "#10b981",
-    secondary: t.secondary || "#ffffff",
-    country: t.country || "",
-    league: t.league || "",
-    founded: t.founded || null
-  }));
+  const teams = TEAMS.map((name) => {
+    const style = TEAM_LOGOS[name] || {};
+    return {
+      name,
+      initials: style.initials || "",
+      primary: style.primary || "#10b981",
+      secondary: style.secondary || "#ffffff",
+      country: "",
+      league: "",
+      founded: null
+    };
+  });
   const players = PLAYERS.map((p) => ({
     name: p.name,
     clubs: [...p.clubs],
-    nationality: p.nationality || "",
-    birthYear: p.birthYear || null,
-    isActive: p.isActive ?? null
+    nationality: "",
+    birthYear: null,
+    isActive: null
   }));
-  return { schemaVersion: 4, createdAt: Date.now(), lastModified: Date.now(), players, teams };
+  return { schemaVersion: 1, createdAt: Date.now(), lastModified: Date.now(), players, teams };
 }
 
 function loadSnapshot() {
@@ -90,7 +94,7 @@ function loadSnapshot() {
     const raw = localStorage.getItem(SNAPSHOT_KEY);
     if (!raw) return null;
     const snap = JSON.parse(raw);
-    if (snap.schemaVersion !== 4) return null;
+    if (snap.schemaVersion !== 1) return null;
     return snap;
   } catch { return null; }
 }
@@ -133,7 +137,7 @@ export function useDataStore() {
 
 export function computeDiff(snapshot) {
   const origPlayerNames = new Set(PLAYERS.map((p) => p.name));
-  const origTeamNames = new Set(TEAMS.map((t) => t.name));
+  const origTeamNames = new Set(TEAMS);
   const curPlayerNames = new Set(snapshot.players.map((p) => p.name));
   const curTeamNames = new Set(snapshot.teams.map((t) => t.name));
 
@@ -150,8 +154,8 @@ export function computeDiff(snapshot) {
   });
 
   const addedTeams = snapshot.teams.filter((t) => !origTeamNames.has(t.name));
-  const removedTeams = TEAMS.filter((t) => !curTeamNames.has(t.name)).map((t) => t.name);
-  const origTeamMap = new Map(TEAMS.map((t) => [t.name, t]));
+  const removedTeams = TEAMS.filter((n) => !curTeamNames.has(n));
+  const origTeamMap = new Map(TEAMS.map((n) => [n, TEAM_LOGOS[n] || {}]));
   const modifiedTeams = snapshot.teams.filter((t) => {
     if (!origTeamMap.has(t.name)) return false;
     const orig = origTeamMap.get(t.name);
@@ -208,28 +212,21 @@ function generateTeamsJS(snapshot) {
     if (p.clubs.length >= 2) for (const c of p.clubs) counts.set(c, (counts.get(c) || 0) + 1);
   }
   const active = snapshot.teams.filter((t) => counts.has(t.name));
-  active.sort((a, b) => a.name.localeCompare(b.name, "tr"));
-  const list = active.map((t) => {
-    const parts = [
-      `name: ${JSON.stringify(t.name)}`,
-      `initials: ${JSON.stringify(t.initials || "")}`,
-      `primary: ${JSON.stringify(t.primary || "#10b981")}`,
-      `secondary: ${JSON.stringify(t.secondary || "#ffffff")}`,
-      `country: ${JSON.stringify(t.country || "")}`,
-      `isActive: true`,
-    ];
-    if (t.league) parts.push(`league: ${JSON.stringify(t.league)}`);
-    if (t.founded) parts.push(`founded: ${JSON.stringify(t.founded)}`);
-    return `  { ${parts.join(", ")} }`;
-  }).join(",\n");
-  return `// Auto-generated from admin panel\n// Generated: ${new Date().toISOString()}\n\nexport const TEAMS = [\n${list}\n];\n`;
+  active.sort((a, b) => (counts.get(b.name) || 0) - (counts.get(a.name) || 0));
+  const list = active.map((t) => `  ${JSON.stringify(t.name)}`).join(",\n");
+  return `// Auto-generated from admin panel
+// Generated: ${new Date().toISOString()}
+
+export const TEAMS = [
+${list}
+];
+`;
 }
+
 function generatePlayersJS(snapshot) {
-  // Tüm oyuncuları export et (tek takımlı dahil), data eklemelerinde tamamlanabilsin.
-  // Quiz-eligible filtresi runtime'da App.jsx tarafında yapılıyor.
-  const all = [...snapshot.players];
-  all.sort((a, b) => a.name.localeCompare(b.name, "tr"));
-  const entries = all.map((p) => {
+  const eligible = snapshot.players.filter((p) => p.clubs.length >= 2);
+  eligible.sort((a, b) => a.name.localeCompare(b.name, "tr"));
+  const entries = eligible.map((p) => {
     const clubs = p.clubs.map((c) => `      ${JSON.stringify(c)}`).join(",\n");
     return `  {
     "name": ${JSON.stringify(p.name)},
@@ -574,6 +571,7 @@ function TeamEditor({ open, onClose, onSave, team, existingNames }) {
 export function PlayersTab({ snapshot, updateSnapshot, logActivity }) {
   const [search, setSearch] = useState("");
   const [sortBy, setSortBy] = useState("name-asc");
+  const [clubCountFilter, setClubCountFilter] = useState("all");
   const [page, setPage] = useState(0);
   const [editorOpen, setEditorOpen] = useState(false);
   const [editingPlayer, setEditingPlayer] = useState(null);
@@ -584,6 +582,11 @@ export function PlayersTab({ snapshot, updateSnapshot, logActivity }) {
 
   const filtered = useMemo(() => {
     let list = [...snapshot.players];
+    if (clubCountFilter === "single") {
+      list = list.filter((p) => p.clubs.length < 2);
+    } else if (clubCountFilter === "multi") {
+      list = list.filter((p) => p.clubs.length >= 2);
+    }
     if (search.trim()) {
       const q = normalizeText(search);
       list = list.filter((p) => normalizeText(p.name).includes(q) || p.clubs.some((c) => normalizeText(c).includes(q)));
@@ -596,13 +599,13 @@ export function PlayersTab({ snapshot, updateSnapshot, logActivity }) {
       default: break;
     }
     return list;
-  }, [snapshot.players, search, sortBy]);
+  }, [snapshot.players, search, sortBy, clubCountFilter]);
 
   const totalPages = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
   const safePage = Math.min(page, totalPages - 1);
   const visible = filtered.slice(safePage * PAGE_SIZE, (safePage + 1) * PAGE_SIZE);
 
-  useEffect(() => { setPage(0); }, [search, sortBy]);
+  useEffect(() => { setPage(0); }, [search, sortBy, clubCountFilter]);
 
   const handleSave = (data) => {
     updateSnapshot((prev) => {
@@ -652,6 +655,11 @@ export function PlayersTab({ snapshot, updateSnapshot, logActivity }) {
       </header>
       <div className="admin-toolbar">
         <input type="text" className="admin-search" placeholder="🔍 İsim veya takım ara..." value={search} onChange={(e) => setSearch(e.target.value)} />
+        <select className="admin-select" value={clubCountFilter} onChange={(e) => setClubCountFilter(e.target.value)}>
+          <option value="all">Tüm oyuncular</option>
+          <option value="multi">Çok takımlı (quiz'de kullanılır)</option>
+          <option value="single">Tek takımlı (quiz dışı)</option>
+        </select>
         <select className="admin-select" value={sortBy} onChange={(e) => setSortBy(e.target.value)}>
           <option value="name-asc">İsim (A-Z)</option>
           <option value="name-desc">İsim (Z-A)</option>

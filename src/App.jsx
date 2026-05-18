@@ -838,6 +838,7 @@ export default function App() {
   const [challengeTimeAddUsed, setChallengeTimeAddUsed] = useState(false);
   const [challengeJokerHint, setChallengeJokerHint] = useState(null);
   const [challengeFeedback, setChallengeFeedback] = useState(null); // "correct" | "wrong" | null
+  const [comboBurst, setComboBurst] = useState(null); // { tier, label, key }
 
   // =================== DAILY PUZZLE STATE ===================
   const [dailyHistory, setDailyHistory] = useState(() => {
@@ -893,9 +894,15 @@ export default function App() {
     if (!challengeLastAction) return;
 
     if (challengeLastAction.type === "correct") {
-      // Streak combo: her 3 doğruda özel ses
+      // Streak combo: her 3 doğruda özel ses + floating burst
       if (challengeScore > 0 && challengeScore % 3 === 0) {
         playGameSound("combo");
+        let tier, label;
+        if (challengeScore >= 12) { tier = "legendary"; label = `💎 LEGENDARY x${challengeScore}`; }
+        else if (challengeScore >= 9) { tier = "fire"; label = `🔥🔥 ON FIRE x${challengeScore}`; }
+        else if (challengeScore >= 6) { tier = "orange"; label = `🔥🔥 STREAK x${challengeScore}`; }
+        else { tier = "blue"; label = `🔥 STREAK x${challengeScore}`; }
+        setComboBurst({ tier, label, key: Date.now() });
       } else {
         playGameSound("ownGoal");
       }
@@ -905,6 +912,13 @@ export default function App() {
       playGameSound("wrong");
     }
   }, [challengeLastAction]);
+
+  // Combo burst otomatik temizle (1.4s görünür kalır)
+  useEffect(() => {
+    if (!comboBurst) return;
+    const id = setTimeout(() => setComboBurst(null), 1400);
+    return () => clearTimeout(id);
+  }, [comboBurst]);
 
   useEffect(() => {
     if (screen === "winner" && winner !== null) {
@@ -2604,13 +2618,19 @@ export default function App() {
                 <div className="info-chip">
                   <span>Zorluk</span><strong>{getDifficultyEmoji(challengeDifficulty)} {getDifficultyLabel(challengeDifficulty)}</strong>
                 </div>
-                <div className="info-chip accent">
-                  <span>Seri</span><strong className={challengeFeedback === "correct" ? "score-pop" : ""}>{challengeScore}</strong>
+                <div className={`info-chip accent ${challengeScore >= 3 ? "on-fire" : ""} ${challengeScore >= 9 ? "fire-high" : ""}`}>
+                  <span>{challengeScore >= 3 ? "🔥 Seri" : "Seri"}</span><strong className={challengeFeedback === "correct" ? "score-pop" : ""}>{challengeScore}</strong>
                 </div>
                 <div className="info-chip">
                   <span>En iyi</span><strong>{challengeBest}</strong>
                 </div>
               </div>
+
+              {comboBurst && (
+                <div key={comboBurst.key} className={`combo-burst combo-burst--${comboBurst.tier}`} aria-hidden="true">
+                  {comboBurst.label}
+                </div>
+              )}
 
               {challengeIsPreRound ? (
                 <div className="panel waiting-panel">
@@ -5235,6 +5255,91 @@ button:focus-visible {
   0%   { transform: scale(1); color: inherit; }
   40%  { transform: scale(1.5); color: var(--primary); text-shadow: 0 0 12px var(--primary); }
   100% { transform: scale(1); color: inherit; }
+}
+
+/* =================== COMBO LAYER 2: Score pill alev gradient =================== */
+.info-chip.accent.on-fire {
+  background: linear-gradient(135deg, rgba(251, 146, 60, 0.22) 0%, rgba(239, 68, 68, 0.18) 100%);
+  border: 1px solid rgba(251, 146, 60, 0.45);
+  box-shadow: 0 0 12px rgba(251, 146, 60, 0.25);
+  animation: pillFireGlow 1.4s ease-in-out infinite;
+}
+.info-chip.accent.on-fire strong {
+  color: #fb923c;
+  text-shadow: 0 0 8px rgba(251, 146, 60, 0.45);
+}
+.info-chip.accent.on-fire span {
+  color: rgba(251, 146, 60, 0.95);
+}
+.info-chip.accent.fire-high {
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.28) 0%, rgba(168, 85, 247, 0.22) 100%);
+  border-color: rgba(239, 68, 68, 0.55);
+  box-shadow: 0 0 16px rgba(239, 68, 68, 0.35);
+}
+.info-chip.accent.fire-high strong {
+  color: #f87171;
+  text-shadow: 0 0 10px rgba(239, 68, 68, 0.6);
+}
+
+@keyframes pillFireGlow {
+  0%, 100% { box-shadow: 0 0 8px rgba(251, 146, 60, 0.2); }
+  50%      { box-shadow: 0 0 16px rgba(251, 146, 60, 0.5); }
+}
+
+/* =================== COMBO LAYER 3: Floating streak burst =================== */
+.combo-burst {
+  position: fixed;
+  top: 32%;
+  left: 50%;
+  transform: translate(-50%, 0) scale(0.6);
+  font-size: 28px;
+  font-weight: 900;
+  letter-spacing: 0.5px;
+  padding: 14px 22px;
+  border-radius: 14px;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.45);
+  animation: comboBurstFly 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  white-space: nowrap;
+}
+.combo-burst--blue {
+  color: #fcd34d;
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.92) 0%, rgba(251, 146, 60, 0.92) 100%);
+  box-shadow: 0 8px 32px rgba(59, 130, 246, 0.55), 0 0 24px rgba(251, 146, 60, 0.4);
+}
+.combo-burst--orange {
+  color: #fff7ed;
+  background: linear-gradient(135deg, rgba(249, 115, 22, 0.95) 0%, rgba(239, 68, 68, 0.95) 100%);
+  box-shadow: 0 8px 32px rgba(249, 115, 22, 0.6), 0 0 28px rgba(239, 68, 68, 0.45);
+}
+.combo-burst--fire {
+  color: #fef2f2;
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.96) 0%, rgba(190, 24, 93, 0.96) 100%);
+  box-shadow: 0 8px 36px rgba(239, 68, 68, 0.7), 0 0 32px rgba(239, 68, 68, 0.5);
+  font-size: 32px;
+}
+.combo-burst--legendary {
+  color: #fef3c7;
+  background: linear-gradient(135deg, rgba(168, 85, 247, 0.96) 0%, rgba(245, 158, 11, 0.96) 100%);
+  box-shadow: 0 10px 40px rgba(168, 85, 247, 0.7), 0 0 36px rgba(245, 158, 11, 0.55);
+  font-size: 34px;
+  letter-spacing: 1px;
+}
+
+@keyframes comboBurstFly {
+  0%   { opacity: 0; transform: translate(-50%, 20px) scale(0.6); }
+  18%  { opacity: 1; transform: translate(-50%, 0) scale(1.08); }
+  32%  { transform: translate(-50%, -8px) scale(1.0); }
+  78%  { opacity: 1; transform: translate(-50%, -38px) scale(1.0); }
+  100% { opacity: 0; transform: translate(-50%, -70px) scale(0.92); }
+}
+
+@media (max-width: 480px) {
+  .combo-burst { font-size: 24px; padding: 12px 18px; }
+  .combo-burst--fire { font-size: 26px; }
+  .combo-burst--legendary { font-size: 28px; }
 }
 
 /* Ekran flash */
