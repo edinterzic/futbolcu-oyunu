@@ -198,7 +198,7 @@ const TIER_1_TEAMS = [
   // Avrupa devleri (yeni data isimleriyle)
   "Real Madrid", "Barcelona", "Atletico Madrid", "Bayern Munich",
   "Manchester United", "Manchester City", "Liverpool", "Chelsea", "Arsenal",
-  "Juventus", "AC Milan", "Inter", "Borussia Dortmund"
+  "Juventus", "AC Milan", "Inter", "Borussia Dortmund", "PSG"
 ];
 
 const TIER_2_TEAMS = [
