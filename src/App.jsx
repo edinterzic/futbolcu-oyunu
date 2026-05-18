@@ -1625,6 +1625,39 @@ export default function App() {
     setTimeout(() => advanceDailyToNext("failed"), 1200);
   };
 
+  const buildDailyShareText = () => {
+    if (!dailyData || !dailyResults.length) return "";
+    const correctCount = dailyResults.filter((r) => r === "correct").length;
+    const total = dailyData.puzzles.length;
+    const grid = dailyResults.map((r) => (r === "correct" ? "🟩" : "🟥")).join("");
+    const dateStr = new Intl.DateTimeFormat("tr-TR", { day: "numeric", month: "long" }).format(new Date(dailyData.date));
+    const streakLine = dailyStreak > 1 ? `\n🔥 ${dailyStreak} gün üst üste\n` : "\n";
+    return `PairFC ${dateStr} — ${correctCount}/${total}\n\n${grid}${streakLine}\nhttps://pairfc.com`;
+  };
+
+  const [dailyShareStatus, setDailyShareStatus] = useState(null);
+  const shareDailyResult = async () => {
+    const text = buildDailyShareText();
+    if (!text) return;
+    try {
+      if (navigator.share) {
+        await navigator.share({ title: "PairFC", text });
+        setDailyShareStatus({ type: "success", text: "Paylaşıldı!" });
+      } else if (navigator.clipboard) {
+        await navigator.clipboard.writeText(text);
+        setDailyShareStatus({ type: "success", text: "📋 Panoya kopyalandı!" });
+      } else {
+        setDailyShareStatus({ type: "info", text: "Paylaşım desteklenmiyor." });
+      }
+    } catch (e) {
+      // Kullanıcı share dialogunu iptal etti — sessizce yut
+      if (e.name !== "AbortError") {
+        setDailyShareStatus({ type: "error", text: "Paylaşılamadı." });
+      }
+    }
+    setTimeout(() => setDailyShareStatus(null), 2500);
+  };
+
   const dailySuggestions = useMemo(() => getPlayerSuggestions(dailyInput), [dailyInput]);
   const updateDailyInput = (value) => {
     setDailyInput(value);
@@ -2392,8 +2425,8 @@ export default function App() {
                   <div className="gameover-header">
                     <div className="gameover-icon trophy">📅</div>
                     <div className="gameover-headline">
-                      <h3>Günün Bulmacası Bitti</h3>
-                      <p className="gameover-detail">{dailyData.date}</p>
+                      <h3>{dailyHistory[dailyData.date]?.completed ? "Bugünkü Bulmaca Çözüldü" : "Günün Bulmacası Bitti"}</h3>
+                      <p className="gameover-detail">{new Intl.DateTimeFormat("tr-TR", { day: "numeric", month: "long", year: "numeric" }).format(new Date(dailyData.date))}</p>
                     </div>
                   </div>
 
@@ -2417,12 +2450,18 @@ export default function App() {
                     </div>
                   </div>
 
-                  <div className="gameover-section">
+                  <button type="button" onClick={shareDailyResult} className="primary-button big daily-share-button">
+                    📤 Sonucu Paylaş
+                  </button>
+
+                  <StatusMessage message={dailyShareStatus} />
+
+                  <div className="gameover-section daily-countdown-box">
                     <span className="gameover-label">⏳ Yarınki bulmacaya</span>
-                    <strong style={{ fontSize: "18px", color: "var(--accent)" }}>{dailyCountdown}</strong>
+                    <strong className="daily-countdown-value">{dailyCountdown}</strong>
                   </div>
 
-                  <button type="button" onClick={goToHome} className="primary-button big gameover-restart">
+                  <button type="button" onClick={goToHome} className="light-button big">
                     🏠 Ana Menü
                   </button>
                 </div>
@@ -3119,6 +3158,12 @@ button:focus-visible {
   background: var(--accent-soft);
   border-color: var(--accent);
   box-shadow: 0 0 8px rgba(245, 158, 11, 0.5);
+  animation: dailyDotPulse 1.6s ease-in-out infinite;
+}
+
+@keyframes dailyDotPulse {
+  0%, 100% { transform: scale(1); box-shadow: 0 0 8px rgba(245, 158, 11, 0.5); }
+  50%      { transform: scale(1.25); box-shadow: 0 0 14px rgba(245, 158, 11, 0.85); }
 }
 
 .daily-dot.correct {
@@ -3166,6 +3211,34 @@ button:focus-visible {
   padding: 8px;
   background: var(--surface-soft);
   border-radius: 10px;
+}
+
+.daily-share-button {
+  width: 100%;
+  background: linear-gradient(135deg, #1da1f2 0%, #25d366 100%);
+  border: 1px solid rgba(29, 161, 242, 0.4);
+  font-weight: 800;
+}
+
+.daily-share-button:hover {
+  filter: brightness(1.1);
+  transform: translateY(-1px);
+}
+
+.daily-countdown-box {
+  align-items: center;
+  text-align: center;
+  padding: 10px;
+  background: linear-gradient(135deg, var(--accent-soft) 0%, rgba(245, 158, 11, 0.04) 100%);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  border-radius: 10px;
+}
+
+.daily-countdown-value {
+  font-size: 22px !important;
+  color: var(--accent) !important;
+  font-weight: 900 !important;
+  letter-spacing: 0.02em;
 }
 
 .mode-card {
