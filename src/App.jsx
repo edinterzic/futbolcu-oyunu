@@ -588,9 +588,9 @@ function MatchSummary({ playerNames, scores, winner, targetScore, seriesWins, cu
 
       {currentCorrectRounds.length > 0 && (
         <div className="correct-rounds-summary">
-          <strong>Doğru cevaplar</strong>
-          <div className="correct-rounds-list">
-            {currentCorrectRounds.slice(0, 5).map((item, index) => (
+          <strong>Doğru cevaplar <span className="answers-count">({currentCorrectRounds.length})</span></strong>
+          <div className="correct-rounds-list scrollable">
+            {currentCorrectRounds.map((item, index) => (
               <div className="correct-round-item" key={`${item.teamA}-${item.teamB}-${item.answer}-${index}`}>
                 <span className="round-pair">{item.teamA} × {item.teamB}</span>
                 <span className="round-answer">{item.answer}</span>
@@ -712,6 +712,7 @@ export default function App() {
   });
   const [onlineDifficulty, setOnlineDifficulty] = useState("medium");
   const [showChallengeStartScreen, setShowChallengeStartScreen] = useState(false);
+  const [showOnlineSetup, setShowOnlineSetup] = useState(false);
 
   // Splash screen — sadece ilk açılışta gösterilir
   const [showSplash, setShowSplash] = useState(() => {
@@ -2298,8 +2299,22 @@ export default function App() {
         <main className="app-main">
           {isHome && (
             <section className="home-content">
+              {showOnlineSetup && (
+                <div className="online-setup-header">
+                  <button type="button" onClick={() => setShowOnlineSetup(false)} className="back-button">
+                    ← Geri
+                  </button>
+                  <div className="online-setup-title">
+                    <h2>🌍 Online Kapışma</h2>
+                    <p>Ayarları yap, sonra oda kur veya bir koda katıl.</p>
+                  </div>
+                </div>
+              )}
+
+              {!showOnlineSetup && (
+              <>
               <div className="mode-grid mode-grid-3">
-                <button type="button" className="mode-card active" aria-pressed="true">
+                <button type="button" onClick={() => setShowOnlineSetup(true)} className="mode-card">
                   <span className="mode-icon">🌍</span>
                   <strong>Online Kapışma</strong>
                   <small>Oda kur, arkadaşınla karşılıklı oyna.</small>
@@ -2330,7 +2345,11 @@ export default function App() {
                   <span className="install-banner-arrow">→</span>
                 </button>
               )}
+              </>
+              )}
 
+              {showOnlineSetup && (
+              <>
               <div className="setup-row">
                 <div className="input-card">
                   <label htmlFor="playerNameInput">👤 Oyuncu adın</label>
@@ -2404,6 +2423,8 @@ export default function App() {
               )}
 
               <StatusMessage message={message} />
+              </>
+              )}
             </section>
           )}
 
@@ -3385,6 +3406,85 @@ button:focus-visible {
 }
 
 /* ========================================================================
+   Online Setup Header
+   ======================================================================== */
+.online-setup-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 8px 4px;
+  margin-bottom: 8px;
+}
+
+.online-setup-title {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.online-setup-title h2 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--text);
+}
+
+.online-setup-title p {
+  margin: 0;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.back-button {
+  background: var(--surface-soft);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 8px 14px;
+  color: var(--text);
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 14px;
+  transition: all 0.18s var(--ease);
+  flex-shrink: 0;
+}
+
+.back-button:hover {
+  background: var(--surface-strong);
+  transform: translateX(-2px);
+}
+
+/* Doğru cevaplar - scrollable */
+.correct-rounds-list.scrollable {
+  max-height: 140px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.correct-rounds-list.scrollable::-webkit-scrollbar {
+  width: 6px;
+}
+
+.correct-rounds-list.scrollable::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.correct-rounds-list.scrollable::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border-radius: 3px;
+}
+
+.correct-rounds-list.scrollable::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
+
+.answers-count {
+  color: var(--text-muted);
+  font-weight: 600;
+  font-size: 12px;
+  margin-left: 4px;
+}
+
+/* ========================================================================
    Splash Screen
    ======================================================================== */
 .splash-screen {
@@ -4290,11 +4390,12 @@ button:focus-visible {
   font-size: 22px;
   font-weight: 800;
   letter-spacing: -0.02em;
+  color: var(--text);
 }
 
 .waiting-panel p {
   margin: 0;
-  color: var(--text-muted);
+  color: var(--text);
   font-size: 14px;
   line-height: 1.45;
   max-width: 380px;
