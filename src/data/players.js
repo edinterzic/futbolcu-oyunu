@@ -1,5 +1,5 @@
 // Auto-generated from admin panel
-// Generated: 2026-05-18T06:45:16.648Z
+// Generated: 2026-05-18T15:25:52.721Z
 
 export const PLAYERS = [
   {
@@ -554,6 +554,12 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Abdoulaye Bamba",
+    "clubs": [
+      "Juventus"
+    ]
+  },
+  {
     "name": "Abdoulaye Camara",
     "clubs": [
       "Udinese"
@@ -668,12 +674,6 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Abdoulayeamba",
-    "clubs": [
-      "Juventus"
-    ]
-  },
-  {
     "name": "Abdoulkader Thiam",
     "clubs": [
       "Monaco"
@@ -686,13 +686,13 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Abdourahmane Fofana",
+    "name": "Abdourahmane Barry",
     "clubs": [
       "PSG"
     ]
   },
   {
-    "name": "Abdourahmanearry",
+    "name": "Abdourahmane Fofana",
     "clubs": [
       "PSG"
     ]
@@ -801,6 +801,12 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Abdullah Balıkçı",
+    "clubs": [
+      "Gençlerbirliği"
+    ]
+  },
+  {
     "name": "Abdullah Çetin",
     "clubs": [
       "Antalyaspor",
@@ -876,19 +882,13 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Abdullahalıkçı",
-    "clubs": [
-      "Gençlerbirliği"
-    ]
-  },
-  {
     "name": "Abdulsamed Damlu",
     "clubs": [
       "Eyüpspor"
     ]
   },
   {
-    "name": "Abdulsameturak",
+    "name": "Abdulsamet Burak",
     "clubs": [
       "Antalyaspor",
       "Kayserispor"
@@ -910,6 +910,12 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Abdurrahman Bayram",
+    "clubs": [
+      "Trabzonspor"
+    ]
+  },
+  {
     "name": "Abdurrahman Dereli",
     "clubs": [
       "Kasımpaşa",
@@ -920,12 +926,6 @@ export const PLAYERS = [
     "name": "Abdurrahman Üresin",
     "clubs": [
       "Konyaspor"
-    ]
-  },
-  {
-    "name": "Abdurrahmanayram",
-    "clubs": [
-      "Trabzonspor"
     ]
   },
   {
@@ -944,17 +944,17 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Abdülkerim Kılıç",
-    "clubs": [
-      "Konyaspor"
-    ]
-  },
-  {
-    "name": "Abdülkerimardakcı",
+    "name": "Abdülkerim Bardakcı",
     "clubs": [
       "Galatasaray",
       "Konyaspor",
       "Samsunspor"
+    ]
+  },
+  {
+    "name": "Abdülkerim Kılıç",
+    "clubs": [
+      "Konyaspor"
     ]
   },
   {
@@ -967,6 +967,13 @@ export const PLAYERS = [
     "name": "Abel Aguilar",
     "clubs": [
       "Udinese"
+    ]
+  },
+  {
+    "name": "Abel Bretones",
+    "clubs": [
+      "Osasuna",
+      "Oviedo"
     ]
   },
   {
@@ -1042,13 +1049,6 @@ export const PLAYERS = [
     "name": "Abel Valenzuela",
     "clubs": [
       "Alaves"
-    ]
-  },
-  {
-    "name": "Abelretones",
-    "clubs": [
-      "Osasuna",
-      "Oviedo"
     ]
   },
   {
@@ -1272,6 +1272,18 @@ export const PLAYERS = [
     "name": "Adam Asfour",
     "clubs": [
       "Como"
+    ]
+  },
+  {
+    "name": "Adam Bakoune",
+    "clubs": [
+      "AC Milan"
+    ]
+  },
+  {
+    "name": "Adam Bareiro",
+    "clubs": [
+      "Alanyaspor"
     ]
   },
   {
@@ -1636,6 +1648,12 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Adama Ba",
+    "clubs": [
+      "Gaziantep FK"
+    ]
+  },
+  {
     "name": "Adama Diakhaby",
     "clubs": [
       "Monaco",
@@ -1685,27 +1703,9 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Adamaa",
-    "clubs": [
-      "Gaziantep FK"
-    ]
-  },
-  {
-    "name": "Adamakoune",
-    "clubs": [
-      "AC Milan"
-    ]
-  },
-  {
     "name": "Adamaoiro",
     "clubs": [
       "Athletic Bilbao"
-    ]
-  },
-  {
-    "name": "Adamareiro",
-    "clubs": [
-      "Alanyaspor"
     ]
   },
   {
@@ -19022,6 +19022,13 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Barış Bayram",
+    "clubs": [
+      "Antalyaspor",
+      "Kayserispor"
+    ]
+  },
+  {
     "name": "Barış Civelek",
     "clubs": [
       "Kocaelispor"
@@ -19092,13 +19099,6 @@ export const PLAYERS = [
     "name": "Barış Zeren",
     "clubs": [
       "Galatasaray"
-    ]
-  },
-  {
-    "name": "Barışayram",
-    "clubs": [
-      "Antalyaspor",
-      "Kayserispor"
     ]
   },
   {
@@ -37904,6 +37904,17 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Demba Ba",
+    "clubs": [
+      "Başakşehir",
+      "Beşiktaş",
+      "Chelsea",
+      "Göztepe",
+      "Newcastle",
+      "West Ham"
+    ]
+  },
+  {
     "name": "Demba Camara",
     "clubs": [
       "Gaziantep FK"
@@ -37919,17 +37930,6 @@ export const PLAYERS = [
     "name": "Demba Seck",
     "clubs": [
       "Torino"
-    ]
-  },
-  {
-    "name": "Dembaa",
-    "clubs": [
-      "Başakşehir",
-      "Beşiktaş",
-      "Chelsea",
-      "Göztepe",
-      "Newcastle",
-      "West Ham"
     ]
   },
   {
@@ -45509,6 +45509,16 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Emrah Başsan",
+    "clubs": [
+      "Antalyaspor",
+      "Galatasaray",
+      "Kayserispor",
+      "Rizespor",
+      "Sivasspor"
+    ]
+  },
+  {
     "name": "Emrah Eren",
     "clubs": [
       "Galatasaray",
@@ -45532,16 +45542,6 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Emrahaşsan",
-    "clubs": [
-      "Antalyaspor",
-      "Galatasaray",
-      "Kayserispor",
-      "Rizespor",
-      "Sivasspor"
-    ]
-  },
-  {
     "name": "Emre Arslan",
     "clubs": [
       "Kocaelispor"
@@ -45559,6 +45559,17 @@ export const PLAYERS = [
       "Gençlerbirliği",
       "Göztepe",
       "Trabzonspor"
+    ]
+  },
+  {
+    "name": "Emre Belözoğlu",
+    "clubs": [
+      "Atletico Madrid",
+      "Başakşehir",
+      "Fenerbahçe",
+      "Galatasaray",
+      "Inter",
+      "Newcastle"
     ]
   },
   {
@@ -45794,17 +45805,6 @@ export const PLAYERS = [
       "Antalyaspor",
       "Beşiktaş",
       "Galatasaray"
-    ]
-  },
-  {
-    "name": "Emreelözoğlu",
-    "clubs": [
-      "Atletico Madrid",
-      "Başakşehir",
-      "Fenerbahçe",
-      "Galatasaray",
-      "Inter",
-      "Newcastle"
     ]
   },
   {
@@ -46071,6 +46071,17 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Engin Bekdemir",
+    "clubs": [
+      "FC Porto",
+      "Gençlerbirliği",
+      "Karagümrük",
+      "Kayserispor",
+      "PSV",
+      "Rizespor"
+    ]
+  },
+  {
     "name": "Engin Can Aksoy",
     "clubs": [
       "Eyüpspor"
@@ -46100,17 +46111,6 @@ export const PLAYERS = [
     "name": "Engincan Duman",
     "clubs": [
       "Konyaspor"
-    ]
-  },
-  {
-    "name": "Enginekdemir",
-    "clubs": [
-      "FC Porto",
-      "Gençlerbirliği",
-      "Karagümrük",
-      "Kayserispor",
-      "PSV",
-      "Rizespor"
     ]
   },
   {
@@ -48542,7 +48542,7 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Everanega",
+    "name": "Ever Banega",
     "clubs": [
       "Atletico Madrid",
       "Inter",
@@ -50541,6 +50541,14 @@ export const PLAYERS = [
     "name": "Federico Artioli",
     "clubs": [
       "Sassuolo"
+    ]
+  },
+  {
+    "name": "Federico Bernardeschi",
+    "clubs": [
+      "Bologna",
+      "Fiorentina",
+      "Juventus"
     ]
   },
   {
@@ -70739,6 +70747,14 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "İlhan Parlak",
+    "clubs": [
+      "Kayserispor",
+      "Fenerbahçe",
+      "Gaziantep FK"
+    ]
+  },
+  {
     "name": "İlhan Şahin",
     "clubs": [
       "Beşiktaş",
@@ -70870,7 +70886,8 @@ export const PLAYERS = [
     "clubs": [
       "Başakşehir",
       "Fenerbahçe",
-      "Gençlerbirliği"
+      "Gençlerbirliği",
+      "Kasımpaşa"
     ]
   },
   {
@@ -115936,6 +115953,13 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "N'Golo Kante",
+    "clubs": [
+      "Fenerbahçe",
+      "Chelsea"
+    ]
+  },
+  {
     "name": "Nabil Alioui",
     "clubs": [
       "Monaco"
@@ -135463,6 +135487,17 @@ export const PLAYERS = [
     "name": "Romelle Donovan",
     "clubs": [
       "Brentford"
+    ]
+  },
+  {
+    "name": "Romelu Lukaku",
+    "clubs": [
+      "Napoli",
+      "AS Roma",
+      "Inter",
+      "Chelsea",
+      "Manchester United",
+      "Everton"
     ]
   },
   {
@@ -161043,9 +161078,9 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Zlatan IbrahimoviÄ‡",
+    "name": "Zlatan Bajramovic",
     "clubs": [
-      "PSG"
+      "E. Frankfurt"
     ]
   },
   {
@@ -161056,7 +161091,8 @@ export const PLAYERS = [
       "Barcelona",
       "Inter",
       "Juventus",
-      "Manchester United"
+      "Manchester United",
+      "PSG"
     ]
   },
   {
@@ -161064,12 +161100,6 @@ export const PLAYERS = [
     "clubs": [
       "Parma",
       "Udinese"
-    ]
-  },
-  {
-    "name": "Zlatanajramovic",
-    "clubs": [
-      "E. Frankfurt"
     ]
   },
   {

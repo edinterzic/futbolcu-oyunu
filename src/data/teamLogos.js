@@ -1,5 +1,5 @@
 // Auto-generated from admin panel
-// Generated: 2026-05-18T06:45:17.242Z
+// Generated: 2026-05-18T15:25:53.340Z
 
 export const TEAM_LOGOS = {
   "Inter": {
@@ -62,14 +62,14 @@ export const TEAM_LOGOS = {
     "primary": "#A50044",
     "secondary": "#004D98"
   },
-  "FC Porto": {
-    "initials": "POR",
-    "primary": "#003F87",
-    "secondary": "#FFFFFF"
-  },
   "Chelsea": {
     "initials": "CHE",
     "primary": "#034694",
+    "secondary": "#FFFFFF"
+  },
+  "FC Porto": {
+    "initials": "POR",
+    "primary": "#003F87",
     "secondary": "#FFFFFF"
   },
   "Bologna": {
@@ -167,15 +167,15 @@ export const TEAM_LOGOS = {
     "primary": "#FFCD00",
     "secondary": "#E30613"
   },
-  "Fulham": {
-    "initials": "FUL",
-    "primary": "#000000",
-    "secondary": "#FFFFFF"
-  },
   "Fenerbahçe": {
     "initials": "FB",
     "primary": "#FFED00",
     "secondary": "#1B3F8B"
+  },
+  "Fulham": {
+    "initials": "FUL",
+    "primary": "#000000",
+    "secondary": "#FFFFFF"
   },
   "AS Roma": {
     "initials": "ROM",
@@ -267,15 +267,15 @@ export const TEAM_LOGOS = {
     "primary": "#FDB913",
     "secondary": "#231F20"
   },
-  "Antalyaspor": {
-    "initials": "ANT",
-    "primary": "#E30613",
-    "secondary": "#FFFFFF"
-  },
   "PSG": {
     "initials": "P",
     "primary": "#10b981",
     "secondary": "#ffffff"
+  },
+  "Antalyaspor": {
+    "initials": "ANT",
+    "primary": "#E30613",
+    "secondary": "#FFFFFF"
   },
   "Marsilya": {
     "initials": "OM",
@@ -302,15 +302,15 @@ export const TEAM_LOGOS = {
     "primary": "#6C1D45",
     "secondary": "#99D6EA"
   },
-  "Girona": {
-    "initials": "GIR",
-    "primary": "#E30613",
-    "secondary": "#FFFFFF"
-  },
   "Kayserispor": {
     "initials": "KAY",
     "primary": "#7F1F2F",
     "secondary": "#FBBF24"
+  },
+  "Girona": {
+    "initials": "GIR",
+    "primary": "#E30613",
+    "secondary": "#FFFFFF"
   },
   "Oviedo": {
     "initials": "OVI",
