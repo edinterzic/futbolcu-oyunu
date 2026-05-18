@@ -512,10 +512,10 @@ function ChallengeGameOver({
       {playerCount > 0 && (
         <div className="gameover-section">
           <span className="gameover-label">
-            Doğru cevaplar {playerCount > 6 && `(${playerCount})`}
+            Doğru cevaplar <span className="answers-count">({playerCount})</span>
           </span>
-          <div className="gameover-players">
-            {correctPlayers.slice(0, 6).map((p) => (
+          <div className="gameover-players scrollable">
+            {correctPlayers.map((p) => (
               <button
                 key={p.name}
                 type="button"
@@ -526,9 +526,6 @@ function ChallengeGameOver({
                 {p.name}
               </button>
             ))}
-            {playerCount > 6 && (
-              <span className="gameover-more">+{playerCount - 6}</span>
-            )}
           </div>
         </div>
       )}
@@ -616,35 +613,47 @@ function getAudioContext() {
     try { _audioContext = new AC(); } catch { return null; }
   }
   if (_audioContext.state === "suspended") {
-    _audioContext.resume?.();
+    try { _audioContext.resume(); } catch {}
   }
   return _audioContext;
 }
 
-// İlk user interaction'da audio'yu unlock et (iOS şart)
+function unlockAudio() {
+  const ctx = getAudioContext();
+  if (!ctx) return;
+  try {
+    if (ctx.state === "suspended") ctx.resume();
+    const buffer = ctx.createBuffer(1, 1, 22050);
+    const source = ctx.createBufferSource();
+    source.buffer = buffer;
+    source.connect(ctx.destination);
+    source.start(0);
+    source.stop?.(0.001);
+    _audioUnlocked = true;
+  } catch {}
+}
+
+// Birden çok user interaction event'i (iOS bazen touchstart'ı kaçırıyor)
 if (typeof window !== "undefined") {
-  const unlock = () => {
-    if (_audioUnlocked) return;
-    const ctx = getAudioContext();
-    if (!ctx) return;
-    // Bir sessiz buffer çal, iOS'ta context'i unlock eder
-    try {
-      const buffer = ctx.createBuffer(1, 1, 22050);
-      const source = ctx.createBufferSource();
-      source.buffer = buffer;
-      source.connect(ctx.destination);
-      source.start(0);
-      _audioUnlocked = true;
-    } catch {}
+  const events = ["touchstart", "touchend", "click", "keydown", "pointerdown"];
+  const onFirst = () => {
+    unlockAudio();
+    if (_audioUnlocked) {
+      events.forEach((e) => window.removeEventListener(e, onFirst));
+    }
   };
-  window.addEventListener("touchstart", unlock, { once: true, passive: true });
-  window.addEventListener("click", unlock, { once: true, passive: true });
+  events.forEach((e) => window.addEventListener(e, onFirst, { passive: true }));
 }
 
 function playTone({ frequencies = [440], duration = 0.18, type = "sine", volume = 0.08 }) {
   try {
     const audioContext = getAudioContext();
     if (!audioContext) return;
+    // iOS — unlock olmadıysa skip et (gürültüsüz fail)
+    if (audioContext.state !== "running") {
+      audioContext.resume?.();
+      if (audioContext.state !== "running") return;
+    }
 
     const now = audioContext.currentTime;
     const gain = audioContext.createGain();
@@ -663,7 +672,6 @@ function playTone({ frequencies = [440], duration = 0.18, type = "sine", volume 
       oscillator.start(now + index * 0.06);
       oscillator.stop(now + duration + index * 0.06);
     });
-    // Context'i kapatmıyoruz — yeniden kullanılacak
   } catch {
     // Sound is optional
   }
@@ -6033,6 +6041,23 @@ button:focus-visible {
   display: flex;
   flex-wrap: wrap;
   gap: 5px;
+}
+
+.gameover-players.scrollable {
+  max-height: 140px;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+  padding-right: 4px;
+}
+
+.gameover-players.scrollable::-webkit-scrollbar {
+  width: 6px;
+}
+
+.gameover-players.scrollable::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border-radius: 3px;
 }
 
 .gameover-player-chip {
