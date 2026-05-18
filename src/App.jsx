@@ -4789,17 +4789,36 @@ button:focus-visible {
    Play panel (active round)
    ======================================================================== */
 .play-header {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 14px;
+  display: flex;
   align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
 }
 
 .play-tools {
   display: flex;
-  flex-direction: column;
-  gap: 8px;
-  align-items: stretch;
+  flex-direction: row;
+  gap: 6px;
+  align-items: center;
+  flex: 1;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.play-tools .joker-buttons {
+  flex-wrap: wrap;
+}
+
+.play-tools .light-button {
+  min-height: 40px;
+  padding: 8px 12px;
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.play-tools .light-button.danger {
+  border-color: rgba(239, 68, 68, 0.3);
 }
 
 .round-pill,
@@ -4837,21 +4856,15 @@ button:focus-visible {
   color: var(--danger);
 }
 
-.play-tools .light-button {
-  min-height: 38px;
-  padding: 8px 12px;
-  font-size: 13px;
-}
-
 /* ---- Challenge variant: side-by-side tools ---- */
 .challenge-bar {
   /* same as info-bar */
 }
 
 .play-content .play-panel .play-tools:has(.danger) {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 8px;
+  display: flex;
+  flex-direction: row;
+  gap: 6px;
 }
 
 /* ========================================================================
@@ -4859,8 +4872,8 @@ button:focus-visible {
    ======================================================================== */
 .circ-timer {
   position: relative;
-  width: 88px;
-  height: 88px;
+  width: 64px;
+  height: 64px;
   flex-shrink: 0;
 }
 
@@ -4911,7 +4924,7 @@ button:focus-visible {
 }
 
 .circ-content strong {
-  font-size: 28px;
+  font-size: 20px;
   font-weight: 900;
   line-height: 1;
   font-variant-numeric: tabular-nums;
@@ -4938,26 +4951,26 @@ button:focus-visible {
   display: grid;
   grid-template-columns: 1fr auto 1fr;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
 }
 
 .team-card {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 8px;
-  padding: 14px 10px;
+  gap: 6px;
+  padding: 10px 8px;
   background: var(--surface-soft);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   text-align: center;
-  min-height: 110px;
+  min-height: 90px;
   justify-content: center;
   transition: transform 0.3s var(--ease);
 }
 
 .team-card strong {
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 800;
   letter-spacing: -0.01em;
   line-height: 1.15;
@@ -4973,13 +4986,13 @@ button:focus-visible {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 38px;
-  height: 38px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
   background: linear-gradient(135deg, var(--accent) 0%, #fb923c 100%);
   color: #1f1306;
   font-weight: 900;
-  font-size: 12px;
+  font-size: 10px;
   letter-spacing: 0.05em;
   box-shadow: 0 4px 14px rgba(245, 158, 11, 0.4);
 }
@@ -5173,7 +5186,7 @@ button:focus-visible {
 
 .answer-row {
   display: grid;
-  grid-template-columns: 1fr auto;
+  grid-template-columns: 7fr 3fr;
   gap: 8px;
 }
 
@@ -5186,12 +5199,18 @@ button:focus-visible {
   background: var(--surface-strong);
   border: 1.5px solid var(--border);
   border-radius: var(--radius);
-  padding: 13px 16px;
+  padding: 12px 14px;
   color: var(--text);
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 500;
   min-height: 46px;
   transition: all 0.2s var(--ease);
+}
+
+.autocomplete-wrap input::placeholder {
+  color: var(--text-dim);
+  font-weight: 400;
+  font-size: 13px;
 }
 
 .autocomplete-wrap input:focus {
@@ -5410,13 +5429,14 @@ button:focus-visible {
 .joker-button {
   display: flex;
   align-items: center;
-  gap: 6px;
-  padding: 8px 12px;
+  gap: 4px;
+  padding: 8px 10px;
+  min-height: 40px;
   background: rgba(245, 158, 11, 0.12);
   border: 1px solid rgba(245, 158, 11, 0.35);
   border-radius: 10px;
   color: #fcd34d;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 700;
   cursor: pointer;
   transition: all 0.15s var(--ease);
@@ -5756,8 +5776,8 @@ button:focus-visible {
 .challenge-gameover {
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  padding: 16px;
+  gap: 10px;
+  padding: 14px;
   background: linear-gradient(135deg, var(--surface-strong) 0%, var(--surface) 100%);
   border: 1px solid var(--border);
   border-radius: var(--radius);
@@ -5772,11 +5792,11 @@ button:focus-visible {
 .gameover-header {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
 }
 
 .gameover-icon {
-  font-size: 32px;
+  font-size: 26px;
   line-height: 1;
   flex-shrink: 0;
 }
@@ -5910,19 +5930,18 @@ button:focus-visible {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 10px;
-  padding: 10px 12px;
-  background: linear-gradient(135deg, rgba(239, 68, 68, 0.18) 0%, rgba(239, 68, 68, 0.08) 100%);
-  border: 1px solid rgba(239, 68, 68, 0.4);
-  border-radius: 12px;
+  gap: 8px;
+  padding: 8px 12px;
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.14) 0%, rgba(239, 68, 68, 0.06) 100%);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  border-radius: 10px;
   color: #fca5a5;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 600;
   cursor: pointer;
   text-align: left;
   width: 100%;
   transition: all 0.18s var(--ease);
-  box-shadow: 0 2px 8px rgba(239, 68, 68, 0.08);
 }
 
 .gameover-report-button:hover {
