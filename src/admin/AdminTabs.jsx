@@ -82,7 +82,7 @@ function buildFreshSnapshot() {
     birthYear: p.birthYear || null,
     isActive: p.isActive ?? null
   }));
-  return { schemaVersion: 3, createdAt: Date.now(), lastModified: Date.now(), players, teams };
+  return { schemaVersion: 4, createdAt: Date.now(), lastModified: Date.now(), players, teams };
 }
 
 function loadSnapshot() {
@@ -90,7 +90,7 @@ function loadSnapshot() {
     const raw = localStorage.getItem(SNAPSHOT_KEY);
     if (!raw) return null;
     const snap = JSON.parse(raw);
-    if (snap.schemaVersion !== 3) return null;
+    if (snap.schemaVersion !== 4) return null;
     return snap;
   } catch { return null; }
 }
@@ -225,9 +225,11 @@ function generateTeamsJS(snapshot) {
   return `// Auto-generated from admin panel\n// Generated: ${new Date().toISOString()}\n\nexport const TEAMS = [\n${list}\n];\n`;
 }
 function generatePlayersJS(snapshot) {
-  const eligible = snapshot.players.filter((p) => p.clubs.length >= 2);
-  eligible.sort((a, b) => a.name.localeCompare(b.name, "tr"));
-  const entries = eligible.map((p) => {
+  // Tüm oyuncuları export et (tek takımlı dahil), data eklemelerinde tamamlanabilsin.
+  // Quiz-eligible filtresi runtime'da App.jsx tarafında yapılıyor.
+  const all = [...snapshot.players];
+  all.sort((a, b) => a.name.localeCompare(b.name, "tr"));
+  const entries = all.map((p) => {
     const clubs = p.clubs.map((c) => `      ${JSON.stringify(c)}`).join(",\n");
     return `  {
     "name": ${JSON.stringify(p.name)},
