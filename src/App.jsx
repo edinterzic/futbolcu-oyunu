@@ -215,6 +215,47 @@ const TIER_2_TEAMS = [
 const TIER_1_SET = new Set(TIER_1_TEAMS);
 const TIER_2_SET = new Set(TIER_2_TEAMS);
 
+// =================== ZORLUK SEVİYELERİ ===================
+// Kolay: Top Avrupa + 3 Türk büyüğü
+// Orta:  Yukarıdakiler + Tier 2
+// Zor:   Tüm takımlar
+
+const EASY_TEAMS = new Set([
+  // Top Avrupa devleri
+  "Real Madrid", "Barcelona", "Bayern Munich",
+  "Manchester United", "Manchester City", "Liverpool", "Chelsea", "Arsenal",
+  "Juventus", "AC Milan", "Inter", "Paris Saint-Germain",
+  "Atletico Madrid", "Borussia Dortmund",
+  // Üç büyük Türk
+  "Fenerbahçe", "Beşiktaş", "Galatasaray"
+]);
+
+// Orta = Easy ∪ Tier 2 ∪ (orta Türk: Trabzonspor, Başakşehir)
+const MEDIUM_TEAMS = new Set([
+  ...EASY_TEAMS,
+  ...TIER_2_TEAMS,
+  "Trabzonspor", "Başakşehir"
+]);
+
+function isPairInDifficulty(pair, difficulty) {
+  const [a, b] = pair.teams;
+  if (difficulty === "easy") return EASY_TEAMS.has(a) && EASY_TEAMS.has(b);
+  if (difficulty === "medium") return MEDIUM_TEAMS.has(a) && MEDIUM_TEAMS.has(b);
+  return true; // hard
+}
+
+function getDifficultyLabel(d) {
+  if (d === "easy") return "Kolay";
+  if (d === "medium") return "Orta";
+  return "Zor";
+}
+
+function getDifficultyEmoji(d) {
+  if (d === "easy") return "🟢";
+  if (d === "medium") return "🟡";
+  return "🔴";
+}
+
 function getTier(teamName) {
   if (TIER_1_SET.has(teamName)) return 1;
   if (TIER_2_SET.has(teamName)) return 2;
@@ -254,9 +295,11 @@ function getPlayableTeamPairs() {
   return WEIGHTED_TEAM_PAIRS;
 }
 
-function getRandomRound(usedRoundKeys = []) {
-  const available = WEIGHTED_TEAM_PAIRS.filter((round) => !usedRoundKeys.includes(getRoundKey(round)));
-  const pool = available.length > 0 ? available : WEIGHTED_TEAM_PAIRS;
+function getRandomRound(usedRoundKeys = [], difficulty = "hard") {
+  const filtered = WEIGHTED_TEAM_PAIRS.filter((round) => isPairInDifficulty(round, difficulty));
+  const basePool = filtered.length > 0 ? filtered : WEIGHTED_TEAM_PAIRS;
+  const available = basePool.filter((round) => !usedRoundKeys.includes(getRoundKey(round)));
+  const pool = available.length > 0 ? available : basePool;
 
   // Ağırlıklı rastgele seçim
   const totalWeight = pool.reduce((sum, pair) => sum + getPairWeight(pair), 0);
@@ -661,6 +704,73 @@ export default function App() {
   const [roundLocked, setRoundLocked] = useState(false);
   const [roundEndsAt, setRoundEndsAt] = useState(null);
   const [preRoundEndsAt, setPreRoundEndsAt] = useState(null);
+  // =================== DIFFICULTY ===================
+  // "easy" | "medium" | "hard"
+  const [challengeDifficulty, setChallengeDifficulty] = useState(() => {
+    try { return window.localStorage.getItem("pairfc_difficulty_challenge") || "medium"; }
+    catch { return "medium"; }
+  });
+  const [onlineDifficulty, setOnlineDifficulty] = useState("medium");
+  const [showChallengeStartScreen, setShowChallengeStartScreen] = useState(false);
+
+  // Splash screen — sadece ilk açılışta gösterilir
+  const [showSplash, setShowSplash] = useState(() => {
+    try {
+      return !window.localStorage.getItem("pairfc_splash_seen");
+    } catch { return true; }
+  });
+
+  useEffect(() => {
+    if (!showSplash) return;
+    const t = setTimeout(() => {
+      setShowSplash(false);
+      try { window.localStorage.setItem("pairfc_splash_seen", "1"); } catch {}
+    }, 2200);
+    return () => clearTimeout(t);
+  }, [showSplash]);
+
+  // PWA Install
+  const [showInstallModal, setShowInstallModal] = useState(false);
+  const [deferredInstallPrompt, setDeferredInstallPrompt] = useState(null);
+  const [isInstalled, setIsInstalled] = useState(() => {
+    if (typeof window === "undefined") return false;
+    return window.matchMedia("(display-mode: standalone)").matches ||
+           window.navigator.standalone === true;
+  });
+
+  useEffect(() => {
+    const handler = (e) => {
+      e.preventDefault();
+      setDeferredInstallPrompt(e);
+    };
+    window.addEventListener("beforeinstallprompt", handler);
+    const installed = () => setIsInstalled(true);
+    window.addEventListener("appinstalled", installed);
+    return () => {
+      window.removeEventListener("beforeinstallprompt", handler);
+      window.removeEventListener("appinstalled", installed);
+    };
+  }, []);
+
+  const triggerInstall = async () => {
+    if (deferredInstallPrompt) {
+      deferredInstallPrompt.prompt();
+      const { outcome } = await deferredInstallPrompt.userChoice;
+      track("pwa_install_attempted", { outcome });
+      if (outcome === "accepted") setIsInstalled(true);
+      setDeferredInstallPrompt(null);
+      setShowInstallModal(false);
+    } else {
+      // iOS Safari veya destek yoksa modal göster
+      setShowInstallModal(true);
+    }
+  };
+
+  useEffect(() => {
+    try { window.localStorage.setItem("pairfc_difficulty_challenge", challengeDifficulty); }
+    catch {}
+  }, [challengeDifficulty]);
+
   const [timeLeft, setTimeLeft] = useState(ROUND_SECONDS);
   const [preRoundLeft, setPreRoundLeft] = useState(ROUND_REVEAL_SECONDS);
   const [wrongAttempts, setWrongAttempts] = useState([0, 0]);
@@ -962,7 +1072,7 @@ export default function App() {
     }
 
     const code = makeRoomCode();
-    const firstRound = getRandomRound([]);
+    const firstRound = getRandomRound([], onlineDifficulty);
     const name = playerName.trim() || "Oyuncu 1";
 
     setRoomCode(code);
@@ -1503,7 +1613,15 @@ export default function App() {
   }, [gameStarted, roundLocked, roundEndsAt, screen]);
 
   const startChallenge = () => {
-    const firstRound = getRandomRound([]);
+    // Önce zorluk seçim ekranı
+    setShowChallengeStartScreen(true);
+    setScreen("challenge");
+  };
+
+  const confirmStartChallenge = (difficulty) => {
+    setChallengeDifficulty(difficulty);
+    setShowChallengeStartScreen(false);
+    const firstRound = getRandomRound([], difficulty);
     setChallengeScore(0);
     setChallengeLastScore(null);
     setChallengeRound(firstRound);
@@ -1524,8 +1642,7 @@ export default function App() {
     setChallengeSwapUsed(false);
     setChallengeTimeAddUsed(false);
     setChallengeJokerHint(null);
-    setScreen("challenge");
-    track("mode_started", { mode: "challenge" });
+    track("mode_started", { mode: "challenge", difficulty });
     startTimer("challenge");
   };
 
@@ -1882,7 +1999,7 @@ export default function App() {
     }
     const currentKey = getRoundKey(challengeRound);
     const nextUsed = [...challengeUsedRoundKeys, currentKey];
-    const nextRound = getRandomRound(nextUsed);
+    const nextRound = getRandomRound(nextUsed, challengeDifficulty);
     setChallengeSwapUsed(true);
     setChallengeRound(nextRound);
     setChallengeUsedRoundKeys(nextUsed);
@@ -1956,7 +2073,7 @@ export default function App() {
 
     if (isCorrectAnswer(challengeRound, raw)) {
       const nextScore = challengeScore + 1;
-      const nextRound = getRandomRound(challengeUsedRoundKeys);
+      const nextRound = getRandomRound(challengeUsedRoundKeys, challengeDifficulty);
       const nextKey = getRoundKey(nextRound);
       const playableCount = getPlayableTeamPairs().length;
       const nextUsed = challengeUsedRoundKeys.length >= playableCount ? [nextKey] : [...challengeUsedRoundKeys, nextKey];
@@ -2103,6 +2220,50 @@ export default function App() {
     <div className={`app-shell ${isHome ? "home-screen" : "play-screen"}`}>
       <style>{css}</style>
 
+      {showSplash && (
+        <div className="splash-screen">
+          <div className="splash-content">
+            <div className="splash-logo">⚽</div>
+            <h1 className="splash-title">PairFC</h1>
+            <p className="splash-tagline">İki takım, tek futbolcu.</p>
+            <p className="splash-tagline-sub">Sen bul.</p>
+            <div className="splash-loader"><span></span><span></span><span></span></div>
+          </div>
+        </div>
+      )}
+
+      {showInstallModal && (
+        <div className="modal-overlay" onClick={() => setShowInstallModal(false)}>
+          <div className="modal-content install-modal" onClick={(e) => e.stopPropagation()}>
+            <button type="button" className="modal-close" onClick={() => setShowInstallModal(false)}>✕</button>
+            <h2>📲 Uygulamayı Yükle</h2>
+            <p>PairFC'yi ana ekranına ekleyerek bir uygulama gibi kullan. Çevrimdışı da çalışır.</p>
+
+            <div className="install-platform">
+              <h3>🍎 iPhone / iPad (Safari)</h3>
+              <ol>
+                <li>Aşağıdaki <strong>Paylaş</strong> simgesine bas <span className="install-icon">⬆️</span></li>
+                <li>Açılan menüde <strong>"Ana Ekrana Ekle"</strong> seçeneğini seç</li>
+                <li>Sağ üstte <strong>"Ekle"</strong> tıkla</li>
+              </ol>
+            </div>
+
+            <div className="install-platform">
+              <h3>🤖 Android (Chrome)</h3>
+              <ol>
+                <li>Sağ üstte <strong>3 nokta menüsüne</strong> bas <span className="install-icon">⋮</span></li>
+                <li><strong>"Uygulamayı yükle"</strong> veya <strong>"Ana ekrana ekle"</strong> seç</li>
+                <li><strong>"Yükle"</strong> tıkla</li>
+              </ol>
+            </div>
+
+            <button type="button" onClick={() => setShowInstallModal(false)} className="primary-button big" style={{ width: "100%", marginTop: 12 }}>
+              Anladım
+            </button>
+          </div>
+        </div>
+      )}
+
       <div className="app-frame">
         <header className={`topbar ${isHome ? "" : "topbar-compact"}`}>
           <div className="brand">
@@ -2159,6 +2320,17 @@ export default function App() {
                 </button>
               </div>
 
+              {!isInstalled && (
+                <button type="button" onClick={triggerInstall} className="install-banner">
+                  <span className="install-banner-icon">📲</span>
+                  <div className="install-banner-text">
+                    <strong>Uygulamayı Yükle</strong>
+                    <small>Ana ekrana ekle, hızlı ulaş</small>
+                  </div>
+                  <span className="install-banner-arrow">→</span>
+                </button>
+              )}
+
               <div className="setup-row">
                 <div className="input-card">
                   <label htmlFor="playerNameInput">👤 Oyuncu adın</label>
@@ -2182,6 +2354,26 @@ export default function App() {
                         className={targetScore === score ? "score-option active" : "score-option"}
                       >
                         {score}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="config-row">
+                  <label>Zorluk</label>
+                  <div className="score-options">
+                    {[
+                      { v: "easy", label: "🟢 Kolay" },
+                      { v: "medium", label: "🟡 Orta" },
+                      { v: "hard", label: "🔴 Zor" }
+                    ].map((opt) => (
+                      <button
+                        key={opt.v}
+                        type="button"
+                        onClick={() => setOnlineDifficulty(opt.v)}
+                        className={onlineDifficulty === opt.v ? "score-option active" : "score-option"}
+                      >
+                        {opt.label}
                       </button>
                     ))}
                   </div>
@@ -2217,9 +2409,44 @@ export default function App() {
 
           {isChallenge && (
             <section className="play-content">
+              {showChallengeStartScreen ? (
+                <div className="panel difficulty-picker">
+                  <div className="difficulty-header">
+                    <h2>🔥 Challenge</h2>
+                    <p>Zorluk seviyesini seç</p>
+                  </div>
+
+                  <div className="difficulty-options">
+                    <button type="button" onClick={() => confirmStartChallenge("easy")} className="difficulty-card easy">
+                      <span className="difficulty-emoji">🟢</span>
+                      <strong>Kolay</strong>
+                      <small>Top Avrupa devleri + 3 büyük Türk</small>
+                      <em>Real, Barça, Bayern, ManU, FB, GS, BJK...</em>
+                    </button>
+
+                    <button type="button" onClick={() => confirmStartChallenge("medium")} className="difficulty-card medium">
+                      <span className="difficulty-emoji">🟡</span>
+                      <strong>Orta</strong>
+                      <small>Avrupa + tanınmış orta seviye</small>
+                      <em>+ Tottenham, Napoli, Lazio, Ajax, Trabzon...</em>
+                    </button>
+
+                    <button type="button" onClick={() => confirmStartChallenge("hard")} className="difficulty-card hard">
+                      <span className="difficulty-emoji">🔴</span>
+                      <strong>Zor</strong>
+                      <small>Tüm takımlar — niş kulüpler dahil</small>
+                      <em>96 takım, sınırsız çeşitlilik</em>
+                    </button>
+                  </div>
+                </div>
+              ) : (
+                <>
               <div className="info-bar challenge-bar">
                 <div className="info-chip">
                   <span>Mod</span><strong>Challenge</strong>
+                </div>
+                <div className="info-chip">
+                  <span>Zorluk</span><strong>{getDifficultyEmoji(challengeDifficulty)} {getDifficultyLabel(challengeDifficulty)}</strong>
                 </div>
                 <div className="info-chip accent">
                   <span>Seri</span><strong className={challengeFeedback === "correct" ? "score-pop" : ""}>{challengeScore}</strong>
@@ -2353,6 +2580,8 @@ export default function App() {
                     </>
                   )}
                 </div>
+              )}
+                </>
               )}
             </section>
           )}
@@ -3154,6 +3383,334 @@ button:focus-visible {
   grid-template-columns: 1fr 1fr;
   gap: 12px;
 }
+
+/* ========================================================================
+   Splash Screen
+   ======================================================================== */
+.splash-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background:
+    radial-gradient(ellipse 80% 60% at 30% 20%, rgba(16, 185, 129, 0.3), transparent 60%),
+    radial-gradient(ellipse 80% 60% at 70% 80%, rgba(59, 130, 246, 0.25), transparent 60%),
+    linear-gradient(160deg, #0a0f1f 0%, #0c2a24 50%, #0a0f1f 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: splashFadeOut 0.4s ease-out 1.8s forwards;
+}
+
+@keyframes splashFadeOut {
+  to { opacity: 0; pointer-events: none; }
+}
+
+.splash-content {
+  text-align: center;
+  animation: splashIn 0.6s var(--ease-bounce);
+}
+
+@keyframes splashIn {
+  0%   { transform: scale(0.85); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.splash-logo {
+  font-size: 88px;
+  line-height: 1;
+  animation: splashLogoBounce 1.5s ease-in-out infinite;
+  filter: drop-shadow(0 8px 20px rgba(16, 185, 129, 0.5));
+}
+
+@keyframes splashLogoBounce {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50%      { transform: translateY(-12px) rotate(15deg); }
+}
+
+.splash-title {
+  margin: 8px 0 4px;
+  font-size: 48px;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  background: linear-gradient(135deg, var(--primary) 0%, #6ee7b7 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.splash-tagline {
+  margin: 0;
+  font-size: 16px;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.splash-tagline-sub {
+  margin: 0;
+  font-size: 18px;
+  color: var(--accent);
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
+.splash-loader {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 20px;
+}
+
+.splash-loader span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--primary);
+  animation: splashDot 1.2s ease-in-out infinite;
+}
+
+.splash-loader span:nth-child(2) { animation-delay: 0.15s; }
+.splash-loader span:nth-child(3) { animation-delay: 0.3s; }
+
+@keyframes splashDot {
+  0%, 80%, 100% { transform: scale(0.6); opacity: 0.5; }
+  40%           { transform: scale(1.1); opacity: 1; }
+}
+
+/* ========================================================================
+   PWA Install Banner + Modal
+   ======================================================================== */
+.install-banner {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  width: 100%;
+  background: linear-gradient(135deg, var(--primary-soft) 0%, rgba(16, 185, 129, 0.04) 100%);
+  border: 1px solid rgba(16, 185, 129, 0.4);
+  border-radius: 12px;
+  color: var(--text);
+  cursor: pointer;
+  transition: all 0.18s var(--ease);
+}
+
+.install-banner:hover {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.22) 0%, rgba(16, 185, 129, 0.08) 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(16, 185, 129, 0.18);
+}
+
+.install-banner-icon {
+  font-size: 28px;
+  flex-shrink: 0;
+}
+
+.install-banner-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  gap: 2px;
+}
+
+.install-banner-text strong {
+  font-size: 14px;
+  color: var(--primary);
+  font-weight: 800;
+}
+
+.install-banner-text small {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.install-banner-arrow {
+  font-size: 22px;
+  color: var(--primary);
+  font-weight: 800;
+}
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 900;
+  background: rgba(10, 15, 31, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  animation: modalFadeIn 0.2s ease-out;
+}
+
+@keyframes modalFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.modal-content {
+  background: var(--surface);
+  border: 1px solid var(--border-strong);
+  border-radius: 16px;
+  padding: 22px;
+  max-width: 480px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  animation: modalSlideUp 0.3s var(--ease-bounce);
+}
+
+@keyframes modalSlideUp {
+  from { transform: scale(0.92) translateY(20px); opacity: 0; }
+  to   { transform: scale(1) translateY(0); opacity: 1; }
+}
+
+.modal-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--surface-soft);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  cursor: pointer;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-close:hover {
+  background: var(--surface-strong);
+  color: var(--text);
+}
+
+.install-modal h2 {
+  margin: 0 0 8px;
+  font-size: 22px;
+  font-weight: 800;
+}
+
+.install-modal > p {
+  margin: 0 0 16px;
+  color: var(--text-muted);
+  font-size: 14px;
+}
+
+.install-platform {
+  background: var(--surface-soft);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 12px 14px;
+  margin-bottom: 10px;
+}
+
+.install-platform h3 {
+  margin: 0 0 8px;
+  font-size: 15px;
+  color: var(--primary);
+  font-weight: 800;
+}
+
+.install-platform ol {
+  margin: 0;
+  padding-left: 18px;
+  color: var(--text);
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.install-platform ol li {
+  margin-bottom: 4px;
+}
+
+.install-icon {
+  display: inline-block;
+  background: var(--surface);
+  padding: 2px 8px;
+  border-radius: 6px;
+  font-weight: 800;
+  margin: 0 2px;
+}
+
+/* ========================================================================
+   Difficulty Picker
+   ======================================================================== */
+.difficulty-picker {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 20px;
+}
+
+.difficulty-header {
+  text-align: center;
+}
+
+.difficulty-header h2 {
+  margin: 0 0 4px;
+  font-size: 26px;
+  font-weight: 900;
+}
+
+.difficulty-header p {
+  margin: 0;
+  color: var(--text-muted);
+}
+
+.difficulty-options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.difficulty-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  padding: 14px 16px;
+  background: var(--surface-soft);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  cursor: pointer;
+  text-align: left;
+  color: var(--text);
+  transition: all 0.18s var(--ease);
+}
+
+.difficulty-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+}
+
+.difficulty-card.easy:hover  { border-color: rgba(16, 185, 129, 0.5); }
+.difficulty-card.medium:hover { border-color: rgba(245, 158, 11, 0.5); }
+.difficulty-card.hard:hover   { border-color: rgba(239, 68, 68, 0.5); }
+
+.difficulty-emoji {
+  font-size: 24px;
+}
+
+.difficulty-card strong {
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.difficulty-card small {
+  font-size: 13px;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.difficulty-card em {
+  font-size: 11px;
+  color: var(--text-dim);
+  font-style: normal;
+  margin-top: 4px;
+}
+
 
 .mode-grid-3 {
   grid-template-columns: 1fr 1fr 1fr;
