@@ -3,6 +3,7 @@ import { createClient } from "@supabase/supabase-js";
 import { PLAYERS, TEAMS, ANSWER_INDEX, getPairKey, getAnswers } from "./data/gameData";
 import { TEAM_LOGOS } from "./data/teamLogos";
 import { getDailyPuzzle, getTodayKey, getMsUntilNextPuzzle, calculateStreak } from "./data/dailyPuzzle";
+import { initAnalytics, track, startTimer, endTimer } from "./analytics";
 import AdminPanel from "./admin/AdminPanel";
 
 const WINNING_SCORE = 3;
@@ -619,6 +620,11 @@ export default function App() {
     return () => window.removeEventListener("popstate", onPopState);
   }, []);
 
+  // Analytics init (admin paneli için tracking yapmıyor — kendi check'i var)
+  useEffect(() => {
+    initAnalytics();
+  }, []);
+
   if (pathname === "/admin" || pathname.startsWith("/admin/")) {
     return <AdminPanel />;
   }
@@ -762,6 +768,13 @@ export default function App() {
         setTimeout(() => triggerConfetti(), 400);
         setTimeout(() => triggerConfetti(), 800);
       }
+      track("online_match_completed", {
+        won: winner === playerIndex,
+        own_score: scores[playerIndex],
+        opponent_score: scores[1 - playerIndex],
+        target_score: targetScore,
+        duration_seconds: endTimer("online_match")
+      });
     }
   }, [screen, winner, playerIndex]);
 
@@ -979,6 +992,9 @@ export default function App() {
     setReportStatus(null);
     setMessage({ type: "info", text: `Oda oluşturuldu: ${code}. Rakip bağlanana kadar takımlar gizli.` });
     setScreen("game");
+    track("mode_started", { mode: "online" });
+    track("room_created", { target_score: Number(targetScore) });
+    startTimer("online_match");
   };
 
   const joinRoom = () => {
@@ -1014,6 +1030,9 @@ export default function App() {
     setReportStatus(null);
     setMessage({ type: "info", text: `${code} odasına bağlanılıyor...` });
     setScreen("game");
+    track("mode_started", { mode: "online" });
+    track("room_joined", { room_code: code });
+    startTimer("online_match");
   };
 
   const copyInvite = async () => {
@@ -1506,6 +1525,8 @@ export default function App() {
     setChallengeTimeAddUsed(false);
     setChallengeJokerHint(null);
     setScreen("challenge");
+    track("mode_started", { mode: "challenge" });
+    startTimer("challenge");
   };
 
   const backToHomeFromChallenge = () => {
@@ -1540,6 +1561,8 @@ export default function App() {
     setDailyShowAnswers(false);
     setDailyFeedback(null);
     setScreen("daily");
+    track("mode_started", { mode: "daily", already_completed: !!(existingToday && existingToday.completed) });
+    startTimer("daily");
   };
 
   const advanceDailyToNext = (resultType) => {
@@ -1559,6 +1582,14 @@ export default function App() {
       setDailyHistory(newHistory);
       window.localStorage.setItem("pairfc_daily_history", JSON.stringify(newHistory));
       setDailyDone(true);
+      const correctCount = newResults.filter((r) => r === "correct").length;
+      track("daily_completed", {
+        correct: correctCount,
+        total: newResults.length,
+        streak: calculateStreak(newHistory),
+        duration_seconds: endTimer("daily"),
+        date: today
+      });
     } else {
       setDailyIndex(nextIdx);
       setDailyWrongCount(0);
@@ -1643,16 +1674,20 @@ export default function App() {
       if (navigator.share) {
         await navigator.share({ title: "PairFC", text });
         setDailyShareStatus({ type: "success", text: "Paylaşıldı!" });
+        track("daily_shared", { method: "native" });
       } else if (navigator.clipboard) {
         await navigator.clipboard.writeText(text);
         setDailyShareStatus({ type: "success", text: "📋 Panoya kopyalandı!" });
+        track("daily_shared", { method: "clipboard" });
       } else {
         setDailyShareStatus({ type: "info", text: "Paylaşım desteklenmiyor." });
+        track("daily_shared", { method: "unsupported" });
       }
     } catch (e) {
       // Kullanıcı share dialogunu iptal etti — sessizce yut
       if (e.name !== "AbortError") {
         setDailyShareStatus({ type: "error", text: "Paylaşılamadı." });
+        track("daily_shared", { method: "failed" });
       }
     }
     setTimeout(() => setDailyShareStatus(null), 2500);
@@ -1746,6 +1781,12 @@ export default function App() {
     setChallengeLastScore(finalScore);
     setChallengeBest(nextBest);
     window.localStorage.setItem("footballChallengeBest", String(nextBest));
+    track("challenge_finished", {
+      score: finalScore,
+      is_new_best: finalScore > challengeBest,
+      duration_seconds: endTimer("challenge"),
+      reason: reasonText ? "wrong_answer" : "timeout"
+    });
     setChallengeScore(0);
     setChallengeRoundLocked(true);
     setChallengeShowAnswers(true);
@@ -1826,6 +1867,7 @@ export default function App() {
     setChallengeFirstLetterUsed(true);
     setChallengeJokerHint(hint);
     setChallengeMessage({ type: "info", text: `🎯 İpucu: ${hint}` });
+    track("joker_used", { type: "firstLetter" });
   };
 
   // ===== JOKER: Çift Değiştir =====
@@ -1857,6 +1899,7 @@ export default function App() {
     setChallengeReportStatus(null);
     setChallengeJokerHint(null);
     setChallengeMessage({ type: "info", text: "🔄 Çift değiştirildi. Yeni takımlar geliyor." });
+    track("joker_used", { type: "swap" });
   };
 
   // ===== JOKER: Süre +5 =====
@@ -1873,6 +1916,7 @@ export default function App() {
     setChallengeRoundEndsAt((prev) => prev + 5000);
     setChallengeTimeLeft((prev) => prev + 5);
     setChallengeMessage({ type: "info", text: "⏱️ Süreye 5 saniye eklendi!" });
+    track("joker_used", { type: "timeAdd" });
   };
 
   const revealChallengeAnswerAndEnd = () => {

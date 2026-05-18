@@ -60,14 +60,17 @@ export function getDailyPuzzle(weightedPairs) {
   const rng = mulberry32(seed);
 
   // Pair'leri cevap sayısına göre tier'la
-  const enriched = weightedPairs.map((p) => {
-    const key = getPairKey(p.teams[0], p.teams[1]);
-    return {
-      teams: p.teams,
-      key,
-      answerCount: (ANSWER_INDEX[key] || []).length
-    };
-  });
+  // Önce key'e göre deterministik sırala — input sırası tarayıcılar arası tutarlı olsun
+  const enriched = weightedPairs
+    .map((p) => {
+      const key = getPairKey(p.teams[0], p.teams[1]);
+      return {
+        teams: p.teams,
+        key,
+        answerCount: (ANSWER_INDEX[key] || []).length
+      };
+    })
+    .sort((a, b) => a.key.localeCompare(b.key));
 
   // 4 zorluk seviyesi
   const easy = enriched.filter((p) => p.answerCount >= 15);
@@ -75,12 +78,23 @@ export function getDailyPuzzle(weightedPairs) {
   const med = enriched.filter((p) => p.answerCount >= 4 && p.answerCount < 8);
   const hard = enriched.filter((p) => p.answerCount >= 2 && p.answerCount < 4);
 
-  // Seeded random pick (without replacement)
+  // Fisher-Yates shuffle — deterministik (sort() yerine)
+  function shuffle(arr) {
+    const a = [...arr];
+    for (let i = a.length - 1; i > 0; i -= 1) {
+      const j = Math.floor(rng() * (i + 1));
+      const tmp = a[i];
+      a[i] = a[j];
+      a[j] = tmp;
+    }
+    return a;
+  }
+
+  // Seeded random pick (without replacement) — Fisher-Yates ile
   function pickN(pool, n, exclude) {
     const available = pool.filter((p) => !exclude.has(p.key));
     if (available.length === 0) return [];
-    const shuffled = [...available].sort(() => rng() - 0.5);
-    return shuffled.slice(0, n);
+    return shuffle(available).slice(0, n);
   }
 
   const exclude = new Set();
