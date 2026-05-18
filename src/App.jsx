@@ -2217,7 +2217,23 @@ export default function App() {
       {showSplash && (
         <div className="splash-screen">
           <div className="splash-content">
-            <div className="splash-logo">⚽</div>
+            <div className="splash-logo">
+              <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <radialGradient id="ballGrad" cx="35%" cy="35%" r="65%">
+                    <stop offset="0%" stopColor="#ffffff" />
+                    <stop offset="100%" stopColor="#d1fae5" />
+                  </radialGradient>
+                </defs>
+                <circle cx="50" cy="50" r="44" fill="url(#ballGrad)" stroke="#0f172a" strokeWidth="2.5"/>
+                <polygon points="50,28 68,40 62,60 38,60 32,40" fill="#0f172a"/>
+                <line x1="50" y1="28" x2="50" y2="12" stroke="#0f172a" strokeWidth="2.5" strokeLinecap="round"/>
+                <line x1="68" y1="40" x2="84" y2="35" stroke="#0f172a" strokeWidth="2.5" strokeLinecap="round"/>
+                <line x1="62" y1="60" x2="74" y2="80" stroke="#0f172a" strokeWidth="2.5" strokeLinecap="round"/>
+                <line x1="38" y1="60" x2="26" y2="80" stroke="#0f172a" strokeWidth="2.5" strokeLinecap="round"/>
+                <line x1="32" y1="40" x2="16" y2="35" stroke="#0f172a" strokeWidth="2.5" strokeLinecap="round"/>
+              </svg>
+            </div>
             <h1 className="splash-title">PairFC</h1>
             <p className="splash-tagline">İki takım, tek futbolcu.</p>
             <p className="splash-tagline-sub">Sen bul.</p>
@@ -2501,22 +2517,22 @@ export default function App() {
                     <button type="button" onClick={() => confirmStartChallenge("easy")} className="difficulty-card easy">
                       <span className="difficulty-emoji">🟢</span>
                       <strong>Kolay</strong>
-                      <small>Top Avrupa devleri + 3 büyük Türk</small>
+                      <small>Popüler Avrupa kulüpleri + 3 Türk büyüğü</small>
                       <em>Real, Barça, Bayern, ManU, FB, GS, BJK...</em>
                     </button>
 
                     <button type="button" onClick={() => confirmStartChallenge("medium")} className="difficulty-card medium">
                       <span className="difficulty-emoji">🟡</span>
                       <strong>Orta</strong>
-                      <small>Avrupa + tanınmış orta seviye</small>
-                      <em>+ Tottenham, Napoli, Lazio, Ajax, Trabzon...</em>
+                      <small>Avrupa'nın bilinen kulüpleri + Süper Lig</small>
+                      <em>Tottenham, Napoli, Ajax, Trabzonspor...</em>
                     </button>
 
                     <button type="button" onClick={() => confirmStartChallenge("hard")} className="difficulty-card hard">
                       <span className="difficulty-emoji">🔴</span>
                       <strong>Zor</strong>
-                      <small>Tüm takımlar — niş kulüpler dahil</small>
-                      <em>96 takım, sınırsız çeşitlilik</em>
+                      <small>Tüm takım havuzu</small>
+                      <em>96 takım, daha sürpriz eşleşmeler</em>
                     </button>
                   </div>
                 </div>
@@ -2779,7 +2795,7 @@ export default function App() {
                   <div className="gameover-header">
                     <div className="gameover-icon trophy">📅</div>
                     <div className="gameover-headline">
-                      <h3>{dailyHistory[dailyData.date]?.completed ? "Bugünkü Bulmaca Çözüldü" : "Günün Bulmacası Bitti"}</h3>
+                      <h3>{dailyHistory[dailyData.date]?.completed ? "Bugünkü Bulmaca Bitti ✓" : "Bulmaca Tamamlandı"}</h3>
                       <p className="gameover-detail">{new Intl.DateTimeFormat("tr-TR", { day: "numeric", month: "long", year: "numeric" }).format(new Date(dailyData.date))}</p>
                     </div>
                   </div>
@@ -3585,10 +3601,16 @@ button:focus-visible {
 }
 
 .splash-logo {
-  font-size: 88px;
-  line-height: 1;
+  width: 88px;
+  height: 88px;
+  margin: 0 auto;
   animation: splashLogoBounce 1.5s ease-in-out infinite;
   filter: drop-shadow(0 8px 20px rgba(16, 185, 129, 0.5));
+}
+
+.splash-logo svg {
+  width: 100%;
+  height: 100%;
 }
 
 @keyframes splashLogoBounce {
@@ -3975,11 +3997,12 @@ button:focus-visible {
 }
 
 .daily-grid-emoji {
-  font-size: 28px;
-  letter-spacing: 4px;
+  font-size: 24px;
+  letter-spacing: 6px;
   text-align: center;
-  padding: 8px;
+  padding: 10px;
   background: var(--surface-soft);
+  border: 1px solid var(--border);
   border-radius: 10px;
 }
 
@@ -4119,7 +4142,7 @@ button:focus-visible {
 
 .mode-card-online::before { background: linear-gradient(180deg, #3b82f6 0%, #06b6d4 100%); }
 .mode-card:nth-child(2)::before { background: linear-gradient(180deg, var(--accent) 0%, #ef4444 100%); }
-.mode-card-daily::before { background: linear-gradient(180deg, #f59e0b 0%, #ef4444 100%); }
+.mode-card-daily::before { background: linear-gradient(180deg, #10b981 0%, #3b82f6 100%); }
 
 .mode-card.active {
   border-color: var(--primary);
