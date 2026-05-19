@@ -1,5 +1,5 @@
 // Auto-generated from admin panel
-// Generated: 2026-05-18T23:32:11.685Z
+// Generated: 2026-05-19T08:50:41.986Z
 
 export const PLAYERS = [
   {
