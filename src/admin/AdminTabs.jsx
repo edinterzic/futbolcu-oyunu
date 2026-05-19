@@ -67,16 +67,20 @@ function getContrastColor(hex) {
 
 // =================== DATA STORE ===================
 function buildFreshSnapshot() {
-  const teams = TEAMS.map((name) => {
-    const style = TEAM_LOGOS[name] || {};
+  const teams = TEAMS.map((entry) => {
+    // TEAMS hem string array hem obje array olabilir — defansif
+    const teamName = typeof entry === "string" ? entry : (entry?.name || "");
+    const isObj = typeof entry === "object" && entry !== null;
+    const style = TEAM_LOGOS[teamName] || {};
     return {
-      name,
-      initials: style.initials || "",
-      primary: style.primary || "#10b981",
-      secondary: style.secondary || "#ffffff",
-      country: "",
-      league: "",
-      founded: null
+      name: teamName,
+      initials: (isObj && entry.initials) || style.initials || "",
+      primary: (isObj && entry.primary) || style.primary || "#10b981",
+      secondary: (isObj && entry.secondary) || style.secondary || "#ffffff",
+      country: (isObj && entry.country) || "",
+      league: (isObj && entry.league) || "",
+      founded: (isObj && entry.founded !== undefined) ? entry.founded : null,
+      isActive: (isObj && entry.isActive !== undefined) ? entry.isActive : true
     };
   });
   const players = PLAYERS.map((p) => ({
@@ -95,6 +99,36 @@ function loadSnapshot() {
     if (!raw) return null;
     const snap = JSON.parse(raw);
     if (snap.schemaVersion !== 1) return null;
+
+    // Migration: eski bozuk format düzelt — name'in iç içe obje olduğu durum
+    let needsFix = false;
+    if (Array.isArray(snap.teams)) {
+      snap.teams = snap.teams.map((t) => {
+        if (t && typeof t.name === "object" && t.name !== null) {
+          needsFix = true;
+          const inner = t.name;
+          return {
+            name: inner.name || "",
+            initials: inner.initials || t.initials || "",
+            primary: inner.primary || t.primary || "#10b981",
+            secondary: inner.secondary || t.secondary || "#ffffff",
+            country: inner.country || t.country || "",
+            league: inner.league || t.league || "",
+            founded: inner.founded ?? t.founded ?? null,
+            isActive: inner.isActive !== undefined ? inner.isActive : (t.isActive !== undefined ? t.isActive : true)
+          };
+        }
+        return t;
+      });
+      // Bozuk takımları filtre: name hâlâ string değilse at
+      const before = snap.teams.length;
+      snap.teams = snap.teams.filter((t) => typeof t.name === "string" && t.name.length > 0);
+      if (snap.teams.length !== before) needsFix = true;
+    }
+    if (needsFix) {
+      console.warn("[admin] Snapshot otomatik düzeltildi (eski bozuk format).");
+      localStorage.setItem(SNAPSHOT_KEY, JSON.stringify(snap));
+    }
     return snap;
   } catch { return null; }
 }
