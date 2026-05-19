@@ -851,78 +851,6 @@ export default function App() {
   });
   const dailyStreak = useMemo(() => calculateStreak(dailyHistory), [dailyHistory]);
 
-  // Ana sayfa Hero için: bugün daily çözüldü mü?
-  const dailyDoneToday = useMemo(() => {
-    const today = getTodayKey();
-    const entry = dailyHistory[today];
-    return entry && (entry.done || entry.completed || entry.correct >= 5 || entry.finished);
-  }, [dailyHistory]);
-
-  // Ana sayfa "featured hero" konfigürasyonu — duruma göre dinamik
-  const heroConfig = useMemo(() => {
-    // Senaryo 1: Daily bugün çözülmedi → DAILY featured
-    if (!dailyDoneToday) {
-      const isNewUser = challengeBest === 0 && dailyStreak === 0;
-      return {
-        mode: "daily",
-        icon: "📅",
-        eyebrow: isNewUser ? "BAŞLANGIÇ" : "BUGÜNKÜ BULMACA",
-        title: isNewUser ? "Hadi tanışalım" : "5 yeni eşleşme seni bekliyor",
-        sub: dailyCountdown ? `${dailyCountdown} sonra yenilenir` : "Her gün yenilenir · Herkes aynı bulmacayı çözer",
-        cta: isNewUser ? "🚀 İlk Bulmacam" : "Hadi Çöz",
-        tone: "daily"
-      };
-    }
-    // Senaryo 2: Daily çözüldü + streak var → CHALLENGE "seri devam"
-    if (dailyStreak > 0) {
-      return {
-        mode: "challenge",
-        icon: "🔥",
-        eyebrow: `${dailyStreak} GÜN ÜST ÜSTE`,
-        title: "Bugün rekoru kırma sırası",
-        sub: challengeBest > 0 ? `En iyi serin: ${challengeBest} · Geçebilir misin?` : "Challenge'da kaç doğru üst üste?",
-        cta: "Challenge Aç",
-        tone: "challenge"
-      };
-    }
-    // Senaryo 3: Challenge'ı bilen kullanıcı → "skoru kır"
-    if (challengeBest > 0) {
-      return {
-        mode: "challenge",
-        icon: "🎯",
-        eyebrow: "SKORUNU KIR",
-        title: `En iyin: ${challengeBest} doğru`,
-        sub: "Yeni rekor için yola çık",
-        cta: "Yeni Tur",
-        tone: "challenge"
-      };
-    }
-    // Senaryo 4: İlk açılış, daily çözüldü, hiç challenge yok → ilk maç
-    return {
-      mode: "challenge",
-      icon: "⚔️",
-      eyebrow: "İLK MAÇIN",
-      title: "8.395 futbolcu, 3.445 kapışma",
-      sub: "Tek başına üst üste kaç doğru bilirsin?",
-      cta: "Başla 🚀",
-      tone: "challenge"
-    };
-  }, [dailyDoneToday, dailyStreak, challengeBest, dailyCountdown]);
-
-  // Featured olmayan 2 mod (secondary kartlar için)
-  const secondaryModes = useMemo(() => {
-    const all = ["daily", "challenge", "online"];
-    return all.filter((m) => m !== heroConfig.mode);
-  }, [heroConfig.mode]);
-
-  // Activity strip için kişisel istatistikler
-  const personalStats = useMemo(() => {
-    const totalDays = Object.keys(dailyHistory).length;
-    const allScores = Object.values(dailyHistory).map((h) => h.correct || 0).filter((n) => n > 0);
-    const totalCorrect = allScores.reduce((a, b) => a + b, 0);
-    return { totalDays, totalCorrect, challengeBest, dailyStreak };
-  }, [dailyHistory, challengeBest, dailyStreak]);
-
   const [dailyData, setDailyData] = useState(null); // { date, puzzles: [{teams, key}] }
   const [dailyIndex, setDailyIndex] = useState(0);
   const [dailyWrongCount, setDailyWrongCount] = useState(0);
@@ -935,6 +863,72 @@ export default function App() {
   const [dailyShowAnswers, setDailyShowAnswers] = useState(false);
   const [dailyFeedback, setDailyFeedback] = useState(null);
   const [dailyCountdown, setDailyCountdown] = useState(""); // "5sa 23dk" gibi
+
+  // Ana sayfa Hero için: bugün daily çözüldü mü?
+  const dailyDoneToday = useMemo(() => {
+    const today = getTodayKey();
+    const entry = dailyHistory[today];
+    return entry && (entry.done || entry.completed || entry.correct >= 5 || entry.finished);
+  }, [dailyHistory]);
+
+  // Ana sayfa "featured hero" konfigürasyonu — duruma göre dinamik
+  const heroConfig = useMemo(() => {
+    if (!dailyDoneToday) {
+      const isNewUser = challengeBest === 0 && dailyStreak === 0;
+      return {
+        mode: "daily",
+        icon: "📅",
+        eyebrow: isNewUser ? "BAŞLANGIÇ" : "BUGÜNKÜ BULMACA",
+        title: isNewUser ? "Hadi tanışalım" : "5 yeni eşleşme seni bekliyor",
+        sub: dailyCountdown ? `${dailyCountdown} sonra yenilenir` : "Her gün yenilenir · Herkes aynı bulmacayı çözer",
+        cta: isNewUser ? "🚀 İlk Bulmacam" : "Hadi Çöz",
+        tone: "daily"
+      };
+    }
+    if (dailyStreak > 0) {
+      return {
+        mode: "challenge",
+        icon: "🔥",
+        eyebrow: `${dailyStreak} GÜN ÜST ÜSTE`,
+        title: "Bugün rekoru kırma sırası",
+        sub: challengeBest > 0 ? `En iyi serin: ${challengeBest} · Geçebilir misin?` : "Challenge'da kaç doğru üst üste?",
+        cta: "Challenge Aç",
+        tone: "challenge"
+      };
+    }
+    if (challengeBest > 0) {
+      return {
+        mode: "challenge",
+        icon: "🎯",
+        eyebrow: "SKORUNU KIR",
+        title: `En iyin: ${challengeBest} doğru`,
+        sub: "Yeni rekor için yola çık",
+        cta: "Yeni Tur",
+        tone: "challenge"
+      };
+    }
+    return {
+      mode: "challenge",
+      icon: "⚔️",
+      eyebrow: "İLK MAÇIN",
+      title: "8.395 futbolcu, 3.445 kapışma",
+      sub: "Tek başına üst üste kaç doğru bilirsin?",
+      cta: "Başla 🚀",
+      tone: "challenge"
+    };
+  }, [dailyDoneToday, dailyStreak, challengeBest, dailyCountdown]);
+
+  const secondaryModes = useMemo(() => {
+    const all = ["daily", "challenge", "online"];
+    return all.filter((m) => m !== heroConfig.mode);
+  }, [heroConfig.mode]);
+
+  const personalStats = useMemo(() => {
+    const totalDays = Object.keys(dailyHistory).length;
+    const allScores = Object.values(dailyHistory).map((h) => h.correct || 0).filter((n) => n > 0);
+    const totalCorrect = allScores.reduce((a, b) => a + b, 0);
+    return { totalDays, totalCorrect, challengeBest, dailyStreak };
+  }, [dailyHistory, challengeBest, dailyStreak]);
 
   const suggestions = useMemo(() => getPlayerSuggestions(answerInput), [answerInput]);
   const correctPlayers = useMemo(() => getCorrectPlayersForRound(round), [round]);
