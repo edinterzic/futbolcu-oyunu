@@ -923,13 +923,6 @@ export default function App() {
     return all.filter((m) => m !== heroConfig.mode);
   }, [heroConfig.mode]);
 
-  const personalStats = useMemo(() => {
-    const totalDays = Object.keys(dailyHistory).length;
-    const allScores = Object.values(dailyHistory).map((h) => h.correct || 0).filter((n) => n > 0);
-    const totalCorrect = allScores.reduce((a, b) => a + b, 0);
-    return { totalDays, totalCorrect, challengeBest, dailyStreak };
-  }, [dailyHistory, challengeBest, dailyStreak]);
-
   const suggestions = useMemo(() => getPlayerSuggestions(answerInput), [answerInput]);
   const correctPlayers = useMemo(() => getCorrectPlayersForRound(round), [round]);
   const challengeSuggestions = useMemo(() => getPlayerSuggestions(challengeInput), [challengeInput]);
@@ -2510,8 +2503,14 @@ export default function App() {
                       <button key="daily" type="button" onClick={startDaily} className="mode-card mode-card-secondary mode-card-daily">
                         <span className="mode-icon">📅</span>
                         <strong>Günün Bulmacası</strong>
-                        <small>{dailyDoneToday ? "✓ Bugün çözüldü" : "5 yeni eşleşme"}</small>
-                        {dailyStreak > 0 && <em className="best-badge streak-badge">🔥 {dailyStreak} gün</em>}
+                        <small>
+                          {dailyDoneToday
+                            ? "🎉 5/5 tamamlandı"
+                            : "5 yeni eşleşme"}
+                        </small>
+                        {dailyDoneToday
+                          ? <em className="best-badge done-badge">Yarın yeni</em>
+                          : (dailyStreak > 0 && <em className="best-badge streak-badge">🔥 {dailyStreak} gün</em>)}
                       </button>
                     );
                   }
@@ -2530,46 +2529,11 @@ export default function App() {
                       <span className="mode-icon">🌍</span>
                       <strong>Online Kapışma</strong>
                       <small>Arkadaşınla karşılıklı</small>
+                      <em className="best-badge online-cta">Oda Kur →</em>
                     </button>
                   );
                 })}
               </div>
-
-              {/* Mini activity strip — kişisel veri */}
-              {(personalStats.totalDays > 0 || personalStats.challengeBest > 0) && (
-                <div className="activity-strip">
-                  <div className="activity-strip-header">
-                    <span className="activity-strip-icon">📊</span>
-                    <span className="activity-strip-title">Senin İstatistiklerin</span>
-                  </div>
-                  <div className="activity-strip-grid">
-                    {personalStats.totalDays > 0 && (
-                      <div className="activity-item">
-                        <strong>{personalStats.totalDays}</strong>
-                        <small>oynanan gün</small>
-                      </div>
-                    )}
-                    {personalStats.totalCorrect > 0 && (
-                      <div className="activity-item">
-                        <strong>{personalStats.totalCorrect}</strong>
-                        <small>toplam doğru</small>
-                      </div>
-                    )}
-                    {personalStats.dailyStreak > 0 && (
-                      <div className="activity-item">
-                        <strong>🔥 {personalStats.dailyStreak}</strong>
-                        <small>aktif seri</small>
-                      </div>
-                    )}
-                    {personalStats.challengeBest > 0 && (
-                      <div className="activity-item">
-                        <strong>🏆 {personalStats.challengeBest}</strong>
-                        <small>en iyi tur</small>
-                      </div>
-                    )}
-                  </div>
-                </div>
-              )}
 
               {!isInstalled && (
                 <button type="button" onClick={triggerInstall} className="install-banner">
@@ -4138,6 +4102,19 @@ button:focus-visible {
   color: var(--accent);
 }
 
+.done-badge {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.2) 0%, rgba(16, 185, 129, 0.08) 100%);
+  border: 1px solid rgba(16, 185, 129, 0.45);
+  color: #10b981;
+}
+
+.online-cta {
+  background: linear-gradient(135deg, rgba(6, 182, 212, 0.2) 0%, rgba(139, 92, 246, 0.1) 100%);
+  border: 1px solid rgba(6, 182, 212, 0.45);
+  color: #22d3ee;
+  font-weight: 800;
+}
+
 /* Daily puzzle progress dots */
 .daily-header {
   display: flex;
@@ -4302,9 +4279,9 @@ button:focus-visible {
   width: 100%;
   text-align: left;
   border: 1px solid var(--border-strong);
-  border-radius: 18px;
-  padding: 22px 22px 20px;
-  margin-bottom: 14px;
+  border-radius: 16px;
+  padding: 18px 20px 16px;
+  margin-bottom: 12px;
   overflow: hidden;
   cursor: pointer;
   background: var(--surface);
@@ -4316,13 +4293,41 @@ button:focus-visible {
   inset: -40%;
   pointer-events: none;
   z-index: 0;
-  opacity: 0.55;
+  opacity: 0.5;
   filter: blur(48px);
   transition: opacity 0.3s ease;
+}
+/* Ambient pattern — soccer ball hint, çok silik */
+.hero-card::after {
+  content: "";
+  position: absolute;
+  right: -30px;
+  bottom: -30px;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  border: 2px solid currentColor;
+  opacity: 0.04;
+  pointer-events: none;
+  z-index: 0;
+}
+.hero-card::before {
+  content: "";
+  position: absolute;
+  right: 30px;
+  top: -20px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 1.5px solid currentColor;
+  opacity: 0.05;
+  pointer-events: none;
+  z-index: 0;
 }
 .hero-card--daily {
   background: linear-gradient(135deg, rgba(16, 185, 129, 0.12) 0%, rgba(59, 130, 246, 0.08) 100%);
   border-color: rgba(16, 185, 129, 0.4);
+  color: #10b981;
 }
 .hero-card--daily .hero-card-glow {
   background: radial-gradient(circle at 30% 20%, rgba(16, 185, 129, 0.45), transparent 55%),
@@ -4331,6 +4336,7 @@ button:focus-visible {
 .hero-card--challenge {
   background: linear-gradient(135deg, rgba(245, 158, 11, 0.14) 0%, rgba(239, 68, 68, 0.1) 100%);
   border-color: rgba(245, 158, 11, 0.45);
+  color: #f59e0b;
 }
 .hero-card--challenge .hero-card-glow {
   background: radial-gradient(circle at 25% 20%, rgba(245, 158, 11, 0.5), transparent 55%),
@@ -4339,6 +4345,7 @@ button:focus-visible {
 .hero-card--online {
   background: linear-gradient(135deg, rgba(6, 182, 212, 0.12) 0%, rgba(139, 92, 246, 0.1) 100%);
   border-color: rgba(6, 182, 212, 0.4);
+  color: #22d3ee;
 }
 .hero-card--online .hero-card-glow {
   background: radial-gradient(circle at 25% 20%, rgba(6, 182, 212, 0.45), transparent 55%),
@@ -4352,7 +4359,7 @@ button:focus-visible {
   transform: translateY(0) scale(0.985);
   transition-duration: 0.08s;
 }
-.hero-card:hover .hero-card-glow { opacity: 0.8; }
+.hero-card:hover .hero-card-glow { opacity: 0.75; }
 
 .hero-card-content {
   position: relative;
@@ -4361,46 +4368,46 @@ button:focus-visible {
 .hero-card-eyebrow {
   display: flex;
   align-items: center;
-  gap: 10px;
-  margin-bottom: 10px;
+  gap: 8px;
+  margin-bottom: 6px;
 }
 .hero-card-icon {
-  font-size: 26px;
+  font-size: 22px;
   line-height: 1;
 }
 .hero-card-eyebrow-text {
-  font-size: 11px;
+  font-size: 10.5px;
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.14em;
   color: var(--text);
-  opacity: 0.85;
+  opacity: 0.9;
 }
 .hero-card--daily .hero-card-eyebrow-text { color: #10b981; }
 .hero-card--challenge .hero-card-eyebrow-text { color: #fbbf24; }
 .hero-card--online .hero-card-eyebrow-text { color: #22d3ee; }
 
 .hero-card-title {
-  font-size: 22px;
+  font-size: 19px;
   font-weight: 800;
-  line-height: 1.2;
+  line-height: 1.22;
   color: var(--text);
-  margin: 0 0 6px 0;
+  margin: 0 0 4px 0;
   letter-spacing: -0.015em;
 }
 .hero-card-sub {
-  font-size: 13.5px;
+  font-size: 12.5px;
   color: var(--text-muted);
-  margin: 0 0 16px 0;
+  margin: 0 0 12px 0;
   line-height: 1.45;
 }
 .hero-card-cta {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 10px 18px;
+  gap: 6px;
+  padding: 8px 16px;
   border-radius: 999px;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 800;
   letter-spacing: 0.01em;
   background: var(--text);
@@ -4410,20 +4417,21 @@ button:focus-visible {
 .hero-card--daily .hero-card-cta { background: #10b981; color: #fff; }
 .hero-card--challenge .hero-card-cta { background: linear-gradient(135deg, #f59e0b, #ef4444); color: #fff; }
 .hero-card--online .hero-card-cta { background: linear-gradient(135deg, #06b6d4, #8b5cf6); color: #fff; }
-.hero-card:hover .hero-card-cta { gap: 12px; }
+.hero-card:hover .hero-card-cta { gap: 10px; }
 .hero-card-arrow {
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 800;
   transition: transform 0.2s var(--ease);
 }
 .hero-card:hover .hero-card-arrow { transform: translateX(2px); }
 
 @media (max-width: 480px) {
-  .hero-card { padding: 18px 18px 16px; border-radius: 16px; }
-  .hero-card-title { font-size: 19px; }
-  .hero-card-sub { font-size: 12.5px; margin-bottom: 14px; }
-  .hero-card-icon { font-size: 22px; }
-  .hero-card-cta { padding: 9px 16px; font-size: 13px; }
+  .hero-card { padding: 16px 16px 14px; border-radius: 14px; }
+  .hero-card-title { font-size: 17px; }
+  .hero-card-sub { font-size: 12px; margin-bottom: 11px; }
+  .hero-card-icon { font-size: 20px; }
+  .hero-card-cta { padding: 7px 14px; font-size: 12.5px; }
+  .hero-card::after { width: 120px; height: 120px; right: -20px; bottom: -20px; }
 }
 
 /* --- Mode Grid Secondary (2'li yatay) --- */
