@@ -1,5 +1,5 @@
 // Auto-generated from admin panel
-// Generated: 2026-05-19T09:23:26.030Z
+// Generated: 2026-05-19T09:51:27.774Z
 
 export const TEAMS = [
   "Inter",
@@ -27,8 +27,8 @@ export const TEAMS = [
   "Getafe",
   "Udinese",
   "Lazio",
-  "Alaves",
   "Galatasaray",
+  "Alaves",
   "Atletico Madrid",
   "Manchester United",
   "Celta Vigo",

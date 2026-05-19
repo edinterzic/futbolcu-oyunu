@@ -1,5 +1,5 @@
 // Auto-generated from admin panel
-// Generated: 2026-05-19T09:23:26.933Z
+// Generated: 2026-05-19T09:51:28.708Z
 
 export const TEAM_LOGOS = {
   "Inter": {
@@ -127,15 +127,15 @@ export const TEAM_LOGOS = {
     "primary": "#87CEEB",
     "secondary": "#FFFFFF"
   },
-  "Alaves": {
-    "initials": "ALV",
-    "primary": "#1F4FA3",
-    "secondary": "#FFFFFF"
-  },
   "Galatasaray": {
     "initials": "GS",
     "primary": "#FFA500",
     "secondary": "#A90432"
+  },
+  "Alaves": {
+    "initials": "ALV",
+    "primary": "#1F4FA3",
+    "secondary": "#FFFFFF"
   },
   "Atletico Madrid": {
     "initials": "ATM",
