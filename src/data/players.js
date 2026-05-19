@@ -1,5 +1,5 @@
 // Auto-generated from admin panel
-// Generated: 2026-05-19T08:50:41.986Z
+// Generated: 2026-05-19T09:23:26.332Z
 
 export const PLAYERS = [
   {
@@ -52339,6 +52339,15 @@ export const PLAYERS = [
     "clubs": [
       "Alaves",
       "Atletico Madrid"
+    ]
+  },
+  {
+    "name": "Raul Meireles",
+    "clubs": [
+      "Fenerbahçe",
+      "Chelsea",
+      "Liverpool",
+      "FC Porto"
     ]
   },
   {

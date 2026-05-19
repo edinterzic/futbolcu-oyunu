@@ -1,5 +1,5 @@
 // Auto-generated from admin panel
-// Generated: 2026-05-19T08:50:42.342Z
+// Generated: 2026-05-19T09:23:26.666Z
 
 import { TEAMS } from './teams';
 
@@ -1876,6 +1876,7 @@ export const ANSWER_INDEX = {
     "Diego Carlos",
     "Diego Reyes",
     "Joao Pedro",
+    "Raul Meireles",
     "Souza"
   ],
   "FC Porto|Rayo Vallecano": [
@@ -10760,6 +10761,7 @@ export const ANSWER_INDEX = {
     "Mohamed Salah",
     "Nicolas Anelka",
     "Raheem Sterling",
+    "Raul Meireles",
     "Rhianrewster",
     "Rio Ngumoha",
     "Victor Moses",
@@ -12861,6 +12863,7 @@ export const ANSWER_INDEX = {
     "Jorginho",
     "Malang Sarr",
     "Radamel Falcao",
+    "Raul Meireles",
     "Ricardo Quaresma",
     "Thiago Silva"
   ],
@@ -12896,6 +12899,7 @@ export const ANSWER_INDEX = {
     "Michyatshuayi",
     "N'Golo Kante",
     "Nicolas Anelka",
+    "Raul Meireles",
     "Victor Moses"
   ],
   "Chelsea|PSG": [
@@ -16291,7 +16295,8 @@ export const ANSWER_INDEX = {
     "Jorge Fucile",
     "Luis Diaz",
     "Marko Grujic",
-    "Paulinho"
+    "Paulinho",
+    "Raul Meireles"
   ],
   "FC Porto|Aston Villa": [
     "Aly Cissokho",
@@ -25410,6 +25415,7 @@ export const ANSWER_INDEX = {
     "Lazar Markovic",
     "Martin Skrtel",
     "Nicolas Anelka",
+    "Raul Meireles",
     "Ryan Kent",
     "Steven Caulker",
     "Victor Moses"

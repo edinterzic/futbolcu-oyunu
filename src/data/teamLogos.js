@@ -1,5 +1,5 @@
 // Auto-generated from admin panel
-// Generated: 2026-05-19T08:50:42.616Z
+// Generated: 2026-05-19T09:23:26.933Z
 
 export const TEAM_LOGOS = {
   "Inter": {
