@@ -1,5 +1,5 @@
 // Auto-generated from admin panel
-// Generated: 2026-05-19T09:51:28.102Z
+// Generated: 2026-05-20T14:35:49.621Z
 
 export const PLAYERS = [
   {
@@ -9476,6 +9476,13 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Bryan Bonucci",
+    "clubs": [
+      "Inter",
+      "Sassuolo"
+    ]
+  },
+  {
     "name": "Bryan Cristante",
     "clubs": [
       "AC Milan",
@@ -9553,13 +9560,6 @@ export const PLAYERS = [
     "clubs": [
       "Lens",
       "Marsilya"
-    ]
-  },
-  {
-    "name": "Bryanonucci",
-    "clubs": [
-      "Inter",
-      "Sassuolo"
     ]
   },
   {
@@ -9667,6 +9667,15 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Bülent Bölükbaşı",
+    "clubs": [
+      "Gaziantep FK",
+      "Kayserispor",
+      "Kocaelispor",
+      "Konyaspor"
+    ]
+  },
+  {
     "name": "Bülent Karaman",
     "clubs": [
       "Gençlerbirliği",
@@ -9689,15 +9698,6 @@ export const PLAYERS = [
     "clubs": [
       "Gaziantep FK",
       "Göztepe"
-    ]
-  },
-  {
-    "name": "Bülentölükbaşı",
-    "clubs": [
-      "Gaziantep FK",
-      "Kayserispor",
-      "Kocaelispor",
-      "Konyaspor"
     ]
   },
   {
@@ -34962,7 +34962,7 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Kevin Deruyne",
+    "name": "Kevin De Bruyne",
     "clubs": [
       "Chelsea",
       "Manchester City",
@@ -36483,6 +36483,16 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Leonardo Bonucci",
+    "clubs": [
+      "AC Milan",
+      "Fenerbahçe",
+      "Genoa",
+      "Inter",
+      "Juventus"
+    ]
+  },
+  {
     "name": "Leonardo Cenni",
     "clubs": [
       "Bologna",
@@ -36625,16 +36635,6 @@ export const PLAYERS = [
     "clubs": [
       "Juventus",
       "Parma"
-    ]
-  },
-  {
-    "name": "Leonardoonucci",
-    "clubs": [
-      "AC Milan",
-      "Fenerbahçe",
-      "Genoa",
-      "Inter",
-      "Juventus"
     ]
   },
   {
@@ -40784,6 +40784,17 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Mario Balotelli",
+    "clubs": [
+      "AC Milan",
+      "Genoa",
+      "Inter",
+      "Liverpool",
+      "Manchester City",
+      "Marsilya"
+    ]
+  },
+  {
     "name": "Mario Climent",
     "clubs": [
       "Elche",
@@ -41016,17 +41027,6 @@ export const PLAYERS = [
     "clubs": [
       "AC Milan",
       "PSG"
-    ]
-  },
-  {
-    "name": "Marioalotelli",
-    "clubs": [
-      "AC Milan",
-      "Genoa",
-      "Inter",
-      "Liverpool",
-      "Manchester City",
-      "Marsilya"
     ]
   },
   {
@@ -43340,6 +43340,14 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Mehmet Bölükbaşı",
+    "clubs": [
+      "Galatasaray",
+      "Rizespor",
+      "Samsunspor"
+    ]
+  },
+  {
     "name": "Mehmet Çoğum",
     "clubs": [
       "Gaziantep FK",
@@ -43506,14 +43514,6 @@ export const PLAYERS = [
       "Galatasaray",
       "Karagümrük",
       "Konyaspor"
-    ]
-  },
-  {
-    "name": "Mehmetölükbaşı",
-    "clubs": [
-      "Galatasaray",
-      "Rizespor",
-      "Samsunspor"
     ]
   },
   {
@@ -54276,22 +54276,19 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Ronaldo",
-    "clubs": [
-      "AC Milan",
-      "Barcelona",
-      "Benfica",
-      "Beşiktaş",
-      "Inter",
-      "Lazio",
-      "Real Madrid"
-    ]
-  },
-  {
     "name": "Ronaldo Camara",
     "clubs": [
       "Benfica",
       "Sporting CP"
+    ]
+  },
+  {
+    "name": "Ronaldo Nazario",
+    "clubs": [
+      "AC Milan",
+      "Barcelona",
+      "Inter",
+      "Real Madrid"
     ]
   },
   {
@@ -57586,6 +57583,17 @@ export const PLAYERS = [
     "clubs": [
       "Aston Villa",
       "Leeds United"
+    ]
+  },
+  {
+    "name": "Simon Kjaer",
+    "clubs": [
+      "AC Milan",
+      "Sevilla",
+      "Atalanta",
+      "Fenerbahçe",
+      "LOSC Lille",
+      "AS Roma"
     ]
   },
   {

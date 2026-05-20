@@ -1,5 +1,5 @@
 // Auto-generated from admin panel
-// Generated: 2026-05-19T09:51:28.708Z
+// Generated: 2026-05-20T14:35:50.289Z
 
 export const TEAM_LOGOS = {
   "Inter": {
@@ -82,15 +82,15 @@ export const TEAM_LOGOS = {
     "primary": "#1F4FA3",
     "secondary": "#FFFFFF"
   },
-  "Manchester City": {
-    "initials": "MCI",
-    "primary": "#6CABDD",
-    "secondary": "#1C2C5B"
-  },
   "AC Milan": {
     "initials": "MIL",
     "primary": "#FB090B",
     "secondary": "#000000"
+  },
+  "Manchester City": {
+    "initials": "MCI",
+    "primary": "#6CABDD",
+    "secondary": "#1C2C5B"
   },
   "Espanyol": {
     "initials": "ESP",
