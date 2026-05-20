@@ -1012,9 +1012,14 @@ export default function App() {
   const handleSaveScore = async () => {
     if (scoreSaved) return;
     const name = lbPlayerName.trim() || "Anonim";
+    const finalScore = challengeLastScore ?? challengeScore ?? 0;
     localStorage.setItem("pairfc_player_name", name);
     setScoreSaved(true);
-    await saveScore(name, challengeScore, challengeDifficulty);
+    await saveScore(name, finalScore, challengeDifficulty);
+    // Leaderboard filtresi kaydedilen zorlukla senkronize et
+    setLbDifficulty(challengeDifficulty);
+    // Leaderboard'ı yenile
+    fetchLeaderboard(challengeDifficulty, lbPeriod).then(setLbData);
   };
 
   // Ana sayfaya dönüşte scoreSaved reset
