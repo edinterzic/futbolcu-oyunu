@@ -1,5 +1,5 @@
 // Auto-generated from admin panel
-// Generated: 2026-05-20T17:11:07.204Z
+// Generated: 2026-05-20T21:01:09.379Z
 
 export const TEAM_LOGOS = {
   "Inter": {
@@ -57,15 +57,15 @@ export const TEAM_LOGOS = {
     "primary": "#EE3524",
     "secondary": "#FFFFFF"
   },
-  "Barcelona": {
-    "initials": "FCB",
-    "primary": "#A50044",
-    "secondary": "#004D98"
-  },
   "Chelsea": {
     "initials": "CHE",
     "primary": "#034694",
     "secondary": "#FFFFFF"
+  },
+  "Barcelona": {
+    "initials": "FCB",
+    "primary": "#A50044",
+    "secondary": "#004D98"
   },
   "FC Porto": {
     "initials": "POR",
@@ -77,15 +77,15 @@ export const TEAM_LOGOS = {
     "primary": "#FF0000",
     "secondary": "#003399"
   },
-  "Como": {
-    "initials": "COM",
-    "primary": "#1F4FA3",
-    "secondary": "#FFFFFF"
-  },
   "AC Milan": {
     "initials": "MIL",
     "primary": "#FB090B",
     "secondary": "#000000"
+  },
+  "Como": {
+    "initials": "COM",
+    "primary": "#1F4FA3",
+    "secondary": "#FFFFFF"
   },
   "Manchester City": {
     "initials": "MCI",
@@ -182,15 +182,15 @@ export const TEAM_LOGOS = {
     "primary": "#8E1F2F",
     "secondary": "#F0BC42"
   },
-  "Leeds United": {
-    "initials": "LEE",
-    "primary": "#FFCD00",
-    "secondary": "#1D428A"
-  },
   "Sunderland": {
     "initials": "SUN",
     "primary": "#E30613",
     "secondary": "#FFFFFF"
+  },
+  "Leeds United": {
+    "initials": "LEE",
+    "primary": "#FFCD00",
+    "secondary": "#1D428A"
   },
   "Elche": {
     "initials": "ELC",
@@ -212,15 +212,15 @@ export const TEAM_LOGOS = {
     "primary": "#A50044",
     "secondary": "#FFFFFF"
   },
-  "Cagliari": {
-    "initials": "CAG",
-    "primary": "#D91A21",
-    "secondary": "#0033A0"
-  },
   "Liverpool": {
     "initials": "LIV",
     "primary": "#C8102E",
     "secondary": "#00B2A9"
+  },
+  "Cagliari": {
+    "initials": "CAG",
+    "primary": "#D91A21",
+    "secondary": "#0033A0"
   },
   "Aston Villa": {
     "initials": "AVL",
@@ -267,15 +267,15 @@ export const TEAM_LOGOS = {
     "primary": "#FDB913",
     "secondary": "#231F20"
   },
-  "PSG": {
-    "initials": "P",
-    "primary": "#10b981",
-    "secondary": "#ffffff"
-  },
   "Antalyaspor": {
     "initials": "ANT",
     "primary": "#E30613",
     "secondary": "#FFFFFF"
+  },
+  "PSG": {
+    "initials": "PSG",
+    "primary": "#004170",
+    "secondary": "#DA291C"
   },
   "Marsilya": {
     "initials": "OM",
@@ -332,24 +332,24 @@ export const TEAM_LOGOS = {
     "primary": "#FBBF24",
     "secondary": "#7C2D12"
   },
-  "Sivasspor": {
-    "initials": "SVS",
-    "primary": "#E30613",
-    "secondary": "#FFFFFF"
-  },
   "Karagümrük": {
     "initials": "KGM",
     "primary": "#E30613",
     "secondary": "#000000"
   },
-  "Kasımpaşa": {
-    "initials": "KAS",
-    "primary": "#1E3A8A",
+  "Sivasspor": {
+    "initials": "SVS",
+    "primary": "#E30613",
     "secondary": "#FFFFFF"
   },
   "Konyaspor": {
     "initials": "KON",
     "primary": "#016630",
+    "secondary": "#FFFFFF"
+  },
+  "Kasımpaşa": {
+    "initials": "KAS",
+    "primary": "#1E3A8A",
     "secondary": "#FFFFFF"
   },
   "Samsunspor": {
