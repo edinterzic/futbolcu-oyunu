@@ -15,6 +15,41 @@ const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
 const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
 const supabase = supabaseUrl && supabaseAnonKey ? createClient(supabaseUrl, supabaseAnonKey) : null;
 
+// =================== LEADERBOARD SUPABASE ===================
+async function saveScore(playerName, score, difficulty) {
+  if (!supabase || score < 1) return null;
+  const name = (playerName || "").trim().slice(0, 30) || "Anonim";
+  try {
+    const { data, error } = await supabase
+      .from("challenge_scores")
+      .insert([{ player_name: name, score, difficulty }])
+      .select()
+      .single();
+    if (error) { console.error("Skor kayıt hatası:", error); return null; }
+    return data;
+  } catch (e) { console.error("Skor kayıt:", e); return null; }
+}
+
+async function fetchLeaderboard(difficulty, period = "today") {
+  if (!supabase) return [];
+  try {
+    let query = supabase
+      .from("challenge_scores")
+      .select("id, player_name, score, difficulty, created_at")
+      .eq("difficulty", difficulty)
+      .order("score", { ascending: false })
+      .limit(50);
+    if (period === "today") {
+      const todayStart = new Date();
+      todayStart.setHours(0, 0, 0, 0);
+      query = query.gte("created_at", todayStart.toISOString());
+    }
+    const { data, error } = await query;
+    if (error) { console.error("Leaderboard hatası:", error); return []; }
+    return data || [];
+  } catch (e) { console.error("Leaderboard:", e); return []; }
+}
+
 function makeRoomCode() {
   const chars = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
   let code = "";
@@ -478,10 +513,12 @@ function WrongExplanationCard({ report, onReport }) {
 function ChallengeGameOver({
   score, best, isNewBest, lastWrongAnswer, correctPlayers,
   teamA, teamB, wrongReport, reportStatus,
-  onSubmitWrongReport, onReportAcceptedPlayer, onRestart
+  onSubmitWrongReport, onReportAcceptedPlayer, onRestart,
+  onSaveScore, scoreSaved, playerName, onPlayerNameChange, difficulty, onShare
 }) {
   const showWrongReport = wrongReport && lastWrongAnswer;
   const playerCount = correctPlayers?.length || 0;
+  const diffLabel = difficulty === "easy" ? "Kolay" : difficulty === "hard" ? "Zor" : "Orta";
 
   return (
     <div className="challenge-gameover">
@@ -509,6 +546,36 @@ function ChallengeGameOver({
           <strong>{best}</strong>
         </div>
       </div>
+
+      {/* Skor kaydetme */}
+      {score >= 1 && (
+        <div className="gameover-section score-save-section">
+          {!scoreSaved ? (
+            <>
+              <input
+                type="text"
+                className="score-name-input"
+                placeholder="Adın / lakabın (opsiyonel)"
+                value={playerName}
+                onChange={(e) => onPlayerNameChange(e.target.value)}
+                maxLength={30}
+              />
+              <button type="button" onClick={onSaveScore} className="primary-button save-score-btn">
+                🏆 Skoru Kaydet
+              </button>
+            </>
+          ) : (
+            <div className="score-saved-msg">✅ Skor kaydedildi! Liderlik tablosunda görünecek.</div>
+          )}
+        </div>
+      )}
+
+      {/* Paylaş */}
+      {score >= 1 && (
+        <button type="button" onClick={onShare} className="light-button big share-score-btn">
+          📤 Skoru Paylaş
+        </button>
+      )}
 
       {playerCount > 0 && (
         <div className="gameover-section">
@@ -715,6 +782,13 @@ export default function App() {
   const stateRef = useRef(null);
 
   const [screen, setScreen] = useState("home");
+  const [mainTab, setMainTab] = useState("home"); // "home" | "leaderboard"
+  const [lbPlayerName, setLbPlayerName] = useState(() => localStorage.getItem("pairfc_player_name") || "");
+  const [lbData, setLbData] = useState([]);
+  const [lbDifficulty, setLbDifficulty] = useState("medium");
+  const [lbPeriod, setLbPeriod] = useState("today");
+  const [lbLoading, setLbLoading] = useState(false);
+  const [scoreSaved, setScoreSaved] = useState(false);
   const [soundEnabled, setSoundEnabled] = useState(() => window.localStorage.getItem("footballGameMuted") !== "true");
   const [connectionStatus, setConnectionStatus] = useState("offline");
   const [playerName, setPlayerName] = useState("Oyuncu");
@@ -922,6 +996,33 @@ export default function App() {
     const all = ["daily", "challenge", "online"];
     return all.filter((m) => m !== heroConfig.mode);
   }, [heroConfig.mode]);
+
+  // Leaderboard verisini yükle
+  useEffect(() => {
+    if (mainTab !== "leaderboard") return;
+    let cancelled = false;
+    setLbLoading(true);
+    fetchLeaderboard(lbDifficulty, lbPeriod).then((data) => {
+      if (!cancelled) { setLbData(data); setLbLoading(false); }
+    });
+    return () => { cancelled = true; };
+  }, [mainTab, lbDifficulty, lbPeriod]);
+
+  // Challenge skoru kaydet
+  const handleSaveScore = async () => {
+    if (scoreSaved) return;
+    const name = lbPlayerName.trim() || "Anonim";
+    localStorage.setItem("pairfc_player_name", name);
+    setScoreSaved(true);
+    await saveScore(name, challengeScore, challengeDifficulty);
+  };
+
+  // Ana sayfaya dönüşte scoreSaved reset
+  const goHome = () => {
+    setScreen("home");
+    setScoreSaved(false);
+    setMainTab("home");
+  };
 
   const suggestions = useMemo(() => getPlayerSuggestions(answerInput), [answerInput]);
   const correctPlayers = useMemo(() => getCorrectPlayersForRound(round), [round]);
@@ -1955,6 +2056,8 @@ export default function App() {
   }, []);
 
   const goToHome = () => {
+    setMainTab("home");
+    setScoreSaved(false);
     if (screen === "challenge") {
       backToHomeFromChallenge();
       return;
@@ -2453,7 +2556,7 @@ export default function App() {
                     ← Geri
                   </button>
                   <div className="online-setup-title">
-                    <h2>🌍 Online Kapışma</h2>
+                    <h2>🌍 Arkadaşınla Oyna</h2>
                     <p>Ayarları yap, sonra oda kur veya bir koda katıl.</p>
                   </div>
                 </div>
@@ -2461,6 +2564,7 @@ export default function App() {
 
               {!showOnlineSetup && (
               <>
+              {mainTab === "home" && (<>
               {/* Tek satır mini stat pill */}
               <div className="stats-strip">
                 <span className="stats-strip-item"><span className="ssi-icon">🔥</span><strong>{dailyStreak}</strong><span className="ssi-label">seri</span></span>
@@ -2527,7 +2631,7 @@ export default function App() {
                   return (
                     <button key="online" type="button" onClick={() => { setShowOnlineSetup(true); setOnlineSetupMode(null); }} className="mode-card mode-card-secondary mode-card-online">
                       <span className="mode-icon">🌍</span>
-                      <strong>Online Kapışma</strong>
+                      <strong>Arkadaşınla Oyna</strong>
                       <small>Arkadaşınla karşılıklı</small>
                       <em className="best-badge online-cta">Oda Kur →</em>
                     </button>
@@ -2545,6 +2649,88 @@ export default function App() {
                   <span className="install-banner-arrow">→</span>
                 </button>
               )}
+              </>)}
+
+              {mainTab === "leaderboard" && (
+                <div className="leaderboard-page">
+                  <div className="lb-header">
+                    <h2>🏆 Liderlik Tablosu</h2>
+                    <p className="lb-subtitle">Challenge en iyi skorlar</p>
+                  </div>
+
+                  <div className="lb-filters">
+                    <div className="lb-difficulty-tabs">
+                      {[
+                        { key: "easy", label: "Kolay", emoji: "🟢" },
+                        { key: "medium", label: "Orta", emoji: "🟡" },
+                        { key: "hard", label: "Zor", emoji: "🔴" }
+                      ].map((d) => (
+                        <button
+                          key={d.key}
+                          type="button"
+                          className={`lb-tab ${lbDifficulty === d.key ? "active" : ""}`}
+                          onClick={() => setLbDifficulty(d.key)}
+                        >
+                          {d.emoji} {d.label}
+                        </button>
+                      ))}
+                    </div>
+                    <div className="lb-period-toggle">
+                      <button
+                        type="button"
+                        className={`lb-period-btn ${lbPeriod === "today" ? "active" : ""}`}
+                        onClick={() => setLbPeriod("today")}
+                      >Bugün</button>
+                      <button
+                        type="button"
+                        className={`lb-period-btn ${lbPeriod === "alltime" ? "active" : ""}`}
+                        onClick={() => setLbPeriod("alltime")}
+                      >Tüm Zamanlar</button>
+                    </div>
+                  </div>
+
+                  {lbLoading ? (
+                    <div className="lb-loading">Yükleniyor...</div>
+                  ) : lbData.length === 0 ? (
+                    <div className="lb-empty">
+                      <span className="lb-empty-icon">🏟️</span>
+                      <p>Henüz skor yok. İlk sen ol!</p>
+                    </div>
+                  ) : (
+                    <div className="lb-list">
+                      {lbData.map((entry, i) => (
+                        <div key={entry.id} className={`lb-row ${i < 3 ? "lb-row-top" : ""}`}>
+                          <span className="lb-rank">
+                            {i === 0 ? "🥇" : i === 1 ? "🥈" : i === 2 ? "🥉" : `${i + 1}`}
+                          </span>
+                          <span className="lb-name">{entry.player_name}</span>
+                          <strong className="lb-score">{entry.score}</strong>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              )}
+
+              {/* Alt tab bar — her zaman görünür */}
+              <div className="bottom-tab-bar">
+                <button
+                  type="button"
+                  className={`tab-btn ${mainTab === "home" ? "tab-active" : ""}`}
+                  onClick={() => setMainTab("home")}
+                >
+                  <span className="tab-icon">🏠</span>
+                  <span className="tab-label">Ana Sayfa</span>
+                </button>
+                <button
+                  type="button"
+                  className={`tab-btn ${mainTab === "leaderboard" ? "tab-active" : ""}`}
+                  onClick={() => setMainTab("leaderboard")}
+                >
+                  <span className="tab-icon">🏆</span>
+                  <span className="tab-label">Liderlik</span>
+                </button>
+              </div>
               </>
               )}
 
@@ -2746,7 +2932,7 @@ export default function App() {
                         </button>
                       </div>
                       <button type="button" className="light-button skip-button" onClick={revealChallengeAnswerAndEnd} disabled={challengeIsPreRound || challengeRoundLocked}>
-                        👀 Pas geç
+                        🤷 Bilmiyorum
                       </button>
                     </div>
                   </div>
@@ -2783,6 +2969,20 @@ export default function App() {
                       }
                       onReportAcceptedPlayer={(player) => reportAcceptedPlayer("challenge", challengeRound, player)}
                       onRestart={startChallenge}
+                      onSaveScore={handleSaveScore}
+                      scoreSaved={scoreSaved}
+                      playerName={lbPlayerName}
+                      onPlayerNameChange={setLbPlayerName}
+                      difficulty={challengeDifficulty}
+                      onShare={() => {
+                        const diffLabel = challengeDifficulty === "easy" ? "Kolay" : challengeDifficulty === "hard" ? "Zor" : "Orta";
+                        const text = `🔥 PairFC Challenge\n${challengeLastScore ?? 0} doğru üst üste!\nZorluk: ${diffLabel} 💪\n\nSen de dene → pairfc.com`;
+                        if (navigator.share) {
+                          navigator.share({ text }).catch(() => {});
+                        } else {
+                          navigator.clipboard?.writeText(text).then(() => alert("Panoya kopyalandı!")).catch(() => {});
+                        }
+                      }}
                     />
                   ) : (
                     <>
@@ -5556,7 +5756,7 @@ button:focus-visible {
   40%, 80% { transform: translateX(6px); }
 }
 
-/* "Pas geç" sessiz secondary button */
+/* "Bilmiyorum" sessiz secondary button */
 .skip-button {
   background: transparent !important;
   border-color: var(--border) !important;
@@ -7051,5 +7251,214 @@ button:focus-visible {
   .team-card strong {
     font-size: 17px;
   }
+}
+
+/* =================== BOTTOM TAB BAR =================== */
+.bottom-tab-bar {
+  display: flex;
+  gap: 4px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 4px;
+  margin-top: 16px;
+}
+.tab-btn {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 10px 8px;
+  border-radius: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-muted);
+  transition: all 0.2s var(--ease);
+}
+.tab-btn:hover { background: rgba(255,255,255,0.04); }
+.tab-active {
+  background: rgba(16, 185, 129, 0.12) !important;
+  color: #10b981;
+}
+.tab-icon { font-size: 20px; line-height: 1; }
+.tab-label {
+  font-size: 10.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* =================== LEADERBOARD PAGE =================== */
+.leaderboard-page { padding-bottom: 8px; }
+.lb-header {
+  text-align: center;
+  margin-bottom: 16px;
+}
+.lb-header h2 {
+  font-size: 20px;
+  font-weight: 800;
+  margin: 0 0 4px;
+}
+.lb-subtitle {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin: 0;
+}
+.lb-filters {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+.lb-difficulty-tabs {
+  display: flex;
+  gap: 4px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 3px;
+}
+.lb-tab {
+  flex: 1;
+  padding: 8px 4px;
+  border-radius: 8px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-muted);
+  transition: all 0.2s var(--ease);
+}
+.lb-tab.active {
+  background: rgba(16, 185, 129, 0.15);
+  color: #10b981;
+  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.2);
+}
+.lb-period-toggle {
+  display: flex;
+  gap: 4px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 3px;
+}
+.lb-period-btn {
+  flex: 1;
+  padding: 6px 4px;
+  border-radius: 8px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 11.5px;
+  font-weight: 700;
+  color: var(--text-muted);
+  transition: all 0.2s var(--ease);
+}
+.lb-period-btn.active {
+  background: rgba(251, 191, 36, 0.14);
+  color: #fbbf24;
+}
+.lb-loading {
+  text-align: center;
+  padding: 32px 0;
+  color: var(--text-muted);
+  font-size: 13px;
+}
+.lb-empty {
+  text-align: center;
+  padding: 40px 0;
+  color: var(--text-muted);
+}
+.lb-empty-icon { font-size: 42px; display: block; margin-bottom: 10px; }
+.lb-empty p { font-size: 13px; margin: 0; }
+.lb-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.lb-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  transition: all 0.15s var(--ease);
+}
+.lb-row-top {
+  border-color: rgba(251, 191, 36, 0.3);
+  background: linear-gradient(135deg, rgba(251, 191, 36, 0.08), var(--surface));
+}
+.lb-rank {
+  width: 30px;
+  text-align: center;
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--text-muted);
+  flex-shrink: 0;
+}
+.lb-row-top .lb-rank { color: var(--text); }
+.lb-name {
+  flex: 1;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.lb-score {
+  font-size: 16px;
+  font-weight: 800;
+  color: #10b981;
+  flex-shrink: 0;
+}
+
+/* =================== SCORE SAVE (gameover) =================== */
+.score-save-section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px 0;
+}
+.score-name-input {
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid var(--border-strong);
+  background: var(--surface);
+  color: var(--text);
+  font-size: 14px;
+  font-weight: 600;
+  outline: none;
+  transition: border-color 0.2s var(--ease);
+}
+.score-name-input:focus {
+  border-color: #10b981;
+}
+.score-name-input::placeholder {
+  color: var(--text-muted);
+  font-weight: 400;
+}
+.save-score-btn {
+  background: linear-gradient(135deg, #10b981, #059669) !important;
+  border: none;
+  font-size: 14px;
+}
+.score-saved-msg {
+  text-align: center;
+  padding: 10px;
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  border-radius: 10px;
+  color: #10b981;
+  font-size: 13px;
+  font-weight: 600;
+}
+.share-score-btn {
+  margin-top: 4px;
 }
 `;
