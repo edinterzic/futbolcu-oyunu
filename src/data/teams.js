@@ -1,5 +1,5 @@
 // Auto-generated from admin panel
-// Generated: 2026-05-20T14:35:49.326Z
+// Generated: 2026-05-20T17:11:06.316Z
 
 export const TEAMS = [
   "Inter",
