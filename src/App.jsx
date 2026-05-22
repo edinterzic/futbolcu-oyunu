@@ -236,7 +236,7 @@ const TIER_1_TEAMS = [
   // Avrupa devleri (yeni data isimleriyle)
   "Real Madrid", "Barcelona", "Atletico Madrid", "Bayern Munich",
   "Manchester United", "Manchester City", "Liverpool", "Chelsea", "Arsenal",
-  "Juventus", "AC Milan", "Inter", "Borussia Dortmund", "Paris Saint-Germain"
+  "Juventus", "AC Milan", "Inter", "Borussia Dortmund", "PSG"
 ];
 
 const TIER_2_TEAMS = [
@@ -260,7 +260,7 @@ const EASY_TEAMS = new Set([
   // Top Avrupa devleri
   "Real Madrid", "Barcelona", "Bayern Munich",
   "Manchester United", "Manchester City", "Liverpool", "Chelsea", "Arsenal",
-  "Juventus", "AC Milan", "Inter", "Paris Saint-Germain",
+  "Juventus", "AC Milan", "Inter", "PSG",
   "Atletico Madrid", "Borussia Dortmund",
   // Üç büyük Türk
   "Fenerbahçe", "Beşiktaş", "Galatasaray"
@@ -335,21 +335,44 @@ function getRandomRound(usedRoundKeys = [], difficulty = "hard") {
   const filtered = WEIGHTED_TEAM_PAIRS.filter((round) => isPairInDifficulty(round, difficulty));
   const basePool = filtered.length > 0 ? filtered : WEIGHTED_TEAM_PAIRS;
   const available = basePool.filter((round) => !usedRoundKeys.includes(getRoundKey(round)));
-  const pool = available.length > 0 ? available : basePool;
 
-  // Ağırlıklı rastgele seçim
-  const totalWeight = pool.reduce((sum, pair) => sum + getPairWeight(pair), 0);
+  // Eşleşme kalmadıysa null dön — çağıran kod zorluk yükseltir
+  if (available.length === 0) return null;
+
+  const totalWeight = available.reduce((sum, pair) => sum + getPairWeight(pair), 0);
   if (totalWeight <= 0) {
-    return pool[Math.floor(Math.random() * pool.length)] || { teams: ["Fenerbahçe", "Galatasaray"] };
+    return available[Math.floor(Math.random() * available.length)];
   }
 
   let random = Math.random() * totalWeight;
-  for (const pair of pool) {
+  for (const pair of available) {
     random -= getPairWeight(pair);
     if (random <= 0) return pair;
   }
+  return available[available.length - 1];
+}
 
-  return pool[pool.length - 1] || { teams: ["Fenerbahçe", "Galatasaray"] };
+// Challenge: zorluk tükenince bir üst zorluğa geç
+const DIFFICULTY_ORDER = ["easy", "medium", "hard"];
+const DIFFICULTY_LABELS = { easy: "Kolay", medium: "Orta", hard: "Zor" };
+
+function getNextChallengeRound(usedKeys, startDifficulty) {
+  const startIdx = DIFFICULTY_ORDER.indexOf(startDifficulty);
+  // Mevcut zorluktan başlayarak yukarı dene
+  for (let i = Math.max(0, startIdx); i < DIFFICULTY_ORDER.length; i++) {
+    const round = getRandomRound(usedKeys, DIFFICULTY_ORDER[i]);
+    if (round) {
+      return {
+        round,
+        newDifficulty: DIFFICULTY_ORDER[i],
+        escalated: i > startIdx,
+        escalatedLabel: DIFFICULTY_LABELS[DIFFICULTY_ORDER[i]]
+      };
+    }
+  }
+  // Tüm zorluklar tükendi — usedKeys sıfırla, baştan başla
+  const round = getRandomRound([], startDifficulty) || { teams: ["Fenerbahçe", "Galatasaray"] };
+  return { round, newDifficulty: startDifficulty, escalated: false, reset: true };
 }
 
 // =================== EFEKT HELPERS ===================
@@ -821,6 +844,7 @@ export default function App() {
     try { return window.localStorage.getItem("pairfc_difficulty_challenge") || "medium"; }
     catch { return "medium"; }
   });
+  const [challengeEffectiveDifficulty, setChallengeEffectiveDifficulty] = useState("medium");
   const [onlineDifficulty, setOnlineDifficulty] = useState("medium");
   const [showChallengeStartScreen, setShowChallengeStartScreen] = useState(false);
   const [showOnlineSetup, setShowOnlineSetup] = useState(false);
@@ -1289,7 +1313,7 @@ export default function App() {
     }
 
     const code = makeRoomCode();
-    const firstRound = getRandomRound([], onlineDifficulty);
+    const firstRound = getRandomRound([], onlineDifficulty) || { teams: ["Fenerbahçe", "Galatasaray"] };
     const name = playerName.trim() || "Oyuncu 1";
 
     setRoomCode(code);
@@ -1440,7 +1464,7 @@ export default function App() {
       return;
     }
 
-    const next = getRandomRound(usedRoundKeys);
+    const next = getRandomRound(usedRoundKeys) || { teams: ["Fenerbahçe", "Galatasaray"] };
     const nextPreRoundEndsAt = Date.now() + ROUND_REVEAL_SECONDS * 1000;
     const nextKey = getRoundKey(next);
     const playableCount = getPlayableTeamPairs().length;
@@ -1844,8 +1868,10 @@ export default function App() {
 
   const confirmStartChallenge = (difficulty) => {
     setChallengeDifficulty(difficulty);
+    setChallengeEffectiveDifficulty(difficulty);
+    setScoreSaved(false);
     setShowChallengeStartScreen(false);
-    const firstRound = getRandomRound([], difficulty);
+    const firstRound = getRandomRound([], difficulty) || { teams: ["Fenerbahçe", "Galatasaray"] };
     setChallengeScore(0);
     setChallengeLastScore(null);
     setChallengeRound(firstRound);
@@ -2234,10 +2260,11 @@ export default function App() {
     }
     const currentKey = getRoundKey(challengeRound);
     const nextUsed = [...challengeUsedRoundKeys, currentKey];
-    const nextRound = getRandomRound(nextUsed, challengeDifficulty);
+    const result = getNextChallengeRound(nextUsed, challengeEffectiveDifficulty || challengeDifficulty);
+    if (result.escalated) setChallengeEffectiveDifficulty(result.newDifficulty);
     setChallengeSwapUsed(true);
-    setChallengeRound(nextRound);
-    setChallengeUsedRoundKeys(nextUsed);
+    setChallengeRound(result.round);
+    setChallengeUsedRoundKeys(result.reset ? [getRoundKey(result.round)] : nextUsed);
     setChallengeInput("");
     setChallengeFocused(false);
     setChallengeRoundLocked(false);
@@ -2308,10 +2335,16 @@ export default function App() {
 
     if (isCorrectAnswer(challengeRound, raw)) {
       const nextScore = challengeScore + 1;
-      const nextRound = getRandomRound(challengeUsedRoundKeys, challengeDifficulty);
-      const nextKey = getRoundKey(nextRound);
-      const playableCount = getPlayableTeamPairs().length;
-      const nextUsed = challengeUsedRoundKeys.length >= playableCount ? [nextKey] : [...challengeUsedRoundKeys, nextKey];
+      const result = getNextChallengeRound(challengeUsedRoundKeys, challengeEffectiveDifficulty || challengeDifficulty);
+      const nextKey = getRoundKey(result.round);
+      let nextUsed = result.reset ? [nextKey] : [...challengeUsedRoundKeys, nextKey];
+
+      // Zorluk yükseldi mi?
+      let msg = `Doğru! Seri: ${nextScore}. 3 sn sonra yeni tur.`;
+      if (result.escalated) {
+        msg = `🔥 ${DIFFICULTY_LABELS[challengeDifficulty]} eşleşmeler tükendi! ${result.escalatedLabel} zorluğa geçiliyor. Seri: ${nextScore}`;
+        setChallengeEffectiveDifficulty(result.newDifficulty);
+      }
 
       setChallengeScore(nextScore);
       setChallengeBest((currentBest) => {
@@ -2319,7 +2352,7 @@ export default function App() {
         window.localStorage.setItem("footballChallengeBest", String(nextBest));
         return nextBest;
       });
-      setChallengeRound(nextRound);
+      setChallengeRound(result.round);
       setChallengeUsedRoundKeys(nextUsed);
       setChallengeInput("");
       setChallengeFocused(false);
@@ -2337,7 +2370,7 @@ export default function App() {
       triggerConfetti();
       triggerScreenFlash("success");
       setTimeout(() => setChallengeFeedback(null), 800);
-      setChallengeMessage({ type: "success", text: `Doğru! Seri: ${nextScore}. 3 sn sonra yeni tur.` });
+      setChallengeMessage({ type: "success", text: msg });
       return;
     }
 
