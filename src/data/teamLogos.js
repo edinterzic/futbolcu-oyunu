@@ -1,5 +1,5 @@
 // Auto-generated from admin panel
-// Generated: 2026-05-20T21:01:09.379Z
+// Generated: 2026-05-23T21:43:12.717Z
 
 export const TEAM_LOGOS = {
   "Inter": {
@@ -72,15 +72,15 @@ export const TEAM_LOGOS = {
     "primary": "#003F87",
     "secondary": "#FFFFFF"
   },
-  "Bologna": {
-    "initials": "BOL",
-    "primary": "#FF0000",
-    "secondary": "#003399"
-  },
   "AC Milan": {
     "initials": "MIL",
     "primary": "#FB090B",
     "secondary": "#000000"
+  },
+  "Bologna": {
+    "initials": "BOL",
+    "primary": "#FF0000",
+    "secondary": "#003399"
   },
   "Como": {
     "initials": "COM",
@@ -342,14 +342,14 @@ export const TEAM_LOGOS = {
     "primary": "#E30613",
     "secondary": "#FFFFFF"
   },
-  "Konyaspor": {
-    "initials": "KON",
-    "primary": "#016630",
-    "secondary": "#FFFFFF"
-  },
   "Kasımpaşa": {
     "initials": "KAS",
     "primary": "#1E3A8A",
+    "secondary": "#FFFFFF"
+  },
+  "Konyaspor": {
+    "initials": "KON",
+    "primary": "#016630",
     "secondary": "#FFFFFF"
   },
   "Samsunspor": {

@@ -1,5 +1,5 @@
 // Auto-generated from admin panel
-// Generated: 2026-05-20T21:01:08.762Z
+// Generated: 2026-05-23T21:43:12.135Z
 
 export const PLAYERS = [
   {
@@ -10159,6 +10159,14 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Carlos Blanco",
+    "clubs": [
+      "Espanyol",
+      "Juventus",
+      "Villarreal"
+    ]
+  },
+  {
     "name": "Carlos Calderon",
     "clubs": [
       "Getafe",
@@ -10458,14 +10466,6 @@ export const PLAYERS = [
       "Celta Vigo",
       "Elche",
       "Valencia"
-    ]
-  },
-  {
-    "name": "Carloslanco",
-    "clubs": [
-      "Espanyol",
-      "Juventus",
-      "Villarreal"
     ]
   },
   {
@@ -31475,6 +31475,13 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Johan Bakayoko",
+    "clubs": [
+      "Club Brugge",
+      "PSV"
+    ]
+  },
+  {
     "name": "Johan Djourou",
     "clubs": [
       "Antalyaspor",
@@ -31497,13 +31504,6 @@ export const PLAYERS = [
     "clubs": [
       "Cremonese",
       "Genoa"
-    ]
-  },
-  {
-    "name": "Johanakayoko",
-    "clubs": [
-      "Club Brugge",
-      "PSV"
     ]
   },
   {
@@ -45956,6 +45956,15 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Musa Büyük",
+    "clubs": [
+      "Kocaelispor",
+      "Konyaspor",
+      "Samsunspor",
+      "Trabzonspor"
+    ]
+  },
+  {
     "name": "Musa Kuş",
     "clubs": [
       "Kocaelispor",
@@ -45984,15 +45993,6 @@ export const PLAYERS = [
     "clubs": [
       "Atalanta",
       "Bologna"
-    ]
-  },
-  {
-    "name": "Musaüyük",
-    "clubs": [
-      "Kocaelispor",
-      "Konyaspor",
-      "Samsunspor",
-      "Trabzonspor"
     ]
   },
   {
@@ -54830,6 +54830,14 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Ruud Boffin",
+    "clubs": [
+      "Antalyaspor",
+      "PSV",
+      "West Ham"
+    ]
+  },
+  {
     "name": "Ruud van Nistelrooy",
     "clubs": [
       "Manchester United",
@@ -54844,20 +54852,24 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Ruudoffin",
-    "clubs": [
-      "Antalyaspor",
-      "PSV",
-      "West Ham"
-    ]
-  },
-  {
     "name": "Rüştü Reçber",
     "clubs": [
       "Antalyaspor",
       "Barcelona",
       "Beşiktaş",
       "Fenerbahçe"
+    ]
+  },
+  {
+    "name": "Ryan Babel",
+    "clubs": [
+      "Ajax",
+      "Beşiktaş",
+      "Eyüpspor",
+      "Fulham",
+      "Galatasaray",
+      "Kasımpaşa",
+      "Liverpool"
     ]
   },
   {
@@ -54984,18 +54996,6 @@ export const PLAYERS = [
     "clubs": [
       "Brentford",
       "Fulham"
-    ]
-  },
-  {
-    "name": "Ryanabel",
-    "clubs": [
-      "Ajax",
-      "Beşiktaş",
-      "Eyüpspor",
-      "Fulham",
-      "Galatasaray",
-      "Kasımpaşa",
-      "Liverpool"
     ]
   },
   {
@@ -55506,13 +55506,6 @@ export const PLAYERS = [
       "Leeds United",
       "Real Madrid",
       "Sivasspor"
-    ]
-  },
-  {
-    "name": "Samuel  Eto'o",
-    "clubs": [
-      "Inter",
-      "Konyaspor"
     ]
   },
   {
@@ -58878,6 +58871,14 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Steven Bergwijn",
+    "clubs": [
+      "Ajax",
+      "PSV",
+      "Tottenham"
+    ]
+  },
+  {
     "name": "Steven Caldwell",
     "clubs": [
       "Burnley",
@@ -58972,14 +58973,6 @@ export const PLAYERS = [
     "clubs": [
       "Ajax",
       "Feyenoord"
-    ]
-  },
-  {
-    "name": "Stevenergwijn",
-    "clubs": [
-      "Ajax",
-      "PSV",
-      "Tottenham"
     ]
   },
   {
@@ -60161,7 +60154,7 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Tiemoueakayoko",
+    "name": "Tiemoue Bakayoko",
     "clubs": [
       "AC Milan",
       "Chelsea",
@@ -61700,6 +61693,14 @@ export const PLAYERS = [
     "clubs": [
       "Borussia Dortmund",
       "Brighton"
+    ]
+  },
+  {
+    "name": "Ümit Davala",
+    "clubs": [
+      "Inter",
+      "AC Milan",
+      "Galatasaray"
     ]
   },
   {
@@ -63459,7 +63460,7 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Yakupugun",
+    "name": "Yakup Bugun",
     "clubs": [
       "Alanyaspor",
       "Trabzonspor"
@@ -63535,6 +63536,16 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Yannick Bolasie",
+    "clubs": [
+      "Aston Villa",
+      "Crystal Palace",
+      "Everton",
+      "Rizespor",
+      "Sporting CP"
+    ]
+  },
+  {
     "name": "Yannick Carrasco",
     "clubs": [
       "Atletico Madrid",
@@ -63561,16 +63572,6 @@ export const PLAYERS = [
     "clubs": [
       "Monaco",
       "Wolves"
-    ]
-  },
-  {
-    "name": "Yannickolasie",
-    "clubs": [
-      "Aston Villa",
-      "Crystal Palace",
-      "Everton",
-      "Rizespor",
-      "Sporting CP"
     ]
   },
   {
@@ -63788,6 +63789,13 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Yoel Barcenas",
+    "clubs": [
+      "Girona",
+      "Oviedo"
+    ]
+  },
+  {
     "name": "Yoel Rodriguez",
     "clubs": [
       "Celta Vigo",
@@ -63796,10 +63804,10 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Yoelarcenas",
+    "name": "Yohan Benalouane",
     "clubs": [
-      "Girona",
-      "Oviedo"
+      "Fiorentina",
+      "Parma"
     ]
   },
   {
@@ -63817,13 +63825,6 @@ export const PLAYERS = [
       "Fulham",
       "Marsilya",
       "Monaco"
-    ]
-  },
-  {
-    "name": "Yohanenalouane",
-    "clubs": [
-      "Fiorentina",
-      "Parma"
     ]
   },
   {
@@ -63850,7 +63851,7 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Yossienayoun",
+    "name": "Yossi Benayoun",
     "clubs": [
       "Ajax",
       "Arsenal",
@@ -63896,7 +63897,7 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Youssef Aitennasser",
+    "name": "Youssef Ait Bennasser",
     "clubs": [
       "Kayserispor",
       "Monaco",
@@ -63966,6 +63967,13 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Yunus Bahadır",
+    "clubs": [
+      "Alanyaspor",
+      "PSV"
+    ]
+  },
+  {
     "name": "Yunus Konak",
     "clubs": [
       "Brentford",
@@ -63989,10 +63997,12 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Yunusahadır",
+    "name": "Yuri Berchiche",
     "clubs": [
-      "Alanyaspor",
-      "PSV"
+      "Athletic Bilbao",
+      "Real Sociedad",
+      "Tottenham",
+      "PSG"
     ]
   },
   {
@@ -64000,15 +64010,6 @@ export const PLAYERS = [
     "clubs": [
       "Benfica",
       "Braga"
-    ]
-  },
-  {
-    "name": "Yurierchiche",
-    "clubs": [
-      "Athletic Bilbao",
-      "Real Sociedad",
-      "Tottenham",
-      "PSG"
     ]
   },
   {
@@ -64141,14 +64142,7 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Yves Makabu-Makalambay",
-    "clubs": [
-      "Chelsea",
-      "PSV"
-    ]
-  },
-  {
-    "name": "Yvesaraye",
+    "name": "Yves Baraye",
     "clubs": [
       "Marsilya",
       "Parma",
@@ -64156,11 +64150,18 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Yvesissouma",
+    "name": "Yves Bissouma",
     "clubs": [
       "Brighton",
       "LOSC Lille",
       "Tottenham"
+    ]
+  },
+  {
+    "name": "Yves Makabu-Makalambay",
+    "clubs": [
+      "Chelsea",
+      "PSV"
     ]
   },
   {
@@ -64229,6 +64230,13 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Zakaria Bakkali",
+    "clubs": [
+      "PSV",
+      "Valencia"
+    ]
+  },
+  {
     "name": "Zakaria Labyad",
     "clubs": [
       "Ajax",
@@ -64245,10 +64253,11 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Zakariaakkali",
+    "name": "Zan Benedicic",
     "clubs": [
-      "PSV",
-      "Valencia"
+      "AC Milan",
+      "Como",
+      "Leeds United"
     ]
   },
   {
@@ -64270,14 +64279,6 @@ export const PLAYERS = [
     "clubs": [
       "Cremonese",
       "Lecce"
-    ]
-  },
-  {
-    "name": "Zanenedicic",
-    "clubs": [
-      "AC Milan",
-      "Como",
-      "Leeds United"
     ]
   },
   {
@@ -64524,7 +64525,7 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Zoumanaakayogo",
+    "name": "Zoumana Bakayogo",
     "clubs": [
       "Brighton",
       "PSG"
@@ -64552,7 +64553,7 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Zymerytyqi",
+    "name": "Zymer Bytyqi",
     "clubs": [
       "Antalyaspor",
       "Konyaspor"

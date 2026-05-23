@@ -1,5 +1,5 @@
 // Auto-generated from admin panel
-// Generated: 2026-05-20T21:01:08.480Z
+// Generated: 2026-05-23T21:43:11.849Z
 
 export const TEAMS = [
   "Inter",
@@ -16,8 +16,8 @@ export const TEAMS = [
   "Chelsea",
   "Barcelona",
   "FC Porto",
-  "Bologna",
   "AC Milan",
+  "Bologna",
   "Como",
   "Manchester City",
   "Espanyol",
@@ -70,8 +70,8 @@ export const TEAMS = [
   "Göztepe",
   "Karagümrük",
   "Sivasspor",
-  "Konyaspor",
   "Kasımpaşa",
+  "Konyaspor",
   "Samsunspor",
   "Feyenoord",
   "Braga",
