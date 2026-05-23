@@ -606,6 +606,7 @@ export function PlayersTab({ snapshot, updateSnapshot, logActivity }) {
   const [search, setSearch] = useState("");
   const [sortBy, setSortBy] = useState("name-asc");
   const [clubCountFilter, setClubCountFilter] = useState("all");
+  const [nameFilter, setNameFilter] = useState("all");
   const [page, setPage] = useState(0);
   const [editorOpen, setEditorOpen] = useState(false);
   const [editingPlayer, setEditingPlayer] = useState(null);
@@ -621,6 +622,11 @@ export function PlayersTab({ snapshot, updateSnapshot, logActivity }) {
     } else if (clubCountFilter === "multi") {
       list = list.filter((p) => p.clubs.length >= 2);
     }
+    if (nameFilter === "single") {
+      list = list.filter((p) => p.name.trim().split(/\s+/).filter(Boolean).length === 1);
+    } else if (nameFilter === "multi") {
+      list = list.filter((p) => p.name.trim().split(/\s+/).filter(Boolean).length >= 2);
+    }
     if (search.trim()) {
       const q = normalizeText(search);
       list = list.filter((p) => normalizeText(p.name).includes(q) || p.clubs.some((c) => normalizeText(c).includes(q)));
@@ -633,13 +639,13 @@ export function PlayersTab({ snapshot, updateSnapshot, logActivity }) {
       default: break;
     }
     return list;
-  }, [snapshot.players, search, sortBy, clubCountFilter]);
+  }, [snapshot.players, search, sortBy, clubCountFilter, nameFilter]);
 
   const totalPages = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
   const safePage = Math.min(page, totalPages - 1);
   const visible = filtered.slice(safePage * PAGE_SIZE, (safePage + 1) * PAGE_SIZE);
 
-  useEffect(() => { setPage(0); }, [search, sortBy, clubCountFilter]);
+  useEffect(() => { setPage(0); }, [search, sortBy, clubCountFilter, nameFilter]);
 
   const handleSave = (data) => {
     updateSnapshot((prev) => {
@@ -693,6 +699,11 @@ export function PlayersTab({ snapshot, updateSnapshot, logActivity }) {
           <option value="all">Tüm oyuncular</option>
           <option value="multi">Çok takımlı (quiz'de kullanılır)</option>
           <option value="single">Tek takımlı (quiz dışı)</option>
+        </select>
+        <select className="admin-select" value={nameFilter} onChange={(e) => setNameFilter(e.target.value)}>
+          <option value="all">Tüm isimler</option>
+          <option value="single">Tek isimli (tek kelime)</option>
+          <option value="multi">Çok kelimeli isim</option>
         </select>
         <select className="admin-select" value={sortBy} onChange={(e) => setSortBy(e.target.value)}>
           <option value="name-asc">İsim (A-Z)</option>
