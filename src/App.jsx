@@ -546,39 +546,33 @@ function roundRectPath(ctx, x, y, w, h, r) {
   ctx.closePath();
 }
 
-function drawGlassCTA(ctx, W, line1, line2) {
+function drawGlassCTA(ctx, W, line1, line2, y = 1560, h = 190) {
   const x = 120;
-  const y = 1560;
   const w = W - 240;
-  const h = 190;
-  const r = 44;
-  // cam dolgu (düşük opacity)
+  const r = 40;
   ctx.fillStyle = "rgba(255,255,255,0.07)";
   roundRectPath(ctx, x, y, w, h, r);
   ctx.fill();
-  // üst parlama — cam hissi
   const hg = ctx.createLinearGradient(0, y, 0, y + h * 0.55);
   hg.addColorStop(0, "rgba(255,255,255,0.13)");
   hg.addColorStop(1, "rgba(255,255,255,0)");
   ctx.fillStyle = hg;
   roundRectPath(ctx, x, y, w, h * 0.55, r);
   ctx.fill();
-  // ince kenar çizgisi
   ctx.lineWidth = 2;
   ctx.strokeStyle = "rgba(255,255,255,0.28)";
   roundRectPath(ctx, x + 1, y + 1, w - 2, h - 2, r - 1);
   ctx.stroke();
-  // metinler
   ctx.textAlign = "center";
   ctx.fillStyle = "#ffffff";
-  ctx.font = "700 52px system-ui, 'Segoe UI', Roboto, sans-serif";
-  ctx.fillText(line1, W / 2, y + 82);
-  ctx.font = "700 46px system-ui, 'Segoe UI', Roboto, sans-serif";
+  ctx.font = "700 48px system-ui, 'Segoe UI', Roboto, sans-serif";
+  ctx.fillText(line1, W / 2, y + h * 0.43);
+  ctx.font = "700 42px system-ui, 'Segoe UI', Roboto, sans-serif";
   ctx.fillStyle = "#ffd84d";
-  ctx.fillText(line2, W / 2, y + 150);
+  ctx.fillText(line2, W / 2, y + h * 0.79);
 }
 
-function drawScoreShareCard({ score, best, diffLabel, isNewBest }) {
+function drawScoreShareCard({ score, best, diffLabel, isNewBest, matchups = [] }) {
   const W = 1080;
   const H = 1920;
   const canvas = document.createElement("canvas");
@@ -586,16 +580,49 @@ function drawScoreShareCard({ score, best, diffLabel, isNewBest }) {
   canvas.height = H;
   const ctx = canvas.getContext("2d");
 
+  // Arka plan gradyan
   const g = ctx.createLinearGradient(0, 0, W, H);
-  g.addColorStop(0, "#2a0a4a");
-  g.addColorStop(0.55, "#5b1aa0");
-  g.addColorStop(1, "#aa3bff");
+  g.addColorStop(0, "#1d0738");
+  g.addColorStop(0.55, "#4a1488");
+  g.addColorStop(1, "#7d2fd6");
   ctx.fillStyle = g;
+  ctx.fillRect(0, 0, W, H);
+
+  // Glow blob'lar — derinlik
+  const glow = (cx, cy, rad, color) => {
+    const rg = ctx.createRadialGradient(cx, cy, 0, cx, cy, rad);
+    rg.addColorStop(0, color);
+    rg.addColorStop(1, "rgba(0,0,0,0)");
+    ctx.fillStyle = rg;
+    ctx.fillRect(0, 0, W, H);
+  };
+  glow(170, 270, 640, "rgba(255,120,255,0.22)");
+  glow(950, 1520, 760, "rgba(80,160,255,0.20)");
+
+  // Silik futbol saha çizgileri (texture / oyun hissi)
+  ctx.save();
+  ctx.strokeStyle = "rgba(255,255,255,0.06)";
+  ctx.fillStyle = "rgba(255,255,255,0.06)";
+  ctx.lineWidth = 4;
+  ctx.beginPath(); ctx.moveTo(0, H / 2); ctx.lineTo(W, H / 2); ctx.stroke();
+  ctx.beginPath(); ctx.arc(W / 2, H / 2, 230, 0, Math.PI * 2); ctx.stroke();
+  ctx.beginPath(); ctx.arc(W / 2, H / 2, 12, 0, Math.PI * 2); ctx.fill();
+  ctx.strokeRect(W / 2 - 260, -6, 520, 230);
+  ctx.strokeRect(W / 2 - 130, -6, 260, 110);
+  ctx.strokeRect(W / 2 - 260, H - 224, 520, 230);
+  ctx.strokeRect(W / 2 - 130, H - 104, 260, 110);
+  ctx.restore();
+
+  // Vignette — kenarları koyulaştır, merkezi öne çıkar
+  const vg = ctx.createRadialGradient(W / 2, H / 2, H * 0.34, W / 2, H / 2, H * 0.72);
+  vg.addColorStop(0, "rgba(0,0,0,0)");
+  vg.addColorStop(1, "rgba(0,0,0,0.34)");
+  ctx.fillStyle = vg;
   ctx.fillRect(0, 0, W, H);
 
   ctx.textAlign = "center";
 
-  // Logo bloğu — küçük ve yukarıda (premium his)
+  // Logo
   ctx.fillStyle = "rgba(255,255,255,0.95)";
   ctx.font = "700 52px system-ui, 'Segoe UI', Roboto, sans-serif";
   ctx.fillText("⚽ PairFC", W / 2, 150);
@@ -604,35 +631,54 @@ function drawScoreShareCard({ score, best, diffLabel, isNewBest }) {
   ctx.fillText("CHALLENGE", W / 2, 200);
 
   if (isNewBest) {
-    ctx.font = "700 56px system-ui, 'Segoe UI', Roboto, sans-serif";
+    ctx.font = "700 50px system-ui, 'Segoe UI', Roboto, sans-serif";
     ctx.fillStyle = "#ffd84d";
-    ctx.fillText("🏆 YENİ REKOR", W / 2, 600);
+    ctx.fillText("🏆 YENİ REKOR", W / 2, 360);
   }
 
+  // Büyük skor + oyunumsu etiket
   ctx.fillStyle = "#ffffff";
-  ctx.font = "800 380px system-ui, 'Segoe UI', Roboto, sans-serif";
-  ctx.fillText(String(score), W / 2, 1080);
-
-  ctx.font = "600 64px system-ui, 'Segoe UI', Roboto, sans-serif";
+  ctx.font = "800 340px system-ui, 'Segoe UI', Roboto, sans-serif";
+  ctx.fillText(String(score), W / 2, 770);
+  ctx.font = "600 60px system-ui, 'Segoe UI', Roboto, sans-serif";
   ctx.fillStyle = "rgba(255,255,255,0.95)";
-  ctx.fillText("doğru", W / 2, 1185);
+  ctx.fillText("eşleşme üst üste", W / 2, 864);
+  ctx.font = "500 40px system-ui, 'Segoe UI', Roboto, sans-serif";
+  ctx.fillStyle = "rgba(255,255,255,0.75)";
+  ctx.fillText(`Zorluk: ${diffLabel}   ·   En iyi: ${best}`, W / 2, 944);
 
-  ctx.font = "500 44px system-ui, 'Segoe UI', Roboto, sans-serif";
-  ctx.fillStyle = "rgba(255,255,255,0.8)";
-  ctx.fillText(`Zorluk: ${diffLabel}   ·   En iyi: ${best}`, W / 2, 1310);
+  // Son çözülen eşleşme chip'leri — oyunun ne olduğunu anlatır
+  const rows = (matchups || []).slice(0, 3).filter((m) => m && m[0] && m[1]);
+  if (rows.length) {
+    ctx.font = "600 34px system-ui, 'Segoe UI', Roboto, sans-serif";
+    let cy = 1090;
+    for (const m of rows) {
+      const label = `${m[0]}   ↔   ${m[1]}`;
+      const tw = ctx.measureText(label).width;
+      const cw = Math.min(W - 140, tw + 76);
+      const cx = (W - cw) / 2;
+      ctx.fillStyle = "rgba(255,255,255,0.10)";
+      roundRectPath(ctx, cx, cy - 44, cw, 72, 36);
+      ctx.fill();
+      ctx.fillStyle = "rgba(255,255,255,0.9)";
+      ctx.fillText(label, W / 2, cy + 4);
+      cy += 96;
+    }
+  }
 
-  drawGlassCTA(ctx, W, "Beni geçebilir misin?", "pairfc.com");
+  // İnce cam CTA
+  drawGlassCTA(ctx, W, "Beni geçebilir misin?", "pairfc.com", 1650, 150);
 
   return canvas;
 }
 
-async function shareScoreImage({ score, best, diffLabel, isNewBest }) {
-  const text = `🔥 PairFC Challenge: ${score} doğru! (Zorluk: ${diffLabel})
+async function shareScoreImage({ score, best, diffLabel, isNewBest, matchups = [] }) {
+  const text = `🔥 PairFC Challenge: ${score} eşleşme üst üste! (Zorluk: ${diffLabel})
 Beni geçebilir misin? → pairfc.com`;
 
   let blob = null;
   try {
-    const canvas = drawScoreShareCard({ score, best, diffLabel, isNewBest });
+    const canvas = drawScoreShareCard({ score, best, diffLabel, isNewBest, matchups });
     blob = await new Promise((resolve) => canvas.toBlob(resolve, "image/png"));
   } catch (e) {
     blob = null;
@@ -3313,11 +3359,17 @@ export default function App() {
                       difficulty={challengeDifficulty}
                       onShare={() => {
                         const diffLabel = challengeDifficulty === "easy" ? "Kolay" : challengeDifficulty === "hard" ? "Zor" : "Orta";
+                        const failedKey = getRoundKey(challengeRound);
+                        const matchups = challengeUsedRoundKeys
+                          .filter((k) => k !== failedKey)
+                          .slice(-3)
+                          .map((k) => k.split("|"));
                         shareScoreImage({
                           score: challengeLastScore ?? 0,
                           best: challengeBest,
                           diffLabel,
-                          isNewBest: (challengeLastScore ?? 0) >= challengeBest && (challengeLastScore ?? 0) > 0
+                          isNewBest: (challengeLastScore ?? 0) >= challengeBest && (challengeLastScore ?? 0) > 0,
+                          matchups
                         });
                       }}
                     />
