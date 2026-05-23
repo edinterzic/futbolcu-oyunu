@@ -1,5 +1,5 @@
 // Auto-generated from admin panel
-// Generated: 2026-05-23T21:43:11.849Z
+// Generated: 2026-05-23T22:14:47.842Z
 
 export const TEAMS = [
   "Inter",
@@ -41,8 +41,8 @@ export const TEAMS = [
   "Sunderland",
   "Leeds United",
   "Elche",
-  "Levante",
   "Ajax",
+  "Levante",
   "Cremonese",
   "Liverpool",
   "Cagliari",

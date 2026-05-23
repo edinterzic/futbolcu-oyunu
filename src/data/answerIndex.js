@@ -1,5 +1,5 @@
 // Auto-generated from admin panel
-// Generated: 2026-05-23T21:43:12.451Z
+// Generated: 2026-05-23T22:14:48.438Z
 
 import { TEAMS } from './teams';
 
@@ -28,7 +28,7 @@ export const ANSWER_INDEX = {
     "Beykan Şimşek",
     "Caner Osmanpaşa",
     "Cihat Çelik",
-    "Gökhanozkaya",
+    "Gökhan Bozkaya",
     "Hasan Hatipoğlu",
     "Korcan Çelikay",
     "Mijo Caktas",
@@ -147,7 +147,7 @@ export const ANSWER_INDEX = {
     "Alan Thompson",
     "Brad Friedel",
     "David Ginola",
-    "Habibeye",
+    "Habib Beye",
     "Jacob Ramsey",
     "James Milner",
     "Jermaine Jenas",
@@ -162,7 +162,7 @@ export const ANSWER_INDEX = {
   "Aston Villa|Brighton": [
     "Aaron Hughes",
     "Darren Bent",
-    "Garetharry",
+    "Gareth Barry",
     "Gary Gardner",
     "James Milner",
     "Lee Hendrie",
@@ -392,7 +392,7 @@ export const ANSWER_INDEX = {
     "Ben Barclay",
     "Craig Davies",
     "Gai Assulin",
-    "Garetharry",
+    "Gareth Barry",
     "James Milner",
     "Lucaarrington",
     "Simon Royce",
@@ -406,8 +406,8 @@ export const ANSWER_INDEX = {
     "Àlex Carbonell",
     "Álex Lopez",
     "Brais Val",
+    "Carlos Bellvis",
     "Carlos David",
-    "Carlosellvis",
     "Daniel Wass",
     "David Silva",
     "Diego Alves",
@@ -442,7 +442,7 @@ export const ANSWER_INDEX = {
     "Alfred Planas",
     "Antonio Barragan",
     "Carles Gil",
-    "Carlosellvis",
+    "Carlos Bellvis",
     "Cesar Moreno",
     "David Lomban",
     "Dennis Șerban",
@@ -478,7 +478,7 @@ export const ANSWER_INDEX = {
     "Álex Fernandez",
     "Álex Martin",
     "Borja Valle",
-    "Carlosellvis",
+    "Carlos Bellvis",
     "Erik Bugarin",
     "Francisco Noguerol",
     "Goran Djorovic",
@@ -780,7 +780,7 @@ export const ANSWER_INDEX = {
     "Burak Yılmaz",
     "Deniz Barış",
     "Dursun Karaman",
-    "Gökhanozkaya",
+    "Gökhan Bozkaya",
     "Gürhan Gürsoy",
     "İlyas Yılmazer",
     "İsmail Kayalı",
@@ -870,9 +870,9 @@ export const ANSWER_INDEX = {
     "Ceyhun Eriş",
     "Fabio Bilica",
     "Garry Rodrigues",
-    "Gökhanozkaya",
+    "Gökhan Bozkaya",
     "Gürhan Gürsoy",
-    "Hakanayraktar",
+    "Hakan Bayraktar",
     "Ilqar Qurbanov",
     "Mahmut Hanefi Erdoğdu",
     "Oğuz Dağlaroğlu",
@@ -926,7 +926,7 @@ export const ANSWER_INDEX = {
     "Emrah Başsan",
     "Erman Kılıç",
     "Ertuğrul Arslan",
-    "Gökhanozkaya",
+    "Gökhan Bozkaya",
     "Gürhan Gürsoy",
     "Hakan Özmert",
     "İbrahim Dağaşan",
@@ -1415,7 +1415,7 @@ export const ANSWER_INDEX = {
     "Erdal Tanhan",
     "Faruk Bayar",
     "Gökhan Süzen",
-    "Hakanayraktar",
+    "Hakan Bayraktar",
     "Harun Avgın",
     "Hasan Yurt",
     "İbrahim Akın",
@@ -1655,7 +1655,7 @@ export const ANSWER_INDEX = {
   ],
   "Juventus|Lazio": [
     "Abdoulay Konko",
-    "Alenoksic",
+    "Alen Boksic",
     "Alessandro Matri",
     "Alessandro Rossi",
     "Andrea Rossi",
@@ -1700,8 +1700,8 @@ export const ANSWER_INDEX = {
     "Felipe Caicedo",
     "Francesco Acerbi",
     "Gianluca Scamacca",
+    "Giuseppe Biava",
     "Giuseppe Sculli",
-    "Giuseppeiava",
     "Goran Pandev",
     "Hernan Crespo",
     "Lorenzo Gagliardi",
@@ -2600,8 +2600,8 @@ export const ANSWER_INDEX = {
     "Cenk Tosun",
     "Enes Durmuş",
     "Erhan Albayrak",
+    "Hakan Bayraktar",
     "Hakan Çinemre",
-    "Hakanayraktar",
     "İlhan Parlak",
     "İsmail Köybaşı",
     "Kemal Aslan",
@@ -2722,7 +2722,7 @@ export const ANSWER_INDEX = {
     "David Cano",
     "Hector Font",
     "Iban Perez",
-    "Ibrahimaalde",
+    "Ibrahima Balde",
     "Javi Martinez",
     "Jon Erice",
     "Jony",
@@ -2889,6 +2889,7 @@ export const ANSWER_INDEX = {
     "Fabrice Abriel",
     "Frederic Dehu",
     "Gabriel Heinze",
+    "Habib Beye",
     "Jerome Alonzo",
     "Jerome Leroy",
     "Kaba Diawara",
@@ -3914,20 +3915,20 @@ export const ANSWER_INDEX = {
     "Dino Arslanagic"
   ],
   "Udinese|Antalyaspor": [
-    "Adamuksa",
+    "Adam Buksa",
     "Danilo",
     "Lautaro Giannetti",
     "Naldo",
     "Sandro"
   ],
   "Udinese|Lens": [
-    "Adamuksa",
+    "Adam Buksa",
     "Alexandre Coeff",
     "Florian Thauvin",
     "Seko Fofana"
   ],
   "Antalyaspor|Lens": [
-    "Adamuksa"
+    "Adam Buksa"
   ],
   "Wolves|Crystal Palace": [
     "Ade Akinbiyi",
@@ -3991,7 +3992,7 @@ export const ANSWER_INDEX = {
   ],
   "Crystal Palace|Brighton": [
     "Ade Akinbiyi",
-    "Garyorrowdale",
+    "Gary Borrowdale",
     "Glenn Murray",
     "Jonathan Obika",
     "Kemy Agustien",
@@ -4212,7 +4213,7 @@ export const ANSWER_INDEX = {
     "Emir Ortakaya",
     "Emre Gedik",
     "Ercan Agaçe",
-    "Erenilen",
+    "Eren Bilen",
     "Ersin Güreler",
     "Gökhan Değirmenci",
     "Koray Çölgeçen",
@@ -4610,7 +4611,7 @@ export const ANSWER_INDEX = {
   ],
   "Torino|AS Roma": [
     "Adem Ljajic",
-    "Ahmedarusso",
+    "Ahmed Barusso",
     "Alessio Cerci",
     "Andrea Belotti",
     "Antonino Bernardini",
@@ -4657,7 +4658,7 @@ export const ANSWER_INDEX = {
     "Caner Erkin",
     "Emir Tintiş",
     "Emirhan Delibaş",
-    "Emreilgin",
+    "Emre Bilgin",
     "Enzo Roco",
     "Erkan Sekman",
     "Erkan Zengin",
@@ -4701,7 +4702,7 @@ export const ANSWER_INDEX = {
     "Tom Donegan"
   ],
   "Galatasaray|Beşiktaş": [
-    "Ademüyük",
+    "Adem Büyük",
     "Ahmet Yıldırım",
     "Berk Can Yıldızlı",
     "Burak Yılmaz",
@@ -4731,7 +4732,7 @@ export const ANSWER_INDEX = {
     "Yaser Yıldız"
   ],
   "Galatasaray|Kasımpaşa": [
-    "Ademüyük",
+    "Adem Büyük",
     "Ali Yavuz Kol",
     "Alpaslan Öztürk",
     "Aytaç Kara",
@@ -4761,7 +4762,7 @@ export const ANSWER_INDEX = {
     "Yekta Kurtuluş"
   ],
   "Beşiktaş|Kasımpaşa": [
-    "Ademüyük",
+    "Adem Büyük",
     "Ali Güneş",
     "Berk Can Yıldızlı",
     "Bernard Mensah",
@@ -4928,7 +4929,7 @@ export const ANSWER_INDEX = {
     "Cenk Gönen",
     "Efkan Bekiroğlu",
     "François Moubandje",
-    "Furkanayır",
+    "Furkan Bayır",
     "Hasan Acar",
     "Kazım Sarı",
     "Kerem Gülbahar",
@@ -5002,7 +5003,6 @@ export const ANSWER_INDEX = {
     "Emre Toraman",
     "Emrehan Gedikli",
     "Enis Bardhi",
-    "Enisardhi",
     "Erdinç Yavuz",
     "Eren Albayrak",
     "Erman Özgür",
@@ -5152,11 +5152,11 @@ export const ANSWER_INDEX = {
     "Arnau Puigmal",
     "Carlos Clerc",
     "Carlos Sanchez",
-    "Edgaradia",
+    "Edgar Badia",
     "Enzo Roco",
     "Ferran Corominas",
     "German Parreno",
-    "Gregoryeranger",
+    "Gregory Beranger",
     "Inaki Lafuente",
     "Javi Marquez",
     "Jose Luque",
@@ -5728,7 +5728,7 @@ export const ANSWER_INDEX = {
     "Hernan Perez",
     "Hugo Novoa",
     "Hugo Perez",
-    "Inakierruet",
+    "Inaki Berruet",
     "Ivan Martin",
     "Jason Remeseiro",
     "Javi Guerra",
@@ -5942,7 +5942,7 @@ export const ANSWER_INDEX = {
     "Esteban",
     "Gaspar Galvez",
     "Horațiu Moldovan",
-    "Ibrahimaalde",
+    "Ibrahima Balde",
     "Ivo Rodriguez",
     "Javi Moreno",
     "Juan Gonzalez",
@@ -5957,7 +5957,7 @@ export const ANSWER_INDEX = {
     "Cesar Azpilicueta",
     "David Rodriguez",
     "Fran Merida",
-    "Ibrahimaalde",
+    "Ibrahima Balde",
     "Jose Mari",
     "Juan Cruz",
     "Juanfran Torres",
@@ -6018,7 +6018,7 @@ export const ANSWER_INDEX = {
     "Gorka Iraizoz",
     "Hector Simon",
     "Iker Piedra",
-    "Isaacecerra",
+    "Isaac Becerra",
     "Jofre Mateu",
     "Jonathan Soriano",
     "Juanvi Canales",
@@ -6211,7 +6211,7 @@ export const ANSWER_INDEX = {
     "Adrian Semper",
     "Albi Hanxhari",
     "Alessandro Quaini",
-    "Andreaeghetto",
+    "Andrea Beghetto",
     "Eros Pisano",
     "George Pușcaș",
     "Miguel Veloso",
@@ -6532,7 +6532,7 @@ export const ANSWER_INDEX = {
   ],
   "Juventus|Marsilya": [
     "Adrien Rabiot",
-    "Alenoksic",
+    "Alen Boksic",
     "Arkadiusz Milik",
     "Franco Tongya",
     "Mario Lemina",
@@ -6697,11 +6697,11 @@ export const ANSWER_INDEX = {
     "Geovanne Martins",
     "Gil Dias",
     "Gustavo Almeida",
+    "Gustavo Barge",
     "Gustavo Schneider",
-    "Gustavoarge",
     "Hernani",
+    "Hugo Basto",
     "Hugo Cruz",
-    "Hugoasto",
     "Joao Dias",
     "Joao Paulo",
     "Joao Pedro",
@@ -7075,7 +7075,7 @@ export const ANSWER_INDEX = {
     "Jeremy Perbet"
   ],
   "Genoa|Torino": [
-    "Ahmedarusso",
+    "Ahmed Barusso",
     "Alberto Paleari",
     "Alessandro Colasante",
     "Alessandro Mirabelli",
@@ -7102,7 +7102,7 @@ export const ANSWER_INDEX = {
     "Emiliano Moretti",
     "Facundo Lescano",
     "Federico Marchetti",
-    "Flavioianchi",
+    "Flavio Bianchi",
     "Giovanni Marchese",
     "Giovanni Simeone",
     "Iago Falque",
@@ -7136,7 +7136,7 @@ export const ANSWER_INDEX = {
     "Vittorio Parigini"
   ],
   "Genoa|Galatasaray": [
-    "Ahmedarusso",
+    "Ahmed Barusso",
     "Berkan Kutlu",
     "Daniel Tőzser",
     "Goran Pandev",
@@ -7144,7 +7144,7 @@ export const ANSWER_INDEX = {
     "Sinan Gümüş"
   ],
   "Genoa|AS Roma": [
-    "Ahmedarusso",
+    "Ahmed Barusso",
     "Aleandro Rosi",
     "Alessio Cerci",
     "Antonio Sanabria",
@@ -7178,13 +7178,13 @@ export const ANSWER_INDEX = {
     "Vincenzo Montella"
   ],
   "Torino|Galatasaray": [
-    "Ahmedarusso",
+    "Ahmed Barusso",
     "Hakan Şükür",
     "Luis Pedro Cavanda",
     "Wilfried Singo"
   ],
   "Galatasaray|AS Roma": [
-    "Ahmedarusso",
+    "Ahmed Barusso",
     "Angelino",
     "Maicon",
     "Morgan De Sanctis",
@@ -7203,7 +7203,7 @@ export const ANSWER_INDEX = {
     "Dejan Kelhar",
     "Emre Kılınç",
     "Hakan Arslan",
-    "Hakanayraktar",
+    "Hakan Bayraktar",
     "Hasan Hatipoğlu",
     "İlhan Ummak",
     "Muammer Yıldırım",
@@ -7319,7 +7319,7 @@ export const ANSWER_INDEX = {
     "Aydın Karabulut",
     "Bayram Bektaş",
     "Gökdeniz Bayrakdar",
-    "Gökhanozkaya",
+    "Gökhan Bozkaya",
     "Hakan Arıkan",
     "Mehmet Yılmaz",
     "Mert Çölgeçen",
@@ -7522,7 +7522,7 @@ export const ANSWER_INDEX = {
     "Barbaros Barut",
     "Djalma",
     "Emre Toraman",
-    "Gustaveebbe",
+    "Gustave Bebbe",
     "İlker Avcıbay",
     "Jonathan Tehoue",
     "Murat Akın",
@@ -7750,7 +7750,7 @@ export const ANSWER_INDEX = {
     "Ceyhun Eriş",
     "Emre Demir",
     "Ferhat Çulcuoğlu",
-    "Hakanayraktar",
+    "Hakan Bayraktar",
     "İlyas Yılmazer",
     "Metincan Cici",
     "Muhammed Gümüşkaya",
@@ -7780,7 +7780,7 @@ export const ANSWER_INDEX = {
     "Georgi Ivanov",
     "Giani Kiriță",
     "Gökhan Alsan",
-    "Hakanayraktar",
+    "Hakan Bayraktar",
     "Mehmet Polat",
     "Mehmet Yılmaz",
     "Muhammed Gümüşkaya",
@@ -8073,7 +8073,7 @@ export const ANSWER_INDEX = {
     "David Bellion",
     "David Connolly",
     "Frederik Alves",
-    "Garyreen",
+    "Gary Breen",
     "George Dobson",
     "George McCartney",
     "Jermain Defoe",
@@ -8384,7 +8384,7 @@ export const ANSWER_INDEX = {
     "Danny Rose",
     "Didier Domi",
     "Gary Speed",
-    "Ianennett",
+    "Ian Bennett",
     "James Milner",
     "Jonathan Woodgate",
     "Paul Huntington",
@@ -8506,7 +8506,7 @@ export const ANSWER_INDEX = {
   "Real Madrid|Udinese": [
     "Albano Bizzarri",
     "Danilo",
-    "Ikerravo",
+    "Iker Bravo",
     "Sandro"
   ],
   "Real Madrid|Lazio": [
@@ -8521,7 +8521,7 @@ export const ANSWER_INDEX = {
     "Bernardo Corradi",
     "Cribari",
     "Davide Faraoni",
-    "Dusanasta",
+    "Dusan Basta",
     "Federico Polise",
     "Ferdinando Sforzini",
     "Giampiero Pinzi",
@@ -8787,7 +8787,7 @@ export const ANSWER_INDEX = {
     "Danny Welbeck",
     "Fynn Talley",
     "Gavin Hoyte",
-    "Grahamarrett",
+    "Graham Barrett",
     "Jayden Onen",
     "Jeffrey Monakana",
     "Leandro Trossard",
@@ -9070,7 +9070,7 @@ export const ANSWER_INDEX = {
     "Felipe Melo",
     "Gianluca Luppi",
     "Giorgio Chiellini",
-    "Giovanniartolucci",
+    "Giovanni Bartolucci",
     "Hans Nicolussi Caviglia",
     "Karamoko Kaba",
     "Lorenzo Lucchesi",
@@ -9144,7 +9144,7 @@ export const ANSWER_INDEX = {
     "Claudio Zappa",
     "Daniel Boloca",
     "Dany Mota",
-    "Domenicoerardi",
+    "Domenico Berardi",
     "Edoardo Goldaniga",
     "Eros Castelletto",
     "Ettore Marchi",
@@ -9770,7 +9770,7 @@ export const ANSWER_INDEX = {
     "Antonio Guayre",
     "Borja Iglesias",
     "Brais Val",
-    "Carloseitia",
+    "Carlos Beitia",
     "Dani Pereiro",
     "Denis Suarez",
     "Giuseppe Rossi",
@@ -9948,7 +9948,7 @@ export const ANSWER_INDEX = {
     "Filipe",
     "Giacomo Zappacosta",
     "Gianni Munari",
-    "Giuseppearonchelli",
+    "Giuseppe Baronchelli",
     "Haris Seferovic",
     "Jacopo Petriccione",
     "Khoumaabacar",
@@ -9982,7 +9982,7 @@ export const ANSWER_INDEX = {
   "Lecce|Marsilya": [
     "Alberto Malusci",
     "Giannelli Imbula",
-    "Hugolondel",
+    "Hugo Blondel",
     "Thiago Coqu",
     "Wilfried Dalmat"
   ],
@@ -10019,7 +10019,7 @@ export const ANSWER_INDEX = {
   ],
   "Como|Alaves": [
     "Alberto Moreno",
-    "Álexlanco"
+    "Álex Blanco"
   ],
   "Como|Atletico Madrid": [
     "Alberto Moreno",
@@ -10086,7 +10086,7 @@ export const ANSWER_INDEX = {
     "Alessandro Matri",
     "Alessio Scarpi",
     "Antonio Barreca",
-    "Darioiasi",
+    "Dario Biasi",
     "David Suazo",
     "Davide Biondini",
     "Davide Di Gennaro",
@@ -10392,7 +10392,7 @@ export const ANSWER_INDEX = {
     "Enzo Maresca",
     "Federico Bernardeschi",
     "Federico Mattiello",
-    "Gabrieleoloca",
+    "Gabriele Boloca",
     "Giacomo Cipriani",
     "Gianluca Frabotta",
     "Gianluca Luppi",
@@ -10701,7 +10701,7 @@ export const ANSWER_INDEX = {
     "Aleandro Rosi",
     "Aleksandar Kolarov",
     "Davide Frattesi",
-    "Denisoshnjaku",
+    "Denis Boshnjaku",
     "Luca Pellegrini",
     "Luigi Cherubini",
     "Luigi Diiagio",
@@ -11247,7 +11247,7 @@ export const ANSWER_INDEX = {
     "Cesc Fabregas",
     "Denis Suarez",
     "Giovanni vanronckhorst",
-    "Hectorellerin",
+    "Hector Bellerin",
     "Marcus McGuane",
     "Mikel Arteta",
     "Neto",
@@ -11319,7 +11319,7 @@ export const ANSWER_INDEX = {
     "Farhaan Ali Wahid",
     "Gael Kakuta",
     "Ian Pearce",
-    "Ibaneowat",
+    "Ibane Bowat",
     "Johannerg Gudmundsson",
     "Jon Harley",
     "Jordan Aina",
@@ -11372,7 +11372,7 @@ export const ANSWER_INDEX = {
     "Zlatan Ibrahimovic"
   ],
   "Lazio|Marsilya": [
-    "Alenoksic",
+    "Alen Boksic",
     "Álvaro Gonzalez",
     "Djibril Cisse",
     "Ivan de la Pena",
@@ -11746,7 +11746,7 @@ export const ANSWER_INDEX = {
     "Fabio Cannavaro",
     "Fabio Quagliarella",
     "Fernando Llorente",
-    "Franciscoarido",
+    "Francisco Barido",
     "Gianluca Luppi",
     "Gonzalo Higuain",
     "Guglielmo Stendardo",
@@ -12179,7 +12179,7 @@ export const ANSWER_INDEX = {
     "Federico Dimarco",
     "Federico Motti",
     "Felipe",
-    "Gabrielrazao",
+    "Gabriel Brazao",
     "Gaetano Monachello",
     "Gaetano Oristanio",
     "Gianluca Caprari",
@@ -12261,7 +12261,7 @@ export const ANSWER_INDEX = {
   "Lazio|Lecce": [
     "Alessandro Tuia",
     "Cristian Ledesma",
-    "Dusanasta",
+    "Dusan Basta",
     "Fabrizio Melara",
     "Flavio Di Marzio",
     "Giorgio Frezzolini",
@@ -12693,7 +12693,7 @@ export const ANSWER_INDEX = {
     "David Suazo",
     "Derley",
     "Emerson Thome",
-    "Gabrielarbosa",
+    "Gabriel Barbosa",
     "Georgios Karagounis",
     "Gilberto",
     "Guilherme Siqueira",
@@ -12752,7 +12752,7 @@ export const ANSWER_INDEX = {
     "Fali Cande",
     "Geovanne Martins",
     "Gil Dias",
-    "Gonçaloorges",
+    "Gonçalo Borges",
     "Gustavo Schneider",
     "Hugo Felix",
     "Hugo Leal",
@@ -13543,9 +13543,9 @@ export const ANSWER_INDEX = {
     "Yunus Konak"
   ],
   "Valencia|Alaves": [
+    "Álex Blanco",
     "Álex Quintanilla",
     "Alexis Ruano",
-    "Álexlanco",
     "Álvaro Medran",
     "Antonio Sivera",
     "Gerard Lopez",
@@ -13575,7 +13575,7 @@ export const ANSWER_INDEX = {
     "David Connolly",
     "Dion Sanderson",
     "Don Goodman",
-    "Garyreen",
+    "Gary Breen",
     "Greg Halford",
     "Jody Craddock",
     "Joleon Lescott",
@@ -13909,7 +13909,7 @@ export const ANSWER_INDEX = {
     "Alex Zahavi",
     "Cedric Soares",
     "Emiliano Viviano",
-    "Hectorellerin",
+    "Hector Bellerin",
     "Joao Virginia",
     "Joel Campbell",
     "Luisoa Morte",
@@ -14107,7 +14107,7 @@ export const ANSWER_INDEX = {
     "Emre Can",
     "Faroukou Cisse",
     "Hamadi Al-Ghaddioui",
-    "Hendrylank",
+    "Hendry Blank",
     "Jonas Hofmann",
     "Julianrandt",
     "Kerem Demirbay",
@@ -14201,7 +14201,7 @@ export const ANSWER_INDEX = {
     "Alexander Sorloth"
   ],
   "Manchester United|Ajax": [
-    "Alexanderüttner",
+    "Alexander Büttner",
     "Andre Onana",
     "Antony",
     "Christian Eriksen",
@@ -14242,7 +14242,7 @@ export const ANSWER_INDEX = {
   ],
   "Villarreal|AC Milan": [
     "Alexandre Pato",
-    "Carlosacca",
+    "Carlos Bacca",
     "Cristian Zapata",
     "Daniele Bonera",
     "Diego Lopez",
@@ -14498,7 +14498,7 @@ export const ANSWER_INDEX = {
     "Patrice Evra"
   ],
   "Valencia|Como": [
-    "Álexlanco",
+    "Álex Blanco",
     "Patrick Cutrone"
   ],
   "Benfica|Espanyol": [
@@ -14858,7 +14858,7 @@ export const ANSWER_INDEX = {
     "Erhan Albayrak",
     "Fatih Akyel",
     "Fatih Kanber",
-    "Gökhanozkaya",
+    "Gökhan Bozkaya",
     "Harun Tekin",
     "İsmet Yumakoğulları",
     "John Moshoeu",
@@ -15112,7 +15112,7 @@ export const ANSWER_INDEX = {
     "Geoffrey Kondogbia",
     "Gregory Sertic",
     "Guillaume Warmuz",
-    "Henriedimo",
+    "Henri Bedimo",
     "Hilton",
     "Jean Onana",
     "Jerome Leroy",
@@ -15286,7 +15286,7 @@ export const ANSWER_INDEX = {
     "Eray Açıkgöz",
     "Ersin Güreler",
     "Evren Kürkçü",
-    "Hüseyinak",
+    "Hüseyin Bak",
     "İsmail Köybaşı",
     "Kubilay Kanatsızkuş",
     "Mithat Yaşar",
@@ -15810,7 +15810,7 @@ export const ANSWER_INDEX = {
   ],
   "Oviedo|Lens": [
     "Álvaro Lemos",
-    "Ibrahimaalde"
+    "Ibrahima Balde"
   ],
   "Real Madrid|Valencia": [
     "Álvaro Medran",
@@ -16343,7 +16343,7 @@ export const ANSWER_INDEX = {
     "David Ginola",
     "David Unsworth",
     "Fabian Delph",
-    "Garetharry",
+    "Gareth Barry",
     "Gavin McCann",
     "Idrissa Gueye",
     "Jack Grealish",
@@ -17089,7 +17089,7 @@ export const ANSWER_INDEX = {
     "Danilo Pereira",
     "Fabio Nunes",
     "Felipe",
-    "Gonçalorandao",
+    "Gonçalo Brandao",
     "Hernani",
     "Varela",
     "Yordan Osorio"
@@ -17438,7 +17438,7 @@ export const ANSWER_INDEX = {
   "Atalanta|Pisa": [
     "Andrea Sodero",
     "Francesco Rossi",
-    "Giovannionfanti",
+    "Giovanni Bonfanti",
     "Matteo Salvi",
     "Michele Marconi",
     "Pietro Lovo"
@@ -17858,7 +17858,7 @@ export const ANSWER_INDEX = {
     "Ellis Simms",
     "Emilio Lawrence",
     "Fabian Delph",
-    "Garetharry",
+    "Gareth Barry",
     "Jack Grealish",
     "Jack Harrison",
     "Jack McIntyre",
@@ -18127,8 +18127,8 @@ export const ANSWER_INDEX = {
     "Andy Cole",
     "Andy Marriott",
     "Anthony Stokes",
+    "Dan Ballard",
     "Dan Casey",
-    "Danallard",
     "Danny Welbeck",
     "Emmanuel Eboue",
     "George Dobson",
@@ -18514,7 +18514,7 @@ export const ANSWER_INDEX = {
     "Cristian Pasquato",
     "David Di Michele",
     "Davide Riccardi",
-    "Dusanasta",
+    "Dusan Basta",
     "Francesco Benussi",
     "Giorgio Frezzolini",
     "Giuseppe Pezzella",
@@ -19315,7 +19315,7 @@ export const ANSWER_INDEX = {
   ],
   "AC Milan|Club Brugge": [
     "Ardon Jashari",
-    "Carlosacca",
+    "Carlos Bacca",
     "Charles De Ketelaere"
   ],
   "Girona|Betis": [
@@ -19605,7 +19605,7 @@ export const ANSWER_INDEX = {
   ],
   "Villarreal|Club Brugge": [
     "Arnaut Danjuma",
-    "Carlosacca",
+    "Carlos Bacca",
     "Jeremy Perbet",
     "Tajonuchanan",
     "Tomas Pina"
@@ -20046,7 +20046,7 @@ export const ANSWER_INDEX = {
   ],
   "Chelsea|Monaco": [
     "Axel Disasi",
-    "Benoitadiashile",
+    "Benoit Badiashile",
     "Cesc Fabregas",
     "Christian Panucci",
     "Denis Zakaria",
@@ -20154,7 +20154,7 @@ export const ANSWER_INDEX = {
     "Ertuğrul Arslan",
     "Fatih Kıran",
     "Fousseni Diabate",
-    "Göktuğakırbaş",
+    "Göktuğ Bakırbaş",
     "Gürhan Gürsoy",
     "Herve Tum",
     "İlker Sayan",
@@ -20249,7 +20249,7 @@ export const ANSWER_INDEX = {
     "Rochinha"
   ],
   "Kayserispor|Başakşehir": [
-    "Azizehich",
+    "Aziz Behich",
     "Cenk Şahin",
     "Deniz Türüç",
     "Doğan Alemdar",
@@ -20856,7 +20856,7 @@ export const ANSWER_INDEX = {
     "Benny",
     "Casper Tengstedt",
     "Fredrik Aursnes",
-    "Gonçaloorges",
+    "Gonçalo Borges",
     "Orkun Kökçü",
     "Pierre van Hooijdonk"
   ],
@@ -20864,7 +20864,7 @@ export const ANSWER_INDEX = {
     "Benny",
     "Bruno Martins Indi",
     "Danilo",
-    "Gonçaloorges",
+    "Gonçalo Borges",
     "Joao Carlos Teixeira",
     "Leonardo",
     "Pablo Rosario"
@@ -21298,7 +21298,7 @@ export const ANSWER_INDEX = {
     "Darren Bent",
     "David Button",
     "Grant Hall",
-    "Guyutters",
+    "Guy Butters",
     "Jeff Minton",
     "Jonathan Obika",
     "Mark Yeates",
@@ -21310,7 +21310,7 @@ export const ANSWER_INDEX = {
     "Edgar Davids",
     "Frenkie de Jong",
     "Gabri",
-    "Harunaabangida",
+    "Haruna Babangida",
     "Isaac Cuenca",
     "Jasper Cillessen",
     "Luis Suarez",
@@ -21387,7 +21387,7 @@ export const ANSWER_INDEX = {
     "Edgar Ie",
     "Emmanuel Amunike",
     "Francisco Trincao",
-    "Hectorellerin",
+    "Hector Bellerin",
     "Jeffren",
     "Jeremy Mathieu",
     "Luis Figo",
@@ -21510,7 +21510,7 @@ export const ANSWER_INDEX = {
   ],
   "Aston Villa|Marsilya": [
     "Boubacar Kamara",
-    "Habibeye",
+    "Habib Beye",
     "Jordan Amavi",
     "Jordan Ayew",
     "Jordan Veretout",
@@ -21732,7 +21732,7 @@ export const ANSWER_INDEX = {
   ],
   "Sporting CP|Real Sociedad": [
     "Bruma",
-    "Carlosueno",
+    "Carlos Bueno",
     "Rafinha",
     "Ruben Ribeiro"
   ],
@@ -21995,7 +21995,7 @@ export const ANSWER_INDEX = {
     "Calvin Stengs"
   ],
   "Fulham|Ajax": [
-    "Calvinassey",
+    "Calvin Bassey",
     "Danny Hoesen",
     "Edwin van der Sar",
     "Eyong Enoh",
@@ -22101,8 +22101,7 @@ export const ANSWER_INDEX = {
     "Nabil El Zhar"
   ],
   "Levante|Trabzonspor": [
-    "Carl Medjani",
-    "Enisardhi"
+    "Carl Medjani"
   ],
   "Liverpool|Monaco": [
     "Carl Medjani",
@@ -22568,8 +22567,8 @@ export const ANSWER_INDEX = {
     "Nayef Aguerd"
   ],
   "PSG|Real Sociedad": [
+    "Carlos Bueno",
     "Carlos Soler",
-    "Carlosueno",
     "Gonçalo Guedes",
     "Lionel Potillon",
     "Mikel Arteta",
@@ -22656,7 +22655,7 @@ export const ANSWER_INDEX = {
     "Nacer Chadli"
   ],
   "Sporting CP|PSG": [
-    "Carlosueno",
+    "Carlos Bueno",
     "Gabriel Heinze",
     "Houssine Kharja",
     "Ibrahim Diarra",
@@ -22705,7 +22704,7 @@ export const ANSWER_INDEX = {
     "Craig Dawson",
     "David Connolly",
     "Frank Nouble",
-    "Garyreen",
+    "Gary Breen",
     "Henri Camara",
     "Jeremie Aliadière",
     "Kortney Hause",
@@ -23012,7 +23011,7 @@ export const ANSWER_INDEX = {
     "Cesar Sanchez",
     "David Beckham",
     "Emmanuel Adebayor",
-    "Garethale",
+    "Gareth Bale",
     "Jonathan Woodgate",
     "Luka Modric",
     "Rafael van der Vaart",
@@ -23125,7 +23124,7 @@ export const ANSWER_INDEX = {
   "Marsilya|Newcastle": [
     "Chancel Mbemba",
     "Florian Thauvin",
-    "Habibeye",
+    "Habib Beye",
     "Javier Manquillo",
     "Lamine Diatta",
     "Loic Remy",
@@ -23152,7 +23151,7 @@ export const ANSWER_INDEX = {
   ],
   "Udinese|Leverkusen": [
     "Charles Aranguiz",
-    "Ikerravo",
+    "Iker Bravo",
     "Maduka Okoye"
   ],
   "Espanyol|Cremonese": [
@@ -23202,7 +23201,7 @@ export const ANSWER_INDEX = {
   "Real Madrid|Leverkusen": [
     "Chicharito",
     "Daniel Carvajal",
-    "Ikerravo",
+    "Iker Bravo",
     "Lucas Vazquez",
     "Mario Hermoso",
     "Toni Kroos",
@@ -23700,7 +23699,7 @@ export const ANSWER_INDEX = {
   "Celta Vigo|Marsilya": [
     "Claude Makelele",
     "Eduardo Berizzo",
-    "Habibamogo",
+    "Habib Bamogo",
     "Javier Manquillo",
     "Mido",
     "Peter Luccin",
@@ -24576,7 +24575,7 @@ export const ANSWER_INDEX = {
     "David James",
     "Douglas Luiz",
     "Fabian Delph",
-    "Garetharry",
+    "Gareth Barry",
     "Glenn Whelan",
     "Hayden Lindley",
     "Jack Grealish",
@@ -24681,7 +24680,7 @@ export const ANSWER_INDEX = {
   ],
   "Wolves|Feyenoord": [
     "David Connolly",
-    "Hugoueno",
+    "Hugo Bueno",
     "Rajiv van La Parra",
     "Sherwin Seedorf"
   ],
@@ -24715,6 +24714,7 @@ export const ANSWER_INDEX = {
   ],
   "Aston Villa|PSG": [
     "David Ginola",
+    "Habib Beye",
     "Idrissa Gueye",
     "Lucas Digne",
     "Marco Asensio",
@@ -24725,6 +24725,7 @@ export const ANSWER_INDEX = {
     "Didier Domi",
     "Gabriel Obertan",
     "Georginio Wijnaldum",
+    "Habib Beye",
     "Laurent Robert",
     "Leonardo",
     "Sylvain Distin",
@@ -25357,7 +25358,7 @@ export const ANSWER_INDEX = {
   ],
   "Göztepe|Borussia Dortmund": [
     "Dilaver Güçlü",
-    "Hüseyinulut",
+    "Hüseyin Bulut",
     "Koray Günter",
     "Kubilay Sönmez"
   ],
@@ -25985,7 +25986,6 @@ export const ANSWER_INDEX = {
   ],
   "Levante|Konyaspor": [
     "Emmanuel Boateng",
-    "Enisardhi",
     "Theofanis Gekas"
   ],
   "Atletico Madrid|Newcastle": [
@@ -26704,7 +26704,7 @@ export const ANSWER_INDEX = {
     "Robin Koch"
   ],
   "Borussia Dortmund|Nottingham": [
-    "Felixastians"
+    "Felix Bastians"
   ],
   "Gaziantep FK|PSV": [
     "Ferhat Kaya"
@@ -27075,13 +27075,13 @@ export const ANSWER_INDEX = {
     "John Aloisi"
   ],
   "Inter|Oviedo": [
-    "Gabrielrazao",
+    "Gabriel Brazao",
     "Luis Garcia",
     "Paulino de la Fuente"
   ],
   "Parma|Oviedo": [
-    "Gabrielrazao",
-    "Gastonrugman"
+    "Gabriel Brazao",
+    "Gaston Brugman"
   ],
   "Bologna|Elche": [
     "Gaby Mudingayi",
@@ -27122,7 +27122,7 @@ export const ANSWER_INDEX = {
     "Gale Agbossoumonde"
   ],
   "Everton|Brighton": [
-    "Garetharry",
+    "Gareth Barry",
     "Jim McNulty",
     "Kevin McLeod",
     "Neal Maupay",
@@ -27153,7 +27153,7 @@ export const ANSWER_INDEX = {
   ],
   "Atletico Madrid|Lens": [
     "Geoffrey Kondogbia",
-    "Ibrahimaalde"
+    "Ibrahima Balde"
   ],
   "Aston Villa|Nottingham": [
     "George Hemmings",
@@ -27512,7 +27512,7 @@ export const ANSWER_INDEX = {
     "Hamed Traore"
   ],
   "Fulham|Sivasspor": [
-    "Hamerouazza"
+    "Hamero Buazza"
   ],
   "Benfica|Bayern Munich": [
     "Hans Jörgutt",
@@ -27713,7 +27713,7 @@ export const ANSWER_INDEX = {
     "Ibrahima Camara"
   ],
   "Osasuna|Lens": [
-    "Ibrahimaalde",
+    "Ibrahima Balde",
     "Ludovic Delporte"
   ],
   "Udinese|Aston Villa": [
@@ -28711,7 +28711,7 @@ export const ANSWER_INDEX = {
   "Getafe|Bayern Munich": [
     "Juanernat"
   ],
-  "Levante|Ajax": [
+  "Ajax|Levante": [
     "Juanfran"
   ],
   "Villarreal|Alanyaspor": [

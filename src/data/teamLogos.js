@@ -1,5 +1,5 @@
 // Auto-generated from admin panel
-// Generated: 2026-05-23T21:43:12.717Z
+// Generated: 2026-05-23T22:14:48.707Z
 
 export const TEAM_LOGOS = {
   "Inter": {
@@ -197,15 +197,15 @@ export const TEAM_LOGOS = {
     "primary": "#04AA48",
     "secondary": "#FFFFFF"
   },
-  "Levante": {
-    "initials": "LEV",
-    "primary": "#015FB0",
-    "secondary": "#A70427"
-  },
   "Ajax": {
     "initials": "AJX",
     "primary": "#D2122E",
     "secondary": "#FFFFFF"
+  },
+  "Levante": {
+    "initials": "LEV",
+    "primary": "#015FB0",
+    "secondary": "#A70427"
   },
   "Cremonese": {
     "initials": "CRE",
