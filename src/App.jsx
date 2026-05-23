@@ -223,6 +223,19 @@ function getRoundKey(round) {
   return getPairKey(round.teams[0], round.teams[1]);
 }
 
+// Bir oyuncunun kaç farklı eşleşmede (takım çiftinde) cevap olduğu — nadirlik proxy'si.
+// Düşük = az kulüp bağlantısı = niş/nadir cevap; yüksek = çok gezmiş, bariz cevap.
+const PLAYER_PAIR_FREQ = (() => {
+  const m = new Map();
+  for (const key of Object.keys(ANSWER_INDEX)) {
+    for (const name of (ANSWER_INDEX[key] || [])) {
+      const k = normalizeText(name);
+      m.set(k, (m.get(k) || 0) + 1);
+    }
+  }
+  return m;
+})();
+
 // =================== TAKIM AĞIRLIKLI SEÇİM ===================
 // Popüler takımlar daha sık çıkar, Tier 3 birbiriyle veya Tier 2 ile hiç eşleşmez.
 
@@ -763,6 +776,44 @@ function drawDailyShareCard({ dayNum, correctCount, total, results, streak }) {
   return canvas;
 }
 
+function OnboardingOverlay({ onClose }) {
+  const chip = { padding: "8px 14px", borderRadius: 12, background: "rgba(255,255,255,0.08)", fontWeight: 700, fontSize: 14 };
+  return (
+    <div style={{ position: "fixed", inset: 0, zIndex: 1000, background: "rgba(8,8,16,0.82)", backdropFilter: "blur(6px)", WebkitBackdropFilter: "blur(6px)", display: "flex", alignItems: "center", justifyContent: "center", padding: 20 }}>
+      <div style={{ width: "100%", maxWidth: 420, background: "linear-gradient(160deg,#1d1430,#241a3e)", border: "1px solid rgba(255,255,255,0.12)", borderRadius: 24, padding: "26px 22px", textAlign: "center", boxShadow: "0 20px 60px rgba(0,0,0,0.5)", color: "#fff" }}>
+        <div style={{ fontSize: 40, marginBottom: 6 }}>⚽</div>
+        <h2 style={{ margin: "0 0 6px", fontSize: 22, fontWeight: 800 }}>PairFC nasıl oynanır?</h2>
+        <p style={{ margin: "0 0 18px", fontSize: 15, lineHeight: 1.5, color: "rgba(255,255,255,0.7)" }}>
+          İki takım görürsün. <strong style={{ color: "#fff" }}>İkisinde de oynamış</strong> bir futbolcuyu yaz.
+        </p>
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 10, marginBottom: 14 }}>
+          <span style={chip}>Chelsea</span>
+          <span style={{ fontSize: 13, color: "#ffae00", fontWeight: 800 }}>VS</span>
+          <span style={chip}>Real Madrid</span>
+        </div>
+        <div style={{ fontSize: 14, color: "rgba(255,255,255,0.85)", marginBottom: 4 }}>
+          ✅ <strong>Eden Hazard</strong> <span style={{ color: "rgba(255,255,255,0.55)" }}>— ikisinde de oynadı</span>
+        </div>
+        <div style={{ fontSize: 13, color: "rgba(255,255,255,0.45)", marginBottom: 18 }}>
+          Ne kadar zor eşleşmeyi bilirsen o kadar büyük flex 🧠
+        </div>
+        <div style={{ display: "flex", gap: 8, justifyContent: "center", flexWrap: "wrap", fontSize: 12.5, color: "rgba(255,255,255,0.6)", marginBottom: 20 }}>
+          <span>📅 Günlük: herkes aynı 5 soru</span>
+          <span>·</span>
+          <span>⚔️ Challenge: üst üste kaç?</span>
+        </div>
+        <button
+          type="button"
+          onClick={onClose}
+          style={{ width: "100%", padding: 14, borderRadius: 14, border: "none", background: "#aa3bff", color: "#fff", fontSize: 16, fontWeight: 800, cursor: "pointer" }}
+        >
+          Anladım, başla 🚀
+        </button>
+      </div>
+    </div>
+  );
+}
+
 function ChallengeGameOver({
   score, best, isNewBest, lastWrongAnswer, correctPlayers,
   teamA, teamB, wrongReport, reportStatus,
@@ -1208,6 +1259,14 @@ export default function App() {
   const [challengeJokerHint, setChallengeJokerHint] = useState(null);
   const [challengeFeedback, setChallengeFeedback] = useState(null); // "correct" | "wrong" | null
   const [comboBurst, setComboBurst] = useState(null); // { tier, label, key }
+  const [showOnboarding, setShowOnboarding] = useState(() => {
+    try { return !window.localStorage.getItem("pairfc_onboarded"); } catch (e) { return false; }
+  });
+  const dismissOnboarding = () => {
+    try { window.localStorage.setItem("pairfc_onboarded", "1"); } catch (e) {}
+    setShowOnboarding(false);
+    try { track("onboarding_done"); } catch (e) {}
+  };
 
   // =================== DAILY PUZZLE STATE ===================
   const [dailyHistory, setDailyHistory] = useState(() => {
@@ -2679,6 +2738,17 @@ export default function App() {
 
     if (isCorrectAnswer(challengeRound, raw)) {
       const nextScore = challengeScore + 1;
+
+      // Mikro-dopamin (gerçek veriden): nadir oyuncu / zor eşleşme / hızlı cevap
+      const answerCount = getCorrectPlayersForRound(challengeRound).length;
+      const matchedName = findAcceptedAnswer(challengeRound, raw);
+      const playerFreq = matchedName ? (PLAYER_PAIR_FREQ.get(normalizeText(matchedName)) || 0) : 99;
+      const answeredFast = challengeTimeLeft >= ROUND_SECONDS - 4;
+      let bonus = null;
+      if (playerFreq > 0 && playerFreq <= 2) bonus = { tier: "legendary", label: "💎 Nadir cevap!" };
+      else if (answerCount > 0 && answerCount <= 3) bonus = { tier: "orange", label: "🧠 Zor eşleşme!" };
+      else if (answeredFast) bonus = { tier: "blue", label: "⚡ Şimşek gibi!" };
+
       const result = getNextChallengeRound(challengeUsedRoundKeys, challengeEffectiveDifficulty || challengeDifficulty);
       const nextKey = getRoundKey(result.round);
       let nextUsed = result.reset ? [nextKey] : [...challengeUsedRoundKeys, nextKey];
@@ -2707,6 +2777,7 @@ export default function App() {
       setChallengeTimeLeft(ROUND_SECONDS);
       setChallengePreRoundLeft(ROUND_REVEAL_SECONDS);
       setChallengeLastAction({ type: "correct", answer: raw });
+      if (bonus && nextScore % 3 !== 0) setComboBurst({ ...bonus, key: Date.now() });
       setChallengeLastWrongReport(null);
       setChallengeReportStatus(null);
       setChallengeJokerHint(null);
@@ -2830,6 +2901,7 @@ export default function App() {
 
   return (
     <div className={`app-shell ${isHome ? "home-screen" : "play-screen"}`}>
+      {showOnboarding && <OnboardingOverlay onClose={dismissOnboarding} />}
       <style>{css}</style>
 
       {showSplash && (
