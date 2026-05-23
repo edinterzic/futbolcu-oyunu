@@ -546,6 +546,38 @@ function roundRectPath(ctx, x, y, w, h, r) {
   ctx.closePath();
 }
 
+function drawGlassCTA(ctx, W, line1, line2) {
+  const x = 120;
+  const y = 1560;
+  const w = W - 240;
+  const h = 190;
+  const r = 44;
+  // cam dolgu (düşük opacity)
+  ctx.fillStyle = "rgba(255,255,255,0.07)";
+  roundRectPath(ctx, x, y, w, h, r);
+  ctx.fill();
+  // üst parlama — cam hissi
+  const hg = ctx.createLinearGradient(0, y, 0, y + h * 0.55);
+  hg.addColorStop(0, "rgba(255,255,255,0.13)");
+  hg.addColorStop(1, "rgba(255,255,255,0)");
+  ctx.fillStyle = hg;
+  roundRectPath(ctx, x, y, w, h * 0.55, r);
+  ctx.fill();
+  // ince kenar çizgisi
+  ctx.lineWidth = 2;
+  ctx.strokeStyle = "rgba(255,255,255,0.28)";
+  roundRectPath(ctx, x + 1, y + 1, w - 2, h - 2, r - 1);
+  ctx.stroke();
+  // metinler
+  ctx.textAlign = "center";
+  ctx.fillStyle = "#ffffff";
+  ctx.font = "700 52px system-ui, 'Segoe UI', Roboto, sans-serif";
+  ctx.fillText(line1, W / 2, y + 82);
+  ctx.font = "700 46px system-ui, 'Segoe UI', Roboto, sans-serif";
+  ctx.fillStyle = "#ffd84d";
+  ctx.fillText(line2, W / 2, y + 150);
+}
+
 function drawScoreShareCard({ score, best, diffLabel, isNewBest }) {
   const W = 1080;
   const H = 1920;
@@ -563,47 +595,39 @@ function drawScoreShareCard({ score, best, diffLabel, isNewBest }) {
 
   ctx.textAlign = "center";
 
+  // Logo bloğu — küçük ve yukarıda (premium his)
   ctx.fillStyle = "rgba(255,255,255,0.95)";
-  ctx.font = "700 68px system-ui, 'Segoe UI', Roboto, sans-serif";
-  ctx.fillText("⚽ PairFC", W / 2, 240);
-
-  ctx.font = "600 38px system-ui, 'Segoe UI', Roboto, sans-serif";
-  ctx.fillStyle = "rgba(255,255,255,0.65)";
-  ctx.fillText("CHALLENGE", W / 2, 308);
+  ctx.font = "700 52px system-ui, 'Segoe UI', Roboto, sans-serif";
+  ctx.fillText("⚽ PairFC", W / 2, 150);
+  ctx.font = "600 28px system-ui, 'Segoe UI', Roboto, sans-serif";
+  ctx.fillStyle = "rgba(255,255,255,0.55)";
+  ctx.fillText("CHALLENGE", W / 2, 200);
 
   if (isNewBest) {
     ctx.font = "700 56px system-ui, 'Segoe UI', Roboto, sans-serif";
     ctx.fillStyle = "#ffd84d";
-    ctx.fillText("🏆 YENİ REKOR", W / 2, 560);
+    ctx.fillText("🏆 YENİ REKOR", W / 2, 600);
   }
 
   ctx.fillStyle = "#ffffff";
-  ctx.font = "800 360px system-ui, 'Segoe UI', Roboto, sans-serif";
-  ctx.fillText(String(score), W / 2, 1060);
+  ctx.font = "800 380px system-ui, 'Segoe UI', Roboto, sans-serif";
+  ctx.fillText(String(score), W / 2, 1080);
 
-  ctx.font = "600 58px system-ui, 'Segoe UI', Roboto, sans-serif";
+  ctx.font = "600 64px system-ui, 'Segoe UI', Roboto, sans-serif";
   ctx.fillStyle = "rgba(255,255,255,0.95)";
-  ctx.fillText("doğru üst üste", W / 2, 1165);
+  ctx.fillText("doğru", W / 2, 1185);
 
   ctx.font = "500 44px system-ui, 'Segoe UI', Roboto, sans-serif";
   ctx.fillStyle = "rgba(255,255,255,0.8)";
-  ctx.fillText(`Zorluk: ${diffLabel}   ·   En iyi: ${best}`, W / 2, 1290);
+  ctx.fillText(`Zorluk: ${diffLabel}   ·   En iyi: ${best}`, W / 2, 1310);
 
-  ctx.fillStyle = "rgba(255,255,255,0.12)";
-  roundRectPath(ctx, 120, 1560, W - 240, 190, 44);
-  ctx.fill();
-  ctx.fillStyle = "#ffffff";
-  ctx.font = "700 54px system-ui, 'Segoe UI', Roboto, sans-serif";
-  ctx.fillText("Beni geçebilir misin?", W / 2, 1645);
-  ctx.font = "700 46px system-ui, 'Segoe UI', Roboto, sans-serif";
-  ctx.fillStyle = "#ffd84d";
-  ctx.fillText("pairfc.com", W / 2, 1712);
+  drawGlassCTA(ctx, W, "Beni geçebilir misin?", "pairfc.com");
 
   return canvas;
 }
 
 async function shareScoreImage({ score, best, diffLabel, isNewBest }) {
-  const text = `🔥 PairFC Challenge: ${score} doğru üst üste! (Zorluk: ${diffLabel})
+  const text = `🔥 PairFC Challenge: ${score} doğru! (Zorluk: ${diffLabel})
 Beni geçebilir misin? → pairfc.com`;
 
   let blob = null;
@@ -657,24 +681,24 @@ function drawDailyShareCard({ dayNum, correctCount, total, results, streak }) {
   ctx.fillRect(0, 0, W, H);
 
   ctx.textAlign = "center";
+  // Logo bloğu — küçük ve yukarıda
   ctx.fillStyle = "rgba(255,255,255,0.95)";
-  ctx.font = "700 68px system-ui, 'Segoe UI', Roboto, sans-serif";
-  ctx.fillText("⚽ PairFC", W / 2, 240);
-
-  ctx.font = "600 40px system-ui, 'Segoe UI', Roboto, sans-serif";
-  ctx.fillStyle = "rgba(255,255,255,0.7)";
-  ctx.fillText(`GÜNLÜK #${dayNum}`, W / 2, 312);
+  ctx.font = "700 52px system-ui, 'Segoe UI', Roboto, sans-serif";
+  ctx.fillText("⚽ PairFC", W / 2, 150);
+  ctx.font = "600 28px system-ui, 'Segoe UI', Roboto, sans-serif";
+  ctx.fillStyle = "rgba(255,255,255,0.55)";
+  ctx.fillText(`GÜNLÜK #${dayNum}`, W / 2, 200);
 
   ctx.fillStyle = "#ffffff";
   ctx.font = "800 300px system-ui, 'Segoe UI', Roboto, sans-serif";
-  ctx.fillText(`${correctCount}/${total}`, W / 2, 760);
+  ctx.fillText(`${correctCount}/${total}`, W / 2, 720);
 
   const n = results.length || total;
   const sq = 130;
   const gap = 28;
   const totalW = n * sq + (n - 1) * gap;
   let x = (W - totalW) / 2;
-  const y = 940;
+  const y = 900;
   for (let i = 0; i < n; i += 1) {
     ctx.fillStyle = results[i] === "correct" ? "#2ecc71" : "#e74c3c";
     roundRectPath(ctx, x, y, sq, sq, 24);
@@ -685,18 +709,10 @@ function drawDailyShareCard({ dayNum, correctCount, total, results, streak }) {
   if (streak > 1) {
     ctx.font = "700 56px system-ui, 'Segoe UI', Roboto, sans-serif";
     ctx.fillStyle = "#ffd84d";
-    ctx.fillText(`🔥 ${streak} gün üst üste`, W / 2, 1300);
+    ctx.fillText(`🔥 ${streak} gün üst üste`, W / 2, 1230);
   }
 
-  ctx.fillStyle = "rgba(255,255,255,0.12)";
-  roundRectPath(ctx, 120, 1560, W - 240, 190, 44);
-  ctx.fill();
-  ctx.fillStyle = "#ffffff";
-  ctx.font = "700 52px system-ui, 'Segoe UI', Roboto, sans-serif";
-  ctx.fillText("Sen kaç bildin?", W / 2, 1645);
-  ctx.font = "700 46px system-ui, 'Segoe UI', Roboto, sans-serif";
-  ctx.fillStyle = "#ffd84d";
-  ctx.fillText("pairfc.com", W / 2, 1712);
+  drawGlassCTA(ctx, W, "Sen kaç bildin?", "pairfc.com");
 
   return canvas;
 }
@@ -705,7 +721,7 @@ function ChallengeGameOver({
   score, best, isNewBest, lastWrongAnswer, correctPlayers,
   teamA, teamB, wrongReport, reportStatus,
   onSubmitWrongReport, onReportAcceptedPlayer, onRestart,
-  onSaveScore, scoreSaved, playerName, onPlayerNameChange, difficulty, onShare
+  onSaveScore, scoreSaved, playerName, onPlayerNameChange, difficulty, onShare, nearMiss
 }) {
   const showWrongReport = wrongReport && lastWrongAnswer;
   const playerCount = correctPlayers?.length || 0;
@@ -737,6 +753,32 @@ function ChallengeGameOver({
           <strong>{best}</strong>
         </div>
       </div>
+
+      {nearMiss && (
+        <div
+          className="gameover-nearmiss"
+          style={{
+            margin: "2px 0 14px",
+            padding: "11px 16px",
+            borderRadius: "14px",
+            fontWeight: 600,
+            fontSize: "15px",
+            lineHeight: 1.35,
+            background:
+              nearMiss.tone === "record"
+                ? "rgba(255,216,77,0.18)"
+                : nearMiss.tone === "close"
+                ? "rgba(255,107,53,0.16)"
+                : nearMiss.tone === "today"
+                ? "rgba(46,204,113,0.15)"
+                : "rgba(255,255,255,0.06)",
+            color: nearMiss.tone === "record" ? "#ffd84d" : "inherit",
+            border: "1px solid rgba(255,255,255,0.12)"
+          }}
+        >
+          {nearMiss.text}
+        </div>
+      )}
 
       {/* Skor kaydetme */}
       {score >= 1 && (
@@ -1084,6 +1126,21 @@ export default function App() {
     const stored = window.localStorage.getItem("footballChallengeBest");
     return stored ? Number(stored) || 0 : 0;
   });
+  const [challengeBestByDiff, setChallengeBestByDiff] = useState(() => {
+    try {
+      const s = window.localStorage.getItem("pairfc_best_by_diff");
+      const o = s ? JSON.parse(s) : null;
+      return o && typeof o === "object" ? { easy: 0, medium: 0, hard: 0, ...o } : { easy: 0, medium: 0, hard: 0 };
+    } catch (e) { return { easy: 0, medium: 0, hard: 0 }; }
+  });
+  const [challengeDailyBest, setChallengeDailyBest] = useState(() => {
+    try {
+      const s = window.localStorage.getItem("pairfc_daily_best");
+      const o = s ? JSON.parse(s) : null;
+      return o && typeof o === "object" ? { date: "", easy: 0, medium: 0, hard: 0, ...o } : { date: "", easy: 0, medium: 0, hard: 0 };
+    } catch (e) { return { date: "", easy: 0, medium: 0, hard: 0 }; }
+  });
+  const [challengeNearMiss, setChallengeNearMiss] = useState(null);
   const [challengeLastScore, setChallengeLastScore] = useState(null);
   const [challengeRound, setChallengeRound] = useState(() => getRandomRound([]));
   const [challengeUsedRoundKeys, setChallengeUsedRoundKeys] = useState([]);
@@ -2354,6 +2411,41 @@ export default function App() {
 
   const endChallenge = (reasonText, reportAnswer = null, reportRound = challengeRound) => {
     const finalScore = challengeScore;
+    const diff = challengeDifficulty;
+    const diffLabel = diff === "easy" ? "Kolay" : diff === "hard" ? "Zor" : "Orta";
+    const todayKey = getTodayKey();
+
+    // Zorluk bazlı rekorlar — GÜNCELLEMEDEN ÖNCEKİ değerler
+    const prevAllTime = challengeBestByDiff[diff] || 0;
+    const dailyValid = challengeDailyBest.date === todayKey;
+    const prevToday = dailyValid ? (challengeDailyBest[diff] || 0) : 0;
+
+    // Near-miss / motivasyon mesajı (günün + tüm zamanlar rekoruna atıf, zorluk bazlı)
+    let nm = null;
+    if (finalScore > 0) {
+      if (finalScore > prevAllTime) {
+        nm = { tone: "record", text: `🏆 ${diffLabel} modda tüm zamanlar rekorun!${prevAllTime > 0 ? ` (eski: ${prevAllTime})` : ""}` };
+      } else if (prevAllTime - finalScore <= 2 && prevAllTime > 0) {
+        nm = { tone: "close", text: `${diffLabel} rekoruna ${prevAllTime - finalScore} kaldı (${prevAllTime}) — bir tane daha?` };
+      } else if (finalScore > prevToday) {
+        nm = { tone: "today", text: `📈 Bugünün en iyisi (${diffLabel})!${prevAllTime > 0 ? ` Tüm zaman rekorun: ${prevAllTime}` : ""}` };
+      } else if (prevToday - finalScore <= 2 && prevToday > 0) {
+        nm = { tone: "close", text: `Bugünkü ${diffLabel} rekorun ${prevToday} — ${prevToday - finalScore} kaldı!` };
+      } else {
+        nm = { tone: "info", text: `${diffLabel} · bugün en iyin ${prevToday} · rekorun ${prevAllTime}` };
+      }
+    }
+    setChallengeNearMiss(nm);
+
+    // Zorluk bazlı rekorları kaydet
+    const nextByDiff = { ...challengeBestByDiff, [diff]: Math.max(prevAllTime, finalScore) };
+    setChallengeBestByDiff(nextByDiff);
+    try { window.localStorage.setItem("pairfc_best_by_diff", JSON.stringify(nextByDiff)); } catch (e) {}
+    const baseDaily = dailyValid ? challengeDailyBest : { date: todayKey, easy: 0, medium: 0, hard: 0 };
+    const nextDaily = { ...baseDaily, date: todayKey, [diff]: Math.max(prevToday, finalScore) };
+    setChallengeDailyBest(nextDaily);
+    try { window.localStorage.setItem("pairfc_daily_best", JSON.stringify(nextDaily)); } catch (e) {}
+
     const nextBest = Math.max(challengeBest, finalScore);
 
     setChallengeLastScore(finalScore);
@@ -3195,6 +3287,7 @@ export default function App() {
                     <ChallengeGameOver
                       score={challengeLastScore ?? 0}
                       best={challengeBest}
+                      nearMiss={challengeNearMiss}
                       isNewBest={(challengeLastScore ?? 0) >= challengeBest && (challengeLastScore ?? 0) > 0}
                       lastWrongAnswer={challengeLastAction?.type === "wrong" ? challengeLastAction.answer : null}
                       correctPlayers={challengeCorrectPlayers}
