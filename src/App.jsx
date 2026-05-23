@@ -2132,7 +2132,11 @@ export default function App() {
   const startDaily = () => {
     const today = getTodayKey();
     const existingToday = dailyHistory[today];
-    const data = getDailyPuzzle(WEIGHTED_TEAM_PAIRS);
+    const annotatedPairs = WEIGHTED_TEAM_PAIRS.map((p) => ({
+      teams: p.teams,
+      bucket: isPairInDifficulty(p, "easy") ? 1 : isPairInDifficulty(p, "medium") ? 2 : 3
+    }));
+    const data = getDailyPuzzle(annotatedPairs);
     setDailyData(data);
 
     if (existingToday && existingToday.completed) {
@@ -2415,30 +2419,32 @@ export default function App() {
     const diffLabel = diff === "easy" ? "Kolay" : diff === "hard" ? "Zor" : "Orta";
     const todayKey = getTodayKey();
 
-    // Zorluk bazlı rekorlar — GÜNCELLEMEDEN ÖNCEKİ değerler
-    const prevAllTime = challengeBestByDiff[diff] || 0;
+    // Rekorlar — GÜNCELLEMEDEN ÖNCEKİ değerler.
+    // "Tüm zamanlar rekoru" = genel en iyi (tüm zorluklar) — güvenilir referans.
+    // "Bugünkü" = zorluk bazlı günlük en iyi.
+    const prevOverall = challengeBest;
     const dailyValid = challengeDailyBest.date === todayKey;
     const prevToday = dailyValid ? (challengeDailyBest[diff] || 0) : 0;
 
-    // Near-miss / motivasyon mesajı (günün + tüm zamanlar rekoruna atıf, zorluk bazlı)
+    // Near-miss / motivasyon mesajı
     let nm = null;
     if (finalScore > 0) {
-      if (finalScore > prevAllTime) {
-        nm = { tone: "record", text: `🏆 ${diffLabel} modda tüm zamanlar rekorun!${prevAllTime > 0 ? ` (eski: ${prevAllTime})` : ""}` };
-      } else if (prevAllTime - finalScore <= 2 && prevAllTime > 0) {
-        nm = { tone: "close", text: `${diffLabel} rekoruna ${prevAllTime - finalScore} kaldı (${prevAllTime}) — bir tane daha?` };
+      if (finalScore > prevOverall) {
+        nm = { tone: "record", text: `🏆 Tüm zamanlar rekorun!${prevOverall > 0 ? ` (eski: ${prevOverall})` : ""}` };
+      } else if (prevOverall - finalScore <= 2 && prevOverall > 0) {
+        nm = { tone: "close", text: `Rekoruna ${prevOverall - finalScore} kaldı (${prevOverall}) — bir tane daha?` };
       } else if (finalScore > prevToday) {
-        nm = { tone: "today", text: `📈 Bugünün en iyisi (${diffLabel})!${prevAllTime > 0 ? ` Tüm zaman rekorun: ${prevAllTime}` : ""}` };
+        nm = { tone: "today", text: `📈 Bugünün en iyisi (${diffLabel})!${prevOverall > 0 ? ` Rekorun: ${prevOverall}` : ""}` };
       } else if (prevToday - finalScore <= 2 && prevToday > 0) {
         nm = { tone: "close", text: `Bugünkü ${diffLabel} rekorun ${prevToday} — ${prevToday - finalScore} kaldı!` };
       } else {
-        nm = { tone: "info", text: `${diffLabel} · bugün en iyin ${prevToday} · rekorun ${prevAllTime}` };
+        nm = { tone: "info", text: `${diffLabel} · bugün en iyin ${prevToday} · rekorun ${prevOverall}` };
       }
     }
     setChallengeNearMiss(nm);
 
     // Zorluk bazlı rekorları kaydet
-    const nextByDiff = { ...challengeBestByDiff, [diff]: Math.max(prevAllTime, finalScore) };
+    const nextByDiff = { ...challengeBestByDiff, [diff]: Math.max(challengeBestByDiff[diff] || 0, finalScore) };
     setChallengeBestByDiff(nextByDiff);
     try { window.localStorage.setItem("pairfc_best_by_diff", JSON.stringify(nextByDiff)); } catch (e) {}
     const baseDaily = dailyValid ? challengeDailyBest : { date: todayKey, easy: 0, medium: 0, hard: 0 };

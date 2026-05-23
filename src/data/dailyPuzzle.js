@@ -59,22 +59,22 @@ export function getDailyPuzzle(weightedPairs) {
   const seed = hashString(today);
   const rng = mulberry32(seed);
 
-  // Pair'leri cevap sayısına göre zenginleştir + deterministik sırala
+  // Pair'leri zenginleştir + deterministik sırala
   const enriched = weightedPairs
     .map((p) => {
       const key = getPairKey(p.teams[0], p.teams[1]);
-      return {
-        teams: p.teams,
-        key,
-        answerCount: (ANSWER_INDEX[key] || []).length
-      };
+      const answerCount = (ANSWER_INDEX[key] || []).length;
+      // Zorluk: App.jsx'in takım-tier'ından gelen bucket (1=kolay, 2=orta, 3=zor).
+      // bucket yoksa cevap sayısına göre tahmin (geriye uyum).
+      const bucket = p.bucket || (answerCount >= 12 ? 1 : answerCount >= 5 ? 2 : 3);
+      return { teams: p.teams, key, answerCount, bucket };
     })
     .sort((a, b) => a.key.localeCompare(b.key));
 
-  // 3 zorluk havuzu (cevap sayısına göre)
-  const tier1 = enriched.filter((p) => p.answerCount >= 12);                       // kolay
-  const tier2 = enriched.filter((p) => p.answerCount >= 5 && p.answerCount < 12);  // orta
-  const tier3 = enriched.filter((p) => p.answerCount >= 2 && p.answerCount < 5);   // final/zor
+  // 3 zorluk havuzu (oyunun zorluk tanımıyla aynı: takım-tier bazlı)
+  const tier1 = enriched.filter((p) => p.bucket === 1); // kolay
+  const tier2 = enriched.filter((p) => p.bucket === 2); // orta
+  const tier3 = enriched.filter((p) => p.bucket === 3); // zor / final
 
   // Deterministik Fisher-Yates shuffle
   function shuffle(arr) {
