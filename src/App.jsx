@@ -1009,7 +1009,7 @@ export default function App() {
       mode: "challenge",
       icon: "⚔️",
       eyebrow: "İLK MAÇIN",
-      title: "8.395 futbolcu, 3.445 kapışma",
+      title: `${PLAYERS.length.toLocaleString("tr-TR")} futbolcu, ${getPlayableTeamPairs().length.toLocaleString("tr-TR")} kapışma`,
       sub: "Tek başına üst üste kaç doğru bilirsin?",
       cta: "Başla 🚀",
       tone: "challenge"
@@ -1464,7 +1464,7 @@ export default function App() {
       return;
     }
 
-    const next = getRandomRound(usedRoundKeys) || { teams: ["Fenerbahçe", "Galatasaray"] };
+    const next = getRandomRound(usedRoundKeys, onlineDifficulty) || { teams: ["Fenerbahçe", "Galatasaray"] };
     const nextPreRoundEndsAt = Date.now() + ROUND_REVEAL_SECONDS * 1000;
     const nextKey = getRoundKey(next);
     const playableCount = getPlayableTeamPairs().length;
@@ -1506,7 +1506,7 @@ export default function App() {
   };
 
   const resetGame = async () => {
-    const firstRound = getRandomRound([]);
+    const firstRound = getRandomRound([], onlineDifficulty) || { teams: ["Fenerbahçe", "Galatasaray"] };
     const nextState = {
       screen: "game", playerNames,
       playersReady: [false, false],
@@ -1693,7 +1693,7 @@ export default function App() {
       wrongAttempts: newWrongAttempts,
       lastAction: { type: "wrong", playerIndex, answer: raw },
       seriesWins, matchHistory,
-      correctRounds: []
+      correctRounds
     };
 
     setWrongAttempts(newWrongAttempts);
@@ -2378,7 +2378,7 @@ export default function App() {
   };
 
   const startRematch = async () => {
-    const next = getRandomRound([]);
+    const next = getRandomRound([], onlineDifficulty) || { teams: ["Fenerbahçe", "Galatasaray"] };
     const nextState = {
       screen: "game",
       playerNames,
