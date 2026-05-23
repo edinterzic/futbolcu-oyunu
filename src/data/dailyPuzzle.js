@@ -1,6 +1,7 @@
 // =================== GÜNLÜK BULMACA ===================
 // Her gün herkes aynı 5 eşleşmeyi oynar. Tarih seed'i ile deterministik.
 // Türkiye saati 00:00'da yeni bulmaca.
+// Rampa: 2 kolay (tier1) -> 2 orta (tier2) -> 1 final (tier3). Her zaman kolaydan zora.
 
 import { ANSWER_INDEX, getPairKey } from "./gameData";
 
@@ -16,10 +17,9 @@ export function getTodayKey() {
   return tr; // "2026-05-18" formatında
 }
 
-// Bugünden bugünden bir sonraki TR gece yarısına kalan süre (ms)
+// Bugünden bir sonraki TR gece yarısına kalan süre (ms)
 export function getMsUntilNextPuzzle() {
   const now = new Date();
-  // TR ofseti +3 saat (yaz/kış değişmez)
   const trOffsetMs = 3 * 60 * 60 * 1000;
   const trNow = now.getTime() + trOffsetMs;
   const trDate = new Date(trNow);
@@ -53,14 +53,13 @@ function mulberry32(seed) {
 }
 
 // Bugünün bulmacasını üret. weightedPairs: App.jsx'teki WEIGHTED_TEAM_PAIRS
-// Difficulty: easy (cevap çok) → hard (cevap az), kolaydan zora sıralanır.
+// difficulty: 1 = kolay (cevap çok), 2 = orta, 3 = final (cevap az)
 export function getDailyPuzzle(weightedPairs) {
   const today = getTodayKey();
   const seed = hashString(today);
   const rng = mulberry32(seed);
 
-  // Pair'leri cevap sayısına göre tier'la
-  // Önce key'e göre deterministik sırala — input sırası tarayıcılar arası tutarlı olsun
+  // Pair'leri cevap sayısına göre zenginleştir + deterministik sırala
   const enriched = weightedPairs
     .map((p) => {
       const key = getPairKey(p.teams[0], p.teams[1]);
@@ -72,13 +71,12 @@ export function getDailyPuzzle(weightedPairs) {
     })
     .sort((a, b) => a.key.localeCompare(b.key));
 
-  // 4 zorluk seviyesi
-  const easy = enriched.filter((p) => p.answerCount >= 15);
-  const medEasy = enriched.filter((p) => p.answerCount >= 8 && p.answerCount < 15);
-  const med = enriched.filter((p) => p.answerCount >= 4 && p.answerCount < 8);
-  const hard = enriched.filter((p) => p.answerCount >= 2 && p.answerCount < 4);
+  // 3 zorluk havuzu (cevap sayısına göre)
+  const tier1 = enriched.filter((p) => p.answerCount >= 12);                       // kolay
+  const tier2 = enriched.filter((p) => p.answerCount >= 5 && p.answerCount < 12);  // orta
+  const tier3 = enriched.filter((p) => p.answerCount >= 2 && p.answerCount < 5);   // final/zor
 
-  // Fisher-Yates shuffle — deterministik (sort() yerine)
+  // Deterministik Fisher-Yates shuffle
   function shuffle(arr) {
     const a = [...arr];
     for (let i = a.length - 1; i > 0; i -= 1) {
@@ -90,7 +88,6 @@ export function getDailyPuzzle(weightedPairs) {
     return a;
   }
 
-  // Seeded random pick (without replacement) — Fisher-Yates ile
   function pickN(pool, n, exclude) {
     const available = pool.filter((p) => !exclude.has(p.key));
     if (available.length === 0) return [];
@@ -100,31 +97,31 @@ export function getDailyPuzzle(weightedPairs) {
   const exclude = new Set();
   const picks = [];
 
-  // 2 easy + 1 medEasy + 1 med + 1 hard
-  const tiers = [
-    [easy, 2],
-    [medEasy, 1],
-    [med, 1],
-    [hard, 1]
+  // Hedef: 2 kolay + 2 orta + 1 final
+  const plan = [
+    [tier1, 2, 1],
+    [tier2, 2, 2],
+    [tier3, 1, 3]
   ];
 
-  for (const [pool, count] of tiers) {
+  for (const [pool, count, difficulty] of plan) {
     const got = pickN(pool, count, exclude);
     got.forEach((g) => {
-      picks.push(g);
+      picks.push({ ...g, difficulty });
       exclude.add(g.key);
     });
   }
 
-  // Eğer 5'e ulaşamadıysak (mesela hard pair yoksa), easy/medEasy'den doldur
-  const allPools = [easy, medEasy, med, hard];
+  // 5'e ulaşamadıysak (örn. yeterli tier3 yoksa) diğer havuzlardan doldur.
+  // Zorluk etiketi hangi havuzdan geldiyse ondan gelir.
+  const fillOrder = [[tier1, 1], [tier2, 2], [tier3, 3]];
   while (picks.length < 5) {
     let added = false;
-    for (const pool of allPools) {
+    for (const [pool, difficulty] of fillOrder) {
       if (picks.length >= 5) break;
       const got = pickN(pool, 1, exclude);
       if (got.length > 0) {
-        picks.push(got[0]);
+        picks.push({ ...got[0], difficulty });
         exclude.add(got[0].key);
         added = true;
       }
@@ -132,15 +129,17 @@ export function getDailyPuzzle(weightedPairs) {
     if (!added) break;
   }
 
+  // Rampa her zaman korunsun: kolaydan zora sırala
+  const ordered = picks.slice(0, 5).sort((a, b) => a.difficulty - b.difficulty);
+
   return {
     date: today,
-    puzzles: picks.slice(0, 5).map((p) => ({ teams: p.teams, key: p.key }))
+    puzzles: ordered.map((p) => ({ teams: p.teams, key: p.key, difficulty: p.difficulty }))
   };
 }
 
 // Streak hesaplaması — localStorage'daki sonuçlardan
 export function calculateStreak(history) {
-  // history: { "2026-05-17": { won: true|false, attempts: [...] }, ... }
   if (!history) return 0;
   const dates = Object.keys(history).sort().reverse();
   if (dates.length === 0) return 0;
@@ -148,7 +147,6 @@ export function calculateStreak(history) {
   let streak = 0;
   let cursor = getTodayKey();
 
-  // Eğer bugün henüz oynanmamışsa, dün'den başla
   if (!history[cursor]) {
     const d = new Date(cursor);
     d.setDate(d.getDate() - 1);
@@ -157,7 +155,6 @@ export function calculateStreak(history) {
 
   while (history[cursor]) {
     const entry = history[cursor];
-    // Sadece bitirilenler streak'e dahil (en az 1 doğru)
     const solved = entry.attempts && entry.attempts.filter((a) => a === "correct").length > 0;
     if (!solved) break;
     streak += 1;

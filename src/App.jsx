@@ -533,6 +533,174 @@ function WrongExplanationCard({ report, onReport }) {
   );
 }
 
+// =================== PAYLAŞIM GÖRSELİ (STORY KARTI) ===================
+// Bağımlılıksız: native canvas ile 9:16 dikey PNG üretir, navigator.share ile
+// görsel paylaşır; desteklenmiyorsa PNG indirir + metni panoya kopyalar.
+function roundRectPath(ctx, x, y, w, h, r) {
+  ctx.beginPath();
+  ctx.moveTo(x + r, y);
+  ctx.arcTo(x + w, y, x + w, y + h, r);
+  ctx.arcTo(x + w, y + h, x, y + h, r);
+  ctx.arcTo(x, y + h, x, y, r);
+  ctx.arcTo(x, y, x + w, y, r);
+  ctx.closePath();
+}
+
+function drawScoreShareCard({ score, best, diffLabel, isNewBest }) {
+  const W = 1080;
+  const H = 1920;
+  const canvas = document.createElement("canvas");
+  canvas.width = W;
+  canvas.height = H;
+  const ctx = canvas.getContext("2d");
+
+  const g = ctx.createLinearGradient(0, 0, W, H);
+  g.addColorStop(0, "#2a0a4a");
+  g.addColorStop(0.55, "#5b1aa0");
+  g.addColorStop(1, "#aa3bff");
+  ctx.fillStyle = g;
+  ctx.fillRect(0, 0, W, H);
+
+  ctx.textAlign = "center";
+
+  ctx.fillStyle = "rgba(255,255,255,0.95)";
+  ctx.font = "700 68px system-ui, 'Segoe UI', Roboto, sans-serif";
+  ctx.fillText("⚽ PairFC", W / 2, 240);
+
+  ctx.font = "600 38px system-ui, 'Segoe UI', Roboto, sans-serif";
+  ctx.fillStyle = "rgba(255,255,255,0.65)";
+  ctx.fillText("CHALLENGE", W / 2, 308);
+
+  if (isNewBest) {
+    ctx.font = "700 56px system-ui, 'Segoe UI', Roboto, sans-serif";
+    ctx.fillStyle = "#ffd84d";
+    ctx.fillText("🏆 YENİ REKOR", W / 2, 560);
+  }
+
+  ctx.fillStyle = "#ffffff";
+  ctx.font = "800 360px system-ui, 'Segoe UI', Roboto, sans-serif";
+  ctx.fillText(String(score), W / 2, 1060);
+
+  ctx.font = "600 58px system-ui, 'Segoe UI', Roboto, sans-serif";
+  ctx.fillStyle = "rgba(255,255,255,0.95)";
+  ctx.fillText("doğru üst üste", W / 2, 1165);
+
+  ctx.font = "500 44px system-ui, 'Segoe UI', Roboto, sans-serif";
+  ctx.fillStyle = "rgba(255,255,255,0.8)";
+  ctx.fillText(`Zorluk: ${diffLabel}   ·   En iyi: ${best}`, W / 2, 1290);
+
+  ctx.fillStyle = "rgba(255,255,255,0.12)";
+  roundRectPath(ctx, 120, 1560, W - 240, 190, 44);
+  ctx.fill();
+  ctx.fillStyle = "#ffffff";
+  ctx.font = "700 54px system-ui, 'Segoe UI', Roboto, sans-serif";
+  ctx.fillText("Beni geçebilir misin?", W / 2, 1645);
+  ctx.font = "700 46px system-ui, 'Segoe UI', Roboto, sans-serif";
+  ctx.fillStyle = "#ffd84d";
+  ctx.fillText("pairfc.com", W / 2, 1712);
+
+  return canvas;
+}
+
+async function shareScoreImage({ score, best, diffLabel, isNewBest }) {
+  const text = `🔥 PairFC Challenge: ${score} doğru üst üste! (Zorluk: ${diffLabel})
+Beni geçebilir misin? → pairfc.com`;
+
+  let blob = null;
+  try {
+    const canvas = drawScoreShareCard({ score, best, diffLabel, isNewBest });
+    blob = await new Promise((resolve) => canvas.toBlob(resolve, "image/png"));
+  } catch (e) {
+    blob = null;
+  }
+
+  try { track("challenge_shared", { score, has_image: !!blob }); } catch (e) {}
+
+  if (blob && typeof navigator !== "undefined" && navigator.canShare) {
+    const file = new File([blob], "pairfc-skor.png", { type: "image/png" });
+    if (navigator.canShare({ files: [file] })) {
+      try {
+        await navigator.share({ files: [file], text });
+        return;
+      } catch (e) {
+        if (e && e.name === "AbortError") return;
+      }
+    }
+  }
+
+  if (blob) {
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "pairfc-skor.png";
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
+  }
+  try { await navigator.clipboard?.writeText(text); } catch (e) {}
+}
+
+function drawDailyShareCard({ dayNum, correctCount, total, results, streak }) {
+  const W = 1080;
+  const H = 1920;
+  const canvas = document.createElement("canvas");
+  canvas.width = W;
+  canvas.height = H;
+  const ctx = canvas.getContext("2d");
+
+  const g = ctx.createLinearGradient(0, 0, W, H);
+  g.addColorStop(0, "#0a2a4a");
+  g.addColorStop(0.55, "#1a5ba0");
+  g.addColorStop(1, "#3bb0ff");
+  ctx.fillStyle = g;
+  ctx.fillRect(0, 0, W, H);
+
+  ctx.textAlign = "center";
+  ctx.fillStyle = "rgba(255,255,255,0.95)";
+  ctx.font = "700 68px system-ui, 'Segoe UI', Roboto, sans-serif";
+  ctx.fillText("⚽ PairFC", W / 2, 240);
+
+  ctx.font = "600 40px system-ui, 'Segoe UI', Roboto, sans-serif";
+  ctx.fillStyle = "rgba(255,255,255,0.7)";
+  ctx.fillText(`GÜNLÜK #${dayNum}`, W / 2, 312);
+
+  ctx.fillStyle = "#ffffff";
+  ctx.font = "800 300px system-ui, 'Segoe UI', Roboto, sans-serif";
+  ctx.fillText(`${correctCount}/${total}`, W / 2, 760);
+
+  const n = results.length || total;
+  const sq = 130;
+  const gap = 28;
+  const totalW = n * sq + (n - 1) * gap;
+  let x = (W - totalW) / 2;
+  const y = 940;
+  for (let i = 0; i < n; i += 1) {
+    ctx.fillStyle = results[i] === "correct" ? "#2ecc71" : "#e74c3c";
+    roundRectPath(ctx, x, y, sq, sq, 24);
+    ctx.fill();
+    x += sq + gap;
+  }
+
+  if (streak > 1) {
+    ctx.font = "700 56px system-ui, 'Segoe UI', Roboto, sans-serif";
+    ctx.fillStyle = "#ffd84d";
+    ctx.fillText(`🔥 ${streak} gün üst üste`, W / 2, 1300);
+  }
+
+  ctx.fillStyle = "rgba(255,255,255,0.12)";
+  roundRectPath(ctx, 120, 1560, W - 240, 190, 44);
+  ctx.fill();
+  ctx.fillStyle = "#ffffff";
+  ctx.font = "700 52px system-ui, 'Segoe UI', Roboto, sans-serif";
+  ctx.fillText("Sen kaç bildin?", W / 2, 1645);
+  ctx.font = "700 46px system-ui, 'Segoe UI', Roboto, sans-serif";
+  ctx.fillStyle = "#ffd84d";
+  ctx.fillText("pairfc.com", W / 2, 1712);
+
+  return canvas;
+}
+
 function ChallengeGameOver({
   score, best, isNewBest, lastWrongAnswer, correctPlayers,
   teamA, teamB, wrongReport, reportStatus,
@@ -596,7 +764,7 @@ function ChallengeGameOver({
       {/* Paylaş */}
       {score >= 1 && (
         <button type="button" onClick={onShare} className="light-button big share-score-btn">
-          📤 Skoru Paylaş
+          📤 Story'de Paylaş
         </button>
       )}
 
@@ -2040,21 +2208,53 @@ export default function App() {
   const shareDailyResult = async () => {
     const text = buildDailyShareText();
     if (!text) return;
+
+    let blob = null;
     try {
+      const correctCount = dailyResults.filter((r) => r === "correct").length;
+      const total = dailyData.puzzles.length;
+      const epoch = new Date("2026-01-01T00:00:00Z").getTime();
+      const dayNum = Math.floor((new Date(dailyData.date).getTime() - epoch) / 86400000) + 1;
+      const canvas = drawDailyShareCard({ dayNum, correctCount, total, results: dailyResults, streak: dailyStreak });
+      blob = await new Promise((resolve) => canvas.toBlob(resolve, "image/png"));
+    } catch (e) {
+      blob = null;
+    }
+
+    try {
+      if (blob && navigator.canShare) {
+        const file = new File([blob], "pairfc-gunluk.png", { type: "image/png" });
+        if (navigator.canShare({ files: [file] })) {
+          await navigator.share({ files: [file], text });
+          setDailyShareStatus({ type: "success", text: "Paylaşıldı!" });
+          track("daily_shared", { method: "native_image" });
+          setTimeout(() => setDailyShareStatus(null), 2500);
+          return;
+        }
+      }
       if (navigator.share) {
         await navigator.share({ title: "PairFC", text });
         setDailyShareStatus({ type: "success", text: "Paylaşıldı!" });
         track("daily_shared", { method: "native" });
       } else if (navigator.clipboard) {
         await navigator.clipboard.writeText(text);
-        setDailyShareStatus({ type: "success", text: "📋 Panoya kopyalandı!" });
+        if (blob) {
+          const url = URL.createObjectURL(blob);
+          const a = document.createElement("a");
+          a.href = url;
+          a.download = "pairfc-gunluk.png";
+          document.body.appendChild(a);
+          a.click();
+          a.remove();
+          setTimeout(() => URL.revokeObjectURL(url), 1000);
+        }
+        setDailyShareStatus({ type: "success", text: "📋 Kopyalandı + görsel indirildi!" });
         track("daily_shared", { method: "clipboard" });
       } else {
         setDailyShareStatus({ type: "info", text: "Paylaşım desteklenmiyor." });
         track("daily_shared", { method: "unsupported" });
       }
     } catch (e) {
-      // Kullanıcı share dialogunu iptal etti — sessizce yut
       if (e.name !== "AbortError") {
         setDailyShareStatus({ type: "error", text: "Paylaşılamadı." });
         track("daily_shared", { method: "failed" });
@@ -3014,12 +3214,12 @@ export default function App() {
                       difficulty={challengeDifficulty}
                       onShare={() => {
                         const diffLabel = challengeDifficulty === "easy" ? "Kolay" : challengeDifficulty === "hard" ? "Zor" : "Orta";
-                        const text = `🔥 PairFC Challenge\n${challengeLastScore ?? 0} doğru üst üste!\nZorluk: ${diffLabel} 💪\n\nSen de dene → pairfc.com`;
-                        if (navigator.share) {
-                          navigator.share({ text }).catch(() => {});
-                        } else {
-                          navigator.clipboard?.writeText(text).then(() => alert("Panoya kopyalandı!")).catch(() => {});
-                        }
+                        shareScoreImage({
+                          score: challengeLastScore ?? 0,
+                          best: challengeBest,
+                          diffLabel,
+                          isNewBest: (challengeLastScore ?? 0) >= challengeBest && (challengeLastScore ?? 0) > 0
+                        });
                       }}
                     />
                   ) : (
@@ -3036,6 +3236,11 @@ export default function App() {
                           <div className="autocomplete-wrap">
                             <input
                               value={challengeInput}
+                              autoComplete="off"
+                              autoCorrect="off"
+                              autoCapitalize="off"
+                              spellCheck={false}
+                              enterKeyHint="search"
                               disabled={!challengeCanAnswer}
                               onFocus={() => {
                                 if (challengeCanAnswer && challengeInput) setChallengeFocused(true);
@@ -3100,6 +3305,13 @@ export default function App() {
                     <strong>{dailyIndex + 1} / {dailyData.puzzles.length}</strong>
                   </div>
                 )}
+                {!dailyDone && dailyData && dailyData.puzzles[dailyIndex] && (
+                  <div className="info-chip">
+                    <span>
+                      {["", "⭐ Isınma", "⭐⭐ Kızışıyor", "⭐⭐⭐ Final"][dailyData.puzzles[dailyIndex].difficulty] || "⭐"}
+                    </span>
+                  </div>
+                )}
                 {dailyStreak > 0 && (
                   <div className="info-chip">
                     <span>🔥 Streak</span>
@@ -3152,6 +3364,11 @@ export default function App() {
                         <div className="autocomplete-wrap">
                           <input
                             value={dailyInput}
+                            autoComplete="off"
+                            autoCorrect="off"
+                            autoCapitalize="off"
+                            spellCheck={false}
+                            enterKeyHint="search"
                             onFocus={() => { if (dailyInput) setDailyFocused(true); }}
                             onBlur={() => setTimeout(() => setDailyFocused(false), 120)}
                             onChange={(event) => updateDailyInput(event.target.value)}
@@ -3438,6 +3655,11 @@ export default function App() {
                       <div className="autocomplete-wrap">
                         <input
                           value={answerInput}
+                          autoComplete="off"
+                          autoCorrect="off"
+                          autoCapitalize="off"
+                          spellCheck={false}
+                          enterKeyHint="search"
                           disabled={!canAnswer}
                           onFocus={() => {
                             if (canAnswer && answerInput) setFocusedInput(true);
