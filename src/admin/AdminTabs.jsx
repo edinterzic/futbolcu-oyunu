@@ -401,15 +401,25 @@ function useConfirm() {
 
 function TeamBadge({ team, size = 26 }) {
   if (!team) return null;
+  const c1 = team.primary || "#10b981";
+  const c2 = team.secondary || "#ffffff";
+  const abbr = team.initials || team.name.slice(0, 3).toUpperCase();
   return (
-    <span className="admin-team-badge" style={{
-      width: size, height: size,
-      background: team.primary || "#10b981",
-      color: getContrastColor(team.primary || "#10b981"),
-      borderColor: team.secondary || "#ffffff",
-      fontSize: Math.round(size * 0.36)
-    }} title={team.name}>
-      {team.initials || team.name.slice(0, 2).toUpperCase()}
+    <span
+      title={team.name}
+      style={{
+        width: size, height: size, display: "inline-flex", flexDirection: "column",
+        borderRadius: Math.max(4, Math.round(size * 0.22)), overflow: "hidden",
+        flexShrink: 0, background: c1, verticalAlign: "middle",
+        boxShadow: "0 1px 4px rgba(0,0,0,0.25), 0 0 0 1px rgba(255,255,255,0.10) inset"
+      }}
+    >
+      <span style={{ height: "26%", width: "100%", background: c2, flexShrink: 0 }} />
+      <span style={{
+        flex: 1, display: "flex", alignItems: "center", justifyContent: "center",
+        color: getContrastColor(c1), fontWeight: 800, lineHeight: 1,
+        fontSize: Math.max(7, Math.round(size * 0.34)), letterSpacing: "-0.02em"
+      }}>{abbr}</span>
     </span>
   );
 }

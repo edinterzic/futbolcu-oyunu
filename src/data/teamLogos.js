@@ -1,31 +1,31 @@
-// Auto-generated from admin panel
-// Generated: 2026-05-24T12:39:50.297Z
+// Auto-generated — PairFC kulüp renk/kısaltma kaynağı (arma/logo YOK)
+// Generated: 2026-05-24T18:09:07.156451Z
 
 export const TEAM_LOGOS = {
   "Inter": {
     "initials": "INT",
-    "primary": "#0068A8",
-    "secondary": "#000000"
+    "primary": "#0B1560",
+    "secondary": "#111418"
   },
   "Juventus": {
     "initials": "JUV",
-    "primary": "#000000",
+    "primary": "#111418",
     "secondary": "#FFFFFF"
   },
   "Sporting CP": {
-    "initials": "SPC",
-    "primary": "#016630",
+    "initials": "SPO",
+    "primary": "#0A8057",
     "secondary": "#FFFFFF"
   },
   "Benfica": {
     "initials": "BEN",
-    "primary": "#E20613",
+    "primary": "#E30613",
     "secondary": "#FFFFFF"
   },
   "Genoa": {
-    "initials": "GEN2",
-    "primary": "#E30613",
-    "secondary": "#1E3A8A"
+    "initials": "GEN",
+    "primary": "#C8102E",
+    "secondary": "#002B5C"
   },
   "Fiorentina": {
     "initials": "FIO",
@@ -33,19 +33,19 @@ export const TEAM_LOGOS = {
     "secondary": "#FFFFFF"
   },
   "Real Madrid": {
-    "initials": "RM",
+    "initials": "RMA",
     "primary": "#FFFFFF",
-    "secondary": "#FEBE10"
+    "secondary": "#00529F"
   },
   "Torino": {
     "initials": "TOR",
-    "primary": "#8B0000",
+    "primary": "#7A1F2B",
     "secondary": "#FFFFFF"
   },
   "Parma": {
     "initials": "PAR",
-    "primary": "#FFCD00",
-    "secondary": "#0033A0"
+    "primary": "#F2C500",
+    "secondary": "#1E3A8A"
   },
   "Villarreal": {
     "initials": "VIL",
@@ -54,8 +54,8 @@ export const TEAM_LOGOS = {
   },
   "Valencia": {
     "initials": "VAL",
-    "primary": "#EE3524",
-    "secondary": "#FFFFFF"
+    "primary": "#FFFFFF",
+    "secondary": "#EE3524"
   },
   "Chelsea": {
     "initials": "CHE",
@@ -63,39 +63,39 @@ export const TEAM_LOGOS = {
     "secondary": "#FFFFFF"
   },
   "Barcelona": {
-    "initials": "FCB",
-    "primary": "#A50044",
-    "secondary": "#004D98"
+    "initials": "BAR",
+    "primary": "#004D98",
+    "secondary": "#A50044"
   },
   "FC Porto": {
     "initials": "POR",
-    "primary": "#003F87",
+    "primary": "#004CA8",
     "secondary": "#FFFFFF"
   },
   "AC Milan": {
     "initials": "MIL",
     "primary": "#FB090B",
-    "secondary": "#000000"
+    "secondary": "#111418"
   },
   "Bologna": {
     "initials": "BOL",
-    "primary": "#FF0000",
-    "secondary": "#003399"
+    "primary": "#A21C26",
+    "secondary": "#1B2F5C"
   },
   "Como": {
     "initials": "COM",
-    "primary": "#1F4FA3",
+    "primary": "#0B4DA2",
     "secondary": "#FFFFFF"
   },
   "Manchester City": {
     "initials": "MCI",
     "primary": "#6CABDD",
-    "secondary": "#1C2C5B"
+    "secondary": "#FFFFFF"
   },
   "Espanyol": {
     "initials": "ESP",
-    "primary": "#007FC4",
-    "secondary": "#E30613"
+    "primary": "#007FC8",
+    "secondary": "#FFFFFF"
   },
   "Arsenal": {
     "initials": "ARS",
@@ -103,9 +103,9 @@ export const TEAM_LOGOS = {
     "secondary": "#FFFFFF"
   },
   "RCD Mallorca": {
-    "initials": "MAL",
+    "initials": "MLL",
     "primary": "#E30613",
-    "secondary": "#FFE600"
+    "secondary": "#111418"
   },
   "West Ham": {
     "initials": "WHU",
@@ -114,68 +114,68 @@ export const TEAM_LOGOS = {
   },
   "Getafe": {
     "initials": "GET",
-    "primary": "#0066B3",
+    "primary": "#005999",
     "secondary": "#FFFFFF"
   },
   "Udinese": {
     "initials": "UDI",
-    "primary": "#000000",
+    "primary": "#111418",
     "secondary": "#FFFFFF"
   },
   "Lazio": {
     "initials": "LAZ",
-    "primary": "#87CEEB",
-    "secondary": "#FFFFFF"
+    "primary": "#87D8F7",
+    "secondary": "#0A2A52"
   },
   "Galatasaray": {
     "initials": "GS",
-    "primary": "#FFA500",
-    "secondary": "#A90432"
+    "primary": "#E00031",
+    "secondary": "#FDB913"
   },
   "Alaves": {
     "initials": "ALV",
-    "primary": "#1F4FA3",
+    "primary": "#0761AF",
     "secondary": "#FFFFFF"
   },
   "Atletico Madrid": {
     "initials": "ATM",
     "primary": "#CB3524",
-    "secondary": "#272E61"
+    "secondary": "#1C3050"
   },
   "Manchester United": {
     "initials": "MUN",
     "primary": "#DA020E",
-    "secondary": "#FFE500"
+    "secondary": "#FBE122"
   },
   "Celta Vigo": {
     "initials": "CEL",
-    "primary": "#8AB8E8",
-    "secondary": "#E30613"
+    "primary": "#8AC3EE",
+    "secondary": "#E5231B"
   },
   "Napoli": {
     "initials": "NAP",
     "primary": "#12A0D7",
-    "secondary": "#003C82"
+    "secondary": "#FFFFFF"
   },
   "Beşiktaş": {
     "initials": "BJK",
-    "primary": "#000000",
+    "primary": "#111418",
     "secondary": "#FFFFFF"
   },
   "Lecce": {
     "initials": "LEC",
-    "primary": "#FFCD00",
-    "secondary": "#E30613"
+    "primary": "#F2C500",
+    "secondary": "#C8102E"
   },
   "Fenerbahçe": {
     "initials": "FB",
-    "primary": "#FFED00",
-    "secondary": "#1B3F8B"
+    "primary": "#0A3C7D",
+    "secondary": "#FFED00"
   },
   "Fulham": {
     "initials": "FUL",
-    "primary": "#000000",
-    "secondary": "#FFFFFF"
+    "primary": "#FFFFFF",
+    "secondary": "#111418"
   },
   "AS Roma": {
     "initials": "ROM",
@@ -184,97 +184,97 @@ export const TEAM_LOGOS = {
   },
   "Sunderland": {
     "initials": "SUN",
-    "primary": "#E30613",
+    "primary": "#C8102E",
     "secondary": "#FFFFFF"
   },
   "Leeds United": {
     "initials": "LEE",
-    "primary": "#FFCD00",
+    "primary": "#FFFFFF",
     "secondary": "#1D428A"
   },
   "Elche": {
     "initials": "ELC",
-    "primary": "#04AA48",
+    "primary": "#0A8A3F",
     "secondary": "#FFFFFF"
   },
   "Ajax": {
-    "initials": "AJX",
-    "primary": "#D2122E",
-    "secondary": "#FFFFFF"
+    "initials": "AJA",
+    "primary": "#FFFFFF",
+    "secondary": "#D2122E"
   },
   "Levante": {
-    "initials": "LEV",
-    "primary": "#015FB0",
-    "secondary": "#A70427"
+    "initials": "LVT",
+    "primary": "#004B9B",
+    "secondary": "#9A1C36"
   },
   "Cremonese": {
     "initials": "CRE",
-    "primary": "#A50044",
-    "secondary": "#FFFFFF"
+    "primary": "#A6192E",
+    "secondary": "#6B7280"
   },
   "Liverpool": {
     "initials": "LIV",
     "primary": "#C8102E",
-    "secondary": "#00B2A9"
+    "secondary": "#FFFFFF"
   },
   "Cagliari": {
     "initials": "CAG",
-    "primary": "#D91A21",
-    "secondary": "#0033A0"
+    "primary": "#9A1C36",
+    "secondary": "#0B2C68"
   },
   "Aston Villa": {
     "initials": "AVL",
     "primary": "#670E36",
-    "secondary": "#94BFE9"
+    "secondary": "#95BFE5"
   },
   "Gaziantep FK": {
     "initials": "GFK",
-    "primary": "#7F1F2F",
-    "secondary": "#0F172A"
+    "primary": "#C8102E",
+    "secondary": "#111418"
   },
   "Sassuolo": {
     "initials": "SAS",
-    "primary": "#16A34A",
-    "secondary": "#000000"
+    "primary": "#00A752",
+    "secondary": "#111418"
   },
   "Gençlerbirliği": {
-    "initials": "GEN",
-    "primary": "#E30613",
-    "secondary": "#000000"
+    "initials": "GB",
+    "primary": "#C8102E",
+    "secondary": "#111418"
   },
   "Tottenham": {
     "initials": "TOT",
-    "primary": "#132257",
-    "secondary": "#FFFFFF"
+    "primary": "#FFFFFF",
+    "secondary": "#132257"
   },
   "Monaco": {
     "initials": "MON",
-    "primary": "#E30613",
+    "primary": "#E51B22",
     "secondary": "#FFFFFF"
   },
   "Rayo Vallecano": {
     "initials": "RAY",
     "primary": "#FFFFFF",
-    "secondary": "#E30613"
+    "secondary": "#E2231A"
   },
   "Trabzonspor": {
     "initials": "TS",
-    "primary": "#7F1F2F",
-    "secondary": "#722F37"
+    "primary": "#7A1C2E",
+    "secondary": "#4FA8DD"
   },
   "Wolves": {
     "initials": "WOL",
     "primary": "#FDB913",
-    "secondary": "#231F20"
+    "secondary": "#111418"
   },
   "Antalyaspor": {
     "initials": "ANT",
-    "primary": "#E30613",
+    "primary": "#E2001A",
     "secondary": "#FFFFFF"
   },
   "PSG": {
     "initials": "PSG",
-    "primary": "#004170",
+    "primary": "#04143C",
     "secondary": "#DA291C"
   },
   "Marsilya": {
@@ -284,7 +284,7 @@ export const TEAM_LOGOS = {
   },
   "Newcastle": {
     "initials": "NEW",
-    "primary": "#241F20",
+    "primary": "#111418",
     "secondary": "#FFFFFF"
   },
   "Everton": {
@@ -293,99 +293,99 @@ export const TEAM_LOGOS = {
     "secondary": "#FFFFFF"
   },
   "Rizespor": {
-    "initials": "RZS",
-    "primary": "#1E40AF",
-    "secondary": "#16A34A"
+    "initials": "RİZ",
+    "primary": "#0A6B3B",
+    "secondary": "#00A1E0"
   },
   "Burnley": {
     "initials": "BUR",
     "primary": "#6C1D45",
-    "secondary": "#99D6EA"
+    "secondary": "#8FC6E8"
   },
   "Kayserispor": {
     "initials": "KAY",
-    "primary": "#7F1F2F",
-    "secondary": "#FBBF24"
+    "primary": "#C8102E",
+    "secondary": "#FFD200"
   },
   "Girona": {
     "initials": "GIR",
-    "primary": "#E30613",
+    "primary": "#C8102E",
     "secondary": "#FFFFFF"
   },
   "Oviedo": {
     "initials": "OVI",
-    "primary": "#0033A0",
+    "primary": "#0A4DA2",
     "secondary": "#FFFFFF"
   },
   "Crystal Palace": {
     "initials": "CRY",
     "primary": "#1B458F",
-    "secondary": "#C4122E"
+    "secondary": "#C8102E"
   },
   "Brighton": {
-    "initials": "BRI",
-    "primary": "#0057B8",
+    "initials": "BHA",
+    "primary": "#005DAA",
     "secondary": "#FFFFFF"
   },
   "Göztepe": {
     "initials": "GÖZ",
-    "primary": "#FBBF24",
-    "secondary": "#7C2D12"
+    "primary": "#C8102E",
+    "secondary": "#FFD200"
   },
   "Karagümrük": {
-    "initials": "KGM",
-    "primary": "#E30613",
-    "secondary": "#000000"
+    "initials": "KAR",
+    "primary": "#C8102E",
+    "secondary": "#111418"
   },
   "Sivasspor": {
-    "initials": "SVS",
-    "primary": "#E30613",
+    "initials": "SİV",
+    "primary": "#B7121F",
     "secondary": "#FFFFFF"
   },
   "Kasımpaşa": {
     "initials": "KAS",
-    "primary": "#1E3A8A",
+    "primary": "#003DA5",
     "secondary": "#FFFFFF"
   },
   "Konyaspor": {
     "initials": "KON",
-    "primary": "#016630",
+    "primary": "#0A6B3B",
     "secondary": "#FFFFFF"
   },
   "Samsunspor": {
     "initials": "SAM",
-    "primary": "#E30613",
+    "primary": "#C8102E",
     "secondary": "#FFFFFF"
   },
   "Feyenoord": {
     "initials": "FEY",
-    "primary": "#CC0000",
+    "primary": "#C8102E",
     "secondary": "#FFFFFF"
   },
   "Braga": {
     "initials": "BRA",
-    "primary": "#A50044",
+    "primary": "#C8102E",
     "secondary": "#FFFFFF"
   },
   "Osasuna": {
     "initials": "OSA",
-    "primary": "#D91A21",
-    "secondary": "#000C5C"
+    "primary": "#C8102E",
+    "secondary": "#0A2240"
   },
   "Brentford": {
     "initials": "BRE",
-    "primary": "#E30613",
+    "primary": "#E1131D",
     "secondary": "#FFFFFF"
   },
   "LOSC Lille": {
     "initials": "LIL",
-    "primary": "#E30613",
-    "secondary": "#1E3A8A"
+    "primary": "#E01E13",
+    "secondary": "#0B2240"
   },
   "Bournemouth": {
     "initials": "BOU",
-    "primary": "#DA020E",
-    "secondary": "#000000"
+    "primary": "#C8102E",
+    "secondary": "#111418"
   },
   "Real Sociedad": {
     "initials": "RSO",
@@ -393,49 +393,49 @@ export const TEAM_LOGOS = {
     "secondary": "#FFFFFF"
   },
   "Eyüpspor": {
-    "initials": "EYÜ",
-    "primary": "#581C87",
-    "secondary": "#FBBF24"
+    "initials": "EYP",
+    "primary": "#5B2A86",
+    "secondary": "#FFD200"
   },
   "Borussia Dortmund": {
     "initials": "BVB",
     "primary": "#FDE100",
-    "secondary": "#000000"
+    "secondary": "#111418"
   },
   "Kocaelispor": {
     "initials": "KOC",
-    "primary": "#16A34A",
-    "secondary": "#FFFFFF"
+    "primary": "#0A6B3B",
+    "secondary": "#111418"
   },
   "Atalanta": {
     "initials": "ATA",
-    "primary": "#1E3A8A",
-    "secondary": "#000000"
+    "primary": "#1D6FB8",
+    "secondary": "#111418"
   },
   "Leverkusen": {
-    "initials": "B04",
-    "primary": "#E32221",
-    "secondary": "#000000"
+    "initials": "LEV",
+    "primary": "#E32219",
+    "secondary": "#111418"
   },
   "Alanyaspor": {
     "initials": "ALA",
-    "primary": "#E30613",
-    "secondary": "#FFFFFF"
+    "primary": "#E5510E",
+    "secondary": "#0A9C49"
   },
   "E. Frankfurt": {
     "initials": "SGE",
-    "primary": "#000000",
-    "secondary": "#E30613"
+    "primary": "#111418",
+    "secondary": "#E1000F"
   },
   "Lens": {
     "initials": "LEN",
-    "primary": "#FFE600",
-    "secondary": "#E30613"
+    "primary": "#FFE500",
+    "secondary": "#E2231A"
   },
   "Başakşehir": {
-    "initials": "İBFK",
-    "primary": "#FF6B00",
-    "secondary": "#1E3A8A"
+    "initials": "BAŞ",
+    "primary": "#14315B",
+    "secondary": "#E2671A"
   },
   "Athletic Bilbao": {
     "initials": "ATH",
@@ -443,24 +443,24 @@ export const TEAM_LOGOS = {
     "secondary": "#FFFFFF"
   },
   "Club Brugge": {
-    "initials": "CBR",
-    "primary": "#0F4FA0",
-    "secondary": "#000000"
+    "initials": "BRU",
+    "primary": "#0A4DA2",
+    "secondary": "#111418"
   },
   "Bayern Munich": {
-    "initials": "FCB2",
+    "initials": "BAY",
     "primary": "#DC052D",
     "secondary": "#FFFFFF"
   },
   "Betis": {
     "initials": "BET",
-    "primary": "#0BB363",
+    "primary": "#00954C",
     "secondary": "#FFFFFF"
   },
   "Pisa": {
     "initials": "PIS",
-    "primary": "#1E3A8A",
-    "secondary": "#FFFFFF"
+    "primary": "#0A2C5C",
+    "secondary": "#111418"
   },
   "PSV": {
     "initials": "PSV",
@@ -469,22 +469,22 @@ export const TEAM_LOGOS = {
   },
   "Rennes": {
     "initials": "REN",
-    "primary": "#E30613",
-    "secondary": "#000000"
+    "primary": "#E1000F",
+    "secondary": "#111418"
   },
   "Nottingham": {
     "initials": "NFO",
-    "primary": "#DD0000",
+    "primary": "#E1000F",
     "secondary": "#FFFFFF"
   },
   "Sevilla": {
     "initials": "SEV",
-    "primary": "#D31920",
-    "secondary": "#FFFFFF"
+    "primary": "#FFFFFF",
+    "secondary": "#D81920"
   },
   "Qarabag FK": {
     "initials": "QAR",
-    "primary": "#000000",
-    "secondary": "#FFFFFF"
+    "primary": "#0A4DA2",
+    "secondary": "#111418"
   }
 };
