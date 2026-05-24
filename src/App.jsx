@@ -655,7 +655,7 @@ function drawScoreShareCard({ score, best, diffLabel, isNewBest, matchups = [] }
   ctx.fillText(String(score), W / 2, 770);
   ctx.font = "600 60px system-ui, 'Segoe UI', Roboto, sans-serif";
   ctx.fillStyle = "rgba(255,255,255,0.95)";
-  ctx.fillText("eşleşme üst üste", W / 2, 864);
+  ctx.fillText("köprü üst üste", W / 2, 864);
   ctx.font = "500 40px system-ui, 'Segoe UI', Roboto, sans-serif";
   ctx.fillStyle = "rgba(255,255,255,0.75)";
   ctx.fillText(`Zorluk: ${diffLabel}   ·   En iyi: ${best}`, W / 2, 944);
@@ -686,7 +686,7 @@ function drawScoreShareCard({ score, best, diffLabel, isNewBest, matchups = [] }
 }
 
 async function shareScoreImage({ score, best, diffLabel, isNewBest, matchups = [] }) {
-  const text = `🔥 PairFC Challenge: ${score} eşleşme üst üste! (Zorluk: ${diffLabel})
+  const text = `🔥 PairFC Maraton: ${score} köprü üst üste! (Zorluk: ${diffLabel})
 Beni geçebilir misin? → pairfc.com`;
 
   let blob = null;
@@ -800,7 +800,7 @@ function OnboardingOverlay({ onClose }) {
         <div style={{ display: "flex", gap: 8, justifyContent: "center", flexWrap: "wrap", fontSize: 12.5, color: "rgba(255,255,255,0.6)", marginBottom: 20 }}>
           <span>📅 Günlük: herkes aynı 5 soru</span>
           <span>·</span>
-          <span>⚔️ Challenge: üst üste kaç?</span>
+          <span>⚔️ Maraton: kaç köprü üst üste?</span>
         </div>
         <button
           type="button"
@@ -951,7 +951,7 @@ function ChallengeGameOver({
         onClick={onRestart}
         className="primary-button big gameover-restart"
       >
-        🔁 Yeni Challenge
+        🔁 Yeni Maraton
       </button>
     </div>
   );
@@ -1326,7 +1326,7 @@ export default function App() {
         done: true,
         attempts,
         eyebrow: "BUGÜN TAMAMLANDI ✓",
-        title: `${correctCount}/${total} doğru`,
+        title: correctCount === total ? "Kusursuz gün ✨" : `${correctCount}/${total} doğru`,
         sub: dailyCountdown ? `Yarınki bulmacaya ${dailyCountdown}` : "Yarın yeni 5 eşleşme",
         cta: "Sonucu Gör"
       };
@@ -1420,10 +1420,10 @@ export default function App() {
       if (challengeScore > 0 && challengeScore % 3 === 0) {
         playGameSound("combo");
         let tier, label;
-        if (challengeScore >= 12) { tier = "legendary"; label = `💎 LEGENDARY x${challengeScore}`; }
-        else if (challengeScore >= 9) { tier = "fire"; label = `🔥🔥 ON FIRE x${challengeScore}`; }
-        else if (challengeScore >= 6) { tier = "orange"; label = `🔥🔥 STREAK x${challengeScore}`; }
-        else { tier = "blue"; label = `🔥 STREAK x${challengeScore}`; }
+        if (challengeScore >= 12) { tier = "legendary"; label = `💎 Efsane x${challengeScore}`; }
+        else if (challengeScore >= 9) { tier = "fire"; label = `🔥🔥 Alev x${challengeScore}`; }
+        else if (challengeScore >= 6) { tier = "orange"; label = `🔥🔥 Seri x${challengeScore}`; }
+        else { tier = "blue"; label = `🔥 Seri x${challengeScore}`; }
         setComboBurst({ tier, label, key: Date.now() });
       } else {
         playGameSound("ownGoal");
@@ -2210,7 +2210,7 @@ export default function App() {
     setChallengeUsedRoundKeys([getRoundKey(firstRound)]);
     setChallengeInput("");
     setChallengeFocused(false);
-    setChallengeMessage({ type: "info", text: "Challenge başladı. 3 saniye sonra takımlar gelecek." });
+    setChallengeMessage({ type: "info", text: "Maraton başladı. 3 saniye sonra takımlar gelecek." });
     setChallengeRoundLocked(false);
     setChallengeShowAnswers(false);
     setChallengeRoundEndsAt(null);
@@ -2355,7 +2355,7 @@ export default function App() {
 
   const skipDailyPuzzle = () => {
     setDailyShowAnswers(true);
-    setDailyMessage({ type: "info", text: "Atlandı." });
+    setDailyMessage({ type: "info", text: "Pas geçildi." });
     setTimeout(() => advanceDailyToNext("failed"), 1200);
   };
 
@@ -2726,7 +2726,7 @@ export default function App() {
     }
 
     if (challengeRoundLocked) {
-      setChallengeMessage({ type: "info", text: "Challenge bitti. Yeni challenge başlatabilirsin." });
+      setChallengeMessage({ type: "info", text: "Maraton bitti. Yeni maraton başlatabilirsin." });
       return;
     }
 
@@ -2747,8 +2747,8 @@ export default function App() {
       const playerFreq = matchedName ? (PLAYER_PAIR_FREQ.get(normalizeText(matchedName)) || 0) : 99;
       const answeredFast = challengeTimeLeft >= ROUND_SECONDS - 4;
       let bonus = null;
-      if (playerFreq > 0 && playerFreq <= 2) bonus = { tier: "legendary", label: "💎 Nadir cevap!" };
-      else if (answerCount > 0 && answerCount <= 3) bonus = { tier: "orange", label: "🧠 Zor eşleşme!" };
+      if (playerFreq > 0 && playerFreq <= 2) bonus = { tier: "legendary", label: "💎 Nadir köprü!" };
+      else if (answerCount > 0 && answerCount <= 3) bonus = { tier: "orange", label: "🧠 Zor köprü!" };
       else if (answeredFast) bonus = { tier: "blue", label: "⚡ Şimşek gibi!" };
 
       const result = getNextChallengeRound(challengeUsedRoundKeys, challengeEffectiveDifficulty || challengeDifficulty);
@@ -3012,7 +3012,7 @@ export default function App() {
                     ← Geri
                   </button>
                   <div className="online-setup-title">
-                    <h2>🌍 Arkadaşınla Oyna</h2>
+                    <h2>🌍 Düello</h2>
                     <p>Ayarları yap, sonra oda kur veya bir koda katıl.</p>
                   </div>
                 </div>
@@ -3088,8 +3088,8 @@ export default function App() {
                     return (
                       <button key="challenge" type="button" onClick={startChallenge} className="mode-card mode-card-secondary mode-card-challenge">
                         <span className="mode-icon">🔥</span>
-                        <strong>Challenge</strong>
-                        <small>Tek başına üst üste</small>
+                        <strong>Maraton</strong>
+                        <small>Kaç köprü üst üste?</small>
                         {challengeBest > 0 && <em className="best-badge">En iyi: {challengeBest}</em>}
                       </button>
                     );
@@ -3097,8 +3097,8 @@ export default function App() {
                   return (
                     <button key="online" type="button" onClick={() => { setShowOnlineSetup(true); setOnlineSetupMode(null); }} className="mode-card mode-card-secondary mode-card-online">
                       <span className="mode-icon">🌍</span>
-                      <strong>Arkadaşınla Oyna</strong>
-                      <small>Arkadaşınla karşılıklı</small>
+                      <strong>Düello</strong>
+                      <small>Arkadaşınla 1v1</small>
                       <em className="best-badge online-cta">Oda Kur →</em>
                     </button>
                   );
@@ -3121,7 +3121,7 @@ export default function App() {
                 <div className="leaderboard-page">
                   <div className="lb-header">
                     <h2>🏆 Liderlik Tablosu</h2>
-                    <p className="lb-subtitle">Challenge en iyi skorlar</p>
+                    <p className="lb-subtitle">Maraton en iyi skorlar</p>
                   </div>
 
                   <div className="lb-filters">
@@ -3322,7 +3322,7 @@ export default function App() {
               {showChallengeStartScreen ? (
                 <div className="panel difficulty-picker">
                   <div className="difficulty-header">
-                    <h2>🔥 Challenge</h2>
+                    <h2>🔥 Maraton</h2>
                     <p>Zorluk seviyesini seç</p>
                   </div>
 
@@ -3353,7 +3353,7 @@ export default function App() {
                 <>
               <div className="info-bar challenge-bar">
                 <div className="info-chip">
-                  <span>Mod</span><strong>Challenge</strong>
+                  <span>Mod</span><strong>Maraton</strong>
                 </div>
                 <div className="info-chip">
                   <span>Zorluk</span><strong>{getDifficultyEmoji(challengeDifficulty)} {getDifficultyLabel(challengeDifficulty)}</strong>
@@ -3549,7 +3549,7 @@ export default function App() {
                 )}
                 {dailyStreak > 0 && (
                   <div className="info-chip">
-                    <span>🔥 Streak</span>
+                    <span>🔥 Seri</span>
                     <strong>{dailyStreak}</strong>
                   </div>
                 )}
@@ -3641,7 +3641,7 @@ export default function App() {
 
                   {!dailyShowAnswers && (
                     <button type="button" onClick={skipDailyPuzzle} className="light-button compact daily-skip">
-                      ⏭️ Bu eşleşmeyi atla
+                      ⏭️ Pas
                     </button>
                   )}
                 </div>
@@ -3652,7 +3652,7 @@ export default function App() {
                   <div className="gameover-header">
                     <div className="gameover-icon trophy">📅</div>
                     <div className="gameover-headline">
-                      <h3>{dailyHistory[dailyData.date]?.completed ? "Bugünkü Bulmaca Bitti ✓" : "Bulmaca Tamamlandı"}</h3>
+                      <h3>{dailyResults.filter((r) => r === "correct").length === dailyData.puzzles.length ? "Kusursuz gün ✨" : (dailyHistory[dailyData.date]?.completed ? "Bugünkü Bulmaca Bitti ✓" : "Bulmaca Tamamlandı")}</h3>
                       <p className="gameover-detail">{new Intl.DateTimeFormat("tr-TR", { day: "numeric", month: "long", year: "numeric" }).format(new Date(dailyData.date))}</p>
                     </div>
                   </div>
@@ -3663,7 +3663,7 @@ export default function App() {
                       <strong>{dailyResults.filter((r) => r === "correct").length} / {dailyData.puzzles.length}</strong>
                     </div>
                     <div className="gameover-stat highlight">
-                      <span>🔥 Streak</span>
+                      <span>🔥 Seri</span>
                       <strong>{dailyStreak}</strong>
                     </div>
                   </div>
