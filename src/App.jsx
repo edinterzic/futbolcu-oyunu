@@ -1203,6 +1203,19 @@ export default function App() {
     }
   };
 
+  // Değer-anı install nudge'ı (günlük bitince) — kapatınca 4 gün soğur
+  const [showInstallNudge, setShowInstallNudge] = useState(() => {
+    try {
+      const last = Number(window.localStorage.getItem("pairfc_install_nudge") || 0);
+      return Date.now() - last > 4 * 24 * 60 * 60 * 1000;
+    } catch (e) { return true; }
+  });
+  const dismissInstallNudge = () => {
+    try { window.localStorage.setItem("pairfc_install_nudge", String(Date.now())); } catch (e) {}
+    try { track("install_nudge_dismissed"); } catch (e) {}
+    setShowInstallNudge(false);
+  };
+
   useEffect(() => {
     try { window.localStorage.setItem("pairfc_difficulty_challenge", challengeDifficulty); }
     catch {}
@@ -3675,6 +3688,33 @@ export default function App() {
                     <span className="gameover-label">⏳ Yarınki bulmacaya</span>
                     <strong className="daily-countdown-value">{dailyCountdown}</strong>
                   </div>
+
+                  {!isInstalled && showInstallNudge && !showInstallModal && (
+                    <div style={{ display: "flex", alignItems: "center", gap: 12, padding: "12px 14px", borderRadius: 16, background: "rgba(170,59,255,0.12)", border: "1px solid rgba(170,59,255,0.35)", color: "#fff" }}>
+                      <span style={{ fontSize: 24 }}>📲</span>
+                      <div style={{ flex: 1, textAlign: "left", lineHeight: 1.3 }}>
+                        <strong style={{ display: "block", fontSize: 14.5, color: "#fff" }}>
+                          {dailyStreak >= 2 ? `🔥 ${dailyStreak} günlük serin var!` : "Yarın kaldığın yerden devam et"}
+                        </strong>
+                        <small style={{ color: "rgba(255,255,255,0.6)", fontSize: 12.5 }}>Ana ekrana ekle, her gün tek dokunuşla aç.</small>
+                      </div>
+                      <button
+                        type="button"
+                        onClick={() => { try { track("install_nudge_accepted"); } catch (e) {} triggerInstall(); }}
+                        style={{ padding: "9px 14px", borderRadius: 12, border: "none", background: "#aa3bff", color: "#fff", fontWeight: 700, fontSize: 13.5, cursor: "pointer", whiteSpace: "nowrap" }}
+                      >
+                        Ekle
+                      </button>
+                      <button
+                        type="button"
+                        onClick={dismissInstallNudge}
+                        aria-label="Kapat"
+                        style={{ background: "none", border: "none", color: "rgba(255,255,255,0.5)", fontSize: 18, cursor: "pointer", padding: 4 }}
+                      >
+                        ✕
+                      </button>
+                    </div>
+                  )}
 
                   <button type="button" onClick={goToHome} className="light-button big">
                     🏠 Ana Menü
