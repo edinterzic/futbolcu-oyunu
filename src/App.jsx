@@ -559,6 +559,28 @@ function roundRectPath(ctx, x, y, w, h, r) {
   ctx.closePath();
 }
 
+function drawBrandMark(ctx, cx, cy, t) {
+  const gap = t * 0.22, r = t * 0.26, ty = cy - t / 2;
+  roundRectPath(ctx, cx - t - gap / 2, ty, t, t, r); ctx.fillStyle = "#9b2dff"; ctx.fill();
+  roundRectPath(ctx, cx + gap / 2, ty, t, t, r); ctx.fillStyle = "#f5a524"; ctx.fill();
+  const d = t * 0.64;
+  ctx.save(); ctx.translate(cx, cy); ctx.rotate(Math.PI / 4);
+  roundRectPath(ctx, -d / 2, -d / 2, d, d, d * 0.16); ctx.fillStyle = "#ffffff"; ctx.fill();
+  ctx.lineWidth = Math.max(2, t * 0.07); ctx.strokeStyle = "#0e1022"; ctx.stroke();
+  ctx.restore();
+}
+
+function drawWordmarkLockup(ctx, W, cy) {
+  const t = 42, gap = t * 0.22, markW = 2 * t + gap, lockGap = 26;
+  ctx.font = "800 62px 'Saira Semi Condensed', system-ui, 'Segoe UI', sans-serif";
+  const wm = "PairFC", tw = ctx.measureText(wm).width, total = markW + lockGap + tw;
+  const startX = (W - total) / 2;
+  drawBrandMark(ctx, startX + markW / 2, cy, t);
+  ctx.textAlign = "left"; ctx.textBaseline = "middle"; ctx.fillStyle = "rgba(255,255,255,0.96)";
+  ctx.fillText(wm, startX + markW + lockGap, cy + 2);
+  ctx.textAlign = "center"; ctx.textBaseline = "alphabetic";
+}
+
 function drawGlassCTA(ctx, W, line1, line2, y = 1560, h = 190) {
   const x = 120;
   const w = W - 240;
@@ -636,12 +658,11 @@ function drawScoreShareCard({ score, best, diffLabel, isNewBest, matchups = [] }
   ctx.textAlign = "center";
 
   // Logo
-  ctx.fillStyle = "rgba(255,255,255,0.95)";
-  ctx.font = "700 52px system-ui, 'Segoe UI', Roboto, sans-serif";
-  ctx.fillText("⚽ PairFC", W / 2, 150);
-  ctx.font = "600 28px system-ui, 'Segoe UI', Roboto, sans-serif";
+  drawWordmarkLockup(ctx, W, 128);
+  ctx.font = "700 28px system-ui, 'Segoe UI', Roboto, sans-serif";
   ctx.fillStyle = "rgba(255,255,255,0.55)";
-  ctx.fillText("CHALLENGE", W / 2, 200);
+  ctx.textAlign = "center";
+  ctx.fillText("MARATON", W / 2, 205);
 
   if (isNewBest) {
     ctx.font = "700 50px system-ui, 'Segoe UI', Roboto, sans-serif";
@@ -741,12 +762,11 @@ function drawDailyShareCard({ dayNum, correctCount, total, results, streak }) {
 
   ctx.textAlign = "center";
   // Logo bloğu — küçük ve yukarıda
-  ctx.fillStyle = "rgba(255,255,255,0.95)";
-  ctx.font = "700 52px system-ui, 'Segoe UI', Roboto, sans-serif";
-  ctx.fillText("⚽ PairFC", W / 2, 150);
-  ctx.font = "600 28px system-ui, 'Segoe UI', Roboto, sans-serif";
+  drawWordmarkLockup(ctx, W, 128);
+  ctx.font = "700 28px system-ui, 'Segoe UI', Roboto, sans-serif";
   ctx.fillStyle = "rgba(255,255,255,0.55)";
-  ctx.fillText(`GÜNLÜK #${dayNum}`, W / 2, 200);
+  ctx.textAlign = "center";
+  ctx.fillText(`GÜNLÜK #${dayNum}`, W / 2, 205);
 
   ctx.fillStyle = "#ffffff";
   ctx.font = "800 300px system-ui, 'Segoe UI', Roboto, sans-serif";
@@ -2911,22 +2931,12 @@ export default function App() {
           <div className="splash-content">
             <div className="splash-logo">
               <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                  <radialGradient id="ballGrad" cx="35%" cy="35%" r="65%">
-                    <stop offset="0%" stopColor="#ffffff" />
-                    <stop offset="100%" stopColor="#d1fae5" />
-                  </radialGradient>
-                </defs>
-                <circle cx="50" cy="50" r="44" fill="url(#ballGrad)" stroke="#0f172a" strokeWidth="2.5"/>
-                <polygon points="50,28 68,40 62,60 38,60 32,40" fill="#0f172a"/>
-                <line x1="50" y1="28" x2="50" y2="12" stroke="#0f172a" strokeWidth="2.5" strokeLinecap="round"/>
-                <line x1="68" y1="40" x2="84" y2="35" stroke="#0f172a" strokeWidth="2.5" strokeLinecap="round"/>
-                <line x1="62" y1="60" x2="74" y2="80" stroke="#0f172a" strokeWidth="2.5" strokeLinecap="round"/>
-                <line x1="38" y1="60" x2="26" y2="80" stroke="#0f172a" strokeWidth="2.5" strokeLinecap="round"/>
-                <line x1="32" y1="40" x2="16" y2="35" stroke="#0f172a" strokeWidth="2.5" strokeLinecap="round"/>
+                <rect x="8" y="31" width="38" height="38" rx="10" fill="#9b2dff"/>
+                <rect x="54" y="31" width="38" height="38" rx="10" fill="#f5a524"/>
+                <rect x="39" y="39" width="22" height="22" rx="3.5" transform="rotate(45 50 50)" fill="#ffffff" stroke="#0e1022" strokeWidth="2.5"/>
               </svg>
             </div>
-            <h1 className="splash-title">PairFC</h1>
+            <h1 className="splash-title">Pair<span className="brand-fc">FC</span></h1>
             <p className="splash-tagline">İki takım, tek futbolcu.</p>
             <p className="splash-tagline-sub">Sen bul.</p>
             <div className="splash-loader"><span></span><span></span><span></span></div>
@@ -2971,17 +2981,13 @@ export default function App() {
           <div className="brand">
             <span className="brand-mark" aria-hidden="true">
               <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="16" cy="16" r="14" fill="#ffffff" stroke="#0f172a" strokeWidth="1.5"/>
-                <polygon points="16,9 22,13 20,20 12,20 10,13" fill="#0f172a"/>
-                <line x1="16" y1="9" x2="16" y2="4" stroke="#0f172a" strokeWidth="1.3"/>
-                <line x1="22" y1="13" x2="27" y2="11.5" stroke="#0f172a" strokeWidth="1.3"/>
-                <line x1="20" y1="20" x2="24" y2="26" stroke="#0f172a" strokeWidth="1.3"/>
-                <line x1="12" y1="20" x2="8" y2="26" stroke="#0f172a" strokeWidth="1.3"/>
-                <line x1="10" y1="13" x2="5" y2="11.5" stroke="#0f172a" strokeWidth="1.3"/>
+                <rect x="3" y="10" width="12" height="12" rx="3.2" fill="#9b2dff"/>
+                <rect x="17" y="10" width="12" height="12" rx="3.2" fill="#f5a524"/>
+                <rect x="12" y="12" width="8" height="8" rx="1.6" transform="rotate(45 16 16)" fill="#ffffff" stroke="#0e1022" strokeWidth="1"/>
               </svg>
             </span>
             <div className="brand-text">
-              <strong>PairFC</strong>
+              <strong>Pair<span className="brand-fc">FC</span></strong>
               {isHome && <small>İki takım, tek futbolcu. Sen bul.</small>}
             </div>
           </div>
@@ -4047,6 +4053,7 @@ const css = `
   --online: #3b9dff;
   --online-soft: rgba(59, 130, 246, 0.16);
   --font-display: "Oswald", "Inter", system-ui, sans-serif;
+  --font-brand: "Saira Semi Condensed", "Oswald", system-ui, sans-serif;
 
   --danger: #ef4444;
   --danger-soft: rgba(239, 68, 68, 0.16);
@@ -4220,9 +4227,10 @@ button:focus-visible {
 }
 
 .brand-text strong {
-  font-size: 16px;
-  font-weight: 800;
-  letter-spacing: -0.02em;
+  font-family: var(--font-brand);
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
   line-height: 1.1;
   white-space: nowrap;
   overflow: hidden;
@@ -4234,6 +4242,8 @@ button:focus-visible {
   color: var(--text-muted);
   margin-top: 2px;
 }
+
+.brand-fc { color: var(--challenge); }
 
 .icon-button {
   width: 40px;
@@ -4523,19 +4533,17 @@ button:focus-visible {
 }
 
 @keyframes splashLogoBounce {
-  0%, 100% { transform: translateY(0) rotate(0deg); }
-  50%      { transform: translateY(-12px) rotate(15deg); }
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-10px); }
 }
 
 .splash-title {
   margin: 8px 0 4px;
-  font-size: 48px;
-  font-weight: 900;
-  letter-spacing: -0.02em;
-  background: linear-gradient(135deg, var(--primary) 0%, #6ee7b7 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+  font-family: var(--font-brand);
+  font-size: 50px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: #f2f0ff;
 }
 
 .splash-tagline {
@@ -8015,7 +8023,6 @@ button:focus-visible {
 }
 
 /* Tipografi: skor / streak / timer / sayılar — sporty display font + tabular rakamlar */
-.splash-title,
 .stats-strip-item strong,
 .score-value,
 .countdown-circle,
