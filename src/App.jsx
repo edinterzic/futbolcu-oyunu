@@ -6299,10 +6299,8 @@ button:focus-visible {
   --logo-size: 56px;
   width: var(--logo-size);
   height: var(--logo-size);
-  position: relative;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
   border-radius: 14px;
   overflow: hidden;
   background: var(--team-primary);
@@ -6316,16 +6314,17 @@ button:focus-visible {
 }
 
 .team-logo__bar {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
+  width: 100%;
   height: 26%;
+  flex-shrink: 0;
   background: var(--team-secondary);
 }
 
 .team-logo__abbr {
-  position: relative;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color: var(--team-text);
   font-family: var(--font-brand);
   font-weight: 800;
