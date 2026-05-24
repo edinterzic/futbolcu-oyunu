@@ -3570,7 +3570,7 @@ export default function App() {
                         return (
                           <span
                             key={i}
-                            className={`daily-dot ${i === dailyIndex ? "current" : ""} ${r === "correct" ? "correct" : ""} ${r === "failed" ? "failed" : ""}`}
+                            className={`daily-dot ${i === dailyIndex ? "current" : ""} ${r === "correct" ? "correct" : ""} ${r === "failed" ? "failed" : ""} ${i === dailyData.puzzles.length - 1 ? "final" : ""}`}
                           />
                         );
                       })}
@@ -4879,6 +4879,27 @@ button:focus-visible {
 .daily-dot.failed {
   background: var(--danger);
   border-color: var(--danger);
+}
+
+/* Final (5.) soru — "boss" dot: altın halka + yıldız */
+.daily-dot.final {
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-color: #ffce4d;
+  box-shadow: 0 0 0 2px rgba(255, 206, 77, 0.30), 0 0 10px rgba(255, 206, 77, 0.45);
+}
+.daily-dot.final::after {
+  content: "★";
+  font-size: 10px;
+  line-height: 1;
+  color: #ffce4d;
+}
+.daily-dot.final.correct::after,
+.daily-dot.final.failed::after {
+  color: #fff;
 }
 
 .daily-wrong-meter {
