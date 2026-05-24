@@ -443,40 +443,137 @@ function StatusMessage({ message }) {
   );
 }
 
+const CLUB_TILES = {
+  "Galatasaray": { c1: "#E00031", c2: "#FDB913", abbr: "GS" },
+  "Beşiktaş": { c1: "#111418", c2: "#FFFFFF", abbr: "BJK" },
+  "Fenerbahçe": { c1: "#0A3C7D", c2: "#FFED00", abbr: "FB" },
+  "Trabzonspor": { c1: "#7A1C2E", c2: "#4FA8DD", abbr: "TS" },
+  "Başakşehir": { c1: "#14315B", c2: "#E2671A", abbr: "BAŞ" },
+  "Antalyaspor": { c1: "#E2001A", c2: "#FFFFFF", abbr: "ANT" },
+  "Konyaspor": { c1: "#0A6B3B", c2: "#FFFFFF", abbr: "KON" },
+  "Sivasspor": { c1: "#B7121F", c2: "#FFFFFF", abbr: "SİV" },
+  "Kayserispor": { c1: "#C8102E", c2: "#FFD200", abbr: "KAY" },
+  "Alanyaspor": { c1: "#E5510E", c2: "#0A9C49", abbr: "ALA" },
+  "Samsunspor": { c1: "#C8102E", c2: "#FFFFFF", abbr: "SAM" },
+  "Kasımpaşa": { c1: "#003DA5", c2: "#FFFFFF", abbr: "KAS" },
+  "Gaziantep FK": { c1: "#C8102E", c2: "#111418", abbr: "GFK" },
+  "Rizespor": { c1: "#0A6B3B", c2: "#00A1E0", abbr: "RİZ" },
+  "Gençlerbirliği": { c1: "#C8102E", c2: "#111418", abbr: "GB" },
+  "Göztepe": { c1: "#C8102E", c2: "#FFD200", abbr: "GÖZ" },
+  "Karagümrük": { c1: "#C8102E", c2: "#111418", abbr: "KAR" },
+  "Eyüpspor": { c1: "#5B2A86", c2: "#FFD200", abbr: "EYP" },
+  "Kocaelispor": { c1: "#0A6B3B", c2: "#111418", abbr: "KOC" },
+  "Real Madrid": { c1: "#FFFFFF", c2: "#00529F", abbr: "RMA" },
+  "Barcelona": { c1: "#004D98", c2: "#A50044", abbr: "BAR" },
+  "Atletico Madrid": { c1: "#CB3524", c2: "#1C3050", abbr: "ATM" },
+  "Bayern Munich": { c1: "#DC052D", c2: "#FFFFFF", abbr: "BAY" },
+  "Manchester United": { c1: "#DA020E", c2: "#FBE122", abbr: "MUN" },
+  "Manchester City": { c1: "#6CABDD", c2: "#FFFFFF", abbr: "MCI" },
+  "Liverpool": { c1: "#C8102E", c2: "#FFFFFF", abbr: "LIV" },
+  "Chelsea": { c1: "#034694", c2: "#FFFFFF", abbr: "CHE" },
+  "Arsenal": { c1: "#EF0107", c2: "#FFFFFF", abbr: "ARS" },
+  "Juventus": { c1: "#111418", c2: "#FFFFFF", abbr: "JUV" },
+  "AC Milan": { c1: "#FB090B", c2: "#111418", abbr: "MIL" },
+  "Inter": { c1: "#0B1560", c2: "#111418", abbr: "INT" },
+  "Borussia Dortmund": { c1: "#FDE100", c2: "#111418", abbr: "BVB" },
+  "PSG": { c1: "#04143C", c2: "#DA291C", abbr: "PSG" },
+  "Tottenham": { c1: "#FFFFFF", c2: "#132257", abbr: "TOT" },
+  "Napoli": { c1: "#12A0D7", c2: "#FFFFFF", abbr: "NAP" },
+  "AS Roma": { c1: "#8E1F2F", c2: "#F0BC42", abbr: "ROM" },
+  "Ajax": { c1: "#FFFFFF", c2: "#D2122E", abbr: "AJA" },
+  "FC Porto": { c1: "#004CA8", c2: "#FFFFFF", abbr: "POR" },
+  "Benfica": { c1: "#E30613", c2: "#FFFFFF", abbr: "BEN" },
+  "Sevilla": { c1: "#FFFFFF", c2: "#D81920", abbr: "SEV" },
+  "Newcastle": { c1: "#111418", c2: "#FFFFFF", abbr: "NEW" },
+  "LOSC Lille": { c1: "#E01E13", c2: "#0B2240", abbr: "LIL" },
+  "Atalanta": { c1: "#1D6FB8", c2: "#111418", abbr: "ATA" },
+  "Lazio": { c1: "#87D8F7", c2: "#0A2A52", abbr: "LAZ" },
+  "Leverkusen": { c1: "#E32219", c2: "#111418", abbr: "LEV" },
+  "Sporting CP": { c1: "#0A8057", c2: "#FFFFFF", abbr: "SPO" },
+  "Aston Villa": { c1: "#670E36", c2: "#95BFE5", abbr: "AVL" },
+  "Valencia": { c1: "#FFFFFF", c2: "#EE3524", abbr: "VAL" },
+  "Villarreal": { c1: "#FFE667", c2: "#005187", abbr: "VIL" },
+  "Real Sociedad": { c1: "#0067B1", c2: "#FFFFFF", abbr: "RSO" },
+  "Athletic Bilbao": { c1: "#EE2523", c2: "#FFFFFF", abbr: "ATH" },
+  "Fiorentina": { c1: "#592C82", c2: "#FFFFFF", abbr: "FIO" },
+  "Marsilya": { c1: "#2FAEE0", c2: "#FFFFFF", abbr: "OM" },
+  "Monaco": { c1: "#E51B22", c2: "#FFFFFF", abbr: "MON" },
+  "Feyenoord": { c1: "#C8102E", c2: "#FFFFFF", abbr: "FEY" },
+  "PSV": { c1: "#ED1C24", c2: "#FFFFFF", abbr: "PSV" },
+  "West Ham": { c1: "#7A263A", c2: "#1BB1E7", abbr: "WHU" },
+  "Everton": { c1: "#003399", c2: "#FFFFFF", abbr: "EVE" },
+  "Genoa": { c1: "#C8102E", c2: "#002B5C", abbr: "GEN" },
+  "Torino": { c1: "#7A1F2B", c2: "#FFFFFF", abbr: "TOR" },
+  "Parma": { c1: "#F2C500", c2: "#1E3A8A", abbr: "PAR" },
+  "Bologna": { c1: "#A21C26", c2: "#1B2F5C", abbr: "BOL" },
+  "Como": { c1: "#0B4DA2", c2: "#FFFFFF", abbr: "COM" },
+  "Espanyol": { c1: "#007FC8", c2: "#FFFFFF", abbr: "ESP" },
+  "RCD Mallorca": { c1: "#E30613", c2: "#111418", abbr: "MLL" },
+  "Getafe": { c1: "#005999", c2: "#FFFFFF", abbr: "GET" },
+  "Udinese": { c1: "#111418", c2: "#FFFFFF", abbr: "UDI" },
+  "Alaves": { c1: "#0761AF", c2: "#FFFFFF", abbr: "ALV" },
+  "Celta Vigo": { c1: "#8AC3EE", c2: "#E5231B", abbr: "CEL" },
+  "Lecce": { c1: "#F2C500", c2: "#C8102E", abbr: "LEC" },
+  "Fulham": { c1: "#FFFFFF", c2: "#111418", abbr: "FUL" },
+  "Sunderland": { c1: "#C8102E", c2: "#FFFFFF", abbr: "SUN" },
+  "Leeds United": { c1: "#FFFFFF", c2: "#1D428A", abbr: "LEE" },
+  "Elche": { c1: "#0A8A3F", c2: "#FFFFFF", abbr: "ELC" },
+  "Levante": { c1: "#004B9B", c2: "#9A1C36", abbr: "LVT" },
+  "Cremonese": { c1: "#A6192E", c2: "#6B7280", abbr: "CRE" },
+  "Cagliari": { c1: "#9A1C36", c2: "#0B2C68", abbr: "CAG" },
+  "Sassuolo": { c1: "#00A752", c2: "#111418", abbr: "SAS" },
+  "Rayo Vallecano": { c1: "#FFFFFF", c2: "#E2231A", abbr: "RAY" },
+  "Wolves": { c1: "#FDB913", c2: "#111418", abbr: "WOL" },
+  "Burnley": { c1: "#6C1D45", c2: "#8FC6E8", abbr: "BUR" },
+  "Girona": { c1: "#C8102E", c2: "#FFFFFF", abbr: "GIR" },
+  "Oviedo": { c1: "#0A4DA2", c2: "#FFFFFF", abbr: "OVI" },
+  "Crystal Palace": { c1: "#1B458F", c2: "#C8102E", abbr: "CRY" },
+  "Brighton": { c1: "#005DAA", c2: "#FFFFFF", abbr: "BHA" },
+  "Braga": { c1: "#C8102E", c2: "#FFFFFF", abbr: "BRA" },
+  "Osasuna": { c1: "#C8102E", c2: "#0A2240", abbr: "OSA" },
+  "Brentford": { c1: "#E1131D", c2: "#FFFFFF", abbr: "BRE" },
+  "Bournemouth": { c1: "#C8102E", c2: "#111418", abbr: "BOU" },
+  "E. Frankfurt": { c1: "#111418", c2: "#E1000F", abbr: "SGE" },
+  "Lens": { c1: "#FFE500", c2: "#E2231A", abbr: "LEN" },
+  "Club Brugge": { c1: "#0A4DA2", c2: "#111418", abbr: "BRU" },
+  "Betis": { c1: "#00954C", c2: "#FFFFFF", abbr: "BET" },
+  "Pisa": { c1: "#0A2C5C", c2: "#111418", abbr: "PIS" },
+  "Rennes": { c1: "#E1000F", c2: "#111418", abbr: "REN" },
+  "Nottingham": { c1: "#E1000F", c2: "#FFFFFF", abbr: "NFO" },
+  "Qarabag FK": { c1: "#0A4DA2", c2: "#111418", abbr: "QAR" },
+};
+
+function clubHash(s) { let h = 0; for (let i = 0; i < s.length; i++) h = (Math.imul(h, 31) + s.charCodeAt(i)) | 0; return Math.abs(h); }
+function clubAutoText(hex) {
+  if (typeof hex !== "string" || hex[0] !== "#") return "#ffffff";
+  let h = hex.slice(1); if (h.length === 3) h = h.split("").map((c) => c + c).join("");
+  const r = parseInt(h.slice(0, 2), 16) / 255, g = parseInt(h.slice(2, 4), 16) / 255, b = parseInt(h.slice(4, 6), 16) / 255;
+  return (0.2126 * r + 0.7152 * g + 0.0722 * b) > 0.62 ? "#15172c" : "#ffffff";
+}
+function clubAutoAbbr(name) {
+  const w = String(name).replace(/[^A-Za-zÇĞİÖŞÜçğıöşü\s]/g, "").trim().split(/\s+/).filter(Boolean);
+  if (w.length >= 2) return w.slice(0, 3).map((x) => x[0]).join("").toLocaleUpperCase("tr");
+  return String(name).slice(0, 3).toLocaleUpperCase("tr");
+}
+function clubStyle(teamName) {
+  const c = CLUB_TILES[teamName];
+  if (c) return { c1: c.c1, c2: c.c2, abbr: c.abbr, text: c.text || clubAutoText(c.c1) };
+  const d = TEAM_LOGOS[teamName];
+  if (d && d.primary) return { c1: d.primary, c2: d.secondary || "#ffffff", abbr: d.initials || clubAutoAbbr(teamName), text: clubAutoText(d.primary) };
+  const hue = clubHash(teamName) % 360;
+  return { c1: `hsl(${hue} 52% 36%)`, c2: `hsl(${hue} 68% 72%)`, abbr: clubAutoAbbr(teamName), text: "#ffffff" };
+}
+
 function TeamLogo({ teamName, size = "md" }) {
-  const data = TEAM_LOGOS[teamName] || {};
-  const [logoError, setLogoError] = useState(false);
-
-  const initials = data.initials || teamName
-    .split(" ")
-    .map((part) => part[0])
-    .join("")
-    .slice(0, 3)
-    .toUpperCase();
-
-  const showImage = Boolean(data.logo) && !logoError;
-
+  const { c1, c2, abbr, text } = clubStyle(teamName);
   return (
     <div
-      className={`team-logo size-${size} ${showImage ? "has-image" : "fallback"}`}
-      style={{
-        "--team-primary": data.primary || "#10b981",
-        "--team-secondary": data.secondary || "#ffffff"
-      }}
-      aria-label={`${teamName} logosu`}
+      className={`team-logo size-${size}`}
+      style={{ "--team-primary": c1, "--team-secondary": c2, "--team-text": text }}
+      aria-label={teamName}
     >
-      <div className="team-logo__inner">
-        {showImage ? (
-          <img
-            src={data.logo}
-            alt={`${teamName} logo`}
-            loading="lazy"
-            onError={() => setLogoError(true)}
-          />
-        ) : (
-          <span>{initials}</span>
-        )}
-      </div>
+      <span className="team-logo__bar" aria-hidden="true"></span>
+      <span className="team-logo__abbr">{abbr}</span>
     </div>
   );
 }
@@ -6202,54 +6299,39 @@ button:focus-visible {
   --logo-size: 56px;
   width: var(--logo-size);
   height: var(--logo-size);
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 16px;
-  background: linear-gradient(135deg, var(--team-primary) 0%, var(--team-secondary) 200%);
-  padding: 3px;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.08) inset;
+  border-radius: 14px;
+  overflow: hidden;
+  background: var(--team-primary);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.28), 0 0 0 1px rgba(255, 255, 255, 0.10) inset;
   flex-shrink: 0;
 }
 
 .team-logo.size-sm {
   --logo-size: 40px;
-  border-radius: 12px;
+  border-radius: 11px;
 }
 
-.team-logo__inner {
-  width: 100%;
-  height: 100%;
-  border-radius: 13px;
-  background: #ffffff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  padding: 4px;
+.team-logo__bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 26%;
+  background: var(--team-secondary);
 }
 
-.team-logo.size-sm .team-logo__inner {
-  border-radius: 9px;
-  padding: 3px;
-}
-
-.team-logo__inner img {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
-}
-
-.team-logo__inner span {
-  color: var(--team-primary);
-  font-weight: 900;
-  font-size: 14px;
+.team-logo__abbr {
+  position: relative;
+  color: var(--team-text);
+  font-family: var(--font-brand);
+  font-weight: 800;
+  font-size: calc(var(--logo-size) * 0.36);
   letter-spacing: -0.02em;
   line-height: 1;
-}
-
-.team-logo.size-sm .team-logo__inner span {
-  font-size: 11px;
 }
 
 /* ========================================================================
