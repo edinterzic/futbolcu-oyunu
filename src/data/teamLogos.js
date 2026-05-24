@@ -1,10 +1,10 @@
 // Auto-generated from admin panel
-// Generated: 2026-05-24T18:15:40.422Z
+// Generated: 2026-05-24T18:24:35.236Z
 
 export const TEAM_LOGOS = {
   "Inter": {
     "initials": "INT",
-    "primary": "#0068A8",
+    "primary": "#010E80",
     "secondary": "#000000"
   },
   "Juventus": {
@@ -14,18 +14,18 @@ export const TEAM_LOGOS = {
   },
   "Sporting CP": {
     "initials": "SPC",
-    "primary": "#016630",
+    "primary": "#008057",
     "secondary": "#FFFFFF"
   },
   "Benfica": {
     "initials": "BEN",
-    "primary": "#E20613",
+    "primary": "#E83030",
     "secondary": "#FFFFFF"
   },
   "Genoa": {
     "initials": "GEN",
-    "primary": "#E30613",
-    "secondary": "#1E3A8A"
+    "primary": "#AE1919",
+    "secondary": "#05232F"
   },
   "Fiorentina": {
     "initials": "FIO",
@@ -39,7 +39,7 @@ export const TEAM_LOGOS = {
   },
   "Torino": {
     "initials": "TOR",
-    "primary": "#8B0000",
+    "primary": "#8A1E03",
     "secondary": "#FFFFFF"
   },
   "Parma": {
@@ -129,8 +129,8 @@ export const TEAM_LOGOS = {
   },
   "Galatasaray": {
     "initials": "GS",
-    "primary": "#FFA500",
-    "secondary": "#A90432"
+    "primary": "#fdb912",
+    "secondary": "#a90432"
   },
   "Alaves": {
     "initials": "ALV",
@@ -259,8 +259,8 @@ export const TEAM_LOGOS = {
   },
   "Trabzonspor": {
     "initials": "TS",
-    "primary": "#7F1F2F",
-    "secondary": "#722F37"
+    "primary": "#5A0E27",
+    "secondary": "#75B7E5"
   },
   "Wolves": {
     "initials": "WOL",
@@ -329,8 +329,8 @@ export const TEAM_LOGOS = {
   },
   "Göztepe": {
     "initials": "GÖZ",
-    "primary": "#FBBF24",
-    "secondary": "#7C2D12"
+    "primary": "#FFDD00",
+    "secondary": "#E30613"
   },
   "Karagümrük": {
     "initials": "KGM",
