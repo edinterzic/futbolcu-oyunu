@@ -4039,6 +4039,15 @@ const css = `
   --accent: #f59e0b;
   --accent-soft: rgba(245, 158, 11, 0.16);
 
+  --brand: #aa3bff;
+  --daily: #b66bff;
+  --daily-soft: rgba(170, 59, 255, 0.16);
+  --challenge: #f59e0b;
+  --challenge-soft: rgba(245, 158, 11, 0.16);
+  --online: #3b9dff;
+  --online-soft: rgba(59, 130, 246, 0.16);
+  --font-display: "Oswald", "Inter", system-ui, sans-serif;
+
   --danger: #ef4444;
   --danger-soft: rgba(239, 68, 68, 0.16);
   --danger-text: #fecaca;
@@ -4814,14 +4823,14 @@ button:focus-visible {
 }
 
 .mode-card-daily {
-  background: linear-gradient(135deg, rgba(245, 158, 11, 0.12) 0%, var(--surface) 100%);
-  border-color: rgba(245, 158, 11, 0.3);
+  background: linear-gradient(135deg, var(--daily-soft) 0%, var(--surface) 100%);
+  border-color: rgba(170, 59, 255, 0.3);
 }
 
 .streak-badge {
-  background: linear-gradient(135deg, var(--accent-soft) 0%, rgba(245, 158, 11, 0.06) 100%);
-  border: 1px solid rgba(245, 158, 11, 0.45);
-  color: var(--accent);
+  background: linear-gradient(135deg, var(--daily-soft) 0%, rgba(170, 59, 255, 0.06) 100%);
+  border: 1px solid rgba(170, 59, 255, 0.45);
+  color: #c79bff;
 }
 
 .done-badge {
@@ -4831,9 +4840,9 @@ button:focus-visible {
 }
 
 .online-cta {
-  background: linear-gradient(135deg, rgba(6, 182, 212, 0.2) 0%, rgba(139, 92, 246, 0.1) 100%);
-  border: 1px solid rgba(6, 182, 212, 0.45);
-  color: #22d3ee;
+  background: linear-gradient(135deg, rgba(59, 157, 255, 0.2) 0%, rgba(37, 99, 235, 0.1) 100%);
+  border: 1px solid rgba(59, 157, 255, 0.45);
+  color: #6cb6ff;
   font-weight: 800;
 }
 
@@ -4860,15 +4869,15 @@ button:focus-visible {
 }
 
 .daily-dot.current {
-  background: var(--accent-soft);
-  border-color: var(--accent);
-  box-shadow: 0 0 8px rgba(245, 158, 11, 0.5);
+  background: var(--daily-soft);
+  border-color: var(--daily);
+  box-shadow: 0 0 8px rgba(170, 59, 255, 0.5);
   animation: dailyDotPulse 1.6s ease-in-out infinite;
 }
 
 @keyframes dailyDotPulse {
-  0%, 100% { transform: scale(1); box-shadow: 0 0 8px rgba(245, 158, 11, 0.5); }
-  50%      { transform: scale(1.25); box-shadow: 0 0 14px rgba(245, 158, 11, 0.85); }
+  0%, 100% { transform: scale(1); box-shadow: 0 0 8px rgba(170, 59, 255, 0.5); }
+  50%      { transform: scale(1.25); box-shadow: 0 0 14px rgba(170, 59, 255, 0.85); }
 }
 
 .daily-dot.correct {
@@ -4956,14 +4965,14 @@ button:focus-visible {
   align-items: center;
   text-align: center;
   padding: 10px;
-  background: linear-gradient(135deg, var(--accent-soft) 0%, rgba(245, 158, 11, 0.04) 100%);
-  border: 1px solid rgba(245, 158, 11, 0.3);
+  background: linear-gradient(135deg, var(--daily-soft) 0%, rgba(170, 59, 255, 0.04) 100%);
+  border: 1px solid rgba(170, 59, 255, 0.3);
   border-radius: 10px;
 }
 
 .daily-countdown-value {
   font-size: 22px !important;
-  color: var(--accent) !important;
+  color: #c79bff !important;
   font-weight: 900 !important;
   letter-spacing: 0.02em;
 }
@@ -5068,13 +5077,13 @@ button:focus-visible {
   z-index: 0;
 }
 .hero-card--daily {
-  background: linear-gradient(135deg, rgba(16, 185, 129, 0.12) 0%, rgba(59, 130, 246, 0.08) 100%);
-  border-color: rgba(16, 185, 129, 0.4);
-  color: #10b981;
+  background: linear-gradient(135deg, rgba(170, 59, 255, 0.16) 0%, rgba(170, 59, 255, 0.06) 100%);
+  border-color: rgba(170, 59, 255, 0.4);
+  color: #c79bff;
 }
 .hero-card--daily .hero-card-glow {
-  background: radial-gradient(circle at 30% 20%, rgba(16, 185, 129, 0.45), transparent 55%),
-              radial-gradient(circle at 80% 80%, rgba(59, 130, 246, 0.3), transparent 50%);
+  background: radial-gradient(circle at 30% 20%, rgba(170, 59, 255, 0.45), transparent 55%),
+              radial-gradient(circle at 80% 80%, rgba(140, 59, 255, 0.3), transparent 50%);
 }
 .hero-card--challenge {
   background: linear-gradient(135deg, rgba(245, 158, 11, 0.14) 0%, rgba(239, 68, 68, 0.1) 100%);
@@ -5086,13 +5095,13 @@ button:focus-visible {
               radial-gradient(circle at 80% 80%, rgba(239, 68, 68, 0.32), transparent 50%);
 }
 .hero-card--online {
-  background: linear-gradient(135deg, rgba(6, 182, 212, 0.12) 0%, rgba(139, 92, 246, 0.1) 100%);
-  border-color: rgba(6, 182, 212, 0.4);
-  color: #22d3ee;
+  background: linear-gradient(135deg, rgba(59, 157, 255, 0.14) 0%, rgba(59, 130, 246, 0.08) 100%);
+  border-color: rgba(59, 157, 255, 0.4);
+  color: #6cb6ff;
 }
 .hero-card--online .hero-card-glow {
-  background: radial-gradient(circle at 25% 20%, rgba(6, 182, 212, 0.45), transparent 55%),
-              radial-gradient(circle at 80% 80%, rgba(139, 92, 246, 0.32), transparent 50%);
+  background: radial-gradient(circle at 25% 20%, rgba(59, 157, 255, 0.45), transparent 55%),
+              radial-gradient(circle at 80% 80%, rgba(37, 99, 235, 0.3), transparent 50%);
 }
 .hero-card:hover {
   transform: translateY(-2px);
@@ -5298,9 +5307,9 @@ button:focus-visible {
   width: 6px;
 }
 
-.mode-card-online::before { background: linear-gradient(180deg, #3b82f6 0%, #06b6d4 100%); }
-.mode-card:nth-child(2)::before { background: linear-gradient(180deg, var(--accent) 0%, #ef4444 100%); }
-.mode-card-daily::before { background: linear-gradient(180deg, #10b981 0%, #3b82f6 100%); }
+.mode-card-online::before { background: linear-gradient(180deg, var(--online) 0%, #06b6d4 100%); }
+.mode-card-challenge::before { background: linear-gradient(180deg, var(--challenge) 0%, #ef4444 100%); }
+.mode-card-daily::before { background: linear-gradient(180deg, #aa3bff 0%, #c084fc 100%); }
 
 .mode-card.active {
   border-color: var(--primary);
@@ -8003,5 +8012,22 @@ button:focus-visible {
 }
 .share-score-btn {
   margin-top: 4px;
+}
+
+/* Tipografi: skor / streak / timer / sayılar — sporty display font + tabular rakamlar */
+.splash-title,
+.stats-strip-item strong,
+.score-value,
+.countdown-circle,
+.daily-countdown-value,
+.final-score-side strong,
+.final-score-dash,
+.lb-score,
+.gameover-headline,
+.info-chip.accent strong,
+.combo-burst {
+  font-family: var(--font-display);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.4px;
 }
 `;
