@@ -1312,57 +1312,46 @@ export default function App() {
     return entry && (entry.done || entry.completed || entry.correct >= 5 || entry.finished);
   }, [dailyHistory]);
 
-  // Ana sayfa "featured hero" konfigürasyonu — duruma göre dinamik
+  // Ana sayfa "featured hero" — Daily HER ZAMAN kahraman ("günün olayı")
   const heroConfig = useMemo(() => {
-    if (!dailyDoneToday) {
-      const isNewUser = challengeBest === 0 && dailyStreak === 0;
+    const today = getTodayKey();
+    const entry = dailyHistory[today];
+    const attempts = (entry && entry.attempts) || [];
+    const total = (dailyData && dailyData.puzzles.length) || 5;
+    const correctCount = attempts.filter((a) => a === "correct").length;
+    const isNewUser = challengeBest === 0 && dailyStreak === 0 && !dailyDoneToday;
+
+    if (dailyDoneToday) {
       return {
-        mode: "daily",
-        icon: "📅",
-        eyebrow: isNewUser ? "BAŞLANGIÇ" : "BUGÜNKÜ BULMACA",
-        title: isNewUser ? "Hadi tanışalım" : "5 yeni eşleşme seni bekliyor",
-        sub: dailyCountdown ? `${dailyCountdown} sonra yenilenir` : "Her gün yenilenir · Herkes aynı bulmacayı çözer",
-        cta: isNewUser ? "🚀 İlk Bulmacam" : "Hadi Çöz",
-        tone: "daily"
-      };
-    }
-    if (dailyStreak > 0) {
-      return {
-        mode: "challenge",
-        icon: "🔥",
-        eyebrow: `${dailyStreak} GÜN ÜST ÜSTE`,
-        title: "Bugün rekoru kırma sırası",
-        sub: challengeBest > 0 ? `En iyi serin: ${challengeBest} · Geçebilir misin?` : "Challenge'da kaç doğru üst üste?",
-        cta: "Challenge Aç",
-        tone: "challenge"
-      };
-    }
-    if (challengeBest > 0) {
-      return {
-        mode: "challenge",
-        icon: "🎯",
-        eyebrow: "SKORUNU KIR",
-        title: `En iyin: ${challengeBest} doğru`,
-        sub: "Yeni rekor için yola çık",
-        cta: "Yeni Tur",
-        tone: "challenge"
+        done: true,
+        attempts,
+        eyebrow: "BUGÜN TAMAMLANDI ✓",
+        title: `${correctCount}/${total} doğru`,
+        sub: dailyCountdown ? `Yarınki bulmacaya ${dailyCountdown}` : "Yarın yeni 5 eşleşme",
+        cta: "Sonucu Gör"
       };
     }
     return {
-      mode: "challenge",
-      icon: "⚔️",
-      eyebrow: "İLK MAÇIN",
-      title: `${PLAYERS.length.toLocaleString("tr-TR")} futbolcu, ${getPlayableTeamPairs().length.toLocaleString("tr-TR")} kapışma`,
-      sub: "Tek başına üst üste kaç doğru bilirsin?",
-      cta: "Başla 🚀",
-      tone: "challenge"
+      done: false,
+      attempts: [],
+      eyebrow: isNewUser ? "BAŞLANGIÇ" : "BUGÜNÜN BULMACASI",
+      title: isNewUser ? "Hadi tanışalım" : "5 yeni eşleşme seni bekliyor",
+      sub: "Herkes aynı 5 bulmacayı çözüyor",
+      cta: isNewUser ? "🚀 İlk Bulmacam" : "Hadi Çöz"
     };
-  }, [dailyDoneToday, dailyStreak, challengeBest, dailyCountdown]);
+  }, [dailyDoneToday, dailyHistory, dailyData, dailyStreak, challengeBest, dailyCountdown]);
 
-  const secondaryModes = useMemo(() => {
-    const all = ["daily", "challenge", "online"];
-    return all.filter((m) => m !== heroConfig.mode);
-  }, [heroConfig.mode]);
+  // Daily kimlik bilgisi: tarih + günlük numara
+  const dailyMeta = useMemo(() => {
+    const d = dailyData ? new Date(dailyData.date) : new Date();
+    const epoch = new Date("2026-01-01T00:00:00Z").getTime();
+    return {
+      date: new Intl.DateTimeFormat("tr-TR", { day: "numeric", month: "long" }).format(d),
+      num: Math.floor((d.getTime() - epoch) / 86400000) + 1
+    };
+  }, [dailyData]);
+
+  const secondaryModes = useMemo(() => ["challenge", "online"], []);
 
   // Leaderboard verisini yükle
   useEffect(() => {
@@ -3044,20 +3033,30 @@ export default function App() {
               {/* HERO — dinamik featured kart */}
               <button
                 type="button"
-                onClick={() => {
-                  if (heroConfig.mode === "daily") startDaily();
-                  else if (heroConfig.mode === "challenge") startChallenge();
-                  else { setShowOnlineSetup(true); setOnlineSetupMode(null); }
-                }}
-                className={`hero-card hero-card--${heroConfig.tone}`}
+                onClick={startDaily}
+                className="hero-card hero-card--daily"
               >
                 <div className="hero-card-glow" aria-hidden="true"></div>
                 <div className="hero-card-content">
+                  <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 8, marginBottom: 6 }}>
+                    <span style={{ fontSize: 12, fontWeight: 700, letterSpacing: 0.4, opacity: 0.85 }}>
+                      📅 {dailyMeta.date} · GÜNLÜK #{dailyMeta.num}
+                    </span>
+                    {dailyStreak > 0 && (
+                      <span style={{ fontSize: 12.5, fontWeight: 800, color: "#ffd24d", textShadow: "0 0 14px rgba(255,174,0,0.7)" }}>🔥 {dailyStreak}</span>
+                    )}
+                  </div>
                   <div className="hero-card-eyebrow">
-                    <span className="hero-card-icon">{heroConfig.icon}</span>
                     <span className="hero-card-eyebrow-text">{heroConfig.eyebrow}</span>
                   </div>
                   <h2 className="hero-card-title">{heroConfig.title}</h2>
+                  {heroConfig.done && heroConfig.attempts.length > 0 && (
+                    <div style={{ display: "flex", gap: 5, fontSize: 24, margin: "4px 0 2px" }} aria-hidden="true">
+                      {heroConfig.attempts.map((r, i) => (
+                        <span key={i}>{r === "correct" ? "🟩" : "🟥"}</span>
+                      ))}
+                    </div>
+                  )}
                   <p className="hero-card-sub">{heroConfig.sub}</p>
                   <span className="hero-card-cta">
                     {heroConfig.cta}
