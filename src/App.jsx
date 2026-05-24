@@ -223,6 +223,26 @@ function getRoundKey(round) {
   return getPairKey(round.teams[0], round.teams[1]);
 }
 
+// Cevap denemesi kaydı (Supabase, ateşle-unut). Hangi eşleşmede hangi cevap veriliyor + doğru mu.
+// Tekrar eden YANLIŞ cevaplar = datada düzeltilecek olası yanlış-negatifler.
+function logAnswerAttempt(mode, round, rawInput) {
+  if (!supabase || !round || !round.teams || !rawInput) return;
+  try {
+    const raw = String(rawInput).trim();
+    if (!raw) return;
+    const matched = findAcceptedAnswer(round, raw);
+    supabase.from("answer_log").insert({
+      pair_key: getRoundKey(round),
+      team_a: round.teams[0],
+      team_b: round.teams[1],
+      answer_raw: raw.slice(0, 80),
+      answer_matched: matched || null,
+      correct: Boolean(matched),
+      mode
+    }).then(() => {}, () => {});
+  } catch (e) {}
+}
+
 // Bir oyuncunun kaç farklı eşleşmede (takım çiftinde) cevap olduğu — nadirlik proxy'si.
 // Düşük = az kulüp bağlantısı = niş/nadir cevap; yüksek = çok gezmiş, bariz cevap.
 const PLAYER_PAIR_FREQ = (() => {
@@ -1937,6 +1957,8 @@ export default function App() {
       return;
     }
 
+    logAnswerAttempt("online", round, raw);
+
     if (isCorrectAnswer(round, raw)) {
       const newScores = [...scores];
       newScores[playerIndex] += 1;
@@ -2329,6 +2351,7 @@ export default function App() {
     if (!raw) return;
 
     const round = { teams: currentPuzzle.teams };
+    logAnswerAttempt("daily", round, raw);
     const acceptedName = findAcceptedAnswer(round, raw);
 
     if (acceptedName) {
@@ -2753,6 +2776,8 @@ export default function App() {
       setChallengeMessage({ type: "error", text: "Önce bir futbolcu adı yazmalısın." });
       return;
     }
+
+    logAnswerAttempt("maraton", challengeRound, raw);
 
     if (isCorrectAnswer(challengeRound, raw)) {
       const nextScore = challengeScore + 1;
