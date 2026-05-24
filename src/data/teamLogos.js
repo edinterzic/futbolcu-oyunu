@@ -1,5 +1,5 @@
 // Auto-generated from admin panel
-// Generated: 2026-05-24T18:24:35.236Z
+// Generated: 2026-05-24T19:34:59.565Z
 
 export const TEAM_LOGOS = {
   "Inter": {
@@ -54,8 +54,8 @@ export const TEAM_LOGOS = {
   },
   "Valencia": {
     "initials": "VAL",
-    "primary": "#EE3524",
-    "secondary": "#FFFFFF"
+    "primary": "#FFDF1C",
+    "secondary": "#EE3524"
   },
   "Chelsea": {
     "initials": "CHE",
