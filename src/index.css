@@ -50,8 +50,15 @@
   }
 }
 
+html {
+  /* Uygulama her zaman koyu; React yüklenmeden önceki ilk boyamada
+     açık-mod cihazlarda beyaz flash olmasın diye arka planı koyu sabitle. */
+  background: #0a0f1f;
+}
+
 body {
   margin: 0;
+  background: #0a0f1f;
 }
 
 #root {
