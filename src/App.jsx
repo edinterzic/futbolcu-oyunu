@@ -315,9 +315,9 @@ function isPairInDifficulty(pair, difficulty) {
 }
 
 function getDifficultyLabel(d) {
-  if (d === "easy") return "Kolay";
-  if (d === "medium") return "Orta";
-  return "Zor";
+  if (d === "easy") return t("diff_easy");
+  if (d === "medium") return t("diff_medium");
+  return t("diff_hard");
 }
 
 function getDifficultyEmoji(d) {
@@ -679,12 +679,12 @@ function drawScoreShareCard({ score, best, diffLabel, isNewBest, matchups = [] }
   ctx.font = "700 28px system-ui, 'Segoe UI', Roboto, sans-serif";
   ctx.fillStyle = "rgba(255,255,255,0.55)";
   ctx.textAlign = "center";
-  ctx.fillText("MARATON", W / 2, 205);
+  ctx.fillText(t("share_maraton_label"), W / 2, 205);
 
   if (isNewBest) {
     ctx.font = "700 50px system-ui, 'Segoe UI', Roboto, sans-serif";
     ctx.fillStyle = "#ffd84d";
-    ctx.fillText("🏆 YENİ REKOR", W / 2, 360);
+    ctx.fillText(t("share_maraton_record"), W / 2, 360);
   }
 
   // Büyük skor + oyunumsu etiket
@@ -693,10 +693,10 @@ function drawScoreShareCard({ score, best, diffLabel, isNewBest, matchups = [] }
   ctx.fillText(String(score), W / 2, 770);
   ctx.font = "600 60px system-ui, 'Segoe UI', Roboto, sans-serif";
   ctx.fillStyle = "rgba(255,255,255,0.95)";
-  ctx.fillText("köprü üst üste", W / 2, 864);
+  ctx.fillText(t("share_maraton_unit"), W / 2, 864);
   ctx.font = "500 40px system-ui, 'Segoe UI', Roboto, sans-serif";
   ctx.fillStyle = "rgba(255,255,255,0.75)";
-  ctx.fillText(`Zorluk: ${diffLabel}   ·   En iyi: ${best}`, W / 2, 944);
+  ctx.fillText(t("share_maraton_stats", { d: diffLabel, b: best }), W / 2, 944);
 
   // Son çözülen eşleşme chip'leri — oyunun ne olduğunu anlatır
   const rows = (matchups || []).slice(0, 3).filter((m) => m && m[0] && m[1]);
@@ -783,7 +783,7 @@ function drawDailyShareCard({ dayNum, correctCount, total, results, streak }) {
   ctx.font = "700 28px system-ui, 'Segoe UI', Roboto, sans-serif";
   ctx.fillStyle = "rgba(255,255,255,0.55)";
   ctx.textAlign = "center";
-  ctx.fillText(`GÜNLÜK #${dayNum}`, W / 2, 205);
+  ctx.fillText(t("share_daily_label", { n: dayNum }), W / 2, 205);
 
   ctx.fillStyle = "#ffffff";
   ctx.font = "800 300px system-ui, 'Segoe UI', Roboto, sans-serif";
@@ -805,10 +805,10 @@ function drawDailyShareCard({ dayNum, correctCount, total, results, streak }) {
   if (streak > 1) {
     ctx.font = "700 56px system-ui, 'Segoe UI', Roboto, sans-serif";
     ctx.fillStyle = "#ffd84d";
-    ctx.fillText(`🔥 ${streak} gün üst üste`, W / 2, 1230);
+    ctx.fillText(t("share_daily_streak", { n: streak }), W / 2, 1230);
   }
 
-  drawGlassCTA(ctx, W, "Sen kaç bildin?", "pairfc.com");
+  drawGlassCTA(ctx, W, t("share_daily_cta"), "pairfc.com");
 
   return canvas;
 }
@@ -859,7 +859,7 @@ function ChallengeGameOver({
 }) {
   const showWrongReport = wrongReport && lastWrongAnswer;
   const playerCount = correctPlayers?.length || 0;
-  const diffLabel = difficulty === "easy" ? "Kolay" : difficulty === "hard" ? "Zor" : "Orta";
+  const diffLabel = difficulty === "easy" ? t("diff_easy") : difficulty === "hard" ? t("diff_hard") : t("diff_medium");
 
   return (
     <div className="challenge-gameover">
@@ -868,22 +868,20 @@ function ChallengeGameOver({
           {isNewBest ? "🏆" : "🎯"}
         </div>
         <div className="gameover-headline">
-          <h3>{isNewBest ? "Yeni Rekor!" : "Seri Bitti"}</h3>
+          <h3>{isNewBest ? t("gover_new_record") : t("gover_streak_over")}</h3>
           {lastWrongAnswer && (
-            <p className="gameover-detail">
-              "<strong>{lastWrongAnswer}</strong>" bu eşleşmede yok
-            </p>
+            <p className="gameover-detail" dangerouslySetInnerHTML={{ __html: t("gover_not_in_pair", { answer: lastWrongAnswer }).replace('"{answer}"'.replace("{answer}", lastWrongAnswer), `"<strong>${lastWrongAnswer}</strong>"`) }} />
           )}
         </div>
       </div>
 
       <div className="gameover-stats">
         <div className="gameover-stat">
-          <span>Bu seri</span>
+          <span>{t("gover_this_streak")}</span>
           <strong>{score}</strong>
         </div>
         <div className={`gameover-stat ${isNewBest ? "highlight" : ""}`}>
-          <span>{isNewBest ? "🔥 Yeni En iyi" : "En iyi"}</span>
+          <span>{isNewBest ? t("gover_new_best") : t("info_best")}</span>
           <strong>{best}</strong>
         </div>
       </div>
@@ -922,17 +920,17 @@ function ChallengeGameOver({
               <input
                 type="text"
                 className="score-name-input"
-                placeholder="Adın / lakabın (opsiyonel)"
+                placeholder={t("gover_name_placeholder")}
                 value={playerName}
                 onChange={(e) => onPlayerNameChange(e.target.value)}
                 maxLength={30}
               />
               <button type="button" onClick={onSaveScore} className="primary-button save-score-btn">
-                🏆 Skoru Kaydet
+                {t("gover_save_score")}
               </button>
             </>
           ) : (
-            <div className="score-saved-msg">✅ Skor kaydedildi! Liderlik tablosunda görünecek.</div>
+            <div className="score-saved-msg">{t("gover_score_saved")}</div>
           )}
         </div>
       )}
@@ -940,14 +938,14 @@ function ChallengeGameOver({
       {/* Paylaş */}
       {score >= 1 && (
         <button type="button" onClick={onShare} className="light-button big share-score-btn">
-          📤 Story'de Paylaş
+          {t("gover_share_story")}
         </button>
       )}
 
       {playerCount > 0 && (
         <div className="gameover-section">
           <span className="gameover-label">
-            Doğru cevaplar <span className="answers-count">({playerCount})</span>
+            {t("gover_correct_answers")} <span className="answers-count">({playerCount})</span>
           </span>
           <div className="gameover-players scrollable">
             {correctPlayers.map((p) => (
@@ -955,7 +953,7 @@ function ChallengeGameOver({
                 key={p.name}
                 type="button"
                 onClick={() => onReportAcceptedPlayer?.(p)}
-                title="Hatalı mı? Tıkla bildir"
+                title={t("gover_wrong_click_report")}
                 className="gameover-player-chip"
               >
                 {p.name}
@@ -974,10 +972,10 @@ function ChallengeGameOver({
           <span className="gameover-report-label">
             <span className="gameover-report-icon" aria-hidden="true">❗</span>
             <span className="gameover-report-text">
-              <strong>"{lastWrongAnswer}"</strong> doğru olmalıydı?
+              <span dangerouslySetInnerHTML={{ __html: t("gover_should_be_correct", { answer: lastWrongAnswer }).replace(`"${lastWrongAnswer}"`, `"<strong>${lastWrongAnswer}</strong>"`) }} />
             </span>
           </span>
-          <span className="gameover-report-cta">Bildir →</span>
+          <span className="gameover-report-cta">{t("gover_report")}</span>
         </button>
       )}
 
@@ -988,7 +986,7 @@ function ChallengeGameOver({
         onClick={onRestart}
         className="primary-button big gameover-restart"
       >
-        🔁 Yeni Maraton
+        {t("gover_new_marathon")}
       </button>
     </div>
   );
@@ -1020,7 +1018,7 @@ function MatchSummary({ playerNames, scores, winner, targetScore, seriesWins, cu
 
       {currentCorrectRounds.length > 0 && (
         <div className="correct-rounds-summary">
-          <strong>Doğru cevaplar <span className="answers-count">({currentCorrectRounds.length})</span></strong>
+          <strong>{t("gover_correct_answers")} <span className="answers-count">({currentCorrectRounds.length})</span></strong>
           <div className="correct-rounds-list scrollable">
             {currentCorrectRounds.map((item, index) => (
               <div className="correct-round-item" key={`${item.teamA}-${item.teamB}-${item.answer}-${index}`}>
@@ -2380,14 +2378,14 @@ export default function App() {
 
     if (acceptedName) {
       if (dailyAcceptedThisRound.includes(acceptedName)) {
-        setDailyMessage({ type: "warning", text: "Bu cevabı zaten verdin." });
+        setDailyMessage({ type: "warning", text: t("daily_already_given") });
         setDailyInput("");
         return;
       }
       // Doğru!
       setDailyAcceptedThisRound([...dailyAcceptedThisRound, acceptedName]);
       setDailyInput("");
-      setDailyMessage({ type: "success", text: `Doğru: ${acceptedName}!` });
+      setDailyMessage({ type: "success", text: t("daily_correct", { name: acceptedName }) });
       setDailyFeedback("correct");
       triggerConfetti();
       triggerScreenFlash("success");
@@ -2408,17 +2406,17 @@ export default function App() {
       if (nextWrong >= 3) {
         // 3 yanlış — bu puzzle X, sonraki
         setDailyShowAnswers(true);
-        setDailyMessage({ type: "error", text: "3 yanlış. Bu eşleşme X." });
+        setDailyMessage({ type: "error", text: t("daily_3wrong_msg") });
         setTimeout(() => advanceDailyToNext("failed"), 1800);
       } else {
-        setDailyMessage({ type: "error", text: `Yanlış. Kalan hak: ${3 - nextWrong}` });
+        setDailyMessage({ type: "error", text: t("daily_wrong_msg", { n: 3 - nextWrong }) });
       }
     }
   };
 
   const skipDailyPuzzle = () => {
     setDailyShowAnswers(true);
-    setDailyMessage({ type: "info", text: "Pas geçildi." });
+    setDailyMessage({ type: "info", text: t("daily_skip_msg") });
     setTimeout(() => advanceDailyToNext("failed"), 1200);
   };
 
@@ -3386,30 +3384,30 @@ export default function App() {
               {showChallengeStartScreen ? (
                 <div className="panel difficulty-picker">
                   <div className="difficulty-header">
-                    <h2>🔥 Maraton</h2>
-                    <p>Zorluk seviyesini seç</p>
+                    <h2>🔥 {t("mode_marathon_title")}</h2>
+                    <p>{t("marathon_choose_difficulty")}</p>
                   </div>
 
                   <div className="difficulty-options">
                     <button type="button" onClick={() => confirmStartChallenge("easy")} className="difficulty-card easy">
                       <span className="difficulty-emoji">🟢</span>
-                      <strong>Kolay</strong>
-                      <small>Popüler Avrupa kulüpleri + 3 Türk büyüğü</small>
-                      <em>Real, Barça, Bayern, ManU, FB, GS, BJK...</em>
+                      <strong>{t("diff_easy")}</strong>
+                      <small>{t("diff_easy_desc")}</small>
+                      <em>{t("diff_easy_examples")}</em>
                     </button>
 
                     <button type="button" onClick={() => confirmStartChallenge("medium")} className="difficulty-card medium">
                       <span className="difficulty-emoji">🟡</span>
-                      <strong>Orta</strong>
-                      <small>Avrupa'nın bilinen kulüpleri + Süper Lig</small>
-                      <em>Tottenham, Napoli, Ajax, Trabzonspor...</em>
+                      <strong>{t("diff_medium")}</strong>
+                      <small>{t("diff_medium_desc")}</small>
+                      <em>{t("diff_medium_examples")}</em>
                     </button>
 
                     <button type="button" onClick={() => confirmStartChallenge("hard")} className="difficulty-card hard">
                       <span className="difficulty-emoji">🔴</span>
-                      <strong>Zor</strong>
-                      <small>Tüm takım havuzu</small>
-                      <em>96 takım, daha sürpriz eşleşmeler</em>
+                      <strong>{t("diff_hard")}</strong>
+                      <small>{t("diff_hard_desc")}</small>
+                      <em>{t("diff_hard_examples")}</em>
                     </button>
                   </div>
                 </div>
@@ -3417,16 +3415,16 @@ export default function App() {
                 <>
               <div className="info-bar challenge-bar">
                 <div className="info-chip">
-                  <span>Mod</span><strong>Maraton</strong>
+                  <span>{t("info_mode")}</span><strong>{t("mode_marathon_title")}</strong>
                 </div>
                 <div className="info-chip">
-                  <span>Zorluk</span><strong>{getDifficultyEmoji(challengeDifficulty)} {getDifficultyLabel(challengeDifficulty)}</strong>
+                  <span>{t("info_difficulty")}</span><strong>{getDifficultyEmoji(challengeDifficulty)} {getDifficultyLabel(challengeDifficulty)}</strong>
                 </div>
                 <div className={`info-chip accent ${challengeScore >= 3 ? "on-fire" : ""} ${challengeScore >= 9 ? "fire-high" : ""}`}>
-                  <span>{challengeScore >= 3 ? "🔥 Seri" : "Seri"}</span><strong className={challengeFeedback === "correct" ? "score-pop" : ""}>{challengeScore}</strong>
+                  <span>{challengeScore >= 3 ? t("info_streak_hot") : t("info_streak")}</span><strong className={challengeFeedback === "correct" ? "score-pop" : ""}>{challengeScore}</strong>
                 </div>
                 <div className="info-chip">
-                  <span>En iyi</span><strong>{challengeBest}</strong>
+                  <span>{t("info_best")}</span><strong>{challengeBest}</strong>
                 </div>
               </div>
 
@@ -3439,8 +3437,8 @@ export default function App() {
               {challengeIsPreRound ? (
                 <div className="panel waiting-panel">
                   <div className="countdown-circle">{challengePreRoundLeft}</div>
-                  <h2>Takımlar açılıyor</h2>
-                  <p>Hazır ol!</p>
+                  <h2>{t("marathon_teams_opening")}</h2>
+                  <p>{t("marathon_get_ready")}</p>
                 </div>
               ) : (
                 <div className={`play-panel ${challengeFeedback === "correct" ? "feedback-correct" : ""} ${challengeFeedback === "wrong" ? "feedback-wrong" : ""}`}>
@@ -3448,21 +3446,21 @@ export default function App() {
                     <CircularTimer value={challengeTimeLeft} max={ROUND_SECONDS} urgent={challengeTimeLeft <= 3 && !challengeRoundLocked} />
                     <div className="play-tools">
                       <div className="joker-buttons">
-                        <button type="button" className="joker-button" onClick={useFirstLetterJoker} disabled={!challengeCanAnswer || challengeFirstLetterUsed} title="İlk harf">
+                        <button type="button" className="joker-button" onClick={useFirstLetterJoker} disabled={!challengeCanAnswer || challengeFirstLetterUsed} title={t("joker_first_letter")}>
                           <span className="joker-icon">🎯</span>
-                          <span className="joker-label">İlk harf</span>
+                          <span className="joker-label">{t("joker_first_letter")}</span>
                         </button>
-                        <button type="button" className="joker-button" onClick={useSwapPairJoker} disabled={!challengeCanAnswer || challengeSwapUsed} title="Çift değiştir">
+                        <button type="button" className="joker-button" onClick={useSwapPairJoker} disabled={!challengeCanAnswer || challengeSwapUsed} title={t("joker_swap_pair")}>
                           <span className="joker-icon">🔄</span>
-                          <span className="joker-label">Çift değiştir</span>
+                          <span className="joker-label">{t("joker_swap_pair")}</span>
                         </button>
-                        <button type="button" className="joker-button" onClick={useTimeAddJoker} disabled={!challengeCanAnswer || challengeTimeAddUsed} title="Süre +5">
+                        <button type="button" className="joker-button" onClick={useTimeAddJoker} disabled={!challengeCanAnswer || challengeTimeAddUsed} title={t("joker_time_tooltip")}>
                           <span className="joker-icon">⏱️</span>
-                          <span className="joker-label">+5 sn</span>
+                          <span className="joker-label">{t("joker_time_label")}</span>
                         </button>
                       </div>
                       <button type="button" className="light-button skip-button" onClick={revealChallengeAnswerAndEnd} disabled={challengeIsPreRound || challengeRoundLocked}>
-                        🤷 Bilmiyorum
+                        {t("btn_dont_know")}
                       </button>
                     </div>
                   </div>
@@ -3506,7 +3504,7 @@ export default function App() {
                       onPlayerNameChange={setLbPlayerName}
                       difficulty={challengeDifficulty}
                       onShare={() => {
-                        const diffLabel = challengeDifficulty === "easy" ? "Kolay" : challengeDifficulty === "hard" ? "Zor" : "Orta";
+                        const diffLabel = challengeDifficulty === "easy" ? t("diff_easy") : challengeDifficulty === "hard" ? t("diff_hard") : t("diff_medium");
                         const failedKey = getRoundKey(challengeRound);
                         const matchups = challengeUsedRoundKeys
                           .filter((k) => k !== failedKey)
@@ -3526,7 +3524,7 @@ export default function App() {
                       {challengeLastAction && challengeLastAction.type === "correct" && (
                         <div className="action-banner success">
                           <span className="action-emoji">⚽</span>
-                          <strong>GOOOL!</strong>
+                          <strong>{t("goal_banner")}</strong>
                         </div>
                       )}
 
@@ -3577,7 +3575,7 @@ export default function App() {
                             onClick={submitChallengeAnswer}
                             className="primary-button"
                           >
-                            Kontrol
+                            {t("btn_check")}
                           </button>
                         </div>
                       </div>
@@ -3922,8 +3920,8 @@ export default function App() {
               ) : isPreRound ? (
                 <div className="panel waiting-panel">
                   <div className="countdown-circle">{preRoundLeft}</div>
-                  <h2>Takımlar açılıyor</h2>
-                  <p>Hazır ol!</p>
+                  <h2>{t("marathon_teams_opening")}</h2>
+                  <p>{t("marathon_get_ready")}</p>
                 </div>
               ) : (
                 <div className="play-panel">
