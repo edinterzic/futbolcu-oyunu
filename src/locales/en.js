@@ -332,6 +332,27 @@ share_copied_dl: "📋 Copied + image downloaded!",
   bonus_hard: "🧠 Tough bridge!",
   bonus_fast: "⚡ Lightning fast!",
 
+// Duel variant
+  duel_variant_auto: "Auto Duel",
+  duel_variant_auto_sub: "Teams come up randomly each round",
+  duel_variant_strategic: "Strategic Duel",
+  duel_variant_strategic_sub: "You pick your team each round",
+  duel_variant_label: "Mode",
+  duel_variant_field_label: "🎮 Mode",
+
+  // Team select
+  ts_title: "🎯 Pick your team",
+  ts_subtitle: "Opponent is picking too — who'll find a better common player?",
+  ts_search: "Search team...",
+  ts_my_pick: "You",
+  ts_opp_pick: "Opponent",
+  ts_picked_check: "✓ picked",
+  ts_waiting: "Waiting...",
+  ts_no_pick: "—",
+  ts_round_starting: "Both teams picked! Round starting...",
+  ts_revealing: "Revealing teams...",
+  ts_collision_msg: "Same team! Opponent got random {team} instead.",
+
   lang_switch_aria: "Select language",
   lang_switch_to_en: "Switch to English",
   lang_switch_to_tr: "Türkçeye geç",

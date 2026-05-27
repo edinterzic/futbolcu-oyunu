@@ -10,6 +10,7 @@ import AdminPanel from "./admin/AdminPanel";
 
 const WINNING_SCORE = 3;
 const ROUND_SECONDS = 20;
+const TEAM_SELECT_SECONDS = 20;
 const ROUND_REVEAL_SECONDS = 3;
 
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
@@ -1189,6 +1190,11 @@ export default function App() {
   });
   const [challengeEffectiveDifficulty, setChallengeEffectiveDifficulty] = useState("medium");
   const [onlineDifficulty, setOnlineDifficulty] = useState("medium");
+  const [duelVariant, setDuelVariant] = useState(null); // null | "auto" | "strategic"
+  const [teamSelectEndsAt, setTeamSelectEndsAt] = useState(null);
+  const [teamPicks, setTeamPicks] = useState([null, null]);
+  const [teamSelectLeft, setTeamSelectLeft] = useState(TEAM_SELECT_SECONDS);
+  const [teamSearch, setTeamSearch] = useState("");
   const [showChallengeStartScreen, setShowChallengeStartScreen] = useState(false);
   const [showOnlineSetup, setShowOnlineSetup] = useState(false);
   const [onlineSetupMode, setOnlineSetupMode] = useState(null); // null | "create" | "join"
@@ -1534,13 +1540,16 @@ export default function App() {
       lastAction,
       seriesWins,
       matchHistory,
-      correctRounds
+      correctRounds,
+      duelVariant,
+      teamSelectEndsAt,
+      teamPicks
     };
   }, [
     screen, playerNames, playersReady, opponentJoined, gameStarted, targetScore,
     scores, round, usedRoundKeys, message, winner, showAnswers, roundLocked,
     roundEndsAt, preRoundEndsAt, wrongAttempts, lastAction, seriesWins,
-    matchHistory, correctRounds
+    matchHistory, correctRounds, duelVariant, teamSelectEndsAt, teamPicks
   ]);
 
   const applyGameState = (gameState) => {
@@ -1580,6 +1589,9 @@ export default function App() {
     setSeriesWins(gameState.seriesWins || [0, 0]);
     setMatchHistory(gameState.matchHistory || []);
     setCorrectRounds(gameState.correctRounds || []);
+    if (gameState.duelVariant !== undefined) setDuelVariant(gameState.duelVariant || "auto");
+    setTeamSelectEndsAt(gameState.teamSelectEndsAt || null);
+    setTeamPicks(gameState.teamPicks || [null, null]);
   };
 
   const sendRoomEvent = async (payload) => {
@@ -1599,7 +1611,8 @@ export default function App() {
     screen, playerNames, playersReady, opponentJoined, gameStarted, targetScore,
     scores, round, usedRoundKeys, message, winner, showAnswers, roundLocked,
     roundEndsAt, preRoundEndsAt, wrongAttempts, lastAction, seriesWins,
-    matchHistory, correctRounds, ...overrides
+    matchHistory, correctRounds, duelVariant, teamSelectEndsAt, teamPicks,
+    ...overrides
   });
 
   const broadcastGameState = async (overrides = {}) => {
@@ -1720,6 +1733,8 @@ export default function App() {
     setCorrectRounds([]);
     setLastWrongReport(null);
     setReportStatus(null);
+    setTeamSelectEndsAt(null);
+    setTeamPicks([null, null]);
     setMessage({ type: "info", text: `Oda oluşturuldu: ${code}. Rakip bağlanana kadar takımlar gizli.` });
     setScreen("game");
     track("mode_started", { mode: "online" });
@@ -1802,13 +1817,17 @@ export default function App() {
     nextReady[playerIndex] = true;
 
     const bothReady = nextReady[0] && nextReady[1];
-    const nextPreRoundEndsAt = bothReady ? Date.now() + ROUND_REVEAL_SECONDS * 1000 : null;
+    const isStrategic = duelVariant === "strategic";
+    // Stratejikte takım seçim fazına gir, otomatikte direkt pre-round'a
+    const nextTeamSelectEndsAt = bothReady && isStrategic ? Date.now() + TEAM_SELECT_SECONDS * 1000 : null;
+    const nextPreRoundEndsAt = bothReady && !isStrategic ? Date.now() + ROUND_REVEAL_SECONDS * 1000 : null;
+    const nextScreen = bothReady && isStrategic ? "team_select" : "game";
     const nextMessage = bothReady
       ? { type: "success", text: t("status_both_ready_starting") }
       : { type: "info", text: t("status_player_ready", { name: playerNames[playerIndex] }) };
 
     const nextState = {
-      screen: "game",
+      screen: nextScreen,
       playerNames,
       playersReady: nextReady,
       opponentJoined: true,
@@ -1818,6 +1837,9 @@ export default function App() {
       winner: null, showAnswers: false, roundLocked: false,
       roundEndsAt: null,
       preRoundEndsAt: nextPreRoundEndsAt,
+      teamSelectEndsAt: nextTeamSelectEndsAt,
+      teamPicks: bothReady && isStrategic ? [null, null] : teamPicks,
+      duelVariant,
       wrongAttempts: [0, 0], lastAction: null,
       seriesWins, matchHistory, correctRounds
     };
@@ -1826,6 +1848,11 @@ export default function App() {
     setGameStarted(bothReady);
     setRoundEndsAt(null);
     setPreRoundEndsAt(nextPreRoundEndsAt);
+    setTeamSelectEndsAt(nextTeamSelectEndsAt);
+    if (bothReady && isStrategic) {
+      setScreen("team_select");
+      setTeamPicks([null, null]);
+    }
     setTimeLeft(ROUND_SECONDS);
     setPreRoundLeft(ROUND_REVEAL_SECONDS);
     setWrongAttempts([0, 0]);
@@ -1837,9 +1864,92 @@ export default function App() {
     await sendRoomEvent({ type: "STATE_SYNC", gameState: nextState });
   };
 
+  // Stratejik mod: takım seçimini yayınla
+  const pickTeam = async (teamName) => {
+    if (screen !== "team_select") return;
+    if (teamPicks[playerIndex]) return;
+    const newPicks = [...teamPicks];
+    newPicks[playerIndex] = teamName;
+    setTeamPicks(newPicks);
+    const nextState = { ...stateRef.current, teamPicks: newPicks };
+    await sendRoomEvent({ type: "STATE_SYNC", gameState: nextState });
+  };
+
+  // Stratejik mod: takım seçimi sonlandır (sadece host)
+  const finalizeTeamSelect = async () => {
+    if (playerIndex !== 0) return;
+    if (screen !== "team_select") return;
+    const pool = Object.keys(TEAM_LOGOS);
+    if (!pool.length) return;
+    let p0 = teamPicks[0];
+    let p1 = teamPicks[1];
+    if (!p0) p0 = pool[Math.floor(Math.random() * pool.length)];
+    if (!p1) p1 = pool[Math.floor(Math.random() * pool.length)];
+    let collisionMsg = null;
+    if (p0 === p1) {
+      const alt = pool.filter((tn) => tn !== p0);
+      const newP1 = alt[Math.floor(Math.random() * alt.length)];
+      collisionMsg = t("ts_collision_msg", { team: newP1 });
+      p1 = newP1;
+    }
+    // Ortak oyuncu var mı? Yoksa p1 değiştir
+    let candidate = { teams: [p0, p1] };
+    let attempts = 0;
+    while (getRoundAnswers(candidate).length === 0 && attempts < 10) {
+      const alt = pool.filter((tn) => tn !== p0 && tn !== p1);
+      if (!alt.length) break;
+      p1 = alt[Math.floor(Math.random() * alt.length)];
+      candidate = { teams: [p0, p1] };
+      attempts++;
+    }
+    if (getRoundAnswers(candidate).length === 0) {
+      // Toplam fallback: rastgele bilinen bir çift
+      candidate = getRandomRound([], "hard") || { teams: ["Fenerbahçe", "Galatasaray"] };
+    }
+    const nextPreRoundEndsAt = Date.now() + ROUND_REVEAL_SECONDS * 1000;
+    const nextState = {
+      ...stateRef.current,
+      screen: "game",
+      round: candidate,
+      usedRoundKeys: [...(stateRef.current.usedRoundKeys || []), getRoundKey(candidate)],
+      gameStarted: true,
+      preRoundEndsAt: nextPreRoundEndsAt,
+      roundEndsAt: null,
+      roundLocked: false,
+      showAnswers: false,
+      wrongAttempts: [0, 0],
+      lastAction: null,
+      teamSelectEndsAt: null,
+      teamPicks: [p0, p1],
+      message: collisionMsg ? { type: "info", text: collisionMsg } : null
+    };
+    applyGameState(nextState);
+    await sendRoomEvent({ type: "STATE_SYNC", gameState: nextState });
+  };
+
   const nextRound = async () => {
     if (playerIndex !== 0) {
       setMessage({ type: "info", text: t("status_only_host_next") });
+      return;
+    }
+
+    // Stratejik mod: yeni tur = takım seçim fazına geri dön
+    if (duelVariant === "strategic") {
+      const nextState = {
+        ...stateRef.current,
+        screen: "team_select",
+        teamSelectEndsAt: Date.now() + TEAM_SELECT_SECONDS * 1000,
+        teamPicks: [null, null],
+        preRoundEndsAt: null,
+        roundEndsAt: null,
+        roundLocked: false,
+        showAnswers: false,
+        wrongAttempts: [0, 0],
+        lastAction: null,
+        message: null
+      };
+      applyGameState(nextState);
+      await sendRoomEvent({ type: "STATE_SYNC", gameState: nextState });
       return;
     }
 
@@ -1893,6 +2003,32 @@ export default function App() {
     return () => window.clearTimeout(timer);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [roundLocked, screen, playerIndex, lastAction]);
+
+  // Stratejik mod: takım seçim countdown
+  useEffect(() => {
+    if (screen !== "team_select" || !teamSelectEndsAt) return;
+    const tick = () => {
+      const remaining = Math.max(0, Math.ceil((teamSelectEndsAt - Date.now()) / 1000));
+      setTeamSelectLeft(remaining);
+      if (remaining <= 0 && playerIndex === 0) {
+        finalizeTeamSelect();
+      }
+    };
+    tick();
+    const interval = window.setInterval(tick, 250);
+    return () => window.clearInterval(interval);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [screen, teamSelectEndsAt, playerIndex]);
+
+  // Stratejik mod: iki oyuncu da seçince host finalize eder (kısa reveal beklemesiyle)
+  useEffect(() => {
+    if (playerIndex !== 0) return;
+    if (screen !== "team_select") return;
+    if (!teamPicks[0] || !teamPicks[1]) return;
+    const timer = window.setTimeout(() => { finalizeTeamSelect(); }, 900);
+    return () => window.clearTimeout(timer);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [teamPicks, screen, playerIndex]);
 
   const resetGame = async () => {
     const firstRound = getRandomRound([], onlineDifficulty) || { teams: ["Fenerbahçe", "Galatasaray"] };
@@ -2526,7 +2662,7 @@ export default function App() {
       setScreen("home");
       return;
     }
-    if (screen === "game" || screen === "winner") {
+    if (screen === "game" || screen === "winner" || screen === "team_select") {
       // Online oyundan ayrıl
       if (channelRef.current && supabase) {
         supabase.removeChannel(channelRef.current);
@@ -2535,9 +2671,12 @@ export default function App() {
       setRoomCode("");
       setRoundEndsAt(null);
       setPreRoundEndsAt(null);
+      setTeamSelectEndsAt(null);
+      setTeamPicks([null, null]);
     }
     setShowOnlineSetup(false);
     setOnlineSetupMode(null);
+    setDuelVariant(null);
     setScreen("home");
   };
 
@@ -2962,7 +3101,7 @@ export default function App() {
   }, [soundEnabled]);
 
   const isHome = screen === "home";
-  const isGameLike = screen === "game" || screen === "winner";
+  const isGameLike = screen === "game" || screen === "winner" || screen === "team_select";
   const isChallenge = screen === "challenge";
   const isDaily = screen === "daily";
 
@@ -3263,7 +3402,23 @@ export default function App() {
 
               {showOnlineSetup && (
               <>
-              {!onlineSetupMode && (
+              {!duelVariant && (
+                <div className="online-mode-picker">
+                  <button type="button" onClick={() => setDuelVariant("auto")} className="online-action-card create">
+                    <span className="online-action-icon">⚡</span>
+                    <strong>{t("duel_variant_auto")}</strong>
+                    <small>{t("duel_variant_auto_sub")}</small>
+                    <span className="online-action-arrow">→</span>
+                  </button>
+                  <button type="button" onClick={() => setDuelVariant("strategic")} className="online-action-card join">
+                    <span className="online-action-icon">🎯</span>
+                    <strong>{t("duel_variant_strategic")}</strong>
+                    <small>{t("duel_variant_strategic_sub")}</small>
+                    <span className="online-action-arrow">→</span>
+                  </button>
+                </div>
+              )}
+              {duelVariant && !onlineSetupMode && (
                 <div className="online-mode-picker">
                   <button type="button" onClick={() => setOnlineSetupMode("create")} className="online-action-card create">
                     <span className="online-action-icon">✨</span>
@@ -3309,6 +3464,7 @@ export default function App() {
                     </div>
                   </div>
 
+                  {duelVariant !== "strategic" && (
                   <div className="input-card">
                     <label>{t("form_difficulty_label")}</label>
                     <div className="score-options">
@@ -3328,6 +3484,7 @@ export default function App() {
                       ))}
                     </div>
                   </div>
+                  )}
 
                   <button type="button" onClick={createRoom} className="primary-button big full-width">
                     {t("btn_create_room")}
@@ -3797,6 +3954,11 @@ export default function App() {
                 <div className="info-chip">
                   <span>{t("online_target")}</span><strong>{targetScore}</strong>
                 </div>
+                {duelVariant === "strategic" && (
+                  <div className="info-chip" style={{ background: "rgba(155,45,255,0.15)", border: "1px solid rgba(155,45,255,0.45)" }}>
+                    <span>🎯</span><strong>{t("duel_variant_strategic")}</strong>
+                  </div>
+                )}
                 <button type="button" onClick={copyInvite} className="mini-button">📋 Link</button>
               </div>
 
@@ -3813,6 +3975,99 @@ export default function App() {
                   <em className="score-meta">{t("online_series_meta", { n: seriesWins[1] })}</em>
                 </div>
               </div>
+
+              {screen === "team_select" && (
+                <div className="panel" style={{ padding: 16 }}>
+                  <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 12, gap: 12 }}>
+                    <div style={{ flex: 1 }}>
+                      <h2 style={{ margin: "0 0 4px", fontSize: 22, fontWeight: 800, color: "#fff" }}>{t("ts_title")}</h2>
+                      <p style={{ margin: 0, fontSize: 13, color: "rgba(255,255,255,0.65)" }}>{t("ts_subtitle")}</p>
+                    </div>
+                    <div style={{ minWidth: 70, padding: "8px 12px", borderRadius: 14, background: "rgba(155, 45, 255, 0.18)", border: "1px solid rgba(155, 45, 255, 0.5)", textAlign: "center" }}>
+                      <strong style={{ display: "block", fontSize: 22, fontWeight: 800, color: "#fff" }}>{teamSelectLeft}</strong>
+                      <span style={{ fontSize: 11, color: "rgba(255,255,255,0.7)" }}>{t("timer_seconds")}</span>
+                    </div>
+                  </div>
+
+                  {/* Pick durumu */}
+                  <div style={{ display: "flex", gap: 8, marginBottom: 14, padding: "10px 12px", borderRadius: 12, background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)" }}>
+                    <div style={{ flex: 1, textAlign: "center" }}>
+                      <div style={{ fontSize: 11, color: "rgba(255,255,255,0.55)", fontWeight: 700, textTransform: "uppercase", letterSpacing: 0.4 }}>{t("ts_my_pick")}</div>
+                      <strong style={{ display: "block", fontSize: 15, color: teamPicks[playerIndex] ? "#7ee0a3" : "rgba(255,255,255,0.4)", marginTop: 4 }}>
+                        {teamPicks[playerIndex] || t("ts_no_pick")}
+                      </strong>
+                    </div>
+                    <div style={{ width: 1, background: "rgba(255,255,255,0.1)" }} />
+                    <div style={{ flex: 1, textAlign: "center" }}>
+                      <div style={{ fontSize: 11, color: "rgba(255,255,255,0.55)", fontWeight: 700, textTransform: "uppercase", letterSpacing: 0.4 }}>{t("ts_opp_pick")}</div>
+                      <strong style={{ display: "block", fontSize: 15, color: teamPicks[1 - playerIndex] ? "#7ee0a3" : "rgba(255,255,255,0.4)", marginTop: 4 }}>
+                        {teamPicks[1 - playerIndex] ? t("ts_picked_check") : t("ts_waiting")}
+                      </strong>
+                    </div>
+                  </div>
+
+                  {teamPicks[0] && teamPicks[1] ? (
+                    <div style={{ padding: "16px 12px", textAlign: "center", borderRadius: 14, background: "rgba(46, 204, 113, 0.12)", border: "1px solid rgba(46, 204, 113, 0.4)", color: "#7ee0a3", fontWeight: 700 }}>
+                      {t("ts_round_starting")}
+                    </div>
+                  ) : (
+                    <>
+                      <input
+                        type="text"
+                        value={teamSearch}
+                        onChange={(e) => setTeamSearch(e.target.value)}
+                        placeholder={t("ts_search")}
+                        disabled={Boolean(teamPicks[playerIndex])}
+                        style={{ width: "100%", padding: "10px 14px", borderRadius: 12, border: "1px solid rgba(255,255,255,0.12)", background: "rgba(255,255,255,0.04)", color: "#fff", fontSize: 14, marginBottom: 10, boxSizing: "border-box" }}
+                      />
+                      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(76px, 1fr))", gap: 6, maxHeight: 320, overflowY: "auto", paddingRight: 4 }}>
+                        {Object.keys(TEAM_LOGOS)
+                          .filter((tn) => !teamSearch || tn.toLowerCase().includes(teamSearch.toLowerCase()))
+                          .map((tn) => {
+                            const meta = TEAM_LOGOS[tn];
+                            const picked = teamPicks[playerIndex] === tn;
+                            return (
+                              <button
+                                key={tn}
+                                type="button"
+                                onClick={() => pickTeam(tn)}
+                                disabled={Boolean(teamPicks[playerIndex])}
+                                title={tn}
+                                style={{
+                                  position: "relative",
+                                  padding: "8px 4px 6px",
+                                  borderRadius: 10,
+                                  border: picked ? "2px solid #7ee0a3" : "1px solid rgba(255,255,255,0.08)",
+                                  background: meta?.primary || "#2a2a3a",
+                                  color: meta?.secondary || "#fff",
+                                  cursor: teamPicks[playerIndex] ? "default" : "pointer",
+                                  opacity: teamPicks[playerIndex] && !picked ? 0.4 : 1,
+                                  fontSize: 11,
+                                  fontWeight: 800,
+                                  letterSpacing: 0.3,
+                                  textAlign: "center",
+                                  transition: "transform 0.12s, opacity 0.12s",
+                                  minHeight: 56,
+                                  display: "flex",
+                                  flexDirection: "column",
+                                  alignItems: "center",
+                                  justifyContent: "center",
+                                  gap: 2,
+                                  overflow: "hidden"
+                                }}
+                              >
+                                <span style={{ fontSize: 13, fontWeight: 900 }}>{meta?.initials || tn.slice(0, 3).toUpperCase()}</span>
+                                <span style={{ fontSize: 9, fontWeight: 600, opacity: 0.85, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis", maxWidth: "100%" }}>{tn}</span>
+                              </button>
+                            );
+                          })}
+                      </div>
+                    </>
+                  )}
+
+                  <StatusMessage message={message} />
+                </div>
+              )}
 
               {gameStarted && screen === "game" && winner === null && (scores[0] === targetScore - 1 || scores[1] === targetScore - 1) && (
                 <div className={`match-point-banner ${scores[playerIndex] === targetScore - 1 ? "me" : "opp"}`}>

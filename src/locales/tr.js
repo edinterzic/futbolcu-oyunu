@@ -332,6 +332,27 @@ share_copied_dl: "📋 Kopyalandı + görsel indirildi!",
   bonus_hard: "🧠 Zor köprü!",
   bonus_fast: "⚡ Şimşek gibi!",
 
+// Düello variant
+  duel_variant_auto: "Otomatik Düello",
+  duel_variant_auto_sub: "Takımlar her tur rastgele gelir",
+  duel_variant_strategic: "Stratejik Düello",
+  duel_variant_strategic_sub: "Her tur kendi takımını sen seçersin",
+  duel_variant_label: "Mod",
+  duel_variant_field_label: "🎮 Mod",
+
+  // Team select faz
+  ts_title: "🎯 Takımını seç",
+  ts_subtitle: "Rakip de seçiyor — kim daha iyi ortak oyuncu bulur?",
+  ts_search: "Takım ara...",
+  ts_my_pick: "Sen",
+  ts_opp_pick: "Rakip",
+  ts_picked_check: "✓ seçildi",
+  ts_waiting: "Bekliyor...",
+  ts_no_pick: "—",
+  ts_round_starting: "İki takım da seçildi! Tur başlıyor...",
+  ts_revealing: "Takımlar açılıyor...",
+  ts_collision_msg: "Aynı takım! Rakibe rastgele {team} verildi.",
+
   lang_switch_aria: "Dil seç",
   lang_switch_to_en: "Switch to English",
   lang_switch_to_tr: "Türkçeye geç",
