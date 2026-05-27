@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hakkında | PairFC</title>
+  <meta name="description" content="PairFC nedir, fikir nereden çıktı, felsefemiz ne? Tek bir soru etrafında dönen küçük bir indie futbol oyunu." />
+  <meta name="robots" content="index, follow" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="canonical" href="https://pairfc.com/about.html" />
+  <style>
+    :root {
+      --bg: #0a0f1f;
+      --bg-elev: #131a2e;
+      --text: #ffffff;
+      --text-muted: rgba(255,255,255,0.65);
+      --text-faint: rgba(255,255,255,0.45);
+      --brand: #9b2dff;
+      --accent: #f5a524;
+      --green: #7ee0a3;
+      --border: rgba(255,255,255,0.10);
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    .page { max-width: 720px; margin: 0 auto; padding: 24px 22px 80px; }
+    header.topbar { display: flex; align-items: center; justify-content: space-between; padding-bottom: 24px; border-bottom: 1px solid var(--border); margin-bottom: 32px; }
+    .back-link { color: var(--text); text-decoration: none; font-weight: 800; font-size: 18px; letter-spacing: -0.01em; }
+    .back-link .fc { color: var(--accent); }
+    .lang-toggle { display: flex; gap: 4px; background: var(--bg-elev); border: 1px solid var(--border); border-radius: 999px; padding: 3px; }
+    .lang-toggle button { background: transparent; border: none; color: var(--text-muted); font-size: 12px; font-weight: 800; padding: 6px 14px; border-radius: 999px; cursor: pointer; letter-spacing: 0.04em; }
+    .lang-toggle button.active { background: var(--brand); color: white; }
+    h1 { font-size: 32px; margin: 0 0 8px; font-weight: 800; letter-spacing: -0.02em; }
+    .tagline { font-size: 17px; color: var(--accent); font-weight: 600; margin: 0 0 28px; }
+    h2 { font-size: 20px; margin: 36px 0 12px; font-weight: 800; color: var(--accent); letter-spacing: -0.01em; }
+    p { color: var(--text-muted); margin: 0 0 12px; }
+    ul { color: var(--text-muted); padding-left: 22px; margin: 8px 0 16px; }
+    li { margin-bottom: 10px; }
+    strong { color: var(--text); font-weight: 700; }
+    a { color: var(--brand); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .principle { background: var(--bg-elev); border: 1px solid var(--border); border-radius: 14px; padding: 14px 16px; margin: 10px 0; border-left: 4px solid var(--brand); }
+    .principle strong { display: block; margin-bottom: 4px; font-size: 15px; }
+    .bridge-example { background: var(--bg-elev); border: 1px solid var(--border); border-radius: 14px; padding: 16px 18px; margin: 16px 0; }
+    .bridge-example .pair { font-weight: 700; color: var(--text); }
+    .bridge-example .vs { color: var(--accent); font-weight: 800; padding: 0 8px; }
+    .bridge-example .player { color: var(--green); font-weight: 800; }
+    .cta { display: block; text-align: center; background: linear-gradient(135deg, #aa3bff, #9b2dff); color: white; text-decoration: none; padding: 16px 24px; border-radius: 14px; font-weight: 800; font-size: 16px; margin: 32px 0 0; }
+    .cta:hover { text-decoration: none; opacity: 0.92; }
+    footer { margin-top: 60px; padding-top: 24px; border-top: 1px solid var(--border); font-size: 13px; color: var(--text-faint); text-align: center; }
+    footer a { color: var(--text-faint); margin: 0 6px; }
+    @media (max-width: 480px) { h1 { font-size: 26px; } .page { padding: 18px 16px 60px; } }
+  </style>
+</head>
+<body>
+  <div class="page" data-title-tr="Hakkında | PairFC" data-title-en="About | PairFC">
+    <header class="topbar">
+      <a href="/" class="back-link">← Pair<span class="fc">FC</span></a>
+      <div class="lang-toggle">
+        <button onclick="setLang('tr')" id="btn-tr">TR</button>
+        <button onclick="setLang('en')" id="btn-en">EN</button>
+      </div>
+    </header>
+
+    <!-- ================ TÜRKÇE ================ -->
+    <section id="content-tr">
+      <h1>PairFC Hakkında</h1>
+      <p class="tagline">İki takım. Tek futbolcu. Sen bul.</p>
+
+      <h2>Fikir</h2>
+      <p>Her futbolcunun kariyeri bir köprüdür. Eden Hazard, Chelsea ile Real Madrid arasında bir köprü. Wesley Sneijder, Galatasaray ile Inter arasında. Mesut Özil, Real Madrid ile Fenerbahçe arasında.</p>
+
+      <div class="bridge-example">
+        <span class="pair">Chelsea</span><span class="vs">×</span><span class="pair">Real Madrid</span>
+        <div style="margin-top: 8px; color: rgba(255,255,255,0.55); font-size: 14px;">
+          → <span class="player">Eden Hazard</span>
+        </div>
+      </div>
+
+      <p>PairFC tek bir soru üzerine kurulu: <strong>Bu iki kulüpte de oynamış olan futbolcu kim?</strong> Yıllardır biriken transfer tarihinin küçük bir oyuna dönüşmüş hâli.</p>
+
+      <h2>Felsefemiz</h2>
+
+      <div class="principle">
+        <strong>Sade kal.</strong>
+        Tek mekanik, dört mod. Yeni mod çoğaltmak yerine var olanı derinleştirmeyi seçiyoruz. Stratejik Düello bunun ilk örneği — aynı temel mantık, yeni bir karar katmanı.
+      </div>
+
+      <div class="principle">
+        <strong>Hızlı kal.</strong>
+        Süre dolmadan cevapla. Bilgi kadar hız da değerli. Her tur 15-20 saniye; oyun beş dakika kaybetmek istediğinde başlar, otuz saniye sonra bitmiş olur.
+      </div>
+
+      <div class="principle">
+        <strong>Adil kal.</strong>
+        Yanlış cevap diyerek geçtiğimizde "Bildir" butonu var. Kullanıcı geri bildirimiyle veri tabanını her gün iyileştiriyoruz; yanlış-negatifler hızla düzeltiliyor.
+      </div>
+
+      <div class="principle">
+        <strong>Reklamsız kal.</strong>
+        Şu an hiç reklam yok. Belki hiç olmayacak. Sürdürülebilir bir model bulmadan UX'i bozmuyoruz.
+      </div>
+
+      <h2>Kim yaptı?</h2>
+      <p>Türkiye'den, futbolu seven biri tarafından geliştirildi. PairFC bir hobi olarak başladı, kullanıcılarla birlikte büyüyor. Açık kaynak değil ama bağımsız — büyük bir şirketin arkasında durmuyor.</p>
+
+      <h2>Veri ve gizlilik</h2>
+      <p>Hesap, e-posta, parola istemiyoruz. Anonim oynayabilirsin. Detaylar <a href="/privacy.html">Gizlilik Politikası</a> sayfasında.</p>
+
+      <h2>İletişim</h2>
+      <p>Geri bildirim, hata bildirimi, iş birliği teklifi için: <a href="mailto:iletisim@pairfc.com">iletisim@pairfc.com</a></p>
+
+      <a href="/" class="cta">Hemen Oyna →</a>
+    </section>
+
+    <!-- ================ ENGLISH ================ -->
+    <section id="content-en" hidden>
+      <h1>About PairFC</h1>
+      <p class="tagline">Two clubs. One player. Find them.</p>
+
+      <h2>The idea</h2>
+      <p>Every footballer's career is a bridge. Eden Hazard is a bridge between Chelsea and Real Madrid. Wesley Sneijder between Galatasaray and Inter. Cristiano Ronaldo between Manchester United and Real Madrid.</p>
+
+      <div class="bridge-example">
+        <span class="pair">Chelsea</span><span class="vs">×</span><span class="pair">Real Madrid</span>
+        <div style="margin-top: 8px; color: rgba(255,255,255,0.55); font-size: 14px;">
+          → <span class="player">Eden Hazard</span>
+        </div>
+      </div>
+
+      <p>PairFC is built around one question: <strong>which player played for both of these clubs?</strong> Decades of transfer history, turned into a small daily game.</p>
+
+      <h2>Our philosophy</h2>
+
+      <div class="principle">
+        <strong>Stay simple.</strong>
+        One mechanic, four modes. Instead of adding new modes, we deepen what already exists. Strategic Duel is the first example — same core logic, a new layer of decision-making.
+      </div>
+
+      <div class="principle">
+        <strong>Stay fast.</strong>
+        Answer before the timer runs out. Speed is as valuable as knowledge. Each round takes 15-20 seconds; a session starts when you want to spend five minutes and ends in thirty seconds.
+      </div>
+
+      <div class="principle">
+        <strong>Stay fair.</strong>
+        When we mark an answer wrong, there's a "Report" button. We improve the database every day with user feedback; false negatives get fixed fast.
+      </div>
+
+      <div class="principle">
+        <strong>Stay ad-free.</strong>
+        No ads right now. Maybe never. We won't break the UX until we find a sustainable model that doesn't.
+      </div>
+
+      <h2>Who made this?</h2>
+      <p>Built by a football fan from Türkiye. PairFC started as a hobby and grows with its users. Not open source — but independent, with no big company behind it.</p>
+
+      <h2>Data and privacy</h2>
+      <p>No account, email, or password required. You can play fully anonymously. Details on the <a href="/privacy.html">Privacy Policy</a> page.</p>
+
+      <h2>Contact</h2>
+      <p>Feedback, bug reports, partnerships: <a href="mailto:iletisim@pairfc.com">iletisim@pairfc.com</a></p>
+
+      <a href="/" class="cta">Play Now →</a>
+    </section>
+
+    <footer>
+      <p>© 2026 PairFC · <a href="/about.html">About</a> · <a href="/privacy.html">Privacy</a> · <a href="/terms.html">Terms</a> · <a href="/how-to-play.html">How to Play</a></p>
+    </footer>
+  </div>
+
+  <script>
+    function setLang(lang) {
+      const tr = document.getElementById('content-tr');
+      const en = document.getElementById('content-en');
+      const btnTr = document.getElementById('btn-tr');
+      const btnEn = document.getElementById('btn-en');
+      tr.hidden = lang !== 'tr';
+      en.hidden = lang !== 'en';
+      btnTr.classList.toggle('active', lang === 'tr');
+      btnEn.classList.toggle('active', lang === 'en');
+      document.documentElement.lang = lang;
+      try { localStorage.setItem('pairfc_lang', lang); } catch (e) {}
+      try {
+        const root = document.querySelector('[data-title-tr]');
+        if (root) document.title = lang === 'en' ? root.getAttribute('data-title-en') : root.getAttribute('data-title-tr');
+      } catch (e) {}
+    }
+    (function init() {
+      let lang = 'tr';
+      try {
+        const saved = localStorage.getItem('pairfc_lang');
+        if (saved === 'tr' || saved === 'en') lang = saved;
+        else {
+          const nav = (navigator.language || 'tr').toLowerCase();
+          lang = nav.startsWith('en') ? 'en' : 'tr';
+        }
+      } catch (e) {}
+      setLang(lang);
+    })();
+  </script>
+</body>
+</html>

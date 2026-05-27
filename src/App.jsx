@@ -847,6 +847,8 @@ function OnboardingOverlay({ onClose }) {
           {t("onboard_btn")}
         </button>
         <div style={{ marginTop: 14, paddingTop: 14, textAlign: "center", fontSize: 11, fontWeight: 600, color: "rgba(255,255,255,0.4)", letterSpacing: 0.3 }}>
+          <a href="/about.html" target="_blank" rel="noopener noreferrer" style={{ color: "inherit", textDecoration: "none", margin: "0 6px" }}>{t("footer_about")}</a>
+          <span style={{ opacity: 0.5 }}>·</span>
           <a href="/privacy.html" target="_blank" rel="noopener noreferrer" style={{ color: "inherit", textDecoration: "none", margin: "0 6px" }}>{t("footer_privacy")}</a>
           <span style={{ opacity: 0.5 }}>·</span>
           <a href="/terms.html" target="_blank" rel="noopener noreferrer" style={{ color: "inherit", textDecoration: "none", margin: "0 6px" }}>{t("footer_terms")}</a>
@@ -3184,6 +3186,8 @@ export default function App() {
               {t("btn_got_it")}
             </button>
             <div style={{ marginTop: 14, paddingTop: 14, textAlign: "center", fontSize: 11, fontWeight: 600, color: "rgba(255,255,255,0.4)", letterSpacing: 0.3 }}>
+          <a href="/about.html" target="_blank" rel="noopener noreferrer" style={{ color: "inherit", textDecoration: "none", margin: "0 6px" }}>{t("footer_about")}</a>
+          <span style={{ opacity: 0.5 }}>·</span>
           <a href="/privacy.html" target="_blank" rel="noopener noreferrer" style={{ color: "inherit", textDecoration: "none", margin: "0 6px" }}>{t("footer_privacy")}</a>
           <span style={{ opacity: 0.5 }}>·</span>
           <a href="/terms.html" target="_blank" rel="noopener noreferrer" style={{ color: "inherit", textDecoration: "none", margin: "0 6px" }}>{t("footer_terms")}</a>
@@ -3255,6 +3259,15 @@ export default function App() {
               {!showOnlineSetup && (
               <>
               {mainTab === "home" && (<>
+              {/* Belirgin slogan + örnek köprü — yeni kullanıcı için "ne bu oyun?" cevabı */}
+              <div style={{ textAlign: "center", padding: "4px 16px 14px", margin: "0 auto" }}>
+                <p style={{ margin: "0 0 4px", fontSize: 16, fontWeight: 800, letterSpacing: -0.01, color: "#fff", lineHeight: 1.3 }}>
+                  {t("tagline_short")} <span style={{ color: "#f5a524" }}>{t("home_slogan_action")}</span>
+                </p>
+                <p style={{ margin: 0, fontSize: 12, fontWeight: 600, color: "rgba(255,255,255,0.45)", letterSpacing: 0.2 }}>
+                  Chelsea <span style={{ color: "#f5a524", margin: "0 4px" }}>×</span> Real Madrid <span style={{ margin: "0 4px" }}>→</span> <span style={{ color: "#7ee0a3", fontWeight: 700 }}>Eden Hazard</span>
+                </p>
+              </div>
               {/* Tek satır mini stat pill */}
               <div className="stats-strip">
                 <span className="stats-strip-item"><span className="ssi-icon">🔥</span><strong>{dailyStreak}</strong><span className="ssi-label">{t("stat_streak")}</span></span>
@@ -3435,6 +3448,8 @@ export default function App() {
 
               {/* Yasal sayfa linkleri — en altta, her tab'ta görünür */}
               <div style={{ marginTop: 14, paddingTop: 14, paddingBottom: 6, textAlign: "center", fontSize: 11.5, fontWeight: 600, color: "rgba(255,255,255,0.35)", letterSpacing: 0.3 }}>
+                <a href="/about.html" target="_blank" rel="noopener noreferrer" style={{ color: "inherit", textDecoration: "none", margin: "0 8px" }}>{t("footer_about")}</a>
+                <span style={{ opacity: 0.5 }}>·</span>
                 <a href="/privacy.html" target="_blank" rel="noopener noreferrer" style={{ color: "inherit", textDecoration: "none", margin: "0 8px" }}>{t("footer_privacy")}</a>
                 <span style={{ opacity: 0.5 }}>·</span>
                 <a href="/terms.html" target="_blank" rel="noopener noreferrer" style={{ color: "inherit", textDecoration: "none", margin: "0 8px" }}>{t("footer_terms")}</a>
