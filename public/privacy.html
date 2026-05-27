@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Gizlilik Politikası | PairFC</title>
+  <meta name="description" content="PairFC'de hangi verilerin işlendiğini, ne topladığımızı, ne toplamadığımızı açıklayan gizlilik politikası." />
+  <meta name="robots" content="index, follow" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="canonical" href="https://pairfc.com/privacy.html" />
+  <style>
+    :root {
+      --bg: #0a0f1f;
+      --bg-elev: #131a2e;
+      --text: #ffffff;
+      --text-muted: rgba(255,255,255,0.65);
+      --text-faint: rgba(255,255,255,0.45);
+      --brand: #9b2dff;
+      --accent: #f5a524;
+      --border: rgba(255,255,255,0.10);
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    .page { max-width: 720px; margin: 0 auto; padding: 24px 22px 80px; }
+    header.topbar { display: flex; align-items: center; justify-content: space-between; padding-bottom: 24px; border-bottom: 1px solid var(--border); margin-bottom: 32px; }
+    .back-link { color: var(--text); text-decoration: none; font-weight: 800; font-size: 18px; letter-spacing: -0.01em; }
+    .back-link .fc { color: var(--accent); }
+    .lang-toggle { display: flex; gap: 4px; background: var(--bg-elev); border: 1px solid var(--border); border-radius: 999px; padding: 3px; }
+    .lang-toggle button { background: transparent; border: none; color: var(--text-muted); font-size: 12px; font-weight: 800; padding: 6px 14px; border-radius: 999px; cursor: pointer; letter-spacing: 0.04em; }
+    .lang-toggle button.active { background: var(--brand); color: white; }
+    h1 { font-size: 28px; margin: 0 0 6px; font-weight: 800; letter-spacing: -0.02em; }
+    h2 { font-size: 18px; margin: 32px 0 10px; font-weight: 800; color: var(--accent); letter-spacing: -0.01em; }
+    .effective { color: var(--text-faint); font-size: 13px; margin: 0 0 8px; }
+    p { color: var(--text-muted); margin: 0 0 12px; }
+    ul, ol { color: var(--text-muted); padding-left: 22px; margin: 8px 0 16px; }
+    li { margin-bottom: 6px; }
+    strong { color: var(--text); font-weight: 700; }
+    a { color: var(--brand); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    footer { margin-top: 60px; padding-top: 24px; border-top: 1px solid var(--border); font-size: 13px; color: var(--text-faint); text-align: center; }
+    footer a { color: var(--text-faint); margin: 0 6px; }
+    @media (max-width: 480px) { h1 { font-size: 24px; } .page { padding: 18px 16px 60px; } }
+  </style>
+</head>
+<body>
+  <div class="page" data-title-tr="Gizlilik Politikası | PairFC" data-title-en="Privacy Policy | PairFC">
+    <header class="topbar">
+      <a href="/" class="back-link">← Pair<span class="fc">FC</span></a>
+      <div class="lang-toggle">
+        <button onclick="setLang('tr')" id="btn-tr">TR</button>
+        <button onclick="setLang('en')" id="btn-en">EN</button>
+      </div>
+    </header>
+
+    <!-- ================ TÜRKÇE ================ -->
+    <section id="content-tr">
+      <h1>Gizlilik Politikası</h1>
+      <p class="effective">Yürürlük tarihi: 28 Mayıs 2026</p>
+      <p>PairFC, "iki takımda da oynamış futbolcuyu tahmin et" temalı ücretsiz bir futbol bilgi oyunudur. Bu sayfa, oyunu kullanırken hangi verilerin işlendiğini açıklar.</p>
+
+      <h2>1. Kim olduğumuz</h2>
+      <p>PairFC bağımsız bir üründür. Sorularınız ve veri talepleriniz için: <a href="mailto:iletisim@pairfc.com">iletisim@pairfc.com</a>.</p>
+
+      <h2>2. Topladığımız veriler</h2>
+      <ul>
+        <li><strong>Anonim oyun verileri:</strong> Oynadığınız tur sayısı, gönderdiğiniz cevaplar, hangi modu (Günlük, Maraton, Düello) kullandığınız. İsim, hesap veya kişisel kimliğinizle ilişkilendirilmez. Yanlış cevapları analiz edip oyun verisini iyileştirmek için kullanılır.</li>
+        <li><strong>İsteğe bağlı takma ad:</strong> Maraton liderlik tablosuna skor kaydetmek isterseniz yazdığınız ad. Boş bırakabilirsiniz.</li>
+        <li><strong>Anonim analitik:</strong> Cihaz türü, tarayıcı, dil tercihi gibi genel istatistikler (PostHog analitik hizmeti üzerinden). Kimliğinizi tanımlamaz.</li>
+        <li><strong>Tarayıcınızda saklanan veriler (localStorage):</strong> Günlük seriniz, en iyi skorunuz, ses ve dil tercihiniz. Bu veriler cihazınızdan ayrılmaz; biz erişemeyiz.</li>
+        <li><strong>Gerçek zamanlı oyun durumu:</strong> Düello sırasında oda kodu, skorlar ve oyuncu adları. Oyun bittiğinde silinir.</li>
+      </ul>
+
+      <h2>3. Toplamadığımız veriler</h2>
+      <ul>
+        <li>Hesap, e-posta, telefon numarası veya parola talep etmiyoruz.</li>
+        <li>Reklam göstermiyoruz.</li>
+        <li>Sizi başka sitelerde takip etmiyoruz.</li>
+        <li>Verilerinizi üçüncü taraflara satmıyoruz.</li>
+      </ul>
+
+      <h2>4. Kullandığımız üçüncü taraf hizmetler</h2>
+      <ul>
+        <li><strong>Supabase</strong> — veritabanı ve gerçek zamanlı altyapı.</li>
+        <li><strong>PostHog</strong> — anonim kullanım istatistikleri.</li>
+        <li><strong>Vercel</strong> — sunucu barındırma.</li>
+        <li><strong>Google Fonts</strong> — yazı tipi dağıtımı.</li>
+      </ul>
+      <p>Bu hizmetlerin kendi gizlilik politikaları geçerlidir.</p>
+
+      <h2>5. Veri saklama süresi</h2>
+      <ul>
+        <li>Anonim oyun günlükleri ürün geliştirmesi için süresiz tutulabilir.</li>
+        <li>Liderlik tablosu skorları, kullanıcı silme talep etmedikçe saklanır.</li>
+        <li>localStorage verileri, siz tarayıcınızı temizleyene kadar cihazınızda kalır.</li>
+      </ul>
+
+      <h2>6. Çocuklar</h2>
+      <p>Bu oyun 13 yaş ve üzeri kullanıcılar için uygundur. 13 yaş altındaki çocuklara yönelik değildir.</p>
+
+      <h2>7. Haklarınız (KVKK ve GDPR)</h2>
+      <p>Türkiye'deki kullanıcılar KVKK kapsamında, Avrupa Birliği'ndeki kullanıcılar GDPR kapsamında aşağıdaki haklara sahiptir:</p>
+      <ul>
+        <li>Kişisel verilerinize erişme</li>
+        <li>Düzeltme veya silinmesini talep etme</li>
+        <li>İşlemeye itiraz etme</li>
+        <li>Veri taşınabilirliği</li>
+      </ul>
+      <p>Talepleriniz için <a href="mailto:iletisim@pairfc.com">iletisim@pairfc.com</a> adresine yazın. Makul süre içinde yanıtlayacağız.</p>
+
+      <h2>8. Çerezler</h2>
+      <p>Yalnızca temel oturum çerezleri kullanıyoruz (oyun durumunu korumak için). Reklam veya çapraz site izleme çerezi yoktur.</p>
+
+      <h2>9. Güvenlik</h2>
+      <p>Verilerinizi korumak için makul teknik ve organizasyonel önlemler alıyoruz. Ancak hiçbir internet hizmeti %100 güvenli olamaz; verilerinizin mutlak güvenliğini garanti edemeyiz.</p>
+
+      <h2>10. Değişiklikler</h2>
+      <p>Bu politikayı zaman zaman güncelleyebiliriz. Önemli değişikliklerde yürürlük tarihini güncelleriz. Bu sayfayı düzenli kontrol etmenizi öneririz.</p>
+
+      <h2>11. İletişim</h2>
+      <p>Soru, talep veya şikayetleriniz için: <a href="mailto:iletisim@pairfc.com">iletisim@pairfc.com</a></p>
+    </section>
+
+    <!-- ================ ENGLISH ================ -->
+    <section id="content-en" hidden>
+      <h1>Privacy Policy</h1>
+      <p class="effective">Effective date: 28 May 2026</p>
+      <p>PairFC is a free football trivia game where you guess the player who played for both displayed clubs. This page explains what data we process when you play.</p>
+
+      <h2>1. Who we are</h2>
+      <p>PairFC is an independent product. For questions and data requests: <a href="mailto:iletisim@pairfc.com">iletisim@pairfc.com</a>.</p>
+
+      <h2>2. What we collect</h2>
+      <ul>
+        <li><strong>Anonymous gameplay data:</strong> Number of rounds played, answers submitted, which mode (Daily, Marathon, Duel) you used. Not linked to your name, account, or personal identity. Used to analyze wrong answers and improve the game data.</li>
+        <li><strong>Optional nickname:</strong> A name you enter when saving a Marathon leaderboard score. You can leave it blank.</li>
+        <li><strong>Anonymous analytics:</strong> Device type, browser, language preference (via PostHog analytics). Does not identify you.</li>
+        <li><strong>Data stored in your browser (localStorage):</strong> Your daily streak, best score, sound and language preferences. Stays on your device; we can't access it.</li>
+        <li><strong>Real-time game state:</strong> Room code, scores, and player names during a Duel. Deleted when the game ends.</li>
+      </ul>
+
+      <h2>3. What we don't collect</h2>
+      <ul>
+        <li>No account, email, phone number, or password required.</li>
+        <li>No ads.</li>
+        <li>No cross-site tracking.</li>
+        <li>We don't sell your data to third parties.</li>
+      </ul>
+
+      <h2>4. Third-party services we use</h2>
+      <ul>
+        <li><strong>Supabase</strong> — database and real-time backend.</li>
+        <li><strong>PostHog</strong> — anonymous usage analytics.</li>
+        <li><strong>Vercel</strong> — hosting.</li>
+        <li><strong>Google Fonts</strong> — font delivery.</li>
+      </ul>
+      <p>These services have their own privacy policies that also apply.</p>
+
+      <h2>5. Data retention</h2>
+      <ul>
+        <li>Anonymous game logs may be kept indefinitely for product improvement.</li>
+        <li>Leaderboard scores are kept unless you request deletion.</li>
+        <li>localStorage data remains on your device until you clear it.</li>
+      </ul>
+
+      <h2>6. Children</h2>
+      <p>This game is suitable for users aged 13 and up. Not directed at children under 13.</p>
+
+      <h2>7. Your rights (KVKK and GDPR)</h2>
+      <p>Users in Türkiye (under KVKK) and the European Union (under GDPR) have the following rights:</p>
+      <ul>
+        <li>Access to your personal data</li>
+        <li>Correction or deletion of your data</li>
+        <li>Object to processing</li>
+        <li>Data portability</li>
+      </ul>
+      <p>To exercise these rights, contact <a href="mailto:iletisim@pairfc.com">iletisim@pairfc.com</a>. We'll respond within a reasonable timeframe.</p>
+
+      <h2>8. Cookies</h2>
+      <p>We only use essential session cookies (to preserve game state). No advertising or cross-site tracking cookies.</p>
+
+      <h2>9. Security</h2>
+      <p>We take reasonable technical and organizational measures to protect your data. However, no internet service is 100% secure; we can't guarantee absolute security.</p>
+
+      <h2>10. Changes</h2>
+      <p>We may update this policy from time to time. Significant changes will be reflected in the effective date. Please check this page periodically.</p>
+
+      <h2>11. Contact</h2>
+      <p>Questions, requests, or complaints: <a href="mailto:iletisim@pairfc.com">iletisim@pairfc.com</a></p>
+    </section>
+
+    <footer>
+      <p>© 2026 PairFC · <a href="/privacy.html">Privacy</a> · <a href="/terms.html">Terms</a> · <a href="/how-to-play.html">How to Play</a></p>
+    </footer>
+  </div>
+
+  <script>
+    function setLang(lang) {
+      const tr = document.getElementById('content-tr');
+      const en = document.getElementById('content-en');
+      const btnTr = document.getElementById('btn-tr');
+      const btnEn = document.getElementById('btn-en');
+      tr.hidden = lang !== 'tr';
+      en.hidden = lang !== 'en';
+      btnTr.classList.toggle('active', lang === 'tr');
+      btnEn.classList.toggle('active', lang === 'en');
+      document.documentElement.lang = lang;
+      try { localStorage.setItem('pairfc_lang', lang); } catch (e) {}
+      try {
+        const root = document.querySelector('[data-title-tr]');
+        if (root) document.title = lang === 'en' ? root.getAttribute('data-title-en') : root.getAttribute('data-title-tr');
+      } catch (e) {}
+    }
+    (function init() {
+      let lang = 'tr';
+      try {
+        const saved = localStorage.getItem('pairfc_lang');
+        if (saved === 'tr' || saved === 'en') lang = saved;
+        else {
+          const nav = (navigator.language || 'tr').toLowerCase();
+          lang = nav.startsWith('en') ? 'en' : 'tr';
+        }
+      } catch (e) {}
+      setLang(lang);
+    })();
+  </script>
+</body>
+</html>

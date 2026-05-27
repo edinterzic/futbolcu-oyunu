@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nasıl Oynanır | PairFC</title>
+  <meta name="description" content="PairFC nasıl oynanır? İki kulüpte de oynamış futbolcuyu bul. Günlük bulmaca, Maraton ve Düello modları." />
+  <meta name="robots" content="index, follow" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="canonical" href="https://pairfc.com/how-to-play.html" />
+  <style>
+    :root {
+      --bg: #0a0f1f;
+      --bg-elev: #131a2e;
+      --text: #ffffff;
+      --text-muted: rgba(255,255,255,0.65);
+      --text-faint: rgba(255,255,255,0.45);
+      --brand: #9b2dff;
+      --accent: #f5a524;
+      --border: rgba(255,255,255,0.10);
+      --green: #7ee0a3;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    .page { max-width: 720px; margin: 0 auto; padding: 24px 22px 80px; }
+    header.topbar { display: flex; align-items: center; justify-content: space-between; padding-bottom: 24px; border-bottom: 1px solid var(--border); margin-bottom: 32px; }
+    .back-link { color: var(--text); text-decoration: none; font-weight: 800; font-size: 18px; letter-spacing: -0.01em; }
+    .back-link .fc { color: var(--accent); }
+    .lang-toggle { display: flex; gap: 4px; background: var(--bg-elev); border: 1px solid var(--border); border-radius: 999px; padding: 3px; }
+    .lang-toggle button { background: transparent; border: none; color: var(--text-muted); font-size: 12px; font-weight: 800; padding: 6px 14px; border-radius: 999px; cursor: pointer; letter-spacing: 0.04em; }
+    .lang-toggle button.active { background: var(--brand); color: white; }
+    h1 { font-size: 32px; margin: 0 0 8px; font-weight: 800; letter-spacing: -0.02em; }
+    .tagline { font-size: 17px; color: var(--accent); font-weight: 600; margin: 0 0 24px; }
+    h2 { font-size: 20px; margin: 36px 0 12px; font-weight: 800; color: var(--accent); letter-spacing: -0.01em; }
+    p { color: var(--text-muted); margin: 0 0 12px; }
+    ul { color: var(--text-muted); padding-left: 22px; margin: 8px 0 16px; }
+    li { margin-bottom: 8px; }
+    strong { color: var(--text); font-weight: 700; }
+    a { color: var(--brand); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .examples { display: grid; gap: 10px; margin: 16px 0 24px; }
+    .example-card { background: var(--bg-elev); border: 1px solid var(--border); border-radius: 14px; padding: 14px 16px; }
+    .example-pair { font-weight: 700; color: var(--text); }
+    .example-vs { color: var(--accent); font-weight: 800; padding: 0 8px; }
+    .example-player { color: var(--green); font-weight: 700; margin-top: 6px; display: inline-block; }
+    .example-player::before { content: "✓ "; }
+    .mode-grid { display: grid; gap: 12px; margin: 14px 0 24px; }
+    .mode-card { background: var(--bg-elev); border: 1px solid var(--border); border-radius: 14px; padding: 14px 16px; border-left: 4px solid var(--brand); }
+    .mode-card.daily { border-left-color: #aa3bff; }
+    .mode-card.marathon { border-left-color: var(--accent); }
+    .mode-card.duel-auto { border-left-color: #3bb0ff; }
+    .mode-card.duel-strategic { border-left-color: #00d4a8; }
+    .mode-card-title { font-weight: 800; color: var(--text); font-size: 16px; margin: 0 0 4px; }
+    .mode-card-desc { color: var(--text-muted); font-size: 14px; margin: 0; line-height: 1.5; }
+    .faq-item { background: var(--bg-elev); border: 1px solid var(--border); border-radius: 12px; padding: 12px 16px; margin-bottom: 8px; }
+    .faq-q { font-weight: 700; color: var(--text); margin: 0 0 4px; }
+    .faq-a { color: var(--text-muted); font-size: 14px; margin: 0; }
+    .cta { display: block; text-align: center; background: linear-gradient(135deg, #aa3bff, #9b2dff); color: white; text-decoration: none; padding: 16px 24px; border-radius: 14px; font-weight: 800; font-size: 16px; margin: 32px 0 0; }
+    .cta:hover { text-decoration: none; opacity: 0.92; }
+    footer { margin-top: 60px; padding-top: 24px; border-top: 1px solid var(--border); font-size: 13px; color: var(--text-faint); text-align: center; }
+    footer a { color: var(--text-faint); margin: 0 6px; }
+    @media (max-width: 480px) { h1 { font-size: 26px; } .page { padding: 18px 16px 60px; } }
+  </style>
+</head>
+<body>
+  <div class="page" data-title-tr="Nasıl Oynanır | PairFC" data-title-en="How to Play | PairFC">
+    <header class="topbar">
+      <a href="/" class="back-link">← Pair<span class="fc">FC</span></a>
+      <div class="lang-toggle">
+        <button onclick="setLang('tr')" id="btn-tr">TR</button>
+        <button onclick="setLang('en')" id="btn-en">EN</button>
+      </div>
+    </header>
+
+    <!-- ================ TÜRKÇE ================ -->
+    <section id="content-tr">
+      <h1>Nasıl Oynanır?</h1>
+      <p class="tagline">İki takım. Tek futbolcu. Sen bul.</p>
+
+      <h2>Oyunun mantığı</h2>
+      <p>Ekrana <strong>iki kulüp</strong> gelir. Görevin: <strong>ikisinde de oynamış</strong> bir futbolcuyu yazmak. Otomatik tamamlama önerileri çıkar; en hızlı doğru cevap kazanır.</p>
+
+      <h2>Örnekler</h2>
+      <div class="examples">
+        <div class="example-card">
+          <span class="example-pair">Chelsea</span><span class="example-vs">VS</span><span class="example-pair">Real Madrid</span>
+          <div><span class="example-player">Eden Hazard</span></div>
+        </div>
+        <div class="example-card">
+          <span class="example-pair">Galatasaray</span><span class="example-vs">VS</span><span class="example-pair">Inter</span>
+          <div><span class="example-player">Wesley Sneijder</span></div>
+        </div>
+        <div class="example-card">
+          <span class="example-pair">Fenerbahçe</span><span class="example-vs">VS</span><span class="example-pair">Liverpool</span>
+          <div><span class="example-player">Dirk Kuyt</span></div>
+        </div>
+        <div class="example-card">
+          <span class="example-pair">Manchester United</span><span class="example-vs">VS</span><span class="example-pair">Real Madrid</span>
+          <div><span class="example-player">Cristiano Ronaldo</span></div>
+        </div>
+      </div>
+
+      <h2>Modlar</h2>
+      <div class="mode-grid">
+        <div class="mode-card daily">
+          <p class="mode-card-title">📅 Günlük</p>
+          <p class="mode-card-desc">Herkes <strong>aynı 5 bulmacayı</strong> çözer. Her gün yenisi gelir. Sonucunu emoji grid'le paylaş, arkadaşlarını geç. Üst üste oynayınca <strong>seri</strong> biriktirirsin.</p>
+        </div>
+        <div class="mode-card marathon">
+          <p class="mode-card-title">🔥 Maraton</p>
+          <p class="mode-card-desc">Solo, sınırsız. Kaç köprü <strong>üst üste</strong> kurabilirsin? Süre dolarsa veya yanlış bilirsen seri biter. Skorunu kaydet, liderlik tablosunda yarış.</p>
+        </div>
+        <div class="mode-card duel-auto">
+          <p class="mode-card-title">⚡ Otomatik Düello</p>
+          <p class="mode-card-desc">Bir arkadaşına meydan oku. Takımlar <strong>rastgele</strong> gelir, ilk doğru cevap turu kazanır. Hedef skora ulaşan kazanır.</p>
+        </div>
+        <div class="mode-card duel-strategic">
+          <p class="mode-card-title">🎯 Stratejik Düello</p>
+          <p class="mode-card-desc">Her tur iki oyuncu da <strong>kendi takımını seçer</strong>. Stratejik düşün, rakibin bilmediği takımı oyna. 96 takımdan istediğini seçebilirsin.</p>
+        </div>
+      </div>
+
+      <h2>Püf noktaları</h2>
+      <ul>
+        <li>Yazmaya başlayınca <strong>otomatik tamamlama</strong> önerileri çıkar. Hızlı seç, zaman kazan.</li>
+        <li>Süre var; <strong>hız + isabet</strong> kazanır.</li>
+        <li>Maraton'da <strong>jokerler</strong> kullan: ilk harf, çift değiştir, +5 saniye.</li>
+        <li>Bilmiyorsan <strong>"Pas"</strong> geçebilirsin — Maraton'da seriyi bitirir, Günlük'te o eşleşmeyi atlar.</li>
+        <li>Günlük serini kaybetmemek için <strong>her gün</strong> gel.</li>
+        <li>Sonucunu paylaş — emoji grid'in arkadaşlarına meydan okur.</li>
+        <li>Bir cevabın doğru olduğunu düşünüyorsan reddedildiyse, bitiş ekranındaki <strong>"Bildir"</strong> butonuyla bize gönder.</li>
+      </ul>
+
+      <h2>Sıkça sorulanlar</h2>
+      <div class="faq-item">
+        <p class="faq-q">Üye olmam gerekiyor mu?</p>
+        <p class="faq-a">Hayır. PairFC tamamen anonim oynanır. Sadece Maraton liderlik tablosuna skor kaydetmek istersen isteğe bağlı takma ad yazarsın.</p>
+      </div>
+      <div class="faq-item">
+        <p class="faq-q">Ücretli mi?</p>
+        <p class="faq-a">Hayır, oyun tamamen ücretsiz. Reklam göstermiyoruz.</p>
+      </div>
+      <div class="faq-item">
+        <p class="faq-q">Mobil uygulama var mı?</p>
+        <p class="faq-a">Android için yakında. iOS sürümü hazırlanıyor. Tarayıcıdan da "Ana ekrana ekle" ile uygulama gibi kullanabilirsin.</p>
+      </div>
+      <div class="faq-item">
+        <p class="faq-q">Cevabım doğruydu ama kabul edilmedi, ne yapabilirim?</p>
+        <p class="faq-a">Bitiş ekranında <strong>"Bildir"</strong> butonu var. Bize ulaşır, veriyi kontrol edip günceller, sonraki turlarda kabul ederiz.</p>
+      </div>
+      <div class="faq-item">
+        <p class="faq-q">Arkadaşımla nasıl oynarım?</p>
+        <p class="faq-a">Ana ekrandan <strong>Düello</strong>'ya gir, mod seç, oda kur. Davet linkini arkadaşına gönder; o linke tıklayınca odaya katılır. İkiniz de hazır olunca oyun başlar.</p>
+      </div>
+      <div class="faq-item">
+        <p class="faq-q">Hangi takımlar var?</p>
+        <p class="faq-a">Türkiye Süper Lig kulüplerinden Premier League, La Liga, Serie A, Bundesliga, Ligue 1 ve Avrupa'nın büyük takımlarına kadar 96 kulüp.</p>
+      </div>
+
+      <a href="/" class="cta">Hemen Oyna →</a>
+    </section>
+
+    <!-- ================ ENGLISH ================ -->
+    <section id="content-en" hidden>
+      <h1>How to Play</h1>
+      <p class="tagline">Two clubs. One player. Find them.</p>
+
+      <h2>The idea</h2>
+      <p><strong>Two clubs</strong> appear on screen. Your job: type the name of a player who <strong>played for both</strong>. Autocomplete suggestions help you go fast — fastest correct answer wins.</p>
+
+      <h2>Examples</h2>
+      <div class="examples">
+        <div class="example-card">
+          <span class="example-pair">Chelsea</span><span class="example-vs">VS</span><span class="example-pair">Real Madrid</span>
+          <div><span class="example-player">Eden Hazard</span></div>
+        </div>
+        <div class="example-card">
+          <span class="example-pair">Galatasaray</span><span class="example-vs">VS</span><span class="example-pair">Inter</span>
+          <div><span class="example-player">Wesley Sneijder</span></div>
+        </div>
+        <div class="example-card">
+          <span class="example-pair">Liverpool</span><span class="example-vs">VS</span><span class="example-pair">Barcelona</span>
+          <div><span class="example-player">Luis Suárez</span></div>
+        </div>
+        <div class="example-card">
+          <span class="example-pair">Manchester United</span><span class="example-vs">VS</span><span class="example-pair">Real Madrid</span>
+          <div><span class="example-player">Cristiano Ronaldo</span></div>
+        </div>
+      </div>
+
+      <h2>Modes</h2>
+      <div class="mode-grid">
+        <div class="mode-card daily">
+          <p class="mode-card-title">📅 Daily</p>
+          <p class="mode-card-desc">Everyone solves the <strong>same 5 puzzles</strong>. A fresh set every day. Share your result with the emoji grid and beat your friends. Play day after day to build a <strong>streak</strong>.</p>
+        </div>
+        <div class="mode-card marathon">
+          <p class="mode-card-title">🔥 Marathon</p>
+          <p class="mode-card-desc">Solo, endless. How many bridges can you build <strong>in a row</strong>? Time out or one wrong answer ends the streak. Save your score and climb the leaderboard.</p>
+        </div>
+        <div class="mode-card duel-auto">
+          <p class="mode-card-title">⚡ Auto Duel</p>
+          <p class="mode-card-desc">Challenge a friend. Teams come up <strong>randomly</strong> each round; first correct answer wins the round. First to the target score wins.</p>
+        </div>
+        <div class="mode-card duel-strategic">
+          <p class="mode-card-title">🎯 Strategic Duel</p>
+          <p class="mode-card-desc">Each round, both players <strong>pick their own team</strong>. Think strategically — play a team your opponent doesn't know. Pick from 96 teams.</p>
+        </div>
+      </div>
+
+      <h2>Tips</h2>
+      <ul>
+        <li><strong>Autocomplete</strong> suggestions appear as you type. Pick fast to save time.</li>
+        <li>There's a timer; <strong>speed + accuracy</strong> wins.</li>
+        <li>In Marathon, use <strong>jokers</strong>: first letter, swap pair, +5 seconds.</li>
+        <li>You can <strong>skip</strong> if stuck — ends the streak in Marathon, skips the puzzle in Daily.</li>
+        <li>Come back <strong>every day</strong> to keep your streak alive.</li>
+        <li>Share your result — the emoji grid challenges your friends.</li>
+        <li>If you think your answer was correct but rejected, use the <strong>"Report"</strong> button on the end screen.</li>
+      </ul>
+
+      <h2>FAQ</h2>
+      <div class="faq-item">
+        <p class="faq-q">Do I need to sign up?</p>
+        <p class="faq-a">No. PairFC is fully anonymous. You only enter an optional nickname when saving a Marathon leaderboard score.</p>
+      </div>
+      <div class="faq-item">
+        <p class="faq-q">Is it free?</p>
+        <p class="faq-a">Yes, completely free. No ads.</p>
+      </div>
+      <div class="faq-item">
+        <p class="faq-q">Is there a mobile app?</p>
+        <p class="faq-a">Android coming soon. iOS in progress. You can also "Add to Home Screen" from your browser to use it like an app.</p>
+      </div>
+      <div class="faq-item">
+        <p class="faq-q">My answer was correct but rejected, what can I do?</p>
+        <p class="faq-a">There's a <strong>"Report"</strong> button on the end screen. Send it to us — we check the data and update it so it's accepted in future rounds.</p>
+      </div>
+      <div class="faq-item">
+        <p class="faq-q">How do I play with a friend?</p>
+        <p class="faq-a">From the home screen, tap <strong>Duel</strong>, pick a variant, create a room. Send the invite link to your friend; they tap it to join. Once both ready, the game starts.</p>
+      </div>
+      <div class="faq-item">
+        <p class="faq-q">Which teams are included?</p>
+        <p class="faq-a">96 clubs ranging from Süper Lig (Türkiye) to Premier League, La Liga, Serie A, Bundesliga, Ligue 1, and major European teams.</p>
+      </div>
+
+      <a href="/" class="cta">Play Now →</a>
+    </section>
+
+    <footer>
+      <p>© 2026 PairFC · <a href="/privacy.html">Privacy</a> · <a href="/terms.html">Terms</a> · <a href="/how-to-play.html">How to Play</a></p>
+    </footer>
+  </div>
+
+  <script>
+    function setLang(lang) {
+      const tr = document.getElementById('content-tr');
+      const en = document.getElementById('content-en');
+      const btnTr = document.getElementById('btn-tr');
+      const btnEn = document.getElementById('btn-en');
+      tr.hidden = lang !== 'tr';
+      en.hidden = lang !== 'en';
+      btnTr.classList.toggle('active', lang === 'tr');
+      btnEn.classList.toggle('active', lang === 'en');
+      document.documentElement.lang = lang;
+      try { localStorage.setItem('pairfc_lang', lang); } catch (e) {}
+      try {
+        const root = document.querySelector('[data-title-tr]');
+        if (root) document.title = lang === 'en' ? root.getAttribute('data-title-en') : root.getAttribute('data-title-tr');
+      } catch (e) {}
+    }
+    (function init() {
+      let lang = 'tr';
+      try {
+        const saved = localStorage.getItem('pairfc_lang');
+        if (saved === 'tr' || saved === 'en') lang = saved;
+        else {
+          const nav = (navigator.language || 'tr').toLowerCase();
+          lang = nav.startsWith('en') ? 'en' : 'tr';
+        }
+      } catch (e) {}
+      setLang(lang);
+    })();
+  </script>
+</body>
+</html>
