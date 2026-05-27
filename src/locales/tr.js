@@ -353,6 +353,8 @@ share_copied_dl: "📋 Kopyalandı + görsel indirildi!",
   ts_revealing: "Takımlar açılıyor...",
   ts_collision_msg: "Aynı takım! Rakibe rastgele {team} verildi.",
 
+ts_collision_warning: "Aynı takımı seçtiniz! Yeniden seçin.",
+
   lang_switch_aria: "Dil seç",
   lang_switch_to_en: "Switch to English",
   lang_switch_to_tr: "Türkçeye geç",

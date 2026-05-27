@@ -353,6 +353,8 @@ share_copied_dl: "📋 Copied + image downloaded!",
   ts_revealing: "Revealing teams...",
   ts_collision_msg: "Same team! Opponent got random {team} instead.",
 
+ts_collision_warning: "You both picked the same team! Pick again.",
+
   lang_switch_aria: "Select language",
   lang_switch_to_en: "Switch to English",
   lang_switch_to_tr: "Türkçeye geç",

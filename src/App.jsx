@@ -1885,12 +1885,11 @@ export default function App() {
     let p1 = teamPicks[1];
     if (!p0) p0 = pool[Math.floor(Math.random() * pool.length)];
     if (!p1) p1 = pool[Math.floor(Math.random() * pool.length)];
-    let collisionMsg = null;
+    // Bu noktaya kadar gelirse picks zaten farklı (collision useEffect'te yakalanır).
+    // Yine de defensive: same team durumunda fallback random
     if (p0 === p1) {
       const alt = pool.filter((tn) => tn !== p0);
-      const newP1 = alt[Math.floor(Math.random() * alt.length)];
-      collisionMsg = t("ts_collision_msg", { team: newP1 });
-      p1 = newP1;
+      if (alt.length) p1 = alt[Math.floor(Math.random() * alt.length)];
     }
     // Ortak oyuncu var mı? Yoksa p1 değiştir
     let candidate = { teams: [p0, p1] };
@@ -1921,8 +1920,10 @@ export default function App() {
       lastAction: null,
       teamSelectEndsAt: null,
       teamPicks: [p0, p1],
-      message: collisionMsg ? { type: "info", text: collisionMsg } : null
+      message: null
     };
+    setLastWrongReport(null);
+    setReportStatus(null);
     applyGameState(nextState);
     await sendRoomEvent({ type: "STATE_SYNC", gameState: nextState });
   };
@@ -1948,6 +1949,8 @@ export default function App() {
         lastAction: null,
         message: null
       };
+      setLastWrongReport(null);
+      setReportStatus(null);
       applyGameState(nextState);
       await sendRoomEvent({ type: "STATE_SYNC", gameState: nextState });
       return;
@@ -2025,6 +2028,23 @@ export default function App() {
     if (playerIndex !== 0) return;
     if (screen !== "team_select") return;
     if (!teamPicks[0] || !teamPicks[1]) return;
+
+    // ÇAKIŞMA: Aynı takım seçildi — host her ikisini de sıfırlasın, oyuncular yeniden seçsin
+    if (teamPicks[0] === teamPicks[1]) {
+      const timer = window.setTimeout(async () => {
+        const nextState = {
+          ...stateRef.current,
+          teamPicks: [null, null],
+          teamSelectEndsAt: Date.now() + TEAM_SELECT_SECONDS * 1000,
+          message: { type: "warning", text: t("ts_collision_warning") }
+        };
+        applyGameState(nextState);
+        await sendRoomEvent({ type: "STATE_SYNC", gameState: nextState });
+      }, 800);
+      return () => window.clearTimeout(timer);
+    }
+
+    // Normal: finalize
     const timer = window.setTimeout(() => { finalizeTeamSelect(); }, 900);
     return () => window.clearTimeout(timer);
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -3295,7 +3315,7 @@ export default function App() {
                     );
                   }
                   return (
-                    <button key="online" type="button" onClick={() => { setShowOnlineSetup(true); setOnlineSetupMode(null); }} className="mode-card mode-card-secondary mode-card-online">
+                    <button key="online" type="button" onClick={() => { setShowOnlineSetup(true); setOnlineSetupMode(null); setDuelVariant(null); }} className="mode-card mode-card-secondary mode-card-online">
                       <span className="mode-icon">🌍</span>
                       <strong>{t("mode_duel_title")}</strong>
                       <small>{t("mode_duel_subtitle")}</small>
@@ -4082,7 +4102,7 @@ export default function App() {
                 </div>
               )}
 
-              {screen === "winner" && winner !== null ? (
+              {screen !== "team_select" && (screen === "winner" && winner !== null ? (
                 <div className={`panel winner-panel ${winner === playerIndex ? "you-won" : "you-lost"}`}>
                   {winner === playerIndex ? (
                     <>
@@ -4313,7 +4333,7 @@ export default function App() {
                       : t("online_advance_other")}
                   </p>
                 </div>
-              )}
+              ))}
             </section>
           )}
         </main>
