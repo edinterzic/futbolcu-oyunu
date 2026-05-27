@@ -27,6 +27,22 @@ export const tr = {
   install_app: "Uygulamayı Yükle",
   install_subtitle: "Ana ekrana ekle, hızlı ulaş",
 
+hero_eyebrow_new: "BAŞLANGIÇ",
+  hero_eyebrow_today: "BUGÜNÜN BULMACASI",
+  hero_title_new: "Hadi tanışalım",
+  hero_title_today: "5 yeni eşleşme seni bekliyor",
+  hero_sub: "Herkes aynı 5 bulmacayı çözüyor",
+  hero_cta_new: "🚀 İlk Bulmacam",
+  hero_cta_today: "Hadi Çöz",
+
+  daily_label: "GÜNLÜK",
+  stat_streak: "seri",
+  stat_best: "en iyi",
+  stat_next: "yarınki",
+
+  tab_home: "Ana Sayfa",
+  tab_leaderboard: "Liderlik",
+
   lang_switch_aria: "Dil seç",
   lang_switch_to_en: "Switch to English",
   lang_switch_to_tr: "Türkçeye geç",

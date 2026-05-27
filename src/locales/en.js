@@ -27,6 +27,22 @@ export const en = {
   install_app: "Install App",
   install_subtitle: "Add to home screen for quick access",
 
+hero_eyebrow_new: "GETTING STARTED",
+  hero_eyebrow_today: "TODAY'S PUZZLE",
+  hero_title_new: "Let's get started",
+  hero_title_today: "5 new pairs are waiting",
+  hero_sub: "Everyone solves the same 5 puzzles",
+  hero_cta_new: "🚀 My first puzzle",
+  hero_cta_today: "Let's Solve",
+
+  daily_label: "DAILY",
+  stat_streak: "streak",
+  stat_best: "best",
+  stat_next: "next",
+
+  tab_home: "Home",
+  tab_leaderboard: "Leaderboard",
+
   lang_switch_aria: "Select language",
   lang_switch_to_en: "Switch to English",
   lang_switch_to_tr: "Türkçeye geç",

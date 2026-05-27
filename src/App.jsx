@@ -1373,12 +1373,12 @@ export default function App() {
     return {
       done: false,
       attempts: [],
-      eyebrow: isNewUser ? "BAŞLANGIÇ" : "BUGÜNÜN BULMACASI",
-      title: isNewUser ? "Hadi tanışalım" : "5 yeni eşleşme seni bekliyor",
-      sub: "Herkes aynı 5 bulmacayı çözüyor",
-      cta: isNewUser ? "🚀 İlk Bulmacam" : "Hadi Çöz"
+      eyebrow: isNewUser ? t("hero_eyebrow_new") : t("hero_eyebrow_today"),
+      title: isNewUser ? t("hero_title_new") : t("hero_title_today"),
+      sub: t("hero_sub"),
+      cta: isNewUser ? t("hero_cta_new") : t("hero_cta_today")
     };
-  }, [dailyDoneToday, dailyHistory, dailyData, dailyStreak, challengeBest, dailyCountdown]);
+  }, [dailyDoneToday, dailyHistory, dailyData, dailyStreak, challengeBest, dailyCountdown, lang]);
 
   // Daily kimlik bilgisi: tarih + günlük numara
   const dailyMeta = useMemo(() => {
@@ -3085,11 +3085,11 @@ export default function App() {
               {mainTab === "home" && (<>
               {/* Tek satır mini stat pill */}
               <div className="stats-strip">
-                <span className="stats-strip-item"><span className="ssi-icon">🔥</span><strong>{dailyStreak}</strong><span className="ssi-label">seri</span></span>
+                <span className="stats-strip-item"><span className="ssi-icon">🔥</span><strong>{dailyStreak}</strong><span className="ssi-label">{t("stat_streak")}</span></span>
                 <span className="stats-strip-sep">·</span>
-                <span className="stats-strip-item"><span className="ssi-icon">🏆</span><strong>{challengeBest}</strong><span className="ssi-label">en iyi</span></span>
+                <span className="stats-strip-item"><span className="ssi-icon">🏆</span><strong>{challengeBest}</strong><span className="ssi-label">{t("stat_best")}</span></span>
                 <span className="stats-strip-sep">·</span>
-                <span className="stats-strip-item"><span className="ssi-icon">⏳</span><strong>{dailyCountdown || "—"}</strong><span className="ssi-label">yarınki</span></span>
+                <span className="stats-strip-item"><span className="ssi-icon">⏳</span><strong>{dailyCountdown || "—"}</strong><span className="ssi-label">{t("stat_next")}</span></span>
               </div>
 
               {/* HERO — dinamik featured kart */}
@@ -3102,7 +3102,7 @@ export default function App() {
                 <div className="hero-card-content">
                   <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 8, marginBottom: 6 }}>
                     <span style={{ fontSize: 12, fontWeight: 700, letterSpacing: 0.4, opacity: 0.85 }}>
-                      📅 {dailyMeta.date} · GÜNLÜK #{dailyMeta.num}
+                      📅 {dailyMeta.date} · {t("daily_label")} #{dailyMeta.num}
                     </span>
                     {dailyStreak > 0 && (
                       <span style={{ fontSize: 12.5, fontWeight: 800, color: "#ffd24d", textShadow: "0 0 14px rgba(255,174,0,0.7)" }}>🔥 {dailyStreak}</span>
@@ -3248,7 +3248,7 @@ export default function App() {
                   onClick={() => setMainTab("home")}
                 >
                   <span className="tab-icon">🏠</span>
-                  <span className="tab-label">Ana Sayfa</span>
+                  <span className="tab-label">{t("tab_home")}</span>
                 </button>
                 <button
                   type="button"
@@ -3256,7 +3256,7 @@ export default function App() {
                   onClick={() => setMainTab("leaderboard")}
                 >
                   <span className="tab-icon">🏆</span>
-                  <span className="tab-label">Liderlik</span>
+                  <span className="tab-label">{t("tab_leaderboard")}</span>
                 </button>
               </div>
               </>
