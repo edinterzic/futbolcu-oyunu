@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.pairfc.app",
+      "sha256_cert_fingerprints": [
+        "23:E1:16:6B:92:E3:94:21:30:1C:07:94:AF:A6:6A:49:D6:B4:8F:9D:63:CB:B9:10:93:AE:53:99:8B:14:72:AB"
+      ]
+    }
+  }
+]
