@@ -1545,6 +1545,14 @@ export default function App() {
   const applyGameState = (gameState) => {
     if (!gameState) return;
 
+    // Tur ortasında (kilitli değil, ön-tur değil, oyun ekranı) gelen senkronda
+    // yerel oyuncunun yazmakta olduğu cevabı SİLME — rakibin hamlesi onu etkilemesin.
+    const preserveInput =
+      Boolean(gameState.gameStarted) &&
+      !gameState.roundLocked &&
+      !gameState.preRoundEndsAt &&
+      (gameState.screen === "game" || !gameState.screen);
+
     setScreen(gameState.screen || "game");
     setPlayerNames(gameState.playerNames || ["Oyuncu 1", "Oyuncu 2"]);
     setPlayersReady(gameState.playersReady || [false, false]);
@@ -1554,8 +1562,10 @@ export default function App() {
     setScores(gameState.scores || [0, 0]);
     setRound(gameState.round || getRandomRound());
     setUsedRoundKeys(gameState.usedRoundKeys || []);
-    setAnswerInput("");
-    setFocusedInput(false);
+    if (!preserveInput) {
+      setAnswerInput("");
+      setFocusedInput(false);
+    }
     setMessage(gameState.message || null);
     setWinner(gameState.winner ?? null);
     setShowAnswers(Boolean(gameState.showAnswers));
@@ -1872,6 +1882,16 @@ export default function App() {
 
     await sendRoomEvent({ type: "STATE_SYNC", gameState: nextState });
   };
+
+  // Düello: tur kilitlenince oda sahibi otomatik sonraki tura geçer.
+  // Doğru bilindiyse hızlı (3sn); yanlış/süre dolduysa cevaplara bakmak için 5sn.
+  useEffect(() => {
+    if (playerIndex !== 0 || screen !== "game" || !roundLocked) return;
+    const delay = lastAction?.type === "correct" ? 3000 : 5000;
+    const timer = window.setTimeout(() => { nextRound(); }, delay);
+    return () => window.clearTimeout(timer);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [roundLocked, screen, playerIndex, lastAction]);
 
   const resetGame = async () => {
     const firstRound = getRandomRound([], onlineDifficulty) || { teams: ["Fenerbahçe", "Galatasaray"] };
@@ -2514,6 +2534,8 @@ export default function App() {
       setRoundEndsAt(null);
       setPreRoundEndsAt(null);
     }
+    setShowOnlineSetup(false);
+    setOnlineSetupMode(null);
     setScreen("home");
   };
 
@@ -4018,15 +4040,11 @@ export default function App() {
                     />
                   )}
 
-                  <div className="bottom-actions">
-                    <button type="button" disabled={playerIndex !== 0} onClick={nextRound} className="primary-button big full-width">
-                      ⏭️ Sonraki Tur
-                    </button>
-                  </div>
-
-                  {playerIndex !== 0 && (
-                    <p className="host-note">Sonraki turu oda sahibi başlatır.</p>
-                  )}
+                  <p className="host-note">
+                    {lastAction?.type === "correct"
+                      ? "✅ Doğru! Sonraki tura geçiliyor…"
+                      : "⏭️ Sonraki tur birazdan başlıyor…"}
+                  </p>
                 </div>
               )}
             </section>
