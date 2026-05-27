@@ -1,3 +1,4 @@
+import { t, useLang } from "./i18n";
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import { createClient } from "@supabase/supabase-js";
 import { PLAYERS, TEAMS, ANSWER_INDEX, getPairKey, getAnswers } from "./data/gameData";
@@ -1122,6 +1123,8 @@ function playGameSound(soundName) {
 }
 
 export default function App() {
+  const [lang, setLang] = useLang();
+
   // ============ ROUTE: /admin ============
   // Watch URL pathname and render AdminPanel for /admin
   // This is a lightweight router — no react-router dependency
@@ -2980,8 +2983,8 @@ export default function App() {
               </svg>
             </div>
             <h1 className="splash-title">Pair<span className="brand-fc">FC</span></h1>
-            <p className="splash-tagline">İki takım, tek futbolcu.</p>
-            <p className="splash-tagline-sub">Sen bul.</p>
+            <p className="splash-tagline">{t("tagline_short")}</p>
+            <p className="splash-tagline-sub">{t("tagline_action")}</p>
             <div className="splash-loader"><span></span><span></span><span></span></div>
           </div>
         </div>
@@ -3031,16 +3034,26 @@ export default function App() {
             </span>
             <div className="brand-text">
               <strong>Pair<span className="brand-fc">FC</span></strong>
-              {isHome && <small>İki takım, tek futbolcu. Sen bul.</small>}
+              {isHome && <small>{t("tagline_long")}</small>}
             </div>
           </div>
           <div className="topbar-actions">
             {!isHome && (
-              <button type="button" onClick={goToHome} className="icon-button home-button" aria-label="Ana Menü" title="Ana Menü">
+              <button type="button" onClick={goToHome} className="icon-button home-button" aria-label={t("home_menu")} title={t("home_menu")}>
                 🏠
               </button>
             )}
-            <button type="button" onClick={toggleSound} className="icon-button" aria-label={soundEnabled ? "Sesi kapat" : "Sesi aç"} title={soundEnabled ? "Ses açık" : "Ses kapalı"}>
+            <button
+              type="button"
+              onClick={() => setLang(lang === "tr" ? "en" : "tr")}
+              className="icon-button lang-switcher"
+              aria-label={t("lang_switch_aria")}
+              title={lang === "tr" ? t("lang_switch_to_en") : t("lang_switch_to_tr")}
+              style={{ fontSize: 12, fontWeight: 800, letterSpacing: "0.04em" }}
+            >
+              {lang === "tr" ? "EN" : "TR"}
+            </button>
+            <button type="button" onClick={toggleSound} className="icon-button" aria-label={soundEnabled ? t("sound_off_label") : t("sound_on_label")} title={soundEnabled ? t("sound_on_status") : t("sound_off_status")}>
               {soundEnabled ? "🔊" : "🔇"}
             </button>
           </div>
@@ -3121,15 +3134,15 @@ export default function App() {
                     return (
                       <button key="daily" type="button" onClick={startDaily} className="mode-card mode-card-secondary mode-card-daily">
                         <span className="mode-icon">📅</span>
-                        <strong>Günün Bulmacası</strong>
+                        <strong>{t("mode_daily_title")}</strong>
                         <small>
                           {dailyDoneToday
-                            ? "🎉 5/5 tamamlandı"
-                            : "5 yeni eşleşme"}
+                            ? t("daily_done")
+                            : t("daily_new")}
                         </small>
                         {dailyDoneToday
-                          ? <em className="best-badge done-badge">Yarın yeni</em>
-                          : (dailyStreak > 0 && <em className="best-badge streak-badge">🔥 {dailyStreak} gün</em>)}
+                          ? <em className="best-badge done-badge">{t("daily_tomorrow")}</em>
+                          : (dailyStreak > 0 && <em className="best-badge streak-badge">{t("daily_streak_days", { n: dailyStreak })}</em>)}
                       </button>
                     );
                   }
@@ -3137,18 +3150,18 @@ export default function App() {
                     return (
                       <button key="challenge" type="button" onClick={startChallenge} className="mode-card mode-card-secondary mode-card-challenge">
                         <span className="mode-icon">🔥</span>
-                        <strong>Maraton</strong>
-                        <small>Kaç köprü üst üste?</small>
-                        {challengeBest > 0 && <em className="best-badge">En iyi: {challengeBest}</em>}
+                        <strong>{t("mode_marathon_title")}</strong>
+                        <small>{t("mode_marathon_subtitle")}</small>
+                        {challengeBest > 0 && <em className="best-badge">{t("best_score", { n: challengeBest })}</em>}
                       </button>
                     );
                   }
                   return (
                     <button key="online" type="button" onClick={() => { setShowOnlineSetup(true); setOnlineSetupMode(null); }} className="mode-card mode-card-secondary mode-card-online">
                       <span className="mode-icon">🌍</span>
-                      <strong>Düello</strong>
-                      <small>Arkadaşınla 1v1</small>
-                      <em className="best-badge online-cta">Oda Kur →</em>
+                      <strong>{t("mode_duel_title")}</strong>
+                      <small>{t("mode_duel_subtitle")}</small>
+                      <em className="best-badge online-cta">{t("duel_create_room")}</em>
                     </button>
                   );
                 })}
@@ -3158,8 +3171,8 @@ export default function App() {
                 <button type="button" onClick={triggerInstall} className="install-banner">
                   <span className="install-banner-icon">📲</span>
                   <div className="install-banner-text">
-                    <strong>Uygulamayı Yükle</strong>
-                    <small>Ana ekrana ekle, hızlı ulaş</small>
+                    <strong>{t("install_app")}</strong>
+                    <small>{t("install_subtitle")}</small>
                   </div>
                   <span className="install-banner-arrow">→</span>
                 </button>
