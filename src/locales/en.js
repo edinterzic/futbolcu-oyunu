@@ -355,6 +355,10 @@ share_copied_dl: "📋 Copied + image downloaded!",
 
 ts_collision_warning: "You both picked the same team! Pick again.",
 
+footer_privacy: "Privacy",
+  footer_terms: "Terms",
+  footer_how: "How to Play",
+
   lang_switch_aria: "Select language",
   lang_switch_to_en: "Switch to English",
   lang_switch_to_tr: "Türkçeye geç",

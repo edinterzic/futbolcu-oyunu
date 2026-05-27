@@ -355,6 +355,10 @@ share_copied_dl: "📋 Kopyalandı + görsel indirildi!",
 
 ts_collision_warning: "Aynı takımı seçtiniz! Yeniden seçin.",
 
+footer_privacy: "Gizlilik",
+  footer_terms: "Şartlar",
+  footer_how: "Nasıl Oynanır",
+
   lang_switch_aria: "Dil seç",
   lang_switch_to_en: "Switch to English",
   lang_switch_to_tr: "Türkçeye geç",

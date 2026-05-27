@@ -846,6 +846,13 @@ function OnboardingOverlay({ onClose }) {
         >
           {t("onboard_btn")}
         </button>
+        <div style={{ marginTop: 14, paddingTop: 14, textAlign: "center", fontSize: 11, fontWeight: 600, color: "rgba(255,255,255,0.4)", letterSpacing: 0.3 }}>
+          <a href="/privacy.html" target="_blank" rel="noopener noreferrer" style={{ color: "inherit", textDecoration: "none", margin: "0 6px" }}>{t("footer_privacy")}</a>
+          <span style={{ opacity: 0.5 }}>·</span>
+          <a href="/terms.html" target="_blank" rel="noopener noreferrer" style={{ color: "inherit", textDecoration: "none", margin: "0 6px" }}>{t("footer_terms")}</a>
+          <span style={{ opacity: 0.5 }}>·</span>
+          <a href="/how-to-play.html" target="_blank" rel="noopener noreferrer" style={{ color: "inherit", textDecoration: "none", margin: "0 6px" }}>{t("footer_how")}</a>
+        </div>
       </div>
     </div>
   );
@@ -3176,6 +3183,13 @@ export default function App() {
             <button type="button" onClick={() => setShowInstallModal(false)} className="primary-button big" style={{ width: "100%", marginTop: 12 }}>
               {t("btn_got_it")}
             </button>
+            <div style={{ marginTop: 14, paddingTop: 14, textAlign: "center", fontSize: 11, fontWeight: 600, color: "rgba(255,255,255,0.4)", letterSpacing: 0.3 }}>
+          <a href="/privacy.html" target="_blank" rel="noopener noreferrer" style={{ color: "inherit", textDecoration: "none", margin: "0 6px" }}>{t("footer_privacy")}</a>
+          <span style={{ opacity: 0.5 }}>·</span>
+          <a href="/terms.html" target="_blank" rel="noopener noreferrer" style={{ color: "inherit", textDecoration: "none", margin: "0 6px" }}>{t("footer_terms")}</a>
+          <span style={{ opacity: 0.5 }}>·</span>
+          <a href="/how-to-play.html" target="_blank" rel="noopener noreferrer" style={{ color: "inherit", textDecoration: "none", margin: "0 6px" }}>{t("footer_how")}</a>
+        </div>
           </div>
         </div>
       )}
@@ -3397,6 +3411,16 @@ export default function App() {
                   )}
                 </div>
               )}
+
+
+              {/* Yasal sayfa linkleri */}
+              <div style={{ marginTop: 24, paddingTop: 16, paddingBottom: 8, textAlign: "center", fontSize: 11.5, fontWeight: 600, color: "rgba(255,255,255,0.38)", letterSpacing: 0.3 }}>
+                <a href="/privacy.html" target="_blank" rel="noopener noreferrer" style={{ color: "inherit", textDecoration: "none", margin: "0 8px" }}>{t("footer_privacy")}</a>
+                <span style={{ opacity: 0.5 }}>·</span>
+                <a href="/terms.html" target="_blank" rel="noopener noreferrer" style={{ color: "inherit", textDecoration: "none", margin: "0 8px" }}>{t("footer_terms")}</a>
+                <span style={{ opacity: 0.5 }}>·</span>
+                <a href="/how-to-play.html" target="_blank" rel="noopener noreferrer" style={{ color: "inherit", textDecoration: "none", margin: "0 8px" }}>{t("footer_how")}</a>
+              </div>
 
               {/* Alt tab bar — her zaman görünür */}
               <div className="bottom-tab-bar">
