@@ -178,7 +178,7 @@ function getWrongAnswerExplanation(round, userInput) {
   const acceptedAnswer = findAcceptedAnswer(round, userInput);
 
   if (acceptedAnswer) {
-    return `${acceptedAnswer} bu eşleşme için doğru cevap olarak görünüyor.`;
+    return t("exp_accepted", { answer: acceptedAnswer });
   }
 
   const player = findPlayerByInput(userInput);
@@ -186,25 +186,25 @@ function getWrongAnswerExplanation(round, userInput) {
   const teamB = round.teams[1];
 
   if (!player) {
-    return `${userInput} oyuncu havuzunda bulunamadı.`;
+    return t("exp_not_in_pool", { input: userInput });
   }
 
   const playedA = playerPlayedForClub(player, teamA);
   const playedB = playerPlayedForClub(player, teamB);
 
   if (playedA && !playedB) {
-    return `${player.name}, ${teamA} takımında oynadı; ${teamB} takımında oynamadı.`;
+    return t("exp_played_a_only", { name: player.name, teamA, teamB });
   }
 
   if (!playedA && playedB) {
-    return `${player.name}, ${teamB} takımında oynadı; ${teamA} takımında oynamadı.`;
+    return t("exp_played_b_only", { name: player.name, teamA, teamB });
   }
 
   if (!playedA && !playedB) {
-    return `${player.name}, bu veri havuzuna göre ne ${teamA} ne de ${teamB} takımında oynamadı.`;
+    return t("exp_played_neither", { name: player.name, teamA, teamB });
   }
 
-  return `${player.name} bu eşleşme için doğru olmalıydı; veri kontrolü gerekiyor.`;
+  return t("exp_data_check", { name: player.name });
 }
 
 function getCorrectPlayersForRound(round) {
@@ -519,13 +519,14 @@ function CircularTimer({ value, max, urgent }) {
       </svg>
       <div className="circ-content">
         <strong>{value}</strong>
-        <em>sn</em>
+        <em>{t("timer_seconds")}</em>
       </div>
     </div>
   );
 }
 
-function AcceptedPlayersBox({ title = "Kabul edilen oyuncular", players, actualAnswer, onReportPlayer }) {
+function AcceptedPlayersBox({ title, players, actualAnswer, onReportPlayer }) {
+  const resolvedTitle = title || t("accepted_players");
   if (!players?.length) return null;
 
   const normalizedActual = normalizeText(actualAnswer);
@@ -534,10 +535,10 @@ function AcceptedPlayersBox({ title = "Kabul edilen oyuncular", players, actualA
 
   return (
     <div className="answers-box">
-      <strong>{title}</strong>
+      <strong>{resolvedTitle}</strong>
       <div className="answer-tags">
         {visiblePlayers.slice(0, 12).map((player) => (
-          <button key={player.name} type="button" onClick={() => onReportPlayer?.(player)} title="Hatalı olduğunu düşünüyorsan tıkla">
+          <button key={player.name} type="button" onClick={() => onReportPlayer?.(player)} title={t("report_player_tooltip")}>
             {player.name}
           </button>
         ))}
@@ -553,10 +554,10 @@ function WrongExplanationCard({ report, onReport }) {
     <div className="wrong-explanation-card">
       <div className="wrong-icon" aria-hidden="true">!</div>
       <div className="wrong-content">
-        <strong>Cevap kontrolü</strong>
+        <strong>{t("wrong_check_title")}</strong>
         <p>{report.feedback}</p>
         <button type="button" className="light-button compact" onClick={onReport}>
-          Bu cevap doğru olmalıydı, bildir
+          {t("wrong_should_be_correct_btn")}
         </button>
       </div>
     </div>
@@ -718,7 +719,7 @@ function drawScoreShareCard({ score, best, diffLabel, isNewBest, matchups = [] }
   }
 
   // İnce cam CTA
-  drawGlassCTA(ctx, W, "Beni geçebilir misin?", "pairfc.com", 1650, 150);
+  drawGlassCTA(ctx, W, t("share_maraton_cta2"), "pairfc.com", 1650, 150);
 
   return canvas;
 }
@@ -819,32 +820,30 @@ function OnboardingOverlay({ onClose }) {
     <div style={{ position: "fixed", inset: 0, zIndex: 1000, background: "rgba(8,8,16,0.82)", backdropFilter: "blur(6px)", WebkitBackdropFilter: "blur(6px)", display: "flex", alignItems: "center", justifyContent: "center", padding: 20 }}>
       <div style={{ width: "100%", maxWidth: 420, background: "linear-gradient(160deg,#1d1430,#241a3e)", border: "1px solid rgba(255,255,255,0.12)", borderRadius: 24, padding: "26px 22px", textAlign: "center", boxShadow: "0 20px 60px rgba(0,0,0,0.5)", color: "#fff" }}>
         <div style={{ fontSize: 40, marginBottom: 6 }}>⚽</div>
-        <h2 style={{ margin: "0 0 6px", fontSize: 22, fontWeight: 800 }}>PairFC nasıl oynanır?</h2>
-        <p style={{ margin: "0 0 18px", fontSize: 15, lineHeight: 1.5, color: "rgba(255,255,255,0.7)" }}>
-          İki takım görürsün. <strong style={{ color: "#fff" }}>İkisinde de oynamış</strong> bir futbolcuyu yaz.
-        </p>
+        <h2 style={{ margin: "0 0 6px", fontSize: 22, fontWeight: 800 }}>{t("onboard_title")}</h2>
+        <p style={{ margin: "0 0 18px", fontSize: 15, lineHeight: 1.5, color: "rgba(255,255,255,0.7)" }} dangerouslySetInnerHTML={{ __html: t("onboard_intro_html").replace('<strong>', '<strong style="color:#fff">') }} />
         <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 10, marginBottom: 14 }}>
           <span style={chip}>Chelsea</span>
           <span style={{ fontSize: 13, color: "#ffae00", fontWeight: 800 }}>VS</span>
           <span style={chip}>Real Madrid</span>
         </div>
         <div style={{ fontSize: 14, color: "rgba(255,255,255,0.85)", marginBottom: 4 }}>
-          ✅ <strong>Eden Hazard</strong> <span style={{ color: "rgba(255,255,255,0.55)" }}>— ikisinde de oynadı</span>
+          ✅ <strong>Eden Hazard</strong> <span style={{ color: "rgba(255,255,255,0.55)" }}>{t("onboard_played_both")}</span>
         </div>
         <div style={{ fontSize: 13, color: "rgba(255,255,255,0.45)", marginBottom: 18 }}>
-          Ne kadar zor eşleşmeyi bilirsen o kadar büyük flex 🧠
+          {t("onboard_flex")}
         </div>
         <div style={{ display: "flex", gap: 8, justifyContent: "center", flexWrap: "wrap", fontSize: 12.5, color: "rgba(255,255,255,0.6)", marginBottom: 20 }}>
-          <span>📅 Günlük: herkes aynı 5 soru</span>
+          <span>{t("onboard_mode_daily")}</span>
           <span>·</span>
-          <span>⚔️ Maraton: kaç köprü üst üste?</span>
+          <span>{t("onboard_mode_marathon")}</span>
         </div>
         <button
           type="button"
           onClick={onClose}
           style={{ width: "100%", padding: 14, borderRadius: 14, border: "none", background: "#aa3bff", color: "#fff", fontSize: 16, fontWeight: 800, cursor: "pointer" }}
         >
-          Anladım, başla 🚀
+          {t("onboard_btn")}
         </button>
       </div>
     </div>
@@ -1164,7 +1163,7 @@ export default function App() {
   const [playerIndex, setPlayerIndex] = useState(null);
 
   const [targetScore, setTargetScore] = useState(3);
-  const [playerNames, setPlayerNames] = useState(["Oyuncu 1", "Oyuncu 2"]);
+  const [playerNames, setPlayerNames] = useState([t("default_player_1"), t("default_player_2")]);
   const [playersReady, setPlayersReady] = useState([false, false]);
   const [opponentJoined, setOpponentJoined] = useState(false);
   const [gameStarted, setGameStarted] = useState(false);
@@ -1458,10 +1457,10 @@ export default function App() {
       if (challengeScore > 0 && challengeScore % 3 === 0) {
         playGameSound("combo");
         let tier, label;
-        if (challengeScore >= 12) { tier = "legendary"; label = `💎 Efsane x${challengeScore}`; }
-        else if (challengeScore >= 9) { tier = "fire"; label = `🔥🔥 Alev x${challengeScore}`; }
-        else if (challengeScore >= 6) { tier = "orange"; label = `🔥🔥 Seri x${challengeScore}`; }
-        else { tier = "blue"; label = `🔥 Seri x${challengeScore}`; }
+        if (challengeScore >= 12) { tier = "legendary"; label = t("combo_legendary", { n: challengeScore }); }
+        else if (challengeScore >= 9) { tier = "fire"; label = t("combo_fire", { n: challengeScore }); }
+        else if (challengeScore >= 6) { tier = "orange"; label = t("combo_orange", { n: challengeScore }); }
+        else { tier = "blue"; label = t("combo_blue", { n: challengeScore }); }
         setComboBurst({ tier, label, key: Date.now() });
       } else {
         playGameSound("ownGoal");
@@ -1556,7 +1555,7 @@ export default function App() {
       (gameState.screen === "game" || !gameState.screen);
 
     setScreen(gameState.screen || "game");
-    setPlayerNames(gameState.playerNames || ["Oyuncu 1", "Oyuncu 2"]);
+    setPlayerNames(gameState.playerNames || [t("default_player_1"), t("default_player_2")]);
     setPlayersReady(gameState.playersReady || [false, false]);
     setOpponentJoined(Boolean(gameState.opponentJoined) || playerIndex === 1);
     setGameStarted(Boolean(gameState.gameStarted));
@@ -1624,7 +1623,7 @@ export default function App() {
       if (payload.type === "PLAYER_JOINED") {
         if (!stateRef.current) return;
 
-        const joinedName = payload.name || "Oyuncu 2";
+        const joinedName = payload.name || t("default_player_2");
         const nextNames = [...stateRef.current.playerNames];
         nextNames[1] = joinedName;
 
@@ -1642,7 +1641,7 @@ export default function App() {
           seriesWins,
           matchHistory,
           correctRounds,
-          message: { type: "info", text: `${joinedName} odaya katıldı. Oyunu başlatmak için iki oyuncu da hazır olmalı.` }
+          message: { type: "info", text: t("status_player_joined", { name: joinedName }) }
         };
 
         applyGameState(nextState);
@@ -1665,7 +1664,7 @@ export default function App() {
         setConnectionStatus("online");
 
         if (playerIndex === 1) {
-          await sendRoomEvent({ type: "PLAYER_JOINED", name: playerName || "Oyuncu 2" });
+          await sendRoomEvent({ type: "PLAYER_JOINED", name: playerName || t("default_player_2") });
           await sendRoomEvent({ type: "REQUEST_STATE" });
         }
 
@@ -1694,13 +1693,13 @@ export default function App() {
 
     const code = makeRoomCode();
     const firstRound = getRandomRound([], onlineDifficulty) || { teams: ["Fenerbahçe", "Galatasaray"] };
-    const name = playerName.trim() || "Oyuncu 1";
+    const name = playerName.trim() || t("default_player_1");
 
     setRoomCode(code);
     setRoomInput(code);
     setPlayerIndex(0);
     setTargetScore(Number(targetScore));
-    setPlayerNames([name, "Rakip bekleniyor"]);
+    setPlayerNames([name, t("default_opponent_waiting")]);
     setPlayersReady([false, false]);
     setOpponentJoined(false);
     setGameStarted(false);
@@ -1737,15 +1736,15 @@ export default function App() {
     const code = roomInput.trim().toUpperCase();
 
     if (!code) {
-      setMessage({ type: "error", text: "Odaya katılmak için oda kodu yazmalısın." });
+      setMessage({ type: "error", text: t("err_join_no_code") });
       return;
     }
 
-    const name = playerName.trim() || "Oyuncu 2";
+    const name = playerName.trim() || t("default_player_2");
 
     setRoomCode(code);
     setPlayerIndex(1);
-    setPlayerNames(["Oyuncu 1", name]);
+    setPlayerNames([t("default_player_1"), name]);
     setPlayersReady([false, false]);
     setOpponentJoined(true);
     setGameStarted(false);
@@ -1770,9 +1769,9 @@ export default function App() {
     const url = `${window.location.origin}?room=${roomCode}`;
     try {
       await navigator.clipboard.writeText(url);
-      setMessage({ type: "success", text: "Davet linki kopyalandı." });
+      setMessage({ type: "success", text: t("status_invite_copied") });
     } catch {
-      setMessage({ type: "info", text: `Davet linki: ${url}` });
+      setMessage({ type: "info", text: t("status_invite_link", { url }) });
     }
   };
 
@@ -1785,17 +1784,17 @@ export default function App() {
   }, []);
 
   const readyStatusText = () => {
-    if (!opponentJoined) return "Rakip bekleniyor.";
-    if (playersReady[0] && playersReady[1]) return "İki oyuncu da hazır. Oyun başlıyor.";
-    if (playersReady[playerIndex]) return "Sen hazırsın. Rakip bekleniyor.";
+    if (!opponentJoined) return t("status_waiting_opp");
+    if (playersReady[0] && playersReady[1]) return t("status_both_ready");
+    if (playersReady[playerIndex]) return t("status_you_ready");
     const opponentIndex = playerIndex === 0 ? 1 : 0;
-    if (playersReady[opponentIndex]) return "Rakip hazır. Senin de hazır olman lazım.";
-    return "Oyuna başlamak için iki oyuncu da butona basmalı.";
+    if (playersReady[opponentIndex]) return t("status_opp_ready");
+    return t("status_both_press");
   };
 
   const pressStartGame = async () => {
     if (!opponentJoined) {
-      setMessage({ type: "info", text: "Rakip odaya bağlanmadan oyun başlatılamaz." });
+      setMessage({ type: "info", text: t("status_opp_not_joined") });
       return;
     }
 
@@ -1805,8 +1804,8 @@ export default function App() {
     const bothReady = nextReady[0] && nextReady[1];
     const nextPreRoundEndsAt = bothReady ? Date.now() + ROUND_REVEAL_SECONDS * 1000 : null;
     const nextMessage = bothReady
-      ? { type: "success", text: "İki oyuncu da hazır. 3 saniye sonra takımlar açılacak!" }
-      : { type: "info", text: `${playerNames[playerIndex]} hazırlandı. Diğer oyuncu bekleniyor.` };
+      ? { type: "success", text: t("status_both_ready_starting") }
+      : { type: "info", text: t("status_player_ready", { name: playerNames[playerIndex] }) };
 
     const nextState = {
       screen: "game",
@@ -1840,7 +1839,7 @@ export default function App() {
 
   const nextRound = async () => {
     if (playerIndex !== 0) {
-      setMessage({ type: "info", text: "Sonraki turu oda sahibi başlatabilir." });
+      setMessage({ type: "info", text: t("status_only_host_next") });
       return;
     }
 
@@ -1904,7 +1903,7 @@ export default function App() {
       targetScore, scores: [0, 0],
       round: firstRound,
       usedRoundKeys: [getRoundKey(firstRound)],
-      message: { type: "info", text: "Oyun yeniden başlatıldı. İki oyuncu da hazır olmalı." },
+      message: { type: "info", text: t("status_game_restarted") },
       winner: null, showAnswers: false, roundLocked: false,
       roundEndsAt: null, preRoundEndsAt: null,
       wrongAttempts: [0, 0], lastAction: null,
@@ -1955,19 +1954,19 @@ export default function App() {
     setFocusedInput(false);
 
     if (!gameStarted) {
-      setMessage({ type: "info", text: "Oyun henüz başlamadı." });
+      setMessage({ type: "info", text: t("err_game_not_started") });
       return;
     }
     if (roundLocked) {
-      setMessage({ type: "info", text: "Bu tur bitti. Sonraki Tur'a basın." });
+      setMessage({ type: "info", text: t("err_round_over") });
       return;
     }
     if (isPreRound) {
-      setMessage({ type: "info", text: "Takımlar açılmadan cevap veremezsin." });
+      setMessage({ type: "info", text: t("err_teams_not_open") });
       return;
     }
     if (myWrongAttemptUsed) {
-      setMessage({ type: "info", text: "Bu turdaki yanlış hakkını kullandın. Rakibi bekle." });
+      setMessage({ type: "info", text: t("err_no_tries_wait") });
       return;
     }
 
@@ -1975,7 +1974,7 @@ export default function App() {
     const normalized = normalizeText(raw);
 
     if (!normalized) {
-      setMessage({ type: "error", text: "Önce bir futbolcu adı yazmalısın." });
+      setMessage({ type: "error", text: t("err_type_player_first") });
       return;
     }
 
@@ -2062,14 +2061,14 @@ export default function App() {
     const ownWrongMessage = {
       type: "error",
       text: bothPlayersUsedWrong
-        ? `${wrongExplanation} İki oyuncu da yanlış hakkını kullandı. Tur bitti.`
-        : `${wrongExplanation} Yanlış hakkın bitti. Rakibin süre bitene kadar cevap verebilir.`
+        ? t("wrong_both_used", { base: wrongExplanation })
+        : t("wrong_no_tries_left", { base: wrongExplanation })
     };
     const sharedWrongMessage = {
       type: bothPlayersUsedWrong ? "error" : "info",
       text: bothPlayersUsedWrong
-        ? `${wrongExplanation} İki oyuncu da yanlış hakkını kullandı. Tur bitti.`
-        : `${playerNames[playerIndex] || "Rakip"} yanlış cevap verdi. Diğer oyuncunun hakkı devam ediyor.`
+        ? t("shared_both_used", { base: wrongExplanation })
+        : t("shared_opp_wrong", { name: playerNames[playerIndex] || t("default_opponent") })
     };
 
     const nextState = {
@@ -2115,13 +2114,13 @@ export default function App() {
 
   const skipRound = async () => {
     if (playerIndex !== 0) {
-      setMessage({ type: "info", text: "Cevapları sadece oda sahibi gösterebilir." });
+      setMessage({ type: "info", text: t("err_only_host_reveal") });
       return;
     }
 
     if (roundLocked) return;
 
-    const nextMessage = { type: "info", text: "Tur geçildi. Cevapları aşağıda görebilirsin." };
+    const nextMessage = { type: "info", text: t("status_round_skipped") };
     const nextState = {
       screen: "game",
       playerNames, playersReady, opponentJoined, gameStarted, targetScore,
@@ -2209,7 +2208,7 @@ export default function App() {
   const handleTimeUp = async () => {
     if (!gameStarted || roundLocked || screen !== "game") return;
 
-    const nextMessage = { type: "info", text: "Süre doldu. Tur bitti." };
+    const nextMessage = { type: "info", text: t("time_over_round_end") };
     const nextState = {
       screen: "game",
       playerNames, playersReady, opponentJoined, gameStarted, targetScore,
@@ -2270,7 +2269,7 @@ export default function App() {
     setChallengeUsedRoundKeys([getRoundKey(firstRound)]);
     setChallengeInput("");
     setChallengeFocused(false);
-    setChallengeMessage({ type: "info", text: "Maraton başladı. 3 saniye sonra takımlar gelecek." });
+    setChallengeMessage({ type: "info", text: t("marathon_started") });
     setChallengeRoundLocked(false);
     setChallengeShowAnswers(false);
     setChallengeRoundEndsAt(null);
@@ -2455,7 +2454,7 @@ export default function App() {
         const file = new File([blob], "pairfc-gunluk.png", { type: "image/png" });
         if (navigator.canShare({ files: [file] })) {
           await navigator.share({ files: [file], text });
-          setDailyShareStatus({ type: "success", text: "Paylaşıldı!" });
+          setDailyShareStatus({ type: "success", text: t("share_ok") });
           track("daily_shared", { method: "native_image" });
           setTimeout(() => setDailyShareStatus(null), 2500);
           return;
@@ -2463,7 +2462,7 @@ export default function App() {
       }
       if (navigator.share) {
         await navigator.share({ title: "PairFC", text });
-        setDailyShareStatus({ type: "success", text: "Paylaşıldı!" });
+        setDailyShareStatus({ type: "success", text: t("share_ok") });
         track("daily_shared", { method: "native" });
       } else if (navigator.clipboard) {
         await navigator.clipboard.writeText(text);
@@ -2477,15 +2476,15 @@ export default function App() {
           a.remove();
           setTimeout(() => URL.revokeObjectURL(url), 1000);
         }
-        setDailyShareStatus({ type: "success", text: "📋 Kopyalandı + görsel indirildi!" });
+        setDailyShareStatus({ type: "success", text: t("share_copied_dl") });
         track("daily_shared", { method: "clipboard" });
       } else {
-        setDailyShareStatus({ type: "info", text: "Paylaşım desteklenmiyor." });
+        setDailyShareStatus({ type: "info", text: t("share_unsupported") });
         track("daily_shared", { method: "unsupported" });
       }
     } catch (e) {
       if (e.name !== "AbortError") {
-        setDailyShareStatus({ type: "error", text: "Paylaşılamadı." });
+        setDailyShareStatus({ type: "error", text: t("share_failed") });
         track("daily_shared", { method: "failed" });
       }
     }
@@ -2671,7 +2670,7 @@ export default function App() {
       setChallengeTimeLeft(remaining);
 
       if (remaining <= 0) {
-        endChallenge("Süre doldu.");
+        endChallenge(t("time_over"));
       }
     };
 
@@ -2696,35 +2695,35 @@ export default function App() {
   // ===== JOKER: İlk Harf =====
   const useFirstLetterJoker = () => {
     if (challengeFirstLetterUsed) {
-      setChallengeMessage({ type: "info", text: "İlk harf jokerini bu maçta zaten kullandın." });
+      setChallengeMessage({ type: "info", text: t("joker_first_used") });
       return;
     }
     if (challengeIsPreRound || challengeRoundLocked) {
-      setChallengeMessage({ type: "info", text: "Jokeri sadece aktif turda kullanabilirsin." });
+      setChallengeMessage({ type: "info", text: t("joker_only_active") });
       return;
     }
     const first = challengeCorrectPlayers[0];
     if (!first) {
-      setChallengeMessage({ type: "info", text: "Bu tur için joker üretilemedi." });
+      setChallengeMessage({ type: "info", text: t("joker_no_hint") });
       return;
     }
     const parts = first.name.split(" ").filter(Boolean);
     const last = parts[parts.length - 1] || first.name;
-    const hint = `${first.name[0]?.toUpperCase() || "?"} ile başlıyor, soyadı ${last[0]?.toUpperCase() || "?"} ile başlıyor.`;
+    const hint = t("joker_first_hint", { first: first.name[0]?.toUpperCase() || "?", last: last[0]?.toUpperCase() || "?" });
     setChallengeFirstLetterUsed(true);
     setChallengeJokerHint(hint);
-    setChallengeMessage({ type: "info", text: `🎯 İpucu: ${hint}` });
+    setChallengeMessage({ type: "info", text: t("joker_hint", { hint }) });
     track("joker_used", { type: "firstLetter" });
   };
 
   // ===== JOKER: Çift Değiştir =====
   const useSwapPairJoker = () => {
     if (challengeSwapUsed) {
-      setChallengeMessage({ type: "info", text: "Çift değiştir jokerini bu maçta zaten kullandın." });
+      setChallengeMessage({ type: "info", text: t("joker_swap_used") });
       return;
     }
     if (challengeIsPreRound || challengeRoundLocked) {
-      setChallengeMessage({ type: "info", text: "Jokeri sadece aktif turda kullanabilirsin." });
+      setChallengeMessage({ type: "info", text: t("joker_only_active") });
       return;
     }
     const currentKey = getRoundKey(challengeRound);
@@ -2746,24 +2745,24 @@ export default function App() {
     setChallengeLastWrongReport(null);
     setChallengeReportStatus(null);
     setChallengeJokerHint(null);
-    setChallengeMessage({ type: "info", text: "🔄 Çift değiştirildi. Yeni takımlar geliyor." });
+    setChallengeMessage({ type: "info", text: t("joker_swap_done") });
     track("joker_used", { type: "swap" });
   };
 
   // ===== JOKER: Süre +5 =====
   const useTimeAddJoker = () => {
     if (challengeTimeAddUsed) {
-      setChallengeMessage({ type: "info", text: "Süre jokerini bu maçta zaten kullandın." });
+      setChallengeMessage({ type: "info", text: t("joker_time_used") });
       return;
     }
     if (challengeIsPreRound || challengeRoundLocked || !challengeRoundEndsAt) {
-      setChallengeMessage({ type: "info", text: "Jokeri sadece aktif turda kullanabilirsin." });
+      setChallengeMessage({ type: "info", text: t("joker_only_active") });
       return;
     }
     setChallengeTimeAddUsed(true);
     setChallengeRoundEndsAt((prev) => prev + 5000);
     setChallengeTimeLeft((prev) => prev + 5);
-    setChallengeMessage({ type: "info", text: "⏱️ Süreye 5 saniye eklendi!" });
+    setChallengeMessage({ type: "info", text: t("joker_time_added") });
     track("joker_used", { type: "timeAdd" });
   };
 
@@ -2771,7 +2770,7 @@ export default function App() {
     const first = challengeCorrectPlayers[0];
     const reason = first
       ? `Cevap gösterildi. Örnek: ${first.name}.`
-      : "Cevap gösterildi ancak kayıtlı doğru cevap bulunamadı.";
+      : t("fallback_no_answer");
 
     endChallenge(reason, null, challengeRound);
     setChallengeShowAnswers(true);
@@ -2785,12 +2784,12 @@ export default function App() {
     setChallengeFocused(false);
 
     if (challengeIsPreRound) {
-      setChallengeMessage({ type: "info", text: "Takımlar açılmadan cevap veremezsin." });
+      setChallengeMessage({ type: "info", text: t("err_teams_not_open") });
       return;
     }
 
     if (challengeRoundLocked) {
-      setChallengeMessage({ type: "info", text: "Maraton bitti. Yeni maraton başlatabilirsin." });
+      setChallengeMessage({ type: "info", text: t("marathon_ended_msg") });
       return;
     }
 
@@ -2798,7 +2797,7 @@ export default function App() {
     const normalized = normalizeText(raw);
 
     if (!normalized) {
-      setChallengeMessage({ type: "error", text: "Önce bir futbolcu adı yazmalısın." });
+      setChallengeMessage({ type: "error", text: t("err_type_player_first") });
       return;
     }
 
@@ -2813,16 +2812,16 @@ export default function App() {
       const playerFreq = matchedName ? (PLAYER_PAIR_FREQ.get(normalizeText(matchedName)) || 0) : 99;
       const answeredFast = challengeTimeLeft >= ROUND_SECONDS - 4;
       let bonus = null;
-      if (playerFreq > 0 && playerFreq <= 2) bonus = { tier: "legendary", label: "💎 Nadir köprü!" };
-      else if (answerCount > 0 && answerCount <= 3) bonus = { tier: "orange", label: "🧠 Zor köprü!" };
-      else if (answeredFast) bonus = { tier: "blue", label: "⚡ Şimşek gibi!" };
+      if (playerFreq > 0 && playerFreq <= 2) bonus = { tier: "legendary", label: t("bonus_rare") };
+      else if (answerCount > 0 && answerCount <= 3) bonus = { tier: "orange", label: t("bonus_hard") };
+      else if (answeredFast) bonus = { tier: "blue", label: t("bonus_fast") };
 
       const result = getNextChallengeRound(challengeUsedRoundKeys, challengeEffectiveDifficulty || challengeDifficulty);
       const nextKey = getRoundKey(result.round);
       let nextUsed = result.reset ? [nextKey] : [...challengeUsedRoundKeys, nextKey];
 
       // Zorluk yükseldi mi?
-      let msg = `Doğru! Seri: ${nextScore}. 3 sn sonra yeni tur.`;
+      let msg = t("gool_seri_detail", { n: nextScore });
       if (result.escalated) {
         msg = `🔥 ${DIFFICULTY_LABELS[challengeDifficulty]} eşleşmeler tükendi! ${result.escalatedLabel} zorluğa geçiliyor. Seri: ${nextScore}`;
         setChallengeEffectiveDifficulty(result.newDifficulty);
@@ -2870,7 +2869,7 @@ export default function App() {
       targetScore, scores: [0, 0],
       round: next,
       usedRoundKeys: [getRoundKey(next)],
-      message: { type: "info", text: "Rövanş hazır. İki oyuncu da hazır olmalı." },
+      message: { type: "info", text: t("status_rematch_ready") },
       winner: null, showAnswers: false, roundLocked: false,
       roundEndsAt: null, preRoundEndsAt: null,
       wrongAttempts: [0, 0], lastAction: null,
@@ -2922,7 +2921,7 @@ export default function App() {
       return;
     }
 
-    setStatus({ type: "info", text: "Bildirim gönderiliyor..." });
+    setStatus({ type: "info", text: t("status_report_sending") });
 
     const payload = {
       mode: report.mode,
@@ -2939,11 +2938,11 @@ export default function App() {
     const { error } = await supabase.from("answer_reports").insert(payload);
 
     if (error) {
-      setStatus({ type: "error", text: `Bildirim kaydedilemedi: ${error.message}` });
+      setStatus({ type: "error", text: t("status_report_failed", { error: error.message }) });
       return;
     }
 
-    setStatus({ type: "success", text: "Bildirim alındı, teşekkürler." });
+    setStatus({ type: "success", text: t("status_report_thanks") });
     clearReport();
   };
 
@@ -2994,29 +2993,29 @@ export default function App() {
         <div className="modal-overlay" onClick={() => setShowInstallModal(false)}>
           <div className="modal-content install-modal" onClick={(e) => e.stopPropagation()}>
             <button type="button" className="modal-close" onClick={() => setShowInstallModal(false)}>✕</button>
-            <h2>📲 Uygulamayı Yükle</h2>
-            <p>PairFC'yi ana ekranına ekleyerek bir uygulama gibi kullan. Çevrimdışı da çalışır.</p>
+            <h2>{t("modal_install_title")}</h2>
+            <p>{t("modal_install_intro")}</p>
 
             <div className="install-platform">
-              <h3>🍎 iPhone / iPad (Safari)</h3>
+              <h3>{t("modal_install_ios")}</h3>
               <ol>
-                <li>Aşağıdaki <strong>Paylaş</strong> simgesine bas <span className="install-icon">⬆️</span></li>
-                <li>Açılan menüde <strong>"Ana Ekrana Ekle"</strong> seçeneğini seç</li>
-                <li>Sağ üstte <strong>"Ekle"</strong> tıkla</li>
+                <li dangerouslySetInnerHTML={{ __html: t("modal_ios_s1") + ' <span class="install-icon">⬆️</span>' }} />
+                <li dangerouslySetInnerHTML={{ __html: t("modal_ios_s2") }} />
+                <li dangerouslySetInnerHTML={{ __html: t("modal_ios_s3") }} />
               </ol>
             </div>
 
             <div className="install-platform">
-              <h3>🤖 Android (Chrome)</h3>
+              <h3>{t("modal_install_android")}</h3>
               <ol>
-                <li>Sağ üstte <strong>3 nokta menüsüne</strong> bas <span className="install-icon">⋮</span></li>
-                <li><strong>"Uygulamayı yükle"</strong> veya <strong>"Ana ekrana ekle"</strong> seç</li>
-                <li><strong>"Yükle"</strong> tıkla</li>
+                <li dangerouslySetInnerHTML={{ __html: t("modal_and_s1") + ' <span class="install-icon">⋮</span>' }} />
+                <li dangerouslySetInnerHTML={{ __html: t("modal_and_s2") }} />
+                <li dangerouslySetInnerHTML={{ __html: t("modal_and_s3") }} />
               </ol>
             </div>
 
             <button type="button" onClick={() => setShowInstallModal(false)} className="primary-button big" style={{ width: "100%", marginTop: 12 }}>
-              Anladım
+              {t("btn_got_it")}
             </button>
           </div>
         </div>
@@ -3268,14 +3267,14 @@ export default function App() {
                 <div className="online-mode-picker">
                   <button type="button" onClick={() => setOnlineSetupMode("create")} className="online-action-card create">
                     <span className="online-action-icon">✨</span>
-                    <strong>Oda Kur</strong>
-                    <small>Yeni bir oyun başlat, arkadaşını davet et</small>
+                    <strong>{t("online_create_title")}</strong>
+                    <small>{t("online_create_sub")}</small>
                     <span className="online-action-arrow">→</span>
                   </button>
                   <button type="button" onClick={() => setOnlineSetupMode("join")} className="online-action-card join">
                     <span className="online-action-icon">🔗</span>
-                    <strong>Odaya Katıl</strong>
-                    <small>Arkadaşının verdiği kodla bağlan</small>
+                    <strong>{t("online_join_title")}</strong>
+                    <small>{t("online_join_sub")}</small>
                     <span className="online-action-arrow">→</span>
                   </button>
                 </div>
@@ -3284,18 +3283,18 @@ export default function App() {
               {onlineSetupMode === "create" && (
                 <div className="online-form">
                   <div className="input-card">
-                    <label htmlFor="playerNameInput">👤 Oyuncu adın</label>
+                    <label htmlFor="playerNameInput">{t("form_player_name")}</label>
                     <input
                       id="playerNameInput"
                       value={playerName}
                       onChange={(event) => setPlayerName(event.target.value)}
-                      placeholder="Örn. İsmet"
+                      placeholder={t("form_name_placeholder")}
                       maxLength={20}
                     />
                   </div>
 
                   <div className="input-card">
-                    <label>🎯 Bitiş puanı</label>
+                    <label>{t("form_end_score")}</label>
                     <div className="score-options">
                       {[3, 5, 7].map((score) => (
                         <button
@@ -3311,12 +3310,12 @@ export default function App() {
                   </div>
 
                   <div className="input-card">
-                    <label>🎚️ Zorluk</label>
+                    <label>{t("form_difficulty_label")}</label>
                     <div className="score-options">
                       {[
-                        { v: "easy", label: "🟢 Kolay" },
-                        { v: "medium", label: "🟡 Orta" },
-                        { v: "hard", label: "🔴 Zor" }
+                        { v: "easy", label: t("form_diff_easy") },
+                        { v: "medium", label: t("form_diff_medium") },
+                        { v: "hard", label: t("form_diff_hard") }
                       ].map((opt) => (
                         <button
                           key={opt.v}
@@ -3331,7 +3330,7 @@ export default function App() {
                   </div>
 
                   <button type="button" onClick={createRoom} className="primary-button big full-width">
-                    ✨ Oda Oluştur
+                    {t("btn_create_room")}
                   </button>
                 </div>
               )}
@@ -3339,30 +3338,30 @@ export default function App() {
               {onlineSetupMode === "join" && (
                 <div className="online-form">
                   <div className="input-card">
-                    <label htmlFor="playerNameInput2">👤 Oyuncu adın</label>
+                    <label htmlFor="playerNameInput2">{t("form_player_name")}</label>
                     <input
                       id="playerNameInput2"
                       value={playerName}
                       onChange={(event) => setPlayerName(event.target.value)}
-                      placeholder="Örn. İsmet"
+                      placeholder={t("form_name_placeholder")}
                       maxLength={20}
                     />
                   </div>
 
                   <div className="input-card">
-                    <label htmlFor="roomCodeInput">🔑 Oda kodu</label>
+                    <label htmlFor="roomCodeInput">{t("form_room_code")}</label>
                     <input
                       id="roomCodeInput"
                       value={roomInput}
                       onChange={(event) => setRoomInput(event.target.value.toUpperCase())}
-                      placeholder="Örn. ABC123"
+                      placeholder={t("form_room_placeholder")}
                       maxLength={6}
                       style={{ textTransform: "uppercase", letterSpacing: 4, fontSize: 18, fontWeight: 800, textAlign: "center" }}
                     />
                   </div>
 
                   <button type="button" onClick={joinRoom} className="primary-button big full-width">
-                    🔗 Odaya Katıl
+                    {t("btn_join_room")}
                   </button>
                 </div>
               )}
@@ -3789,7 +3788,7 @@ export default function App() {
             <section className="play-content">
               <div className="info-bar">
                 <div className="info-chip">
-                  <span>Oda</span><strong>{roomCode}</strong>
+                  <span>{t("online_room")}</span><strong>{roomCode}</strong>
                 </div>
                 <div className={`info-chip status-${connectionStatus}`}>
                   <span className="status-dot" aria-hidden="true"></span>
@@ -3866,43 +3865,43 @@ export default function App() {
 
                   <div className="winner-actions">
                     <button type="button" onClick={startRematch} className="primary-button big">
-                      🔁 Rövanş
+                      {t("winner_btn_rematch")}
                     </button>
                     <button type="button" onClick={resetGame} className="light-button big">
-                      🔄 Sıfırla
+                      {t("winner_btn_reset")}
                     </button>
                   </div>
                 </div>
               ) : !opponentJoined ? (
                 <div className="panel waiting-panel">
                   <div className="waiting-icon" aria-hidden="true">⏳</div>
-                  <h2>Rakip bekleniyor</h2>
-                  <p>Linki paylaş, rakip katılınca takımlar görünecek.</p>
+                  <h2>{t("lobby_waiting_title")}</h2>
+                  <p>{t("lobby_waiting_sub")}</p>
                   <div className="room-code-display">
-                    <span>Oda kodu</span>
+                    <span>{t("lobby_room_code")}</span>
                     <strong>{roomCode}</strong>
                   </div>
                   <button type="button" onClick={copyInvite} className="primary-button big">
-                    📋 Davet Linkini Kopyala
+                    {t("lobby_copy_invite")}
                   </button>
                   <StatusMessage message={message} />
                 </div>
               ) : !gameStarted ? (
                 <div className="panel waiting-panel">
                   <div className="waiting-icon" aria-hidden="true">⚽</div>
-                  <h2>Başlamaya hazır mısın?</h2>
+                  <h2>{t("lobby_ready_title")}</h2>
                   <p>{readyStatusText()}</p>
 
                   <div className="ready-grid">
                     <div className={playersReady[0] ? "ready-card active" : "ready-card"}>
                       <span className="ready-dot" aria-hidden="true"></span>
                       <strong>{playerNames[0]}</strong>
-                      <em>{playersReady[0] ? "Hazır" : "Bekliyor"}</em>
+                      <em>{playersReady[0] ? t("lobby_ready_y") : t("lobby_ready_n")}</em>
                     </div>
                     <div className={playersReady[1] ? "ready-card active" : "ready-card"}>
                       <span className="ready-dot" aria-hidden="true"></span>
                       <strong>{playerNames[1]}</strong>
-                      <em>{playersReady[1] ? "Hazır" : "Bekliyor"}</em>
+                      <em>{playersReady[1] ? t("lobby_ready_y") : t("lobby_ready_n")}</em>
                     </div>
                   </div>
 
@@ -3912,7 +3911,7 @@ export default function App() {
                     disabled={playersReady[playerIndex]}
                     className="primary-button big full-width"
                   >
-                    {playersReady[playerIndex] ? "✓ Hazırsın" : "Oyunu Başlat"}
+                    {playersReady[playerIndex] ? t("lobby_btn_done") : t("lobby_btn_start")}
                   </button>
 
                   <StatusMessage message={message} />
@@ -4037,8 +4036,8 @@ export default function App() {
                       onClick={() => submitAnswerReport(lastWrongReport, setReportStatus, () => setLastWrongReport(null))}
                     >
                       <span className="report-link-icon">❗</span>
-                      <span>"<strong>{lastWrongReport.answer}</strong>" doğru olmalıydı?</span>
-                      <span className="report-link-cta">Bildir →</span>
+                      <span dangerouslySetInnerHTML={{ __html: t("gover_should_be_correct", { answer: lastWrongReport.answer }).replace(`"${lastWrongReport.answer}"`, `"<strong>${lastWrongReport.answer}</strong>"`) }} />
+                      <span className="report-link-cta">{t("gover_report")}</span>
                     </button>
                   )}
 
@@ -4046,7 +4045,7 @@ export default function App() {
 
                   {showAnswers && (
                     <AcceptedPlayersBox
-                      title="Kabul edilen oyuncular"
+                      title={t("accepted_players")}
                       players={correctPlayers}
                       actualAnswer={lastAction?.answer}
                       onReportPlayer={(player) => reportAcceptedPlayer("online", round, player)}

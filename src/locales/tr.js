@@ -188,6 +188,150 @@ hero_eyebrow_new: "BAŞLANGIÇ",
   default_player_1: "Oyuncu 1",
   default_player_2: "Oyuncu 2",
 
+// Timer
+  timer_seconds: "sn",
+
+  // AcceptedPlayersBox / WrongExplanationCard
+  accepted_players: "Kabul edilen oyuncular",
+  report_player_tooltip: "Hatalı olduğunu düşünüyorsan tıkla",
+  wrong_check_title: "Cevap kontrolü",
+  wrong_should_be_correct_btn: "Bu cevap doğru olmalıydı, bildir",
+
+  // wrongExplanation dynamic
+  exp_accepted: "{answer} bu eşleşme için doğru cevap olarak görünüyor.",
+  exp_not_in_pool: "{input} oyuncu havuzunda bulunamadı.",
+  exp_played_a_only: "{name}, {teamA} takımında oynadı; {teamB} takımında oynamadı.",
+  exp_played_b_only: "{name}, {teamB} takımında oynadı; {teamA} takımında oynamadı.",
+  exp_played_neither: "{name}, bu veri havuzuna göre ne {teamA} ne de {teamB} takımında oynamadı.",
+  exp_data_check: "{name} bu eşleşme için doğru olmalıydı; veri kontrolü gerekiyor.",
+
+  // Time / round end
+  time_over: "Süre doldu.",
+  time_over_round_end: "Süre doldu. Tur bitti.",
+  wrong_no_tries_left: "{base} Yanlış hakkın bitti. Rakibin süre bitene kadar cevap verebilir.",
+  wrong_both_used: "{base} İki oyuncu da yanlış hakkını kullandı. Tur bitti.",
+
+  // Combo burst
+  combo_legendary: "💎 Efsane x{n}",
+  combo_fire: "🔥🔥 Alev x{n}",
+  combo_orange: "🔥🔥 Seri x{n}",
+  combo_blue: "🔥 Seri x{n}",
+
+  // Maraton dinamik
+  marathon_started: "Maraton başladı. 3 saniye sonra takımlar gelecek.",
+  joker_first_used: "İlk harf jokerini bu maçta zaten kullandın.",
+  joker_only_active: "Jokeri sadece aktif turda kullanabilirsin.",
+  joker_no_hint: "Bu tur için joker üretilemedi.",
+  joker_hint: "🎯 İpucu: {hint}",
+  joker_swap_used: "Çift değiştir jokerini bu maçta zaten kullandın.",
+  joker_swap_done: "🔄 Çift değiştirildi. Yeni takımlar geliyor.",
+  joker_time_used: "Süre jokerini bu maçta zaten kullandın.",
+  joker_time_added: "⏱️ Süreye 5 saniye eklendi!",
+  gool_seri_detail: "Doğru! Seri: {n}. 3 sn sonra yeni tur.",
+
+  // Lobby/Online status
+  status_waiting_opp: "Rakip bekleniyor.",
+  status_both_ready: "İki oyuncu da hazır. Oyun başlıyor.",
+  status_you_ready: "Sen hazırsın. Rakip bekleniyor.",
+  status_opp_ready: "Rakip hazır. Senin de hazır olman lazım.",
+  status_both_press: "Oyuna başlamak için iki oyuncu da butona basmalı.",
+  status_opp_not_joined: "Rakip odaya bağlanmadan oyun başlatılamaz.",
+  status_both_ready_starting: "İki oyuncu da hazır. 3 saniye sonra takımlar açılacak!",
+  status_player_ready: "{name} hazırlandı. Diğer oyuncu bekleniyor.",
+  status_invite_copied: "Davet linki kopyalandı.",
+  status_invite_link: "Davet linki: {url}",
+  status_player_joined: "{name} odaya katıldı. Oyunu başlatmak için iki oyuncu da hazır olmalı.",
+  status_report_sending: "Bildirim gönderiliyor...",
+  status_report_failed: "Bildirim kaydedilemedi: {error}",
+  status_report_thanks: "Bildirim alındı, teşekkürler.",
+
+  // Lobby JSX
+  lobby_waiting_title: "Rakip bekleniyor",
+  lobby_waiting_sub: "Linki paylaş, rakip katılınca takımlar görünecek.",
+  lobby_room_code: "Oda kodu",
+  lobby_copy_invite: "📋 Davet Linkini Kopyala",
+  lobby_ready_title: "Başlamaya hazır mısın?",
+  lobby_ready_y: "Hazır",
+  lobby_ready_n: "Bekliyor",
+  lobby_btn_done: "✓ Hazırsın",
+  lobby_btn_start: "Oyunu Başlat",
+
+  // Winner extras
+  winner_btn_rematch: "🔁 Rövanş",
+  winner_btn_reset: "🔄 Sıfırla",
+
+  // Online setup
+  online_room: "Oda",
+  online_create_title: "Oda Kur",
+  online_create_sub: "Yeni bir oyun başlat, arkadaşını davet et",
+  online_join_title: "Odaya Katıl",
+  online_join_sub: "Arkadaşının verdiği kodla bağlan",
+  form_player_name: "👤 Oyuncu adın",
+  form_name_placeholder: "Örn. İsmet",
+  form_end_score: "🎯 Bitiş puanı",
+  form_difficulty_label: "🎚️ Zorluk",
+  form_diff_easy: "🟢 Kolay",
+  form_diff_medium: "🟡 Orta",
+  form_diff_hard: "🔴 Zor",
+  btn_create_room: "✨ Oda Oluştur",
+  form_room_code: "🔑 Oda kodu",
+  form_room_placeholder: "Örn. ABC123",
+  btn_join_room: "🔗 Odaya Katıl",
+
+  // Default player names
+  default_opponent_waiting: "Rakip bekleniyor",
+
+  // Install modal
+  modal_install_title: "📲 Uygulamayı Yükle",
+  modal_install_intro: "PairFC'yi ana ekranına ekleyerek bir uygulama gibi kullan. Çevrimdışı da çalışır.",
+  modal_install_ios: "🍎 iPhone / iPad (Safari)",
+  modal_install_android: "🤖 Android (Chrome)",
+  modal_ios_s1: "Aşağıdaki <strong>Paylaş</strong> simgesine bas",
+  modal_ios_s2: "Açılan menüde <strong>\"Ana Ekrana Ekle\"</strong> seçeneğini seç",
+  modal_ios_s3: "Sağ üstte <strong>\"Ekle\"</strong> tıkla",
+  modal_and_s1: "Sağ üstte <strong>3 nokta menüsüne</strong> bas",
+  modal_and_s2: "<strong>\"Uygulamayı yükle\"</strong> veya <strong>\"Ana ekrana ekle\"</strong> seç",
+  modal_and_s3: "<strong>\"Yükle\"</strong> tıkla",
+  btn_got_it: "Anladım",
+
+  // Onboarding overlay
+  onboard_title: "PairFC nasıl oynanır?",
+  onboard_intro_html: "İki takım görürsün. <strong>İkisinde de oynamış</strong> bir futbolcuyu yaz.",
+  onboard_played_both: "— ikisinde de oynadı",
+  onboard_flex: "Ne kadar zor eşleşmeyi bilirsen o kadar büyük flex 🧠",
+  onboard_mode_daily: "📅 Günlük: herkes aynı 5 soru",
+  onboard_mode_marathon: "⚔️ Maraton: kaç köprü üst üste?",
+  onboard_btn: "Anladım, başla 🚀",
+
+// Final stragglers
+  share_maraton_cta2: "Beni geçebilir misin?",
+  err_join_no_code: "Odaya katılmak için oda kodu yazmalısın.",
+  status_only_host_next: "Sonraki turu oda sahibi başlatabilir.",
+  status_game_restarted: "Oyun yeniden başlatıldı. İki oyuncu da hazır olmalı.",
+  err_game_not_started: "Oyun henüz başlamadı.",
+  err_round_over: "Bu tur bitti. Sonraki Tur'a basın.",
+  err_teams_not_open: "Takımlar açılmadan cevap veremezsin.",
+  err_no_tries_wait: "Bu turdaki yanlış hakkını kullandın. Rakibi bekle.",
+  shared_both_used: "{base} İki oyuncu da yanlış hakkını kullandı. Tur bitti.",
+  shared_opp_wrong: "{name} yanlış cevap verdi. Diğer oyuncunun hakkı devam ediyor.",
+  default_opponent: "Rakip",
+  status_rematch_ready: "Rövanş hazır. İki oyuncu da hazır olmalı.",
+
+err_type_player_first: "Önce bir futbolcu adı yazmalısın.",
+  err_only_host_reveal: "Cevapları sadece oda sahibi gösterebilir.",
+  status_round_skipped: "Tur geçildi. Cevapları aşağıda görebilirsin.",
+  share_ok: "Paylaşıldı!",
+  share_unsupported: "Paylaşım desteklenmiyor.",
+  share_failed: "Paylaşılamadı.",
+  fallback_no_answer: "Cevap gösterildi ancak kayıtlı doğru cevap bulunamadı.",
+
+share_copied_dl: "📋 Kopyalandı + görsel indirildi!",
+  joker_first_hint: "{first} ile başlıyor, soyadı {last} ile başlıyor.",
+  marathon_ended_msg: "Maraton bitti. Yeni maraton başlatabilirsin.",
+  bonus_rare: "💎 Nadir köprü!",
+  bonus_hard: "🧠 Zor köprü!",
+  bonus_fast: "⚡ Şimşek gibi!",
+
   lang_switch_aria: "Dil seç",
   lang_switch_to_en: "Switch to English",
   lang_switch_to_tr: "Türkçeye geç",

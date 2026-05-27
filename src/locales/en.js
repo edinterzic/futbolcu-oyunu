@@ -188,6 +188,150 @@ hero_eyebrow_new: "GETTING STARTED",
   default_player_1: "Player 1",
   default_player_2: "Player 2",
 
+// Timer
+  timer_seconds: "s",
+
+  // AcceptedPlayersBox / WrongExplanationCard
+  accepted_players: "Accepted players",
+  report_player_tooltip: "Click if you think this is wrong",
+  wrong_check_title: "Answer check",
+  wrong_should_be_correct_btn: "This should be correct, report",
+
+  // wrongExplanation
+  exp_accepted: "{answer} appears to be the correct answer for this pair.",
+  exp_not_in_pool: "{input} not found in player pool.",
+  exp_played_a_only: "{name} played for {teamA}, but not {teamB}.",
+  exp_played_b_only: "{name} played for {teamB}, but not {teamA}.",
+  exp_played_neither: "{name}, according to our data, played for neither {teamA} nor {teamB}.",
+  exp_data_check: "{name} should be correct for this pair; data check needed.",
+
+  // Time
+  time_over: "Time's up.",
+  time_over_round_end: "Time's up. Round over.",
+  wrong_no_tries_left: "{base} You're out of tries. Opponent can answer until time runs out.",
+  wrong_both_used: "{base} Both players used their tries. Round over.",
+
+  // Combo burst
+  combo_legendary: "💎 Legendary x{n}",
+  combo_fire: "🔥🔥 Fire x{n}",
+  combo_orange: "🔥🔥 Streak x{n}",
+  combo_blue: "🔥 Streak x{n}",
+
+  // Marathon dynamic
+  marathon_started: "Marathon started. Teams in 3 seconds.",
+  joker_first_used: "You already used the first-letter joker this match.",
+  joker_only_active: "Jokers only work in the active round.",
+  joker_no_hint: "No joker available for this round.",
+  joker_hint: "🎯 Hint: {hint}",
+  joker_swap_used: "You already used the swap-pair joker this match.",
+  joker_swap_done: "🔄 Pair swapped. New teams incoming.",
+  joker_time_used: "You already used the time joker this match.",
+  joker_time_added: "⏱️ +5 seconds added!",
+  gool_seri_detail: "Correct! Streak: {n}. Next round in 3s.",
+
+  // Lobby status
+  status_waiting_opp: "Waiting for opponent.",
+  status_both_ready: "Both players ready. Game starting.",
+  status_you_ready: "You're ready. Waiting for opponent.",
+  status_opp_ready: "Opponent ready. Your turn to ready up.",
+  status_both_press: "Both players must press the button to start.",
+  status_opp_not_joined: "Can't start until opponent joins.",
+  status_both_ready_starting: "Both ready. Teams in 3 seconds!",
+  status_player_ready: "{name} is ready. Waiting for the other player.",
+  status_invite_copied: "Invite link copied.",
+  status_invite_link: "Invite link: {url}",
+  status_player_joined: "{name} joined. Both players must be ready to start.",
+  status_report_sending: "Sending report...",
+  status_report_failed: "Report failed: {error}",
+  status_report_thanks: "Report received, thanks.",
+
+  // Lobby JSX
+  lobby_waiting_title: "Waiting for opponent",
+  lobby_waiting_sub: "Share the link — teams appear when your opponent joins.",
+  lobby_room_code: "Room code",
+  lobby_copy_invite: "📋 Copy Invite Link",
+  lobby_ready_title: "Ready to start?",
+  lobby_ready_y: "Ready",
+  lobby_ready_n: "Waiting",
+  lobby_btn_done: "✓ You're ready",
+  lobby_btn_start: "Start Game",
+
+  // Winner extras
+  winner_btn_rematch: "🔁 Rematch",
+  winner_btn_reset: "🔄 Reset",
+
+  // Online setup
+  online_room: "Room",
+  online_create_title: "Create Room",
+  online_create_sub: "Start a new game, invite a friend",
+  online_join_title: "Join Room",
+  online_join_sub: "Connect with the code your friend shared",
+  form_player_name: "👤 Your name",
+  form_name_placeholder: "e.g. Alex",
+  form_end_score: "🎯 Target score",
+  form_difficulty_label: "🎚️ Difficulty",
+  form_diff_easy: "🟢 Easy",
+  form_diff_medium: "🟡 Medium",
+  form_diff_hard: "🔴 Hard",
+  btn_create_room: "✨ Create Room",
+  form_room_code: "🔑 Room code",
+  form_room_placeholder: "e.g. ABC123",
+  btn_join_room: "🔗 Join Room",
+
+  // Default
+  default_opponent_waiting: "Waiting for opponent",
+
+  // Install modal
+  modal_install_title: "📲 Install App",
+  modal_install_intro: "Add PairFC to your home screen to use it like a real app. Works offline too.",
+  modal_install_ios: "🍎 iPhone / iPad (Safari)",
+  modal_install_android: "🤖 Android (Chrome)",
+  modal_ios_s1: "Tap the <strong>Share</strong> icon below",
+  modal_ios_s2: "Choose <strong>\"Add to Home Screen\"</strong>",
+  modal_ios_s3: "Tap <strong>\"Add\"</strong> in the top right",
+  modal_and_s1: "Tap the <strong>3-dot menu</strong> in the top right",
+  modal_and_s2: "Choose <strong>\"Install app\"</strong> or <strong>\"Add to home screen\"</strong>",
+  modal_and_s3: "Tap <strong>\"Install\"</strong>",
+  btn_got_it: "Got it",
+
+  // Onboarding overlay
+  onboard_title: "How to play PairFC?",
+  onboard_intro_html: "You see two teams. Name a player who <strong>played for both</strong>.",
+  onboard_played_both: "— played for both",
+  onboard_flex: "The harder the pair, the bigger the flex 🧠",
+  onboard_mode_daily: "📅 Daily: same 5 puzzles for everyone",
+  onboard_mode_marathon: "⚔️ Marathon: how many bridges in a row?",
+  onboard_btn: "Got it, let's go 🚀",
+
+// Final stragglers
+  share_maraton_cta2: "Can you beat me?",
+  err_join_no_code: "You need to enter a room code to join.",
+  status_only_host_next: "Only the host can start the next round.",
+  status_game_restarted: "Game restarted. Both players must be ready.",
+  err_game_not_started: "Game hasn't started yet.",
+  err_round_over: "Round over. Press Next Round.",
+  err_teams_not_open: "Can't answer before the teams open.",
+  err_no_tries_wait: "You used your wrong try this round. Wait for opponent.",
+  shared_both_used: "{base} Both players used their tries. Round over.",
+  shared_opp_wrong: "{name} answered wrong. The other player still has a try.",
+  default_opponent: "Opponent",
+  status_rematch_ready: "Rematch ready. Both players must be ready.",
+
+err_type_player_first: "Type a player name first.",
+  err_only_host_reveal: "Only the host can reveal answers.",
+  status_round_skipped: "Round skipped. See the answers below.",
+  share_ok: "Shared!",
+  share_unsupported: "Sharing not supported.",
+  share_failed: "Couldn't share.",
+  fallback_no_answer: "Answer revealed but no saved correct answer found.",
+
+share_copied_dl: "📋 Copied + image downloaded!",
+  joker_first_hint: "Starts with {first}, last name starts with {last}.",
+  marathon_ended_msg: "Marathon ended. You can start a new one.",
+  bonus_rare: "💎 Rare bridge!",
+  bonus_hard: "🧠 Tough bridge!",
+  bonus_fast: "⚡ Lightning fast!",
+
   lang_switch_aria: "Select language",
   lang_switch_to_en: "Switch to English",
   lang_switch_to_tr: "Türkçeye geç",
