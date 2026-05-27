@@ -140,6 +140,54 @@ hero_eyebrow_new: "BAŞLANGIÇ",
   gover_report: "Bildir →",
   gover_new_marathon: "🔁 Yeni Maraton",
 
+// Leaderboard
+  lb_title: "🏆 Liderlik Tablosu",
+  lb_subtitle: "Maraton en iyi skorlar",
+  lb_period_today: "Bugün",
+  lb_period_alltime: "Tüm Zamanlar",
+  lb_loading: "Yükleniyor...",
+  lb_empty: "Henüz skor yok. İlk sen ol!",
+
+  // nearMiss (gameover motivasyon)
+  near_record: "🏆 Tüm zamanlar rekorun!",
+  near_record_prev: " (eski: {n})",
+  near_close_past: "Rekoruna {n} kaldı ({best}) — bir tane daha?",
+  near_today_best: "📈 Bugünün en iyisi ({diff})!",
+  near_today_rec: " Rekorun: {n}",
+  near_close_today: "Bugünkü {diff} rekorun {prev} — {n} kaldı!",
+  near_info: "{diff} · bugün en iyin {today} · rekorun {best}",
+
+  // Düello (online) in-game
+  online_connecting: "Bağlanıyor",
+  online_target: "Hedef",
+  online_round: "Tur #{n}",
+  online_wrong_tries: "Yanlış hakkı:",
+  online_series_meta: "Seri {n}",
+  matchpoint_critical: "MAÇ TOPU — Çok kritik!",
+  matchpoint_mine: "Maç topu sende! Kazanabilirsin",
+  matchpoint_opp: "Dikkat! Rakip kazanmak üzere",
+  online_action_goal: "GOOOL! {answer}",
+  online_action_conceded: "Gol yedin! {answer}",
+  online_action_wrong: "Yanlış cevap!",
+  online_action_opp_wrong: "Rakip yanlış yaptı, devam!",
+  online_action_round_end: "Tur bitti",
+  online_advance_correct: "✅ Doğru! Sonraki tura geçiliyor…",
+  online_advance_other: "⏭️ Sonraki tur birazdan başlıyor…",
+  winner_won_title: "Kazandın!",
+  winner_won_sub: "Tebrikler, harika oyundu",
+  winner_lost_title: "Bu sefer olmadı",
+  winner_lost_sub: "{name} kazandı. Rövanşta daha iyi olabilirsin!",
+
+  // MatchSummary
+  ms_winner: "Kazanan",
+  ms_score: "Skor",
+  ms_target: "Hedef",
+  ms_series: "Seri",
+
+  // Default player names
+  default_player_1: "Oyuncu 1",
+  default_player_2: "Oyuncu 2",
+
   lang_switch_aria: "Dil seç",
   lang_switch_to_en: "Switch to English",
   lang_switch_to_tr: "Türkçeye geç",

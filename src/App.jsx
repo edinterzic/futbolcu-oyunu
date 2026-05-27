@@ -999,19 +999,19 @@ function MatchSummary({ playerNames, scores, winner, targetScore, seriesWins, cu
     <div className="match-summary-card">
       <div className="summary-grid">
         <div>
-          <span>Kazanan</span>
+          <span>{t("ms_winner")}</span>
           <strong>{playerNames[winner]}</strong>
         </div>
         <div>
-          <span>Skor</span>
+          <span>{t("ms_score")}</span>
           <strong>{scores[0]} - {scores[1]}</strong>
         </div>
         <div>
-          <span>Hedef</span>
+          <span>{t("ms_target")}</span>
           <strong>{targetScore}</strong>
         </div>
         <div>
-          <span>Seri</span>
+          <span>{t("ms_series")}</span>
           <strong>{seriesWins[0]} - {seriesWins[1]}</strong>
         </div>
       </div>
@@ -2601,15 +2601,15 @@ export default function App() {
     let nm = null;
     if (finalScore > 0) {
       if (finalScore > prevOverall) {
-        nm = { tone: "record", text: `🏆 Tüm zamanlar rekorun!${prevOverall > 0 ? ` (eski: ${prevOverall})` : ""}` };
+        nm = { tone: "record", text: t("near_record") + (prevOverall > 0 ? t("near_record_prev", { n: prevOverall }) : "") };
       } else if (prevOverall - finalScore <= 2 && prevOverall > 0) {
-        nm = { tone: "close", text: `Rekoruna ${prevOverall - finalScore} kaldı (${prevOverall}) — bir tane daha?` };
+        nm = { tone: "close", text: t("near_close_past", { n: prevOverall - finalScore, best: prevOverall }) };
       } else if (finalScore > prevToday) {
-        nm = { tone: "today", text: `📈 Bugünün en iyisi (${diffLabel})!${prevOverall > 0 ? ` Rekorun: ${prevOverall}` : ""}` };
+        nm = { tone: "today", text: t("near_today_best", { diff: diffLabel }) + (prevOverall > 0 ? t("near_today_rec", { n: prevOverall }) : "") };
       } else if (prevToday - finalScore <= 2 && prevToday > 0) {
-        nm = { tone: "close", text: `Bugünkü ${diffLabel} rekorun ${prevToday} — ${prevToday - finalScore} kaldı!` };
+        nm = { tone: "close", text: t("near_close_today", { diff: diffLabel, prev: prevToday, n: prevToday - finalScore }) };
       } else {
-        nm = { tone: "info", text: `${diffLabel} · bugün en iyin ${prevToday} · rekorun ${prevOverall}` };
+        nm = { tone: "info", text: t("near_info", { diff: diffLabel, today: prevToday, best: prevOverall }) };
       }
     }
     setChallengeNearMiss(nm);
@@ -3182,16 +3182,16 @@ export default function App() {
               {mainTab === "leaderboard" && (
                 <div className="leaderboard-page">
                   <div className="lb-header">
-                    <h2>🏆 Liderlik Tablosu</h2>
-                    <p className="lb-subtitle">Maraton en iyi skorlar</p>
+                    <h2>{t("lb_title")}</h2>
+                    <p className="lb-subtitle">{t("lb_subtitle")}</p>
                   </div>
 
                   <div className="lb-filters">
                     <div className="lb-difficulty-tabs">
                       {[
-                        { key: "easy", label: "Kolay", emoji: "🟢" },
-                        { key: "medium", label: "Orta", emoji: "🟡" },
-                        { key: "hard", label: "Zor", emoji: "🔴" }
+                        { key: "easy", label: t("diff_easy"), emoji: "🟢" },
+                        { key: "medium", label: t("diff_medium"), emoji: "🟡" },
+                        { key: "hard", label: t("diff_hard"), emoji: "🔴" }
                       ].map((d) => (
                         <button
                           key={d.key}
@@ -3208,21 +3208,21 @@ export default function App() {
                         type="button"
                         className={`lb-period-btn ${lbPeriod === "today" ? "active" : ""}`}
                         onClick={() => setLbPeriod("today")}
-                      >Bugün</button>
+                      >{t("lb_period_today")}</button>
                       <button
                         type="button"
                         className={`lb-period-btn ${lbPeriod === "alltime" ? "active" : ""}`}
                         onClick={() => setLbPeriod("alltime")}
-                      >Tüm Zamanlar</button>
+                      >{t("lb_period_alltime")}</button>
                     </div>
                   </div>
 
                   {lbLoading ? (
-                    <div className="lb-loading">Yükleniyor...</div>
+                    <div className="lb-loading">{t("lb_loading")}</div>
                   ) : lbData.length === 0 ? (
                     <div className="lb-empty">
                       <span className="lb-empty-icon">🏟️</span>
-                      <p>Henüz skor yok. İlk sen ol!</p>
+                      <p>{t("lb_empty")}</p>
                     </div>
                   ) : (
                     <div className="lb-list">
@@ -3793,10 +3793,10 @@ export default function App() {
                 </div>
                 <div className={`info-chip status-${connectionStatus}`}>
                   <span className="status-dot" aria-hidden="true"></span>
-                  <strong>{connectionStatus === "online" ? "Online" : "Bağlanıyor"}</strong>
+                  <strong>{connectionStatus === "online" ? "Online" : t("online_connecting")}</strong>
                 </div>
                 <div className="info-chip">
-                  <span>Hedef</span><strong>{targetScore}</strong>
+                  <span>{t("online_target")}</span><strong>{targetScore}</strong>
                 </div>
                 <button type="button" onClick={copyInvite} className="mini-button">📋 Link</button>
               </div>
@@ -3805,13 +3805,13 @@ export default function App() {
                 <div className={`score-side ${playerIndex === 0 ? "me" : ""} ${winner === 0 ? "winner" : ""} ${scoreFlash[0] === "gain" ? "flash-gain" : ""}`}>
                   <span className="score-name">{playerNames[0]}</span>
                   <strong className="score-value">{scores[0]}</strong>
-                  <em className="score-meta">Seri {seriesWins[0]}</em>
+                  <em className="score-meta">{t("online_series_meta", { n: seriesWins[0] })}</em>
                 </div>
                 <div className="score-vs">vs</div>
                 <div className={`score-side ${playerIndex === 1 ? "me" : ""} ${winner === 1 ? "winner" : ""} ${scoreFlash[1] === "gain" ? "flash-gain" : ""}`}>
                   <span className="score-name">{playerNames[1]}</span>
                   <strong className="score-value">{scores[1]}</strong>
-                  <em className="score-meta">Seri {seriesWins[1]}</em>
+                  <em className="score-meta">{t("online_series_meta", { n: seriesWins[1] })}</em>
                 </div>
               </div>
 
@@ -3820,10 +3820,10 @@ export default function App() {
                   <span className="match-point-flag">⚡</span>
                   <strong>
                     {scores[playerIndex] === targetScore - 1 && scores[1 - playerIndex] === targetScore - 1
-                      ? "MAÇ TOPU — Çok kritik!"
+                      ? t("matchpoint_critical")
                       : scores[playerIndex] === targetScore - 1
-                      ? "Maç topu sende! Kazanabilirsin"
-                      : "Dikkat! Rakip kazanmak üzere"}
+                      ? t("matchpoint_mine")
+                      : t("matchpoint_opp")}
                   </strong>
                 </div>
               )}
@@ -3833,14 +3833,14 @@ export default function App() {
                   {winner === playerIndex ? (
                     <>
                       <div className="trophy trophy-big" aria-hidden="true">🏆</div>
-                      <h2>Kazandın!</h2>
-                      <p className="winner-subtitle">Tebrikler, harika oyundu</p>
+                      <h2>{t("winner_won_title")}</h2>
+                      <p className="winner-subtitle">{t("winner_won_sub")}</p>
                     </>
                   ) : (
                     <>
                       <div className="trophy trophy-loser" aria-hidden="true">💪</div>
-                      <h2>Bu sefer olmadı</h2>
-                      <p className="winner-subtitle">{playerNames[winner]} kazandı. Rövanşta daha iyi olabilirsin!</p>
+                      <h2>{t("winner_lost_title")}</h2>
+                      <p className="winner-subtitle">{t("winner_lost_sub", { name: playerNames[winner] })}</p>
                     </>
                   )}
                   <div className="final-score-display">
@@ -3928,9 +3928,9 @@ export default function App() {
                   <div className="play-header">
                     <CircularTimer value={timeLeft} max={ROUND_SECONDS} urgent={timeLeft <= 3 && !roundLocked} />
                     <div className="play-tools">
-                      <div className="round-pill">Tur #{usedRoundKeys.length || 1}</div>
+                      <div className="round-pill">{t("online_round", { n: usedRoundKeys.length || 1 })}</div>
                       <div className={`wrong-pill ${myWrongAttemptUsed ? "used" : ""}`}>
-                        Yanlış hakkı: <strong>{myWrongAttemptUsed ? 0 : 1}</strong>
+                        {t("online_wrong_tries")} <strong>{myWrongAttemptUsed ? 0 : 1}</strong>
                       </div>
                     </div>
                   </div>
@@ -3962,14 +3962,14 @@ export default function App() {
                       </span>
                       <strong>
                         {lastAction.type === "correct" && lastAction.playerIndex === playerIndex
-                          ? `GOOOL! ${lastAction.answer}`
+                          ? t("online_action_goal", { answer: lastAction.answer })
                           : lastAction.type === "correct"
-                            ? `Gol yedin! ${lastAction.answer}`
+                            ? t("online_action_conceded", { answer: lastAction.answer })
                             : lastAction.type === "wrong" && lastAction.playerIndex === playerIndex
-                              ? "Yanlış cevap!"
+                              ? t("online_action_wrong")
                               : lastAction.type === "wrong"
-                                ? "Rakip yanlış yaptı, devam!"
-                                : "Tur bitti"}
+                                ? t("online_action_opp_wrong")
+                                : t("online_action_round_end")}
                       </strong>
                     </div>
                   )}
@@ -4055,8 +4055,8 @@ export default function App() {
 
                   <p className="host-note">
                     {lastAction?.type === "correct"
-                      ? "✅ Doğru! Sonraki tura geçiliyor…"
-                      : "⏭️ Sonraki tur birazdan başlıyor…"}
+                      ? t("online_advance_correct")
+                      : t("online_advance_other")}
                   </p>
                 </div>
               )}
@@ -7896,6 +7896,7 @@ button:focus-visible {
   font-size: 20px;
   font-weight: 800;
   margin: 0 0 4px;
+  color: #fff;
 }
 .lb-subtitle {
   font-size: 12px;

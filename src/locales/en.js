@@ -140,6 +140,54 @@ hero_eyebrow_new: "GETTING STARTED",
   gover_report: "Report →",
   gover_new_marathon: "🔁 New Marathon",
 
+// Leaderboard
+  lb_title: "🏆 Leaderboard",
+  lb_subtitle: "Marathon best scores",
+  lb_period_today: "Today",
+  lb_period_alltime: "All Time",
+  lb_loading: "Loading...",
+  lb_empty: "No scores yet. Be the first!",
+
+  // nearMiss
+  near_record: "🏆 All-time record!",
+  near_record_prev: " (prev: {n})",
+  near_close_past: "{n} to your record ({best}) — one more?",
+  near_today_best: "📈 Today's best ({diff})!",
+  near_today_rec: " Record: {n}",
+  near_close_today: "Today's {diff} record {prev} — {n} to go!",
+  near_info: "{diff} · today's best {today} · record {best}",
+
+  // Duel in-game
+  online_connecting: "Connecting",
+  online_target: "Target",
+  online_round: "Round #{n}",
+  online_wrong_tries: "Wrong tries:",
+  online_series_meta: "Series {n}",
+  matchpoint_critical: "MATCH POINT — Critical!",
+  matchpoint_mine: "Match point yours! You can win",
+  matchpoint_opp: "Watch out! Opponent about to win",
+  online_action_goal: "GOAL! {answer}",
+  online_action_conceded: "Conceded! {answer}",
+  online_action_wrong: "Wrong answer!",
+  online_action_opp_wrong: "Opponent missed, keep going!",
+  online_action_round_end: "Round over",
+  online_advance_correct: "✅ Correct! Moving to next round…",
+  online_advance_other: "⏭️ Next round starting…",
+  winner_won_title: "You won!",
+  winner_won_sub: "Congrats, great game",
+  winner_lost_title: "Not this time",
+  winner_lost_sub: "{name} won. You can do better in the rematch!",
+
+  // MatchSummary
+  ms_winner: "Winner",
+  ms_score: "Score",
+  ms_target: "Target",
+  ms_series: "Series",
+
+  // Default player names
+  default_player_1: "Player 1",
+  default_player_2: "Player 2",
+
   lang_switch_aria: "Select language",
   lang_switch_to_en: "Switch to English",
   lang_switch_to_tr: "Türkçeye geç",
