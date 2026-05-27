@@ -1364,10 +1364,10 @@ export default function App() {
       return {
         done: true,
         attempts,
-        eyebrow: "BUGÜN TAMAMLANDI ✓",
-        title: correctCount === total ? "Kusursuz gün ✨" : `${correctCount}/${total} doğru`,
-        sub: dailyCountdown ? `Yarınki bulmacaya ${dailyCountdown}` : "Yarın yeni 5 eşleşme",
-        cta: "Sonucu Gör"
+        eyebrow: t("hero_done_eyebrow"),
+        title: correctCount === total ? t("hero_done_title_perfect") : t("hero_done_title_score", { n: correctCount, total }),
+        sub: dailyCountdown ? t("hero_done_sub_countdown", { time: dailyCountdown }) : t("hero_done_sub_tomorrow"),
+        cta: t("hero_done_cta")
       };
     }
     return {
@@ -1384,11 +1384,12 @@ export default function App() {
   const dailyMeta = useMemo(() => {
     const d = dailyData ? new Date(dailyData.date) : new Date();
     const epoch = new Date("2026-01-01T00:00:00Z").getTime();
+    const localeTag = lang === "en" ? "en-US" : "tr-TR";
     return {
-      date: new Intl.DateTimeFormat("tr-TR", { day: "numeric", month: "long" }).format(d),
+      date: new Intl.DateTimeFormat(localeTag, { day: "numeric", month: "long" }).format(d),
       num: Math.floor((d.getTime() - epoch) / 86400000) + 1
     };
-  }, [dailyData]);
+  }, [dailyData, lang]);
 
   const secondaryModes = useMemo(() => ["challenge", "online"], []);
 
@@ -2509,12 +2510,13 @@ export default function App() {
       const ms = getMsUntilNextPuzzle();
       const h = Math.floor(ms / 3600000);
       const m = Math.floor((ms % 3600000) / 60000);
-      setDailyCountdown(`${h}sa ${m}dk`);
+      setDailyCountdown(t("countdown_format", { h, m }));
     };
     update();
     const interval = setInterval(update, 60000);
     return () => clearInterval(interval);
-  }, []);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [lang]);
 
   const goToHome = () => {
     setMainTab("home");
@@ -3547,7 +3549,7 @@ export default function App() {
                               onKeyDown={(event) => {
                                 if (event.key === "Enter") submitChallengeAnswer();
                               }}
-                              placeholder="Futbolcu adı yaz..."
+                              placeholder={t("input_placeholder_player")}
                             />
 
                             {challengeCanAnswer && challengeFocused && challengeSuggestions.length > 0 && (
@@ -3594,24 +3596,24 @@ export default function App() {
             <section className="play-content">
               <div className="info-bar">
                 <div className="info-chip">
-                  <span>📅 Günlük</span>
+                  <span>📅 {t("daily_chip")}</span>
                 </div>
                 {!dailyDone && dailyData && (
                   <div className="info-chip">
-                    <span>Bulmaca</span>
+                    <span>{t("daily_puzzle_label")}</span>
                     <strong>{dailyIndex + 1} / {dailyData.puzzles.length}</strong>
                   </div>
                 )}
                 {!dailyDone && dailyData && dailyData.puzzles[dailyIndex] && (
                   <div className="info-chip">
                     <span>
-                      {["", "⭐ Isınma", "⭐⭐ Kızışıyor", "⭐⭐⭐ Final"][dailyData.puzzles[dailyIndex].difficulty] || "⭐"}
+                      {["", t("difficulty_warmup"), t("difficulty_heating"), t("difficulty_final")][dailyData.puzzles[dailyIndex].difficulty] || "⭐"}
                     </span>
                   </div>
                 )}
                 {dailyStreak > 0 && (
                   <div className="info-chip">
-                    <span>🔥 Seri</span>
+                    <span>{t("daily_streak_chip")}</span>
                     <strong>{dailyStreak}</strong>
                   </div>
                 )}
@@ -3619,7 +3621,7 @@ export default function App() {
 
               {!dailyData && (
                 <div className="panel">
-                  <p>Günlük bulmaca yükleniyor...</p>
+                  <p>{t("daily_loading")}</p>
                 </div>
               )}
 
@@ -3638,7 +3640,7 @@ export default function App() {
                       })}
                     </div>
                     <div className="daily-wrong-meter">
-                      <span>Yanlış hakkı:</span>
+                      <span>{t("daily_wrong_meter")}</span>
                       <strong className={dailyWrongCount >= 2 ? "danger" : ""}>{3 - dailyWrongCount}</strong>
                     </div>
                   </div>
@@ -3670,7 +3672,7 @@ export default function App() {
                             onBlur={() => setTimeout(() => setDailyFocused(false), 120)}
                             onChange={(event) => updateDailyInput(event.target.value)}
                             onKeyDown={(event) => { if (event.key === "Enter") submitDailyAnswer(); }}
-                            placeholder="Futbolcu adı yaz..."
+                            placeholder={t("input_placeholder_player")}
                           />
                           {dailyFocused && dailySuggestions.length > 0 && (
                             <div className="suggestions">
@@ -3688,14 +3690,14 @@ export default function App() {
                           )}
                         </div>
                         <button type="button" onClick={submitDailyAnswer} className="primary-button">
-                          Kontrol
+                          {t("btn_check")}
                         </button>
                       </div>
                     </div>
                   ) : (
                     <div className="action-banner error">
                       <span className="action-emoji">❌</span>
-                      <strong>3 yanlış — sonraki eşleşmeye geçiliyor...</strong>
+                      <strong>{t("daily_3wrong")}</strong>
                     </div>
                   )}
 
@@ -3703,7 +3705,7 @@ export default function App() {
 
                   {!dailyShowAnswers && (
                     <button type="button" onClick={skipDailyPuzzle} className="light-button compact daily-skip">
-                      ⏭️ Pas
+                      {t("btn_skip")}
                     </button>
                   )}
                 </div>
@@ -3714,24 +3716,24 @@ export default function App() {
                   <div className="gameover-header">
                     <div className="gameover-icon trophy">📅</div>
                     <div className="gameover-headline">
-                      <h3>{dailyResults.filter((r) => r === "correct").length === dailyData.puzzles.length ? "Kusursuz gün ✨" : (dailyHistory[dailyData.date]?.completed ? "Bugünkü Bulmaca Bitti ✓" : "Bulmaca Tamamlandı")}</h3>
-                      <p className="gameover-detail">{new Intl.DateTimeFormat("tr-TR", { day: "numeric", month: "long", year: "numeric" }).format(new Date(dailyData.date))}</p>
+                      <h3>{dailyResults.filter((r) => r === "correct").length === dailyData.puzzles.length ? t("daily_perfect") : (dailyHistory[dailyData.date]?.completed ? t("daily_today_finished") : t("daily_complete"))}</h3>
+                      <p className="gameover-detail">{new Intl.DateTimeFormat(lang === "en" ? "en-US" : "tr-TR", { day: "numeric", month: "long", year: "numeric" }).format(new Date(dailyData.date))}</p>
                     </div>
                   </div>
 
                   <div className="gameover-stats">
                     <div className="gameover-stat">
-                      <span>Doğru</span>
+                      <span>{t("stat_correct")}</span>
                       <strong>{dailyResults.filter((r) => r === "correct").length} / {dailyData.puzzles.length}</strong>
                     </div>
                     <div className="gameover-stat highlight">
-                      <span>🔥 Seri</span>
+                      <span>{t("daily_streak_chip")}</span>
                       <strong>{dailyStreak}</strong>
                     </div>
                   </div>
 
                   <div className="gameover-section">
-                    <span className="gameover-label">Bulmaca grid</span>
+                    <span className="gameover-label">{t("daily_grid_label")}</span>
                     <div className="daily-grid-emoji">
                       {dailyResults.map((r, i) => (
                         <span key={i}>{r === "correct" ? "🟩" : "🟥"}</span>
@@ -3740,13 +3742,13 @@ export default function App() {
                   </div>
 
                   <button type="button" onClick={shareDailyResult} className="primary-button big daily-share-button">
-                    📤 Sonucu Paylaş
+                    {t("daily_share_button")}
                   </button>
 
                   <StatusMessage message={dailyShareStatus} />
 
                   <div className="gameover-section daily-countdown-box">
-                    <span className="gameover-label">⏳ Yarınki bulmacaya</span>
+                    <span className="gameover-label">{t("daily_countdown_label")}</span>
                     <strong className="daily-countdown-value">{dailyCountdown}</strong>
                   </div>
 
@@ -3755,21 +3757,21 @@ export default function App() {
                       <span style={{ fontSize: 24 }}>📲</span>
                       <div style={{ flex: 1, textAlign: "left", lineHeight: 1.3 }}>
                         <strong style={{ display: "block", fontSize: 14.5, color: "#fff" }}>
-                          {dailyStreak >= 2 ? `🔥 ${dailyStreak} günlük serin var!` : "Yarın kaldığın yerden devam et"}
+                          {dailyStreak >= 2 ? t("install_nudge_streak", { n: dailyStreak }) : t("install_nudge_tomorrow")}
                         </strong>
-                        <small style={{ color: "rgba(255,255,255,0.6)", fontSize: 12.5 }}>Ana ekrana ekle, her gün tek dokunuşla aç.</small>
+                        <small style={{ color: "rgba(255,255,255,0.6)", fontSize: 12.5 }}>{t("install_nudge_sub")}</small>
                       </div>
                       <button
                         type="button"
                         onClick={() => { try { track("install_nudge_accepted"); } catch (e) {} triggerInstall(); }}
                         style={{ padding: "9px 14px", borderRadius: 12, border: "none", background: "#aa3bff", color: "#fff", fontWeight: 700, fontSize: 13.5, cursor: "pointer", whiteSpace: "nowrap" }}
                       >
-                        Ekle
+                        {t("btn_add")}
                       </button>
                       <button
                         type="button"
                         onClick={dismissInstallNudge}
-                        aria-label="Kapat"
+                        aria-label={t("btn_close")}
                         style={{ background: "none", border: "none", color: "rgba(255,255,255,0.5)", fontSize: 18, cursor: "pointer", padding: 4 }}
                       >
                         ✕
@@ -3778,7 +3780,7 @@ export default function App() {
                   )}
 
                   <button type="button" onClick={goToHome} className="light-button big">
-                    🏠 Ana Menü
+                    🏠 {t("home_menu")}
                   </button>
                 </div>
               )}
@@ -3993,7 +3995,7 @@ export default function App() {
                           onKeyDown={(event) => {
                             if (event.key === "Enter") checkAnswer();
                           }}
-                          placeholder="Futbolcu adı yaz..."
+                          placeholder={t("input_placeholder_player")}
                         />
 
                         {canAnswer && focusedInput && suggestions.length > 0 && (
