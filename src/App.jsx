@@ -1278,6 +1278,31 @@ export default function App() {
     try { localStorage.setItem("pairfc_push_dismissed", "1"); } catch (e) {}
   };
 
+  // Otomatik onarım: tarayıcı izni zaten verilmişse, aboneliğin Supabase'e
+  // kayıtlı olduğundan emin ol. (İzin var ama kayıt başarısız olmuş olabilir.)
+  useEffect(() => {
+    if (!isPushSupported() || !supabase) return;
+    if (Notification.permission !== "granted") return;
+    (async () => {
+      const result = await subscribeToPush();
+      if (!result.ok || !result.subscription) return;
+      const { error } = await supabase.from("push_subscriptions").upsert({
+        endpoint: result.subscription.endpoint,
+        p256dh: result.subscription.p256dh,
+        auth: result.subscription.auth,
+        lang: lang,
+        user_agent: (navigator.userAgent || "").slice(0, 200),
+        last_seen: new Date().toISOString(),
+      }, { onConflict: "endpoint", ignoreDuplicates: true });
+      if (error) {
+        console.warn("[push] auto-heal save failed:", error);
+      } else {
+        setPushState("granted");
+      }
+    })();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   useEffect(() => {
     const handler = (e) => {
       e.preventDefault();
