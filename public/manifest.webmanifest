@@ -2,35 +2,55 @@
   "name": "PairFC — İki Takım, Tek Futbolcu",
   "short_name": "PairFC",
   "description": "İki takımda da oynamış futbolcuyu bul. Arkadaşınla online yarış veya solo challenge oyna.",
+  "id": "/",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
   "orientation": "portrait",
   "background_color": "#0a0f1f",
   "theme_color": "#0a0f1f",
+  "dir": "ltr",
+  "lang": "tr",
   "categories": [
     "games",
     "sports",
     "entertainment",
     "trivia"
   ],
-  "lang": "tr",
   "icons": [
     {
       "src": "/icon-192.png",
       "sizes": "192x192",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any"
     },
     {
       "src": "/icon-512.png",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any"
     },
     {
       "src": "/maskable-icon-512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/screenshot-home.png",
+      "sizes": "1080x1920",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "PairFC ana ekran — günlük bulmaca, maraton, düello"
+    },
+    {
+      "src": "/screenshot-game.png",
+      "sizes": "1080x1920",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Bir bulmaca çözülürken"
     }
   ]
 }
