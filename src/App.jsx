@@ -1237,47 +1237,38 @@ export default function App() {
   });
 
   const enableNotifications = async () => {
-    // GEÇİCİ TANI MODU — her adımda alert. Sorun bulununca sadeleştireceğiz.
-    alert("ADIM 1 — supabase: " + (supabase ? "VAR" : "NULL!  (env eksik)"));
-
+    // iOS Safari'de push SADECE ana ekrana eklenmiş (standalone) modda çalışır
     const isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent || "");
     if (isIOS && !isInstalled) {
-      alert("ADIM 1b — iOS + kurulu değil → install modal açılıyor");
       setShowInstallModal(true);
       return;
     }
 
     const result = await subscribeToPush();
-    alert("ADIM 2 — subscribe ok=" + result.ok + "  reason=" + (result.reason || "-"));
     if (!result.ok) {
-      if (result.reason === "denied") setPushState("denied");
+      if (result.reason === "denied") {
+        setPushState("denied");
+        try { track("push_denied"); } catch (e) {}
+      }
       return;
     }
+    if (!supabase) return;
 
-    if (!supabase) {
-      alert("ADIM 3 — supabase NULL, upsert atlanıyor. Sorun bu: env build'e girmemiş.");
+    // ON CONFLICT DO NOTHING (ignoreDuplicates) — sadece INSERT policy gerektirir.
+    // Normal upsert (DO UPDATE) RLS'te SELECT+UPDATE policy de ister; onu istemiyoruz.
+    const { error: upErr } = await supabase.from("push_subscriptions").upsert({
+      endpoint: result.subscription.endpoint,
+      p256dh: result.subscription.p256dh,
+      auth: result.subscription.auth,
+      lang: lang,
+      user_agent: (navigator.userAgent || "").slice(0, 200),
+      last_seen: new Date().toISOString(),
+    }, { onConflict: "endpoint", ignoreDuplicates: true });
+
+    if (upErr) {
+      console.warn("[push] subscription save failed:", upErr);
       return;
     }
-
-    alert("ADIM 4 — upsert başlıyor (endpoint: " + (result.subscription.endpoint || "").slice(0, 40) + "...)");
-
-    let upErr = null;
-    try {
-      const res = await supabase.from("push_subscriptions").upsert({
-        endpoint: result.subscription.endpoint,
-        p256dh: result.subscription.p256dh,
-        auth: result.subscription.auth,
-        lang: lang,
-      }, { onConflict: "endpoint" });
-      upErr = res.error;
-    } catch (e) {
-      alert("ADIM 5 — upsert EXCEPTION: " + (e && e.message ? e.message : String(e)));
-      return;
-    }
-
-    alert("ADIM 5 — upsert bitti. error=" + (upErr ? (upErr.message + " | kod:" + (upErr.code || "?")) : "YOK ✓ (BAŞARILI)"));
-
-    if (upErr) return;
     setPushState("granted");
     try { track("push_enabled", { lang }); } catch (e) {}
   };
