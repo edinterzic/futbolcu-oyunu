@@ -3262,7 +3262,7 @@ export default function App() {
               {/* Belirgin slogan + örnek köprü — yeni kullanıcı için "ne bu oyun?" cevabı */}
               <div style={{ textAlign: "center", padding: "4px 16px 14px", margin: "0 auto" }}>
                 <p style={{ margin: "0 0 4px", fontSize: 16, fontWeight: 800, letterSpacing: -0.01, color: "#fff", lineHeight: 1.3 }}>
-                  {t("tagline_short")} <span style={{ color: "#f5a524" }}>{t("home_slogan_action")}</span>
+                  {t("tagline_short")} <span style={{ color: "#f5a524" }}>{t("tagline_action")}</span>
                 </p>
                 <p style={{ margin: 0, fontSize: 12, fontWeight: 600, color: "rgba(255,255,255,0.45)", letterSpacing: 0.2 }}>
                   Chelsea <span style={{ color: "#f5a524", margin: "0 4px" }}>×</span> Real Madrid <span style={{ margin: "0 4px" }}>→</span> <span style={{ color: "#7ee0a3", fontWeight: 700 }}>Eden Hazard</span>
