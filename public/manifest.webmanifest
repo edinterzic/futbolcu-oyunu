@@ -40,14 +40,14 @@
   "screenshots": [
     {
       "src": "/screenshot-home.png",
-      "sizes": "1080x1920",
+      "sizes": "1206x2622",
       "type": "image/png",
       "form_factor": "narrow",
       "label": "PairFC ana ekran — günlük bulmaca, maraton, düello"
     },
     {
       "src": "/screenshot-game.png",
-      "sizes": "1080x1920",
+      "sizes": "1206x2622",
       "type": "image/png",
       "form_factor": "narrow",
       "label": "Bir bulmaca çözülürken"
