@@ -356,7 +356,12 @@ share_copied_dl: "📋 Copied + image downloaded!",
 
 ts_collision_warning: "You both picked the same team! Pick again.",
 
-notify_title: "Enable notifications",
+notify_on_label: "Turn on notifications",
+  notify_off_label: "Turn off notifications",
+  notify_on_status: "Notifications on",
+  notify_off_status: "Notifications off",
+  notify_denied_hint: "Notifications are blocked in your browser. To enable: lock icon in the address bar → Site settings → Notifications → Allow.",
+  notify_title: "Enable notifications",
   notify_subtitle: "We'll let you know when the new daily puzzle is ready",
   notify_on: "Notifications on",
   notify_dismiss: "Dismiss",

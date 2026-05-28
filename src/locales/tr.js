@@ -356,7 +356,12 @@ share_copied_dl: "📋 Kopyalandı + görsel indirildi!",
 
 ts_collision_warning: "Aynı takımı seçtiniz! Yeniden seçin.",
 
-notify_title: "Bildirimleri aç",
+notify_on_label: "Bildirimleri aç",
+  notify_off_label: "Bildirimleri kapat",
+  notify_on_status: "Bildirimler açık",
+  notify_off_status: "Bildirimler kapalı",
+  notify_denied_hint: "Bildirimler tarayıcıdan engellenmiş. Açmak için adres çubuğundaki kilit ikonu → Site ayarları → Bildirimler → İzin ver.",
+  notify_title: "Bildirimleri aç",
   notify_subtitle: "Yeni günlük bulmaca hazır olunca haber verelim",
   notify_on: "Bildirimler açık",
   notify_dismiss: "Kapat",

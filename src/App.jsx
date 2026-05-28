@@ -6,7 +6,7 @@ import { TEAM_LOGOS } from "./data/teamLogos";
 import { getDailyPuzzle, getTodayKey, getMsUntilNextPuzzle, calculateStreak } from "./data/dailyPuzzle";
 import { SOUND_FILES } from "./data/sounds";
 import { initAnalytics, track, startTimer, endTimer } from "./analytics";
-import { isPushSupported, getNotificationPermission, subscribeToPush } from "./pwa";
+import { isPushSupported, getNotificationPermission, subscribeToPush, unsubscribeFromPush } from "./pwa";
 import AdminPanel from "./admin/AdminPanel";
 
 const WINNING_SCORE = 3;
@@ -1235,6 +1235,9 @@ export default function App() {
   const [pushBannerDismissed, setPushBannerDismissed] = useState(() => {
     try { return localStorage.getItem("pairfc_push_dismissed") === "1"; } catch (e) { return false; }
   });
+  const [pushOn, setPushOn] = useState(() => {
+    try { return localStorage.getItem("pairfc_push_on") === "1"; } catch (e) { return false; }
+  });
 
   const enableNotifications = async () => {
     // iOS Safari'de push SADECE ana ekrana eklenmiş (standalone) modda çalışır
@@ -1248,6 +1251,7 @@ export default function App() {
     if (!result.ok) {
       if (result.reason === "denied") {
         setPushState("denied");
+        alert(t("notify_denied_hint"));
         try { track("push_denied"); } catch (e) {}
       }
       return;
@@ -1255,7 +1259,6 @@ export default function App() {
     if (!supabase) return;
 
     // ON CONFLICT DO NOTHING (ignoreDuplicates) — sadece INSERT policy gerektirir.
-    // Normal upsert (DO UPDATE) RLS'te SELECT+UPDATE policy de ister; onu istemiyoruz.
     const { error: upErr } = await supabase.from("push_subscriptions").upsert({
       endpoint: result.subscription.endpoint,
       p256dh: result.subscription.p256dh,
@@ -1270,7 +1273,23 @@ export default function App() {
       return;
     }
     setPushState("granted");
+    setPushOn(true);
+    try { localStorage.setItem("pairfc_push_on", "1"); } catch (e) {}
     try { track("push_enabled", { lang }); } catch (e) {}
+  };
+
+  const disableNotifications = async () => {
+    // Tarayıcı aboneliğini iptal et. Supabase'deki kayıt, gönderici script bir
+    // sonraki denemede 410 alınca otomatik silinir (DELETE policy gerekmez).
+    try { await unsubscribeFromPush(); } catch (e) {}
+    setPushOn(false);
+    try { localStorage.setItem("pairfc_push_on", "0"); } catch (e) {}
+    try { track("push_disabled"); } catch (e) {}
+  };
+
+  const toggleNotifications = () => {
+    if (pushOn) disableNotifications();
+    else enableNotifications();
   };
 
   const dismissPushBanner = () => {
@@ -1278,11 +1297,14 @@ export default function App() {
     try { localStorage.setItem("pairfc_push_dismissed", "1"); } catch (e) {}
   };
 
-  // Otomatik onarım: tarayıcı izni zaten verilmişse, aboneliğin Supabase'e
-  // kayıtlı olduğundan emin ol. (İzin var ama kayıt başarısız olmuş olabilir.)
+  // Otomatik onarım: izin verilmiş VE kullanıcı kapatmamışsa, aboneliğin
+  // Supabase'e kayıtlı olduğundan emin ol. (Kullanıcı kapatmışsa otomatik açma.)
   useEffect(() => {
     if (!isPushSupported() || !supabase) return;
     if (Notification.permission !== "granted") return;
+    let userTurnedOff = false;
+    try { userTurnedOff = localStorage.getItem("pairfc_push_on") === "0"; } catch (e) {}
+    if (userTurnedOff) return;
     (async () => {
       const result = await subscribeToPush();
       if (!result.ok || !result.subscription) return;
@@ -1298,6 +1320,8 @@ export default function App() {
         console.warn("[push] auto-heal save failed:", error);
       } else {
         setPushState("granted");
+        setPushOn(true);
+        try { localStorage.setItem("pairfc_push_on", "1"); } catch (e) {}
       }
     })();
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -3309,6 +3333,18 @@ export default function App() {
             <button type="button" onClick={toggleSound} className="icon-button" aria-label={soundEnabled ? t("sound_off_label") : t("sound_on_label")} title={soundEnabled ? t("sound_on_status") : t("sound_off_status")}>
               {soundEnabled ? "🔊" : "🔇"}
             </button>
+            {isPushSupported() && (
+              <button
+                type="button"
+                onClick={toggleNotifications}
+                className="icon-button"
+                aria-label={pushOn ? t("notify_off_label") : t("notify_on_label")}
+                title={pushOn ? t("notify_on_status") : t("notify_off_status")}
+                style={pushOn ? {} : { opacity: 0.55 }}
+              >
+                {pushOn ? "🔔" : "🔕"}
+              </button>
+            )}
           </div>
         </header>
 
@@ -3440,7 +3476,7 @@ export default function App() {
                 </button>
               )}
 
-              {isPushSupported() && pushState === "default" && !pushBannerDismissed && (
+              {isPushSupported() && !pushOn && pushState === "default" && !pushBannerDismissed && (
                 <div className="notify-banner">
                   <button type="button" onClick={enableNotifications} className="notify-banner-main">
                     <span className="notify-banner-icon">🔔</span>
@@ -3451,9 +3487,6 @@ export default function App() {
                   </button>
                   <button type="button" onClick={dismissPushBanner} className="notify-banner-x" aria-label={t("notify_dismiss")}>×</button>
                 </div>
-              )}
-              {pushState === "granted" && (
-                <div className="notify-on">✓ {t("notify_on")}</div>
               )}
               </>)}
 
