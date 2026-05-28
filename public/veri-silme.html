@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>PairFC — Veri Silme / Data Deletion</title>
+<style>
+  :root { --bg:#0a0f1f; --card:#141a2e; --purple:#9b2dff; --amber:#f5a524; --text:#e6e9f0; --muted:#9aa3b8; --line:#232a40; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--text);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    line-height:1.65; padding:24px; }
+  .wrap { max-width:760px; margin:0 auto; }
+  .brand { font-size:26px; font-weight:800; letter-spacing:-0.5px; margin-bottom:4px; }
+  .brand span { color:var(--amber); }
+  h1 { font-size:22px; margin:24px 0 6px; }
+  h2 { font-size:17px; margin:26px 0 8px; color:var(--purple); }
+  p, li { color:var(--text); font-size:15px; }
+  .muted { color:var(--muted); font-size:13px; }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:18px 20px; margin:16px 0; }
+  a { color:var(--amber); }
+  .mail { display:inline-block; background:var(--purple); color:#fff; text-decoration:none;
+    padding:10px 18px; border-radius:10px; font-weight:700; margin-top:6px; }
+  table { width:100%; border-collapse:collapse; margin-top:8px; font-size:14px; }
+  th, td { text-align:left; padding:8px 10px; border-bottom:1px solid var(--line); vertical-align:top; }
+  th { color:var(--muted); font-weight:600; }
+  .lang-toggle { float:right; }
+  .lang-toggle a { cursor:pointer; font-size:13px; }
+  .en { display:none; }
+  hr { border:none; border-top:1px solid var(--line); margin:32px 0; }
+  footer { margin-top:30px; }
+  footer a { color:var(--muted); text-decoration:none; font-size:13px; margin-right:14px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="lang-toggle">
+    <a onclick="setLang('tr')">TR</a> · <a onclick="setLang('en')">EN</a>
+  </div>
+  <div class="brand">Pair<span>FC</span></div>
+
+  <!-- ============ TÜRKÇE ============ -->
+  <div class="tr" id="tr">
+    <h1>Veri Silme Talebi</h1>
+    <p class="muted">PairFC uygulaması · Son güncelleme: 28 Mayıs 2026</p>
+
+    <p>Bu sayfa, <strong>PairFC</strong> uygulaması (paket adı: <strong>com.pairfc.app</strong>) kullanıcılarının
+    verilerinin silinmesini nasıl talep edebileceğini açıklar.</p>
+
+    <h2>Verilerinizi nasıl sildirirsiniz?</h2>
+    <div class="card">
+      <p>Aşağıdaki e-posta adresine, konu satırına <strong>"Veri Silme Talebi"</strong> yazarak bir e-posta gönderin:</p>
+      <a class="mail" href="mailto:iletisim@pairfc.com?subject=Veri%20Silme%20Talebi">iletisim@pairfc.com</a>
+      <p class="muted" style="margin-top:12px;">
+        E-postanızda, varsa oyunda kullandığınız <strong>takma adı (nickname)</strong> belirtin; böylece kaydınızı bulup silebiliriz.
+        Talebiniz <strong>en geç 30 gün içinde</strong> işleme alınır.
+      </p>
+    </div>
+
+    <h2>Hangi veriler silinir, hangileri saklanır?</h2>
+    <table>
+      <tr><th>Veri türü</th><th>Durum</th><th>Saklama süresi</th></tr>
+      <tr><td>Liderlik tablosu takma adı ve skoru</td><td>Talep üzerine silinir</td><td>Silinene kadar; talepte hemen kaldırılır</td></tr>
+      <tr><td>Bildirim aboneliği (push)</td><td>Talep üzerine silinir</td><td>Abonelik iptalinde otomatik silinir</td></tr>
+      <tr><td>Düello oda verisi (geçici)</td><td>Otomatik silinir</td><td>Oyun bitince silinir</td></tr>
+      <tr><td>Anonim kullanım/analiz verisi (PostHog)</td><td>Kimliğe bağlı değildir</td><td>En fazla 12 ay sonra toplulaştırılır/silinir</td></tr>
+    </table>
+    <p class="muted">Not: PairFC hesap/oturum sistemi kullanmaz. Toplanan veriler kişisel kimliğinizle ilişkilendirilmez;
+    yalnızca isteğe bağlı girdiğiniz takma ad gibi içerikler size ait olabilir. Bu içerikler talep üzerine silinir.</p>
+  </div>
+
+  <!-- ============ ENGLISH ============ -->
+  <div class="en" id="en">
+    <h1>Data Deletion Request</h1>
+    <p class="muted">PairFC app · Last updated: May 28, 2026</p>
+
+    <p>This page explains how users of the <strong>PairFC</strong> app (package name:
+    <strong>com.pairfc.app</strong>) can request deletion of their data.</p>
+
+    <h2>How to request deletion</h2>
+    <div class="card">
+      <p>Send an email to the address below with the subject line <strong>"Data Deletion Request"</strong>:</p>
+      <a class="mail" href="mailto:iletisim@pairfc.com?subject=Data%20Deletion%20Request">iletisim@pairfc.com</a>
+      <p class="muted" style="margin-top:12px;">
+        In your email, include the <strong>nickname</strong> you used in the game (if any) so we can locate and delete your record.
+        Requests are processed <strong>within 30 days</strong>.
+      </p>
+    </div>
+
+    <h2>What is deleted and what is retained?</h2>
+    <table>
+      <tr><th>Data type</th><th>Status</th><th>Retention</th></tr>
+      <tr><td>Leaderboard nickname and score</td><td>Deleted on request</td><td>Until deleted; removed promptly on request</td></tr>
+      <tr><td>Notification subscription (push)</td><td>Deleted on request</td><td>Auto-deleted when you unsubscribe</td></tr>
+      <tr><td>Duel room data (temporary)</td><td>Auto-deleted</td><td>Deleted when the game ends</td></tr>
+      <tr><td>Anonymous usage/analytics data (PostHog)</td><td>Not linked to identity</td><td>Aggregated/deleted within 12 months</td></tr>
+    </table>
+    <p class="muted">Note: PairFC has no account/login system. Collected data is not linked to your personal identity;
+    only optional content such as a nickname may belong to you, and it is deleted on request.</p>
+  </div>
+
+  <hr />
+  <footer>
+    <a href="/about.html">Hakkında</a>
+    <a href="/privacy.html">Gizlilik</a>
+    <a href="/terms.html">Şartlar</a>
+    <a href="/how-to-play.html">Nasıl Oynanır</a>
+  </footer>
+</div>
+
+<script>
+  function setLang(l){
+    document.getElementById('tr').style.display = (l==='tr')?'block':'none';
+    document.getElementById('en').style.display = (l==='en')?'block':'none';
+    document.documentElement.lang = l;
+    try { localStorage.setItem('pairfc_lang', l); } catch(e){}
+  }
+  (function(){
+    var saved='tr'; try{ saved=localStorage.getItem('pairfc_lang')||'tr'; }catch(e){}
+    setLang(saved);
+  })();
+</script>
+</body>
+</html>
