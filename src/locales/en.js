@@ -356,7 +356,11 @@ share_copied_dl: "📋 Copied + image downloaded!",
 
 ts_collision_warning: "You both picked the same team! Pick again.",
 
-footer_about: "About",
+notify_title: "Enable notifications",
+  notify_subtitle: "We'll let you know when the new daily puzzle is ready",
+  notify_on: "Notifications on",
+  notify_dismiss: "Dismiss",
+  footer_about: "About",
   footer_privacy: "Privacy",
   footer_terms: "Terms",
   footer_how: "How to Play",

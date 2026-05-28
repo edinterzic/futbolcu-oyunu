@@ -356,7 +356,11 @@ share_copied_dl: "📋 Kopyalandı + görsel indirildi!",
 
 ts_collision_warning: "Aynı takımı seçtiniz! Yeniden seçin.",
 
-footer_about: "Hakkında",
+notify_title: "Bildirimleri aç",
+  notify_subtitle: "Yeni günlük bulmaca hazır olunca haber verelim",
+  notify_on: "Bildirimler açık",
+  notify_dismiss: "Kapat",
+  footer_about: "Hakkında",
   footer_privacy: "Gizlilik",
   footer_terms: "Şartlar",
   footer_how: "Nasıl Oynanır",

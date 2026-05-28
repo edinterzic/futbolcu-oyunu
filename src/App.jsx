@@ -6,6 +6,7 @@ import { TEAM_LOGOS } from "./data/teamLogos";
 import { getDailyPuzzle, getTodayKey, getMsUntilNextPuzzle, calculateStreak } from "./data/dailyPuzzle";
 import { SOUND_FILES } from "./data/sounds";
 import { initAnalytics, track, startTimer, endTimer } from "./analytics";
+import { isPushSupported, getNotificationPermission, subscribeToPush } from "./pwa";
 import AdminPanel from "./admin/AdminPanel";
 
 const WINNING_SCORE = 3;
@@ -1225,6 +1226,49 @@ export default function App() {
     return window.matchMedia("(display-mode: standalone)").matches ||
            window.navigator.standalone === true;
   });
+
+  // Push bildirimleri
+  const [pushState, setPushState] = useState(() => {
+    if (typeof window === "undefined" || !("Notification" in window)) return "unsupported";
+    return Notification.permission; // default | granted | denied
+  });
+  const [pushBannerDismissed, setPushBannerDismissed] = useState(() => {
+    try { return localStorage.getItem("pairfc_push_dismissed") === "1"; } catch (e) { return false; }
+  });
+
+  const enableNotifications = async () => {
+    // iOS Safari'de push SADECE ana ekrana eklenmiş (standalone) modda çalışır
+    const isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent || "");
+    if (isIOS && !isInstalled) {
+      setShowInstallModal(true); // önce uygulamayı yükle
+      return;
+    }
+    const result = await subscribeToPush();
+    if (result.ok && result.subscription && supabase) {
+      try {
+        await supabase.from("push_subscriptions").upsert({
+          endpoint: result.subscription.endpoint,
+          p256dh: result.subscription.p256dh,
+          auth: result.subscription.auth,
+          lang: lang,
+          user_agent: (navigator.userAgent || "").slice(0, 200),
+          last_seen: new Date().toISOString(),
+        }, { onConflict: "endpoint" });
+      } catch (e) {
+        console.warn("Push subscription save failed:", e);
+      }
+      setPushState("granted");
+      try { track("push_enabled", { lang }); } catch (e) {}
+    } else if (result.reason === "denied") {
+      setPushState("denied");
+      try { track("push_denied"); } catch (e) {}
+    }
+  };
+
+  const dismissPushBanner = () => {
+    setPushBannerDismissed(true);
+    try { localStorage.setItem("pairfc_push_dismissed", "1"); } catch (e) {}
+  };
 
   useEffect(() => {
     const handler = (e) => {
@@ -3362,6 +3406,22 @@ export default function App() {
                   <span className="install-banner-arrow">→</span>
                 </button>
               )}
+
+              {isPushSupported() && pushState === "default" && !pushBannerDismissed && (
+                <div className="notify-banner">
+                  <button type="button" onClick={enableNotifications} className="notify-banner-main">
+                    <span className="notify-banner-icon">🔔</span>
+                    <div className="notify-banner-text">
+                      <strong>{t("notify_title")}</strong>
+                      <small>{t("notify_subtitle")}</small>
+                    </div>
+                  </button>
+                  <button type="button" onClick={dismissPushBanner} className="notify-banner-x" aria-label={t("notify_dismiss")}>×</button>
+                </div>
+              )}
+              {pushState === "granted" && (
+                <div className="notify-on">✓ {t("notify_on")}</div>
+              )}
               </>)}
 
               {mainTab === "leaderboard" && (
@@ -5000,6 +5060,63 @@ button:focus-visible {
   font-size: 22px;
   color: var(--primary);
   font-weight: 800;
+}
+
+.notify-banner {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  width: 100%;
+  background: linear-gradient(135deg, rgba(155,45,255,0.16) 0%, rgba(155,45,255,0.04) 100%);
+  border: 1px solid rgba(155,45,255,0.4);
+  border-radius: 12px;
+  margin-top: 8px;
+  overflow: hidden;
+}
+.notify-banner-main {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+  padding: 12px 14px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--text);
+  text-align: left;
+  transition: background 0.18s var(--ease);
+}
+.notify-banner-main:hover {
+  background: rgba(155,45,255,0.10);
+}
+.notify-banner-icon { font-size: 26px; flex-shrink: 0; }
+.notify-banner-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.notify-banner-text strong { font-size: 14px; color: #c08bff; font-weight: 800; }
+.notify-banner-text small { font-size: 12px; color: var(--text-muted); }
+.notify-banner-x {
+  background: transparent;
+  border: none;
+  border-left: 1px solid rgba(155,45,255,0.25);
+  color: var(--text-muted);
+  font-size: 22px;
+  line-height: 1;
+  padding: 0 16px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+.notify-banner-x:hover { color: var(--text); }
+.notify-on {
+  font-size: 12.5px;
+  font-weight: 700;
+  color: #7ee0a3;
+  text-align: center;
+  padding: 10px 8px;
+  margin-top: 8px;
 }
 
 .modal-overlay {
