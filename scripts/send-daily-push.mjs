@@ -20,7 +20,14 @@ if (!SUPABASE_URL || !SUPABASE_SERVICE_ROLE_KEY || !VAPID_PUBLIC_KEY || !VAPID_P
 }
 
 webpush.setVapidDetails(VAPID_SUBJECT, VAPID_PUBLIC_KEY, VAPID_PRIVATE_KEY);
-const supabase = createClient(SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY);
+
+// Realtime'a ihtiyacımız yok (sadece REST). Node < 22'de WebSocket hatasını
+// önlemek için realtime'ı tamamen kapatıyoruz.
+const supabase = createClient(SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY, {
+  auth: { persistSession: false, autoRefreshToken: false },
+  realtime: { params: { eventsPerSecond: 0 } },
+  global: { headers: { "X-Client-Info": "pairfc-push-cron" } },
+});
 
 const MESSAGES = {
   tr: { title: "PairFC", body: "Bugünün bulmacası seni bekliyor — 5 yeni eşleşme! 🔥" },
