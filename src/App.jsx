@@ -1244,25 +1244,41 @@ export default function App() {
       return;
     }
     const result = await subscribeToPush();
-    if (result.ok && result.subscription && supabase) {
-      try {
-        await supabase.from("push_subscriptions").upsert({
-          endpoint: result.subscription.endpoint,
-          p256dh: result.subscription.p256dh,
-          auth: result.subscription.auth,
-          lang: lang,
-          user_agent: (navigator.userAgent || "").slice(0, 200),
-          last_seen: new Date().toISOString(),
-        }, { onConflict: "endpoint" });
-      } catch (e) {
-        console.warn("Push subscription save failed:", e);
+    if (!result.ok) {
+      if (result.reason === "denied") {
+        setPushState("denied");
+        try { track("push_denied"); } catch (e) {}
+      } else {
+        console.error("[push] subscribe failed:", result.reason);
+        alert("Bildirim aboneliği oluşturulamadı (" + result.reason + ").");
       }
-      setPushState("granted");
-      try { track("push_enabled", { lang }); } catch (e) {}
-    } else if (result.reason === "denied") {
-      setPushState("denied");
-      try { track("push_denied"); } catch (e) {}
+      return;
     }
+    if (!supabase) {
+      console.error("[push] supabase client yok (env eksik?)");
+      alert("Bildirim açıldı ama sunucu bağlantısı yok. (Supabase env değişkenleri eksik olabilir.)");
+      return;
+    }
+    // Supabase upsert hata FIRLATMAZ — error'u dönüş objesinden kontrol et
+    const { error: upErr } = await supabase.from("push_subscriptions").upsert({
+      endpoint: result.subscription.endpoint,
+      p256dh: result.subscription.p256dh,
+      auth: result.subscription.auth,
+      lang: lang,
+      user_agent: (navigator.userAgent || "").slice(0, 200),
+      last_seen: new Date().toISOString(),
+    }, { onConflict: "endpoint" });
+
+    if (upErr) {
+      // GEÇİCİ DEBUG: sebebi anında görmek için. Çalışınca kaldıracağız.
+      console.error("[push] Supabase kayıt HATASI:", upErr);
+      alert("Bildirim kaydı başarısız:\n" + (upErr.message || JSON.stringify(upErr)) + "\n\n(kod: " + (upErr.code || "?") + ")");
+      return;
+    }
+
+    console.log("[push] subscription kaydedildi ✓");
+    setPushState("granted");
+    try { track("push_enabled", { lang }); } catch (e) {}
   };
 
   const dismissPushBanner = () => {
