@@ -356,7 +356,8 @@ share_copied_dl: "📋 Copied + image downloaded!",
 
 ts_collision_warning: "You both picked the same team! Pick again.",
 
-notify_on_label: "Turn on notifications",
+offline_banner: "You're offline — check your connection",
+  notify_on_label: "Turn on notifications",
   notify_off_label: "Turn off notifications",
   notify_on_status: "Notifications on",
   notify_off_status: "Notifications off",

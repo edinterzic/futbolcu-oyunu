@@ -356,7 +356,8 @@ share_copied_dl: "📋 Kopyalandı + görsel indirildi!",
 
 ts_collision_warning: "Aynı takımı seçtiniz! Yeniden seçin.",
 
-notify_on_label: "Bildirimleri aç",
+offline_banner: "Çevrimdışısın — internet bağlantını kontrol et",
+  notify_on_label: "Bildirimleri aç",
   notify_off_label: "Bildirimleri kapat",
   notify_on_status: "Bildirimler açık",
   notify_off_status: "Bildirimler kapalı",

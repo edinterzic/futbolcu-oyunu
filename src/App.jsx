@@ -1263,6 +1263,18 @@ export default function App() {
     try { return localStorage.getItem("pairfc_push_on") === "1"; } catch (e) { return false; }
   });
 
+  const [isOffline, setIsOffline] = useState(() => typeof navigator !== "undefined" && navigator.onLine === false);
+  useEffect(() => {
+    const goOnline = () => setIsOffline(false);
+    const goOffline = () => setIsOffline(true);
+    window.addEventListener("online", goOnline);
+    window.addEventListener("offline", goOffline);
+    return () => {
+      window.removeEventListener("online", goOnline);
+      window.removeEventListener("offline", goOffline);
+    };
+  }, []);
+
   const enableNotifications = async () => {
     // iOS Safari'de push SADECE ana ekrana eklenmiş (standalone) modda çalışır
     const isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent || "");
@@ -3264,6 +3276,13 @@ export default function App() {
       {showOnboarding && <OnboardingOverlay onClose={dismissOnboarding} />}
       <style>{css}</style>
 
+      {isOffline && (
+        <div className="offline-bar" role="status">
+          <span className="offline-bar-dot"></span>
+          {t("offline_banner")}
+        </div>
+      )}
+
       {showSplash && (
         <div className="splash-screen">
           <div className="splash-content">
@@ -5200,6 +5219,37 @@ button:focus-visible {
   flex-shrink: 0;
 }
 .notify-banner-x:hover { color: var(--text); }
+
+.offline-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  background: #b4471f;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 8px 12px;
+  padding-top: calc(8px + env(safe-area-inset-top, 0px));
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 9999;
+  letter-spacing: 0.2px;
+}
+.offline-bar-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #fff;
+  flex-shrink: 0;
+  animation: offlinePulse 1.4s ease-in-out infinite;
+}
+@keyframes offlinePulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}
 .notify-on {
   font-size: 12.5px;
   font-weight: 700;
