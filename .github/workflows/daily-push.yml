@@ -1,0 +1,26 @@
+name: Daily Push Reminder
+
+on:
+  schedule:
+    # 07:00 UTC = 10:00 Türkiye saati (sabah hatırlatması)
+    - cron: "0 7 * * *"
+  workflow_dispatch: {}   # GitHub'dan elle de tetiklenebilir (test için)
+
+jobs:
+  send:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Install deps
+        run: npm install web-push @supabase/supabase-js --no-save
+      - name: Send daily push
+        run: node scripts/send-daily-push.mjs
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          VAPID_PUBLIC_KEY: ${{ secrets.VAPID_PUBLIC_KEY }}
+          VAPID_PRIVATE_KEY: ${{ secrets.VAPID_PRIVATE_KEY }}
+          VAPID_SUBJECT: "mailto:iletisim@pairfc.com"
