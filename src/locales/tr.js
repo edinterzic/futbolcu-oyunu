@@ -1,6 +1,7 @@
 // PairFC — Türkçe metinler (kaynak dil)
 export const tr = {
   tagline_short: "İki takım, tek futbolcu.",
+  home_slogan_action: "Sen bul.",
   tagline_action: "Sen bul.",
   tagline_long: "İki takım, tek futbolcu. Sen bul.",
 
@@ -355,7 +356,8 @@ share_copied_dl: "📋 Kopyalandı + görsel indirildi!",
 
 ts_collision_warning: "Aynı takımı seçtiniz! Yeniden seçin.",
 
-footer_privacy: "Gizlilik",
+footer_about: "Hakkında",
+  footer_privacy: "Gizlilik",
   footer_terms: "Şartlar",
   footer_how: "Nasıl Oynanır",
 

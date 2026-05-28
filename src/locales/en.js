@@ -1,6 +1,7 @@
 // PairFC — English text
 export const en = {
   tagline_short: "Two clubs, one player.",
+  home_slogan_action: "Find them.",
   tagline_action: "Find them.",
   tagline_long: "Two clubs, one player. Find them.",
 
@@ -355,7 +356,8 @@ share_copied_dl: "📋 Copied + image downloaded!",
 
 ts_collision_warning: "You both picked the same team! Pick again.",
 
-footer_privacy: "Privacy",
+footer_about: "About",
+  footer_privacy: "Privacy",
   footer_terms: "Terms",
   footer_how: "How to Play",
 
