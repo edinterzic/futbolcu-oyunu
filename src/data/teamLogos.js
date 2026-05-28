@@ -1,5 +1,5 @@
 // Auto-generated from admin panel
-// Generated: 2026-05-24T19:34:59.565Z
+// Generated: 2026-05-28T20:37:27.573Z
 
 export const TEAM_LOGOS = {
   "Inter": {
@@ -448,7 +448,7 @@ export const TEAM_LOGOS = {
     "secondary": "#000000"
   },
   "Bayern Munich": {
-    "initials": "FCB2",
+    "initials": "FCB",
     "primary": "#DC052D",
     "secondary": "#FFFFFF"
   },

@@ -1,5 +1,5 @@
 // Auto-generated from admin panel
-// Generated: 2026-05-24T20:35:11.801Z
+// Generated: 2026-05-28T20:37:26.993Z
 
 export const PLAYERS = [
   {
@@ -1127,7 +1127,6 @@ export const PLAYERS = [
     "clubs": [
       "AC Milan",
       "Juventus",
-      "Manchester City",
       "Marsilya",
       "PSG"
     ]
