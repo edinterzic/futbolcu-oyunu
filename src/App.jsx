@@ -19,9 +19,33 @@ const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
 const supabase = supabaseUrl && supabaseAnonKey ? createClient(supabaseUrl, supabaseAnonKey) : null;
 
 // =================== LEADERBOARD SUPABASE ===================
+// Basit küfür/uygunsuz kelime filtresi (TR + EN). Eşleşeni yıldızla maskeler.
+// Amaç: liderlik tablosunda uygunsuz takma adları engellemek (App Store / yaş uyumu).
+const PROFANITY_LIST = [
+  "amk", "aq", "oç", "oc.", "piç", "sik", "sok", "yarrak", "yarak", "göt", "got ",
+  "orospu", "kahpe", "pezevenk", "ibne", "puşt", "gavat", "döl", "amcık", "amcik",
+  "fuck", "fuk", "shit", "bitch", "cunt", "dick", "pussy", "asshole", "nigger",
+  "nigga", "faggot", "whore", "slut", "rape",
+];
+function cleanDisplayName(raw) {
+  let name = (raw || "").trim().slice(0, 30);
+  if (!name) return "Anonim";
+  const lower = name.toLowerCase();
+  let masked = name;
+  for (const w of PROFANITY_LIST) {
+    if (lower.includes(w)) {
+      const re = new RegExp(w.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "gi");
+      masked = masked.replace(re, "*".repeat(w.trim().length));
+    }
+  }
+  const stripped = masked.replace(/[*\s]/g, "");
+  if (!stripped) return "Anonim";
+  return masked;
+}
+
 async function saveScore(playerName, score, difficulty) {
   if (!supabase || score < 1) return null;
-  const name = (playerName || "").trim().slice(0, 30) || "Anonim";
+  const name = cleanDisplayName(playerName);
   try {
     const { data, error } = await supabase
       .from("challenge_scores")
