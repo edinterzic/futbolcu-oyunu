@@ -1,5 +1,5 @@
 // Auto-generated from admin panel
-// Generated: 2026-05-29T13:16:08.976Z
+// Generated: 2026-05-29T13:44:30.443Z
 
 export const PLAYERS = [
   {
@@ -63850,6 +63850,13 @@ export const PLAYERS = [
     "clubs": [
       "Sunderland",
       "Tottenham"
+    ]
+  },
+  {
+    "name": "Youness Bengelloun",
+    "clubs": [
+      "PSG",
+      "Alaves"
     ]
   },
   {
