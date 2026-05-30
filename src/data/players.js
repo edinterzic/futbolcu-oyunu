@@ -1,5 +1,5 @@
 // Auto-generated from admin panel
-// Generated: 2026-05-29T13:44:30.443Z
+// Generated: 2026-05-30T21:10:41.761Z
 
 export const PLAYERS = [
   {
@@ -1090,17 +1090,6 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Adriano",
-    "clubs": [
-      "AS Roma",
-      "Barcelona",
-      "Beşiktaş",
-      "FC Porto",
-      "Fiorentina",
-      "Inter"
-    ]
-  },
-  {
     "name": "Adriano Bonaiuti",
     "clubs": [
       "Juventus",
@@ -1113,6 +1102,14 @@ export const PLAYERS = [
       "Atalanta",
       "Fiorentina",
       "Inter"
+    ]
+  },
+  {
+    "name": "Adriano Correia",
+    "clubs": [
+      "Barcelona",
+      "Beşiktaş",
+      "Sevilla"
     ]
   },
   {
@@ -11794,14 +11791,6 @@ export const PLAYERS = [
     "clubs": [
       "Bologna",
       "Sassuolo"
-    ]
-  },
-  {
-    "name": "Claudio Gomes",
-    "clubs": [
-      "Manchester City",
-      "PSV",
-      "PSG"
     ]
   },
   {
@@ -38953,7 +38942,8 @@ export const PLAYERS = [
     "clubs": [
       "Barcelona",
       "FC Porto",
-      "Newcastle"
+      "Newcastle",
+      "PSV"
     ]
   },
   {
@@ -56391,6 +56381,13 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Selçuk İnan",
+    "clubs": [
+      "Galatasaray",
+      "Trabzonspor"
+    ]
+  },
+  {
     "name": "Selçuk Şahin",
     "clubs": [
       "Fenerbahçe",
@@ -62927,6 +62924,15 @@ export const PLAYERS = [
     "clubs": [
       "Lens",
       "Rennes"
+    ]
+  },
+  {
+    "name": "Wesley Sneijder",
+    "clubs": [
+      "Ajax",
+      "Real Madrid",
+      "Inter",
+      "Galatasaray"
     ]
   },
   {
