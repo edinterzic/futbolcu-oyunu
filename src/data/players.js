@@ -1,5 +1,5 @@
 // Auto-generated from admin panel
-// Generated: 2026-05-31T08:03:20.450Z
+// Generated: 2026-05-31T09:15:32.528Z
 
 export const PLAYERS = [
   {
@@ -505,6 +505,13 @@ export const PLAYERS = [
       "Galatasaray",
       "Konyaspor",
       "Samsunspor"
+    ]
+  },
+  {
+    "name": "Abdülkerim Durmaz",
+    "clubs": [
+      "Fenerbahçe",
+      "Karagümrük"
     ]
   },
   {
@@ -3012,11 +3019,10 @@ export const PLAYERS = [
     "name": "Alex",
     "clubs": [
       "AC Milan",
-      "Benfica",
       "Chelsea",
-      "FC Porto",
       "Inter",
-      "PSG"
+      "PSG",
+      "PSV"
     ]
   },
   {
@@ -21399,6 +21405,13 @@ export const PLAYERS = [
       "Gaziantep FK",
       "Kocaelispor",
       "Samsunspor"
+    ]
+  },
+  {
+    "name": "Feyyaz Uçar",
+    "clubs": [
+      "Beşiktaş",
+      "Fenerbahçe"
     ]
   },
   {
@@ -54824,7 +54837,8 @@ export const PLAYERS = [
     "name": "Ruud van Nistelrooy",
     "clubs": [
       "Manchester United",
-      "Real Madrid"
+      "Real Madrid",
+      "PSV"
     ]
   },
   {
@@ -57117,6 +57131,13 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Serkan Aykut",
+    "clubs": [
+      "Samsunspor",
+      "Galatasaray"
+    ]
+  },
+  {
     "name": "Serkan Balcı",
     "clubs": [
       "Antalyaspor",
@@ -59343,6 +59364,14 @@ export const PLAYERS = [
     "clubs": [
       "Bayern Munich",
       "PSG"
+    ]
+  },
+  {
+    "name": "Tanju Çolak",
+    "clubs": [
+      "Samsunspor",
+      "Galatasaray",
+      "Fenerbahçe"
     ]
   },
   {
