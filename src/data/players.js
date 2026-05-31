@@ -1,5 +1,5 @@
 // Auto-generated from admin panel
-// Generated: 2026-05-30T21:10:41.761Z
+// Generated: 2026-05-31T08:03:20.450Z
 
 export const PLAYERS = [
   {
@@ -17043,8 +17043,7 @@ export const PLAYERS = [
     "name": "Eberechi Eze",
     "clubs": [
       "Arsenal",
-      "Crystal Palace",
-      "Fulham"
+      "Crystal Palace"
     ]
   },
   {
@@ -33057,6 +33056,15 @@ export const PLAYERS = [
     "clubs": [
       "Valencia",
       "Villarreal"
+    ]
+  },
+  {
+    "name": "Josef De Souza",
+    "clubs": [
+      "Başakşehir",
+      "Beşiktaş",
+      "FC Porto",
+      "Fenerbahçe"
     ]
   },
   {
@@ -58158,15 +58166,6 @@ export const PLAYERS = [
     "clubs": [
       "Monaco",
       "West Ham"
-    ]
-  },
-  {
-    "name": "Souza",
-    "clubs": [
-      "Başakşehir",
-      "Beşiktaş",
-      "FC Porto",
-      "Fenerbahçe"
     ]
   },
   {
