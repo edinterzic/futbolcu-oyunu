@@ -374,4 +374,99 @@ offline_banner: "Çevrimdışısın — internet bağlantını kontrol et",
   lang_switch_aria: "Dil seç",
   lang_switch_to_en: "Switch to English",
   lang_switch_to_tr: "Türkçeye geç",
+
+  // ─── Challenge hero (Ana ekranın yeni kahramanı) ───
+  challenge_hero_eyebrow_new: "Hadi başlayalım",
+  challenge_hero_eyebrow: "Sınırını zorla",
+  challenge_hero_title_new: "Maraton modu seni bekliyor",
+  challenge_hero_title: "Bugün kaç tur dayanacaksın?",
+  challenge_hero_sub: "Sınırsız sorular, sınırlı hayat. Hata yapana kadar dayan.",
+  challenge_hero_sub_best: "Rekorun: {n} tur. Geçebilir misin?",
+  challenge_hero_cta_new: "Maratona başla",
+  challenge_hero_cta: "Devam et",
+
+  // Mode kartı yenileri
+  mode_arena_subtitle: "Canlı yarışma — yayıncı modu",
+  badge_new: "Yeni!",
+
+  // ─── Arena — Genel ───
+  arena_back: "Geri",
+  arena_title: "Arena",
+  arena_subtitle: "Çok kişili canlı yarışma",
+  arena_loading_question: "Soru yükleniyor…",
+
+  // Arena — Setup landing
+  arena_be_host: "Yayıncı Ol",
+  arena_be_host_sub: "Oda aç, PIN üret, oyunu yönet",
+  arena_join_room: "Odaya Katıl",
+  arena_join_room_sub: "PIN'i yaz, yarışmaya katıl",
+  arena_how_to_play: "Nasıl oynanır?",
+  arena_rule_1: "Yayıncı oda açar, 6 haneli PIN üretilir.",
+  arena_rule_2: "Katılımcılar PIN ile odaya girer (en fazla 50 kişi).",
+  arena_rule_3: "Her soruda 2 takım gösterilir, 20 saniye içinde ortak oyuncuyu yazarsın.",
+  arena_rule_4: "Hızlı doğru cevap = daha çok puan (1000 baz + 500 hız bonus).",
+  arena_rule_5: "Yayıncı kaç soru sorulacağını seçer (5–30).",
+
+  // Arena — Setup forms
+  arena_open_room: "Oda Aç",
+  arena_host_name: "Yayıncı adın",
+  arena_host_name_placeholder: "Örn: Özge",
+  arena_how_many_q: "Kaç soru?",
+  arena_room_pin_6: "Oda PIN'i (6 hane)",
+  arena_your_nickname: "Rumuzun",
+  arena_nickname_placeholder: "Örn: Mehmet",
+  arena_join_cta: "Katıl",
+  arena_default_host_name: "Yayıncı",
+  arena_default_guest_name: "Anonim",
+
+  // Arena — Lobby
+  arena_lobby_title: "Lobi",
+  arena_room_pin: "Oda PIN'i",
+  arena_n_questions: "{n} soru",
+  arena_players_count: "Katılımcılar ({n})",
+  arena_waiting_for_host: "Yayıncı bekleniyor…",
+  arena_you_suffix: "(sen)",
+  arena_no_players_yet: "Henüz kimse katılmadı.",
+  arena_waiting_min_guest: "Bekleniyor… (en az 1 misafir önerilir)",
+  arena_start_game: "Oyunu Başlat",
+  arena_host_hint: "PIN'i takipçilerinle paylaş. Hazır olunca \"Oyunu Başlat\"a bas.",
+
+  // Arena — Question
+  arena_question_n_of_m: "Soru {n} / {m}",
+  arena_seconds_short: "{n}s",
+  arena_question_prompt: "Bu iki kulüpte de oynamış bir oyuncu yaz:",
+  arena_answer_placeholder: "Oyuncu adı (örn: Sneijder)",
+  arena_submit: "Gönder",
+  arena_one_shot_hint: "Tek hak — gönderdiğinde değiştiremezsin.",
+  arena_correct: "Doğru!",
+  arena_wrong: "Yanlış",
+  arena_your_answer: "Cevabın: {answer}",
+  arena_points_short: "puan",
+  arena_wait_others: "Diğerlerini bekle…",
+  arena_progress_answered: "{done} / {total} cevapladı",
+
+  // Arena — Leaderboard
+  arena_final_label: "Final…",
+  arena_next_in: "Sıradaki: {n}s",
+  arena_correct_answers_label: "Doğru cevaplar:",
+  arena_ranking_title: "Sıralama",
+
+  // Arena — Final
+  arena_you_champion: "Şampiyon Sensin!",
+  arena_someone_champion: "{name} Şampiyon!",
+  arena_final_summary: "{rounds} soru, {players} oyuncu. Sıralaman: {rank}.",
+  arena_share: "Paylaş",
+  arena_back_home: "Anasayfaya Dön",
+  arena_share_text: "{winner} Arena'da şampiyon oldu! 🏆\n{rounds} soru, {players} oyuncu.\npairfc.com",
+
+  // Arena — Errors
+  arena_err_no_server: "Sunucu bağlantısı yok.",
+  arena_err_create_room: "Oda oluşturulamadı: {msg}",
+  arena_err_pin_length: "PIN 6 haneli olmalı.",
+  arena_err_room_not_found: "Oda bulunamadı. PIN'i kontrol et.",
+  arena_err_game_started: "Oyun başlamış. Yeni bir oda dene.",
+  arena_err_room_full: "Oda dolu (50 kişi).",
+  arena_err_join: "Katılım hatası: {msg}",
+  arena_err_no_questions: "Soru havuzu boş.",
+  arena_err_next_q: "Sıradaki soru bulunamadı.",
 };

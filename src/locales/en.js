@@ -374,4 +374,99 @@ offline_banner: "You're offline — check your connection",
   lang_switch_aria: "Select language",
   lang_switch_to_en: "Switch to English",
   lang_switch_to_tr: "Türkçeye geç",
+
+  // ─── Challenge hero (new home-screen primary) ───
+  challenge_hero_eyebrow_new: "Let's go",
+  challenge_hero_eyebrow: "Push your limit",
+  challenge_hero_title_new: "Marathon mode awaits",
+  challenge_hero_title: "How many rounds will you last today?",
+  challenge_hero_sub: "Endless questions, one life. Survive until you slip.",
+  challenge_hero_sub_best: "Your record: {n} rounds. Can you beat it?",
+  challenge_hero_cta_new: "Start Marathon",
+  challenge_hero_cta: "Continue",
+
+  // New mode card strings
+  mode_arena_subtitle: "Live multiplayer — host mode",
+  badge_new: "New!",
+
+  // ─── Arena — General ───
+  arena_back: "Back",
+  arena_title: "Arena",
+  arena_subtitle: "Live multiplayer trivia",
+  arena_loading_question: "Loading question…",
+
+  // Arena — Setup landing
+  arena_be_host: "Be the Host",
+  arena_be_host_sub: "Open a room, get a PIN, run the show",
+  arena_join_room: "Join a Room",
+  arena_join_room_sub: "Enter the PIN and play",
+  arena_how_to_play: "How does it work?",
+  arena_rule_1: "The host opens a room — a 6-digit PIN is generated.",
+  arena_rule_2: "Players join with the PIN (up to 50 per room).",
+  arena_rule_3: "Each round shows 2 clubs — type a player who played for both within 20 seconds.",
+  arena_rule_4: "Faster correct answer = more points (1000 base + 500 speed bonus).",
+  arena_rule_5: "The host picks how many questions (5–30).",
+
+  // Arena — Setup forms
+  arena_open_room: "Open Room",
+  arena_host_name: "Host name",
+  arena_host_name_placeholder: "e.g. Alex",
+  arena_how_many_q: "How many questions?",
+  arena_room_pin_6: "Room PIN (6 digits)",
+  arena_your_nickname: "Your nickname",
+  arena_nickname_placeholder: "e.g. Sam",
+  arena_join_cta: "Join",
+  arena_default_host_name: "Host",
+  arena_default_guest_name: "Guest",
+
+  // Arena — Lobby
+  arena_lobby_title: "Lobby",
+  arena_room_pin: "Room PIN",
+  arena_n_questions: "{n} questions",
+  arena_players_count: "Players ({n})",
+  arena_waiting_for_host: "Waiting for host…",
+  arena_you_suffix: "(you)",
+  arena_no_players_yet: "No players yet.",
+  arena_waiting_min_guest: "Waiting… (at least 1 guest recommended)",
+  arena_start_game: "Start Game",
+  arena_host_hint: "Share the PIN with your followers. When ready, hit \"Start Game\".",
+
+  // Arena — Question
+  arena_question_n_of_m: "Question {n} / {m}",
+  arena_seconds_short: "{n}s",
+  arena_question_prompt: "Name a player who played for both clubs:",
+  arena_answer_placeholder: "Player name (e.g. Sneijder)",
+  arena_submit: "Submit",
+  arena_one_shot_hint: "One shot — you can't change it after submitting.",
+  arena_correct: "Correct!",
+  arena_wrong: "Wrong",
+  arena_your_answer: "Your answer: {answer}",
+  arena_points_short: "pts",
+  arena_wait_others: "Waiting for others…",
+  arena_progress_answered: "{done} / {total} answered",
+
+  // Arena — Leaderboard
+  arena_final_label: "Final…",
+  arena_next_in: "Next: {n}s",
+  arena_correct_answers_label: "Accepted answers:",
+  arena_ranking_title: "Standings",
+
+  // Arena — Final
+  arena_you_champion: "You're the Champion!",
+  arena_someone_champion: "{name} is the Champion!",
+  arena_final_summary: "{rounds} questions, {players} players. Your rank: {rank}.",
+  arena_share: "Share",
+  arena_back_home: "Back to Home",
+  arena_share_text: "{winner} won Arena! 🏆\n{rounds} questions, {players} players.\npairfc.com",
+
+  // Arena — Errors
+  arena_err_no_server: "No server connection.",
+  arena_err_create_room: "Couldn't create room: {msg}",
+  arena_err_pin_length: "PIN must be 6 digits.",
+  arena_err_room_not_found: "Room not found. Check the PIN.",
+  arena_err_game_started: "Game already started. Try a new room.",
+  arena_err_room_full: "Room is full (50 players).",
+  arena_err_join: "Join error: {msg}",
+  arena_err_no_questions: "Question pool is empty.",
+  arena_err_next_q: "Next question not found.",
 };

@@ -1541,7 +1541,20 @@ export default function App() {
     };
   }, [dailyData, lang]);
 
-  const secondaryModes = useMemo(() => ["challenge", "online", "arena"], []);
+  const secondaryModes = useMemo(() => ["online", "arena"], []);
+
+  // Challenge (Maraton) hero — yeni ana kahraman
+  const challengeHero = useMemo(() => {
+    const isNewUser = challengeBest === 0 && dailyStreak === 0 && !dailyDoneToday;
+    return {
+      eyebrow: isNewUser ? t("challenge_hero_eyebrow_new") : t("challenge_hero_eyebrow"),
+      title: isNewUser ? t("challenge_hero_title_new") : t("challenge_hero_title"),
+      sub: challengeBest > 0
+        ? t("challenge_hero_sub_best", { n: challengeBest })
+        : t("challenge_hero_sub"),
+      cta: isNewUser ? t("challenge_hero_cta_new") : t("challenge_hero_cta")
+    };
+  }, [challengeBest, dailyStreak, dailyDoneToday, lang]);
 
   // Leaderboard verisini yükle
   useEffect(() => {
@@ -3435,77 +3448,83 @@ export default function App() {
                 <span className="stats-strip-item"><span className="ssi-icon">⏳</span><strong>{dailyCountdown || "—"}</strong><span className="ssi-label">{t("stat_next")}</span></span>
               </div>
 
-              {/* HERO — dinamik featured kart */}
+              {/* HERO — Challenge (Maraton) */}
               <button
                 type="button"
-                onClick={startDaily}
-                className="hero-card hero-card--daily"
+                onClick={startChallenge}
+                className="hero-card hero-card--challenge"
               >
                 <div className="hero-card-glow" aria-hidden="true"></div>
                 <div className="hero-card-content">
                   <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 8, marginBottom: 6 }}>
                     <span style={{ fontSize: 12, fontWeight: 700, letterSpacing: 0.4, opacity: 0.85 }}>
-                      📅 {dailyMeta.date} · {t("daily_label")} #{dailyMeta.num}
+                      🔥 {t("mode_marathon_title")}
                     </span>
-                    {dailyStreak > 0 && (
-                      <span style={{ fontSize: 12.5, fontWeight: 800, color: "#ffd24d", textShadow: "0 0 14px rgba(255,174,0,0.7)" }}>🔥 {dailyStreak}</span>
+                    {challengeBest > 0 && (
+                      <span style={{ fontSize: 12.5, fontWeight: 800, color: "#fcd34d", textShadow: "0 0 14px rgba(245,158,11,0.6)" }}>🏆 {challengeBest}</span>
                     )}
                   </div>
                   <div className="hero-card-eyebrow">
-                    <span className="hero-card-eyebrow-text">{heroConfig.eyebrow}</span>
+                    <span className="hero-card-eyebrow-text">{challengeHero.eyebrow}</span>
                   </div>
-                  <h2 className="hero-card-title">{heroConfig.title}</h2>
-                  {heroConfig.done && heroConfig.attempts.length > 0 && (
-                    <div style={{ display: "flex", gap: 5, fontSize: 24, margin: "4px 0 2px" }} aria-hidden="true">
-                      {heroConfig.attempts.map((r, i) => (
-                        <span key={i}>{r === "correct" ? "🟩" : "🟥"}</span>
-                      ))}
-                    </div>
-                  )}
-                  <p className="hero-card-sub">{heroConfig.sub}</p>
+                  <h2 className="hero-card-title">{challengeHero.title}</h2>
+                  <p className="hero-card-sub">{challengeHero.sub}</p>
                   <span className="hero-card-cta">
-                    {heroConfig.cta}
+                    {challengeHero.cta}
                     <span className="hero-card-arrow">→</span>
                   </span>
                 </div>
               </button>
 
-              {/* 2 secondary mode card */}
+              {/* FEATURED — Günlük Bulmaca (ikincil ama kimlikli) */}
+              <button
+                type="button"
+                onClick={startDaily}
+                className="featured-daily"
+              >
+                <div className="featured-daily-glow" aria-hidden="true"></div>
+                <div className="featured-daily-content">
+                  <div className="featured-daily-top">
+                    <span className="featured-daily-meta">
+                      📅 {dailyMeta.date} · {t("daily_label")} #{dailyMeta.num}
+                    </span>
+                    {dailyStreak > 0 && (
+                      <span className="featured-daily-streak">🔥 {dailyStreak}</span>
+                    )}
+                  </div>
+                  <div className="featured-daily-main">
+                    <div className="featured-daily-text">
+                      <strong>{heroConfig.done ? heroConfig.title : t("hero_title_today")}</strong>
+                      <small>{heroConfig.done
+                        ? (dailyCountdown ? t("hero_done_sub_countdown", { time: dailyCountdown }) : t("hero_done_sub_tomorrow"))
+                        : t("daily_new")}</small>
+                    </div>
+                    {heroConfig.done && heroConfig.attempts.length > 0 ? (
+                      <div className="featured-daily-grid" aria-hidden="true">
+                        {heroConfig.attempts.map((r, i) => (
+                          <span key={i}>{r === "correct" ? "🟩" : "🟥"}</span>
+                        ))}
+                      </div>
+                    ) : (
+                      <span className="featured-daily-cta">
+                        {heroConfig.done ? t("hero_done_cta") : t("hero_cta_today")}
+                        <span className="featured-daily-arrow">→</span>
+                      </span>
+                    )}
+                  </div>
+                </div>
+              </button>
+
+              {/* 2 secondary mode card (Online + Arena) */}
               <div className="mode-grid-secondary">
                 {secondaryModes.map((m) => {
-                  if (m === "daily") {
-                    return (
-                      <button key="daily" type="button" onClick={startDaily} className="mode-card mode-card-secondary mode-card-daily">
-                        <span className="mode-icon">📅</span>
-                        <strong>{t("mode_daily_title")}</strong>
-                        <small>
-                          {dailyDoneToday
-                            ? t("daily_done")
-                            : t("daily_new")}
-                        </small>
-                        {dailyDoneToday
-                          ? <em className="best-badge done-badge">{t("daily_tomorrow")}</em>
-                          : (dailyStreak > 0 && <em className="best-badge streak-badge">{t("daily_streak_days", { n: dailyStreak })}</em>)}
-                      </button>
-                    );
-                  }
-                  if (m === "challenge") {
-                    return (
-                      <button key="challenge" type="button" onClick={startChallenge} className="mode-card mode-card-secondary mode-card-challenge">
-                        <span className="mode-icon">🔥</span>
-                        <strong>{t("mode_marathon_title")}</strong>
-                        <small>{t("mode_marathon_subtitle")}</small>
-                        {challengeBest > 0 && <em className="best-badge">{t("best_score", { n: challengeBest })}</em>}
-                      </button>
-                    );
-                  }
                   if (m === "arena") {
                     return (
                       <button key="arena" type="button" onClick={() => { setScreen("arena"); }} className="mode-card mode-card-secondary mode-card-arena">
                         <span className="mode-icon">🏟️</span>
                         <strong>Arena</strong>
-                        <small>Canlı yarışma — yayıncı modu</small>
-                        <em className="best-badge arena-new-badge">Yeni!</em>
+                        <small>{t("mode_arena_subtitle")}</small>
+                        <em className="best-badge arena-new-badge">{t("badge_new")}</em>
                       </button>
                     );
                   }
@@ -5840,10 +5859,10 @@ button:focus-visible {
   .hero-card::after { width: 120px; height: 120px; right: -20px; bottom: -20px; }
 }
 
-/* --- Mode Grid Secondary (3'lü yatay) --- */
+/* --- Mode Grid Secondary (2'li yatay - Online + Arena) --- */
 .mode-grid-secondary {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
   gap: 8px;
   margin-bottom: 14px;
 }
@@ -5859,14 +5878,118 @@ button:focus-visible {
 .mode-card-challenge::before { background: linear-gradient(180deg, #f59e0b 0%, #ef4444 100%) !important; }
 .mode-card-online::before { background: linear-gradient(180deg, #06b6d4 0%, #8b5cf6 100%) !important; }
 .mode-card-daily::before { background: linear-gradient(180deg, #10b981 0%, #3b82f6 100%) !important; }
+.mode-card-arena::before { background: linear-gradient(180deg, #f59e0b 0%, #d946ef 100%) !important; }
 .arena-new-badge { background: rgba(245, 158, 11, 0.20); color: #fcd34d !important; }
 
-@media (max-width: 480px) {
-  .mode-grid-secondary { grid-template-columns: 1fr 1fr; }
-}
 @media (max-width: 360px) {
   .mode-grid-secondary { grid-template-columns: 1fr; }
 }
+
+/* --- Featured Daily Card (hero altında, ikincil kahraman) --- */
+.featured-daily {
+  position: relative;
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: linear-gradient(135deg, rgba(155, 45, 255, 0.12) 0%, rgba(124, 58, 237, 0.06) 100%);
+  border: 1px solid rgba(170, 59, 255, 0.32);
+  border-radius: 18px;
+  padding: 14px 16px 16px;
+  margin-bottom: 14px;
+  cursor: pointer;
+  overflow: hidden;
+  transition: transform 0.2s var(--ease), box-shadow 0.2s var(--ease);
+}
+.featured-daily-glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 20% 30%, rgba(170, 59, 255, 0.35), transparent 55%),
+              radial-gradient(circle at 85% 80%, rgba(124, 58, 237, 0.22), transparent 50%);
+  opacity: 0.55;
+  transition: opacity 0.2s var(--ease);
+  pointer-events: none;
+}
+.featured-daily:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.32);
+}
+.featured-daily:hover .featured-daily-glow { opacity: 0.8; }
+.featured-daily:active {
+  transform: translateY(0) scale(0.988);
+  transition-duration: 0.08s;
+}
+.featured-daily-content {
+  position: relative;
+  z-index: 1;
+}
+.featured-daily-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+.featured-daily-meta {
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  color: rgba(255, 255, 255, 0.78);
+}
+.featured-daily-streak {
+  font-size: 12px;
+  font-weight: 800;
+  color: #ffd24d;
+  text-shadow: 0 0 12px rgba(255, 174, 0, 0.65);
+}
+.featured-daily-main {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.featured-daily-text {
+  flex: 1;
+  min-width: 0;
+}
+.featured-daily-text strong {
+  display: block;
+  font-size: 17px;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  margin-bottom: 2px;
+}
+.featured-daily-text small {
+  display: block;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.3;
+}
+.featured-daily-grid {
+  display: flex;
+  gap: 4px;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+.featured-daily-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  background: rgba(170, 59, 255, 0.22);
+  border: 1px solid rgba(170, 59, 255, 0.4);
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #d4b3ff;
+  flex-shrink: 0;
+}
+.featured-daily-arrow {
+  display: inline-block;
+  transition: transform 0.2s var(--ease);
+}
+.featured-daily:hover .featured-daily-arrow { transform: translateX(3px); }
 
 /* --- Activity Strip (kişisel istatistikler) --- */
 .activity-strip {
@@ -8981,6 +9104,8 @@ button:focus-visible {
 }
 .arena-club strong {
   font-size: 14px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
   text-align: center;
   line-height: 1.2;
 }
@@ -9083,6 +9208,20 @@ button:focus-visible {
   flex-wrap: wrap;
   gap: 6px;
   justify-content: center;
+  max-height: 116px;
+  overflow-y: auto;
+  padding: 2px 4px;
+  /* Smooth scroll on mobile */
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(245,158,11,0.4) transparent;
+}
+.arena-correct-chips::-webkit-scrollbar {
+  width: 4px;
+}
+.arena-correct-chips::-webkit-scrollbar-thumb {
+  background: rgba(245,158,11,0.4);
+  border-radius: 4px;
 }
 .arena-correct-chip {
   background: rgba(245,158,11,0.20);
@@ -9281,7 +9420,7 @@ button:focus-visible {
   color: #fcd34d;
 }
 
-/* Question clubs — TeamLogo size override */
-.arena-question-clubs .team-logo { --logo-size: 64px; }
+/* Question clubs — TeamLogo size, ana oyunla aynı (56px) */
+.arena-question-clubs .team-logo { --logo-size: 56px; }
 
 `;

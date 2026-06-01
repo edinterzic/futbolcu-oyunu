@@ -11,6 +11,7 @@
 // 7. Final: scoreboard + paylaş
 
 import React, { useEffect, useRef, useState } from "react";
+import { t, useLang } from "../i18n";
 import {
   generateArenaQuestions,
   checkArenaAnswer,
@@ -143,6 +144,9 @@ function formatMs(ms) {
 // Ana Arena bileşeni
 // =============================================
 export default function Arena({ supabase, onExit }) {
+  // Subscribe to lang so that all sub-renders pick up t() updates
+  // eslint-disable-next-line no-unused-vars
+  const [lang] = useLang();
   const [setupMode, setSetupMode] = useState(null);
 
   const userIdRef = useRef(null);
@@ -281,10 +285,10 @@ export default function Arena({ supabase, onExit }) {
   const createRoom = async (hostName, totalRounds) => {
     setError(null);
     if (!supabase) {
-      setError("Sunucu bağlantısı yok.");
+      setError(t("arena_err_no_server"));
       return;
     }
-    const cleanName = hostName.trim().slice(0, 20) || "Yayıncı";
+    const cleanName = hostName.trim().slice(0, 20) || t("arena_default_host_name");
     const rounds = Math.max(5, Math.min(30, parseInt(totalRounds, 10) || 10));
 
     let pin = makeArenaPin();
@@ -312,7 +316,7 @@ export default function Arena({ supabase, onExit }) {
       .single();
 
     if (roomErr) {
-      setError(`Oda oluşturulamadı: ${roomErr.message}`);
+      setError(t("arena_err_create_room", { msg: roomErr.message }));
       return;
     }
 
@@ -332,15 +336,15 @@ export default function Arena({ supabase, onExit }) {
   const joinRoom = async (pin, nickname) => {
     setError(null);
     if (!supabase) {
-      setError("Sunucu bağlantısı yok.");
+      setError(t("arena_err_no_server"));
       return;
     }
     const cleanPin = pin.trim().replace(/\s/g, "");
     if (cleanPin.length !== 6) {
-      setError("PIN 6 haneli olmalı.");
+      setError(t("arena_err_pin_length"));
       return;
     }
-    const cleanName = nickname.trim().slice(0, 20) || "Anonim";
+    const cleanName = nickname.trim().slice(0, 20) || t("arena_default_guest_name");
 
     const { data: foundRoom, error: roomErr } = await supabase
       .from("arena_rooms")
@@ -350,11 +354,11 @@ export default function Arena({ supabase, onExit }) {
       .maybeSingle();
 
     if (roomErr || !foundRoom) {
-      setError("Oda bulunamadı. PIN'i kontrol et.");
+      setError(t("arena_err_room_not_found"));
       return;
     }
     if (foundRoom.status !== "lobby") {
-      setError("Oyun başlamış. Yeni bir oda dene.");
+      setError(t("arena_err_game_started"));
       return;
     }
 
@@ -364,7 +368,7 @@ export default function Arena({ supabase, onExit }) {
       .eq("room_id", foundRoom.id);
 
     if (count >= MAX_PLAYERS_PER_ROOM) {
-      setError("Oda dolu (50 kişi).");
+      setError(t("arena_err_room_full"));
       return;
     }
 
@@ -381,7 +385,7 @@ export default function Arena({ supabase, onExit }) {
       );
 
     if (joinErr) {
-      setError(`Katılım hatası: ${joinErr.message}`);
+      setError(t("arena_err_join", { msg: joinErr.message }));
       return;
     }
 
@@ -397,7 +401,7 @@ export default function Arena({ supabase, onExit }) {
 
     const questions = generateArenaQuestions(room.total_rounds);
     if (questions.length === 0) {
-      setError("Soru havuzu boş.");
+      setError(t("arena_err_no_questions"));
       return;
     }
 
@@ -497,7 +501,7 @@ export default function Arena({ supabase, onExit }) {
     const stored = JSON.parse(localStorage.getItem(`pairfc_arena_q_${room.id}`) || "[]");
     const nextQ = stored[nextRound - 1];
     if (!nextQ) {
-      setError("Sıradaki soru bulunamadı.");
+      setError(t("arena_err_next_q"));
       return;
     }
     await startNextRound(nextRound, nextQ);
@@ -519,7 +523,7 @@ export default function Arena({ supabase, onExit }) {
     const score = calculateArenaScore(isCorrect, responseTimeMs, QUESTION_DURATION_MS);
 
     const myPlayer = players.find((p) => p.user_id === userIdRef.current);
-    const nickname = myPlayer?.nickname || "Anonim";
+    const nickname = myPlayer?.nickname || t("arena_default_guest_name");
 
     const { error: ansErr } = await supabase.from("arena_answers").insert({
       question_id: currentQuestion.id,
@@ -685,9 +689,9 @@ function ArenaSetup({ setupMode, setSetupMode, onCreate, onJoin, onExit, error }
     return (
       <div className="arena-screen">
         <div className="arena-header">
-          <button type="button" onClick={onExit} className="arena-back">←</button>
-          <h1>🏟️ Arena</h1>
-          <span className="arena-sub">Çok kişili canlı yarışma</span>
+          <button type="button" onClick={onExit} className="arena-back" aria-label={t("arena_back")}>←</button>
+          <h1>🏟️ {t("arena_title")}</h1>
+          <span className="arena-sub">{t("arena_subtitle")}</span>
         </div>
 
         <div className="arena-setup-grid">
@@ -697,8 +701,8 @@ function ArenaSetup({ setupMode, setSetupMode, onCreate, onJoin, onExit, error }
             className="arena-setup-card arena-setup-host"
           >
             <span className="arena-setup-icon">📡</span>
-            <strong>Yayıncı Ol</strong>
-            <small>Oda aç, PIN üret, oyunu yönet</small>
+            <strong>{t("arena_be_host")}</strong>
+            <small>{t("arena_be_host_sub")}</small>
           </button>
 
           <button
@@ -707,19 +711,19 @@ function ArenaSetup({ setupMode, setSetupMode, onCreate, onJoin, onExit, error }
             className="arena-setup-card arena-setup-guest"
           >
             <span className="arena-setup-icon">🎮</span>
-            <strong>Odaya Katıl</strong>
-            <small>PIN'i yaz, yarışmaya katıl</small>
+            <strong>{t("arena_join_room")}</strong>
+            <small>{t("arena_join_room_sub")}</small>
           </button>
         </div>
 
         <div className="arena-info">
-          <p><strong>Nasıl oynanır?</strong></p>
+          <p><strong>{t("arena_how_to_play")}</strong></p>
           <ul>
-            <li>Yayıncı oda açar, 6 haneli PIN üretilir.</li>
-            <li>Katılımcılar PIN ile odaya girer (en fazla 50 kişi).</li>
-            <li>Her soruda 2 takım gösterilir, 20 saniye içinde ortak oyuncuyu yazarsın.</li>
-            <li>Hızlı doğru cevap = daha çok puan (1000 baz + 500 hız bonus).</li>
-            <li>Yayıncı kaç soru sorulacağını seçer (5–30).</li>
+            <li>{t("arena_rule_1")}</li>
+            <li>{t("arena_rule_2")}</li>
+            <li>{t("arena_rule_3")}</li>
+            <li>{t("arena_rule_4")}</li>
+            <li>{t("arena_rule_5")}</li>
           </ul>
         </div>
       </div>
@@ -730,25 +734,25 @@ function ArenaSetup({ setupMode, setSetupMode, onCreate, onJoin, onExit, error }
     return (
       <div className="arena-screen">
         <div className="arena-header">
-          <button type="button" onClick={() => setSetupMode(null)} className="arena-back">←</button>
-          <h1>📡 Oda Aç</h1>
+          <button type="button" onClick={() => setSetupMode(null)} className="arena-back" aria-label={t("arena_back")}>←</button>
+          <h1>📡 {t("arena_open_room")}</h1>
         </div>
 
         <div className="arena-form">
           <label className="arena-label">
-            <span>Yayıncı adın</span>
+            <span>{t("arena_host_name")}</span>
             <input
               type="text"
               value={hostName}
               onChange={(e) => setHostName(e.target.value)}
-              placeholder="Örn: Özge"
+              placeholder={t("arena_host_name_placeholder")}
               maxLength={20}
               className="arena-input"
             />
           </label>
 
           <label className="arena-label">
-            <span>Kaç soru?</span>
+            <span>{t("arena_how_many_q")}</span>
             <div className="arena-rounds-row">
               {[5, 10, 15, 20, 25, 30].map((n) => (
                 <button
@@ -776,7 +780,7 @@ function ArenaSetup({ setupMode, setSetupMode, onCreate, onJoin, onExit, error }
             disabled={!hostName.trim()}
             className="arena-cta"
           >
-            Oda Aç
+            {t("arena_open_room")}
           </button>
         </div>
       </div>
@@ -787,13 +791,13 @@ function ArenaSetup({ setupMode, setSetupMode, onCreate, onJoin, onExit, error }
     return (
       <div className="arena-screen">
         <div className="arena-header">
-          <button type="button" onClick={() => setSetupMode(null)} className="arena-back">←</button>
-          <h1>🎮 Odaya Katıl</h1>
+          <button type="button" onClick={() => setSetupMode(null)} className="arena-back" aria-label={t("arena_back")}>←</button>
+          <h1>🎮 {t("arena_join_room")}</h1>
         </div>
 
         <div className="arena-form">
           <label className="arena-label">
-            <span>Oda PIN'i (6 hane)</span>
+            <span>{t("arena_room_pin_6")}</span>
             <input
               type="text"
               inputMode="numeric"
@@ -806,12 +810,12 @@ function ArenaSetup({ setupMode, setSetupMode, onCreate, onJoin, onExit, error }
           </label>
 
           <label className="arena-label">
-            <span>Rumuzun</span>
+            <span>{t("arena_your_nickname")}</span>
             <input
               type="text"
               value={joinName}
               onChange={(e) => setJoinName(e.target.value)}
-              placeholder="Örn: Mehmet"
+              placeholder={t("arena_nickname_placeholder")}
               maxLength={20}
               className="arena-input"
             />
@@ -830,7 +834,7 @@ function ArenaSetup({ setupMode, setSetupMode, onCreate, onJoin, onExit, error }
             disabled={joinPin.length !== 6 || !joinName.trim()}
             className="arena-cta"
           >
-            Katıl
+            {t("arena_join_cta")}
           </button>
         </div>
       </div>
@@ -847,33 +851,33 @@ function ArenaLobby({ room, players, isHost, userId, onStart, onLeave }) {
   return (
     <div className="arena-screen">
       <div className="arena-header">
-        <button type="button" onClick={onLeave} className="arena-back">←</button>
-        <h1>🏟️ Lobi</h1>
+        <button type="button" onClick={onLeave} className="arena-back" aria-label={t("arena_back")}>←</button>
+        <h1>🏟️ {t("arena_lobby_title")}</h1>
       </div>
 
       <div className="arena-lobby">
         <div className="arena-pin-display">
-          <span className="arena-pin-label">Oda PIN'i</span>
+          <span className="arena-pin-label">{t("arena_room_pin")}</span>
           <strong className="arena-pin-value">{room.pin}</strong>
-          <small>{room.total_rounds} soru</small>
+          <small>{t("arena_n_questions", { n: room.total_rounds })}</small>
         </div>
 
         <div className="arena-players-list">
           <div className="arena-players-header">
-            <strong>Katılımcılar ({players.length})</strong>
-            {!isHost && <span className="arena-waiting">Yayıncı bekleniyor…</span>}
+            <strong>{t("arena_players_count", { n: players.length })}</strong>
+            {!isHost && <span className="arena-waiting">{t("arena_waiting_for_host")}</span>}
           </div>
           {players.map((p) => (
             <div key={p.id} className={`arena-player-row ${p.user_id === userId ? "me" : ""}`}>
               <span className="arena-player-name">
                 {p.is_host && "📡 "}
                 {p.nickname}
-                {p.user_id === userId && " (sen)"}
+                {p.user_id === userId && ` ${t("arena_you_suffix")}`}
               </span>
             </div>
           ))}
           {players.length === 0 && (
-            <div className="arena-empty">Henüz kimse katılmadı.</div>
+            <div className="arena-empty">{t("arena_no_players_yet")}</div>
           )}
         </div>
 
@@ -884,13 +888,13 @@ function ArenaLobby({ room, players, isHost, userId, onStart, onLeave }) {
             disabled={players.length < 1}
             className="arena-cta"
           >
-            {players.length < 2 ? "Bekleniyor… (en az 1 misafir önerilir)" : "Oyunu Başlat"}
+            {players.length < 2 ? t("arena_waiting_min_guest") : t("arena_start_game")}
           </button>
         )}
 
         {isHost && (
           <p className="arena-host-hint">
-            PIN'i takipçilerinle paylaş. Hazır olunca "Oyunu Başlat"a bas.
+            {t("arena_host_hint")}
           </p>
         )}
       </div>
@@ -917,7 +921,7 @@ function ArenaQuestion({ room, question, players, answers, myAnswer, answerInput
   if (!question) {
     return (
       <div className="arena-screen">
-        <div className="arena-loading">Soru yükleniyor…</div>
+        <div className="arena-loading">{t("arena_loading_question")}</div>
       </div>
     );
   }
@@ -935,10 +939,10 @@ function ArenaQuestion({ room, question, players, answers, myAnswer, answerInput
     <div className="arena-screen arena-question-screen">
       <div className="arena-question-header">
         <span className="arena-round-counter">
-          Soru {room.current_round} / {room.total_rounds}
+          {t("arena_question_n_of_m", { n: room.current_round, m: room.total_rounds })}
         </span>
         <span className={`arena-timer ${isLowTime ? "low" : ""}`}>
-          ⏱️ {seconds}s
+          ⏱️ {t("arena_seconds_short", { n: seconds })}
         </span>
       </div>
 
@@ -955,7 +959,7 @@ function ArenaQuestion({ room, question, players, answers, myAnswer, answerInput
       </div>
 
       <div className="arena-question-prompt">
-        Bu iki kulüpte de oynamış bir oyuncu yaz:
+        {t("arena_question_prompt")}
       </div>
 
       {!myAnswer ? (
@@ -975,7 +979,7 @@ function ArenaQuestion({ room, question, players, answers, myAnswer, answerInput
               onKeyDown={(e) => {
                 if (e.key === "Enter" && answerInput.trim()) onSubmit();
               }}
-              placeholder="Oyuncu adı (örn: Sneijder)"
+              placeholder={t("arena_answer_placeholder")}
               autoFocus
               autoComplete="off"
               autoCorrect="off"
@@ -1011,23 +1015,23 @@ function ArenaQuestion({ room, question, players, answers, myAnswer, answerInput
             disabled={!answerInput.trim()}
             className="arena-cta arena-submit"
           >
-            Gönder
+            {t("arena_submit")}
           </button>
-          <small className="arena-hint">Tek hak — gönderdiğinde değiştiremezsin.</small>
+          <small className="arena-hint">{t("arena_one_shot_hint")}</small>
         </div>
       ) : (
         <div className={`arena-my-result ${myAnswer.is_correct ? "correct" : "wrong"}`}>
-          <strong>{myAnswer.is_correct ? "✅ Doğru!" : "❌ Yanlış"}</strong>
-          <span>Cevabın: {myAnswer.answer_text}</span>
+          <strong>{myAnswer.is_correct ? `✅ ${t("arena_correct")}` : `❌ ${t("arena_wrong")}`}</strong>
+          <span>{t("arena_your_answer", { answer: myAnswer.answer_text })}</span>
           {myAnswer.is_correct && (
-            <span className="arena-score-gained">+{myAnswer.score} puan</span>
+            <span className="arena-score-gained">+{myAnswer.score} {t("arena_points_short")}</span>
           )}
-          <small>Diğerlerini bekle…</small>
+          <small>{t("arena_wait_others")}</small>
         </div>
       )}
 
       <div className="arena-progress">
-        <small>{answeredCount} / {players.length} cevapladı</small>
+        <small>{t("arena_progress_answered", { done: answeredCount, total: players.length })}</small>
         <div className="arena-progress-bar">
           <div
             className="arena-progress-fill"
@@ -1051,10 +1055,10 @@ function ArenaLeaderboard({ room, players, question, answers, myAnswer, userId, 
     <div className="arena-screen arena-leaderboard-screen">
       <div className="arena-question-header">
         <span className="arena-round-counter">
-          Soru {room.current_round} / {room.total_rounds}
+          {t("arena_question_n_of_m", { n: room.current_round, m: room.total_rounds })}
         </span>
         <span className="arena-timer">
-          {isLastRound ? "Final…" : `Sıradaki: ${seconds}s`}
+          {isLastRound ? t("arena_final_label") : t("arena_next_in", { n: seconds })}
         </span>
       </div>
 
@@ -1064,17 +1068,16 @@ function ArenaLeaderboard({ room, players, question, answers, myAnswer, userId, 
           <strong>{question?.club_a} × {question?.club_b}</strong>
           <TeamLogo teamName={question?.club_b} size="sm" />
         </div>
-        <small>Doğru cevaplar:</small>
+        <small>{t("arena_correct_answers_label")}</small>
         <div className="arena-correct-chips">
-          {correctList.slice(0, 8).map((a) => (
+          {correctList.map((a) => (
             <span key={a} className="arena-correct-chip">{a}</span>
           ))}
-          {correctList.length > 8 && <span className="arena-correct-chip more">+{correctList.length - 8}</span>}
         </div>
       </div>
 
       <div className="arena-leaderboard-list">
-        <strong className="arena-leaderboard-title">📊 Sıralama</strong>
+        <strong className="arena-leaderboard-title">📊 {t("arena_ranking_title")}</strong>
         {sorted.map((p, i) => {
           const thisRoundAns = answers.find((a) => a.user_id === p.user_id);
           const gained = thisRoundAns?.score || 0;
@@ -1107,17 +1110,21 @@ function ArenaFinal({ room, players, userId, onExit }) {
   const isMyWin = winner?.user_id === userId;
 
   const sharetxt = encodeURIComponent(
-    `${winner?.nickname} Arena'da şampiyon oldu! 🏆\n${room.total_rounds} soru, ${players.length} oyuncu.\npairfc.com`
+    t("arena_share_text", {
+      winner: winner?.nickname || "",
+      rounds: room.total_rounds,
+      players: players.length
+    })
   );
 
   return (
     <div className="arena-screen arena-final-screen">
       <div className="arena-final-trophy">🏆</div>
       <h1 className="arena-final-title">
-        {isMyWin ? "Şampiyon Sensin!" : `${winner?.nickname} Şampiyon!`}
+        {isMyWin ? t("arena_you_champion") : t("arena_someone_champion", { name: winner?.nickname || "" })}
       </h1>
       <small className="arena-final-sub">
-        {room.total_rounds} soru, {players.length} oyuncu. Sıralaman: {myRank}.
+        {t("arena_final_summary", { rounds: room.total_rounds, players: players.length, rank: myRank })}
       </small>
 
       <div className="arena-leaderboard-list">
@@ -1140,10 +1147,10 @@ function ArenaFinal({ room, players, userId, onExit }) {
           rel="noopener noreferrer"
           className="arena-cta arena-share"
         >
-          📱 Paylaş
+          📱 {t("arena_share")}
         </a>
         <button type="button" onClick={onExit} className="arena-cta arena-exit">
-          Anasayfaya Dön
+          {t("arena_back_home")}
         </button>
       </div>
     </div>
