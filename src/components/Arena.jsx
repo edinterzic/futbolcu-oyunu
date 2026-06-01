@@ -282,7 +282,7 @@ export default function Arena({ supabase, onExit }) {
   // ============================================
   // Oda Oluşturma (Host)
   // ============================================
-  const createRoom = async (hostName, totalRounds) => {
+  const createRoom = async (hostName, totalRounds, difficulty = "medium") => {
     setError(null);
     if (!supabase) {
       setError(t("arena_err_no_server"));
@@ -290,6 +290,7 @@ export default function Arena({ supabase, onExit }) {
     }
     const cleanName = hostName.trim().slice(0, 20) || t("arena_default_host_name");
     const rounds = Math.max(5, Math.min(30, parseInt(totalRounds, 10) || 10));
+    const cleanDifficulty = ["easy", "medium", "hard"].includes(difficulty) ? difficulty : "medium";
 
     let pin = makeArenaPin();
     for (let attempt = 0; attempt < 5; attempt++) {
@@ -310,6 +311,7 @@ export default function Arena({ supabase, onExit }) {
         host_id: userIdRef.current,
         host_nickname: cleanName,
         total_rounds: rounds,
+        difficulty: cleanDifficulty,
         status: "lobby",
       })
       .select()
@@ -399,7 +401,7 @@ export default function Arena({ supabase, onExit }) {
     if (!room || room.host_id !== userIdRef.current) return;
     setError(null);
 
-    const questions = generateArenaQuestions(room.total_rounds);
+    const questions = generateArenaQuestions(room.total_rounds, room.difficulty || "medium");
     if (questions.length === 0) {
       setError(t("arena_err_no_questions"));
       return;
@@ -682,6 +684,7 @@ export default function Arena({ supabase, onExit }) {
 function ArenaSetup({ setupMode, setSetupMode, onCreate, onJoin, onExit, error }) {
   const [hostName, setHostName] = useState(() => localStorage.getItem("pairfc_player_name") || "");
   const [totalRounds, setTotalRounds] = useState(10);
+  const [difficulty, setDifficulty] = useState(() => localStorage.getItem("pairfc_arena_difficulty") || "medium");
   const [joinPin, setJoinPin] = useState("");
   const [joinName, setJoinName] = useState(() => localStorage.getItem("pairfc_player_name") || "");
 
@@ -767,6 +770,23 @@ function ArenaSetup({ setupMode, setSetupMode, onCreate, onJoin, onExit, error }
             </div>
           </label>
 
+          <label className="arena-label">
+            <span>{t("arena_difficulty_label")}</span>
+            <div className="arena-rounds-row">
+              {["easy", "medium", "hard"].map((d) => (
+                <button
+                  key={d}
+                  type="button"
+                  onClick={() => setDifficulty(d)}
+                  className={`arena-round-chip arena-diff-chip arena-diff-chip--${d} ${difficulty === d ? "active" : ""}`}
+                >
+                  {t(`diff_${d}`)}
+                </button>
+              ))}
+            </div>
+            <small className="arena-diff-hint">{t(`arena_diff_${difficulty}_hint`)}</small>
+          </label>
+
           {error && <div className="arena-error">{error}</div>}
 
           <button
@@ -775,7 +795,8 @@ function ArenaSetup({ setupMode, setSetupMode, onCreate, onJoin, onExit, error }
               if (hostName.trim()) {
                 localStorage.setItem("pairfc_player_name", hostName.trim());
               }
-              onCreate(hostName, totalRounds);
+              try { localStorage.setItem("pairfc_arena_difficulty", difficulty); } catch (e) {}
+              onCreate(hostName, totalRounds, difficulty);
             }}
             disabled={!hostName.trim()}
             className="arena-cta"
@@ -859,7 +880,7 @@ function ArenaLobby({ room, players, isHost, userId, onStart, onLeave }) {
         <div className="arena-pin-display">
           <span className="arena-pin-label">{t("arena_room_pin")}</span>
           <strong className="arena-pin-value">{room.pin}</strong>
-          <small>{t("arena_n_questions", { n: room.total_rounds })}</small>
+          <small>{t("arena_n_questions", { n: room.total_rounds })} · {t(`diff_${room.difficulty || "medium"}`)}</small>
         </div>
 
         <div className="arena-players-list">

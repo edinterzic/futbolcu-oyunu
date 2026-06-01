@@ -9,6 +9,40 @@ import { PLAYERS, TEAMS } from "../data/gameData";
 const MIN_ANSWERS_PER_PAIR = 3;
 const MAX_ANSWERS_PER_PAIR = 30; // çok genel çiftler de istemiyoruz
 
+// =============================================
+// Zorluk havuzları (App.jsx Marathon ile birebir aynı)
+// =============================================
+const EASY_TEAMS = new Set([
+  // Top Avrupa devleri
+  "Real Madrid", "Barcelona", "Bayern Munich",
+  "Manchester United", "Manchester City", "Liverpool", "Chelsea", "Arsenal",
+  "Juventus", "AC Milan", "Inter", "PSG",
+  "Atletico Madrid", "Borussia Dortmund",
+  // Üç büyük Türk
+  "Fenerbahçe", "Beşiktaş", "Galatasaray"
+]);
+
+const TIER_2_TEAMS = [
+  "Tottenham", "Napoli", "AS Roma", "Ajax", "FC Porto",
+  "Benfica", "Sevilla", "Newcastle", "LOSC Lille",
+  "Atalanta", "Lazio", "Leverkusen", "Sporting CP",
+  "Aston Villa", "Valencia", "Villarreal", "Real Sociedad",
+  "Athletic Bilbao", "Fiorentina", "Marsilya", "Monaco",
+  "Feyenoord", "PSV", "West Ham", "Everton"
+];
+
+const MEDIUM_TEAMS = new Set([
+  ...EASY_TEAMS,
+  ...TIER_2_TEAMS,
+  "Trabzonspor", "Başakşehir"
+]);
+
+function isPairInArenaDifficulty(clubA, clubB, difficulty) {
+  if (difficulty === "easy") return EASY_TEAMS.has(clubA) && EASY_TEAMS.has(clubB);
+  if (difficulty === "medium") return MEDIUM_TEAMS.has(clubA) && MEDIUM_TEAMS.has(clubB);
+  return true; // hard = tüm havuz
+}
+
 // Normalize fonksiyonu (Türkçe + diakritik)
 export function normalizeAnswer(value) {
   return String(value || "")
@@ -99,9 +133,25 @@ function buildArenaPairs() {
 }
 
 // n adet rastgele, tekrar etmeyen soru üretir
-export function generateArenaQuestions(count) {
-  const pool = buildArenaPairs();
-  if (pool.length === 0) return [];
+// difficulty: "easy" | "medium" | "hard" (default: medium)
+export function generateArenaQuestions(count, difficulty = "medium") {
+  const allPairs = buildArenaPairs();
+  if (allPairs.length === 0) return [];
+
+  // Difficulty filtresi
+  const filtered = allPairs.filter((p) =>
+    isPairInArenaDifficulty(p.clubA, p.clubB, difficulty)
+  );
+
+  // Filtre sonrası hiç çift yoksa, sessizce tüm havuza düş
+  // (host'un yarışmasını kurtarmak için — pratikte easy/medium'da bol çift var)
+  const pool = filtered.length > 0 ? filtered : allPairs;
+
+  if (filtered.length === 0 && difficulty !== "hard") {
+    console.warn(`[Arena] '${difficulty}' havuzunda çift bulunamadı, tüm havuza geri dönüldü.`);
+  } else {
+    console.log(`[Arena] '${difficulty}' havuzu: ${filtered.length} çift (toplam ${allPairs.length}).`);
+  }
 
   const safe = Math.min(count, pool.length);
   const indices = new Set();

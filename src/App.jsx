@@ -8945,6 +8945,25 @@ button:focus-visible {
   color: #fff;
   border-color: transparent;
 }
+/* Difficulty chips — Marathon ile aynı renk dili */
+.arena-diff-chip { flex: 1; }
+.arena-diff-chip--easy.active {
+  background: linear-gradient(135deg, #10b981, #34d399);
+}
+.arena-diff-chip--medium.active {
+  background: linear-gradient(135deg, #eab308, #f59e0b);
+}
+.arena-diff-chip--hard.active {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+}
+.arena-diff-hint {
+  display: block;
+  margin-top: 8px;
+  font-size: 12px;
+  color: rgba(255,255,255,0.6);
+  line-height: 1.4;
+  min-height: 17px; /* hint değişirken layout zıplamasın */
+}
 .arena-cta {
   background: linear-gradient(135deg, #f59e0b, #ef4444);
   border: 0;
