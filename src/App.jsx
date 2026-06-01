@@ -8,6 +8,7 @@ import { SOUND_FILES } from "./data/sounds";
 import { initAnalytics, track, startTimer, endTimer } from "./analytics";
 import { isPushSupported, getNotificationPermission, subscribeToPush, unsubscribeFromPush } from "./pwa";
 import AdminPanel from "./admin/AdminPanel";
+import Arena from "./components/Arena";
 
 const WINNING_SCORE = 3;
 const ROUND_SECONDS = 20;
@@ -1540,7 +1541,7 @@ export default function App() {
     };
   }, [dailyData, lang]);
 
-  const secondaryModes = useMemo(() => ["challenge", "online"], []);
+  const secondaryModes = useMemo(() => ["challenge", "online", "arena"], []);
 
   // Leaderboard verisini yükle
   useEffect(() => {
@@ -3270,6 +3271,7 @@ export default function App() {
   const isGameLike = screen === "game" || screen === "winner" || screen === "team_select";
   const isChallenge = screen === "challenge";
   const isDaily = screen === "daily";
+  const isArena = screen === "arena";
 
   return (
     <div className={`app-shell ${isHome ? "home-screen" : "play-screen"}`}>
@@ -3494,6 +3496,16 @@ export default function App() {
                         <strong>{t("mode_marathon_title")}</strong>
                         <small>{t("mode_marathon_subtitle")}</small>
                         {challengeBest > 0 && <em className="best-badge">{t("best_score", { n: challengeBest })}</em>}
+                      </button>
+                    );
+                  }
+                  if (m === "arena") {
+                    return (
+                      <button key="arena" type="button" onClick={() => { setScreen("arena"); }} className="mode-card mode-card-secondary mode-card-arena">
+                        <span className="mode-icon">🏟️</span>
+                        <strong>Arena</strong>
+                        <small>Canlı yarışma — yayıncı modu</small>
+                        <em className="best-badge arena-new-badge">Yeni!</em>
                       </button>
                     );
                   }
@@ -4166,6 +4178,18 @@ export default function App() {
                   </button>
                 </div>
               )}
+            </section>
+          )}
+
+          {isArena && (
+            <section className="play-content arena-section">
+              <Arena
+                supabase={supabase}
+                onExit={() => {
+                  setScreen("home");
+                  setMainTab("home");
+                }}
+              />
             </section>
           )}
 
@@ -5816,26 +5840,30 @@ button:focus-visible {
   .hero-card::after { width: 120px; height: 120px; right: -20px; bottom: -20px; }
 }
 
-/* --- Mode Grid Secondary (2'li yatay) --- */
+/* --- Mode Grid Secondary (3'lü yatay) --- */
 .mode-grid-secondary {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 8px;
   margin-bottom: 14px;
 }
 .mode-card-secondary {
-  padding: 14px 14px 12px;
+  padding: 14px 10px 12px;
   min-height: 96px;
 }
 .mode-card-secondary .mode-icon { font-size: 22px; margin-bottom: 6px; }
-.mode-card-secondary strong { font-size: 14px; }
-.mode-card-secondary small { font-size: 11px; line-height: 1.35; }
+.mode-card-secondary strong { font-size: 13px; }
+.mode-card-secondary small { font-size: 10.5px; line-height: 1.35; }
 .mode-card-secondary .best-badge { font-size: 10px; padding: 3px 7px; margin-top: 6px; }
 
 .mode-card-challenge::before { background: linear-gradient(180deg, #f59e0b 0%, #ef4444 100%) !important; }
 .mode-card-online::before { background: linear-gradient(180deg, #06b6d4 0%, #8b5cf6 100%) !important; }
 .mode-card-daily::before { background: linear-gradient(180deg, #10b981 0%, #3b82f6 100%) !important; }
+.arena-new-badge { background: rgba(245, 158, 11, 0.20); color: #fcd34d !important; }
 
+@media (max-width: 480px) {
+  .mode-grid-secondary { grid-template-columns: 1fr 1fr; }
+}
 @media (max-width: 360px) {
   .mode-grid-secondary { grid-template-columns: 1fr; }
 }
@@ -8644,4 +8672,564 @@ button:focus-visible {
   font-variant-numeric: tabular-nums;
   letter-spacing: 0.4px;
 }
+
+/* ====== ARENA STYLES ====== */
+/* =============================================
+   ARENA — Çok kişili canlı yarışma modu
+   ============================================= */
+
+.arena-screen {
+  min-height: 100vh;
+  padding: 16px;
+  padding-bottom: 80px;
+  background: linear-gradient(180deg, #0f1729 0%, #1a1a2e 100%);
+  color: #f1f5f9;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.arena-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  position: relative;
+  padding: 4px 0;
+}
+.arena-header h1 {
+  font-size: 22px;
+  margin: 0;
+  font-weight: 700;
+}
+.arena-sub {
+  position: absolute;
+  right: 0;
+  font-size: 11px;
+  color: #94a3b8;
+}
+.arena-back {
+  background: rgba(255,255,255,0.08);
+  border: 0;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 20px;
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.arena-back:hover { background: rgba(255,255,255,0.16); }
+
+/* ===== Setup kartları ===== */
+.arena-setup-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin: 16px 0;
+}
+.arena-setup-card {
+  padding: 20px 14px;
+  border: 0;
+  border-radius: 16px;
+  background: rgba(255,255,255,0.06);
+  color: #f1f5f9;
+  cursor: pointer;
+  transition: transform 0.15s ease, background 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 6px;
+  position: relative;
+  overflow: hidden;
+}
+.arena-setup-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 4px;
+}
+.arena-setup-host::before { background: linear-gradient(90deg, #f59e0b, #ef4444); }
+.arena-setup-guest::before { background: linear-gradient(90deg, #06b6d4, #8b5cf6); }
+.arena-setup-card:hover { background: rgba(255,255,255,0.10); transform: translateY(-2px); }
+.arena-setup-card:active { transform: translateY(0); }
+.arena-setup-card strong { font-size: 16px; }
+.arena-setup-card small { font-size: 12px; color: #94a3b8; line-height: 1.4; }
+.arena-setup-icon { font-size: 36px; margin-bottom: 4px; }
+
+/* ===== Form ===== */
+.arena-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  max-width: 420px;
+  margin: 0 auto;
+  width: 100%;
+}
+.arena-label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.arena-label > span {
+  font-size: 13px;
+  color: #cbd5e1;
+  font-weight: 500;
+}
+.arena-input {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.10);
+  border-radius: 10px;
+  padding: 12px 14px;
+  color: #fff;
+  font-size: 15px;
+  outline: none;
+  transition: border 0.2s ease;
+}
+.arena-input:focus {
+  border-color: #f59e0b;
+}
+.arena-pin-input {
+  font-size: 28px;
+  letter-spacing: 8px;
+  text-align: center;
+  font-weight: 700;
+  font-family: -apple-system, BlinkMacSystemFont, monospace;
+}
+.arena-rounds-row {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+.arena-round-chip {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.10);
+  color: #cbd5e1;
+  border-radius: 10px;
+  padding: 8px 14px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.arena-round-chip:hover {
+  background: rgba(255,255,255,0.10);
+}
+.arena-round-chip.active {
+  background: linear-gradient(135deg, #f59e0b, #ef4444);
+  color: #fff;
+  border-color: transparent;
+}
+.arena-cta {
+  background: linear-gradient(135deg, #f59e0b, #ef4444);
+  border: 0;
+  border-radius: 12px;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  padding: 14px 20px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  transition: opacity 0.2s ease, transform 0.15s ease;
+}
+.arena-cta:hover { opacity: 0.92; }
+.arena-cta:active { transform: scale(0.98); }
+.arena-cta:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+.arena-error {
+  background: rgba(239,68,68,0.16);
+  border: 1px solid rgba(239,68,68,0.32);
+  color: #fca5a5;
+  padding: 10px 12px;
+  border-radius: 10px;
+  font-size: 13px;
+}
+
+/* ===== Lobi ===== */
+.arena-lobby {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  max-width: 480px;
+  margin: 0 auto;
+  width: 100%;
+}
+.arena-pin-display {
+  text-align: center;
+  background: rgba(255,255,255,0.06);
+  border-radius: 16px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.arena-pin-label {
+  font-size: 12px;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.arena-pin-value {
+  font-size: 42px;
+  font-weight: 800;
+  letter-spacing: 10px;
+  color: #f59e0b;
+  font-family: -apple-system, BlinkMacSystemFont, monospace;
+}
+.arena-pin-display small {
+  color: #94a3b8;
+  font-size: 13px;
+}
+.arena-players-list {
+  background: rgba(255,255,255,0.04);
+  border-radius: 14px;
+  padding: 14px;
+}
+.arena-players-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+.arena-waiting {
+  color: #94a3b8;
+  font-size: 12px;
+  font-style: italic;
+}
+.arena-player-row {
+  padding: 8px 10px;
+  border-radius: 8px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+}
+.arena-player-row.me {
+  background: rgba(245,158,11,0.16);
+  color: #fcd34d;
+}
+.arena-empty {
+  text-align: center;
+  color: #94a3b8;
+  font-size: 13px;
+  padding: 14px;
+  font-style: italic;
+}
+.arena-host-hint {
+  text-align: center;
+  font-size: 12px;
+  color: #94a3b8;
+  margin: 0;
+}
+
+/* ===== Soru ekranı ===== */
+.arena-question-screen { padding-top: 8px; }
+.arena-question-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255,255,255,0.06);
+  padding: 10px 14px;
+  border-radius: 12px;
+}
+.arena-round-counter {
+  font-size: 13px;
+  color: #cbd5e1;
+  font-weight: 600;
+}
+.arena-timer {
+  font-size: 18px;
+  font-weight: 800;
+  color: #34d399;
+}
+.arena-timer.low {
+  color: #ef4444;
+  animation: arenaPulse 0.5s infinite alternate;
+}
+@keyframes arenaPulse {
+  from { transform: scale(1); }
+  to { transform: scale(1.15); }
+}
+.arena-question-clubs {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 18px 12px;
+}
+.arena-club {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 14px;
+  padding: 16px 8px;
+  max-width: 160px;
+}
+.arena-club-logo {
+  width: 54px;
+  height: 54px;
+  object-fit: contain;
+}
+.arena-club strong {
+  font-size: 14px;
+  text-align: center;
+  line-height: 1.2;
+}
+.arena-vs {
+  font-size: 22px;
+  font-weight: 800;
+  color: #f59e0b;
+}
+.arena-question-prompt {
+  text-align: center;
+  font-size: 15px;
+  color: #cbd5e1;
+  padding: 0 12px;
+}
+.arena-answer-area {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 0 12px;
+}
+.arena-answer-input {
+  font-size: 17px;
+  padding: 14px 16px;
+}
+.arena-submit { font-size: 16px; }
+.arena-hint {
+  text-align: center;
+  color: #94a3b8;
+  font-size: 12px;
+}
+.arena-my-result {
+  text-align: center;
+  border-radius: 14px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin: 0 12px;
+}
+.arena-my-result.correct {
+  background: rgba(52,211,153,0.16);
+  color: #34d399;
+}
+.arena-my-result.wrong {
+  background: rgba(239,68,68,0.16);
+  color: #fca5a5;
+}
+.arena-my-result strong {
+  font-size: 22px;
+}
+.arena-score-gained {
+  font-size: 18px;
+  font-weight: 700;
+  color: #fcd34d;
+}
+.arena-progress {
+  padding: 0 12px;
+}
+.arena-progress small {
+  color: #94a3b8;
+  font-size: 12px;
+}
+.arena-progress-bar {
+  height: 6px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-top: 4px;
+}
+.arena-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #f59e0b, #ef4444);
+  transition: width 0.3s ease;
+}
+
+/* ===== Leaderboard ===== */
+.arena-leaderboard-screen { padding-top: 8px; }
+.arena-correct-answers {
+  text-align: center;
+  background: rgba(245,158,11,0.10);
+  border: 1px solid rgba(245,158,11,0.24);
+  border-radius: 14px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.arena-correct-answers strong {
+  font-size: 14px;
+  color: #fcd34d;
+}
+.arena-correct-answers small {
+  font-size: 11px;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.arena-correct-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  justify-content: center;
+}
+.arena-correct-chip {
+  background: rgba(245,158,11,0.20);
+  color: #fcd34d;
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+}
+.arena-correct-chip.more {
+  background: rgba(255,255,255,0.06);
+  color: #94a3b8;
+}
+.arena-leaderboard-list {
+  background: rgba(255,255,255,0.04);
+  border-radius: 14px;
+  padding: 14px;
+}
+.arena-leaderboard-title {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+.arena-leader-row {
+  display: grid;
+  grid-template-columns: 40px 1fr auto;
+  align-items: center;
+  gap: 12px;
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 4px;
+  font-size: 14px;
+  position: relative;
+}
+.arena-leader-row.me {
+  background: rgba(245,158,11,0.16);
+}
+.arena-leader-row.top-1 {
+  background: linear-gradient(90deg, rgba(252,211,77,0.22), rgba(245,158,11,0.10));
+}
+.arena-leader-row.top-2 {
+  background: linear-gradient(90deg, rgba(203,213,225,0.16), rgba(255,255,255,0.05));
+}
+.arena-leader-row.top-3 {
+  background: linear-gradient(90deg, rgba(217,119,6,0.16), rgba(245,158,11,0.05));
+}
+.arena-leader-rank {
+  font-weight: 800;
+  text-align: center;
+  color: #94a3b8;
+}
+.arena-leader-row.top-1 .arena-leader-rank { color: #fcd34d; }
+.arena-leader-row.top-2 .arena-leader-rank { color: #cbd5e1; }
+.arena-leader-row.top-3 .arena-leader-rank { color: #fb923c; }
+.arena-leader-name {
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.arena-leader-score {
+  font-weight: 800;
+  color: #f59e0b;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.arena-leader-gain {
+  background: rgba(52,211,153,0.20);
+  color: #34d399;
+  padding: 2px 6px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-style: normal;
+  animation: arenaPop 0.4s ease;
+}
+@keyframes arenaPop {
+  0% { transform: scale(0); opacity: 0; }
+  60% { transform: scale(1.2); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* ===== Final ===== */
+.arena-final-screen {
+  align-items: center;
+  text-align: center;
+}
+.arena-final-trophy {
+  font-size: 80px;
+  margin-top: 20px;
+  animation: arenaSpin 2s ease;
+}
+@keyframes arenaSpin {
+  0% { transform: rotate(0deg) scale(0); }
+  100% { transform: rotate(360deg) scale(1); }
+}
+.arena-final-title {
+  font-size: 28px;
+  margin: 8px 0 0;
+}
+.arena-final-sub {
+  color: #94a3b8;
+  font-size: 13px;
+  margin-bottom: 16px;
+}
+.arena-final-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+  width: 100%;
+  max-width: 480px;
+}
+.arena-share, .arena-exit { flex: 1; }
+.arena-exit { background: rgba(255,255,255,0.10); }
+
+/* ===== Info ===== */
+.arena-info {
+  background: rgba(255,255,255,0.04);
+  border-radius: 14px;
+  padding: 16px;
+  margin-top: 8px;
+}
+.arena-info p {
+  margin: 0 0 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #cbd5e1;
+}
+.arena-info ul {
+  margin: 0;
+  padding-left: 18px;
+  color: #94a3b8;
+  font-size: 13px;
+  line-height: 1.6;
+}
+.arena-info li { margin-bottom: 4px; }
+
+.arena-loading {
+  text-align: center;
+  color: #94a3b8;
+  padding: 40px;
+  font-size: 14px;
+}
+
+/* Anasayfa Arena buton rengi (App.jsx mode card için) */
+.mode-card-arena::before {
+  background: linear-gradient(180deg, #f59e0b 0%, #ef4444 100%) !important;
+}
+
 `;
