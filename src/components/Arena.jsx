@@ -985,59 +985,61 @@ function ArenaQuestion({ room, question, players, answers, myAnswer, answerInput
 
       {!myAnswer ? (
         <div className="arena-answer-area">
-          <div className="arena-autocomplete-wrap">
-            <input
-              type="text"
-              value={answerInput}
-              onChange={(e) => {
-                setAnswerInput(e.target.value);
-                setFocused(true);
-              }}
-              onFocus={() => {
-                if (answerInput) setFocused(true);
-              }}
-              onBlur={() => setTimeout(() => setFocused(false), 150)}
-              onKeyDown={(e) => {
-                if (e.key === "Enter" && answerInput.trim()) onSubmit();
-              }}
-              placeholder={t("arena_answer_placeholder")}
-              autoFocus
-              autoComplete="off"
-              autoCorrect="off"
-              autoCapitalize="off"
-              spellCheck={false}
-              enterKeyHint="search"
-              maxLength={50}
-              className="arena-input arena-answer-input"
-            />
+          <div className="arena-answer-row">
+            <div className="arena-autocomplete-wrap">
+              <input
+                type="text"
+                value={answerInput}
+                onChange={(e) => {
+                  setAnswerInput(e.target.value);
+                  setFocused(true);
+                }}
+                onFocus={() => {
+                  if (answerInput) setFocused(true);
+                }}
+                onBlur={() => setTimeout(() => setFocused(false), 150)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" && answerInput.trim()) onSubmit();
+                }}
+                placeholder={t("arena_answer_placeholder")}
+                autoFocus
+                autoComplete="off"
+                autoCorrect="off"
+                autoCapitalize="off"
+                spellCheck={false}
+                enterKeyHint="search"
+                maxLength={50}
+                className="arena-input arena-answer-input"
+              />
 
-            {focused && suggestions.length > 0 && (
-              <div className="arena-suggestions">
-                {suggestions.map((p) => (
-                  <button
-                    key={p.name}
-                    type="button"
-                    onMouseDown={(e) => {
-                      e.preventDefault();
-                      selectSuggestion(p.name);
-                    }}
-                    onClick={() => selectSuggestion(p.name)}
-                  >
-                    {p.name}
-                  </button>
-                ))}
-              </div>
-            )}
+              {focused && suggestions.length > 0 && (
+                <div className="arena-suggestions">
+                  {suggestions.map((p) => (
+                    <button
+                      key={p.name}
+                      type="button"
+                      onMouseDown={(e) => {
+                        e.preventDefault();
+                        selectSuggestion(p.name);
+                      }}
+                      onClick={() => selectSuggestion(p.name)}
+                    >
+                      {p.name}
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            <button
+              type="button"
+              onClick={onSubmit}
+              disabled={!answerInput.trim()}
+              className="arena-check-btn"
+            >
+              {t("btn_check")}
+            </button>
           </div>
-
-          <button
-            type="button"
-            onClick={onSubmit}
-            disabled={!answerInput.trim()}
-            className="arena-cta arena-submit"
-          >
-            {t("arena_submit")}
-          </button>
           <small className="arena-hint">{t("arena_one_shot_hint")}</small>
         </div>
       ) : (

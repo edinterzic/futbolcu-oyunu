@@ -9145,9 +9145,48 @@ button:focus-visible {
   gap: 10px;
   padding: 0 12px;
 }
+/* Marathon answer-row ile aynı düzen: input | check butonu */
+.arena-answer-row {
+  display: grid;
+  grid-template-columns: 7fr 3fr;
+  gap: 8px;
+}
+.arena-autocomplete-wrap {
+  position: relative;
+}
 .arena-answer-input {
   font-size: 17px;
   padding: 14px 16px;
+  width: 100%;
+  min-height: 50px;
+}
+.arena-check-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 12px 16px;
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: #fff;
+  border: 0;
+  border-radius: 12px;
+  font-weight: 800;
+  font-size: 15px;
+  letter-spacing: -0.01em;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-height: 50px;
+}
+.arena-check-btn:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.35);
+}
+.arena-check-btn:active:not(:disabled) {
+  transform: translateY(0) scale(0.98);
+}
+.arena-check-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 .arena-submit { font-size: 16px; }
 .arena-hint {
@@ -9340,6 +9379,14 @@ button:focus-visible {
 .arena-final-title {
   font-size: 28px;
   margin: 8px 0 0;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  background: linear-gradient(135deg, #fcd34d 0%, #f59e0b 50%, #ef4444 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: #fcd34d; /* fallback */
+  text-shadow: 0 0 30px rgba(245, 158, 11, 0.35);
 }
 .arena-final-sub {
   color: #94a3b8;
