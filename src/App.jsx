@@ -9232,4 +9232,56 @@ button:focus-visible {
   background: linear-gradient(180deg, #f59e0b 0%, #ef4444 100%) !important;
 }
 
+/* Autocomplete (suggestions) */
+.arena-autocomplete-wrap {
+  position: relative;
+  width: 100%;
+}
+.arena-suggestions {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  background: #1a1a2e;
+  border: 1px solid rgba(255,255,255,0.10);
+  border-radius: 10px;
+  overflow: hidden;
+  z-index: 50;
+  max-height: 240px;
+  overflow-y: auto;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.45);
+}
+.arena-suggestions button {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: transparent;
+  border: 0;
+  color: #f1f5f9;
+  padding: 10px 14px;
+  font-size: 15px;
+  cursor: pointer;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+.arena-suggestions button:last-child { border-bottom: 0; }
+.arena-suggestions button:hover {
+  background: rgba(245,158,11,0.16);
+  color: #fcd34d;
+}
+
+/* Correct answers — logoyla birlikte */
+.arena-correct-clubs {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.arena-correct-clubs strong {
+  font-size: 14px;
+  color: #fcd34d;
+}
+
+/* Question clubs — TeamLogo size override */
+.arena-question-clubs .team-logo { --logo-size: 64px; }
+
 `;

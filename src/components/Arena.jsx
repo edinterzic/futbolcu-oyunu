@@ -2,29 +2,138 @@
 // PairFC Arena — Çok Kişili Canlı Yarışma Modu
 // =============================================
 // Akış:
-// 1. Anasayfa → "Arena" tıklanır → onStart props ile çağrılır
-// 2. Setup ekranı: Kullanıcı "Oda Aç" veya "Odaya Katıl" seçer
-// 3. Host: tur sayısı + rumuz girer → oda oluşturulur (PIN üretilir) → lobi
-// 4. Misafir: PIN + rumuz girer → odaya katılır → lobi
-// 5. Lobi: host "Başlat"a basana kadar bekleme (gerçek zamanlı oyuncu listesi)
-// 6. Soru: 20 saniye, herkes tek cevap hakkı, paralel
-// 7. Leaderboard: 10 saniye liderlik tablosu + geri sayım, sonra otomatik bir sonraki
-// 8. Final: tüm turlar bitince büyük scoreboard
+// 1. Setup: "Yayıncı Ol" veya "Odaya Katıl"
+// 2. Host: tur sayısı + rumuz → oda + PIN üretilir → lobi
+// 3. Misafir: PIN + rumuz → odaya katılır → lobi
+// 4. Lobi: host "Başlat"a basana kadar bekleme
+// 5. Soru: 20 saniye, tek cevap hakkı, paralel
+// 6. Leaderboard: 10 saniye, otomatik sıradaki
+// 7. Final: scoreboard + paylaş
 
-import React, { useEffect, useMemo, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import {
   generateArenaQuestions,
   checkArenaAnswer,
   calculateArenaScore,
   makeArenaPin,
+  getArenaSuggestions,
 } from "../utils/arenaQuestions";
 import { TEAM_LOGOS } from "../data/teamLogos";
+import { SOUND_FILES } from "../data/sounds";
 
-const QUESTION_DURATION_MS = 20000; // 20 saniye soru
-const LEADERBOARD_DURATION_MS = 10000; // 10 saniye leaderboard
+const QUESTION_DURATION_MS = 20000;
+const LEADERBOARD_DURATION_MS = 10000;
 const MAX_PLAYERS_PER_ROOM = 50;
 
-// Yardımcı: tek satırlık formatlanmış zamanlayıcı
+// ============================================
+// SES SİSTEMİ — App.jsx'in _audioPool'unu paylaşır
+// (window'a expose edildiği için aynı havuzu kullanır)
+// ============================================
+const _arenaAudioPool = {};
+
+function initArenaAudio() {
+  if (typeof window === "undefined") return;
+  Object.keys(SOUND_FILES).forEach((name) => {
+    if (_arenaAudioPool[name]) return;
+    try {
+      const audio = new Audio(SOUND_FILES[name]);
+      audio.preload = "auto";
+      audio.volume = 0.55;
+      _arenaAudioPool[name] = audio;
+    } catch {}
+  });
+}
+
+function playArenaSound(soundName) {
+  if (typeof window === "undefined") return;
+  if (window.localStorage.getItem("footballGameMuted") === "true") return;
+
+  // App.jsx'le aynı semantik
+  const soundMap = {
+    correct: "correct",
+    wrong: "wrong",
+    matchEnd: "matchEnd",
+    countdown: "countdown",
+    urgentTick: "urgentTick",
+    combo: "combo",
+  };
+  const fileKey = soundMap[soundName] || soundName;
+  initArenaAudio();
+  const audio = _arenaAudioPool[fileKey];
+  if (!audio) return;
+
+  try {
+    audio.currentTime = 0;
+    const p = audio.play();
+    if (p && typeof p.catch === "function") p.catch(() => {});
+  } catch {}
+}
+
+// ============================================
+// TEAM LOGO — App.jsx'tekiyle aynı (TEAM_LOGOS objesinden gradient + harf)
+// ============================================
+function clubAutoText(hex) {
+  if (typeof hex !== "string" || hex[0] !== "#") return "#ffffff";
+  let h = hex.slice(1);
+  if (h.length === 3) h = h.split("").map((c) => c + c).join("");
+  const r = parseInt(h.slice(0, 2), 16) / 255;
+  const g = parseInt(h.slice(2, 4), 16) / 255;
+  const b = parseInt(h.slice(4, 6), 16) / 255;
+  return (0.2126 * r + 0.7152 * g + 0.0722 * b) > 0.62 ? "#15172c" : "#ffffff";
+}
+
+function clubAutoAbbr(name) {
+  const w = String(name).replace(/[^A-Za-zÇĞİÖŞÜçğıöşü\s]/g, "").trim().split(/\s+/).filter(Boolean);
+  if (w.length >= 2) return w.slice(0, 3).map((x) => x[0]).join("").toLocaleUpperCase("tr");
+  return String(name).slice(0, 3).toLocaleUpperCase("tr");
+}
+
+function clubHash(s) {
+  let h = 0;
+  for (let i = 0; i < s.length; i++) h = (h * 31 + s.charCodeAt(i)) | 0;
+  return Math.abs(h);
+}
+
+function clubStyle(teamName) {
+  const d = TEAM_LOGOS[teamName];
+  if (d && d.primary) {
+    return {
+      c1: d.primary,
+      c2: d.secondary || "#ffffff",
+      abbr: d.initials || clubAutoAbbr(teamName),
+      text: clubAutoText(d.primary),
+    };
+  }
+  const hue = clubHash(teamName) % 360;
+  return {
+    c1: `hsl(${hue} 52% 36%)`,
+    c2: `hsl(${hue} 68% 72%)`,
+    abbr: clubAutoAbbr(teamName),
+    text: "#ffffff",
+  };
+}
+
+function TeamLogo({ teamName, size = "md" }) {
+  const { c1, c2, abbr, text } = clubStyle(teamName);
+  return (
+    <div
+      className={`team-logo size-${size}`}
+      style={{
+        "--team-primary": c1,
+        "--team-secondary": c2,
+        "--team-text": text,
+      }}
+      aria-label={teamName}
+    >
+      <span className="team-logo__bar" aria-hidden="true"></span>
+      <span className="team-logo__abbr">{abbr}</span>
+    </div>
+  );
+}
+
+// ============================================
+// Yardımcı: timer formatla
+// ============================================
 function formatMs(ms) {
   if (ms <= 0) return "0";
   return Math.ceil(ms / 1000).toString();
@@ -34,10 +143,8 @@ function formatMs(ms) {
 // Ana Arena bileşeni
 // =============================================
 export default function Arena({ supabase, onExit }) {
-  // Setup ekranı: null | "create" | "join"
   const [setupMode, setSetupMode] = useState(null);
 
-  // Kalıcı kullanıcı ID (anonim)
   const userIdRef = useRef(null);
   if (!userIdRef.current) {
     let uid = localStorage.getItem("pairfc_arena_uid");
@@ -48,25 +155,39 @@ export default function Arena({ supabase, onExit }) {
     userIdRef.current = uid;
   }
 
-  // Oda + oyuncu state
   const [room, setRoom] = useState(null);
   const [players, setPlayers] = useState([]);
   const [currentQuestion, setCurrentQuestion] = useState(null);
-  const [myAnswer, setMyAnswer] = useState(null); // {is_correct, score, response_time_ms}
-  const [answers, setAnswers] = useState([]); // tüm cevaplar (mevcut soru için)
+  const [myAnswer, setMyAnswer] = useState(null);
+  const [answers, setAnswers] = useState([]);
   const [error, setError] = useState(null);
-
-  // Cevap input
   const [answerInput, setAnswerInput] = useState("");
 
   // Timer
   const [now, setNow] = useState(Date.now());
+  const lastTickSecondRef = useRef(-1);
   useEffect(() => {
     const id = setInterval(() => setNow(Date.now()), 200);
     return () => clearInterval(id);
   }, []);
 
-  // Realtime subscription
+  // Son 5 saniyede urgent tick sesi (her saniye bir kere)
+  useEffect(() => {
+    if (!room || room.status !== "question" || myAnswer) {
+      lastTickSecondRef.current = -1;
+      return;
+    }
+    const startMs = new Date(room.phase_started_at).getTime();
+    const elapsed = now - startMs;
+    const remaining = QUESTION_DURATION_MS - elapsed;
+    const remainingSec = Math.ceil(remaining / 1000);
+    if (remainingSec > 0 && remainingSec <= 5 && remainingSec !== lastTickSecondRef.current) {
+      lastTickSecondRef.current = remainingSec;
+      playArenaSound("urgentTick");
+    }
+  }, [now, room?.status, room?.phase_started_at, myAnswer]);
+
+  // Realtime subscriptions
   useEffect(() => {
     if (!room?.id || !supabase) return;
     const channel = supabase
@@ -108,7 +229,6 @@ export default function Arena({ supabase, onExit }) {
         (payload) => {
           if (payload.new) {
             setAnswers((prev) => [...prev, payload.new]);
-            // Eğer cevap benim ise, kendi cevap bilgimi de set et
             if (payload.new.user_id === userIdRef.current) {
               setMyAnswer(payload.new);
             }
@@ -122,7 +242,7 @@ export default function Arena({ supabase, onExit }) {
     };
   }, [room?.id, supabase]);
 
-  // İlk yüklemede mevcut oyuncu listesini çek
+  // İlk yüklemede mevcut state'i çek
   useEffect(() => {
     if (!room?.id || !supabase) return;
     (async () => {
@@ -133,7 +253,6 @@ export default function Arena({ supabase, onExit }) {
         .order("total_score", { ascending: false });
       if (pl) setPlayers(pl);
 
-      // Mevcut bir soru varsa onu da çek
       if (room.current_question_id) {
         const { data: q } = await supabase
           .from("arena_questions")
@@ -168,7 +287,6 @@ export default function Arena({ supabase, onExit }) {
     const cleanName = hostName.trim().slice(0, 20) || "Yayıncı";
     const rounds = Math.max(5, Math.min(30, parseInt(totalRounds, 10) || 10));
 
-    // Unique PIN bul (denemeyle)
     let pin = makeArenaPin();
     for (let attempt = 0; attempt < 5; attempt++) {
       const { data: existing } = await supabase
@@ -198,7 +316,6 @@ export default function Arena({ supabase, onExit }) {
       return;
     }
 
-    // Host'u da katılımcı olarak ekle (kendi puanı için)
     await supabase.from("arena_players").insert({
       room_id: newRoom.id,
       user_id: userIdRef.current,
@@ -241,7 +358,6 @@ export default function Arena({ supabase, onExit }) {
       return;
     }
 
-    // Mevcut oyuncu sayısını kontrol et
     const { count } = await supabase
       .from("arena_players")
       .select("*", { count: "exact", head: true })
@@ -252,7 +368,6 @@ export default function Arena({ supabase, onExit }) {
       return;
     }
 
-    // Aynı user_id ile tekrar katılım — sadece set
     const { error: joinErr } = await supabase
       .from("arena_players")
       .upsert(
@@ -274,30 +389,26 @@ export default function Arena({ supabase, onExit }) {
   };
 
   // ============================================
-  // Oyunu Başlatma (sadece host)
+  // Oyunu Başlatma (host)
   // ============================================
   const startGame = async () => {
     if (!room || room.host_id !== userIdRef.current) return;
     setError(null);
 
-    // 1. Soruları üret
     const questions = generateArenaQuestions(room.total_rounds);
     if (questions.length === 0) {
       setError("Soru havuzu boş.");
       return;
     }
 
-    // 2. İlk soruyu insert et
     await startNextRound(1, questions[0]);
 
-    // 3. Soru havuzunu localStorage'a sakla (sadece host)
     localStorage.setItem(
       `pairfc_arena_q_${room.id}`,
       JSON.stringify(questions)
     );
   };
 
-  // Bir sonraki soruyu başlat (host)
   const startNextRound = async (roundNumber, questionData) => {
     if (!room) return;
 
@@ -318,7 +429,6 @@ export default function Arena({ supabase, onExit }) {
       return;
     }
 
-    // Odayı güncelle: yeni soru + status=question + phase başlangıcı
     await supabase
       .from("arena_rooms")
       .update({
@@ -330,11 +440,9 @@ export default function Arena({ supabase, onExit }) {
       .eq("id", room.id);
   };
 
-  // Soru süresi bitti, leaderboard'a geç (host)
   const moveToLeaderboard = async () => {
     if (!room || room.host_id !== userIdRef.current) return;
 
-    // Bu soru için herkesin puanını oyuncu toplam puanına ekle
     const { data: thisAnswers } = await supabase
       .from("arena_answers")
       .select("user_id, score")
@@ -343,7 +451,6 @@ export default function Arena({ supabase, onExit }) {
     if (thisAnswers) {
       for (const a of thisAnswers) {
         if (a.score > 0) {
-          // Atomik: önce şu anki puanı çek, sonra ekle
           const { data: pl } = await supabase
             .from("arena_players")
             .select("total_score")
@@ -370,14 +477,13 @@ export default function Arena({ supabase, onExit }) {
       .eq("id", room.id);
   };
 
-  // Leaderboard bitti, bir sonraki soruya geç veya finish (host)
   const moveToNextOrFinish = async () => {
     if (!room || room.host_id !== userIdRef.current) return;
 
     const nextRound = room.current_round + 1;
 
     if (nextRound > room.total_rounds) {
-      // Oyun bitti
+      playArenaSound("matchEnd");
       await supabase
         .from("arena_rooms")
         .update({
@@ -388,7 +494,6 @@ export default function Arena({ supabase, onExit }) {
       return;
     }
 
-    // Sıradaki soruyu localStorage'dan al
     const stored = JSON.parse(localStorage.getItem(`pairfc_arena_q_${room.id}`) || "[]");
     const nextQ = stored[nextRound - 1];
     if (!nextQ) {
@@ -399,7 +504,7 @@ export default function Arena({ supabase, onExit }) {
   };
 
   // ============================================
-  // Cevap gönderme (oyuncu — host dahil)
+  // Cevap Gönderme — burada ses + UX
   // ============================================
   const submitAnswer = async () => {
     if (!currentQuestion || myAnswer) return;
@@ -408,7 +513,7 @@ export default function Arena({ supabase, onExit }) {
 
     const startMs = new Date(room.phase_started_at).getTime();
     const responseTimeMs = Date.now() - startMs;
-    if (responseTimeMs > QUESTION_DURATION_MS) return; // süre bitti
+    if (responseTimeMs > QUESTION_DURATION_MS) return;
 
     const isCorrect = checkArenaAnswer(trimmed, currentQuestion.correct_answers);
     const score = calculateArenaScore(isCorrect, responseTimeMs, QUESTION_DURATION_MS);
@@ -427,16 +532,16 @@ export default function Arena({ supabase, onExit }) {
       score,
     });
 
-    if (ansErr) {
-      // Duplicate veya hata - sessizce geç
-      console.warn("Cevap kaydı:", ansErr.message);
+    // Ses çal
+    if (!ansErr) {
+      playArenaSound(isCorrect ? "correct" : "wrong");
     }
 
     setAnswerInput("");
   };
 
   // ============================================
-  // Faz timer'ları (host otomatik geçiş)
+  // Faz otomatik geçişler (host)
   // ============================================
   const isHost = room?.host_id === userIdRef.current;
 
@@ -491,8 +596,6 @@ export default function Arena({ supabase, onExit }) {
   // ============================================
   // RENDER
   // ============================================
-
-  // Setup ekranı (oda yok)
   if (!room) {
     return (
       <ArenaSetup
@@ -506,7 +609,6 @@ export default function Arena({ supabase, onExit }) {
     );
   }
 
-  // Lobi
   if (room.status === "lobby") {
     return (
       <ArenaLobby
@@ -520,7 +622,6 @@ export default function Arena({ supabase, onExit }) {
     );
   }
 
-  // Soru fazı
   if (room.status === "question") {
     const startMs = new Date(room.phase_started_at).getTime();
     const remainingMs = Math.max(0, QUESTION_DURATION_MS - (now - startMs));
@@ -540,7 +641,6 @@ export default function Arena({ supabase, onExit }) {
     );
   }
 
-  // Leaderboard
   if (room.status === "leaderboard") {
     const startMs = new Date(room.phase_started_at).getTime();
     const remainingMs = Math.max(0, LEADERBOARD_DURATION_MS - (now - startMs));
@@ -558,7 +658,6 @@ export default function Arena({ supabase, onExit }) {
     );
   }
 
-  // Final
   if (room.status === "finished") {
     return (
       <ArenaFinal
@@ -574,7 +673,7 @@ export default function Arena({ supabase, onExit }) {
 }
 
 // =============================================
-// ArenaSetup — Oda aç / Odaya katıl seçimi
+// ArenaSetup
 // =============================================
 function ArenaSetup({ setupMode, setSetupMode, onCreate, onJoin, onExit, error }) {
   const [hostName, setHostName] = useState(() => localStorage.getItem("pairfc_player_name") || "");
@@ -619,7 +718,7 @@ function ArenaSetup({ setupMode, setSetupMode, onCreate, onJoin, onExit, error }
             <li>Yayıncı oda açar, 6 haneli PIN üretilir.</li>
             <li>Katılımcılar PIN ile odaya girer (en fazla 50 kişi).</li>
             <li>Her soruda 2 takım gösterilir, 20 saniye içinde ortak oyuncuyu yazarsın.</li>
-            <li>Hızlı doğru cevap = daha çok puan.</li>
+            <li>Hızlı doğru cevap = daha çok puan (1000 baz + 500 hız bonus).</li>
             <li>Yayıncı kaç soru sorulacağını seçer (5–30).</li>
           </ul>
         </div>
@@ -742,11 +841,9 @@ function ArenaSetup({ setupMode, setSetupMode, onCreate, onJoin, onExit, error }
 }
 
 // =============================================
-// ArenaLobby — Bekleme odası
+// ArenaLobby
 // =============================================
 function ArenaLobby({ room, players, isHost, userId, onStart, onLeave }) {
-  const myPlayer = players.find((p) => p.user_id === userId);
-
   return (
     <div className="arena-screen">
       <div className="arena-header">
@@ -802,9 +899,21 @@ function ArenaLobby({ room, players, isHost, userId, onStart, onLeave }) {
 }
 
 // =============================================
-// ArenaQuestion — Soru ekranı (20 saniye)
+// ArenaQuestion — soru ekranı + autocomplete + logo
 // =============================================
 function ArenaQuestion({ room, question, players, answers, myAnswer, answerInput, setAnswerInput, onSubmit, remainingMs, isHost }) {
+  const [focused, setFocused] = useState(false);
+  const [suggestions, setSuggestions] = useState([]);
+
+  // Input değişince suggestion güncelle
+  useEffect(() => {
+    if (!answerInput || myAnswer) {
+      setSuggestions([]);
+      return;
+    }
+    setSuggestions(getArenaSuggestions(answerInput));
+  }, [answerInput, myAnswer]);
+
   if (!question) {
     return (
       <div className="arena-screen">
@@ -817,9 +926,10 @@ function ArenaQuestion({ room, question, players, answers, myAnswer, answerInput
   const isLowTime = remainingMs < 5000;
   const answeredCount = answers.length;
 
-  // Kulüp logosu URL (gameData'da TEAM_LOGOS dict)
-  const logoA = TEAM_LOGOS[question.club_a] || null;
-  const logoB = TEAM_LOGOS[question.club_b] || null;
+  const selectSuggestion = (name) => {
+    setAnswerInput(name);
+    setFocused(false);
+  };
 
   return (
     <div className="arena-screen arena-question-screen">
@@ -834,12 +944,12 @@ function ArenaQuestion({ room, question, players, answers, myAnswer, answerInput
 
       <div className="arena-question-clubs">
         <div className="arena-club">
-          {logoA && <img src={logoA} alt={question.club_a} className="arena-club-logo" />}
+          <TeamLogo teamName={question.club_a} size="md" />
           <strong>{question.club_a}</strong>
         </div>
         <div className="arena-vs">×</div>
         <div className="arena-club">
-          {logoB && <img src={logoB} alt={question.club_b} className="arena-club-logo" />}
+          <TeamLogo teamName={question.club_b} size="md" />
           <strong>{question.club_b}</strong>
         </div>
       </div>
@@ -850,18 +960,51 @@ function ArenaQuestion({ room, question, players, answers, myAnswer, answerInput
 
       {!myAnswer ? (
         <div className="arena-answer-area">
-          <input
-            type="text"
-            value={answerInput}
-            onChange={(e) => setAnswerInput(e.target.value)}
-            onKeyDown={(e) => {
-              if (e.key === "Enter" && answerInput.trim()) onSubmit();
-            }}
-            placeholder="Oyuncu adı (örn: Sneijder)"
-            autoFocus
-            maxLength={50}
-            className="arena-input arena-answer-input"
-          />
+          <div className="arena-autocomplete-wrap">
+            <input
+              type="text"
+              value={answerInput}
+              onChange={(e) => {
+                setAnswerInput(e.target.value);
+                setFocused(true);
+              }}
+              onFocus={() => {
+                if (answerInput) setFocused(true);
+              }}
+              onBlur={() => setTimeout(() => setFocused(false), 150)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" && answerInput.trim()) onSubmit();
+              }}
+              placeholder="Oyuncu adı (örn: Sneijder)"
+              autoFocus
+              autoComplete="off"
+              autoCorrect="off"
+              autoCapitalize="off"
+              spellCheck={false}
+              enterKeyHint="search"
+              maxLength={50}
+              className="arena-input arena-answer-input"
+            />
+
+            {focused && suggestions.length > 0 && (
+              <div className="arena-suggestions">
+                {suggestions.map((p) => (
+                  <button
+                    key={p.name}
+                    type="button"
+                    onMouseDown={(e) => {
+                      e.preventDefault();
+                      selectSuggestion(p.name);
+                    }}
+                    onClick={() => selectSuggestion(p.name)}
+                  >
+                    {p.name}
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
+
           <button
             type="button"
             onClick={onSubmit}
@@ -897,13 +1040,11 @@ function ArenaQuestion({ room, question, players, answers, myAnswer, answerInput
 }
 
 // =============================================
-// ArenaLeaderboard — Tur sonu liderlik
+// ArenaLeaderboard
 // =============================================
 function ArenaLeaderboard({ room, players, question, answers, myAnswer, userId, remainingMs, isLastRound }) {
   const sorted = [...players].sort((a, b) => b.total_score - a.total_score);
   const seconds = formatMs(remainingMs);
-
-  // Doğru cevaplar listesi
   const correctList = question?.correct_answers || [];
 
   return (
@@ -918,7 +1059,11 @@ function ArenaLeaderboard({ room, players, question, answers, myAnswer, userId, 
       </div>
 
       <div className="arena-correct-answers">
-        <strong>{question?.club_a} × {question?.club_b}</strong>
+        <div className="arena-correct-clubs">
+          <TeamLogo teamName={question?.club_a} size="sm" />
+          <strong>{question?.club_a} × {question?.club_b}</strong>
+          <TeamLogo teamName={question?.club_b} size="sm" />
+        </div>
         <small>Doğru cevaplar:</small>
         <div className="arena-correct-chips">
           {correctList.slice(0, 8).map((a) => (
@@ -953,7 +1098,7 @@ function ArenaLeaderboard({ room, players, question, answers, myAnswer, userId, 
 }
 
 // =============================================
-// ArenaFinal — Final scoreboard
+// ArenaFinal
 // =============================================
 function ArenaFinal({ room, players, userId, onExit }) {
   const sorted = [...players].sort((a, b) => b.total_score - a.total_score);

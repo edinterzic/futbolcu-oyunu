@@ -1,24 +1,76 @@
 // =============================================
-// PairFC Arena — Otomatik Soru Üretimi
+// PairFC Arena — Otomatik Soru Üretimi + Yardımcılar
 // =============================================
 // players.js'ten kaliteli (ortak oyuncu sayısı yeterli) soru çiftleri üretir.
 // Bir soru = (Kulüp A, Kulüp B, Cevap Havuzu).
-// Cevap havuzu en az 3 oyuncu içermeli ki tahmini kolay yapılamasın
-// ama "anlaşılabilir" zorlukta kalsın.
 
 import { PLAYERS, TEAMS } from "../data/gameData";
 
 const MIN_ANSWERS_PER_PAIR = 3;
-const MAX_ANSWERS_PER_PAIR = 30; // çok genel çiftler de istemiyoruz (örn Real Madrid+Barcelona 50+)
+const MAX_ANSWERS_PER_PAIR = 30; // çok genel çiftler de istemiyoruz
 
-// Bir kez build edilir: tüm geçerli kulüp çiftlerini ve cevaplarını çıkarır.
+// Normalize fonksiyonu (Türkçe + diakritik)
+export function normalizeAnswer(value) {
+  return String(value || "")
+    .toLocaleLowerCase("tr-TR")
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[ı]/g, "i")
+    .replace(/[ğ]/g, "g")
+    .replace(/[ü]/g, "u")
+    .replace(/[ş]/g, "s")
+    .replace(/[ç]/g, "c")
+    .replace(/[ö]/g, "o")
+    .replace(/[^a-z0-9]/g, "")
+    .trim();
+}
+
+// Bir oyuncunun suggestion token'larını çıkar (isim + alias + her bir kelime)
+function buildSuggestionTokens(player) {
+  const rawValues = [player.name, ...(player.aliases || [])];
+  const tokenSet = new Set();
+  rawValues.forEach((value) => {
+    const text = String(value || "").trim();
+    if (!text) return;
+    tokenSet.add(normalizeAnswer(text));
+    text.replaceAll("-", " ")
+      .split(" ")
+      .map((part) => normalizeAnswer(part))
+      .filter(Boolean)
+      .forEach((part) => tokenSet.add(part));
+  });
+  return Array.from(tokenSet);
+}
+
+// SORTED_PLAYERS: alfabetik, suggestionTokens dahil — bir kez build
+let cachedSortedPlayers = null;
+function getSortedPlayers() {
+  if (cachedSortedPlayers) return cachedSortedPlayers;
+  cachedSortedPlayers = PLAYERS
+    .map((p) => ({
+      name: p.name,
+      suggestionTokens: buildSuggestionTokens(p)
+    }))
+    .sort((a, b) => a.name.localeCompare(b.name, "tr-TR"));
+  return cachedSortedPlayers;
+}
+
+// Input için suggestion oyuncuları döner (top 6)
+export function getArenaSuggestions(userInput) {
+  const query = normalizeAnswer(userInput);
+  if (query.length < 1) return [];
+  return getSortedPlayers()
+    .filter((p) => p.suggestionTokens.some((t) => t.startsWith(query)))
+    .slice(0, 6);
+}
+
+// Bir kez build edilir: tüm geçerli kulüp çiftlerini ve cevaplarını çıkarır
 let cachedPairs = null;
-
 function buildArenaPairs() {
   if (cachedPairs) return cachedPairs;
 
   const teamSet = new Set(TEAMS);
-  const pairMap = new Map(); // "TeamA||TeamB" -> [oyuncu adları]
+  const pairMap = new Map();
 
   for (const p of PLAYERS) {
     const clubs = (p.clubs || []).filter((c) => teamSet.has(c));
@@ -33,7 +85,6 @@ function buildArenaPairs() {
     }
   }
 
-  // Geçerli çiftler: 3-30 cevap aralığında
   const valid = [];
   for (const [key, answers] of pairMap.entries()) {
     if (answers.length < MIN_ANSWERS_PER_PAIR) continue;
@@ -47,7 +98,7 @@ function buildArenaPairs() {
   return valid;
 }
 
-// n adet rastgele, tekrar etmeyen soru üretir.
+// n adet rastgele, tekrar etmeyen soru üretir
 export function generateArenaQuestions(count) {
   const pool = buildArenaPairs();
   if (pool.length === 0) return [];
@@ -65,30 +116,13 @@ export function generateArenaQuestions(count) {
   }));
 }
 
-// Normalize: cevap doğrulamasında i18n/türkçe karakter eşleştirmesi
-export function normalizeAnswer(value) {
-  return String(value || "")
-    .toLocaleLowerCase("tr-TR")
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .replace(/[ı]/g, "i")
-    .replace(/[ğ]/g, "g")
-    .replace(/[ü]/g, "u")
-    .replace(/[ş]/g, "s")
-    .replace(/[ç]/g, "c")
-    .replace(/[ö]/g, "o")
-    .replace(/[^a-z0-9]/g, "")
-    .trim();
-}
-
-// Bir tahmin doğru mu? (cevap havuzunda var mı)
+// Bir tahmin doğru mu? Hem tam isim hem soyad eşleşmesi kabul
 export function checkArenaAnswer(guess, correctAnswers) {
   const normalized = normalizeAnswer(guess);
   if (!normalized) return false;
   return correctAnswers.some((ans) => {
     const fullNorm = normalizeAnswer(ans);
     if (fullNorm === normalized) return true;
-    // Soyadı eşleşmesi de kabul (örn "Sneijder" → "Wesley Sneijder")
     const lastWord = ans.split(/\s+/).slice(-1)[0];
     return normalizeAnswer(lastWord) === normalized;
   });
@@ -103,7 +137,7 @@ export function calculateArenaScore(isCorrect, responseTimeMs, roundDurationMs) 
   return 1000 + speedBonus;
 }
 
-// 6 haneli rastgele PIN üretir (ambiguous karakterler dahil değil)
+// 6 haneli rastgele PIN üretir
 export function makeArenaPin() {
   const digits = "0123456789";
   let pin = "";
