@@ -1,5 +1,5 @@
 // Auto-generated from admin panel
-// Generated: 2026-05-28T20:37:27.573Z
+// Generated: 2026-06-02T21:19:45.000Z
 
 export const TEAM_LOGOS = {
   "Inter": {
@@ -485,6 +485,211 @@ export const TEAM_LOGOS = {
   "Qarabag FK": {
     "initials": "QAR",
     "primary": "#000000",
+    "secondary": "#FFFFFF"
+  },
+  "AJ Auxerre": {
+    "initials": "AUX",
+    "primary": "#0046AD",
+    "secondary": "#FFFFFF"
+  },
+  "AZ Alkmaar": {
+    "initials": "AZ",
+    "primary": "#DE1B1B",
+    "secondary": "#FFFFFF"
+  },
+  "Alverca": {
+    "initials": "ALV",
+    "primary": "#E20E0E",
+    "secondary": "#FFFFFF"
+  },
+  "Angers SCO": {
+    "initials": "SCO",
+    "primary": "#000000",
+    "secondary": "#FFFFFF"
+  },
+  "Arouca": {
+    "initials": "ARO",
+    "primary": "#DC0000",
+    "secondary": "#FFCD00"
+  },
+  "Avs FS": {
+    "initials": "AVS",
+    "primary": "#00673D",
+    "secondary": "#FFD700"
+  },
+  "Brest": {
+    "initials": "BRE",
+    "primary": "#DA1F26",
+    "secondary": "#FFFFFF"
+  },
+  "Casa Pia": {
+    "initials": "CP",
+    "primary": "#000000",
+    "secondary": "#FFD700"
+  },
+  "Estoril": {
+    "initials": "EST",
+    "primary": "#1462AB",
+    "secondary": "#FFD700"
+  },
+  "Estrela Amadora": {
+    "initials": "ESA",
+    "primary": "#003F87",
+    "secondary": "#FFCD00"
+  },
+  "Excelsior": {
+    "initials": "EXC",
+    "primary": "#ED1C24",
+    "secondary": "#000000"
+  },
+  "FC Groningen": {
+    "initials": "GRO",
+    "primary": "#009A44",
+    "secondary": "#FFFFFF"
+  },
+  "FC Lorient": {
+    "initials": "LOR",
+    "primary": "#F36F1F",
+    "secondary": "#000000"
+  },
+  "FC Metz": {
+    "initials": "MET",
+    "primary": "#8C1D40",
+    "secondary": "#FFFFFF"
+  },
+  "FC Nantes": {
+    "initials": "NAN",
+    "primary": "#FFCC00",
+    "secondary": "#007934"
+  },
+  "FC Twente": {
+    "initials": "TWE",
+    "primary": "#FF0000",
+    "secondary": "#FFFFFF"
+  },
+  "FC Utrecht": {
+    "initials": "UTR",
+    "primary": "#ED1C24",
+    "secondary": "#FFFFFF"
+  },
+  "FC Volendam": {
+    "initials": "VOL",
+    "primary": "#F37021",
+    "secondary": "#000000"
+  },
+  "FC Zwolle": {
+    "initials": "ZWO",
+    "primary": "#00529F",
+    "secondary": "#FFFFFF"
+  },
+  "Famalicão": {
+    "initials": "FAM",
+    "primary": "#003F87",
+    "secondary": "#FFFFFF"
+  },
+  "Fortuna Sittard": {
+    "initials": "FOR",
+    "primary": "#FFD700",
+    "secondary": "#009A44"
+  },
+  "Gil Vicente": {
+    "initials": "GIL",
+    "primary": "#C8102E",
+    "secondary": "#003F87"
+  },
+  "Go Ahead Eagles": {
+    "initials": "GAE",
+    "primary": "#FFCD00",
+    "secondary": "#DA291C"
+  },
+  "Heerenveen": {
+    "initials": "HEE",
+    "primary": "#1E5DB5",
+    "secondary": "#FFFFFF"
+  },
+  "Hellas Verona": {
+    "initials": "HV",
+    "primary": "#143D7C",
+    "secondary": "#FFCD00"
+  },
+  "Heracles Almelo": {
+    "initials": "HER",
+    "primary": "#000000",
+    "secondary": "#FFFFFF"
+  },
+  "Le Havre AC": {
+    "initials": "LH",
+    "primary": "#1B458F",
+    "secondary": "#FFFFFF"
+  },
+  "Moreirense": {
+    "initials": "MOR",
+    "primary": "#008542",
+    "secondary": "#FFFFFF"
+  },
+  "NAC Breda": {
+    "initials": "NAC",
+    "primary": "#FFD700",
+    "secondary": "#000000"
+  },
+  "NEC Nijmegen": {
+    "initials": "NEC",
+    "primary": "#E30613",
+    "secondary": "#000000"
+  },
+  "Nacional": {
+    "initials": "CDN",
+    "primary": "#000000",
+    "secondary": "#FFFFFF"
+  },
+  "Nice": {
+    "initials": "NIC",
+    "primary": "#E30613",
+    "secondary": "#000000"
+  },
+  "Olympique Lyon": {
+    "initials": "OL",
+    "primary": "#002060",
+    "secondary": "#E30613"
+  },
+  "Paris FC": {
+    "initials": "PFC",
+    "primary": "#0033A0",
+    "secondary": "#FFFFFF"
+  },
+  "R. Strasbourg": {
+    "initials": "STR",
+    "primary": "#0033A0",
+    "secondary": "#FFFFFF"
+  },
+  "Rio Ave": {
+    "initials": "RIO",
+    "primary": "#00854A",
+    "secondary": "#C8102E"
+  },
+  "Santa Clara": {
+    "initials": "SCL",
+    "primary": "#003C7E",
+    "secondary": "#ED1C24"
+  },
+  "Sparta Rotterdam": {
+    "initials": "SPR",
+    "primary": "#ED1C24",
+    "secondary": "#000000"
+  },
+  "Telstar": {
+    "initials": "TEL",
+    "primary": "#FFFFFF",
+    "secondary": "#000000"
+  },
+  "Tondela": {
+    "initials": "TON",
+    "primary": "#008542",
+    "secondary": "#FFCD00"
+  },
+  "Toulouse": {
+    "initials": "TFC",
+    "primary": "#5E2D87",
     "secondary": "#FFFFFF"
   }
 };
