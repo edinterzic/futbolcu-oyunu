@@ -159,6 +159,13 @@ export default function Arena({ supabase, onExit }) {
     userIdRef.current = uid;
   }
 
+  // Soru INSERT broadcast'leri room.current_question_id güncellenmeden ÖNCE
+  // gelebiliyor. Bu durumda eski normalize davranış (setCurrentQuestion(payload.new))
+  // leaderboard'a bir sonraki sorunun kulüpleri + doğru cevaplarını sızdırıyordu.
+  // Çözüm: INSERT'leri bu ref'e cache'le ama "current" yapma — currentQuestion
+  // tamamen room.current_question_id'ye bağlı (aşağıdaki useEffect).
+  const questionsCacheRef = useRef({});
+
   const [room, setRoom] = useState(null);
   const [players, setPlayers] = useState([]);
   const [currentQuestion, setCurrentQuestion] = useState(null);
@@ -220,10 +227,10 @@ export default function Arena({ supabase, onExit }) {
         { event: "INSERT", schema: "public", table: "arena_questions", filter: `room_id=eq.${room.id}` },
         (payload) => {
           if (payload.new) {
-            setCurrentQuestion(payload.new);
-            setMyAnswer(null);
-            setAnswers([]);
-            setAnswerInput("");
+            // Sadece cache'le. setCurrentQuestion'ı çağırmıyoruz çünkü room.status
+            // hala "leaderboard" iken bir sonraki sorunun verisi UI'ya sızıyor.
+            // currentQuestion aşağıdaki useEffect'le room.current_question_id'den sürülüyor.
+            questionsCacheRef.current[payload.new.id] = payload.new;
           }
         }
       )
@@ -246,7 +253,9 @@ export default function Arena({ supabase, onExit }) {
     };
   }, [room?.id, supabase]);
 
-  // İlk yüklemede mevcut state'i çek
+  // İlk yüklemede oyuncu listesini çek. Soru/cevap fetch'ini aşağıdaki
+  // current_question_id-takip eden useEffect'e bıraktık ki tek bir kaynaktan
+  // sürülsün ve INSERT yarışı bug'ı tekrarlanmasın.
   useEffect(() => {
     if (!room?.id || !supabase) return;
     (async () => {
@@ -256,28 +265,84 @@ export default function Arena({ supabase, onExit }) {
         .eq("room_id", room.id)
         .order("total_score", { ascending: false });
       if (pl) setPlayers(pl);
+    })();
+  }, [room?.id, supabase]);
 
-      if (room.current_question_id) {
+  // currentQuestion'ı SADECE room.current_question_id'ye bağla.
+  // Bu, leaderboard fazındayken bir sonraki sorunun verisini UI'ya
+  // sızdırmamayı garantiler — soru INSERT'i cache'lenir ama room update
+  // gelene kadar "current" yapılmaz.
+  useEffect(() => {
+    if (!supabase || !room) return;
+    const qid = room.current_question_id;
+
+    if (!qid) {
+      setCurrentQuestion(null);
+      setMyAnswer(null);
+      setAnswers([]);
+      setAnswerInput("");
+      return;
+    }
+
+    // Zaten doğru soru yüklü → no-op (yarış sırasında re-render flicker olmasın)
+    if (currentQuestion && currentQuestion.id === qid) return;
+
+    let cancelled = false;
+
+    // Tur değişti: bayat veriyi temizle, yenisini yükle
+    setMyAnswer(null);
+    setAnswers([]);
+    setAnswerInput("");
+
+    // Cache'te varsa anında kullan (INSERT broadcast'i room UPDATE'ten önce geldiyse)
+    const cached = questionsCacheRef.current[qid];
+    if (cached) {
+      setCurrentQuestion(cached);
+      (async () => {
+        const { data: ans } = await supabase
+          .from("arena_answers")
+          .select("*")
+          .eq("question_id", qid);
+        if (!cancelled && ans) {
+          setAnswers(ans);
+          const mine = ans.find((a) => a.user_id === userIdRef.current);
+          if (mine) setMyAnswer(mine);
+        }
+      })();
+      return () => { cancelled = true; };
+    }
+
+    // Cache miss → DB'den çek (room UPDATE INSERT'ten önce gelmiş olabilir)
+    setCurrentQuestion(null);
+    (async () => {
+      for (let attempt = 0; attempt < 8 && !cancelled; attempt++) {
         const { data: q } = await supabase
           .from("arena_questions")
           .select("*")
-          .eq("id", room.current_question_id)
-          .single();
+          .eq("id", qid)
+          .maybeSingle();
+        if (cancelled) return;
         if (q) {
+          questionsCacheRef.current[qid] = q;
           setCurrentQuestion(q);
           const { data: ans } = await supabase
             .from("arena_answers")
             .select("*")
-            .eq("question_id", q.id);
-          if (ans) {
+            .eq("question_id", qid);
+          if (!cancelled && ans) {
             setAnswers(ans);
             const mine = ans.find((a) => a.user_id === userIdRef.current);
             if (mine) setMyAnswer(mine);
           }
+          return;
         }
+        await new Promise((r) => setTimeout(r, 150));
       }
     })();
-  }, [room?.id, supabase]);
+
+    return () => { cancelled = true; };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [room?.id, room?.current_question_id, supabase]);
 
   // ============================================
   // Oda Oluşturma (Host)
