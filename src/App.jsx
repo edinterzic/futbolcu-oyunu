@@ -4636,6 +4636,39 @@ export default function App() {
                 <div className="info-chip">
                   <span>{t("online_target")}</span><strong>{targetScore}</strong>
                 </div>
+                {/* Eşleşme tipi göstergesi — host'un seçtiği mod + difficulty veya ligler.
+                    Guest STATE_SYNC'ten alıyor, böylece neyle oynadığını biliyor. */}
+                <div
+                  className="info-chip"
+                  style={
+                    onlineMatchMode === "custom"
+                      ? { background: "rgba(245,158,11,0.15)", border: "1px solid rgba(245,158,11,0.45)" }
+                      : null
+                  }
+                  title={
+                    onlineMatchMode === "custom" && selectedLeagues.length > 0
+                      ? selectedLeagues.join(", ")
+                      : undefined
+                  }
+                >
+                  {onlineMatchMode === "custom" ? (
+                    <>
+                      <span>🏆</span>
+                      <strong>
+                        {selectedLeagues.length === 0
+                          ? "Tüm ligler"
+                          : selectedLeagues.length <= 2
+                          ? selectedLeagues.join(" + ")
+                          : `${selectedLeagues.length} lig`}
+                      </strong>
+                    </>
+                  ) : (
+                    <>
+                      <span>{getDifficultyEmoji(onlineDifficulty)}</span>
+                      <strong>{getDifficultyLabel(onlineDifficulty)}</strong>
+                    </>
+                  )}
+                </div>
                 {duelVariant === "strategic" && (
                   <div className="info-chip" style={{ background: "rgba(155,45,255,0.15)", border: "1px solid rgba(155,45,255,0.45)" }}>
                     <span>🎯</span><strong>{t("duel_variant_strategic")}</strong>

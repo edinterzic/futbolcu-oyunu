@@ -797,6 +797,8 @@ export default function Arena({ supabase, onExit, selectedLeagues = [], onLeague
         userId={userIdRef.current}
         onStart={startGame}
         onLeave={leaveRoom}
+        matchMode={arenaMatchModeRef.current}
+        selectedLeagues={selectedLeagues}
       />
     );
   }
@@ -1085,7 +1087,14 @@ function ArenaSetup({ setupMode, setSetupMode, onCreate, onJoin, onExit, error, 
 // =============================================
 // ArenaLobby
 // =============================================
-function ArenaLobby({ room, players, isHost, userId, onStart, onLeave }) {
+function ArenaLobby({ room, players, isHost, userId, onStart, onLeave, matchMode = "difficulty", selectedLeagues = [] }) {
+  const leaguesLabel =
+    selectedLeagues.length === 0
+      ? "Tüm ligler"
+      : selectedLeagues.length <= 2
+      ? selectedLeagues.join(" + ")
+      : `${selectedLeagues.length} lig`;
+
   return (
     <div className="arena-screen">
       <div className="arena-header">
@@ -1098,6 +1107,11 @@ function ArenaLobby({ room, players, isHost, userId, onStart, onLeave }) {
           <span className="arena-pin-label">{t("arena_room_pin")}</span>
           <strong className="arena-pin-value">{room.pin}</strong>
           <small>{t("arena_n_questions", { n: room.total_rounds })} · {t(`diff_${room.difficulty || "medium"}`)}</small>
+          {isHost && matchMode === "custom" && (
+            <small style={{ color: "#fcd34d", fontWeight: 700, marginTop: 2 }}>
+              🏆 Özel Mod · {leaguesLabel}
+            </small>
+          )}
         </div>
 
         <div className="arena-players-list">
