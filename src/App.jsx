@@ -96,12 +96,26 @@ function normalizeText(value) {
     .toLocaleLowerCase("tr-TR")
     .normalize("NFD")
     .replace(/[\u0300-\u036f]/g, "")
+    // Türkçe
     .replace(/[ı]/g, "i")
     .replace(/[ğ]/g, "g")
     .replace(/[ü]/g, "u")
     .replace(/[ş]/g, "s")
     .replace(/[ö]/g, "o")
     .replace(/[ç]/g, "c")
+    // NFD'nin parçalayamadığı bağımsız Latin harfleri:
+    // İskandinav: Kjær, Brøndby, Eiður, Þór
+    // Cermen:    Großkreutz
+    // Slav:      Łukasz, Đorđević
+    // Romans:    Œuvre
+    .replace(/[æ]/g, "ae")
+    .replace(/[œ]/g, "oe")
+    .replace(/[ø]/g, "o")
+    .replace(/[ð]/g, "d")
+    .replace(/[þ]/g, "th")
+    .replace(/[ß]/g, "ss")
+    .replace(/[ł]/g, "l")
+    .replace(/[đ]/g, "dj")
     .replace(/[^a-z0-9]/g, "")
     .trim();
 }
@@ -466,6 +480,13 @@ function triggerScreenFlash(type) {
 function runSelfTests() {
   console.assert(normalizeText("Mesut Özil") === normalizeText("mesut ozil"), "Turkish character normalization failed");
   console.assert(normalizeText("Hakan Şükür") === normalizeText("hakan sukur"), "Turkish s/ü normalization failed");
+  // NFD'nin parçalamadığı bağımsız Latin harfleri — regresyon koruması
+  console.assert(normalizeText("Simon Kjær") === normalizeText("Simon Kjaer"), "æ → ae normalization failed");
+  console.assert(normalizeText("Brøndby") === normalizeText("Brondby"), "ø → o normalization failed");
+  console.assert(normalizeText("Eiður Guðjohnsen") === normalizeText("Eidur Gudjohnsen"), "ð → d normalization failed");
+  console.assert(normalizeText("Großkreutz") === normalizeText("Grosskreutz"), "ß → ss normalization failed");
+  console.assert(normalizeText("Łukasz") === normalizeText("Lukasz"), "ł → l normalization failed");
+  console.assert(normalizeText("Đorđević") === normalizeText("Djordjevic"), "đ → dj normalization failed");
   console.assert(getPlayerSuggestions("xzy").length === 0, "Suggestions should be empty when there is no match");
   console.assert(getPlayableTeamPairs().length > 0 && getPlayableTeamPairs().length <= Object.keys(ANSWER_INDEX).length, "Playable pairs subset of ANSWER_INDEX");
   console.assert(getPlayableTeamPairs().length > 0, "There should be playable team pairs");
