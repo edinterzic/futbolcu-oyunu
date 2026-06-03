@@ -26,6 +26,85 @@ const QUESTION_DURATION_MS = 20000;
 const LEADERBOARD_DURATION_MS = 10000;
 const MAX_PLAYERS_PER_ROOM = 50;
 
+// =================== LİG FİLTRESİ ===================
+// App.jsx ile aynı semantik; takım sayısına göre sıralanır.
+const LEAGUES = (() => {
+  const map = new Map();
+  for (const [team, meta] of Object.entries(TEAM_LOGOS)) {
+    if (!meta || !meta.league) continue;
+    if (!map.has(meta.league)) {
+      map.set(meta.league, {
+        name: meta.league,
+        country: meta.country || "",
+        flag: meta.flag || "",
+        teamCount: 0
+      });
+    }
+    map.get(meta.league).teamCount++;
+  }
+  return [...map.values()].sort((a, b) => b.teamCount - a.teamCount);
+})();
+
+function buildAllowedTeamsLocal(selectedLeagues) {
+  if (!selectedLeagues || selectedLeagues.length === 0) return null;
+  const selSet = new Set(selectedLeagues);
+  return new Set(
+    Object.entries(TEAM_LOGOS)
+      .filter(([_, meta]) => meta && meta.league && selSet.has(meta.league))
+      .map(([name]) => name)
+  );
+}
+
+function LeagueFilter({ selectedLeagues, onChange, disabled = false }) {
+  const allSelected = !selectedLeagues || selectedLeagues.length === 0;
+  const toggleLeague = (leagueName) => {
+    if (disabled) return;
+    const current = selectedLeagues || [];
+    if (current.includes(leagueName)) {
+      onChange(current.filter((l) => l !== leagueName));
+    } else {
+      onChange([...current, leagueName]);
+    }
+  };
+  return (
+    <div className="league-filter">
+      <div className="league-filter-header">
+        <span className="league-filter-label">🏆 Lig Filtresi</span>
+        <span className="league-filter-count">
+          {allSelected ? "Tüm ligler" : `${selectedLeagues.length} lig seçili`}
+        </span>
+      </div>
+      <div className="league-filter-chips">
+        <button
+          type="button"
+          onClick={() => onChange([])}
+          disabled={disabled}
+          className={`league-chip all-chip ${allSelected ? "active" : ""}`}
+        >
+          Tümü
+        </button>
+        {LEAGUES.map((lg) => {
+          const active = !allSelected && selectedLeagues.includes(lg.name);
+          return (
+            <button
+              key={lg.name}
+              type="button"
+              onClick={() => toggleLeague(lg.name)}
+              disabled={disabled}
+              className={`league-chip ${active ? "active" : ""}`}
+              title={`${lg.country} · ${lg.teamCount} takım`}
+            >
+              {lg.flag && <span className="league-chip-flag">{lg.flag}</span>}
+              <span className="league-chip-name">{lg.name}</span>
+              <span className="league-chip-count">{lg.teamCount}</span>
+            </button>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
 // ============================================
 // SES SİSTEMİ — App.jsx'in _audioPool'unu paylaşır
 // (window'a expose edildiği için aynı havuzu kullanır)
@@ -143,7 +222,7 @@ function formatMs(ms) {
 // =============================================
 // Ana Arena bileşeni
 // =============================================
-export default function Arena({ supabase, onExit }) {
+export default function Arena({ supabase, onExit, selectedLeagues = [], onLeaguesChange }) {
   // Subscribe to lang so that all sub-renders pick up t() updates
   // eslint-disable-next-line no-unused-vars
   const [lang] = useLang();
@@ -466,7 +545,29 @@ export default function Arena({ supabase, onExit }) {
     if (!room || room.host_id !== userIdRef.current) return;
     setError(null);
 
-    const questions = generateArenaQuestions(room.total_rounds, room.difficulty || "medium");
+    // Daha geniş bir havuz iste, sonra lig filtresine göre filtrele.
+    // Lig filtresi yoksa direkt kullan; varsa filtrelenmiş ilk N'i al.
+    const allowedTeams = buildAllowedTeamsLocal(selectedLeagues);
+    const overshoot = allowedTeams ? 8 : 1; // filtre varsa daha fazla aday üret
+    const rawQuestions = generateArenaQuestions(
+      room.total_rounds * overshoot,
+      room.difficulty || "medium"
+    );
+
+    let questions;
+    if (allowedTeams) {
+      questions = rawQuestions
+        .filter((q) => allowedTeams.has(q.clubA) && allowedTeams.has(q.clubB))
+        .slice(0, room.total_rounds);
+      if (questions.length < room.total_rounds) {
+        // TODO: i18n → arena_err_filter_too_narrow
+        setError(`Seçili liglerde yeterli soru bulunamadı (${questions.length}/${room.total_rounds}). Daha fazla lig ekle veya tur sayısını azalt.`);
+        return;
+      }
+    } else {
+      questions = rawQuestions.slice(0, room.total_rounds);
+    }
+
     if (questions.length === 0) {
       setError(t("arena_err_no_questions"));
       return;
@@ -676,6 +777,8 @@ export default function Arena({ supabase, onExit }) {
         onJoin={joinRoom}
         onExit={onExit}
         error={error}
+        selectedLeagues={selectedLeagues}
+        onLeaguesChange={onLeaguesChange}
       />
     );
   }
@@ -746,7 +849,7 @@ export default function Arena({ supabase, onExit }) {
 // =============================================
 // ArenaSetup
 // =============================================
-function ArenaSetup({ setupMode, setSetupMode, onCreate, onJoin, onExit, error }) {
+function ArenaSetup({ setupMode, setSetupMode, onCreate, onJoin, onExit, error, selectedLeagues = [], onLeaguesChange }) {
   const [hostName, setHostName] = useState(() => localStorage.getItem("pairfc_player_name") || "");
   const [totalRounds, setTotalRounds] = useState(10);
   const [difficulty, setDifficulty] = useState(() => localStorage.getItem("pairfc_arena_difficulty") || "medium");
@@ -851,6 +954,13 @@ function ArenaSetup({ setupMode, setSetupMode, onCreate, onJoin, onExit, error }
             </div>
             <small className="arena-diff-hint">{t(`arena_diff_${difficulty}_hint`)}</small>
           </label>
+
+          {onLeaguesChange && (
+            <LeagueFilter
+              selectedLeagues={selectedLeagues}
+              onChange={onLeaguesChange}
+            />
+          )}
 
           {error && <div className="arena-error">{error}</div>}
 

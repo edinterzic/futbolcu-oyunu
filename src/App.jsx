@@ -402,16 +402,61 @@ const WEIGHTED_TEAM_PAIRS = PLAYABLE_TEAM_PAIRS.filter((pair) => {
   return (ANSWER_INDEX[key] || []).length >= 2;
 });
 
-function getPlayableTeamPairs() {
-  return WEIGHTED_TEAM_PAIRS;
+// =================== LİG FİLTRESİ ===================
+// TEAM_LOGOS'taki league alanından benzersiz lig listesi türetilir.
+// Takım sayısına göre azalan sırada (büyük ligler önce).
+const LEAGUES = (() => {
+  const map = new Map();
+  for (const [team, meta] of Object.entries(TEAM_LOGOS)) {
+    if (!meta || !meta.league) continue;
+    if (!map.has(meta.league)) {
+      map.set(meta.league, {
+        name: meta.league,
+        country: meta.country || "",
+        flag: meta.flag || "",
+        teamCount: 0
+      });
+    }
+    map.get(meta.league).teamCount++;
+  }
+  return [...map.values()].sort((a, b) => b.teamCount - a.teamCount);
+})();
+
+// Seçilen ligler → izinli takım Set'i (null = filtre yok = tümü).
+function buildAllowedTeams(selectedLeagues) {
+  if (!selectedLeagues || selectedLeagues.length === 0) return null;
+  const selSet = new Set(selectedLeagues);
+  return new Set(
+    Object.entries(TEAM_LOGOS)
+      .filter(([_, meta]) => meta && meta.league && selSet.has(meta.league))
+      .map(([name]) => name)
+  );
 }
 
-function getRandomRound(usedRoundKeys = [], difficulty = "hard") {
-  const filtered = WEIGHTED_TEAM_PAIRS.filter((round) => isPairInDifficulty(round, difficulty));
-  const basePool = filtered.length > 0 ? filtered : WEIGHTED_TEAM_PAIRS;
+function pairAllowed(round, allowedTeams) {
+  if (!allowedTeams) return true;
+  return allowedTeams.has(round.teams[0]) && allowedTeams.has(round.teams[1]);
+}
+
+function getPlayableTeamPairs(allowedTeams = null) {
+  if (!allowedTeams) return WEIGHTED_TEAM_PAIRS;
+  return WEIGHTED_TEAM_PAIRS.filter((p) => pairAllowed(p, allowedTeams));
+}
+
+function getRandomRound(usedRoundKeys = [], difficulty = "hard", allowedTeams = null) {
+  // Önce lig filtresi (varsa), sonra difficulty.
+  let allowedPool = WEIGHTED_TEAM_PAIRS;
+  if (allowedTeams) {
+    allowedPool = allowedPool.filter((round) => pairAllowed(round, allowedTeams));
+  }
+  // Lig filtresi sonrası tamamen boşsa (örn. tek takımlı lig seçildi) — null dön.
+  if (allowedPool.length === 0) return null;
+
+  const difficultyFiltered = allowedPool.filter((round) => isPairInDifficulty(round, difficulty));
+  const basePool = difficultyFiltered.length > 0 ? difficultyFiltered : allowedPool;
   const available = basePool.filter((round) => !usedRoundKeys.includes(getRoundKey(round)));
 
-  // Eşleşme kalmadıysa null dön — çağıran kod zorluk yükseltir
+  // Eşleşme kalmadıysa null dön — çağıran kod zorluk yükseltir veya filtre uyarısı verir
   if (available.length === 0) return null;
 
   const totalWeight = available.reduce((sum, pair) => sum + getPairWeight(pair), 0);
@@ -431,11 +476,11 @@ function getRandomRound(usedRoundKeys = [], difficulty = "hard") {
 const DIFFICULTY_ORDER = ["easy", "medium", "hard"];
 const DIFFICULTY_LABELS = { easy: "Kolay", medium: "Orta", hard: "Zor" };
 
-function getNextChallengeRound(usedKeys, startDifficulty) {
+function getNextChallengeRound(usedKeys, startDifficulty, allowedTeams = null) {
   const startIdx = DIFFICULTY_ORDER.indexOf(startDifficulty);
   // Mevcut zorluktan başlayarak yukarı dene
   for (let i = Math.max(0, startIdx); i < DIFFICULTY_ORDER.length; i++) {
-    const round = getRandomRound(usedKeys, DIFFICULTY_ORDER[i]);
+    const round = getRandomRound(usedKeys, DIFFICULTY_ORDER[i], allowedTeams);
     if (round) {
       return {
         round,
@@ -446,7 +491,7 @@ function getNextChallengeRound(usedKeys, startDifficulty) {
     }
   }
   // Tüm zorluklar tükendi — usedKeys sıfırla, baştan başla
-  const round = getRandomRound([], startDifficulty) || { teams: ["Fenerbahçe", "Galatasaray"] };
+  const round = getRandomRound([], startDifficulty, allowedTeams) || { teams: ["Fenerbahçe", "Galatasaray"] };
   return { round, newDifficulty: startDifficulty, escalated: false, reset: true };
 }
 
@@ -494,6 +539,75 @@ function runSelfTests() {
 }
 
 runSelfTests();
+
+// =================== LİG FİLTRESİ UI ===================
+// Çoklu seçim chip grid'i + "tümü" toggle. Boş seçim = tüm ligler.
+// Maraton, Düello (create), Arena (host) setup ekranlarında kullanılır.
+function LeagueFilter({ selectedLeagues, onChange, disabled = false, compact = false }) {
+  const allSelected = !selectedLeagues || selectedLeagues.length === 0;
+
+  const toggleLeague = (leagueName) => {
+    if (disabled) return;
+    const current = selectedLeagues || [];
+    if (current.includes(leagueName)) {
+      onChange(current.filter((l) => l !== leagueName));
+    } else {
+      onChange([...current, leagueName]);
+    }
+  };
+
+  // Seçili filtre ile kaç oynanabilir eşleşme var?
+  const allowedTeams = buildAllowedTeams(selectedLeagues);
+  const matchCount = allowedTeams
+    ? WEIGHTED_TEAM_PAIRS.filter((p) => pairAllowed(p, allowedTeams)).length
+    : WEIGHTED_TEAM_PAIRS.length;
+
+  // Çok az eşleşme varsa uyarı
+  const tooFew = !allSelected && matchCount < 10;
+
+  return (
+    <div className={`league-filter ${compact ? "compact" : ""}`}>
+      <div className="league-filter-header">
+        <span className="league-filter-label">🏆 Lig Filtresi</span>
+        <span className={`league-filter-count ${tooFew ? "warn" : ""}`}>
+          {allSelected ? "Tüm ligler" : `${selectedLeagues.length} lig`} · {matchCount} eşleşme
+        </span>
+      </div>
+      <div className="league-filter-chips">
+        <button
+          type="button"
+          onClick={() => onChange([])}
+          disabled={disabled}
+          className={`league-chip all-chip ${allSelected ? "active" : ""}`}
+        >
+          Tümü
+        </button>
+        {LEAGUES.map((lg) => {
+          const active = !allSelected && selectedLeagues.includes(lg.name);
+          return (
+            <button
+              key={lg.name}
+              type="button"
+              onClick={() => toggleLeague(lg.name)}
+              disabled={disabled}
+              className={`league-chip ${active ? "active" : ""}`}
+              title={`${lg.country} · ${lg.teamCount} takım`}
+            >
+              {lg.flag && <span className="league-chip-flag">{lg.flag}</span>}
+              <span className="league-chip-name">{lg.name}</span>
+              <span className="league-chip-count">{lg.teamCount}</span>
+            </button>
+          );
+        })}
+      </div>
+      {tooFew && (
+        <small className="league-filter-warn">
+          ⚠️ Bu seçimle çok az eşleşme var. Daha fazla lig ekle veya "Tümü"ye dön.
+        </small>
+      )}
+    </div>
+  );
+}
 
 function StatusMessage({ message }) {
   if (!message) return null;
@@ -1242,7 +1356,7 @@ export default function App() {
   const [scores, setScores] = useState([0, 0]);
   const [scoreFlash, setScoreFlash] = useState([null, null]);
   const prevScoresRef = useRef([0, 0]);
-  const [round, setRound] = useState(() => getRandomRound());
+  const [round, setRound] = useState(() => getRandomRound([], "hard", allowedTeamsSet));
   const [usedRoundKeys, setUsedRoundKeys] = useState([]);
   const [answerInput, setAnswerInput] = useState("");
   const [focusedInput, setFocusedInput] = useState(false);
@@ -1260,6 +1374,24 @@ export default function App() {
   });
   const [challengeEffectiveDifficulty, setChallengeEffectiveDifficulty] = useState("medium");
   const [onlineDifficulty, setOnlineDifficulty] = useState("medium");
+
+  // Lig filtresi: boş array = tüm ligler. localStorage'da persist.
+  // Düello'da host'unkini guest'e STATE_SYNC ile gönderiyoruz; guest tarafında
+  // ekrandan çıkınca kendi kayıtlı tercihine dönülüyor.
+  const [selectedLeagues, setSelectedLeagues] = useState(() => {
+    try {
+      const stored = window.localStorage.getItem("pairfc_selected_leagues");
+      return stored ? JSON.parse(stored) : [];
+    } catch (e) {
+      return [];
+    }
+  });
+  const persistLeagues = (leagues) => {
+    setSelectedLeagues(leagues);
+    try { window.localStorage.setItem("pairfc_selected_leagues", JSON.stringify(leagues)); } catch (e) {}
+  };
+  // Allowed teams Set'i — pair seçim helper'larına geçilir
+  const allowedTeamsSet = useMemo(() => buildAllowedTeams(selectedLeagues), [selectedLeagues]);
   const [duelVariant, setDuelVariant] = useState(null); // null | "auto" | "strategic"
   const [teamSelectEndsAt, setTeamSelectEndsAt] = useState(null);
   const [teamPicks, setTeamPicks] = useState([null, null]);
@@ -1476,7 +1608,7 @@ export default function App() {
   });
   const [challengeNearMiss, setChallengeNearMiss] = useState(null);
   const [challengeLastScore, setChallengeLastScore] = useState(null);
-  const [challengeRound, setChallengeRound] = useState(() => getRandomRound([]));
+  const [challengeRound, setChallengeRound] = useState(() => getRandomRound([], "hard", allowedTeamsSet));
   const [challengeUsedRoundKeys, setChallengeUsedRoundKeys] = useState([]);
   const [challengeInput, setChallengeInput] = useState("");
   const [challengeFocused, setChallengeFocused] = useState(false);
@@ -1765,7 +1897,7 @@ export default function App() {
     setGameStarted(Boolean(gameState.gameStarted));
     setTargetScore(gameState.targetScore || 3);
     setScores(gameState.scores || [0, 0]);
-    setRound(gameState.round || getRandomRound());
+    setRound(gameState.round || getRandomRound([], "hard", allowedTeamsSet));
     setUsedRoundKeys(gameState.usedRoundKeys || []);
     if (!preserveInput) {
       setAnswerInput("");
@@ -1787,6 +1919,11 @@ export default function App() {
     if (gameState.duelVariant !== undefined) setDuelVariant(gameState.duelVariant || "auto");
     setTeamSelectEndsAt(gameState.teamSelectEndsAt || null);
     setTeamPicks(gameState.teamPicks || [null, null]);
+    // Düello/Arena'da host'un lig filtresini in-memory uygula (persist etme —
+    // guest kendi tercihine odadan çıkınca dönebilsin).
+    if (Array.isArray(gameState.selectedLeagues)) {
+      setSelectedLeagues(gameState.selectedLeagues);
+    }
   };
 
   const sendRoomEvent = async (payload) => {
@@ -1807,6 +1944,10 @@ export default function App() {
     scores, round, usedRoundKeys, message, winner, showAnswers, roundLocked,
     roundEndsAt, preRoundEndsAt, wrongAttempts, lastAction, seriesWins,
     matchHistory, correctRounds, duelVariant, teamSelectEndsAt, teamPicks,
+    // Düello'da host'un lig filtresi guest'e taşınır. Guest kendi kayıtlı
+    // tercihini odadan çıkana kadar kullanmıyor — applyGameState'te sadece
+    // in-memory state set ediliyor, localStorage'a yazılmıyor.
+    selectedLeagues,
     ...overrides
   });
 
@@ -1934,7 +2075,7 @@ export default function App() {
     }
 
     const code = makeRoomCode();
-    const firstRound = getRandomRound([], onlineDifficulty) || { teams: ["Fenerbahçe", "Galatasaray"] };
+    const firstRound = getRandomRound([], onlineDifficulty, allowedTeamsSet) || { teams: ["Fenerbahçe", "Galatasaray"] };
     const name = playerName.trim() || t("default_player_1");
 
     opponentClientIdRef.current = null; // yeni oda → rakip slotu boş
@@ -2109,7 +2250,12 @@ export default function App() {
   const finalizeTeamSelect = async () => {
     if (playerIndex !== 0) return;
     if (screen !== "team_select") return;
-    const pool = Object.keys(TEAM_LOGOS);
+    // Random fallback havuzu — lig filtresi varsa o liglere sınırla.
+    // Filtre boşsa veya hiç takım kalmıyorsa tüm TEAM_LOGOS'a düş.
+    const filteredPool = allowedTeamsSet
+      ? Object.keys(TEAM_LOGOS).filter((tn) => allowedTeamsSet.has(tn))
+      : Object.keys(TEAM_LOGOS);
+    const pool = filteredPool.length > 0 ? filteredPool : Object.keys(TEAM_LOGOS);
     if (!pool.length) return;
 
     const origP0 = teamPicks[0];
@@ -2163,7 +2309,7 @@ export default function App() {
     }
     if (getRoundAnswers(candidate).length === 0) {
       // Toplam fallback: rastgele bilinen bir çift
-      candidate = getRandomRound([], "hard") || { teams: ["Fenerbahçe", "Galatasaray"] };
+      candidate = getRandomRound([], "hard", allowedTeamsSet) || { teams: ["Fenerbahçe", "Galatasaray"] };
     }
     const nextPreRoundEndsAt = Date.now() + ROUND_REVEAL_SECONDS * 1000;
     const nextState = {
@@ -2216,10 +2362,10 @@ export default function App() {
       return;
     }
 
-    const next = getRandomRound(usedRoundKeys, onlineDifficulty) || { teams: ["Fenerbahçe", "Galatasaray"] };
+    const next = getRandomRound(usedRoundKeys, onlineDifficulty, allowedTeamsSet) || { teams: ["Fenerbahçe", "Galatasaray"] };
     const nextPreRoundEndsAt = Date.now() + ROUND_REVEAL_SECONDS * 1000;
     const nextKey = getRoundKey(next);
-    const playableCount = getPlayableTeamPairs().length;
+    const playableCount = getPlayableTeamPairs(allowedTeamsSet).length;
     const nextUsed = usedRoundKeys.length >= playableCount ? [nextKey] : [...usedRoundKeys, nextKey];
 
     const nextState = {
@@ -2311,7 +2457,7 @@ export default function App() {
   }, [teamPicks, screen, playerIndex]);
 
   const resetGame = async () => {
-    const firstRound = getRandomRound([], onlineDifficulty) || { teams: ["Fenerbahçe", "Galatasaray"] };
+    const firstRound = getRandomRound([], onlineDifficulty, allowedTeamsSet) || { teams: ["Fenerbahçe", "Galatasaray"] };
     const nextState = {
       screen: "game", playerNames,
       playersReady: [false, false],
@@ -2678,7 +2824,7 @@ export default function App() {
     setChallengeEffectiveDifficulty(difficulty);
     setScoreSaved(false);
     setShowChallengeStartScreen(false);
-    const firstRound = getRandomRound([], difficulty) || { teams: ["Fenerbahçe", "Galatasaray"] };
+    const firstRound = getRandomRound([], difficulty, allowedTeamsSet) || { teams: ["Fenerbahçe", "Galatasaray"] };
     setChallengeScore(0);
     setChallengeLastScore(null);
     setChallengeRound(firstRound);
@@ -2954,6 +3100,12 @@ export default function App() {
       setPreRoundEndsAt(null);
       setTeamSelectEndsAt(null);
       setTeamPicks([null, null]);
+      // Düello'da host'un filtresi in-memory uygulanmıştı; ayrılırken kendi
+      // kayıtlı tercihine geri dön.
+      try {
+        const saved = window.localStorage.getItem("pairfc_selected_leagues");
+        setSelectedLeagues(saved ? JSON.parse(saved) : []);
+      } catch (e) { setSelectedLeagues([]); }
     }
     setShowOnlineSetup(false);
     setOnlineSetupMode(null);
@@ -3148,7 +3300,7 @@ export default function App() {
     }
     const currentKey = getRoundKey(challengeRound);
     const nextUsed = [...challengeUsedRoundKeys, currentKey];
-    const result = getNextChallengeRound(nextUsed, challengeEffectiveDifficulty || challengeDifficulty);
+    const result = getNextChallengeRound(nextUsed, challengeEffectiveDifficulty || challengeDifficulty, allowedTeamsSet);
     if (result.escalated) setChallengeEffectiveDifficulty(result.newDifficulty);
     setChallengeSwapUsed(true);
     setChallengeRound(result.round);
@@ -3236,7 +3388,7 @@ export default function App() {
       else if (answerCount > 0 && answerCount <= 3) bonus = { tier: "orange", label: t("bonus_hard") };
       else if (answeredFast) bonus = { tier: "blue", label: t("bonus_fast") };
 
-      const result = getNextChallengeRound(challengeUsedRoundKeys, challengeEffectiveDifficulty || challengeDifficulty);
+      const result = getNextChallengeRound(challengeUsedRoundKeys, challengeEffectiveDifficulty || challengeDifficulty, allowedTeamsSet);
       const nextKey = getRoundKey(result.round);
       let nextUsed = result.reset ? [nextKey] : [...challengeUsedRoundKeys, nextKey];
 
@@ -3280,7 +3432,7 @@ export default function App() {
   };
 
   const startRematch = async () => {
-    const next = getRandomRound([], onlineDifficulty) || { teams: ["Fenerbahçe", "Galatasaray"] };
+    const next = getRandomRound([], onlineDifficulty, allowedTeamsSet) || { teams: ["Fenerbahçe", "Galatasaray"] };
     const nextState = {
       screen: "game",
       playerNames,
@@ -3846,6 +3998,13 @@ export default function App() {
                   </div>
                   )}
 
+                  <div className="input-card">
+                    <LeagueFilter
+                      selectedLeagues={selectedLeagues}
+                      onChange={persistLeagues}
+                    />
+                  </div>
+
                   <button type="button" onClick={createRoom} className="primary-button big full-width">
                     {t("btn_create_room")}
                   </button>
@@ -3903,6 +4062,11 @@ export default function App() {
                     <h2>🔥 {t("mode_marathon_title")}</h2>
                     <p>{t("marathon_choose_difficulty")}</p>
                   </div>
+
+                  <LeagueFilter
+                    selectedLeagues={selectedLeagues}
+                    onChange={persistLeagues}
+                  />
 
                   <div className="difficulty-options">
                     <button type="button" onClick={() => confirmStartChallenge("easy")} className="difficulty-card easy">
@@ -4309,6 +4473,8 @@ export default function App() {
                   setScreen("home");
                   setMainTab("home");
                 }}
+                selectedLeagues={selectedLeagues}
+                onLeaguesChange={persistLeagues}
               />
             </section>
           )}
@@ -4394,6 +4560,7 @@ export default function App() {
                       />
                       <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(76px, 1fr))", gap: 6, maxHeight: 320, overflowY: "auto", paddingRight: 4 }}>
                         {Object.keys(TEAM_LOGOS)
+                          .filter((tn) => !allowedTeamsSet || allowedTeamsSet.has(tn))
                           .filter((tn) => !teamSearch || tn.toLowerCase().includes(teamSearch.toLowerCase()))
                           .map((tn) => {
                             const meta = TEAM_LOGOS[tn];
@@ -5516,6 +5683,107 @@ button:focus-visible {
   flex-direction: column;
   gap: 16px;
   padding: 20px;
+}
+
+/* ===== Lig Filtresi ===== */
+.league-filter {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 14px;
+  border-radius: 14px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+.league-filter.compact {
+  padding: 10px 12px;
+  gap: 8px;
+}
+.league-filter-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+.league-filter-label {
+  font-size: 13px;
+  font-weight: 700;
+  color: #fcd34d;
+  letter-spacing: 0.3px;
+}
+.league-filter-count {
+  font-size: 11px;
+  color: rgba(255,255,255,0.55);
+  font-weight: 600;
+}
+.league-filter-count.warn {
+  color: #fbbf24;
+}
+.league-filter-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.league-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.10);
+  background: rgba(255,255,255,0.03);
+  color: rgba(255,255,255,0.7);
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s, color 0.15s, transform 0.1s;
+}
+.league-chip:hover:not(:disabled) {
+  background: rgba(255,255,255,0.08);
+  border-color: rgba(255,255,255,0.18);
+}
+.league-chip:active:not(:disabled) {
+  transform: scale(0.97);
+}
+.league-chip:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.league-chip.active {
+  background: rgba(155, 45, 255, 0.20);
+  border-color: rgba(155, 45, 255, 0.55);
+  color: #fff;
+}
+.league-chip.all-chip.active {
+  background: rgba(245, 158, 11, 0.20);
+  border-color: rgba(245, 158, 11, 0.55);
+  color: #fff;
+}
+.league-chip-flag {
+  font-size: 13px;
+  line-height: 1;
+}
+.league-chip-count {
+  font-size: 10px;
+  font-weight: 700;
+  opacity: 0.6;
+  padding: 1px 5px;
+  border-radius: 6px;
+  background: rgba(255,255,255,0.08);
+}
+.league-chip.active .league-chip-count {
+  opacity: 0.9;
+  background: rgba(255,255,255,0.15);
+}
+.league-filter-warn {
+  display: block;
+  padding: 8px 10px;
+  border-radius: 8px;
+  background: rgba(251, 191, 36, 0.10);
+  border: 1px solid rgba(251, 191, 36, 0.30);
+  color: #fbbf24;
+  font-size: 11px;
+  line-height: 1.4;
 }
 
 .difficulty-header {
