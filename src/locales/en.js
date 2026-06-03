@@ -125,6 +125,39 @@ hero_eyebrow_new: "GETTING STARTED",
   btn_dont_know: "🤷 I don't know",
   goal_banner: "GOAL!",
 
+  // Marathon mode picker (Difficulty vs Custom)
+  challenge_mode_picker_question: "How would you like to play?",
+  challenge_mode_difficulty: "Pick Difficulty",
+  challenge_mode_difficulty_desc: "Easy, Medium or Hard — pairs from all leagues.",
+  challenge_mode_custom: "Custom Mode",
+  challenge_mode_custom_desc: "Pick the leagues you want — difficulty doesn't apply, only pairs from those leagues.",
+  challenge_start_btn: "▶ Start ({n} pairs)",
+  challenge_not_enough_matches: "Not enough pairs",
+  challenge_custom_chip: "🏆 Custom",
+
+  // League filter (LeagueFilter component — shared across Marathon/Duel/Arena)
+  league_filter_label: "🏆 League Filter",
+  league_filter_all: "All leagues",
+  league_filter_n_selected: "{n} leagues",
+  league_filter_n_selected_arena: "{n} leagues selected",
+  league_filter_n_pairs: "{n} pairs",
+  league_filter_btn_all: "All",
+  league_filter_too_few_warning: "⚠️ This selection has very few pairs. Add more leagues or switch back to \"All\".",
+
+  // Duel/Arena — Match type tabs
+  match_type_label: "Match Type",
+  match_type_difficulty: "🎯 Pick Difficulty",
+  match_type_custom: "🏆 Custom Mode",
+  match_type_difficulty_hint_duel: "Pairs from all leagues · based on difficulty",
+  match_type_custom_hint_duel: "Only pairs from selected leagues · difficulty ignored",
+  match_type_difficulty_hint_arena: "Questions from all leagues · based on difficulty",
+  match_type_custom_hint_arena: "Only questions from selected leagues · difficulty ignored",
+  match_type_custom_lobby: "🏆 Custom Mode · {label}",
+
+  // Back button (generic)
+  btn_back: "← Back",
+  aria_back: "Back",
+
   // ChallengeGameOver
   gover_new_record: "New Record!",
   gover_streak_over: "Streak Over",
@@ -352,6 +385,7 @@ share_copied_dl: "📋 Copied + image downloaded!",
   ts_no_pick: "—",
   ts_round_starting: "Both teams picked! Round starting...",
   ts_revealing: "Revealing teams...",
+  ts_no_shared_player: "This pair has no shared player. Please pick different clubs.",
   ts_collision_msg: "Same team! Opponent got random {team} instead.",
 
 ts_collision_warning: "You both picked the same team! Pick again.",
@@ -471,6 +505,7 @@ offline_banner: "You're offline — check your connection",
   arena_err_game_started: "Game already started. Try a new room.",
   arena_err_room_full: "Room is full (50 players).",
   arena_err_join: "Join error: {msg}",
+  arena_err_filter_too_narrow: "Not enough questions in selected leagues ({found}/{total}). Add more leagues or reduce the round count.",
   arena_err_no_questions: "Question pool is empty.",
   arena_err_next_q: "Next question not found.",
 };

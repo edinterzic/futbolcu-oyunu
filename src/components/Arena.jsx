@@ -69,9 +69,9 @@ function LeagueFilter({ selectedLeagues, onChange, disabled = false }) {
   return (
     <div className="league-filter">
       <div className="league-filter-header">
-        <span className="league-filter-label">🏆 Lig Filtresi</span>
+        <span className="league-filter-label">{t("league_filter_label")}</span>
         <span className="league-filter-count">
-          {allSelected ? "Tüm ligler" : `${selectedLeagues.length} lig seçili`}
+          {allSelected ? t("league_filter_all") : t("league_filter_n_selected_arena", { n: selectedLeagues.length })}
         </span>
       </div>
       <div className="league-filter-chips">
@@ -81,7 +81,7 @@ function LeagueFilter({ selectedLeagues, onChange, disabled = false }) {
           disabled={disabled}
           className={`league-chip all-chip ${allSelected ? "active" : ""}`}
         >
-          Tümü
+          {t("league_filter_btn_all")}
         </button>
         {LEAGUES.map((lg) => {
           const active = !allSelected && selectedLeagues.includes(lg.name);
@@ -566,7 +566,7 @@ export default function Arena({ supabase, onExit, selectedLeagues = [], onLeague
         .slice(0, room.total_rounds);
       if (questions.length < room.total_rounds) {
         // TODO: i18n → arena_err_filter_too_narrow
-        setError(`Seçili liglerde yeterli soru bulunamadı (${questions.length}/${room.total_rounds}). Daha fazla lig ekle veya tur sayısını azalt.`);
+        setError(t("arena_err_filter_too_narrow", { found: questions.length, total: room.total_rounds }));
         return;
       }
     } else {
@@ -956,27 +956,27 @@ function ArenaSetup({ setupMode, setSetupMode, onCreate, onJoin, onExit, error, 
           </label>
 
           <label className="arena-label">
-            <span>Eşleşme Tipi</span>
+            <span>{t("match_type_label")}</span>
             <div className="match-mode-tabs">
               <button
                 type="button"
                 onClick={() => setMatchModePersist("difficulty")}
                 className={`match-mode-tab ${matchMode === "difficulty" ? "active" : ""}`}
               >
-                🎯 Zorluk Seç
+                {t("match_type_difficulty")}
               </button>
               <button
                 type="button"
                 onClick={() => setMatchModePersist("custom")}
                 className={`match-mode-tab ${matchMode === "custom" ? "active" : ""}`}
               >
-                🏆 Özel Mod
+                {t("match_type_custom")}
               </button>
             </div>
             <small className="match-mode-hint">
               {matchMode === "difficulty"
-                ? "Tüm liglerden sorular · zorluk seçimine göre"
-                : "Sadece seçili liglerden sorular · zorluk uygulanmaz"}
+                ? t("match_type_difficulty_hint_arena")
+                : t("match_type_custom_hint_arena")}
             </small>
           </label>
 
@@ -1090,10 +1090,10 @@ function ArenaSetup({ setupMode, setSetupMode, onCreate, onJoin, onExit, error, 
 function ArenaLobby({ room, players, isHost, userId, onStart, onLeave, matchMode = "difficulty", selectedLeagues = [] }) {
   const leaguesLabel =
     selectedLeagues.length === 0
-      ? "Tüm ligler"
+      ? t("league_filter_all")
       : selectedLeagues.length <= 2
       ? selectedLeagues.join(" + ")
-      : `${selectedLeagues.length} lig`;
+      : t("league_filter_n_selected", { n: selectedLeagues.length });
 
   return (
     <div className="arena-screen">
@@ -1109,7 +1109,7 @@ function ArenaLobby({ room, players, isHost, userId, onStart, onLeave, matchMode
           <small>{t("arena_n_questions", { n: room.total_rounds })} · {t(`diff_${room.difficulty || "medium"}`)}</small>
           {isHost && matchMode === "custom" && (
             <small style={{ color: "#fcd34d", fontWeight: 700, marginTop: 2 }}>
-              🏆 Özel Mod · {leaguesLabel}
+              {t("match_type_custom_lobby", { label: leaguesLabel })}
             </small>
           )}
         </div>

@@ -568,9 +568,9 @@ function LeagueFilter({ selectedLeagues, onChange, disabled = false, compact = f
   return (
     <div className={`league-filter ${compact ? "compact" : ""}`}>
       <div className="league-filter-header">
-        <span className="league-filter-label">🏆 Lig Filtresi</span>
+        <span className="league-filter-label">{t("league_filter_label")}</span>
         <span className={`league-filter-count ${tooFew ? "warn" : ""}`}>
-          {allSelected ? "Tüm ligler" : `${selectedLeagues.length} lig`} · {matchCount} eşleşme
+          {allSelected ? t("league_filter_all") : t("league_filter_n_selected", { n: selectedLeagues.length })} · {t("league_filter_n_pairs", { n: matchCount })}
         </span>
       </div>
       <div className="league-filter-chips">
@@ -580,7 +580,7 @@ function LeagueFilter({ selectedLeagues, onChange, disabled = false, compact = f
           disabled={disabled}
           className={`league-chip all-chip ${allSelected ? "active" : ""}`}
         >
-          Tümü
+          {t("league_filter_btn_all")}
         </button>
         {LEAGUES.map((lg) => {
           const active = !allSelected && selectedLeagues.includes(lg.name);
@@ -602,7 +602,7 @@ function LeagueFilter({ selectedLeagues, onChange, disabled = false, compact = f
       </div>
       {tooFew && (
         <small className="league-filter-warn">
-          ⚠️ Bu seçimle çok az eşleşme var. Daha fazla lig ekle veya "Tümü"ye dön.
+          {t("league_filter_too_few_warning")}
         </small>
       )}
     </div>
@@ -2297,7 +2297,7 @@ export default function App() {
           teamPicks: [null, null],
           teamSelectEndsAt: Date.now() + TEAM_SELECT_SECONDS * 1000,
           // TODO: i18n'e taşı → ts_no_common_warning
-          message: { type: "warning", text: "Bu eşleşmede ortak oyuncu yok. Lütfen başka takım seçin." }
+          message: { type: "warning", text: t("ts_no_shared_player") }
         };
         applyGameState(nextState);
         await sendRoomEvent({ type: "STATE_SYNC", gameState: nextState });
@@ -3712,7 +3712,7 @@ export default function App() {
                       setShowOnlineSetup(false);
                     }
                   }} className="back-button">
-                    ← Geri
+                    {t("btn_back")}
                   </button>
                   <div className="online-setup-title">
                     <h2>🌍 Düello</h2>
@@ -4019,27 +4019,27 @@ export default function App() {
 
                   {/* Eşleşme tipi sekmeleri — Zorluk Seç vs Özel Mod */}
                   <div className="input-card">
-                    <label>Eşleşme Tipi</label>
+                    <label>{t("match_type_label")}</label>
                     <div className="match-mode-tabs">
                       <button
                         type="button"
                         onClick={() => persistOnlineMatchMode("difficulty")}
                         className={`match-mode-tab ${onlineMatchMode === "difficulty" ? "active" : ""}`}
                       >
-                        🎯 Zorluk Seç
+                        {t("match_type_difficulty")}
                       </button>
                       <button
                         type="button"
                         onClick={() => persistOnlineMatchMode("custom")}
                         className={`match-mode-tab ${onlineMatchMode === "custom" ? "active" : ""}`}
                       >
-                        🏆 Özel Mod
+                        {t("match_type_custom")}
                       </button>
                     </div>
                     <small className="match-mode-hint">
                       {onlineMatchMode === "difficulty"
-                        ? "Tüm liglerden eşleşmeler · zorluk seçimine göre"
-                        : "Sadece seçili liglerden eşleşmeler · zorluk uygulanmaz"}
+                        ? t("match_type_difficulty_hint_duel")
+                        : t("match_type_custom_hint_duel")}
                     </small>
                   </div>
 
@@ -4134,7 +4134,7 @@ export default function App() {
                     <>
                       <div className="difficulty-header">
                         <h2>🔥 {t("mode_marathon_title")}</h2>
-                        <p>Nasıl oynamak istersin?</p>
+                        <p>{t("challenge_mode_picker_question")}</p>
                       </div>
                       <div className="difficulty-options">
                         <button
@@ -4143,8 +4143,8 @@ export default function App() {
                           className="difficulty-card mode-card-pick"
                         >
                           <span className="difficulty-emoji">🎯</span>
-                          <strong>Zorluk Seç</strong>
-                          <small>Kolay, Orta veya Zor seç — tüm liglerden eşleşmeler gelir.</small>
+                          <strong>{t("challenge_mode_difficulty")}</strong>
+                          <small>{t("challenge_mode_difficulty_desc")}</small>
                         </button>
                         <button
                           type="button"
@@ -4152,8 +4152,8 @@ export default function App() {
                           className="difficulty-card mode-card-pick"
                         >
                           <span className="difficulty-emoji">🏆</span>
-                          <strong>Özel Mod</strong>
-                          <small>İstediğin ligleri seç — zorluk fark etmez, sadece o liglerin eşleşmeleri.</small>
+                          <strong>{t("challenge_mode_custom")}</strong>
+                          <small>{t("challenge_mode_custom_desc")}</small>
                         </button>
                       </div>
                     </>
@@ -4167,9 +4167,9 @@ export default function App() {
                           type="button"
                           onClick={() => setChallengeMode(null)}
                           className="picker-back"
-                          aria-label="Geri"
-                        >← Geri</button>
-                        <h2>🎯 Zorluk Seç</h2>
+                          aria-label={t("aria_back")}
+                        >{t("btn_back")}</button>
+                        <h2>{t("match_type_difficulty")}</h2>
                         <p>{t("marathon_choose_difficulty")}</p>
                       </div>
                       <div className="difficulty-options">
@@ -4209,8 +4209,8 @@ export default function App() {
                             type="button"
                             onClick={() => setChallengeMode(null)}
                             className="picker-back"
-                            aria-label="Geri"
-                          >← Geri</button>
+                            aria-label={t("aria_back")}
+                          >{t("btn_back")}</button>
                           <h2>🏆 Özel Mod</h2>
                           <p>Oynamak istediğin ligleri seç. Boş bırakırsan tümü.</p>
                         </div>
@@ -4225,7 +4225,7 @@ export default function App() {
                           className="primary-button big full-width"
                           style={{ marginTop: 4 }}
                         >
-                          {canStart ? `▶ Başla (${matchCount} eşleşme)` : "Yeterli eşleşme yok"}
+                          {canStart ? t("challenge_start_btn", { n: matchCount }) : t("challenge_not_enough_matches")}
                         </button>
                       </>
                     );
@@ -4240,7 +4240,7 @@ export default function App() {
                 <div className="info-chip">
                   <span>{t("info_difficulty")}</span><strong>
                     {challengeMode === "custom"
-                      ? "🏆 Özel"
+                      ? t("challenge_custom_chip")
                       : `${getDifficultyEmoji(challengeDifficulty)} ${getDifficultyLabel(challengeDifficulty)}`}
                   </strong>
                 </div>
@@ -4656,10 +4656,10 @@ export default function App() {
                       <span>🏆</span>
                       <strong>
                         {selectedLeagues.length === 0
-                          ? "Tüm ligler"
+                          ? t("league_filter_all")
                           : selectedLeagues.length <= 2
                           ? selectedLeagues.join(" + ")
-                          : `${selectedLeagues.length} lig`}
+                          : t("league_filter_n_selected", { n: selectedLeagues.length })}
                       </strong>
                     </>
                   ) : (

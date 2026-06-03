@@ -125,6 +125,39 @@ hero_eyebrow_new: "BAŞLANGIÇ",
   btn_dont_know: "🤷 Bilmiyorum",
   goal_banner: "GOOOL!",
 
+  // Maraton mod seçici (Zorluk vs Özel)
+  challenge_mode_picker_question: "Nasıl oynamak istersin?",
+  challenge_mode_difficulty: "Zorluk Seç",
+  challenge_mode_difficulty_desc: "Kolay, Orta veya Zor seç — tüm liglerden eşleşmeler gelir.",
+  challenge_mode_custom: "Özel Mod",
+  challenge_mode_custom_desc: "İstediğin ligleri seç — zorluk fark etmez, sadece o liglerin eşleşmeleri.",
+  challenge_start_btn: "▶ Başla ({n} eşleşme)",
+  challenge_not_enough_matches: "Yeterli eşleşme yok",
+  challenge_custom_chip: "🏆 Özel",
+
+  // Lig filtresi (LeagueFilter component — Maraton/Düello/Arena ortak)
+  league_filter_label: "🏆 Lig Filtresi",
+  league_filter_all: "Tüm ligler",
+  league_filter_n_selected: "{n} lig",
+  league_filter_n_selected_arena: "{n} lig seçili",
+  league_filter_n_pairs: "{n} eşleşme",
+  league_filter_btn_all: "Tümü",
+  league_filter_too_few_warning: "⚠️ Bu seçimle çok az eşleşme var. Daha fazla lig ekle veya \"Tümü\"ye dön.",
+
+  // Düello/Arena — Eşleşme tipi sekmeleri
+  match_type_label: "Eşleşme Tipi",
+  match_type_difficulty: "🎯 Zorluk Seç",
+  match_type_custom: "🏆 Özel Mod",
+  match_type_difficulty_hint_duel: "Tüm liglerden eşleşmeler · zorluk seçimine göre",
+  match_type_custom_hint_duel: "Sadece seçili liglerden eşleşmeler · zorluk uygulanmaz",
+  match_type_difficulty_hint_arena: "Tüm liglerden sorular · zorluk seçimine göre",
+  match_type_custom_hint_arena: "Sadece seçili liglerden sorular · zorluk uygulanmaz",
+  match_type_custom_lobby: "🏆 Özel Mod · {label}",
+
+  // Geri butonu (genel)
+  btn_back: "← Geri",
+  aria_back: "Geri",
+
   // ChallengeGameOver
   gover_new_record: "Yeni Rekor!",
   gover_streak_over: "Seri Bitti",
@@ -352,6 +385,7 @@ share_copied_dl: "📋 Kopyalandı + görsel indirildi!",
   ts_no_pick: "—",
   ts_round_starting: "İki takım da seçildi! Tur başlıyor...",
   ts_revealing: "Takımlar açılıyor...",
+  ts_no_shared_player: "Bu eşleşmede ortak oyuncu yok. Lütfen başka takım seçin.",
   ts_collision_msg: "Aynı takım! Rakibe rastgele {team} verildi.",
 
 ts_collision_warning: "Aynı takımı seçtiniz! Yeniden seçin.",
@@ -471,6 +505,7 @@ offline_banner: "Çevrimdışısın — internet bağlantını kontrol et",
   arena_err_game_started: "Oyun başlamış. Yeni bir oda dene.",
   arena_err_room_full: "Oda dolu (50 kişi).",
   arena_err_join: "Katılım hatası: {msg}",
+  arena_err_filter_too_narrow: "Seçili liglerde yeterli soru bulunamadı ({found}/{total}). Daha fazla lig ekle veya tur sayısını azalt.",
   arena_err_no_questions: "Soru havuzu boş.",
   arena_err_next_q: "Sıradaki soru bulunamadı.",
 };
