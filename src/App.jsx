@@ -1356,7 +1356,7 @@ export default function App() {
   const [scores, setScores] = useState([0, 0]);
   const [scoreFlash, setScoreFlash] = useState([null, null]);
   const prevScoresRef = useRef([0, 0]);
-  const [round, setRound] = useState(() => getRandomRound([], "hard", allowedTeamsSet));
+  const [round, setRound] = useState(() => getRandomRound());
   const [usedRoundKeys, setUsedRoundKeys] = useState([]);
   const [answerInput, setAnswerInput] = useState("");
   const [focusedInput, setFocusedInput] = useState(false);
@@ -1608,7 +1608,7 @@ export default function App() {
   });
   const [challengeNearMiss, setChallengeNearMiss] = useState(null);
   const [challengeLastScore, setChallengeLastScore] = useState(null);
-  const [challengeRound, setChallengeRound] = useState(() => getRandomRound([], "hard", allowedTeamsSet));
+  const [challengeRound, setChallengeRound] = useState(() => getRandomRound([]));
   const [challengeUsedRoundKeys, setChallengeUsedRoundKeys] = useState([]);
   const [challengeInput, setChallengeInput] = useState("");
   const [challengeFocused, setChallengeFocused] = useState(false);
