@@ -1374,6 +1374,17 @@ export default function App() {
   });
   const [challengeEffectiveDifficulty, setChallengeEffectiveDifficulty] = useState("medium");
   const [onlineDifficulty, setOnlineDifficulty] = useState("medium");
+  // Düello eşleşme tipi: "difficulty" = zorluk seç (lig filtresi yok),
+  // "custom" = özel mod (lig filtresi var, zorluk uygulanmaz).
+  // localStorage'da persist; STATE_SYNC ile guest'e taşınır.
+  const [onlineMatchMode, setOnlineMatchMode] = useState(() => {
+    try { return window.localStorage.getItem("pairfc_online_match_mode") || "difficulty"; }
+    catch (e) { return "difficulty"; }
+  });
+  const persistOnlineMatchMode = (mode) => {
+    setOnlineMatchMode(mode);
+    try { window.localStorage.setItem("pairfc_online_match_mode", mode); } catch (e) {}
+  };
 
   // Lig filtresi: boş array = tüm ligler. localStorage'da persist.
   // Düello'da host'unkini guest'e STATE_SYNC ile gönderiyoruz; guest tarafında
@@ -1392,6 +1403,12 @@ export default function App() {
   };
   // Allowed teams Set'i — pair seçim helper'larına geçilir
   const allowedTeamsSet = useMemo(() => buildAllowedTeams(selectedLeagues), [selectedLeagues]);
+  // Düello için mode-aware allowed teams: "difficulty" mod'da filtre yok,
+  // "custom" mod'da kayıtlı liglere göre filtre.
+  const effectiveOnlineAllowedTeams = useMemo(
+    () => (onlineMatchMode === "custom" ? allowedTeamsSet : null),
+    [onlineMatchMode, allowedTeamsSet]
+  );
   const [duelVariant, setDuelVariant] = useState(null); // null | "auto" | "strategic"
   const [teamSelectEndsAt, setTeamSelectEndsAt] = useState(null);
   const [teamPicks, setTeamPicks] = useState([null, null]);
@@ -1900,7 +1917,7 @@ export default function App() {
     setGameStarted(Boolean(gameState.gameStarted));
     setTargetScore(gameState.targetScore || 3);
     setScores(gameState.scores || [0, 0]);
-    setRound(gameState.round || getRandomRound([], "hard", allowedTeamsSet));
+    setRound(gameState.round || getRandomRound([], "hard", effectiveOnlineAllowedTeams));
     setUsedRoundKeys(gameState.usedRoundKeys || []);
     if (!preserveInput) {
       setAnswerInput("");
@@ -1927,6 +1944,10 @@ export default function App() {
     if (Array.isArray(gameState.selectedLeagues)) {
       setSelectedLeagues(gameState.selectedLeagues);
     }
+    // Eşleşme tipi (Zorluk Seç / Özel Mod) de host'tan gelir.
+    if (gameState.onlineMatchMode) {
+      setOnlineMatchMode(gameState.onlineMatchMode);
+    }
   };
 
   const sendRoomEvent = async (payload) => {
@@ -1951,6 +1972,7 @@ export default function App() {
     // tercihini odadan çıkana kadar kullanmıyor — applyGameState'te sadece
     // in-memory state set ediliyor, localStorage'a yazılmıyor.
     selectedLeagues,
+    onlineMatchMode,
     ...overrides
   });
 
@@ -2078,7 +2100,7 @@ export default function App() {
     }
 
     const code = makeRoomCode();
-    const firstRound = getRandomRound([], onlineDifficulty, allowedTeamsSet) || { teams: ["Fenerbahçe", "Galatasaray"] };
+    const firstRound = getRandomRound([], onlineDifficulty, effectiveOnlineAllowedTeams) || { teams: ["Fenerbahçe", "Galatasaray"] };
     const name = playerName.trim() || t("default_player_1");
 
     opponentClientIdRef.current = null; // yeni oda → rakip slotu boş
@@ -2255,8 +2277,8 @@ export default function App() {
     if (screen !== "team_select") return;
     // Random fallback havuzu — lig filtresi varsa o liglere sınırla.
     // Filtre boşsa veya hiç takım kalmıyorsa tüm TEAM_LOGOS'a düş.
-    const filteredPool = allowedTeamsSet
-      ? Object.keys(TEAM_LOGOS).filter((tn) => allowedTeamsSet.has(tn))
+    const filteredPool = effectiveOnlineAllowedTeams
+      ? Object.keys(TEAM_LOGOS).filter((tn) => effectiveOnlineAllowedTeams.has(tn))
       : Object.keys(TEAM_LOGOS);
     const pool = filteredPool.length > 0 ? filteredPool : Object.keys(TEAM_LOGOS);
     if (!pool.length) return;
@@ -2312,7 +2334,7 @@ export default function App() {
     }
     if (getRoundAnswers(candidate).length === 0) {
       // Toplam fallback: rastgele bilinen bir çift
-      candidate = getRandomRound([], "hard", allowedTeamsSet) || { teams: ["Fenerbahçe", "Galatasaray"] };
+      candidate = getRandomRound([], "hard", effectiveOnlineAllowedTeams) || { teams: ["Fenerbahçe", "Galatasaray"] };
     }
     const nextPreRoundEndsAt = Date.now() + ROUND_REVEAL_SECONDS * 1000;
     const nextState = {
@@ -2365,10 +2387,10 @@ export default function App() {
       return;
     }
 
-    const next = getRandomRound(usedRoundKeys, onlineDifficulty, allowedTeamsSet) || { teams: ["Fenerbahçe", "Galatasaray"] };
+    const next = getRandomRound(usedRoundKeys, onlineDifficulty, effectiveOnlineAllowedTeams) || { teams: ["Fenerbahçe", "Galatasaray"] };
     const nextPreRoundEndsAt = Date.now() + ROUND_REVEAL_SECONDS * 1000;
     const nextKey = getRoundKey(next);
-    const playableCount = getPlayableTeamPairs(allowedTeamsSet).length;
+    const playableCount = getPlayableTeamPairs(effectiveOnlineAllowedTeams).length;
     const nextUsed = usedRoundKeys.length >= playableCount ? [nextKey] : [...usedRoundKeys, nextKey];
 
     const nextState = {
@@ -2460,7 +2482,7 @@ export default function App() {
   }, [teamPicks, screen, playerIndex]);
 
   const resetGame = async () => {
-    const firstRound = getRandomRound([], onlineDifficulty, allowedTeamsSet) || { teams: ["Fenerbahçe", "Galatasaray"] };
+    const firstRound = getRandomRound([], onlineDifficulty, effectiveOnlineAllowedTeams) || { teams: ["Fenerbahçe", "Galatasaray"] };
     const nextState = {
       screen: "game", playerNames,
       playersReady: [false, false],
@@ -3119,6 +3141,10 @@ export default function App() {
         const saved = window.localStorage.getItem("pairfc_selected_leagues");
         setSelectedLeagues(saved ? JSON.parse(saved) : []);
       } catch (e) { setSelectedLeagues([]); }
+      try {
+        const savedMode = window.localStorage.getItem("pairfc_online_match_mode");
+        setOnlineMatchMode(savedMode || "difficulty");
+      } catch (e) { setOnlineMatchMode("difficulty"); }
     }
     setShowOnlineSetup(false);
     setOnlineSetupMode(null);
@@ -3447,7 +3473,7 @@ export default function App() {
   };
 
   const startRematch = async () => {
-    const next = getRandomRound([], onlineDifficulty, allowedTeamsSet) || { teams: ["Fenerbahçe", "Galatasaray"] };
+    const next = getRandomRound([], onlineDifficulty, effectiveOnlineAllowedTeams) || { teams: ["Fenerbahçe", "Galatasaray"] };
     const nextState = {
       screen: "game",
       playerNames,
@@ -3991,34 +4017,64 @@ export default function App() {
                     </div>
                   </div>
 
-                  {duelVariant !== "strategic" && (
+                  {/* Eşleşme tipi sekmeleri — Zorluk Seç vs Özel Mod */}
                   <div className="input-card">
-                    <label>{t("form_difficulty_label")}</label>
-                    <div className="score-options">
-                      {[
-                        { v: "easy", label: t("form_diff_easy") },
-                        { v: "medium", label: t("form_diff_medium") },
-                        { v: "hard", label: t("form_diff_hard") }
-                      ].map((opt) => (
-                        <button
-                          key={opt.v}
-                          type="button"
-                          onClick={() => setOnlineDifficulty(opt.v)}
-                          className={onlineDifficulty === opt.v ? "score-option active" : "score-option"}
-                        >
-                          {opt.label}
-                        </button>
-                      ))}
+                    <label>Eşleşme Tipi</label>
+                    <div className="match-mode-tabs">
+                      <button
+                        type="button"
+                        onClick={() => persistOnlineMatchMode("difficulty")}
+                        className={`match-mode-tab ${onlineMatchMode === "difficulty" ? "active" : ""}`}
+                      >
+                        🎯 Zorluk Seç
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => persistOnlineMatchMode("custom")}
+                        className={`match-mode-tab ${onlineMatchMode === "custom" ? "active" : ""}`}
+                      >
+                        🏆 Özel Mod
+                      </button>
                     </div>
+                    <small className="match-mode-hint">
+                      {onlineMatchMode === "difficulty"
+                        ? "Tüm liglerden eşleşmeler · zorluk seçimine göre"
+                        : "Sadece seçili liglerden eşleşmeler · zorluk uygulanmaz"}
+                    </small>
                   </div>
+
+                  {/* Zorluk Seç sekmesi — sadece auto modda zorluk seçimi var */}
+                  {onlineMatchMode === "difficulty" && duelVariant !== "strategic" && (
+                    <div className="input-card">
+                      <label>{t("form_difficulty_label")}</label>
+                      <div className="score-options">
+                        {[
+                          { v: "easy", label: t("form_diff_easy") },
+                          { v: "medium", label: t("form_diff_medium") },
+                          { v: "hard", label: t("form_diff_hard") }
+                        ].map((opt) => (
+                          <button
+                            key={opt.v}
+                            type="button"
+                            onClick={() => setOnlineDifficulty(opt.v)}
+                            className={onlineDifficulty === opt.v ? "score-option active" : "score-option"}
+                          >
+                            {opt.label}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
                   )}
 
-                  <div className="input-card">
-                    <LeagueFilter
-                      selectedLeagues={selectedLeagues}
-                      onChange={persistLeagues}
-                    />
-                  </div>
+                  {/* Özel Mod sekmesi — lig filtresi */}
+                  {onlineMatchMode === "custom" && (
+                    <div className="input-card">
+                      <LeagueFilter
+                        selectedLeagues={selectedLeagues}
+                        onChange={persistLeagues}
+                      />
+                    </div>
+                  )}
 
                   <button type="button" onClick={createRoom} className="primary-button big full-width">
                     {t("btn_create_room")}
@@ -4648,7 +4704,7 @@ export default function App() {
                       />
                       <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(76px, 1fr))", gap: 6, maxHeight: 320, overflowY: "auto", paddingRight: 4 }}>
                         {Object.keys(TEAM_LOGOS)
-                          .filter((tn) => !allowedTeamsSet || allowedTeamsSet.has(tn))
+                          .filter((tn) => !effectiveOnlineAllowedTeams || effectiveOnlineAllowedTeams.has(tn))
                           .filter((tn) => !teamSearch || tn.toLowerCase().includes(teamSearch.toLowerCase()))
                           .map((tn) => {
                             const meta = TEAM_LOGOS[tn];
@@ -5904,6 +5960,41 @@ button:focus-visible {
 .difficulty-card.mode-card-pick:hover {
   border-color: rgba(155, 45, 255, 0.55);
   background: linear-gradient(135deg, rgba(155, 45, 255, 0.16), rgba(245, 158, 11, 0.10));
+}
+
+/* Düello / Arena: kompakt sekme — Zorluk Seç vs Özel Mod */
+.match-mode-tabs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+  margin-top: 4px;
+}
+.match-mode-tab {
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.10);
+  background: rgba(255,255,255,0.04);
+  color: rgba(255,255,255,0.7);
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+}
+.match-mode-tab:hover {
+  background: rgba(255,255,255,0.08);
+  border-color: rgba(255,255,255,0.18);
+}
+.match-mode-tab.active {
+  background: linear-gradient(135deg, rgba(155, 45, 255, 0.22), rgba(245, 158, 11, 0.14));
+  border-color: rgba(155, 45, 255, 0.55);
+  color: #fff;
+}
+.match-mode-hint {
+  display: block;
+  margin-top: 6px;
+  font-size: 11px;
+  color: rgba(255,255,255,0.55);
+  line-height: 1.4;
 }
 
 .difficulty-header h2 {

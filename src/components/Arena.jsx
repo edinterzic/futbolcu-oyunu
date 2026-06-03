@@ -244,6 +244,8 @@ export default function Arena({ supabase, onExit, selectedLeagues = [], onLeague
   // Çözüm: INSERT'leri bu ref'e cache'le ama "current" yapma — currentQuestion
   // tamamen room.current_question_id'ye bağlı (aşağıdaki useEffect).
   const questionsCacheRef = useRef({});
+  // Host'un seçtiği eşleşme tipi (ArenaSetup'ta belirlenir, startGame'de kullanılır).
+  const arenaMatchModeRef = useRef("difficulty");
 
   const [room, setRoom] = useState(null);
   const [players, setPlayers] = useState([]);
@@ -426,7 +428,9 @@ export default function Arena({ supabase, onExit, selectedLeagues = [], onLeague
   // ============================================
   // Oda Oluşturma (Host)
   // ============================================
-  const createRoom = async (hostName, totalRounds, difficulty = "medium") => {
+  const createRoom = async (hostName, totalRounds, difficulty = "medium", matchMode = "difficulty") => {
+    // Eşleşme tipini ref'te tut; startGame buradan okur.
+    arenaMatchModeRef.current = matchMode;
     setError(null);
     if (!supabase) {
       setError(t("arena_err_no_server"));
@@ -545,10 +549,11 @@ export default function Arena({ supabase, onExit, selectedLeagues = [], onLeague
     if (!room || room.host_id !== userIdRef.current) return;
     setError(null);
 
-    // Daha geniş bir havuz iste, sonra lig filtresine göre filtrele.
-    // Lig filtresi yoksa direkt kullan; varsa filtrelenmiş ilk N'i al.
-    const allowedTeams = buildAllowedTeamsLocal(selectedLeagues);
-    const overshoot = allowedTeams ? 8 : 1; // filtre varsa daha fazla aday üret
+    // "difficulty" modunda lig filtresi uygulanmaz; "custom" modunda uygulanır.
+    const allowedTeams = arenaMatchModeRef.current === "custom"
+      ? buildAllowedTeamsLocal(selectedLeagues)
+      : null;
+    const overshoot = allowedTeams ? 8 : 1;
     const rawQuestions = generateArenaQuestions(
       room.total_rounds * overshoot,
       room.difficulty || "medium"
@@ -855,6 +860,16 @@ function ArenaSetup({ setupMode, setSetupMode, onCreate, onJoin, onExit, error, 
   const [difficulty, setDifficulty] = useState(() => localStorage.getItem("pairfc_arena_difficulty") || "medium");
   const [joinPin, setJoinPin] = useState("");
   const [joinName, setJoinName] = useState(() => localStorage.getItem("pairfc_player_name") || "");
+  // Eşleşme tipi sekmesi: "difficulty" = zorluk seçimi, lig filtresi yok;
+  // "custom" = lig filtresi, zorluk uygulanmaz.
+  const [matchMode, setMatchMode] = useState(() => {
+    try { return localStorage.getItem("pairfc_arena_match_mode") || "difficulty"; }
+    catch (e) { return "difficulty"; }
+  });
+  const setMatchModePersist = (m) => {
+    setMatchMode(m);
+    try { localStorage.setItem("pairfc_arena_match_mode", m); } catch (e) {}
+  };
 
   if (setupMode === null) {
     return (
@@ -939,23 +954,50 @@ function ArenaSetup({ setupMode, setSetupMode, onCreate, onJoin, onExit, error, 
           </label>
 
           <label className="arena-label">
-            <span>{t("arena_difficulty_label")}</span>
-            <div className="arena-rounds-row">
-              {["easy", "medium", "hard"].map((d) => (
-                <button
-                  key={d}
-                  type="button"
-                  onClick={() => setDifficulty(d)}
-                  className={`arena-round-chip arena-diff-chip arena-diff-chip--${d} ${difficulty === d ? "active" : ""}`}
-                >
-                  {t(`diff_${d}`)}
-                </button>
-              ))}
+            <span>Eşleşme Tipi</span>
+            <div className="match-mode-tabs">
+              <button
+                type="button"
+                onClick={() => setMatchModePersist("difficulty")}
+                className={`match-mode-tab ${matchMode === "difficulty" ? "active" : ""}`}
+              >
+                🎯 Zorluk Seç
+              </button>
+              <button
+                type="button"
+                onClick={() => setMatchModePersist("custom")}
+                className={`match-mode-tab ${matchMode === "custom" ? "active" : ""}`}
+              >
+                🏆 Özel Mod
+              </button>
             </div>
-            <small className="arena-diff-hint">{t(`arena_diff_${difficulty}_hint`)}</small>
+            <small className="match-mode-hint">
+              {matchMode === "difficulty"
+                ? "Tüm liglerden sorular · zorluk seçimine göre"
+                : "Sadece seçili liglerden sorular · zorluk uygulanmaz"}
+            </small>
           </label>
 
-          {onLeaguesChange && (
+          {matchMode === "difficulty" && (
+            <label className="arena-label">
+              <span>{t("arena_difficulty_label")}</span>
+              <div className="arena-rounds-row">
+                {["easy", "medium", "hard"].map((d) => (
+                  <button
+                    key={d}
+                    type="button"
+                    onClick={() => setDifficulty(d)}
+                    className={`arena-round-chip arena-diff-chip arena-diff-chip--${d} ${difficulty === d ? "active" : ""}`}
+                  >
+                    {t(`diff_${d}`)}
+                  </button>
+                ))}
+              </div>
+              <small className="arena-diff-hint">{t(`arena_diff_${difficulty}_hint`)}</small>
+            </label>
+          )}
+
+          {matchMode === "custom" && onLeaguesChange && (
             <LeagueFilter
               selectedLeagues={selectedLeagues}
               onChange={onLeaguesChange}
@@ -971,7 +1013,7 @@ function ArenaSetup({ setupMode, setSetupMode, onCreate, onJoin, onExit, error, 
                 localStorage.setItem("pairfc_player_name", hostName.trim());
               }
               try { localStorage.setItem("pairfc_arena_difficulty", difficulty); } catch (e) {}
-              onCreate(hostName, totalRounds, difficulty);
+              onCreate(hostName, totalRounds, difficulty, matchMode);
             }}
             disabled={!hostName.trim()}
             className="arena-cta"
