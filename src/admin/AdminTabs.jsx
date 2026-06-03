@@ -22,8 +22,17 @@ const SNAPSHOT_KEY = "pairfc_admin_snapshot_v1";
 const PAGE_SIZE = 50;
 const COMMON_LEAGUES = [
   "Süper Lig", "Premier League", "La Liga", "Serie A",
-  "Bundesliga", "Ligue 1", "Eredivisie", "Primeira Liga"
+  "Bundesliga", "Ligue 1", "Eredivisie", "Primeira Liga",
+  "Pro League", "Premyer Liqası"
 ];
+
+// Ülke → bayrak emoji eşleştirmesi. Admin "Ülke" alanını doldurunca
+// flag otomatik öneriliyor (admin override edebilir).
+const COUNTRY_FLAGS = {
+  "Türkiye": "🇹🇷", "İngiltere": "🏴󠁧󠁢󠁥󠁮󠁧󠁿", "İspanya": "🇪🇸", "İtalya": "🇮🇹",
+  "Almanya": "🇩🇪", "Fransa": "🇫🇷", "Hollanda": "🇳🇱", "Portekiz": "🇵🇹",
+  "Belçika": "🇧🇪", "Azerbaycan": "🇦🇿"
+};
 
 // =================== HELPERS ===================
 export function normalizeText(s) {
@@ -77,8 +86,11 @@ function buildFreshSnapshot() {
       initials: (isObj && entry.initials) || style.initials || "",
       primary: (isObj && entry.primary) || style.primary || "#10b981",
       secondary: (isObj && entry.secondary) || style.secondary || "#ffffff",
-      country: (isObj && entry.country) || "",
-      league: (isObj && entry.league) || "",
+      // teamLogos.js'deki yeni alanlar (lig filtresi sistemi için).
+      // Hem TEAMS array'inden hem TEAM_LOGOS'tan oku.
+      country: (isObj && entry.country) || style.country || "",
+      league: (isObj && entry.league) || style.league || "",
+      flag: (isObj && entry.flag) || style.flag || "",
       founded: (isObj && entry.founded !== undefined) ? entry.founded : null,
       isActive: (isObj && entry.isActive !== undefined) ? entry.isActive : true
     };
@@ -114,6 +126,7 @@ function loadSnapshot() {
             secondary: inner.secondary || t.secondary || "#ffffff",
             country: inner.country || t.country || "",
             league: inner.league || t.league || "",
+            flag: inner.flag || t.flag || "",
             founded: inner.founded ?? t.founded ?? null,
             isActive: inner.isActive !== undefined ? inner.isActive : (t.isActive !== undefined ? t.isActive : true)
           };
@@ -193,7 +206,14 @@ export function computeDiff(snapshot) {
   const modifiedTeams = snapshot.teams.filter((t) => {
     if (!origTeamMap.has(t.name)) return false;
     const orig = origTeamMap.get(t.name);
-    return orig.initials !== t.initials || orig.primary !== t.primary || orig.secondary !== t.secondary;
+    return (
+      orig.initials !== t.initials ||
+      orig.primary !== t.primary ||
+      orig.secondary !== t.secondary ||
+      (orig.country || "") !== (t.country || "") ||
+      (orig.league || "") !== (t.league || "") ||
+      (orig.flag || "") !== (t.flag || "")
+    );
   });
 
   const totalPC = addedPlayers.length + removedPlayers.length + modifiedPlayers.length;
@@ -337,13 +357,25 @@ function generateTeamLogosJS(snapshot) {
   }
   const active = snapshot.teams.filter((t) => counts.has(t.name));
   active.sort((a, b) => (counts.get(b.name) || 0) - (counts.get(a.name) || 0));
-  const entries = active.map((t) => `  ${JSON.stringify(t.name)}: {
-    "initials": ${JSON.stringify(t.initials || "")},
-    "primary": ${JSON.stringify(t.primary || "#10b981")},
-    "secondary": ${JSON.stringify(t.secondary || "#ffffff")}
-  }`).join(",\n");
+  const entries = active.map((t) => {
+    // country/league/flag opsiyonel — sadece doluysa yaz, dosyayı kirletme.
+    const lines = [
+      `    "initials": ${JSON.stringify(t.initials || "")}`,
+      `    "primary": ${JSON.stringify(t.primary || "#10b981")}`,
+      `    "secondary": ${JSON.stringify(t.secondary || "#ffffff")}`
+    ];
+    if (t.country) lines.push(`    "country": ${JSON.stringify(t.country)}`);
+    if (t.league) lines.push(`    "league": ${JSON.stringify(t.league)}`);
+    if (t.flag) lines.push(`    "flag": ${JSON.stringify(t.flag)}`);
+    return `  ${JSON.stringify(t.name)}: {\n${lines.join(",\n")}\n  }`;
+  }).join(",\n");
   return `// Auto-generated from admin panel
 // Generated: ${new Date().toISOString()}
+//
+// NOT: country/league/flag alanları lig filtresi (Maraton/Düello/Arena Özel Mod)
+// için kritik. Admin panelinde Düzenle modalındaki "İsteğe bağlı bilgiler"
+// bölümünden yönetilir. Yeni takım eklerken bunları boş bırakırsan filtreye
+// dahil olmaz.
 
 export const TEAM_LOGOS = {
 ${entries}
@@ -532,6 +564,7 @@ function TeamEditor({ open, onClose, onSave, team, existingNames }) {
   const [secondary, setSecondary] = useState("#ffffff");
   const [country, setCountry] = useState("");
   const [league, setLeague] = useState("");
+  const [flag, setFlag] = useState("");
   const [founded, setFounded] = useState("");
   const [error, setError] = useState("");
 
@@ -542,9 +575,20 @@ function TeamEditor({ open, onClose, onSave, team, existingNames }) {
       setPrimary(team?.primary || "#10b981");
       setSecondary(team?.secondary || "#ffffff");
       setCountry(team?.country || ""); setLeague(team?.league || "");
+      setFlag(team?.flag || "");
       setFounded(team?.founded || ""); setError("");
     }
   }, [open, team]);
+
+  // Ülke seçilirse ve henüz manuel flag girilmemişse otomatik öner
+  const onCountryChange = (val) => {
+    setCountry(val);
+    const trimmed = val.trim();
+    if (trimmed && (!flag || COUNTRY_FLAGS[country] === flag)) {
+      const suggested = COUNTRY_FLAGS[trimmed];
+      if (suggested) setFlag(suggested);
+    }
+  };
 
   const autoInitials = useMemo(() => {
     if (!name) return "";
@@ -561,7 +605,9 @@ function TeamEditor({ open, onClose, onSave, team, existingNames }) {
     if (founded && (isNaN(yr) || yr < 1800 || yr > new Date().getFullYear())) { setError("Geçerli bir kuruluş yılı gir."); return; }
     onSave({ originalName: isEdit ? team.name : null, name: tn,
       initials: (initials || autoInitials).toUpperCase().slice(0, 5),
-      primary, secondary, country: country.trim(), league: league.trim(), founded: yr });
+      primary, secondary,
+      country: country.trim(), league: league.trim(), flag: flag.trim(),
+      founded: yr });
   };
 
   const previewTeam = { name: name || "Takım", initials: initials || autoInitials, primary, secondary };
@@ -590,17 +636,51 @@ function TeamEditor({ open, onClose, onSave, team, existingNames }) {
           <div className="admin-color-input"><input type="color" value={secondary} onChange={(e) => setSecondary(e.target.value)} /><input type="text" value={secondary} onChange={(e) => setSecondary(e.target.value)} /></div>
         </div>
       </div>
-      <details className="admin-form-details">
+      <details className="admin-form-details" open={isEdit && (team?.country || team?.league || team?.flag) ? true : undefined}>
         <summary>İsteğe bağlı bilgiler</summary>
         <div className="admin-form-grid">
-          <div className="admin-form-row"><label>Ülke</label><input type="text" value={country} onChange={(e) => setCountry(e.target.value)} placeholder="Örn: Türkiye" /></div>
+          <div className="admin-form-row">
+            <label>Ülke</label>
+            <input
+              type="text"
+              value={country}
+              onChange={(e) => onCountryChange(e.target.value)}
+              list="admin-country-list"
+              placeholder="Örn: Türkiye"
+            />
+            <datalist id="admin-country-list">
+              {Object.keys(COUNTRY_FLAGS).map((c) => <option key={c} value={c} />)}
+            </datalist>
+          </div>
           <div className="admin-form-row">
             <label>Lig</label>
             <input type="text" value={league} onChange={(e) => setLeague(e.target.value)} list="admin-league-list" placeholder="Örn: Süper Lig" />
             <datalist id="admin-league-list">{COMMON_LEAGUES.map((l) => <option key={l} value={l} />)}</datalist>
+            <small style={{ color: "var(--admin-text-muted)", fontSize: 11 }}>
+              Lig filtresi (Maraton/Düello/Arena "Özel Mod") için bu alan kullanılır.
+            </small>
           </div>
         </div>
-        <div className="admin-form-row"><label>Kuruluş Yılı</label><input type="number" value={founded} onChange={(e) => setFounded(e.target.value)} placeholder="Örn: 1905" /></div>
+        <div className="admin-form-grid">
+          <div className="admin-form-row">
+            <label>Bayrak (emoji)</label>
+            <input
+              type="text"
+              value={flag}
+              onChange={(e) => setFlag(e.target.value)}
+              placeholder="Örn: 🇹🇷"
+              maxLength={8}
+              style={{ fontSize: 18 }}
+            />
+            <small style={{ color: "var(--admin-text-muted)", fontSize: 11 }}>
+              Ülke seçilince otomatik gelir, değiştirebilirsin.
+            </small>
+          </div>
+          <div className="admin-form-row">
+            <label>Kuruluş Yılı</label>
+            <input type="number" value={founded} onChange={(e) => setFounded(e.target.value)} placeholder="Örn: 1905" />
+          </div>
+        </div>
       </details>
       {error && <div className="admin-error">{error}</div>}
       <div className="admin-modal-actions">
@@ -804,7 +884,11 @@ export function TeamsTab({ snapshot, updateSnapshot, logActivity }) {
       let nextPlayers = [...prev.players];
       if (data.originalName) {
         const idx = nextTeams.findIndex((t) => t.name === data.originalName);
-        if (idx >= 0) nextTeams[idx] = { name: data.name, initials: data.initials, primary: data.primary, secondary: data.secondary, country: data.country, league: data.league, founded: data.founded };
+        if (idx >= 0) nextTeams[idx] = {
+          name: data.name, initials: data.initials, primary: data.primary, secondary: data.secondary,
+          country: data.country, league: data.league, flag: data.flag,
+          founded: data.founded
+        };
         if (data.originalName !== data.name) {
           nextPlayers = nextPlayers.map((p) => ({ ...p, clubs: p.clubs.map((c) => c === data.originalName ? data.name : c) }));
           logActivity({ type: "edit", message: `"${data.originalName}" → "${data.name}" yeniden adlandırıldı` });
@@ -812,7 +896,11 @@ export function TeamsTab({ snapshot, updateSnapshot, logActivity }) {
           logActivity({ type: "edit", message: `"${data.name}" takımı düzenlendi` });
         }
       } else {
-        nextTeams.push({ name: data.name, initials: data.initials, primary: data.primary, secondary: data.secondary, country: data.country, league: data.league, founded: data.founded });
+        nextTeams.push({
+          name: data.name, initials: data.initials, primary: data.primary, secondary: data.secondary,
+          country: data.country, league: data.league, flag: data.flag,
+          founded: data.founded
+        });
         logActivity({ type: "add", message: `"${data.name}" takımı eklendi` });
       }
       return { ...prev, teams: nextTeams, players: nextPlayers };
@@ -855,8 +943,26 @@ export function TeamsTab({ snapshot, updateSnapshot, logActivity }) {
               <div className="admin-team-card-header">
                 <TeamBadge team={t} size={42} />
                 <div className="admin-team-card-info">
-                  <div className="admin-team-card-name">{t.name}</div>
-                  <div className="admin-team-card-meta">{t.league || t.country || "—"}{c > 0 && <span className="admin-team-card-count">· {c} oyuncu</span>}</div>
+                  <div className="admin-team-card-name">
+                    {t.flag && <span style={{ marginRight: 6 }}>{t.flag}</span>}
+                    {t.name}
+                  </div>
+                  <div className="admin-team-card-meta">
+                    {t.league ? (
+                      <span style={{
+                        display: "inline-block",
+                        padding: "2px 7px",
+                        borderRadius: 4,
+                        background: "rgba(155, 45, 255, 0.15)",
+                        color: "#c084fc",
+                        fontSize: 11,
+                        fontWeight: 600,
+                        marginRight: 6
+                      }}>{t.league}</span>
+                    ) : null}
+                    {!t.league && (t.country || "—")}
+                    {c > 0 && <span className="admin-team-card-count">· {c} oyuncu</span>}
+                  </div>
                 </div>
               </div>
               <div className="admin-team-card-actions">
@@ -928,7 +1034,7 @@ export function ImportTab({ snapshot, updateSnapshot, logActivity }) {
       preview.newTeams.forEach((tn) => {
         if (nextT.some((t) => t.name === tn)) return;
         const init = tn.split(/\s+/).map((p) => p[0]).join("").slice(0, 3).toUpperCase();
-        nextT.push({ name: tn, initials: init, primary: "#10b981", secondary: "#ffffff", country: "", league: "", founded: null });
+        nextT.push({ name: tn, initials: init, primary: "#10b981", secondary: "#ffffff", country: "", league: "", flag: "", founded: null });
       });
       preview.newPlayers.forEach((np) => nextP.push({ name: np.name, clubs: np.clubs, nationality: "", birthYear: null, isActive: null }));
       preview.updatedPlayers.forEach((up) => {
