@@ -373,21 +373,44 @@ function getTier(teamName) {
   return 3;
 }
 
+// Aynı ülkeden takım çifti mi? Derbiler (FB-GS, Real-Barça, ManU-Liverpool,
+// Milan-Inter, vs.) daha sık çıksın diye boost uygulamak için kullanılır.
+// TEAM_LOGOS'un country alanı kaynak.
+function isSameCountryPair(pair) {
+  const ca = TEAM_LOGOS[pair.teams[0]]?.country;
+  const cb = TEAM_LOGOS[pair.teams[1]]?.country;
+  return Boolean(ca) && ca === cb;
+}
+
+// Aynı ülke derbileri ağırlık çarpanı.
+// Sorun: 17 takımlı easy pool'da 14 Avrupa devi + 3 TR büyüğü aynı tier 1-1.
+// Eşit ağırlıkla FB-GS sadece %2.2 ihtimalle çıkıyor — pratikte "asla gelmiyor"
+// olarak hissediliyor. 3x boost ile TR derbileri ~%5'e çıkar (20 turluk bir
+// maratonda 1+ derbi beklenir). Aynı zamanda El Clásico, Manchester derbisi,
+// Milano derbisi gibi diğer kıymetli aynı-ülke çiftleri de canlanır.
+const SAME_COUNTRY_BOOST = 3;
+
 // Tier çiftine göre ağırlık (0 = hiç çıkmaz)
 // {1,1}=10, {1,2}=5, {2,2}=3, {1,3}=1, {2,3}=0, {3,3}=0
+// Aynı ülkeden takım çifti varsa ağırlık × SAME_COUNTRY_BOOST
 function getPairWeight(pair) {
   const t1 = getTier(pair.teams[0]);
   const t2 = getTier(pair.teams[1]);
   const tierKey = [t1, t2].sort().join("-");
+  let baseWeight;
   switch (tierKey) {
-    case "1-1": return 10;
-    case "1-2": return 5;
-    case "2-2": return 3;
-    case "1-3": return 1;
-    case "2-3": return 0;
-    case "3-3": return 0;
-    default: return 1;
+    case "1-1": baseWeight = 10; break;
+    case "1-2": baseWeight = 5; break;
+    case "2-2": baseWeight = 3; break;
+    case "1-3": baseWeight = 1; break;
+    case "2-3": baseWeight = 0; break;
+    case "3-3": baseWeight = 0; break;
+    default: baseWeight = 1;
   }
+  if (baseWeight > 0 && isSameCountryPair(pair)) {
+    baseWeight *= SAME_COUNTRY_BOOST;
+  }
+  return baseWeight;
 }
 
 const PLAYABLE_TEAM_PAIRS = Object.keys(ANSWER_INDEX).map((key) => {
@@ -535,6 +558,29 @@ function runSelfTests() {
   console.assert(getPlayerSuggestions("xzy").length === 0, "Suggestions should be empty when there is no match");
   console.assert(getPlayableTeamPairs().length > 0 && getPlayableTeamPairs().length <= Object.keys(ANSWER_INDEX).length, "Playable pairs subset of ANSWER_INDEX");
   console.assert(getPlayableTeamPairs().length > 0, "There should be playable team pairs");
+
+  // Regresyon: 3 büyük Türk derbisi (FB-GS, FB-BJK, BJK-GS) kolay modda
+  // pool'da OLMALIYDI — ama tek başına yetmez. Aynı ülke boost'u da çalışmalı
+  // ki bu derbiler pratikte de gelsin (önceki davranışta %2.2 ihtimal vardı).
+  const fbgs = WEIGHTED_TEAM_PAIRS.find((p) =>
+    (p.teams.includes("Fenerbahçe") && p.teams.includes("Galatasaray"))
+  );
+  console.assert(fbgs, "FB-GS pair should exist in WEIGHTED_TEAM_PAIRS");
+  if (fbgs) {
+    console.assert(
+      isPairInDifficulty(fbgs, "easy"),
+      "FB-GS should be in easy difficulty"
+    );
+    console.assert(
+      getPairWeight(fbgs) === 30,
+      `FB-GS weight should be 30 (10 base × 3 same-country boost), got ${getPairWeight(fbgs)}`
+    );
+    console.assert(
+      isSameCountryPair(fbgs),
+      "FB-GS should be detected as same-country (Türkiye)"
+    );
+  }
+
   console.assert(WINNING_SCORE === 3, "Winning score should be 3");
 }
 
