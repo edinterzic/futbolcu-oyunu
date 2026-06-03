@@ -1398,6 +1398,9 @@ export default function App() {
   const [teamSelectLeft, setTeamSelectLeft] = useState(TEAM_SELECT_SECONDS);
   const [teamSearch, setTeamSearch] = useState("");
   const [showChallengeStartScreen, setShowChallengeStartScreen] = useState(false);
+  // Maraton mod seçimi: null = picker ekranı, "difficulty" = zorluk seç,
+  // "custom" = özel mod (lig filtresi). null'a dönmek picker'ı tekrar gösterir.
+  const [challengeMode, setChallengeMode] = useState(null);
   const [showOnlineSetup, setShowOnlineSetup] = useState(false);
   const [onlineSetupMode, setOnlineSetupMode] = useState(null); // null | "create" | "join"
 
@@ -2814,17 +2817,27 @@ export default function App() {
   }, [gameStarted, roundLocked, roundEndsAt, screen]);
 
   const startChallenge = () => {
-    // Önce zorluk seçim ekranı
+    // Önce mod seçim ekranı (zorluk vs özel mod)
     setShowChallengeStartScreen(true);
+    setChallengeMode(null); // picker'ı göster
     setScreen("challenge");
   };
 
-  const confirmStartChallenge = (difficulty) => {
-    setChallengeDifficulty(difficulty);
-    setChallengeEffectiveDifficulty(difficulty);
+  // Zorluk path'i: lig filtresi UYGULANMAZ, tüm takımlardan eşleşme gelir.
+  // Özel mod path'i (mode="custom"): seçili ligler kullanılır, zorluk
+  // dahili olarak "hard" (= isPairInDifficulty(_, "hard") her zaman true,
+  // yani zorluk filtresi yok). challengeMode state'i akış boyunca tutulur.
+  const confirmStartChallenge = (mode, difficulty) => {
+    const effectiveMode = mode === "custom" ? "custom" : "difficulty";
+    const effectiveDifficulty = effectiveMode === "custom" ? "hard" : difficulty;
+    const filterTeams = effectiveMode === "custom" ? allowedTeamsSet : null;
+
+    setChallengeMode(effectiveMode);
+    setChallengeDifficulty(effectiveDifficulty);
+    setChallengeEffectiveDifficulty(effectiveDifficulty);
     setScoreSaved(false);
     setShowChallengeStartScreen(false);
-    const firstRound = getRandomRound([], difficulty, allowedTeamsSet) || { teams: ["Fenerbahçe", "Galatasaray"] };
+    const firstRound = getRandomRound([], effectiveDifficulty, filterTeams) || { teams: ["Fenerbahçe", "Galatasaray"] };
     setChallengeScore(0);
     setChallengeLastScore(null);
     setChallengeRound(firstRound);
@@ -2845,7 +2858,7 @@ export default function App() {
     setChallengeSwapUsed(false);
     setChallengeTimeAddUsed(false);
     setChallengeJokerHint(null);
-    track("mode_started", { mode: "challenge", difficulty });
+    track("mode_started", { mode: "challenge", difficulty: effectiveDifficulty, marathonMode: effectiveMode });
     startTimer("challenge");
   };
 
@@ -3300,7 +3313,8 @@ export default function App() {
     }
     const currentKey = getRoundKey(challengeRound);
     const nextUsed = [...challengeUsedRoundKeys, currentKey];
-    const result = getNextChallengeRound(nextUsed, challengeEffectiveDifficulty || challengeDifficulty, allowedTeamsSet);
+    const challengeAllowed = challengeMode === "custom" ? allowedTeamsSet : null;
+    const result = getNextChallengeRound(nextUsed, challengeEffectiveDifficulty || challengeDifficulty, challengeAllowed);
     if (result.escalated) setChallengeEffectiveDifficulty(result.newDifficulty);
     setChallengeSwapUsed(true);
     setChallengeRound(result.round);
@@ -3388,7 +3402,8 @@ export default function App() {
       else if (answerCount > 0 && answerCount <= 3) bonus = { tier: "orange", label: t("bonus_hard") };
       else if (answeredFast) bonus = { tier: "blue", label: t("bonus_fast") };
 
-      const result = getNextChallengeRound(challengeUsedRoundKeys, challengeEffectiveDifficulty || challengeDifficulty, allowedTeamsSet);
+      const challengeAllowed = challengeMode === "custom" ? allowedTeamsSet : null;
+      const result = getNextChallengeRound(challengeUsedRoundKeys, challengeEffectiveDifficulty || challengeDifficulty, challengeAllowed);
       const nextKey = getRoundKey(result.round);
       let nextUsed = result.reset ? [nextKey] : [...challengeUsedRoundKeys, nextKey];
 
@@ -4058,38 +4073,107 @@ export default function App() {
             <section className="play-content">
               {showChallengeStartScreen ? (
                 <div className="panel difficulty-picker">
-                  <div className="difficulty-header">
-                    <h2>🔥 {t("mode_marathon_title")}</h2>
-                    <p>{t("marathon_choose_difficulty")}</p>
-                  </div>
+                  {/* Mod picker — iki yol seçimi */}
+                  {challengeMode === null && (
+                    <>
+                      <div className="difficulty-header">
+                        <h2>🔥 {t("mode_marathon_title")}</h2>
+                        <p>Nasıl oynamak istersin?</p>
+                      </div>
+                      <div className="difficulty-options">
+                        <button
+                          type="button"
+                          onClick={() => setChallengeMode("difficulty")}
+                          className="difficulty-card mode-card-pick"
+                        >
+                          <span className="difficulty-emoji">🎯</span>
+                          <strong>Zorluk Seç</strong>
+                          <small>Kolay, Orta veya Zor seç — tüm liglerden eşleşmeler gelir.</small>
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() => setChallengeMode("custom")}
+                          className="difficulty-card mode-card-pick"
+                        >
+                          <span className="difficulty-emoji">🏆</span>
+                          <strong>Özel Mod</strong>
+                          <small>İstediğin ligleri seç — zorluk fark etmez, sadece o liglerin eşleşmeleri.</small>
+                        </button>
+                      </div>
+                    </>
+                  )}
 
-                  <LeagueFilter
-                    selectedLeagues={selectedLeagues}
-                    onChange={persistLeagues}
-                  />
+                  {/* Zorluk seçim ekranı */}
+                  {challengeMode === "difficulty" && (
+                    <>
+                      <div className="difficulty-header">
+                        <button
+                          type="button"
+                          onClick={() => setChallengeMode(null)}
+                          className="picker-back"
+                          aria-label="Geri"
+                        >← Geri</button>
+                        <h2>🎯 Zorluk Seç</h2>
+                        <p>{t("marathon_choose_difficulty")}</p>
+                      </div>
+                      <div className="difficulty-options">
+                        <button type="button" onClick={() => confirmStartChallenge("difficulty", "easy")} className="difficulty-card easy">
+                          <span className="difficulty-emoji">🟢</span>
+                          <strong>{t("diff_easy")}</strong>
+                          <small>{t("diff_easy_desc")}</small>
+                          <em>{t("diff_easy_examples")}</em>
+                        </button>
+                        <button type="button" onClick={() => confirmStartChallenge("difficulty", "medium")} className="difficulty-card medium">
+                          <span className="difficulty-emoji">🟡</span>
+                          <strong>{t("diff_medium")}</strong>
+                          <small>{t("diff_medium_desc")}</small>
+                          <em>{t("diff_medium_examples")}</em>
+                        </button>
+                        <button type="button" onClick={() => confirmStartChallenge("difficulty", "hard")} className="difficulty-card hard">
+                          <span className="difficulty-emoji">🔴</span>
+                          <strong>{t("diff_hard")}</strong>
+                          <small>{t("diff_hard_desc")}</small>
+                          <em>{t("diff_hard_examples")}</em>
+                        </button>
+                      </div>
+                    </>
+                  )}
 
-                  <div className="difficulty-options">
-                    <button type="button" onClick={() => confirmStartChallenge("easy")} className="difficulty-card easy">
-                      <span className="difficulty-emoji">🟢</span>
-                      <strong>{t("diff_easy")}</strong>
-                      <small>{t("diff_easy_desc")}</small>
-                      <em>{t("diff_easy_examples")}</em>
-                    </button>
-
-                    <button type="button" onClick={() => confirmStartChallenge("medium")} className="difficulty-card medium">
-                      <span className="difficulty-emoji">🟡</span>
-                      <strong>{t("diff_medium")}</strong>
-                      <small>{t("diff_medium_desc")}</small>
-                      <em>{t("diff_medium_examples")}</em>
-                    </button>
-
-                    <button type="button" onClick={() => confirmStartChallenge("hard")} className="difficulty-card hard">
-                      <span className="difficulty-emoji">🔴</span>
-                      <strong>{t("diff_hard")}</strong>
-                      <small>{t("diff_hard_desc")}</small>
-                      <em>{t("diff_hard_examples")}</em>
-                    </button>
-                  </div>
+                  {/* Özel mod: lig filtresi */}
+                  {challengeMode === "custom" && (() => {
+                    const allowed = buildAllowedTeams(selectedLeagues);
+                    const matchCount = allowed
+                      ? WEIGHTED_TEAM_PAIRS.filter((p) => pairAllowed(p, allowed)).length
+                      : WEIGHTED_TEAM_PAIRS.length;
+                    const canStart = matchCount >= 2;
+                    return (
+                      <>
+                        <div className="difficulty-header">
+                          <button
+                            type="button"
+                            onClick={() => setChallengeMode(null)}
+                            className="picker-back"
+                            aria-label="Geri"
+                          >← Geri</button>
+                          <h2>🏆 Özel Mod</h2>
+                          <p>Oynamak istediğin ligleri seç. Boş bırakırsan tümü.</p>
+                        </div>
+                        <LeagueFilter
+                          selectedLeagues={selectedLeagues}
+                          onChange={persistLeagues}
+                        />
+                        <button
+                          type="button"
+                          onClick={() => confirmStartChallenge("custom", "hard")}
+                          disabled={!canStart}
+                          className="primary-button big full-width"
+                          style={{ marginTop: 4 }}
+                        >
+                          {canStart ? `▶ Başla (${matchCount} eşleşme)` : "Yeterli eşleşme yok"}
+                        </button>
+                      </>
+                    );
+                  })()}
                 </div>
               ) : (
                 <>
@@ -4098,7 +4182,11 @@ export default function App() {
                   <span>{t("info_mode")}</span><strong>{t("mode_marathon_title")}</strong>
                 </div>
                 <div className="info-chip">
-                  <span>{t("info_difficulty")}</span><strong>{getDifficultyEmoji(challengeDifficulty)} {getDifficultyLabel(challengeDifficulty)}</strong>
+                  <span>{t("info_difficulty")}</span><strong>
+                    {challengeMode === "custom"
+                      ? "🏆 Özel"
+                      : `${getDifficultyEmoji(challengeDifficulty)} ${getDifficultyLabel(challengeDifficulty)}`}
+                  </strong>
                 </div>
                 <div className={`info-chip accent ${challengeScore >= 3 ? "on-fire" : ""} ${challengeScore >= 9 ? "fire-high" : ""}`}>
                   <span>{challengeScore >= 3 ? t("info_streak_hot") : t("info_streak")}</span><strong className={challengeFeedback === "correct" ? "score-pop" : ""}>{challengeScore}</strong>
@@ -5788,6 +5876,34 @@ button:focus-visible {
 
 .difficulty-header {
   text-align: center;
+}
+
+/* Picker geri butonu — mod seçim ekranlarının başında */
+.picker-back {
+  position: absolute;
+  left: 12px;
+  top: 12px;
+  padding: 6px 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.05);
+  color: rgba(255,255,255,0.8);
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.picker-back:hover { background: rgba(255,255,255,0.12); }
+.difficulty-picker { position: relative; }
+
+/* Maraton mod picker kartları — Zorluk Seç / Özel Mod */
+.difficulty-card.mode-card-pick {
+  border: 1px solid rgba(155, 45, 255, 0.30);
+  background: linear-gradient(135deg, rgba(155, 45, 255, 0.10), rgba(245, 158, 11, 0.06));
+}
+.difficulty-card.mode-card-pick:hover {
+  border-color: rgba(155, 45, 255, 0.55);
+  background: linear-gradient(135deg, rgba(155, 45, 255, 0.16), rgba(245, 158, 11, 0.10));
 }
 
 .difficulty-header h2 {
