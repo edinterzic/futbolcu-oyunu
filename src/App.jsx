@@ -1200,9 +1200,23 @@ export default function App() {
   }
   // ========================================
 
-  const clientIdRef = useRef(makeClientId());
+  // clientId'yi localStorage'da tut: refresh sonrası aynı slot'a dönebilmek için
+  const clientIdRef = useRef(null);
+  if (!clientIdRef.current) {
+    let cid = null;
+    try { cid = window.localStorage.getItem("pairfc_client_id"); } catch (e) {}
+    if (!cid) {
+      cid = makeClientId();
+      try { window.localStorage.setItem("pairfc_client_id", cid); } catch (e) {}
+    }
+    clientIdRef.current = cid;
+  }
   const channelRef = useRef(null);
   const stateRef = useRef(null);
+  // Düello modu: hangi clientId 2. slot'u (rakip slotu) tutuyor. Aynı odaya
+  // 3. kişi gelirse reddedilir; aksi halde 2 kişiden fazla oyuncu aynı kodla
+  // girebiliyor ve hepsi aynı slot'tan cevap verebiliyordu.
+  const opponentClientIdRef = useRef(null);
 
   const [screen, setScreen] = useState("home");
   const [mainTab, setMainTab] = useState("home"); // "home" | "leaderboard"
@@ -1817,6 +1831,23 @@ export default function App() {
       if (payload.type === "PLAYER_JOINED") {
         if (!stateRef.current) return;
 
+        // Slot rezervasyonu: 2. slot'u tutan clientId varsa ve yeni gelen
+        // farklı bir clientId ise, üçüncü oyuncuyu reddet.
+        // (Aynı senderId tekrar gelirse → refresh/yeniden bağlantı, kabul et.)
+        if (playerIndex === 0
+            && opponentClientIdRef.current
+            && opponentClientIdRef.current !== payload.senderId) {
+          await sendRoomEvent({
+            type: "ROOM_FULL",
+            targetSenderId: payload.senderId
+          });
+          return;
+        }
+        // Slot'u bu joiner'a ata
+        if (playerIndex === 0) {
+          opponentClientIdRef.current = payload.senderId;
+        }
+
         const joinedName = payload.name || t("default_player_2");
         const nextNames = [...stateRef.current.playerNames];
         nextNames[1] = joinedName;
@@ -1840,6 +1871,23 @@ export default function App() {
 
         applyGameState(nextState);
         await sendRoomEvent({ type: "STATE_SYNC", gameState: nextState });
+      }
+
+      // 3. oyuncu girmek istedi, host tarafından reddedildi
+      if (payload.type === "ROOM_FULL") {
+        if (payload.targetSenderId !== clientIdRef.current) return;
+        // TODO: i18n → status_room_full
+        setMessage({ type: "error", text: "Bu oda dolu. Başka bir kod kullan veya yeni oda oluştur." });
+        try { if (channelRef.current) supabase.removeChannel(channelRef.current); } catch (e) {}
+        channelRef.current = null;
+        setRoomCode("");
+        setRoomInput("");
+        setPlayerIndex(null);
+        setOpponentJoined(false);
+        setGameStarted(false);
+        setConnectionStatus("offline");
+        setScreen("home");
+        return;
       }
 
       if (payload.type === "REQUEST_STATE") {
@@ -1889,6 +1937,7 @@ export default function App() {
     const firstRound = getRandomRound([], onlineDifficulty) || { teams: ["Fenerbahçe", "Galatasaray"] };
     const name = playerName.trim() || t("default_player_1");
 
+    opponentClientIdRef.current = null; // yeni oda → rakip slotu boş
     setRoomCode(code);
     setRoomInput(code);
     setPlayerIndex(0);
@@ -2062,23 +2111,53 @@ export default function App() {
     if (screen !== "team_select") return;
     const pool = Object.keys(TEAM_LOGOS);
     if (!pool.length) return;
-    let p0 = teamPicks[0];
-    let p1 = teamPicks[1];
+
+    const origP0 = teamPicks[0];
+    const origP1 = teamPicks[1];
+
+    // Her iki oyuncu da farklı takımlar seçtiyse ama bu eşleşmede ortak
+    // oyuncu yoksa: SESSİZCE bir takımı değiştirmek yerine seçim ekranını
+    // sıfırla. Aksi halde oyuncu seçmediği bir takımı ekranda görür
+    // (örn. Beşiktaş × Rizespor seçildi ama Beşiktaş × Chelsea çıktı bug'ı).
+    if (origP0 && origP1 && origP0 !== origP1) {
+      if (getRoundAnswers({ teams: [origP0, origP1] }).length === 0) {
+        const nextState = {
+          ...stateRef.current,
+          teamPicks: [null, null],
+          teamSelectEndsAt: Date.now() + TEAM_SELECT_SECONDS * 1000,
+          // TODO: i18n'e taşı → ts_no_common_warning
+          message: { type: "warning", text: "Bu eşleşmede ortak oyuncu yok. Lütfen başka takım seçin." }
+        };
+        applyGameState(nextState);
+        await sendRoomEvent({ type: "STATE_SYNC", gameState: nextState });
+        return;
+      }
+    }
+
+    let p0 = origP0;
+    let p1 = origP1;
+    // Timeout fallback: seçilmeyen yere rastgele
     if (!p0) p0 = pool[Math.floor(Math.random() * pool.length)];
     if (!p1) p1 = pool[Math.floor(Math.random() * pool.length)];
-    // Bu noktaya kadar gelirse picks zaten farklı (collision useEffect'te yakalanır).
-    // Yine de defensive: same team durumunda fallback random
     if (p0 === p1) {
       const alt = pool.filter((tn) => tn !== p0);
       if (alt.length) p1 = alt[Math.floor(Math.random() * alt.length)];
     }
-    // Ortak oyuncu var mı? Yoksa p1 değiştir
+    // Ortak oyuncu yoksa SADECE timeout ile gelen (yani gerçek pick olmayan)
+    // tarafı değiştir. Böylece gerçek pick'e dokunulmaz.
     let candidate = { teams: [p0, p1] };
     let attempts = 0;
     while (getRoundAnswers(candidate).length === 0 && attempts < 10) {
       const alt = pool.filter((tn) => tn !== p0 && tn !== p1);
       if (!alt.length) break;
-      p1 = alt[Math.floor(Math.random() * alt.length)];
+      if (!origP1) {
+        p1 = alt[Math.floor(Math.random() * alt.length)];
+      } else if (!origP0) {
+        p0 = alt[Math.floor(Math.random() * alt.length)];
+      } else {
+        // İkisi de gerçek pick — yukarıda yakalanmış olmalı, savunma amaçlı break
+        break;
+      }
       candidate = { teams: [p0, p1] };
       attempts++;
     }
@@ -2100,7 +2179,7 @@ export default function App() {
       wrongAttempts: [0, 0],
       lastAction: null,
       teamSelectEndsAt: null,
-      teamPicks: [p0, p1],
+      teamPicks: candidate.teams,
       message: null
     };
     setLastWrongReport(null);
@@ -2869,6 +2948,7 @@ export default function App() {
         supabase.removeChannel(channelRef.current);
         channelRef.current = null;
       }
+      opponentClientIdRef.current = null; // odadan çıkıldı → slot rezervasyonunu bırak
       setRoomCode("");
       setRoundEndsAt(null);
       setPreRoundEndsAt(null);
