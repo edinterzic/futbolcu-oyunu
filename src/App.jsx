@@ -3725,8 +3725,8 @@ export default function App() {
               <>
               {mainTab === "home" && (<>
               {/* Belirgin slogan + örnek köprü — yeni kullanıcı için "ne bu oyun?" cevabı */}
-              <div style={{ textAlign: "center", padding: "4px 16px 14px", margin: "0 auto" }}>
-                <p style={{ margin: "0 0 4px", fontSize: 16, fontWeight: 800, letterSpacing: -0.01, color: "#fff", lineHeight: 1.3 }}>
+              <div style={{ textAlign: "center", padding: "2px 16px 6px", margin: "0 auto" }}>
+                <p style={{ margin: "0 0 3px", fontSize: 16, fontWeight: 800, letterSpacing: -0.01, color: "#fff", lineHeight: 1.3 }}>
                   {t("tagline_short")} <span style={{ color: "#f5a524" }}>{t("tagline_action")}</span>
                 </p>
                 <p style={{ margin: 0, fontSize: 12, fontWeight: 600, color: "rgba(255,255,255,0.45)", letterSpacing: 0.2 }}>
@@ -3941,7 +3941,7 @@ export default function App() {
               </div>
 
               {/* Yasal sayfa linkleri — en altta, her tab'ta görünür */}
-              <div style={{ marginTop: 14, paddingTop: 14, paddingBottom: 6, textAlign: "center", fontSize: 11.5, fontWeight: 600, color: "rgba(255,255,255,0.35)", letterSpacing: 0.3 }}>
+              <div style={{ marginTop: 8, paddingTop: 8, paddingBottom: 4, textAlign: "center", fontSize: 11, fontWeight: 600, color: "rgba(255,255,255,0.35)", letterSpacing: 0.3 }}>
                 <a href="/about.html" target="_blank" rel="noopener noreferrer" style={{ color: "inherit", textDecoration: "none", margin: "0 8px" }}>{t("footer_about")}</a>
                 <span style={{ opacity: 0.5 }}>·</span>
                 <a href="/privacy.html" target="_blank" rel="noopener noreferrer" style={{ color: "inherit", textDecoration: "none", margin: "0 8px" }}>{t("footer_privacy")}</a>
@@ -4189,7 +4189,7 @@ export default function App() {
                           <span className="difficulty-emoji">🔴</span>
                           <strong>{t("diff_hard")}</strong>
                           <small>{t("diff_hard_desc")}</small>
-                          <em>{t("diff_hard_examples")}</em>
+                          <em>{t("diff_hard_examples", { n: Object.keys(TEAM_LOGOS).length })}</em>
                         </button>
                       </div>
                     </>
@@ -8785,6 +8785,88 @@ button:focus-visible {
 /* ========================================================================
    Mobile-first: single screen layouts
    ======================================================================== */
+
+/* ===== Anasayfa tek ekrana sığsın — sıkıştırma (mobil) =====
+   Hero, daily card ve mode grid'in dikey yer kaplamasını kısaltıyoruz.
+   Sadece .home-screen altında, play ekranlarını etkilemez. */
+@media (max-width: 480px) {
+  /* Şeride genel: alt kart aralıklarını sık tut */
+  .home-screen .app-frame { gap: 6px; }
+
+  /* Topbar — biraz daha sıkı */
+  .home-screen .topbar { padding: 8px 12px; }
+
+  .home-screen .stats-strip {
+    padding: 7px 12px;
+    margin-bottom: 6px;
+  }
+  .home-screen .stats-strip-item { font-size: 12.5px; }
+  .home-screen .stats-strip-item strong { font-size: 13px; }
+  .home-screen .ssi-label { font-size: 10px; }
+
+  /* Maraton hero — en büyük alan kazancı buradan */
+  .home-screen .hero-card {
+    padding: 11px 14px 11px;
+    margin-bottom: 6px;
+    border-radius: 14px;
+  }
+  .home-screen .hero-card-eyebrow { margin-bottom: 2px; }
+  .home-screen .hero-card-eyebrow-text { font-size: 9.5px; letter-spacing: 0.12em; }
+  .home-screen .hero-card-title {
+    font-size: 16px;
+    line-height: 1.18;
+    margin: 0 0 2px 0;
+  }
+  .home-screen .hero-card-sub {
+    font-size: 11.5px;
+    line-height: 1.35;
+    margin: 0 0 7px 0;
+  }
+  .home-screen .hero-card-cta {
+    padding: 6px 13px;
+    font-size: 12px;
+  }
+  .home-screen .hero-card::after { width: 100px; height: 100px; }
+
+  /* Günlük featured kart */
+  .home-screen .featured-daily {
+    padding: 9px 12px 10px;
+    margin-bottom: 6px;
+    border-radius: 14px;
+  }
+  .home-screen .featured-daily-top { margin-bottom: 4px; }
+  .home-screen .featured-daily-meta { font-size: 11px; }
+  .home-screen .featured-daily-streak { font-size: 11px; }
+  .home-screen .featured-daily-text strong { font-size: 15px; line-height: 1.15; }
+
+  /* Düello + Arena alt kart grid */
+  .home-screen .mode-grid-secondary {
+    gap: 6px;
+    margin-bottom: 6px;
+  }
+  .home-screen .mode-card-secondary {
+    padding: 10px 10px 10px;
+    min-height: 78px;
+  }
+  .home-screen .mode-card-secondary .mode-icon {
+    font-size: 19px;
+    margin-bottom: 3px;
+  }
+  .home-screen .mode-card-secondary strong { font-size: 12.5px; }
+  .home-screen .mode-card-secondary small { font-size: 10px; line-height: 1.28; }
+
+  /* Bottom tab bar — anasayfada üstteki margin'i kısalt */
+  .home-screen .bottom-tab-bar {
+    margin-top: 6px;
+    padding: 3px;
+  }
+  .home-screen .tab-btn {
+    padding: 7px 6px;
+    gap: 1px;
+  }
+  .home-screen .tab-icon { font-size: 18px; }
+  .home-screen .tab-label { font-size: 10px; letter-spacing: 0.04em; }
+}
 @media (max-width: 720px) {
   .app-shell {
     padding: 8px;

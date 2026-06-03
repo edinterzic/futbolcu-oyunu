@@ -995,7 +995,7 @@ function ArenaSetup({ setupMode, setSetupMode, onCreate, onJoin, onExit, error, 
                   </button>
                 ))}
               </div>
-              <small className="arena-diff-hint">{t(`arena_diff_${difficulty}_hint`)}</small>
+              <small className="arena-diff-hint">{t(`arena_diff_${difficulty}_hint`, { n: Object.keys(TEAM_LOGOS).length })}</small>
             </label>
           )}
 
