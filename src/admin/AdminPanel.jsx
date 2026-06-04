@@ -1,52 +1,84 @@
 import React, { useState, useEffect, useCallback, useMemo } from "react";
+import { createClient } from "@supabase/supabase-js";
 import {
   PlayersTab, TeamsTab, ImportTab, ReportsTab, ExportTab,
   useDataStore, computeDiff, formatRelativeTime
 } from "./AdminTabs";
 import { ADMIN_STYLES } from "./adminStyles";
 
-// =================== CONSTANTS ===================
-// SHA-256 hash of the admin password. The actual password is never in source code.
-// To change the password: run `echo -n "yourpassword" | sha256sum` and replace this hash.
-const ADMIN_PASSWORD_HASH = "fd951ea5c8dc7cd32b7b5840f5151419aa90863330ee7ede41c52dd8df8dbbbc";
+// =================== SUPABASE AUTH ===================
+// Supabase Auth ile yönetici girişi.
+// Önceki versiyon: client-side SHA-256 hash (kaynak kodda görünüyordu, salt yok,
+// brute-force'a açıktı). Yeni versiyon: Supabase'in server-side şifre doğrulaması.
+//
+// SETUP (lansman öncesi YAPILMASI GEREKEN):
+// 1. Supabase dashboard → Authentication → Users → "Add user"
+// 2. Email + güçlü şifre gir. "Auto Confirm" aç.
+// 3. ADMIN_EMAILS dizisine o email'i ekle (case-sensitive).
+// 4. (Opsiyonel) Supabase Authentication → Providers → Email → "Enable email
+//    signups" kapatın (sadece sizin oluşturduğunuz hesaplar olsun).
+const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL;
+const SUPABASE_ANON_KEY = import.meta.env.VITE_SUPABASE_ANON_KEY;
 
-const SESSION_KEY = "pairfc_admin_session";
+// Supabase Auth client — kendine özel storageKey ile (AdminTabs ile çakışmasın).
+// persistSession: true → reload sonrası oturum korunur (8 saat default refresh).
+const supabaseAuth = (SUPABASE_URL && SUPABASE_ANON_KEY)
+  ? createClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
+      auth: {
+        persistSession: true,
+        autoRefreshToken: true,
+        storageKey: "pairfc-admin-auth-session"
+      }
+    })
+  : null;
+
+// Whitelist: SADECE bu email'lere ait olanlar admin paneli görebilir.
+// Supabase'de bu email'lerle oluşturulan kullanıcılar yetkili olur.
+// Boş array = hiç kimse giriş yapamaz (deploy sonrası mutlaka doldurulmalı).
+const ADMIN_EMAILS = new Set([
+  "dincerismett@gmail.com"
+]);
+
 const ACTIVITY_LOG_KEY = "pairfc_admin_activity_log";
-const SESSION_TTL_MS = 8 * 60 * 60 * 1000; // 8 hours
 
 // =================== AUTH HELPERS ===================
-async function sha256(text) {
-  const buf = new TextEncoder().encode(text);
-  const hash = await crypto.subtle.digest("SHA-256", buf);
-  return Array.from(new Uint8Array(hash))
-    .map((b) => b.toString(16).padStart(2, "0"))
-    .join("");
-}
-
-function isSessionValid() {
-  try {
-    const raw = localStorage.getItem(SESSION_KEY);
-    if (!raw) return false;
-    const session = JSON.parse(raw);
-    if (!session.expiresAt || Date.now() > session.expiresAt) {
-      localStorage.removeItem(SESSION_KEY);
-      return false;
-    }
-    return true;
-  } catch {
-    return false;
+// Mevcut oturum yetkili mi? (Supabase session var + email whitelist'te)
+async function checkAdminSession() {
+  if (!supabaseAuth) return { valid: false, reason: "no_supabase" };
+  const { data, error } = await supabaseAuth.auth.getSession();
+  if (error || !data?.session) return { valid: false, reason: "no_session" };
+  const email = data.session.user?.email;
+  if (!email || !ADMIN_EMAILS.has(email)) {
+    // Oturum var ama email whitelist dışı — sign out yap
+    await supabaseAuth.auth.signOut();
+    return { valid: false, reason: "not_admin" };
   }
+  return { valid: true, email };
 }
 
-function createSession() {
-  localStorage.setItem(
-    SESSION_KEY,
-    JSON.stringify({ createdAt: Date.now(), expiresAt: Date.now() + SESSION_TTL_MS })
-  );
+async function adminSignIn(email, password) {
+  if (!supabaseAuth) {
+    return { ok: false, error: "Supabase ayarları eksik. .env.local'da VITE_SUPABASE_URL ve VITE_SUPABASE_ANON_KEY tanımlı mı?" };
+  }
+  const { data, error } = await supabaseAuth.auth.signInWithPassword({
+    email: email.trim(),
+    password
+  });
+  if (error) {
+    return { ok: false, error: "Email veya şifre yanlış." };
+  }
+  const userEmail = data.user?.email;
+  if (!userEmail || !ADMIN_EMAILS.has(userEmail)) {
+    // Doğru şifre ama yetkisiz hesap — sign out yap
+    await supabaseAuth.auth.signOut();
+    return { ok: false, error: "Bu hesap admin yetkisine sahip değil." };
+  }
+  return { ok: true, email: userEmail };
 }
 
-function clearSession() {
-  localStorage.removeItem(SESSION_KEY);
+async function adminSignOut() {
+  if (!supabaseAuth) return;
+  await supabaseAuth.auth.signOut();
 }
 
 // =================== ACTIVITY LOG ===================
@@ -76,6 +108,7 @@ function appendActivity(entry) {
 
 // =================== LOGIN SCREEN ===================
 function LoginScreen({ onLogin }) {
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
@@ -86,17 +119,17 @@ function LoginScreen({ onLogin }) {
     setLoading(true);
 
     try {
-      const inputHash = await sha256(password);
-      if (inputHash === ADMIN_PASSWORD_HASH) {
-        createSession();
-        appendActivity({ type: "auth", message: "Yönetici giriş yaptı" });
+      const result = await adminSignIn(email, password);
+      if (result.ok) {
+        appendActivity({ type: "auth", message: `Yönetici giriş yaptı (${result.email})` });
         onLogin();
       } else {
-        setError("Şifre yanlış.");
+        setError(result.error || "Bir hata oluştu.");
+        // Brute-force yavaşlatma — sadece bu tarayıcıda etkili
         await new Promise((r) => setTimeout(r, 800));
       }
     } catch (err) {
-      setError("Bir hata oluştu. Tarayıcı modern bir sürüm olmalı.");
+      setError("Beklenmedik hata: " + (err?.message || "bilinmiyor"));
     } finally {
       setLoading(false);
     }
@@ -108,20 +141,30 @@ function LoginScreen({ onLogin }) {
         <div className="admin-login-header">
           <div className="admin-login-mark">🔒</div>
           <h1>PairFC Yönetim</h1>
-          <p>Devam etmek için yönetici şifresini gir.</p>
+          <p>Yönetici hesabınla giriş yap.</p>
         </div>
 
         <form onSubmit={handleSubmit} className="admin-login-form">
           <input
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="Email"
+            autoFocus
+            autoComplete="email"
+            disabled={loading}
+            required
+          />
+          <input
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            placeholder="Yönetici şifresi"
-            autoFocus
+            placeholder="Şifre"
             autoComplete="current-password"
             disabled={loading}
+            required
           />
-          <button type="submit" disabled={!password || loading} className="admin-primary-button">
+          <button type="submit" disabled={!email || !password || loading} className="admin-primary-button">
             {loading ? "Doğrulanıyor..." : "Giriş Yap"}
           </button>
           {error && <div className="admin-error">{error}</div>}
@@ -194,13 +237,13 @@ function AdminShell({ onLogout }) {
     }
   };
 
-  const handleLogout = () => {
+  const handleLogout = async () => {
     if (diff.hasChanges) {
       const ok = window.confirm("Kaydedilmemiş değişikliklerin var! Yine de çıkmak istiyor musun? (Değişiklikler tarayıcıda kalır, sonra dönebilirsin.)");
       if (!ok) return;
     }
     appendActivity({ type: "auth", message: "Yönetici çıkış yaptı" });
-    clearSession();
+    await adminSignOut();
     onLogout();
   };
 
@@ -321,22 +364,64 @@ function AdminShell({ onLogout }) {
 
 // =================== TOP-LEVEL ===================
 export default function AdminPanel() {
-  const [isAuthed, setIsAuthed] = useState(() => isSessionValid());
+  const [isAuthed, setIsAuthed] = useState(false);
+  const [checking, setChecking] = useState(true);
 
-  // Check session validity every minute
+  // İlk yükleme: mevcut Supabase session var mı kontrol et
+  // Ayrıca onAuthStateChange ile token expiry / başka sekmeden logout vs. dinle
   useEffect(() => {
-    const interval = setInterval(() => {
-      if (!isSessionValid()) setIsAuthed(false);
-    }, 60 * 1000);
-    return () => clearInterval(interval);
+    let alive = true;
+
+    checkAdminSession().then((result) => {
+      if (!alive) return;
+      setIsAuthed(result.valid);
+      setChecking(false);
+    });
+
+    if (!supabaseAuth) return;
+    const { data: { subscription } } = supabaseAuth.auth.onAuthStateChange(
+      async (event, session) => {
+        if (!alive) return;
+        if (event === "SIGNED_OUT" || !session) {
+          setIsAuthed(false);
+        } else if (event === "SIGNED_IN" || event === "TOKEN_REFRESHED") {
+          const email = session.user?.email;
+          if (email && ADMIN_EMAILS.has(email)) {
+            setIsAuthed(true);
+          } else {
+            await supabaseAuth.auth.signOut();
+            setIsAuthed(false);
+          }
+        }
+      }
+    );
+
+    return () => {
+      alive = false;
+      subscription?.unsubscribe();
+    };
   }, []);
 
-  // Set page title
+  // Sayfa başlığı
   useEffect(() => {
     const prev = document.title;
     document.title = "Yönetim · PairFC";
     return () => { document.title = prev; };
   }, []);
+
+  if (checking) {
+    return (
+      <div className="admin-root">
+        <div className="admin-login-shell">
+          <div className="admin-login-card" style={{ textAlign: "center" }}>
+            <div className="admin-login-mark">⏳</div>
+            <p>Oturum kontrol ediliyor...</p>
+          </div>
+        </div>
+        <style>{ADMIN_STYLES}</style>
+      </div>
+    );
+  }
 
   if (!isAuthed) {
     return (

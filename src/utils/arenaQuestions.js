@@ -11,8 +11,11 @@ import {
   getTierWeight
 } from "../data/tiers";
 
-const MIN_ANSWERS_PER_PAIR = 3;
-const MAX_ANSWERS_PER_PAIR = 30; // çok genel çiftler de istemiyoruz
+// Arena filter Maraton ile aynı: en az 2 ortak oyuncu, üst limit yok.
+// (Eskiden 3-30 idi — üst limit nedeniyle Milan↔Inter 119, GS↔FB 51 gibi yüksek
+// ortak oyunculu çiftler Arena'dan dışlanıyordu. Easy mode'da "ilk 3 garanti"
+// mekanizması bu yüzden Arena'da çalışmıyordu. App.jsx ile parite sağlandı.)
+const MIN_ANSWERS_PER_PAIR = 2;
 
 function isPairInArenaDifficulty(clubA, clubB, difficulty) {
   if (difficulty === "easy") return EASY_TEAMS.has(clubA) && EASY_TEAMS.has(clubB);
@@ -117,7 +120,6 @@ function buildArenaPairs() {
   const valid = [];
   for (const [key, answers] of pairMap.entries()) {
     if (answers.length < MIN_ANSWERS_PER_PAIR) continue;
-    if (answers.length > MAX_ANSWERS_PER_PAIR) continue;
     const [a, b] = key.split("||");
     valid.push({ clubA: a, clubB: b, answers });
   }

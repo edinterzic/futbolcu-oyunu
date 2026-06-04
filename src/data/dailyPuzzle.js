@@ -3,7 +3,7 @@
 // Türkiye saati 00:00'da yeni bulmaca.
 // Rampa: 2 kolay (tier1) -> 2 orta (tier2) -> 1 final (tier3). Her zaman kolaydan zora.
 
-import { ANSWER_INDEX, getPairKey } from "./gameData";
+import { getPairKey } from "./gameData";
 
 // Türkiye saatine göre günün tarih string'i (YYYY-MM-DD)
 export function getTodayKey() {
@@ -60,14 +60,12 @@ export function getDailyPuzzle(weightedPairs) {
   const rng = mulberry32(seed);
 
   // Pair'leri zenginleştir + deterministik sırala
+  // App.jsx annotatedPairs üretirken bucket'ı her zaman set ediyor (1/2/3).
+  // bucket: 1 = kolay (Tier 1×1), 2 = orta (Medium havuzu içinde), 3 = zor.
   const enriched = weightedPairs
     .map((p) => {
       const key = getPairKey(p.teams[0], p.teams[1]);
-      const answerCount = (ANSWER_INDEX[key] || []).length;
-      // Zorluk: App.jsx'in takım-tier'ından gelen bucket (1=kolay, 2=orta, 3=zor).
-      // bucket yoksa cevap sayısına göre tahmin (geriye uyum).
-      const bucket = p.bucket || (answerCount >= 12 ? 1 : answerCount >= 5 ? 2 : 3);
-      return { teams: p.teams, key, answerCount, bucket };
+      return { teams: p.teams, key, bucket: p.bucket };
     })
     .sort((a, b) => a.key.localeCompare(b.key));
 
