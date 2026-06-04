@@ -36,7 +36,7 @@ const supabaseAuth = (SUPABASE_URL && SUPABASE_ANON_KEY)
 // Supabase'de bu email'lerle oluşturulan kullanıcılar yetkili olur.
 // Boş array = hiç kimse giriş yapamaz (deploy sonrası mutlaka doldurulmalı).
 const ADMIN_EMAILS = new Set([
-  // örn: "ozge@pairfc.com"
+  "dincerismett@gmail.com"
   // ⚠ Lansman öncesi BURAYI DOLDURUN, aksi takdirde panele giriş imkansız olur.
 ]);
 
