@@ -390,23 +390,36 @@ function isSameCountryPair(pair) {
 // Milano derbisi gibi diğer kıymetli aynı-ülke çiftleri de canlanır.
 const SAME_COUNTRY_BOOST = 3;
 
-// Tier çiftine göre ağırlık (0 = hiç çıkmaz)
-// {1,1}=10, {1,2}=5, {2,2}=3, {1,3}=1, {2,3}=0, {3,3}=0
-// Aynı ülkeden takım çifti varsa ağırlık × SAME_COUNTRY_BOOST
-function getPairWeight(pair) {
+// =================== TIER AĞIRLIK MATRİSİ ===================
+// Zorluk başına farklı tier ağırlıkları — kullanıcı UX kararıyla:
+//
+// Easy:   Filtre 1-1'e zaten kısıtlı (isPairInDifficulty). Uniform (1) yeterli;
+//         "Easy-start" mekanizması (getRandomRound içinde) ilk 3 turu en yüksek
+//         ortak-oyuncu çiftlerinden seçer — herkes 3'ü garanti yapsın diye.
+//
+// Medium: 1-2 (örn. Real Madrid ↔ Leverkusen) ÇOK daha sık çıksın. 1-2 anchor
+//         etkisiyle 2-2 (örn. Leverkusen ↔ Tottenham)'den daha tanınır olur.
+//         Beklenen dağılım: ~%15 / %70 / %15.
+//
+// Hard:   2-3 ve 3-3 ARTIK 0 değil — Bundesliga içi (Köln↔Frankfurt), Portekiz
+//         içi (Vitória↔Braga), Hollanda içi (Twente↔Utrecht) gibi 4.4k çift
+//         pool'a girer. Hard sevenler gerçek çeşitliliği görsün.
+const TIER_WEIGHTS_BY_MODE = {
+  easy:   { "1-1": 1 },
+  medium: { "1-1": 4, "1-2": 8, "2-2": 3 },
+  hard:   { "1-1": 6, "1-2": 4, "1-3": 3, "2-2": 4, "2-3": 2, "3-3": 1 }
+};
+
+// Tier çiftine göre ağırlık. difficulty verilmezse "hard" varsayılır
+// (WEIGHTED_TEAM_PAIRS modül yüklenirken bu çağrıyı yapar — hard pozitiftir,
+// 1-1'den 3-3'e kadar her tier kombinasyonu havuza girer).
+// Aynı ülkeden takım çifti varsa ağırlık × SAME_COUNTRY_BOOST.
+function getPairWeight(pair, difficulty = "hard") {
   const t1 = getTier(pair.teams[0]);
   const t2 = getTier(pair.teams[1]);
   const tierKey = [t1, t2].sort().join("-");
-  let baseWeight;
-  switch (tierKey) {
-    case "1-1": baseWeight = 10; break;
-    case "1-2": baseWeight = 5; break;
-    case "2-2": baseWeight = 3; break;
-    case "1-3": baseWeight = 1; break;
-    case "2-3": baseWeight = 0; break;
-    case "3-3": baseWeight = 0; break;
-    default: baseWeight = 1;
-  }
+  const weights = TIER_WEIGHTS_BY_MODE[difficulty] || TIER_WEIGHTS_BY_MODE.hard;
+  let baseWeight = weights[tierKey] ?? 0;
   if (baseWeight > 0 && isSameCountryPair(pair)) {
     baseWeight *= SAME_COUNTRY_BOOST;
   }
@@ -418,9 +431,11 @@ const PLAYABLE_TEAM_PAIRS = Object.keys(ANSWER_INDEX).map((key) => {
   return { teams: [teamA, teamB] };
 });
 
-// Sıfır ağırlıklı çiftleri ve yalnızca 1 ortak oyuncusu olan çiftleri havuzdan çıkar
+// Sıfır ağırlıklı çiftleri ve yalnızca 1 ortak oyuncusu olan çiftleri havuzdan çıkar.
+// Not: "hard" ağırlıklarıyla check — yeni sistemde 2-3 ve 3-3 pozitif olduğu için
+// 4.4k yeni çift pool'a girer. Asıl filtreleme zorluğa göre getRandomRound'da yapılır.
 const WEIGHTED_TEAM_PAIRS = PLAYABLE_TEAM_PAIRS.filter((pair) => {
-  if (getPairWeight(pair) <= 0) return false;
+  if (getPairWeight(pair, "hard") <= 0) return false;
   const key = getPairKey(pair.teams[0], pair.teams[1]);
   return (ANSWER_INDEX[key] || []).length >= 2;
 });
@@ -482,14 +497,31 @@ function getRandomRound(usedRoundKeys = [], difficulty = "hard", allowedTeams = 
   // Eşleşme kalmadıysa null dön — çağıran kod zorluk yükseltir veya filtre uyarısı verir
   if (available.length === 0) return null;
 
-  const totalWeight = available.reduce((sum, pair) => sum + getPairWeight(pair), 0);
+  // ── EASY-START: ilk 3 turda en yüksek ortak-oyuncu çiftlerinden seç ──
+  // UX: "Herkes 3 yapabilsin". Sonraki turlar normal weighted random.
+  // Sadece Easy modunda, sadece üçüncü tura kadar.
+  if (difficulty === "easy" && usedRoundKeys.length < 3) {
+    const ranked = available
+      .map((p) => ({
+        p,
+        n: (ANSWER_INDEX[getPairKey(p.teams[0], p.teams[1])] || []).length
+      }))
+      .sort((a, b) => b.n - a.n)
+      .slice(0, Math.min(10, available.length));
+    if (ranked.length > 0) {
+      return ranked[Math.floor(Math.random() * ranked.length)].p;
+    }
+  }
+
+  // ── Zorluk-bilinçli weighted random ──
+  const totalWeight = available.reduce((sum, pair) => sum + getPairWeight(pair, difficulty), 0);
   if (totalWeight <= 0) {
     return available[Math.floor(Math.random() * available.length)];
   }
 
   let random = Math.random() * totalWeight;
   for (const pair of available) {
-    random -= getPairWeight(pair);
+    random -= getPairWeight(pair, difficulty);
     if (random <= 0) return pair;
   }
   return available[available.length - 1];

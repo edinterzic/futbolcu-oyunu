@@ -43,6 +43,64 @@ function isPairInArenaDifficulty(clubA, clubB, difficulty) {
   return true; // hard = tüm havuz
 }
 
+// =============================================
+// Tier ağırlık matrisi (App.jsx ile BİREBİR senkron tutulmalı)
+// Easy:   sadece 1-1 — uniform (1) yeterli, easy-start ayrı mekanizma
+// Medium: 1-2 (örn. Real ↔ Leverkusen) DOMİNANT
+// Hard:   2-3 ve 3-3 pozitif → Bundesliga içi vs. çiftler unlock
+// =============================================
+const ARENA_TIER_1 = new Set([
+  // Türk takımları (popüler — Türk taraftar için tanınır)
+  "Galatasaray", "Beşiktaş", "Fenerbahçe", "Trabzonspor", "Başakşehir",
+  "Antalyaspor", "Konyaspor", "Sivasspor", "Kayserispor", "Alanyaspor",
+  "Samsunspor", "Kasımpaşa", "Gaziantep FK",
+  "Rizespor", "Gençlerbirliği", "Göztepe",
+  "Karagümrük", "Eyüpspor", "Kocaelispor",
+  // Avrupa devleri
+  "Real Madrid", "Barcelona", "Atletico Madrid", "Bayern Munich",
+  "Manchester United", "Manchester City", "Liverpool", "Chelsea", "Arsenal",
+  "Juventus", "AC Milan", "Inter", "Borussia Dortmund", "PSG"
+]);
+
+const ARENA_TIER_2 = new Set([
+  "Tottenham", "Napoli", "AS Roma", "Ajax", "FC Porto",
+  "Benfica", "Sevilla", "Newcastle", "LOSC Lille",
+  "Atalanta", "Lazio", "Leverkusen", "Sporting CP",
+  "Aston Villa", "Valencia", "Villarreal", "Real Sociedad",
+  "Athletic Bilbao", "Fiorentina", "Marsilya", "Monaco",
+  "Feyenoord", "PSV", "West Ham", "Everton"
+]);
+
+function getArenaTier(team) {
+  if (ARENA_TIER_1.has(team)) return 1;
+  if (ARENA_TIER_2.has(team)) return 2;
+  return 3;
+}
+
+const ARENA_TIER_WEIGHTS = {
+  easy:   { "1-1": 1 },
+  medium: { "1-1": 4, "1-2": 8, "2-2": 3 },
+  hard:   { "1-1": 6, "1-2": 4, "1-3": 3, "2-2": 4, "2-3": 2, "3-3": 1 }
+};
+
+function getArenaPairWeight(clubA, clubB, difficulty) {
+  const tierKey = [getArenaTier(clubA), getArenaTier(clubB)].sort().join("-");
+  const weights = ARENA_TIER_WEIGHTS[difficulty] || ARENA_TIER_WEIGHTS.hard;
+  return weights[tierKey] ?? 0;
+}
+
+// Weighted random pick (with replacement protection via used set)
+function pickWeighted(pool, weights) {
+  const total = weights.reduce((a, b) => a + b, 0);
+  if (total <= 0) return Math.floor(Math.random() * pool.length);
+  let r = Math.random() * total;
+  for (let i = 0; i < pool.length; i++) {
+    r -= weights[i];
+    if (r <= 0) return i;
+  }
+  return pool.length - 1;
+}
+
 // Normalize fonksiyonu (Türkçe + diakritik)
 export function normalizeAnswer(value) {
   return String(value || "")
@@ -134,6 +192,8 @@ function buildArenaPairs() {
 
 // n adet rastgele, tekrar etmeyen soru üretir
 // difficulty: "easy" | "medium" | "hard" (default: medium)
+// Easy modunda ilk 3 soru en yüksek ortak-oyuncu çiftlerinden gelir (herkes 3'ü
+// garanti yapsın diye). Geri kalan sorular tier-bilinçli weighted random.
 export function generateArenaQuestions(count, difficulty = "medium") {
   const allPairs = buildArenaPairs();
   if (allPairs.length === 0) return [];
@@ -144,7 +204,6 @@ export function generateArenaQuestions(count, difficulty = "medium") {
   );
 
   // Filtre sonrası hiç çift yoksa, sessizce tüm havuza düş
-  // (host'un yarışmasını kurtarmak için — pratikte easy/medium'da bol çift var)
   const pool = filtered.length > 0 ? filtered : allPairs;
 
   if (filtered.length === 0 && difficulty !== "hard") {
@@ -154,15 +213,39 @@ export function generateArenaQuestions(count, difficulty = "medium") {
   }
 
   const safe = Math.min(count, pool.length);
-  const indices = new Set();
-  while (indices.size < safe) {
-    indices.add(Math.floor(Math.random() * pool.length));
+  const result = [];
+  const usedKeys = new Set();
+  const keyOf = (p) => `${p.clubA}||${p.clubB}`;
+
+  // ── EASY-START: Easy modunda ilk min(3, safe) soru top-10 ortak-oyuncu pool'undan
+  if (difficulty === "easy" && safe > 0) {
+    const sorted = [...pool].sort((a, b) => b.answers.length - a.answers.length);
+    const topPool = sorted.slice(0, Math.min(10, sorted.length));
+    const startCount = Math.min(3, safe);
+    while (result.length < startCount && topPool.length > 0) {
+      const idx = Math.floor(Math.random() * topPool.length);
+      const pair = topPool.splice(idx, 1)[0];
+      if (!usedKeys.has(keyOf(pair))) {
+        result.push(pair);
+        usedKeys.add(keyOf(pair));
+      }
+    }
   }
 
-  return [...indices].map((i) => ({
-    clubA: pool[i].clubA,
-    clubB: pool[i].clubB,
-    correctAnswers: pool[i].answers,
+  // ── Geri kalan sorular: tier-weighted random ──
+  const remaining = pool.filter((p) => !usedKeys.has(keyOf(p)));
+  while (result.length < safe && remaining.length > 0) {
+    const weights = remaining.map((p) => getArenaPairWeight(p.clubA, p.clubB, difficulty));
+    const idx = pickWeighted(remaining, weights);
+    const pair = remaining.splice(idx, 1)[0];
+    result.push(pair);
+    usedKeys.add(keyOf(pair));
+  }
+
+  return result.map((p) => ({
+    clubA: p.clubA,
+    clubB: p.clubB,
+    correctAnswers: p.answers,
   }));
 }
 
