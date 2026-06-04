@@ -10,6 +10,7 @@ import {
   isPairInDifficulty as isPairInDifficultyFromTiers,
   getTierWeight
 } from "./data/tiers";
+import { cleanDisplayName } from "./utils/sanitize";
 import { TEAM_LOGOS } from "./data/teamLogos";
 import { getDailyPuzzle, getTodayKey, getMsUntilNextPuzzle, calculateStreak } from "./data/dailyPuzzle";
 import { SOUND_FILES } from "./data/sounds";
@@ -28,29 +29,7 @@ const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
 const supabase = supabaseUrl && supabaseAnonKey ? createClient(supabaseUrl, supabaseAnonKey) : null;
 
 // =================== LEADERBOARD SUPABASE ===================
-// Basit küfür/uygunsuz kelime filtresi (TR + EN). Eşleşeni yıldızla maskeler.
-// Amaç: liderlik tablosunda uygunsuz takma adları engellemek (App Store / yaş uyumu).
-const PROFANITY_LIST = [
-  "amk", "aq", "oç", "oc.", "piç", "sik", "sok", "yarrak", "yarak", "göt", "got ",
-  "orospu", "kahpe", "pezevenk", "ibne", "puşt", "gavat", "döl", "amcık", "amcik",
-  "fuck", "fuk", "shit", "bitch", "cunt", "dick", "pussy", "asshole", "nigger",
-  "nigga", "faggot", "whore", "slut", "rape",
-];
-function cleanDisplayName(raw) {
-  let name = (raw || "").trim().slice(0, 30);
-  if (!name) return "Anonim";
-  const lower = name.toLowerCase();
-  let masked = name;
-  for (const w of PROFANITY_LIST) {
-    if (lower.includes(w)) {
-      const re = new RegExp(w.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "gi");
-      masked = masked.replace(re, "*".repeat(w.trim().length));
-    }
-  }
-  const stripped = masked.replace(/[*\s]/g, "");
-  if (!stripped) return "Anonim";
-  return masked;
-}
+// Küfür/uygunsuz kelime filtresi src/utils/sanitize.js'te — Arena ile ortak helper
 
 async function saveScore(playerName, score, difficulty) {
   if (!supabase || score < 1) return null;
@@ -560,7 +539,47 @@ function runSelfTests() {
   console.assert(WINNING_SCORE === 3, "Winning score should be 3");
 }
 
-runSelfTests();
+// Self-tests sadece development modunda çalışır. Production'da:
+// - Bundle'a girer ama çağrılmaz (tree-shake olmaz, callable kalır)
+// - Console.assert mesajları kullanıcının console'unda görünmez
+// - Açılış performansı etkilenmez
+if (import.meta.env.DEV) {
+  runSelfTests();
+}
+
+// =================== XSS-SAFE i18n RENDERER ===================
+// Kullanıcı cevabını <strong> ile sarmak için. Eskiden dangerouslySetInnerHTML
+// ile HTML string interpolation yapılıyordu — kullanıcı cevap kutusuna
+// <img onerror=...> yazarsa XSS riski oluştururdu. JSX node döndürdüğümüz için
+// React her metni otomatik escape eder, payload zararsızlaşır.
+function renderWithBoldAnswer(translatedText, userAnswer) {
+  if (!userAnswer) return translatedText;
+  // Önce "tırnaklı" eşleşme dene: '..."Beckham"...'
+  const quoted = `"${userAnswer}"`;
+  let idx = translatedText.indexOf(quoted);
+  if (idx >= 0) {
+    return (
+      <>
+        {translatedText.slice(0, idx)}
+        {'"'}<strong>{userAnswer}</strong>{'"'}
+        {translatedText.slice(idx + quoted.length)}
+      </>
+    );
+  }
+  // Tırnaksız eşleşme dene
+  idx = translatedText.indexOf(userAnswer);
+  if (idx >= 0) {
+    return (
+      <>
+        {translatedText.slice(0, idx)}
+        <strong>{userAnswer}</strong>
+        {translatedText.slice(idx + userAnswer.length)}
+      </>
+    );
+  }
+  // i18n template yapısı değiştiyse en azından raw text'i göster
+  return translatedText;
+}
 
 // =================== LİG FİLTRESİ UI ===================
 // Çoklu seçim chip grid'i + "tümü" toggle. Boş seçim = tüm ligler.
@@ -1062,7 +1081,9 @@ function ChallengeGameOver({
         <div className="gameover-headline">
           <h3>{isNewBest ? t("gover_new_record") : t("gover_streak_over")}</h3>
           {lastWrongAnswer && (
-            <p className="gameover-detail" dangerouslySetInnerHTML={{ __html: t("gover_not_in_pair", { answer: lastWrongAnswer }).replace('"{answer}"'.replace("{answer}", lastWrongAnswer), `"<strong>${lastWrongAnswer}</strong>"`) }} />
+            <p className="gameover-detail">
+              {renderWithBoldAnswer(t("gover_not_in_pair", { answer: lastWrongAnswer }), lastWrongAnswer)}
+            </p>
           )}
         </div>
       </div>
@@ -1164,7 +1185,9 @@ function ChallengeGameOver({
           <span className="gameover-report-label">
             <span className="gameover-report-icon" aria-hidden="true">❗</span>
             <span className="gameover-report-text">
-              <span dangerouslySetInnerHTML={{ __html: t("gover_should_be_correct", { answer: lastWrongAnswer }).replace(`"${lastWrongAnswer}"`, `"<strong>${lastWrongAnswer}</strong>"`) }} />
+              <span>
+                {renderWithBoldAnswer(t("gover_should_be_correct", { answer: lastWrongAnswer }), lastWrongAnswer)}
+              </span>
             </span>
           </span>
           <span className="gameover-report-cta">{t("gover_report")}</span>
@@ -5036,7 +5059,9 @@ export default function App() {
                       onClick={() => submitAnswerReport(lastWrongReport, setReportStatus, () => setLastWrongReport(null))}
                     >
                       <span className="report-link-icon">❗</span>
-                      <span dangerouslySetInnerHTML={{ __html: t("gover_should_be_correct", { answer: lastWrongReport.answer }).replace(`"${lastWrongReport.answer}"`, `"<strong>${lastWrongReport.answer}</strong>"`) }} />
+                      <span>
+                        {renderWithBoldAnswer(t("gover_should_be_correct", { answer: lastWrongReport.answer }), lastWrongReport.answer)}
+                      </span>
                       <span className="report-link-cta">{t("gover_report")}</span>
                     </button>
                   )}

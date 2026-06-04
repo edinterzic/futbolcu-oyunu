@@ -1550,3 +1550,189 @@ export function ExportTab({ snapshot, resetToOriginal, logActivity }) {
     </div>
   );
 }
+
+// =================== DUPLICATES TAB ===================
+// Normalize edildiğinde aynı görünen oyuncuları grupla ve birleştirme imkânı sun.
+// Tipik vaka: "Aílton" (8 kulüp) + "Ailton" (1 kulüp) → aynı oyuncu, kulüpleri
+// birleştirip biri silinmeli. Veride 267 grup / 534 kayıt var (çoğu diakritik).
+// answerNameMatchesInput zaten her iki yazımı kabul ediyor ama veri kalitesi için
+// birleştirmek daha temiz (bir kulüp diğer kayıtta görünmüyorsa hayalet olur).
+export function DuplicatesTab({ snapshot, updateSnapshot, logActivity }) {
+  const [mergeTarget, setMergeTarget] = useState(null); // { keyNorm, group, primaryName }
+
+  const groups = useMemo(() => {
+    const buckets = new Map();
+    for (const p of snapshot.players) {
+      const norm = normalizeText(p.name);
+      if (!norm) continue;
+      if (!buckets.has(norm)) buckets.set(norm, []);
+      buckets.get(norm).push(p);
+    }
+    return [...buckets.entries()]
+      .filter(([, list]) => list.length > 1)
+      .map(([norm, list]) => ({ norm, list }))
+      .sort((a, b) => b.list.length - a.list.length || a.norm.localeCompare(b.norm));
+  }, [snapshot.players]);
+
+  const totalPlayers = groups.reduce((sum, g) => sum + g.list.length, 0);
+
+  const deleteOne = (name) => {
+    if (!window.confirm(`"${name}" kaydını silmek istediğinden emin misin?\n\nNot: Bu işlem geri alınamaz (sadece export öncesi diff'i sıfırlayarak undo yapabilirsin).`)) return;
+    const next = snapshot.players.filter((p) => p.name !== name);
+    updateSnapshot({ ...snapshot, players: next });
+    logActivity({ type: "delete", message: `Duplicate temizlik: "${name}" silindi` });
+  };
+
+  const performMerge = (group, primaryName) => {
+    const primary = group.find((p) => p.name === primaryName);
+    if (!primary) return;
+    // Tüm grubun kulüplerini birleşim olarak topla
+    const mergedClubs = new Set(primary.clubs || []);
+    const aliases = new Set(primary.aliases || []);
+    for (const p of group) {
+      if (p.name === primaryName) continue;
+      for (const c of (p.clubs || [])) mergedClubs.add(c);
+      // Silinecek kaydı alias olarak ekle ki "Ailton" yazıldığında da bulunur
+      if (p.name && p.name !== primary.name) aliases.add(p.name);
+      for (const a of (p.aliases || [])) aliases.add(a);
+    }
+    // Yeni primary kayıt
+    const updatedPrimary = {
+      ...primary,
+      clubs: [...mergedClubs].sort(),
+      aliases: aliases.size > 0 ? [...aliases] : (primary.aliases || [])
+    };
+    // Diğerlerini sil + primary'yi güncelle
+    const removedNames = group.filter((p) => p.name !== primaryName).map((p) => p.name);
+    const nextPlayers = snapshot.players
+      .filter((p) => !removedNames.includes(p.name))
+      .map((p) => p.name === primaryName ? updatedPrimary : p);
+    updateSnapshot({ ...snapshot, players: nextPlayers });
+    logActivity({
+      type: "edit",
+      message: `Duplicate birleştirme: "${primaryName}" ana kayıt, ${removedNames.length} kayıt silindi (${removedNames.join(", ")})`
+    });
+    setMergeTarget(null);
+  };
+
+  if (groups.length === 0) {
+    return (
+      <div className="admin-empty-state">
+        <h2>🔁 Yinelenen Oyuncular</h2>
+        <p>Tebrikler — normalize edildiğinde duplicate olan oyuncu kalmadı.</p>
+      </div>
+    );
+  }
+
+  return (
+    <div className="admin-duplicates-tab">
+      <div className="admin-tab-header">
+        <h2>🔁 Yinelenen Oyuncular</h2>
+        <p>
+          <strong>{groups.length}</strong> grup, toplam <strong>{totalPlayers}</strong> kayıt.
+          Çoğu diakritik farkı (örn. <em>Aílton</em> vs <em>Ailton</em>) — aynı kişiyse birleştir,
+          farklı kişilerse "Ayrı kalsın" diyebilirsin.
+        </p>
+      </div>
+
+      <div className="admin-duplicates-list">
+        {groups.slice(0, 100).map(({ norm, list }) => (
+          <div key={norm} className="admin-duplicate-group">
+            <div className="admin-duplicate-group-header">
+              <code>{norm}</code>
+              <span className="admin-duplicate-count">{list.length} kayıt</span>
+            </div>
+            <table className="admin-duplicate-table">
+              <thead>
+                <tr>
+                  <th>İsim</th>
+                  <th>Kulüp Sayısı</th>
+                  <th>Kulüpler (örnek)</th>
+                  <th>İşlem</th>
+                </tr>
+              </thead>
+              <tbody>
+                {list.map((p) => (
+                  <tr key={p.name}>
+                    <td><strong>{p.name}</strong></td>
+                    <td>{(p.clubs || []).length}</td>
+                    <td style={{ fontSize: 12, color: "rgba(255,255,255,0.6)" }}>
+                      {(p.clubs || []).slice(0, 4).join(", ")}{(p.clubs || []).length > 4 ? ", ..." : ""}
+                    </td>
+                    <td>
+                      <button
+                        type="button"
+                        className="admin-secondary-button"
+                        onClick={() => setMergeTarget({ keyNorm: norm, group: list, primaryName: p.name })}
+                        title="Bu kaydı ana kayıt yapıp diğerlerini buna birleştir"
+                      >
+                        ⬇ Ana yap & birleştir
+                      </button>
+                      <button
+                        type="button"
+                        className="admin-danger-button"
+                        onClick={() => deleteOne(p.name)}
+                        title="Sadece bu kaydı sil"
+                        style={{ marginLeft: 6 }}
+                      >
+                        🗑 Sil
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        ))}
+        {groups.length > 100 && (
+          <div className="admin-empty-state">
+            <p>+{groups.length - 100} grup daha — ilk 100 gösteriliyor. Bunları temizledikçe sonrakiler görünür.</p>
+          </div>
+        )}
+      </div>
+
+      {mergeTarget && (
+        <Modal
+          open={true}
+          onClose={() => setMergeTarget(null)}
+          title="Birleştirme onayı"
+          maxWidth={520}
+        >
+          <p>
+            "<strong>{mergeTarget.primaryName}</strong>" <em>ana kayıt</em> olacak.
+            Diğer {mergeTarget.group.length - 1} kayıt silinecek, ama kulüpleri ana kayda eklenecek
+            ve isimleri alias olarak korunacak (yani <em>"Ailton"</em> yazılınca da bulunur).
+          </p>
+          <ul style={{ fontSize: 13, lineHeight: 1.6 }}>
+            <li>
+              <strong>Ana kayıt:</strong> {mergeTarget.primaryName}
+              {" "}({(mergeTarget.group.find((p) => p.name === mergeTarget.primaryName).clubs || []).length} kulüp)
+            </li>
+            <li>
+              <strong>Silinecek + birleşecek:</strong>
+              <ul>
+                {mergeTarget.group
+                  .filter((p) => p.name !== mergeTarget.primaryName)
+                  .map((p) => (
+                    <li key={p.name}>{p.name} ({(p.clubs || []).length} kulüp)</li>
+                  ))}
+              </ul>
+            </li>
+          </ul>
+          <div style={{ display: "flex", gap: 8, justifyContent: "flex-end", marginTop: 14 }}>
+            <button type="button" className="admin-secondary-button" onClick={() => setMergeTarget(null)}>
+              Vazgeç
+            </button>
+            <button
+              type="button"
+              className="admin-primary-button"
+              onClick={() => performMerge(mergeTarget.group, mergeTarget.primaryName)}
+            >
+              ✅ Birleştir
+            </button>
+          </div>
+        </Modal>
+      )}
+    </div>
+  );
+}

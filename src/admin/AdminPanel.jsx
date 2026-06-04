@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback, useMemo } from "react";
 import { createClient } from "@supabase/supabase-js";
 import {
-  PlayersTab, TeamsTab, ImportTab, ReportsTab, ExportTab,
+  PlayersTab, TeamsTab, ImportTab, ReportsTab, ExportTab, DuplicatesTab,
   useDataStore, computeDiff, formatRelativeTime
 } from "./AdminTabs";
 import { ADMIN_STYLES } from "./adminStyles";
@@ -36,7 +36,8 @@ const supabaseAuth = (SUPABASE_URL && SUPABASE_ANON_KEY)
 // Supabase'de bu email'lerle oluşturulan kullanıcılar yetkili olur.
 // Boş array = hiç kimse giriş yapamaz (deploy sonrası mutlaka doldurulmalı).
 const ADMIN_EMAILS = new Set([
-  "dincerismett@gmail.com"
+  // örn: "ozge@pairfc.com"
+  // ⚠ Lansman öncesi BURAYI DOLDURUN, aksi takdirde panele giriş imkansız olur.
 ]);
 
 const ACTIVITY_LOG_KEY = "pairfc_admin_activity_log";
@@ -251,6 +252,7 @@ function AdminShell({ onLogout }) {
     { id: "players", label: "Oyuncular", icon: "🎮" },
     { id: "teams", label: "Takımlar", icon: "🛡️" },
     { id: "import", label: "Toplu Import", icon: "📥" },
+    { id: "duplicates", label: "Yinelenenler", icon: "🔁" },
     { id: "reports", label: "Raporlar", icon: "🚨" },
     { id: "export", label: "Dışa Aktar", icon: "📊" }
   ];
@@ -263,6 +265,8 @@ function AdminShell({ onLogout }) {
         return <TeamsTab snapshot={snapshot} updateSnapshot={updateSnapshot} logActivity={logActivity} />;
       case "import":
         return <ImportTab snapshot={snapshot} updateSnapshot={updateSnapshot} logActivity={logActivity} />;
+      case "duplicates":
+        return <DuplicatesTab snapshot={snapshot} updateSnapshot={updateSnapshot} logActivity={logActivity} />;
       case "reports":
         return <ReportsTab snapshot={snapshot} updateSnapshot={updateSnapshot} logActivity={logActivity} />;
       case "export":

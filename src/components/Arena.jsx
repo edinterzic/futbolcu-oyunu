@@ -21,6 +21,7 @@ import {
 } from "../utils/arenaQuestions";
 import { TEAM_LOGOS } from "../data/teamLogos";
 import { SOUND_FILES } from "../data/sounds";
+import { cleanDisplayName } from "../utils/sanitize";
 
 const QUESTION_DURATION_MS = 20000;
 const LEADERBOARD_DURATION_MS = 10000;
@@ -436,7 +437,9 @@ export default function Arena({ supabase, onExit, selectedLeagues = [], onLeague
       setError(t("arena_err_no_server"));
       return;
     }
-    const cleanName = hostName.trim().slice(0, 20) || t("arena_default_host_name");
+    const cleanName = cleanDisplayName(hostName, 20) === "Anonim"
+      ? t("arena_default_host_name")
+      : cleanDisplayName(hostName, 20);
     const rounds = Math.max(5, Math.min(30, parseInt(totalRounds, 10) || 10));
     const cleanDifficulty = ["easy", "medium", "hard"].includes(difficulty) ? difficulty : "medium";
 
@@ -494,7 +497,9 @@ export default function Arena({ supabase, onExit, selectedLeagues = [], onLeague
       setError(t("arena_err_pin_length"));
       return;
     }
-    const cleanName = nickname.trim().slice(0, 20) || t("arena_default_guest_name");
+    const cleanName = cleanDisplayName(nickname, 20) === "Anonim"
+      ? t("arena_default_guest_name")
+      : cleanDisplayName(nickname, 20);
 
     const { data: foundRoom, error: roomErr } = await supabase
       .from("arena_rooms")
