@@ -278,9 +278,12 @@ ${list}
 }
 
 function generatePlayersJS(snapshot) {
-  const eligible = snapshot.players.filter((p) => p.clubs.length >= 2);
-  eligible.sort((a, b) => a.name.localeCompare(b.name, "tr"));
-  const entries = eligible.map((p) => {
+  // Tüm oyuncular export edilir — tek-kulüplü olanlar dahil.
+  // Sebep: oyuncu gelecekte yeni bir kulübe transfer olabilir, ayrıca veritabanı
+  // bütünlüğü için tek-kulüplü kayıtlar da silinmemeli. ANSWER_INDEX zaten kendi
+  // başına tek-kulüplüleri otomatik atlar (çift oluşturamadıkları için).
+  const sorted = [...snapshot.players].sort((a, b) => a.name.localeCompare(b.name, "tr"));
+  const entries = sorted.map((p) => {
     const clubs = p.clubs.map((c) => `      ${JSON.stringify(c)}`).join(",\n");
     return `  {
     "name": ${JSON.stringify(p.name)},
@@ -821,7 +824,7 @@ export function PlayersTab({ snapshot, updateSnapshot, logActivity }) {
                 <td><input type="checkbox" checked={selected.has(p.name)} onChange={() => toggle(p.name)} /></td>
                 <td>
                   <div className="admin-player-name">{p.name}</div>
-                  {p.clubs.length < 2 && <span className="admin-warn-badge" title="Quiz'de kullanılmaz">⚠️ Tek takım</span>}
+                  {p.clubs.length < 2 && <span className="admin-warn-badge" title="Henüz 1 kulübü var — çiftlerde görünmüyor ama kayıt korunuyor">⚠️ Tek takım</span>}
                 </td>
                 <td>
                   <div className="admin-club-badges">
