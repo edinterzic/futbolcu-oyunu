@@ -1,5 +1,5 @@
 // Auto-generated from admin panel
-// Generated: 2026-06-04T21:13:23.638Z
+// Generated: 2026-06-04T20:55:05.110Z
 
 export const PLAYERS = [
   {
@@ -2142,22 +2142,9 @@ export const PLAYERS = [
   {
     "name": "Adriano",
     "clubs": [
-      "AS Roma",
-      "Atalanta",
-      "Barcelona",
-      "Başakşehir",
-      "Beşiktaş",
-      "Braga",
-      "FC Porto",
-      "Fiorentina",
-      "Gil Vicente",
       "Inter",
-      "Monaco",
-      "Nacional",
-      "Parma",
-      "Rio Ave",
-      "Santa Clara",
-      "Sevilla"
+      "AS Roma",
+      "Fiorentina"
     ]
   },
   {
@@ -2174,6 +2161,14 @@ export const PLAYERS = [
       "Hellas Verona",
       "Juventus",
       "Udinese"
+    ]
+  },
+  {
+    "name": "Adriano Correia",
+    "clubs": [
+      "Barcelona",
+      "Sevilla",
+      "Beşiktaş"
     ]
   },
   {
@@ -5994,20 +5989,10 @@ export const PLAYERS = [
     "name": "Alex",
     "clubs": [
       "AC Milan",
-      "Athletic Bilbao",
-      "Benfica",
-      "Casa Pia",
       "Chelsea",
-      "Famalicão",
-      "Fenerbahçe",
-      "Fiorentina",
-      "Moreirense",
       "PSG",
       "PSV",
-      "Parma",
-      "Santa Clara",
-      "Vitória SC",
-      "VfL Wolfsburg"
+      "Santa Clara"
     ]
   },
   {
@@ -6151,6 +6136,13 @@ export const PLAYERS = [
       "Brentford",
       "Brighton",
       "Manchester United"
+    ]
+  },
+  {
+    "name": "Alex De Souza",
+    "clubs": [
+      "Fenerbahçe",
+      "Parma"
     ]
   },
   {
@@ -43537,32 +43529,6 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Emerson",
-    "clubs": [
-      "AC Milan",
-      "AS Roma",
-      "Arouca",
-      "Atletico Madrid",
-      "Benfica",
-      "Chelsea",
-      "Estoril",
-      "FC Porto",
-      "Juventus",
-      "LOSC Lille",
-      "Leverkusen",
-      "Marsilya",
-      "Olympique Lyon",
-      "Real Madrid",
-      "Rennes",
-      "Santa Clara",
-      "Trabzonspor",
-      "West Ham",
-      "Union Berlin",
-      "Hamburger SV",
-      "FC St. Pauli"
-    ]
-  },
-  {
     "name": "Émerson",
     "clubs": [
       "Union Berlin",
@@ -43587,10 +43553,27 @@ export const PLAYERS = [
     ]
   },
   {
+    "name": "Emerson Ferreira",
+    "clubs": [
+      "AS Roma",
+      "AC Milan",
+      "Juventus",
+      "Real Madrid",
+      "Leverkusen"
+    ]
+  },
+  {
     "name": "Emerson Hyndman",
     "clubs": [
       "Bournemouth",
       "Fulham"
+    ]
+  },
+  {
+    "name": "Emerson Moisés Costa",
+    "clubs": [
+      "FC Porto",
+      "Atletico Madrid"
     ]
   },
   {
@@ -43599,7 +43582,8 @@ export const PLAYERS = [
       "AS Roma",
       "Chelsea",
       "Marsilya",
-      "Olympique Lyon"
+      "Olympique Lyon",
+      "West Ham"
     ]
   },
   {
@@ -88163,25 +88147,17 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Júlio César",
+    "name": "Júlio César Antônio",
     "clubs": [
-      "AC Milan",
-      "Athletic Bilbao",
-      "Benfica",
-      "Borussia Dortmund",
-      "Brest",
-      "Estrela Amadora",
-      "Getafe",
-      "Gil Vicente",
-      "Inter",
-      "Juventus",
-      "Kocaelispor",
-      "Moreirense",
-      "Nacional",
-      "Real Madrid",
-      "Real Sociedad",
       "Samsunspor",
-      "Santa Clara",
+      "Gaziantep FK"
+    ]
+  },
+  {
+    "name": "Júlio César da Silva",
+    "clubs": [
+      "Juventus",
+      "Borussia Dortmund",
       "Werder Bremen"
     ]
   },
@@ -88192,6 +88168,24 @@ export const PLAYERS = [
       "Genoa",
       "Parma",
       "Torino"
+    ]
+  },
+  {
+    "name": "Júlio César Santos Correa",
+    "clubs": [
+      "Real Madrid",
+      "AC Milan",
+      "Real Sociedad",
+      "Benfica",
+      "Gaziantep FK"
+    ]
+  },
+  {
+    "name": "Júlio César Soares",
+    "clubs": [
+      "Benfica",
+      "Inter",
+      "Hellas Verona"
     ]
   },
   {
@@ -125609,24 +125603,8 @@ export const PLAYERS = [
   {
     "name": "Paulinho",
     "clubs": [
-      "Arouca",
       "Barcelona",
-      "Benfica",
-      "Braga",
-      "Cremonese",
-      "Estoril",
-      "Estrela Amadora",
-      "FC Porto",
-      "Gil Vicente",
-      "Göztepe",
-      "Leverkusen",
-      "Liverpool",
-      "Moreirense",
-      "Nacional",
-      "Santa Clara",
-      "Sporting CP",
-      "Tottenham",
-      "Wolves"
+      "Tottenham"
     ]
   },
   {
@@ -145230,13 +145208,14 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Simão Sabrosa",
+    "name": "Simao Sabrosa",
     "clubs": [
       "Atletico Madrid",
       "Benfica",
       "Beşiktaş",
       "Espanyol",
-      "Sporting CP"
+      "Sporting CP",
+      "Barcelona"
     ]
   },
   {
