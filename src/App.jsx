@@ -1455,6 +1455,13 @@ export default function App() {
     () => (onlineMatchMode === "custom" ? allowedTeamsSet : null),
     [onlineMatchMode, allowedTeamsSet]
   );
+  // Düello için mode-aware difficulty: "custom" mod'da zorluk filtresi yok
+  // (= "hard" → isPairInDifficulty her zaman true). "difficulty" mod'da seçilen zorluk.
+  // Maraton'daki confirmStartChallenge davranışıyla bire bir aynı.
+  const effectiveOnlineDifficulty = useMemo(
+    () => (onlineMatchMode === "custom" ? "hard" : onlineDifficulty),
+    [onlineMatchMode, onlineDifficulty]
+  );
   const [duelVariant, setDuelVariant] = useState(null); // null | "auto" | "strategic"
   const [teamSelectEndsAt, setTeamSelectEndsAt] = useState(null);
   const [teamPicks, setTeamPicks] = useState([null, null]);
@@ -2146,7 +2153,7 @@ export default function App() {
     }
 
     const code = makeRoomCode();
-    const firstRound = getRandomRound([], onlineDifficulty, effectiveOnlineAllowedTeams) || { teams: ["Fenerbahçe", "Galatasaray"] };
+    const firstRound = getRandomRound([], effectiveOnlineDifficulty, effectiveOnlineAllowedTeams) || { teams: ["Fenerbahçe", "Galatasaray"] };
     const name = playerName.trim() || t("default_player_1");
 
     opponentClientIdRef.current = null; // yeni oda → rakip slotu boş
@@ -2433,7 +2440,7 @@ export default function App() {
       return;
     }
 
-    const next = getRandomRound(usedRoundKeys, onlineDifficulty, effectiveOnlineAllowedTeams) || { teams: ["Fenerbahçe", "Galatasaray"] };
+    const next = getRandomRound(usedRoundKeys, effectiveOnlineDifficulty, effectiveOnlineAllowedTeams) || { teams: ["Fenerbahçe", "Galatasaray"] };
     const nextPreRoundEndsAt = Date.now() + ROUND_REVEAL_SECONDS * 1000;
     const nextKey = getRoundKey(next);
     const playableCount = getPlayableTeamPairs(effectiveOnlineAllowedTeams).length;
@@ -2528,7 +2535,7 @@ export default function App() {
   }, [teamPicks, screen, playerIndex]);
 
   const resetGame = async () => {
-    const firstRound = getRandomRound([], onlineDifficulty, effectiveOnlineAllowedTeams) || { teams: ["Fenerbahçe", "Galatasaray"] };
+    const firstRound = getRandomRound([], effectiveOnlineDifficulty, effectiveOnlineAllowedTeams) || { teams: ["Fenerbahçe", "Galatasaray"] };
     const nextState = {
       screen: "game", playerNames,
       playersReady: [false, false],
@@ -3519,7 +3526,7 @@ export default function App() {
   };
 
   const startRematch = async () => {
-    const next = getRandomRound([], onlineDifficulty, effectiveOnlineAllowedTeams) || { teams: ["Fenerbahçe", "Galatasaray"] };
+    const next = getRandomRound([], effectiveOnlineDifficulty, effectiveOnlineAllowedTeams) || { teams: ["Fenerbahçe", "Galatasaray"] };
     const nextState = {
       screen: "game",
       playerNames,

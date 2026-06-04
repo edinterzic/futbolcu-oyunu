@@ -1014,8 +1014,11 @@ function ArenaSetup({ setupMode, setSetupMode, onCreate, onJoin, onExit, error, 
               if (hostName.trim()) {
                 localStorage.setItem("pairfc_player_name", hostName.trim());
               }
-              try { localStorage.setItem("pairfc_arena_difficulty", difficulty); } catch (e) {}
-              onCreate(hostName, totalRounds, difficulty, matchMode);
+              // Custom modda zorluk filtresi devre dışı; DB'ye de "hard" yazıyoruz
+              // ki Lobby göstergesi ve sonraki sorgular tutarlı olsun.
+              const effectiveDifficulty = matchMode === "custom" ? "hard" : difficulty;
+              try { localStorage.setItem("pairfc_arena_difficulty", effectiveDifficulty); } catch (e) {}
+              onCreate(hostName, totalRounds, effectiveDifficulty, matchMode);
             }}
             disabled={!hostName.trim()}
             className="arena-cta"
@@ -1106,7 +1109,10 @@ function ArenaLobby({ room, players, isHost, userId, onStart, onLeave, matchMode
         <div className="arena-pin-display">
           <span className="arena-pin-label">{t("arena_room_pin")}</span>
           <strong className="arena-pin-value">{room.pin}</strong>
-          <small>{t("arena_n_questions", { n: room.total_rounds })} · {t(`diff_${room.difficulty || "medium"}`)}</small>
+          <small>
+            {t("arena_n_questions", { n: room.total_rounds })}
+            {matchMode !== "custom" && ` · ${t(`diff_${room.difficulty || "medium"}`)}`}
+          </small>
           {isHost && matchMode === "custom" && (
             <small style={{ color: "#fcd34d", fontWeight: 700, marginTop: 2 }}>
               {t("match_type_custom_lobby", { label: leaguesLabel })}
