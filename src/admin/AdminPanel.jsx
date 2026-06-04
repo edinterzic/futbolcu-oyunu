@@ -108,10 +108,10 @@ function appendActivity(entry) {
 }
 
 // =================== LOGIN SCREEN ===================
-function LoginScreen({ onLogin }) {
+function LoginScreen({ onLogin, initialError = null }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
+  const [error, setError] = useState(initialError);
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e) => {
@@ -370,19 +370,62 @@ function AdminShell({ onLogout }) {
 export default function AdminPanel() {
   const [isAuthed, setIsAuthed] = useState(false);
   const [checking, setChecking] = useState(true);
+  const [checkError, setCheckError] = useState(null);
 
   // İlk yükleme: mevcut Supabase session var mı kontrol et
   // Ayrıca onAuthStateChange ile token expiry / başka sekmeden logout vs. dinle
   useEffect(() => {
     let alive = true;
 
-    checkAdminSession().then((result) => {
+    // 5 saniye timeout — eğer Supabase auth.getSession() hiç dönmüyorsa
+    // (env eksik, localStorage engelli, network blok), login ekranına düş
+    const timeoutId = setTimeout(() => {
       if (!alive) return;
-      setIsAuthed(result.valid);
+      console.warn("[admin] Session check 5s'de tamamlanmadı — login ekranına geçiliyor");
+      setCheckError("Oturum kontrolü zaman aşımına uğradı. Tekrar giriş yapmanız gerekiyor.");
       setChecking(false);
-    });
+    }, 5000);
 
-    if (!supabaseAuth) return;
+    // Erken hatalar için Supabase config kontrolü
+    if (!supabaseAuth) {
+      clearTimeout(timeoutId);
+      console.error("[admin] supabaseAuth client init başarısız — env eksik mi?", {
+        urlSet: !!SUPABASE_URL,
+        keySet: !!SUPABASE_ANON_KEY
+      });
+      setCheckError(
+        !SUPABASE_URL || !SUPABASE_ANON_KEY
+          ? "Supabase ayarları eksik. Vercel'de VITE_SUPABASE_URL + VITE_SUPABASE_ANON_KEY tanımlı mı?"
+          : "Supabase başlatılamadı."
+      );
+      setChecking(false);
+      return;
+    }
+
+    if (ADMIN_EMAILS.size === 0) {
+      clearTimeout(timeoutId);
+      console.error("[admin] ADMIN_EMAILS boş — kimse giriş yapamaz");
+      setCheckError("ADMIN_EMAILS listesi boş. src/admin/AdminPanel.jsx'i aç ve kendi email'ini ekle, sonra tekrar deploy et.");
+      setChecking(false);
+      return;
+    }
+
+    checkAdminSession()
+      .then((result) => {
+        if (!alive) return;
+        clearTimeout(timeoutId);
+        console.log("[admin] Session check tamamlandı:", result);
+        setIsAuthed(result.valid);
+        setChecking(false);
+      })
+      .catch((err) => {
+        if (!alive) return;
+        clearTimeout(timeoutId);
+        console.error("[admin] Session check hatası:", err);
+        setCheckError("Oturum kontrolünde hata: " + (err?.message || "bilinmiyor"));
+        setChecking(false);
+      });
+
     const { data: { subscription } } = supabaseAuth.auth.onAuthStateChange(
       async (event, session) => {
         if (!alive) return;
@@ -402,6 +445,7 @@ export default function AdminPanel() {
 
     return () => {
       alive = false;
+      clearTimeout(timeoutId);
       subscription?.unsubscribe();
     };
   }, []);
@@ -420,6 +464,14 @@ export default function AdminPanel() {
           <div className="admin-login-card" style={{ textAlign: "center" }}>
             <div className="admin-login-mark">⏳</div>
             <p>Oturum kontrol ediliyor...</p>
+            <button
+              type="button"
+              className="admin-secondary-button"
+              style={{ marginTop: 16 }}
+              onClick={() => { setChecking(false); setCheckError(null); }}
+            >
+              Giriş ekranına geç
+            </button>
           </div>
         </div>
         <style>{ADMIN_STYLES}</style>
@@ -430,7 +482,7 @@ export default function AdminPanel() {
   if (!isAuthed) {
     return (
       <div className="admin-root">
-        <LoginScreen onLogin={() => setIsAuthed(true)} />
+        <LoginScreen onLogin={() => { setIsAuthed(true); setCheckError(null); }} initialError={checkError} />
         <style>{ADMIN_STYLES}</style>
       </div>
     );
