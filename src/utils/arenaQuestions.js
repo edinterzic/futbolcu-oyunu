@@ -5,37 +5,14 @@
 // Bir soru = (Kulüp A, Kulüp B, Cevap Havuzu).
 
 import { PLAYERS, TEAMS } from "../data/gameData";
+import {
+  EASY_TEAMS, MEDIUM_TEAMS,
+  TIER_WEIGHTS_BY_MODE,
+  getTierWeight
+} from "../data/tiers";
 
 const MIN_ANSWERS_PER_PAIR = 3;
 const MAX_ANSWERS_PER_PAIR = 30; // çok genel çiftler de istemiyoruz
-
-// =============================================
-// Zorluk havuzları (App.jsx Marathon ile birebir aynı)
-// =============================================
-const EASY_TEAMS = new Set([
-  // Top Avrupa devleri
-  "Real Madrid", "Barcelona", "Bayern Munich",
-  "Manchester United", "Manchester City", "Liverpool", "Chelsea", "Arsenal",
-  "Juventus", "AC Milan", "Inter", "PSG",
-  "Atletico Madrid", "Borussia Dortmund",
-  // Üç büyük Türk
-  "Fenerbahçe", "Beşiktaş", "Galatasaray"
-]);
-
-const TIER_2_TEAMS = [
-  "Tottenham", "Napoli", "AS Roma", "Ajax", "FC Porto",
-  "Benfica", "Sevilla", "Newcastle", "LOSC Lille",
-  "Atalanta", "Lazio", "Leverkusen", "Sporting CP",
-  "Aston Villa", "Valencia", "Villarreal", "Real Sociedad",
-  "Athletic Bilbao", "Fiorentina", "Marsilya", "Monaco",
-  "Feyenoord", "PSV", "West Ham", "Everton"
-];
-
-const MEDIUM_TEAMS = new Set([
-  ...EASY_TEAMS,
-  ...TIER_2_TEAMS,
-  "Trabzonspor", "Başakşehir"
-]);
 
 function isPairInArenaDifficulty(clubA, clubB, difficulty) {
   if (difficulty === "easy") return EASY_TEAMS.has(clubA) && EASY_TEAMS.has(clubB);
@@ -43,53 +20,13 @@ function isPairInArenaDifficulty(clubA, clubB, difficulty) {
   return true; // hard = tüm havuz
 }
 
-// =============================================
-// Tier ağırlık matrisi (App.jsx ile BİREBİR senkron tutulmalı)
-// Easy:   sadece 1-1 — uniform (1) yeterli, easy-start ayrı mekanizma
-// Medium: 1-2 (örn. Real ↔ Leverkusen) DOMİNANT
-// Hard:   2-3 ve 3-3 pozitif → Bundesliga içi vs. çiftler unlock
-// =============================================
-const ARENA_TIER_1 = new Set([
-  // Türk takımları (popüler — Türk taraftar için tanınır)
-  "Galatasaray", "Beşiktaş", "Fenerbahçe", "Trabzonspor", "Başakşehir",
-  "Antalyaspor", "Konyaspor", "Sivasspor", "Kayserispor", "Alanyaspor",
-  "Samsunspor", "Kasımpaşa", "Gaziantep FK",
-  "Rizespor", "Gençlerbirliği", "Göztepe",
-  "Karagümrük", "Eyüpspor", "Kocaelispor",
-  // Avrupa devleri
-  "Real Madrid", "Barcelona", "Atletico Madrid", "Bayern Munich",
-  "Manchester United", "Manchester City", "Liverpool", "Chelsea", "Arsenal",
-  "Juventus", "AC Milan", "Inter", "Borussia Dortmund", "PSG"
-]);
-
-const ARENA_TIER_2 = new Set([
-  "Tottenham", "Napoli", "AS Roma", "Ajax", "FC Porto",
-  "Benfica", "Sevilla", "Newcastle", "LOSC Lille",
-  "Atalanta", "Lazio", "Leverkusen", "Sporting CP",
-  "Aston Villa", "Valencia", "Villarreal", "Real Sociedad",
-  "Athletic Bilbao", "Fiorentina", "Marsilya", "Monaco",
-  "Feyenoord", "PSV", "West Ham", "Everton"
-]);
-
-function getArenaTier(team) {
-  if (ARENA_TIER_1.has(team)) return 1;
-  if (ARENA_TIER_2.has(team)) return 2;
-  return 3;
-}
-
-const ARENA_TIER_WEIGHTS = {
-  easy:   { "1-1": 1 },
-  medium: { "1-1": 4, "1-2": 8, "2-2": 3 },
-  hard:   { "1-1": 6, "1-2": 4, "1-3": 3, "2-2": 4, "2-3": 2, "3-3": 1 }
-};
-
+// Arena tier ağırlığı — App.jsx ile aynı tier matrisini kullanır
+// (./data/tiers.js'ten gelir). Arena aynı-ülke boost'u eklemiyor.
 function getArenaPairWeight(clubA, clubB, difficulty) {
-  const tierKey = [getArenaTier(clubA), getArenaTier(clubB)].sort().join("-");
-  const weights = ARENA_TIER_WEIGHTS[difficulty] || ARENA_TIER_WEIGHTS.hard;
-  return weights[tierKey] ?? 0;
+  return getTierWeight(clubA, clubB, difficulty);
 }
 
-// Weighted random pick (with replacement protection via used set)
+// Weighted random pick — pool boş veya total weight 0 ise uniform fallback
 function pickWeighted(pool, weights) {
   const total = weights.reduce((a, b) => a + b, 0);
   if (total <= 0) return Math.floor(Math.random() * pool.length);

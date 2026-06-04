@@ -2,6 +2,14 @@ import { t, useLang } from "./i18n";
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import { createClient } from "@supabase/supabase-js";
 import { PLAYERS, TEAMS, ANSWER_INDEX, getPairKey, getAnswers } from "./data/gameData";
+import {
+  TIER_1_TEAMS, TIER_2_TEAMS, TIER_1_SET, TIER_2_SET,
+  EASY_TEAMS, MEDIUM_TEAMS,
+  TIER_WEIGHTS_BY_MODE,
+  getTier as getTierFromTiers,
+  isPairInDifficulty as isPairInDifficultyFromTiers,
+  getTierWeight
+} from "./data/tiers";
 import { TEAM_LOGOS } from "./data/teamLogos";
 import { getDailyPuzzle, getTodayKey, getMsUntilNextPuzzle, calculateStreak } from "./data/dailyPuzzle";
 import { SOUND_FILES } from "./data/sounds";
@@ -299,60 +307,11 @@ const PLAYER_PAIR_FREQ = (() => {
 })();
 
 // =================== TAKIM AĞIRLIKLI SEÇİM ===================
-// Popüler takımlar daha sık çıkar, Tier 3 birbiriyle veya Tier 2 ile hiç eşleşmez.
-
-const TIER_1_TEAMS = [
-  // Türk takımları (hepsi popüler) — yeni data ile uyumlu isimler
-  "Galatasaray", "Beşiktaş", "Fenerbahçe", "Trabzonspor", "Başakşehir",
-  "Antalyaspor", "Konyaspor", "Sivasspor", "Kayserispor", "Alanyaspor",
-  "Samsunspor", "Kasımpaşa", "Gaziantep FK",
-  "Rizespor", "Gençlerbirliği", "Göztepe",
-  "Karagümrük", "Eyüpspor", "Kocaelispor",
-  // Avrupa devleri (yeni data isimleriyle)
-  "Real Madrid", "Barcelona", "Atletico Madrid", "Bayern Munich",
-  "Manchester United", "Manchester City", "Liverpool", "Chelsea", "Arsenal",
-  "Juventus", "AC Milan", "Inter", "Borussia Dortmund", "PSG"
-];
-
-const TIER_2_TEAMS = [
-  "Tottenham", "Napoli", "AS Roma", "Ajax", "FC Porto",
-  "Benfica", "Sevilla", "Newcastle", "LOSC Lille",
-  "Atalanta", "Lazio", "Leverkusen", "Sporting CP",
-  "Aston Villa", "Valencia", "Villarreal", "Real Sociedad",
-  "Athletic Bilbao", "Fiorentina", "Marsilya", "Monaco",
-  "Feyenoord", "PSV", "West Ham", "Everton"
-];
-
-const TIER_1_SET = new Set(TIER_1_TEAMS);
-const TIER_2_SET = new Set(TIER_2_TEAMS);
-
-// =================== ZORLUK SEVİYELERİ ===================
-// Kolay: Top Avrupa + 3 Türk büyüğü
-// Orta:  Yukarıdakiler + Tier 2
-// Zor:   Tüm takımlar
-
-const EASY_TEAMS = new Set([
-  // Top Avrupa devleri
-  "Real Madrid", "Barcelona", "Bayern Munich",
-  "Manchester United", "Manchester City", "Liverpool", "Chelsea", "Arsenal",
-  "Juventus", "AC Milan", "Inter", "PSG",
-  "Atletico Madrid", "Borussia Dortmund",
-  // Üç büyük Türk
-  "Fenerbahçe", "Beşiktaş", "Galatasaray"
-]);
-
-// Orta = Easy ∪ Tier 2 ∪ (orta Türk: Trabzonspor, Başakşehir)
-const MEDIUM_TEAMS = new Set([
-  ...EASY_TEAMS,
-  ...TIER_2_TEAMS,
-  "Trabzonspor", "Başakşehir"
-]);
+// Tier listeleri ve zorluk havuzları artık src/data/tiers.js'ten import ediliyor —
+// App.jsx + arenaQuestions.js iki yerde duplicate tutmamak için.
 
 function isPairInDifficulty(pair, difficulty) {
-  const [a, b] = pair.teams;
-  if (difficulty === "easy") return EASY_TEAMS.has(a) && EASY_TEAMS.has(b);
-  if (difficulty === "medium") return MEDIUM_TEAMS.has(a) && MEDIUM_TEAMS.has(b);
-  return true; // hard
+  return isPairInDifficultyFromTiers(pair.teams[0], pair.teams[1], difficulty);
 }
 
 function getDifficultyLabel(d) {
@@ -368,9 +327,7 @@ function getDifficultyEmoji(d) {
 }
 
 function getTier(teamName) {
-  if (TIER_1_SET.has(teamName)) return 1;
-  if (TIER_2_SET.has(teamName)) return 2;
-  return 3;
+  return getTierFromTiers(teamName);
 }
 
 // Aynı ülkeden takım çifti mi? Derbiler (FB-GS, Real-Barça, ManU-Liverpool,
@@ -390,36 +347,12 @@ function isSameCountryPair(pair) {
 // Milano derbisi gibi diğer kıymetli aynı-ülke çiftleri de canlanır.
 const SAME_COUNTRY_BOOST = 3;
 
-// =================== TIER AĞIRLIK MATRİSİ ===================
-// Zorluk başına farklı tier ağırlıkları — kullanıcı UX kararıyla:
-//
-// Easy:   Filtre 1-1'e zaten kısıtlı (isPairInDifficulty). Uniform (1) yeterli;
-//         "Easy-start" mekanizması (getRandomRound içinde) ilk 3 turu en yüksek
-//         ortak-oyuncu çiftlerinden seçer — herkes 3'ü garanti yapsın diye.
-//
-// Medium: 1-2 (örn. Real Madrid ↔ Leverkusen) ÇOK daha sık çıksın. 1-2 anchor
-//         etkisiyle 2-2 (örn. Leverkusen ↔ Tottenham)'den daha tanınır olur.
-//         Beklenen dağılım: ~%15 / %70 / %15.
-//
-// Hard:   2-3 ve 3-3 ARTIK 0 değil — Bundesliga içi (Köln↔Frankfurt), Portekiz
-//         içi (Vitória↔Braga), Hollanda içi (Twente↔Utrecht) gibi 4.4k çift
-//         pool'a girer. Hard sevenler gerçek çeşitliliği görsün.
-const TIER_WEIGHTS_BY_MODE = {
-  easy:   { "1-1": 1 },
-  medium: { "1-1": 4, "1-2": 8, "2-2": 3 },
-  hard:   { "1-1": 6, "1-2": 4, "1-3": 3, "2-2": 4, "2-3": 2, "3-3": 1 }
-};
-
 // Tier çiftine göre ağırlık. difficulty verilmezse "hard" varsayılır
 // (WEIGHTED_TEAM_PAIRS modül yüklenirken bu çağrıyı yapar — hard pozitiftir,
 // 1-1'den 3-3'e kadar her tier kombinasyonu havuza girer).
-// Aynı ülkeden takım çifti varsa ağırlık × SAME_COUNTRY_BOOST.
+// Tier matrisi ./data/tiers.js içinde. Aynı ülke boost'u burada ekleniyor.
 function getPairWeight(pair, difficulty = "hard") {
-  const t1 = getTier(pair.teams[0]);
-  const t2 = getTier(pair.teams[1]);
-  const tierKey = [t1, t2].sort().join("-");
-  const weights = TIER_WEIGHTS_BY_MODE[difficulty] || TIER_WEIGHTS_BY_MODE.hard;
-  let baseWeight = weights[tierKey] ?? 0;
+  let baseWeight = getTierWeight(pair.teams[0], pair.teams[1], difficulty);
   if (baseWeight > 0 && isSameCountryPair(pair)) {
     baseWeight *= SAME_COUNTRY_BOOST;
   }
@@ -443,6 +376,10 @@ const WEIGHTED_TEAM_PAIRS = PLAYABLE_TEAM_PAIRS.filter((pair) => {
 // =================== LİG FİLTRESİ ===================
 // TEAM_LOGOS'taki league alanından benzersiz lig listesi türetilir.
 // Takım sayısına göre azalan sırada (büyük ligler önce).
+// Sadece ≥2 takımı olan ligler gösterilir — tek takımlı ligler (örn. Pro League
+// için Club Brugge tek başına) seçildiğinde boş havuz oluştururdu. Bu Maraton'da
+// canStart guard ile yakalanıyordu ama Düello + Arena guard'sızdı ve FB-GS
+// fallback'ine düşüyordu (silent bug).
 const LEAGUES = (() => {
   const map = new Map();
   for (const [team, meta] of Object.entries(TEAM_LOGOS)) {
@@ -457,7 +394,9 @@ const LEAGUES = (() => {
     }
     map.get(meta.league).teamCount++;
   }
-  return [...map.values()].sort((a, b) => b.teamCount - a.teamCount);
+  return [...map.values()]
+    .filter((l) => l.teamCount >= 2)
+    .sort((a, b) => b.teamCount - a.teamCount);
 })();
 
 // Seçilen ligler → izinli takım Set'i (null = filtre yok = tümü).
@@ -604,8 +543,13 @@ function runSelfTests() {
       "FB-GS should be in easy difficulty"
     );
     console.assert(
-      getPairWeight(fbgs) === 30,
-      `FB-GS weight should be 30 (10 base × 3 same-country boost), got ${getPairWeight(fbgs)}`
+      getPairWeight(fbgs, "hard") === 18,
+      `FB-GS hard weight should be 18 (6 base × 3 same-country boost), got ${getPairWeight(fbgs, "hard")}`
+    );
+    // Medium ağırlığı da kontrol: 1-1 = 4 base × 3 same-country = 12
+    console.assert(
+      getPairWeight(fbgs, "medium") === 12,
+      `FB-GS medium weight should be 12 (4 base × 3 same-country), got ${getPairWeight(fbgs, "medium")}`
     );
     console.assert(
       isSameCountryPair(fbgs),
