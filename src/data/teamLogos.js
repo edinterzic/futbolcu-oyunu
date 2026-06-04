@@ -1,5 +1,5 @@
 // Auto-generated from admin panel
-// Generated: 2026-06-02T21:19:45.000Z
+// Generated: 2026-06-04T12:47:59.000Z
 // NOTE: country, league, flag fields added for league filter feature.
 //       Admin panel must preserve these on re-export.
 
@@ -1107,5 +1107,125 @@ export const TEAM_LOGOS = {
     "country": "Fransa",
     "league": "Ligue 1",
     "flag": "🇫🇷"
+  },
+  "RB Leipzig": {
+    "initials": "RBL",
+    "primary": "#DD0741",
+    "secondary": "#001F47",
+    "country": "Almanya",
+    "league": "Bundesliga",
+    "flag": "🇩🇪"
+  },
+  "VfB Stuttgart": {
+    "initials": "VFB",
+    "primary": "#E32219",
+    "secondary": "#FFFFFF",
+    "country": "Almanya",
+    "league": "Bundesliga",
+    "flag": "🇩🇪"
+  },
+  "TSG Hoffenheim": {
+    "initials": "TSG",
+    "primary": "#1961B5",
+    "secondary": "#FFFFFF",
+    "country": "Almanya",
+    "league": "Bundesliga",
+    "flag": "🇩🇪"
+  },
+  "SC Freiburg": {
+    "initials": "SCF",
+    "primary": "#E20613",
+    "secondary": "#000000",
+    "country": "Almanya",
+    "league": "Bundesliga",
+    "flag": "🇩🇪"
+  },
+  "FC Augsburg": {
+    "initials": "FCA",
+    "primary": "#BA3733",
+    "secondary": "#46714D",
+    "country": "Almanya",
+    "league": "Bundesliga",
+    "flag": "🇩🇪"
+  },
+  "FSV Mainz 05": {
+    "initials": "M05",
+    "primary": "#C8102E",
+    "secondary": "#FFFFFF",
+    "country": "Almanya",
+    "league": "Bundesliga",
+    "flag": "🇩🇪"
+  },
+  "Union Berlin": {
+    "initials": "FCU",
+    "primary": "#EB1923",
+    "secondary": "#FFE500",
+    "country": "Almanya",
+    "league": "Bundesliga",
+    "flag": "🇩🇪"
+  },
+  "Borussia Mönchengladbach": {
+    "initials": "BMG",
+    "primary": "#00482B",
+    "secondary": "#FFFFFF",
+    "country": "Almanya",
+    "league": "Bundesliga",
+    "flag": "🇩🇪"
+  },
+  "Hamburger SV": {
+    "initials": "HSV",
+    "primary": "#0F4798",
+    "secondary": "#FFFFFF",
+    "country": "Almanya",
+    "league": "Bundesliga",
+    "flag": "🇩🇪"
+  },
+  "FC Köln": {
+    "initials": "KOE",
+    "primary": "#ED1C24",
+    "secondary": "#FFFFFF",
+    "country": "Almanya",
+    "league": "Bundesliga",
+    "flag": "🇩🇪"
+  },
+  "Werder Bremen": {
+    "initials": "SVW",
+    "primary": "#1D9053",
+    "secondary": "#FFFFFF",
+    "country": "Almanya",
+    "league": "Bundesliga",
+    "flag": "🇩🇪"
+  },
+  "VfL Wolfsburg": {
+    "initials": "WOB",
+    "primary": "#65B32E",
+    "secondary": "#FFFFFF",
+    "country": "Almanya",
+    "league": "Bundesliga",
+    "flag": "🇩🇪"
+  },
+  "Heidenheim": {
+    "initials": "FCH",
+    "primary": "#E2001A",
+    "secondary": "#003B79",
+    "country": "Almanya",
+    "league": "Bundesliga",
+    "flag": "🇩🇪"
+  },
+  "FC St. Pauli": {
+    "initials": "STP",
+    "primary": "#614237",
+    "secondary": "#FFFFFF",
+    "country": "Almanya",
+    "league": "Bundesliga",
+    "flag": "🇩🇪"
+  },
+  "Vitória SC": {
+    "initials": "VIT",
+    "primary": "#000000",
+    "secondary": "#FFFFFF",
+    "country": "Portekiz",
+    "league": "Primeira Liga",
+    "flag": "🇵🇹"
   }
 };

@@ -1,5 +1,5 @@
 // Auto-generated from admin panel
-// Generated: 2026-06-02T21:13:01.000Z
+// Generated: 2026-06-04T12:47:59.000Z
 
 export const TEAMS = [
   "Inter",
@@ -139,5 +139,20 @@ export const TEAMS = [
   "Sparta Rotterdam",
   "Telstar",
   "Tondela",
-  "Toulouse"
+  "Toulouse",
+  "RB Leipzig",
+  "VfB Stuttgart",
+  "TSG Hoffenheim",
+  "SC Freiburg",
+  "FC Augsburg",
+  "FSV Mainz 05",
+  "Union Berlin",
+  "Borussia Mönchengladbach",
+  "Hamburger SV",
+  "FC Köln",
+  "Werder Bremen",
+  "VfL Wolfsburg",
+  "Heidenheim",
+  "FC St. Pauli",
+  "Vitória SC"
 ];
