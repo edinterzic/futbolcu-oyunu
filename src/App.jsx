@@ -96,7 +96,10 @@ const LOCALE_TAGS = {
   tr: "tr-TR",
   en: "en-US",
   es: "es-ES",
-  pt: "pt-BR"
+  pt: "pt-BR",
+  fr: "fr-FR",
+  de: "de-DE",
+  it: "it-IT"
 };
 
 // normalizeText, getNameTokens, answerNameMatchesInput, buildSuggestionSearchTokens

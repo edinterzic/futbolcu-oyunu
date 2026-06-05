@@ -7,8 +7,11 @@ import { tr } from "./locales/tr";
 import { en } from "./locales/en";
 import { es } from "./locales/es";
 import { pt } from "./locales/pt";
+import { fr } from "./locales/fr";
+import { de } from "./locales/de";
+import { it } from "./locales/it";
 
-const LOCALES = { tr, en, es, pt };
+const LOCALES = { tr, en, es, pt, fr, de, it };
 
 // Desteklenen diller — UI'da dil seçici ve detection bu listeyi kullanır.
 // Yeni dil eklemek için: ./locales/X.js yarat, yukarıya import ekle, buraya bir satır ekle.
@@ -16,7 +19,10 @@ export const SUPPORTED_LANGS = [
   { code: "tr", label: "Türkçe", flag: "🇹🇷" },
   { code: "en", label: "English", flag: "🇬🇧" },
   { code: "es", label: "Español", flag: "🇪🇸" },
-  { code: "pt", label: "Português", flag: "🇧🇷" }
+  { code: "pt", label: "Português", flag: "🇧🇷" },
+  { code: "fr", label: "Français", flag: "🇫🇷" },
+  { code: "de", label: "Deutsch", flag: "🇩🇪" },
+  { code: "it", label: "Italiano", flag: "🇮🇹" }
 ];
 
 const SUPPORTED_CODES = new Set(SUPPORTED_LANGS.map((l) => l.code));
