@@ -22,6 +22,7 @@ import {
 import { TEAM_LOGOS } from "../data/teamLogos";
 import { SOUND_FILES } from "../data/sounds";
 import { cleanDisplayName } from "../utils/sanitize";
+import { logSwallowed } from "../utils/errors";
 
 const QUESTION_DURATION_MS = 20000;
 const LEADERBOARD_DURATION_MS = 10000;
@@ -121,7 +122,9 @@ function initArenaAudio() {
       audio.preload = "auto";
       audio.volume = 0.55;
       _arenaAudioPool[name] = audio;
-    } catch {}
+    } catch (e) {
+      logSwallowed("arena_audio_pool_init", e, { sound: name });
+    }
   });
 }
 
@@ -763,7 +766,9 @@ export default function Arena({ supabase, onExit, selectedLeagues = [], onLeague
           .delete()
           .eq("room_id", room.id)
           .eq("user_id", userIdRef.current);
-      } catch {}
+      } catch (e) {
+        logSwallowed("arena_players_delete", e, { roomId: room.id });
+      }
     }
     setRoom(null);
     setPlayers([]);

@@ -1,6 +1,6 @@
 // Auto-generated answer index — DO NOT EDIT MANUALLY
 // Source: players.js + teamLogos.js
-// Generated: 2026-06-04T22:23:50.470Z
+// Generated: 2026-06-05T13:41:24.979Z
 // Pairs: 8870 total, 6487 with >=2 shared players
 // Total answer entries: 67649
 
