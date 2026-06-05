@@ -6,15 +6,17 @@ import { useState, useEffect } from "react";
 import { tr } from "./locales/tr";
 import { en } from "./locales/en";
 import { es } from "./locales/es";
+import { pt } from "./locales/pt";
 
-const LOCALES = { tr, en, es };
+const LOCALES = { tr, en, es, pt };
 
 // Desteklenen diller — UI'da dil seçici ve detection bu listeyi kullanır.
 // Yeni dil eklemek için: ./locales/X.js yarat, yukarıya import ekle, buraya bir satır ekle.
 export const SUPPORTED_LANGS = [
   { code: "tr", label: "Türkçe", flag: "🇹🇷" },
   { code: "en", label: "English", flag: "🇬🇧" },
-  { code: "es", label: "Español", flag: "🇪🇸" }
+  { code: "es", label: "Español", flag: "🇪🇸" },
+  { code: "pt", label: "Português", flag: "🇧🇷" }
 ];
 
 const SUPPORTED_CODES = new Set(SUPPORTED_LANGS.map((l) => l.code));

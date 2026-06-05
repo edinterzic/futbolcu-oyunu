@@ -95,7 +95,8 @@ function makeClientId() {
 const LOCALE_TAGS = {
   tr: "tr-TR",
   en: "en-US",
-  es: "es-ES"
+  es: "es-ES",
+  pt: "pt-BR"
 };
 
 // normalizeText, getNameTokens, answerNameMatchesInput, buildSuggestionSearchTokens
@@ -1047,6 +1048,24 @@ function playGameSound(soundName) {
 
 export default function App() {
   const [lang, setLang] = useLang();
+  const [langMenuOpen, setLangMenuOpen] = useState(false);
+  const langMenuRef = useRef(null);
+
+  // Dropdown dışına tıklayınca kapat
+  useEffect(() => {
+    if (!langMenuOpen) return;
+    const onDocClick = (e) => {
+      if (langMenuRef.current && !langMenuRef.current.contains(e.target)) {
+        setLangMenuOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", onDocClick);
+    document.addEventListener("touchstart", onDocClick);
+    return () => {
+      document.removeEventListener("mousedown", onDocClick);
+      document.removeEventListener("touchstart", onDocClick);
+    };
+  }, [langMenuOpen]);
 
   // ============ ROUTE: /admin ============
   // Watch URL pathname and render AdminPanel for /admin
@@ -3434,30 +3453,70 @@ export default function App() {
                 🏠
               </button>
             )}
-            <button
-              type="button"
-              onClick={() => {
-                // Sıralı geçiş: TR → EN → ES → TR — SUPPORTED_LANGS array'ine
-                // ekleme yapıldıkça otomatik genişler
-                const idx = SUPPORTED_LANGS.findIndex((l) => l.code === lang);
-                const next = SUPPORTED_LANGS[(idx + 1) % SUPPORTED_LANGS.length];
-                setLang(next.code);
-              }}
-              className="icon-button lang-switcher"
-              aria-label={t("lang_switch_aria")}
-              title={(() => {
-                const idx = SUPPORTED_LANGS.findIndex((l) => l.code === lang);
-                const next = SUPPORTED_LANGS[(idx + 1) % SUPPORTED_LANGS.length];
-                return `${next.flag} ${next.label}`;
-              })()}
-              style={{ fontSize: 12, fontWeight: 800, letterSpacing: "0.04em" }}
-            >
-              {(() => {
-                const idx = SUPPORTED_LANGS.findIndex((l) => l.code === lang);
-                const next = SUPPORTED_LANGS[(idx + 1) % SUPPORTED_LANGS.length];
-                return next.code.toUpperCase();
-              })()}
-            </button>
+            <div ref={langMenuRef} style={{ position: "relative" }}>
+              <button
+                type="button"
+                onClick={() => setLangMenuOpen((o) => !o)}
+                className="icon-button lang-switcher"
+                aria-label={t("lang_switch_aria")}
+                aria-haspopup="menu"
+                aria-expanded={langMenuOpen}
+                title={t("lang_switch_aria")}
+                style={{ fontSize: 12, fontWeight: 800, letterSpacing: "0.04em" }}
+              >
+                {lang.toUpperCase()}
+              </button>
+              {langMenuOpen && (
+                <div
+                  role="menu"
+                  style={{
+                    position: "absolute",
+                    top: "calc(100% + 6px)",
+                    right: 0,
+                    background: "linear-gradient(160deg,#1d1430,#241a3e)",
+                    border: "1px solid rgba(255,255,255,0.14)",
+                    borderRadius: 14,
+                    padding: 6,
+                    minWidth: 160,
+                    boxShadow: "0 14px 36px rgba(0,0,0,0.55)",
+                    zIndex: 200
+                  }}
+                >
+                  {SUPPORTED_LANGS.map((l) => {
+                    const active = l.code === lang;
+                    return (
+                      <button
+                        key={l.code}
+                        type="button"
+                        role="menuitemradio"
+                        aria-checked={active}
+                        onClick={() => { setLang(l.code); setLangMenuOpen(false); }}
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          gap: 10,
+                          width: "100%",
+                          padding: "10px 12px",
+                          background: active ? "rgba(155,45,255,0.22)" : "transparent",
+                          border: "none",
+                          borderRadius: 10,
+                          color: "#fff",
+                          fontSize: 14,
+                          fontWeight: 600,
+                          textAlign: "left",
+                          cursor: "pointer",
+                          letterSpacing: "normal"
+                        }}
+                      >
+                        <span style={{ fontSize: 18, lineHeight: 1 }}>{l.flag}</span>
+                        <span style={{ flex: 1 }}>{l.label}</span>
+                        {active && <span style={{ color: "#9b2dff", fontWeight: 800 }}>✓</span>}
+                      </button>
+                    );
+                  })}
+                </div>
+              )}
+            </div>
             <button type="button" onClick={toggleSound} className="icon-button" aria-label={soundEnabled ? t("sound_off_label") : t("sound_on_label")} title={soundEnabled ? t("sound_on_status") : t("sound_off_status")}>
               {soundEnabled ? "🔊" : "🔇"}
             </button>
