@@ -7796,7 +7796,15 @@ button:focus-visible {
   border: 1px solid var(--border-strong);
   border-radius: var(--radius);
   box-shadow: var(--shadow-lg);
-  max-height: 360px;
+  /* Klavye açıkken viewport'un ne kadarı kullanılabilir hesapla:
+     - 100dvh klavye açıkken otomatik küçülür (iOS Safari 15.4+, Chrome Android 108+)
+     - 200px = input alanı + üstündeki başlık/timer + güvenli boşluk yaklaşığı
+     - 360px = klavye kapalıyken görünür max yükseklik (~9 satır)
+     - Sonuç: en küçüğünü kullan → klavyenin altına asla taşmaz */
+  max-height: min(360px, calc(100dvh - 200px));
+  /* dvh desteklemeyen eski tarayıcılar için fallback */
+  max-height: min(360px, calc(100vh - 200px));
+  max-height: min(360px, calc(100dvh - 200px));
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
   overscroll-behavior: contain;
