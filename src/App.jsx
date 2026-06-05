@@ -1,4 +1,4 @@
-import { t, useLang } from "./i18n";
+import { t, useLang, SUPPORTED_LANGS } from "./i18n";
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import { createClient } from "@supabase/supabase-js";
 import { PLAYERS, TEAMS, ANSWER_INDEX, getPairKey, getAnswers } from "./data/gameData";
@@ -89,6 +89,14 @@ function makeRoomCode() {
 function makeClientId() {
   return `${Date.now()}-${Math.random().toString(16).slice(2)}`;
 }
+
+// Intl.DateTimeFormat / NumberFormat için her dilin BCP 47 tag'i.
+// Yeni dil eklenirse buraya bir satır eklemek yeter.
+const LOCALE_TAGS = {
+  tr: "tr-TR",
+  en: "en-US",
+  es: "es-ES"
+};
 
 // normalizeText, getNameTokens, answerNameMatchesInput, buildSuggestionSearchTokens
 // artık ./utils/normalize.js'ten import ediliyor — tek kaynak, arenaQuestions.js
@@ -1475,7 +1483,7 @@ export default function App() {
   const dailyMeta = useMemo(() => {
     const d = dailyData ? new Date(dailyData.date) : new Date();
     const epoch = new Date("2026-01-01T00:00:00Z").getTime();
-    const localeTag = lang === "en" ? "en-US" : "tr-TR";
+    const localeTag = LOCALE_TAGS[lang] || "tr-TR";
     return {
       date: new Intl.DateTimeFormat(localeTag, { day: "numeric", month: "long" }).format(d),
       num: Math.floor((d.getTime() - epoch) / 86400000) + 1
@@ -3428,13 +3436,27 @@ export default function App() {
             )}
             <button
               type="button"
-              onClick={() => setLang(lang === "tr" ? "en" : "tr")}
+              onClick={() => {
+                // Sıralı geçiş: TR → EN → ES → TR — SUPPORTED_LANGS array'ine
+                // ekleme yapıldıkça otomatik genişler
+                const idx = SUPPORTED_LANGS.findIndex((l) => l.code === lang);
+                const next = SUPPORTED_LANGS[(idx + 1) % SUPPORTED_LANGS.length];
+                setLang(next.code);
+              }}
               className="icon-button lang-switcher"
               aria-label={t("lang_switch_aria")}
-              title={lang === "tr" ? t("lang_switch_to_en") : t("lang_switch_to_tr")}
+              title={(() => {
+                const idx = SUPPORTED_LANGS.findIndex((l) => l.code === lang);
+                const next = SUPPORTED_LANGS[(idx + 1) % SUPPORTED_LANGS.length];
+                return `${next.flag} ${next.label}`;
+              })()}
               style={{ fontSize: 12, fontWeight: 800, letterSpacing: "0.04em" }}
             >
-              {lang === "tr" ? "EN" : "TR"}
+              {(() => {
+                const idx = SUPPORTED_LANGS.findIndex((l) => l.code === lang);
+                const next = SUPPORTED_LANGS[(idx + 1) % SUPPORTED_LANGS.length];
+                return next.code.toUpperCase();
+              })()}
             </button>
             <button type="button" onClick={toggleSound} className="icon-button" aria-label={soundEnabled ? t("sound_off_label") : t("sound_on_label")} title={soundEnabled ? t("sound_on_status") : t("sound_off_status")}>
               {soundEnabled ? "🔊" : "🔇"}
@@ -4295,7 +4317,7 @@ export default function App() {
                     <div className="gameover-icon trophy">📅</div>
                     <div className="gameover-headline">
                       <h3>{dailyResults.filter((r) => r === "correct").length === dailyData.puzzles.length ? t("daily_perfect") : (dailyHistory[dailyData.date]?.completed ? t("daily_today_finished") : t("daily_complete"))}</h3>
-                      <p className="gameover-detail">{new Intl.DateTimeFormat(lang === "en" ? "en-US" : "tr-TR", { day: "numeric", month: "long", year: "numeric" }).format(new Date(dailyData.date))}</p>
+                      <p className="gameover-detail">{new Intl.DateTimeFormat(LOCALE_TAGS[lang] || "tr-TR", { day: "numeric", month: "long", year: "numeric" }).format(new Date(dailyData.date))}</p>
                     </div>
                   </div>
 

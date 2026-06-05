@@ -1,0 +1,514 @@
+// PairFC — Spanish text
+// Çeviri notu: "tú" formu kullanıldı (casual oyun uygulaması, futbolseverlere yönelik).
+// Futbol terminolojisi: Maratón, Duelo, Diario, Puente (köprü), Racha (seri),
+// Leyenda, Como un rayo, Día perfecto.
+export const es = {
+  tagline_short: "Dos clubes, un jugador.",
+  home_slogan_action: "Encuéntralo.",
+  tagline_action: "Encuéntralo.",
+  tagline_long: "Dos clubes, un jugador. Encuéntralo.",
+
+  mode_daily_title: "Reto del Día",
+  daily_done: "🎉 5/5 completado",
+  daily_new: "5 nuevos emparejamientos",
+  daily_tomorrow: "Nuevos mañana",
+  daily_streak_days: "🔥 {n} días",
+
+  mode_marathon_title: "Maratón",
+  mode_marathon_subtitle: "¿Cuántos puentes seguidos?",
+  best_score: "Mejor: {n}",
+
+  mode_duel_title: "Duelo",
+  mode_duel_subtitle: "1v1 con un amigo",
+  duel_create_room: "Crear Sala →",
+
+  home_menu: "Inicio",
+  sound_off_label: "Silenciar",
+  sound_on_label: "Activar sonido",
+  sound_on_status: "Sonido activado",
+  sound_off_status: "Sonido silenciado",
+
+  install_app: "Instalar App",
+  install_subtitle: "Añadir a pantalla de inicio para acceso rápido",
+
+hero_eyebrow_new: "EMPEZANDO",
+  hero_eyebrow_today: "RETO DE HOY",
+  hero_title_new: "Vamos a conocernos",
+  hero_title_today: "5 nuevos emparejamientos te esperan",
+  hero_sub: "Todos resuelven los mismos 5 retos",
+  hero_cta_new: "🚀 Mi primer reto",
+  hero_cta_today: "¡Vamos a resolverlo!",
+
+  daily_label: "DIARIO",
+  stat_streak: "racha",
+  stat_best: "mejor",
+  stat_next: "siguiente",
+
+  tab_home: "Inicio",
+  tab_leaderboard: "Clasificación",
+
+// Faz 1c
+  countdown_format: "{h}h {m}m",
+
+  // Faz 2 — hero done
+  hero_done_eyebrow: "HOY COMPLETADO ✓",
+  hero_done_title_perfect: "Día perfecto ✨",
+  hero_done_title_score: "{n}/{total} correctas",
+  hero_done_sub_countdown: "Próximo reto en {time}",
+  hero_done_sub_tomorrow: "Mañana 5 nuevos emparejamientos",
+  hero_done_cta: "Ver Resultado",
+
+  // Faz 2 — Daily ekranı
+  daily_chip: "Diario",
+  daily_puzzle_label: "Reto",
+  difficulty_warmup: "⭐ Calentamiento",
+  difficulty_heating: "⭐⭐ Subiendo",
+  difficulty_final: "⭐⭐⭐ Final",
+  daily_streak_chip: "🔥 Racha",
+  daily_loading: "Cargando reto diario...",
+  daily_wrong_meter: "Intentos restantes:",
+  input_placeholder_player: "Escribe el nombre del jugador...",
+  btn_check: "Comprobar",
+  daily_3wrong: "3 fallos — pasando al siguiente emparejamiento...",
+  btn_skip: "⏭️ Pasar",
+  daily_perfect: "Día perfecto ✨",
+  daily_today_finished: "Reto de Hoy Terminado ✓",
+  daily_complete: "Reto Completado",
+  stat_correct: "Correctas",
+  daily_grid_label: "Cuadrícula del reto",
+  daily_share_button: "📤 Compartir Resultado",
+  daily_countdown_label: "⏳ Próximo reto en",
+  install_nudge_streak: "🔥 ¡Llevas {n} días de racha!",
+  install_nudge_tomorrow: "Mañana continúa donde lo dejaste",
+  install_nudge_sub: "Añade a pantalla de inicio, abre con un toque cada día.",
+  btn_add: "Añadir",
+  btn_close: "Cerrar",
+
+// Faz 2b — Daily dinamik
+  daily_already_given: "Ya diste esa respuesta.",
+  daily_correct: "¡Correcto: {name}!",
+  daily_3wrong_msg: "3 fallos. Este emparejamiento es X.",
+  daily_wrong_msg: "Incorrecto. Intentos restantes: {n}",
+  daily_skip_msg: "Pasado.",
+
+  // Paylaşım kartları
+  share_daily_label: "DIARIO #{n}",
+  share_daily_streak: "🔥 {n} días seguidos",
+  share_daily_cta: "¿Cuántos aciertas tú?",
+  share_maraton_label: "MARATÓN",
+  share_maraton_record: "🏆 NUEVO RÉCORD",
+  share_maraton_unit: "puentes seguidos",
+  share_maraton_stats: "Dificultad: {d}   ·   Mejor: {b}",
+  share_maraton_cta: "¿Cuántos puentes puedes construir?",
+
+  // Zorluk seviyeleri
+  diff_easy: "Fácil",
+  diff_medium: "Medio",
+  diff_hard: "Difícil",
+
+  // Maraton ekranı
+  marathon_choose_difficulty: "Elige la dificultad",
+  diff_easy_desc: "Clubes europeos populares + 3 grandes turcos",
+  diff_easy_examples: "Real, Barça, Bayern, ManU, FB, GS, BJK...",
+  diff_medium_desc: "Clubes europeos conocidos + Süper Lig",
+  diff_medium_examples: "Tottenham, Napoli, Ajax, Trabzonspor...",
+  diff_hard_desc: "Todo el banco de equipos",
+  diff_hard_examples: "{n} equipos, emparejamientos más sorprendentes",
+  info_mode: "Modo",
+  info_difficulty: "Dificultad",
+  info_streak_hot: "🔥 Racha",
+  info_streak: "Racha",
+  info_best: "Mejor",
+  marathon_teams_opening: "Revelando equipos",
+  marathon_get_ready: "¡Prepárate!",
+  joker_first_letter: "Primera letra",
+  joker_swap_pair: "Cambiar par",
+  joker_time_label: "+5 s",
+  joker_time_tooltip: "Tiempo +5",
+  btn_dont_know: "🤷 No lo sé",
+  goal_banner: "¡GOOOL!",
+
+  // Maraton mod seçici (Zorluk vs Özel)
+  challenge_mode_picker_question: "¿Cómo quieres jugar?",
+  challenge_mode_difficulty: "Elegir Dificultad",
+  challenge_mode_difficulty_desc: "Elige Fácil, Medio o Difícil — emparejamientos de todas las ligas.",
+  challenge_mode_custom: "Modo Personalizado",
+  challenge_mode_custom_desc: "Elige las ligas que quieras — sin dificultad, solo emparejamientos de esas ligas.",
+  challenge_start_btn: "▶ Empezar ({n} emparejamientos)",
+  challenge_not_enough_matches: "No hay suficientes emparejamientos",
+  challenge_custom_chip: "🏆 Personalizado",
+
+  // Lig filtresi
+  league_filter_label: "🏆 Filtro de Ligas",
+  league_filter_all: "Todas las ligas",
+  league_filter_n_selected: "{n} ligas",
+  league_filter_n_selected_arena: "{n} ligas seleccionadas",
+  league_filter_n_pairs: "{n} emparejamientos",
+  league_filter_btn_all: "Todas",
+  league_filter_too_few_warning: "⚠️ Con esta selección hay muy pocos emparejamientos. Añade más ligas o vuelve a \"Todas\".",
+
+  // Düello/Arena — Eşleşme tipi sekmeleri
+  match_type_label: "Tipo de Partida",
+  match_type_difficulty: "🎯 Por Dificultad",
+  match_type_custom: "🏆 Modo Personalizado",
+  match_type_difficulty_hint_duel: "Emparejamientos de todas las ligas · según dificultad",
+  match_type_custom_hint_duel: "Emparejamientos solo de ligas seleccionadas · sin dificultad",
+  match_type_difficulty_hint_arena: "Preguntas de todas las ligas · según dificultad",
+  match_type_custom_hint_arena: "Preguntas solo de ligas seleccionadas · sin dificultad",
+  match_type_custom_lobby: "🏆 Personalizado · {label}",
+
+  // Geri butonu
+  btn_back: "← Atrás",
+  aria_back: "Atrás",
+
+  // ChallengeGameOver
+  gover_new_record: "¡Nuevo Récord!",
+  gover_streak_over: "Racha Terminada",
+  gover_not_in_pair: "\"{answer}\" no está en este emparejamiento",
+  gover_this_streak: "Esta racha",
+  gover_new_best: "🔥 Nuevo Mejor",
+  gover_name_placeholder: "Tu nombre / alias (opcional)",
+  gover_save_score: "🏆 Guardar Puntuación",
+  gover_score_saved: "✅ ¡Puntuación guardada! Aparecerá en la clasificación.",
+  gover_share_story: "📤 Compartir en Story",
+  gover_correct_answers: "Respuestas correctas",
+  gover_wrong_click_report: "¿Está mal? Toca para reportar",
+  gover_should_be_correct: "\"{answer}\" debería ser correcta?",
+  gover_report: "Reportar →",
+  gover_new_marathon: "🔁 Nueva Maratón",
+
+// Leaderboard
+  lb_title: "🏆 Clasificación",
+  lb_subtitle: "Mejores puntuaciones de Maratón",
+  lb_period_today: "Hoy",
+  lb_period_alltime: "Todos los Tiempos",
+  lb_loading: "Cargando...",
+  lb_empty: "Aún no hay puntuaciones. ¡Sé el primero!",
+
+  // nearMiss (gameover motivasyon)
+  near_record: "🏆 ¡Tu récord absoluto!",
+  near_record_prev: " (anterior: {n})",
+  near_close_past: "Te faltan {n} para tu récord ({best}) — ¿uno más?",
+  near_today_best: "📈 ¡Mejor de hoy ({diff})!",
+  near_today_rec: " Tu récord: {n}",
+  near_close_today: "Tu récord {diff} de hoy es {prev} — ¡te faltan {n}!",
+  near_info: "{diff} · mejor hoy {today} · récord {best}",
+
+  // Düello (online) in-game
+  online_connecting: "Conectando",
+  online_target: "Objetivo",
+  online_round: "Ronda #{n}",
+  online_wrong_tries: "Intentos restantes:",
+  online_series_meta: "Racha {n}",
+  matchpoint_critical: "MATCH POINT — ¡Muy crítico!",
+  matchpoint_mine: "¡Match point tuyo! Puedes ganar",
+  matchpoint_opp: "¡Cuidado! El rival está a punto de ganar",
+  online_action_goal: "¡GOOOL! {answer}",
+  online_action_conceded: "¡Encajaste gol! {answer}",
+  online_action_wrong: "¡Respuesta incorrecta!",
+  online_action_opp_wrong: "¡El rival falló, sigue!",
+  online_action_round_end: "Ronda terminada",
+  online_advance_correct: "✅ ¡Correcto! Pasando a la siguiente ronda…",
+  online_advance_other: "⏭️ La siguiente ronda empieza enseguida…",
+  winner_won_title: "¡Ganaste!",
+  winner_won_sub: "Felicidades, gran partida",
+  winner_lost_title: "Esta vez no pudo ser",
+  winner_lost_sub: "{name} ganó. ¡Puedes mejorar en la revancha!",
+
+  // MatchSummary
+  ms_winner: "Ganador",
+  ms_score: "Puntuación",
+  ms_target: "Objetivo",
+  ms_series: "Racha",
+
+  // Default player names
+  default_player_1: "Jugador 1",
+  default_player_2: "Jugador 2",
+
+// Timer
+  timer_seconds: "s",
+
+  // AcceptedPlayersBox / WrongExplanationCard
+  accepted_players: "Jugadores aceptados",
+  report_player_tooltip: "Si crees que está mal, toca aquí",
+  wrong_check_title: "Comprobación de respuesta",
+  wrong_should_be_correct_btn: "Esta respuesta debería ser correcta, reportar",
+
+  // wrongExplanation dynamic
+  exp_accepted: "{answer} aparece como respuesta correcta para este emparejamiento.",
+  exp_not_in_pool: "{input} no se encuentra en el banco de jugadores.",
+  exp_played_a_only: "{name} jugó en {teamA}; no jugó en {teamB}.",
+  exp_played_b_only: "{name} jugó en {teamB}; no jugó en {teamA}.",
+  exp_played_neither: "{name} no jugó ni en {teamA} ni en {teamB} según este banco de datos.",
+  exp_data_check: "{name} debería ser correcto para este emparejamiento; se necesita revisión de datos.",
+
+  // Time / round end
+  time_over: "Se acabó el tiempo.",
+  time_over_round_end: "Se acabó el tiempo. Ronda terminada.",
+  wrong_no_tries_left: "{base} Se acabaron tus intentos. Tu rival puede responder hasta que acabe el tiempo.",
+  wrong_both_used: "{base} Ambos jugadores agotaron sus intentos. Ronda terminada.",
+
+  // Combo burst
+  combo_legendary: "💎 Leyenda x{n}",
+  combo_fire: "🔥🔥 En llamas x{n}",
+  combo_orange: "🔥🔥 Racha x{n}",
+  combo_blue: "🔥 Racha x{n}",
+
+  // Maraton dinamik
+  marathon_started: "Maratón iniciada. Los equipos aparecen en 3 segundos.",
+  joker_first_used: "Ya usaste el comodín de primera letra en esta partida.",
+  joker_only_active: "Solo puedes usar el comodín en la ronda activa.",
+  joker_no_hint: "No se pudo generar comodín para esta ronda.",
+  joker_hint: "🎯 Pista: {hint}",
+  joker_swap_used: "Ya usaste el comodín de cambiar par en esta partida.",
+  joker_swap_done: "🔄 Par cambiado. Llegan nuevos equipos.",
+  joker_time_used: "Ya usaste el comodín de tiempo en esta partida.",
+  joker_time_added: "⏱️ ¡5 segundos añadidos al tiempo!",
+  gool_seri_detail: "¡Correcto! Racha: {n}. Nueva ronda en 3 s.",
+
+  // Lobby/Online status
+  status_waiting_opp: "Esperando al rival.",
+  status_both_ready: "Ambos listos. La partida comienza.",
+  status_you_ready: "Estás listo. Esperando al rival.",
+  status_opp_ready: "Rival listo. Tú también debes estar listo.",
+  status_both_press: "Ambos jugadores deben pulsar para empezar.",
+  status_opp_not_joined: "No se puede empezar hasta que el rival entre a la sala.",
+  status_both_ready_starting: "¡Ambos listos! Los equipos se abren en 3 segundos.",
+  status_player_ready: "{name} está listo. Esperando al otro jugador.",
+  status_invite_copied: "Enlace de invitación copiado.",
+  status_invite_link: "Enlace de invitación: {url}",
+  status_player_joined: "{name} entró a la sala. Ambos deben estar listos para empezar.",
+  status_report_sending: "Enviando reporte...",
+  status_report_failed: "No se pudo guardar el reporte: {error}",
+  status_report_thanks: "Reporte recibido, gracias.",
+
+  // Lobby JSX
+  lobby_waiting_title: "Esperando al rival",
+  lobby_waiting_sub: "Comparte el enlace, los equipos aparecerán cuando entre tu rival.",
+  lobby_room_code: "Código de sala",
+  lobby_copy_invite: "📋 Copiar Enlace de Invitación",
+  lobby_ready_title: "¿Listo para empezar?",
+  lobby_ready_y: "Listo",
+  lobby_ready_n: "Esperando",
+  lobby_btn_done: "✓ Listo",
+  lobby_btn_start: "Empezar Partida",
+
+  // Winner extras
+  winner_btn_rematch: "🔁 Revancha",
+  winner_btn_reset: "🔄 Reiniciar",
+
+  // Online setup
+  online_room: "Sala",
+  online_create_title: "Crear Sala",
+  online_create_sub: "Empieza una partida nueva, invita a tu amigo",
+  online_join_title: "Unirse a Sala",
+  online_join_sub: "Conéctate con el código que te dio tu amigo",
+  form_player_name: "👤 Tu nombre",
+  form_name_placeholder: "Ej. Diego",
+  form_end_score: "🎯 Puntuación final",
+  form_difficulty_label: "🎚️ Dificultad",
+  form_diff_easy: "🟢 Fácil",
+  form_diff_medium: "🟡 Medio",
+  form_diff_hard: "🔴 Difícil",
+  btn_create_room: "✨ Crear Sala",
+  form_room_code: "🔑 Código de sala",
+  form_room_placeholder: "Ej. ABC123",
+  btn_join_room: "🔗 Unirse a Sala",
+
+  // Default player names
+  default_opponent_waiting: "Esperando rival",
+
+  // Install modal
+  modal_install_title: "📲 Instalar App",
+  modal_install_intro: "Añade PairFC a tu pantalla de inicio y úsalo como una app. También funciona sin conexión.",
+  modal_install_ios: "🍎 iPhone / iPad (Safari)",
+  modal_install_android: "🤖 Android (Chrome)",
+  modal_ios_s1: "Toca el icono <strong>Compartir</strong> abajo",
+  modal_ios_s2: "Selecciona <strong>\"Añadir a pantalla de inicio\"</strong> en el menú",
+  modal_ios_s3: "Toca <strong>\"Añadir\"</strong> arriba a la derecha",
+  modal_and_s1: "Toca el <strong>menú de 3 puntos</strong> arriba a la derecha",
+  modal_and_s2: "Selecciona <strong>\"Instalar app\"</strong> o <strong>\"Añadir a pantalla de inicio\"</strong>",
+  modal_and_s3: "Toca <strong>\"Instalar\"</strong>",
+  btn_got_it: "Entendido",
+
+  // Onboarding overlay
+  onboard_title: "¿Cómo se juega a PairFC?",
+  onboard_intro_html: "Verás dos clubes. Escribe un futbolista que <strong>haya jugado en los dos</strong>.",
+  onboard_played_both: "— jugó en los dos",
+  onboard_flex: "Cuanto más difícil el emparejamiento, mayor el flex 🧠",
+  onboard_mode_daily: "📅 Diario: todos juegan los mismos 5 retos",
+  onboard_mode_marathon: "⚔️ Maratón: ¿cuántos puentes seguidos?",
+  onboard_btn: "Entendido, empezar 🚀",
+
+// Final stragglers
+  share_maraton_cta2: "¿Puedes superarme?",
+  err_join_no_code: "Debes escribir el código de sala para unirte.",
+  status_only_host_next: "Solo el anfitrión puede iniciar la siguiente ronda.",
+  status_game_restarted: "Partida reiniciada. Ambos deben estar listos.",
+  err_game_not_started: "La partida aún no ha empezado.",
+  err_round_over: "Esta ronda terminó. Pulsa Siguiente Ronda.",
+  err_teams_not_open: "No puedes responder hasta que los equipos se abran.",
+  err_no_tries_wait: "Agotaste tus intentos en esta ronda. Espera al rival.",
+  shared_both_used: "{base} Ambos agotaron sus intentos. Ronda terminada.",
+  shared_opp_wrong: "{name} respondió mal. El otro jugador sigue teniendo intentos.",
+  default_opponent: "Rival",
+  status_rematch_ready: "Revancha lista. Ambos deben estar listos.",
+
+err_type_player_first: "Primero debes escribir el nombre de un jugador.",
+  err_only_host_reveal: "Solo el anfitrión puede revelar las respuestas.",
+  status_round_skipped: "Ronda pasada. Puedes ver las respuestas abajo.",
+  share_ok: "¡Compartido!",
+  share_unsupported: "Compartir no es compatible.",
+  share_failed: "No se pudo compartir.",
+  fallback_no_answer: "Respuesta mostrada pero no se encontró una respuesta correcta guardada.",
+
+share_copied_dl: "📋 ¡Copiado + imagen descargada!",
+  joker_first_hint: "Empieza con {first}, apellido empieza con {last}.",
+  marathon_ended_msg: "Maratón terminada. Puedes empezar una nueva.",
+  bonus_rare: "💎 ¡Puente raro!",
+  bonus_hard: "🧠 ¡Puente difícil!",
+  bonus_fast: "⚡ ¡Como un rayo!",
+
+// Düello variant
+  duel_variant_auto: "Duelo Automático",
+  duel_variant_auto_sub: "Los equipos aparecen al azar cada ronda",
+  duel_variant_strategic: "Duelo Estratégico",
+  duel_variant_strategic_sub: "Tú eliges tu equipo cada ronda",
+  duel_variant_label: "Modo",
+  duel_variant_field_label: "🎮 Modo",
+
+  // Team select faz
+  ts_title: "🎯 Elige tu equipo",
+  ts_subtitle: "El rival también elige — ¿quién encuentra mejor jugador común?",
+  ts_search: "Buscar equipo...",
+  ts_my_pick: "Tú",
+  ts_opp_pick: "Rival",
+  ts_picked_check: "✓ elegido",
+  ts_waiting: "Esperando...",
+  ts_no_pick: "—",
+  ts_round_starting: "¡Ambos equipos elegidos! La ronda empieza...",
+  ts_revealing: "Revelando equipos...",
+  ts_no_shared_player: "No hay jugador común en este emparejamiento. Elige otro equipo.",
+  ts_collision_msg: "¡Mismo equipo! Se asignó {team} al rival al azar.",
+
+ts_collision_warning: "¡Eligieron el mismo equipo! Vuelvan a elegir.",
+
+offline_banner: "Estás sin conexión — comprueba tu internet",
+  notify_on_label: "Activar notificaciones",
+  notify_off_label: "Desactivar notificaciones",
+  notify_on_status: "Notificaciones activadas",
+  notify_off_status: "Notificaciones desactivadas",
+  notify_denied_hint: "Las notificaciones están bloqueadas en el navegador. Para activarlas: icono de candado en la barra de dirección → Configuración del sitio → Notificaciones → Permitir.",
+  notify_title: "Activar notificaciones",
+  notify_subtitle: "Te avisamos cuando el reto diario esté listo",
+  notify_on: "Notificaciones activadas",
+  notify_dismiss: "Cerrar",
+  footer_about: "Acerca de",
+  footer_privacy: "Privacidad",
+  footer_terms: "Términos",
+  footer_how: "Cómo Jugar",
+
+  lang_switch_aria: "Seleccionar idioma",
+  lang_switch_to_en: "Switch to English",
+  lang_switch_to_tr: "Türkçeye geç",
+
+  // ─── Challenge hero ───
+  challenge_hero_eyebrow_new: "Empecemos",
+  challenge_hero_eyebrow: "Supera tu límite",
+  challenge_hero_title_new: "El modo Maratón te espera",
+  challenge_hero_title: "¿Cuántas rondas aguantas hoy?",
+  challenge_hero_sub: "Preguntas ilimitadas, vida limitada. Aguanta hasta fallar.",
+  challenge_hero_sub_best: "Tu récord: {n} rondas. ¿Puedes superarlo?",
+  challenge_hero_cta_new: "Empezar Maratón",
+  challenge_hero_cta: "Continuar",
+
+  // Mode kartı yenileri
+  mode_arena_subtitle: "Competición en vivo — modo streamer",
+  badge_new: "¡Nuevo!",
+
+  // ─── Arena — Genel ───
+  arena_back: "Atrás",
+  arena_title: "Arena",
+  arena_subtitle: "Competición en vivo multijugador",
+  arena_loading_question: "Cargando pregunta…",
+
+  // Arena — Setup landing
+  arena_be_host: "Ser Anfitrión",
+  arena_be_host_sub: "Abre sala, genera PIN, gestiona la partida",
+  arena_join_room: "Unirse a Sala",
+  arena_join_room_sub: "Escribe el PIN, únete a la competición",
+  arena_how_to_play: "¿Cómo se juega?",
+  arena_rule_1: "El anfitrión abre la sala, se genera un PIN de 6 dígitos.",
+  arena_rule_2: "Los participantes entran con el PIN (máx. 50 personas).",
+  arena_rule_3: "En cada pregunta se muestran 2 clubes, tienes 20 segundos para escribir el jugador común.",
+  arena_rule_4: "Respuesta rápida y correcta = más puntos (1000 base + 500 bonus de velocidad).",
+  arena_rule_5: "El anfitrión elige cuántas preguntas habrá (5–30).",
+
+  // Arena — Setup forms
+  arena_open_room: "Abrir Sala",
+  arena_host_name: "Tu nombre de anfitrión",
+  arena_host_name_placeholder: "Ej: Sofia",
+  arena_how_many_q: "¿Cuántas preguntas?",
+  arena_difficulty_label: "Dificultad",
+  arena_diff_easy_hint: "Solo grandes clubes — comienzo fácil",
+  arena_diff_medium_hint: "Gigantes europeos + Süper Lig — equilibrado",
+  arena_diff_hard_hint: "Todos los {n} equipos — pares sorprendentes",
+  arena_room_pin_6: "PIN de Sala (6 dígitos)",
+  arena_your_nickname: "Tu alias",
+  arena_nickname_placeholder: "Ej: Carlos",
+  arena_join_cta: "Unirse",
+  arena_default_host_name: "Anfitrión",
+  arena_default_guest_name: "Anónimo",
+
+  // Arena — Lobby
+  arena_lobby_title: "Lobby",
+  arena_room_pin: "PIN de Sala",
+  arena_n_questions: "{n} preguntas",
+  arena_players_count: "Participantes ({n})",
+  arena_waiting_for_host: "Esperando al anfitrión…",
+  arena_you_suffix: "(tú)",
+  arena_no_players_yet: "Aún no se ha unido nadie.",
+  arena_waiting_min_guest: "Esperando… (se recomienda al menos 1 invitado)",
+  arena_start_game: "Empezar Partida",
+  arena_host_hint: "Comparte el PIN con tus seguidores. Cuando estés listo, pulsa \"Empezar Partida\".",
+
+  // Arena — Question
+  arena_question_n_of_m: "Pregunta {n} / {m}",
+  arena_seconds_short: "{n}s",
+  arena_question_prompt: "Escribe un jugador que haya jugado en los dos clubes:",
+  arena_answer_placeholder: "Nombre del jugador (ej: Sneijder)",
+  arena_submit: "Enviar",
+  arena_one_shot_hint: "Un solo intento — no podrás cambiarlo al enviar.",
+  arena_correct: "¡Correcto!",
+  arena_wrong: "Incorrecto",
+  arena_your_answer: "Tu respuesta: {answer}",
+  arena_points_short: "pts",
+  arena_wait_others: "Esperando a los demás…",
+  arena_progress_answered: "{done} / {total} respondieron",
+
+  // Arena — Leaderboard
+  arena_final_label: "Final…",
+  arena_next_in: "Siguiente: {n}s",
+  arena_correct_answers_label: "Respuestas correctas:",
+  arena_ranking_title: "Clasificación",
+
+  // Arena — Final
+  arena_you_champion: "¡Eres el Campeón!",
+  arena_someone_champion: "¡{name} es el Campeón!",
+  arena_final_summary: "{rounds} preguntas, {players} jugadores. Tu puesto: {rank}.",
+  arena_share: "Compartir",
+  arena_back_home: "Volver al Inicio",
+  arena_share_text: "{winner} se coronó campeón en Arena! 🏆\n{rounds} preguntas, {players} jugadores.\npairfc.com",
+
+  // Arena — Errors
+  arena_err_no_server: "Sin conexión con el servidor.",
+  arena_err_create_room: "No se pudo crear la sala: {msg}",
+  arena_err_pin_length: "El PIN debe tener 6 dígitos.",
+  arena_err_room_not_found: "Sala no encontrada. Comprueba el PIN.",
+  arena_err_game_started: "La partida ya empezó. Prueba con otra sala.",
+  arena_err_room_full: "Sala llena (50 personas).",
+  arena_err_join: "Error al unirse: {msg}",
+  arena_err_filter_too_narrow: "No hay suficientes preguntas en las ligas seleccionadas ({found}/{total}). Añade más ligas o reduce el número de rondas.",
+  arena_err_no_questions: "El banco de preguntas está vacío.",
+  arena_err_next_q: "No se encontró la siguiente pregunta.",
+};
