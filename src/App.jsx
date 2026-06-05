@@ -4159,7 +4159,17 @@ export default function App() {
                         submitAnswerReport(challengeLastWrongReport, setChallengeReportStatus, () => setChallengeLastWrongReport(null))
                       }
                       onReportAcceptedPlayer={(player) => reportAcceptedPlayer("challenge", challengeRound, player)}
-                      onRestart={startChallenge}
+                      onRestart={() => {
+                        // Mevcut mod + zorlukla yeni maratonu direkt başlat.
+                        // Zorluk picker'ına dönmek istemiyorsak — kullanıcının
+                        // tercihi sürer. Mod seçici ekrana dönmek isterse
+                        // "Geri" butonundan yapabilir.
+                        if (challengeMode && challengeDifficulty) {
+                          confirmStartChallenge(challengeMode, challengeDifficulty);
+                        } else {
+                          startChallenge();
+                        }
+                      }}
                       onSaveScore={handleSaveScore}
                       scoreSaved={scoreSaved}
                       playerName={lbPlayerName}
@@ -5010,6 +5020,22 @@ button:focus-visible {
   padding-bottom: max(16px, env(safe-area-inset-bottom, 0px));
   padding-left: max(12px, env(safe-area-inset-left, 0px));
   padding-right: max(12px, env(safe-area-inset-right, 0px));
+}
+
+/* Anasayfa: içerik tek viewport'a sığacak şekilde dolayısıyla scroll yok.
+   Bu hem desktop'ta gereksiz bounce'u engeller hem mobile'da iOS Safari'nin
+   elastic overscroll davranışını kapatır.
+   Play ekranlarında (challenge, online, arena, daily) scroll AÇIK kalır —
+   .play-screen selector kullanılmadığı için default davranış (auto) sürer. */
+.home-screen {
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
+  overscroll-behavior: none;
+}
+.home-screen .app-frame {
+  max-height: 100%;
+  overflow: hidden;
 }
 
 .app-frame {
