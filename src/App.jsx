@@ -199,9 +199,12 @@ function getPlayerSuggestions(userInput) {
   const query = normalizeText(userInput);
   if (query.length < 1) return [];
 
+  // Limit 30: "dembele" gibi soyadlarda 3-4 Dembélé var (Ousmane, Mousa, Moussa,
+  // Bingourou…); 6'lık eski limit alfabetik sırada sonda kalanı kesiyordu.
+  // 30 hem tüm varyantları kapsıyor hem hala render performansı için makul.
   return SORTED_PLAYERS
     .filter((player) => player.suggestionTokens.some((token) => token.startsWith(query)))
-    .slice(0, 6);
+    .slice(0, 30);
 }
 
 function getRoundKey(round) {
@@ -7793,8 +7796,10 @@ button:focus-visible {
   border: 1px solid var(--border-strong);
   border-radius: var(--radius);
   box-shadow: var(--shadow-lg);
-  max-height: 220px;
+  max-height: 360px;
   overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
   padding: 4px;
   animation: slideDown 0.15s var(--ease);
 }
