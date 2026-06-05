@@ -3451,7 +3451,9 @@ export default function App() {
             </div>
           </div>
           <div className="topbar-actions">
-            {!isHome && (
+            {/* Anasayfa butonu: aktif sayfa anasayfanın 'home' tab'ı DEĞİLSE göster.
+                Yani leaderboard tab'ındayken de görünür (önceden gizleniyordu). */}
+            {!(isHome && mainTab === "home") && (
               <button type="button" onClick={goToHome} className="icon-button home-button" aria-label={t("home_menu")} title={t("home_menu")}>
                 🏠
               </button>
