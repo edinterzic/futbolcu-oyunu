@@ -1073,6 +1073,26 @@ export default function App() {
     };
   }, [langMenuOpen]);
 
+  // Klavye-farkında viewport yüksekliğini CSS değişkenine yaz.
+  // window.visualViewport klavye açıldığında otomatik küçülen "görünen alan"
+  // değerini verir — autocomplete dropdown'ın max-height'ı bunu kullanarak
+  // klavyenin tam üstünde duracak şekilde ayarlanır.
+  // Modern tarayıcılarda destekli (iOS Safari 13+, Chrome 61+, Android WebView).
+  useEffect(() => {
+    if (typeof window === "undefined" || !window.visualViewport) return;
+    const update = () => {
+      const h = window.visualViewport.height;
+      document.documentElement.style.setProperty("--vv-height", `${h}px`);
+    };
+    update();
+    window.visualViewport.addEventListener("resize", update);
+    window.visualViewport.addEventListener("scroll", update);
+    return () => {
+      window.visualViewport.removeEventListener("resize", update);
+      window.visualViewport.removeEventListener("scroll", update);
+    };
+  }, []);
+
   // ============ ROUTE: /admin ============
   // Watch URL pathname and render AdminPanel for /admin
   // This is a lightweight router — no react-router dependency
@@ -7796,19 +7816,18 @@ button:focus-visible {
   border: 1px solid var(--border-strong);
   border-radius: var(--radius);
   box-shadow: var(--shadow-lg);
-  /* Klavye açıkken viewport'un ne kadarı kullanılabilir hesapla:
-     - 100dvh klavye açıkken otomatik küçülür (iOS Safari 15.4+, Chrome Android 108+)
-     - 200px = input alanı + üstündeki başlık/timer + güvenli boşluk yaklaşığı
-     - 360px = klavye kapalıyken görünür max yükseklik (~9 satır)
-     - Sonuç: en küçüğünü kullan → klavyenin altına asla taşmaz */
-  max-height: min(360px, calc(100dvh - 200px));
-  /* dvh desteklemeyen eski tarayıcılar için fallback */
-  max-height: min(360px, calc(100vh - 200px));
-  max-height: min(360px, calc(100dvh - 200px));
+  /* --vv-height: window.visualViewport.height — klavye açıkken küçülür.
+     JS olmayan / desteklemeyen tarayıcılarda fallback olarak 100dvh kullanılır.
+     -200px: input alanı + üstündeki başlık/timer için boşluk.
+     min(): hem desktop'ta cap koyar (360px) hem mobile'da klavyeye uyum sağlar. */
+  max-height: min(360px, calc(var(--vv-height, 100dvh) - 200px));
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
   overscroll-behavior: contain;
   padding: 4px;
+  /* Padding-bottom: kullanıcı son maddeyi scroll edip yukarı kaydırabilsin.
+     Son madde sıkışmış görünmek yerine, scroll alanında nefes alanı var. */
+  padding-bottom: 80px;
   animation: slideDown 0.15s var(--ease);
 }
 
