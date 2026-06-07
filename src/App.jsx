@@ -3388,7 +3388,7 @@ export default function App() {
   const isArena = screen === "arena";
 
   return (
-    <div className={`app-shell ${isHome ? "home-screen" : "play-screen"}`}>
+    <div className={`app-shell ${isHome ? `home-screen home-tab-${mainTab}` : "play-screen"}`}>
       {showOnboarding && <OnboardingOverlay onClose={dismissOnboarding} />}
       <style>{css}</style>
 
@@ -3470,7 +3470,6 @@ export default function App() {
             </span>
             <div className="brand-text">
               <strong>Pair<span className="brand-fc">FC</span></strong>
-              {isHome && <small>{t("tagline_long")}</small>}
             </div>
           </div>
           <div className="topbar-actions">
@@ -3595,14 +3594,6 @@ export default function App() {
                 <p style={{ margin: 0, fontSize: 12, fontWeight: 600, color: "rgba(255,255,255,0.45)", letterSpacing: 0.2 }}>
                   Chelsea <span style={{ color: "#f5a524", margin: "0 4px" }}>×</span> Real Madrid <span style={{ margin: "0 4px" }}>→</span> <span style={{ color: "#7ee0a3", fontWeight: 700 }}>Eden Hazard</span>
                 </p>
-              </div>
-              {/* Tek satır mini stat pill */}
-              <div className="stats-strip">
-                <span className="stats-strip-item"><span className="ssi-icon">🔥</span><strong>{dailyStreak}</strong><span className="ssi-label">{t("stat_streak")}</span></span>
-                <span className="stats-strip-sep">·</span>
-                <span className="stats-strip-item"><span className="ssi-icon">🏆</span><strong>{challengeBest}</strong><span className="ssi-label">{t("stat_best")}</span></span>
-                <span className="stats-strip-sep">·</span>
-                <span className="stats-strip-item"><span className="ssi-icon">⏳</span><strong>{dailyCountdown || "—"}</strong><span className="ssi-label">{t("stat_next")}</span></span>
               </div>
 
               {/* HERO — Challenge (Maraton) */}
@@ -5047,18 +5038,15 @@ button:focus-visible {
   padding-right: max(12px, env(safe-area-inset-right, 0px));
 }
 
-/* Anasayfa: içerik tek viewport'a sığacak şekilde dolayısıyla scroll yok.
-   Bu hem desktop'ta gereksiz bounce'u engeller hem mobile'da iOS Safari'nin
-   elastic overscroll davranışını kapatır.
-   Play ekranlarında (challenge, online, arena, daily) scroll AÇIK kalır —
-   .play-screen selector kullanılmadığı için default davranış (auto) sürer. */
-.home-screen {
+/* Anasayfa HOME tab'ı: içerik tek viewport'a sığar, scroll yok.
+   LEADERBOARD tab'ı: liste uzun, normal scroll açık kalır. */
+.home-screen.home-tab-home {
   height: 100vh;
   height: 100dvh;
   overflow: hidden;
   overscroll-behavior: none;
 }
-.home-screen .app-frame {
+.home-screen.home-tab-home .app-frame {
   max-height: 100%;
   overflow: hidden;
 }
