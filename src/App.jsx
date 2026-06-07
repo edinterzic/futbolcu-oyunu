@@ -26,7 +26,7 @@ import {
 import { TEAM_LOGOS } from "./data/teamLogos";
 import { getDailyPuzzle, getTodayKey, getMsUntilNextPuzzle, calculateStreak } from "./data/dailyPuzzle";
 import { SOUND_FILES } from "./data/sounds";
-import { initAnalytics, track, startTimer, endTimer } from "./analytics";
+import { initAnalytics, track, startTimer, endTimer, identify } from "./analytics";
 import { isPushSupported, getNotificationPermission, subscribeToPush, unsubscribeFromPush } from "./pwa";
 import AdminPanel from "./admin/AdminPanel";
 import Arena from "./components/Arena";
@@ -1147,6 +1147,17 @@ export default function App() {
   const [roomCode, setRoomCode] = useState("");
   const [playerIndex, setPlayerIndex] = useState(null);
 
+  // PostHog identify: clientId her zaman set edilir, nickname/lang değişince güncellenir.
+  // Cross-device tracking yok — aynı clientId aynı browser/cihaz demek.
+  useEffect(() => {
+    if (!clientIdRef.current) return;
+    identify(clientIdRef.current, {
+      lang,
+      nickname: lbPlayerName || null,
+      sound_enabled: soundEnabled
+    });
+  }, [lang, lbPlayerName, soundEnabled]);
+
   const [targetScore, setTargetScore] = useState(3);
   const [playerNames, setPlayerNames] = useState([t("default_player_1"), t("default_player_2")]);
   const [playersReady, setPlayersReady] = useState([false, false]);
@@ -1260,15 +1271,21 @@ export default function App() {
 
   const [isOffline, setIsOffline] = useState(() => typeof navigator !== "undefined" && navigator.onLine === false);
   useEffect(() => {
-    const goOnline = () => setIsOffline(false);
-    const goOffline = () => setIsOffline(true);
+    const goOnline = () => {
+      setIsOffline(false);
+      track("online_restored");
+    };
+    const goOffline = () => {
+      setIsOffline(true);
+      track("offline_detected", { screen });
+    };
     window.addEventListener("online", goOnline);
     window.addEventListener("offline", goOffline);
     return () => {
       window.removeEventListener("online", goOnline);
       window.removeEventListener("offline", goOffline);
     };
-  }, []);
+  }, [screen]);
 
   const enableNotifications = async () => {
     // iOS Safari'de push SADECE ana ekrana eklenmiş (standalone) modda çalışır
@@ -2920,6 +2937,10 @@ export default function App() {
   }, [lang]);
 
   const goToHome = () => {
+    track("home_button_clicked", {
+      from_screen: screen,
+      mid_game: screen !== "home"
+    });
     setMainTab("home");
     setScoreSaved(false);
     if (screen === "challenge") {
@@ -3363,6 +3384,11 @@ export default function App() {
     }
 
     setStatus({ type: "success", text: t("status_report_thanks") });
+    track("report_submitted", {
+      mode: payload.mode || "unknown",
+      team_a: payload.team_a || null,
+      team_b: payload.team_b || null
+    });
     clearReport();
   };
 
@@ -3373,6 +3399,7 @@ export default function App() {
       if (next) {
         playGameSound("countdown");
       }
+      track("sound_toggled", { new_state: next });
       return next;
     });
   };
@@ -3517,7 +3544,13 @@ export default function App() {
                         type="button"
                         role="menuitemradio"
                         aria-checked={active}
-                        onClick={() => { setLang(l.code); setLangMenuOpen(false); }}
+                        onClick={() => {
+                          if (l.code !== lang) {
+                            track("language_changed", { from: lang, to: l.code });
+                          }
+                          setLang(l.code);
+                          setLangMenuOpen(false);
+                        }}
                         style={{
                           display: "flex",
                           alignItems: "center",
@@ -3787,7 +3820,10 @@ export default function App() {
                 <button
                   type="button"
                   className={`tab-btn ${mainTab === "leaderboard" ? "tab-active" : ""}`}
-                  onClick={() => setMainTab("leaderboard")}
+                  onClick={() => {
+                    setMainTab("leaderboard");
+                    track("leaderboard_viewed", { difficulty: lbDifficulty, period: lbPeriod });
+                  }}
                 >
                   <span className="tab-icon">🏆</span>
                   <span className="tab-label">{t("tab_leaderboard")}</span>

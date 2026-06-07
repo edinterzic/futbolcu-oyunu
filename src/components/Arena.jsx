@@ -23,6 +23,7 @@ import { TEAM_LOGOS } from "../data/teamLogos";
 import { SOUND_FILES } from "../data/sounds";
 import { cleanDisplayName } from "../utils/sanitize";
 import { logSwallowed } from "../utils/errors";
+import { track } from "../analytics";
 
 const QUESTION_DURATION_MS = 20000;
 const LEADERBOARD_DURATION_MS = 10000;
@@ -483,6 +484,12 @@ export default function Arena({ supabase, onExit, selectedLeagues = [], onLeague
       is_host: true,
     });
 
+    track("arena_room_created", {
+      total_rounds: rounds,
+      difficulty: cleanDifficulty,
+      match_mode: matchMode
+    });
+
     setRoom(newRoom);
   };
 
@@ -513,10 +520,12 @@ export default function Arena({ supabase, onExit, selectedLeagues = [], onLeague
 
     if (roomErr || !foundRoom) {
       setError(t("arena_err_room_not_found"));
+      track("arena_room_join_failed", { reason: "not_found" });
       return;
     }
     if (foundRoom.status !== "lobby") {
       setError(t("arena_err_game_started"));
+      track("arena_room_join_failed", { reason: "game_already_started" });
       return;
     }
 
@@ -527,6 +536,7 @@ export default function Arena({ supabase, onExit, selectedLeagues = [], onLeague
 
     if (count >= MAX_PLAYERS_PER_ROOM) {
       setError(t("arena_err_room_full"));
+      track("arena_room_join_failed", { reason: "room_full", count });
       return;
     }
 
@@ -544,8 +554,14 @@ export default function Arena({ supabase, onExit, selectedLeagues = [], onLeague
 
     if (joinErr) {
       setError(t("arena_err_join", { msg: joinErr.message }));
+      track("arena_room_join_failed", { reason: "db_error" });
       return;
     }
+
+    track("arena_room_joined", {
+      players_already_in_room: count || 1,
+      room_difficulty: foundRoom.difficulty
+    });
 
     setRoom(foundRoom);
   };
@@ -587,6 +603,14 @@ export default function Arena({ supabase, onExit, selectedLeagues = [], onLeague
     }
 
     await startNextRound(1, questions[0]);
+
+    track("arena_game_started", {
+      total_rounds: room.total_rounds,
+      difficulty: room.difficulty,
+      players_at_start: players.length,
+      match_mode: arenaMatchModeRef.current,
+      leagues_filtered: arenaMatchModeRef.current === "custom" ? (selectedLeagues || []).length : 0
+    });
 
     localStorage.setItem(
       `pairfc_arena_q_${room.id}`,
@@ -1378,6 +1402,22 @@ function ArenaFinal({ room, players, userId, onExit }) {
   const winner = sorted[0];
   const myRank = sorted.findIndex((p) => p.user_id === userId) + 1;
   const isMyWin = winner?.user_id === userId;
+  const myPlayer = sorted.find((p) => p.user_id === userId);
+
+  // Final ekranı her oyuncu için bir kez tetiklenir → arena_game_finished event
+  useEffect(() => {
+    track("arena_game_finished", {
+      total_rounds: room.total_rounds,
+      total_players: players.length,
+      my_rank: myRank,
+      my_score: myPlayer?.total_score || 0,
+      is_winner: isMyWin,
+      is_host: myPlayer?.is_host || false,
+      difficulty: room.difficulty
+    });
+    // Sadece mount'ta bir kez
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const sharetxt = encodeURIComponent(
     t("arena_share_text", {
@@ -1416,6 +1456,12 @@ function ArenaFinal({ room, players, userId, onExit }) {
           target="_blank"
           rel="noopener noreferrer"
           className="arena-cta arena-share"
+          onClick={() => track("share_clicked", {
+            mode: "arena",
+            method: "whatsapp",
+            my_rank: myRank,
+            my_score: myPlayer?.total_score || 0
+          })}
         >
           📱 {t("arena_share")}
         </a>
