@@ -5606,7 +5606,13 @@ button:focus-visible {
   align-items: center;
   justify-content: center;
   gap: 8px;
-  width: 100%;
+  /* position: fixed → flex layout'tan tamamen çıkar, viewport top'una yapışır.
+     Önceden sticky idi ama .app-shell row-direction flex container olduğu için
+     banner yatay olarak yer kaplıyor, oyun içeriğini sağa sıkıştırıyordu. */
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
   background: #b4471f;
   color: #fff;
   font-size: 13px;
@@ -5614,10 +5620,11 @@ button:focus-visible {
   padding: 8px 12px;
   padding-top: calc(8px + env(safe-area-inset-top, 0px));
   text-align: center;
-  position: sticky;
-  top: 0;
   z-index: 9999;
   letter-spacing: 0.2px;
+  /* Tıklamaları engellemesin diye banner üzerinde değilse aşağıya geçsin —
+     ama banner kendi içeriği tıklanmıyor zaten, bilgi amaçlı */
+  pointer-events: none;
 }
 .offline-bar-dot {
   width: 8px;
