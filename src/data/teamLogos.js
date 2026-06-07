@@ -1,5 +1,5 @@
 // Auto-generated from admin panel
-// Generated: 2026-06-04T12:47:59.000Z
+// Generated: 2026-06-07T18:18:17.235Z
 // NOTE: country, league, flag fields added for league filter feature.
 //       Admin panel must preserve these on re-export.
 
@@ -1227,5 +1227,125 @@ export const TEAM_LOGOS = {
     "country": "Portekiz",
     "league": "Primeira Liga",
     "flag": "🇵🇹"
+  },
+  "Anderlecht": {
+    "initials": "AND",
+    "primary": "#582C83",
+    "secondary": "#FFFFFF",
+    "country": "Belçika",
+    "league": "Pro League",
+    "flag": "🇧🇪"
+  },
+  "Royal Antwerp": {
+    "initials": "ANT",
+    "primary": "#C8102E",
+    "secondary": "#FFFFFF",
+    "country": "Belçika",
+    "league": "Pro League",
+    "flag": "🇧🇪"
+  },
+  "Cercle Brugge": {
+    "initials": "CER",
+    "primary": "#008000",
+    "secondary": "#000000",
+    "country": "Belçika",
+    "league": "Pro League",
+    "flag": "🇧🇪"
+  },
+  "Charleroi": {
+    "initials": "CHA",
+    "primary": "#000000",
+    "secondary": "#FFFFFF",
+    "country": "Belçika",
+    "league": "Pro League",
+    "flag": "🇧🇪"
+  },
+  "Dender EH": {
+    "initials": "DEN",
+    "primary": "#FFD700",
+    "secondary": "#000000",
+    "country": "Belçika",
+    "league": "Pro League",
+    "flag": "🇧🇪"
+  },
+  "Gent": {
+    "initials": "GNT",
+    "primary": "#007AC9",
+    "secondary": "#FFFFFF",
+    "country": "Belçika",
+    "league": "Pro League",
+    "flag": "🇧🇪"
+  },
+  "Genk": {
+    "initials": "GNK",
+    "primary": "#00529C",
+    "secondary": "#FFFFFF",
+    "country": "Belçika",
+    "league": "Pro League",
+    "flag": "🇧🇪"
+  },
+  "La Louvière": {
+    "initials": "LOU",
+    "primary": "#00874C",
+    "secondary": "#FFD700",
+    "country": "Belçika",
+    "league": "Pro League",
+    "flag": "🇧🇪"
+  },
+  "OH Leuven": {
+    "initials": "LEU",
+    "primary": "#000000",
+    "secondary": "#FFFFFF",
+    "country": "Belçika",
+    "league": "Pro League",
+    "flag": "🇧🇪"
+  },
+  "Mechelen": {
+    "initials": "MEC",
+    "primary": "#F8D125",
+    "secondary": "#C8102E",
+    "country": "Belçika",
+    "league": "Pro League",
+    "flag": "🇧🇪"
+  },
+  "Sint-Truiden": {
+    "initials": "STV",
+    "primary": "#FCD116",
+    "secondary": "#003478",
+    "country": "Belçika",
+    "league": "Pro League",
+    "flag": "🇧🇪"
+  },
+  "Standard Liège": {
+    "initials": "STD",
+    "primary": "#E60026",
+    "secondary": "#FFFFFF",
+    "country": "Belçika",
+    "league": "Pro League",
+    "flag": "🇧🇪"
+  },
+  "Union SG": {
+    "initials": "USG",
+    "primary": "#FECB00",
+    "secondary": "#0033A0",
+    "country": "Belçika",
+    "league": "Pro League",
+    "flag": "🇧🇪"
+  },
+  "Westerlo": {
+    "initials": "WES",
+    "primary": "#FFC72C",
+    "secondary": "#000000",
+    "country": "Belçika",
+    "league": "Pro League",
+    "flag": "🇧🇪"
+  },
+  "Zulte Waregem": {
+    "initials": "ZUL",
+    "primary": "#008C42",
+    "secondary": "#DA291C",
+    "country": "Belçika",
+    "league": "Pro League",
+    "flag": "🇧🇪"
   }
 };

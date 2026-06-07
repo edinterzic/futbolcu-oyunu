@@ -1,5 +1,5 @@
 // Auto-generated from admin panel
-// Generated: 2026-06-04T12:47:59.000Z
+// Generated: 2026-06-07T18:18:17.238Z
 
 export const TEAMS = [
   "Inter",
@@ -154,5 +154,20 @@ export const TEAMS = [
   "VfL Wolfsburg",
   "Heidenheim",
   "FC St. Pauli",
-  "Vitória SC"
+  "Vitória SC",
+  "Anderlecht",
+  "Royal Antwerp",
+  "Cercle Brugge",
+  "Charleroi",
+  "Dender EH",
+  "Gent",
+  "Genk",
+  "La Louvière",
+  "OH Leuven",
+  "Mechelen",
+  "Sint-Truiden",
+  "Standard Liège",
+  "Union SG",
+  "Westerlo",
+  "Zulte Waregem"
 ];
