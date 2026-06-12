@@ -1,6 +1,5 @@
 // Auto-generated from admin panel
-// Generated: 2026-06-07T18:17:41.459Z
-// Belgian Pro League integration: +2202 yeni + 3389 mevcut güncellendi
+// Generated: 2026-06-12T12:46:19.122Z
 
 export const PLAYERS = [
   {
@@ -2828,21 +2827,9 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Adam Hlousek",
-    "clubs": [
-      "VfB Stuttgart"
-    ]
-  },
-  {
     "name": "Adam Hloušek",
     "clubs": [
       "VfB Stuttgart"
-    ]
-  },
-  {
-    "name": "Adam Hlozek",
-    "clubs": [
-      "TSG Hoffenheim"
     ]
   },
   {
@@ -3843,14 +3830,9 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Adlène Guedioura",
-    "clubs": [
-      "Charleroi"
-    ]
-  },
-  {
     "name": "Adlène Guédioura",
     "clubs": [
+      "Charleroi",
       "Crystal Palace",
       "Nottingham",
       "Wolves"
@@ -4413,14 +4395,9 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Adrian Grbic",
-    "clubs": [
-      "FC Lorient"
-    ]
-  },
-  {
     "name": "Adrian Grbić",
     "clubs": [
+      "FC Lorient",
       "VfB Stuttgart"
     ]
   },
@@ -5092,13 +5069,8 @@ export const PLAYERS = [
     "clubs": [
       "Anderlecht",
       "Charleroi",
+      "FC Nantes",
       "Standard Liège"
-    ]
-  },
-  {
-    "name": "Adrien Trébel",
-    "clubs": [
-      "FC Nantes"
     ]
   },
   {
@@ -6225,12 +6197,6 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Aidas Preiksaitis",
-    "clubs": [
-      "Union Berlin"
-    ]
-  },
-  {
     "name": "Aidas Preikšaitis",
     "clubs": [
       "Union Berlin"
@@ -6281,21 +6247,15 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Ailton",
-    "clubs": [
-      "VfB Stuttgart"
-    ]
-  },
-  {
     "name": "Aílton",
     "clubs": [
       "Beşiktaş",
       "Braga",
       "Estoril",
       "Gil Vicente",
+      "Hamburger SV",
       "Qarabag FK",
       "VfB Stuttgart",
-      "Hamburger SV",
       "Werder Bremen"
     ]
   },
@@ -11481,14 +11441,8 @@ export const PLAYERS = [
       "AC Milan",
       "Barcelona",
       "Fortuna Sittard",
-      "Heerenveen",
-      "Hamburger SV"
-    ]
-  },
-  {
-    "name": "Alen Halilović",
-    "clubs": [
       "Hamburger SV",
+      "Heerenveen",
       "Standard Liège"
     ]
   },
@@ -23601,22 +23555,10 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Andrej Ilic",
-    "clubs": [
-      "Union Berlin"
-    ]
-  },
-  {
     "name": "Andrej Ilić",
     "clubs": [
       "LOSC Lille",
       "Union Berlin"
-    ]
-  },
-  {
-    "name": "Andrej Kramaric",
-    "clubs": [
-      "TSG Hoffenheim"
     ]
   },
   {
@@ -24283,21 +24225,14 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Andrezinho",
-    "clubs": [
-      "FC Köln",
-      "Vitória SC"
-    ]
-  },
-  {
     "name": "Andrézinho",
     "clubs": [
       "Alverca",
       "Casa Pia",
       "Estoril",
+      "FC Köln",
       "Santa Clara",
-      "Vitória SC",
-      "FC Köln"
+      "Vitória SC"
     ]
   },
   {
@@ -24514,12 +24449,6 @@ export const PLAYERS = [
       "Sporting CP",
       "Borussia Mönchengladbach",
       "VfL Wolfsburg"
-    ]
-  },
-  {
-    "name": "Andrzej Kobylanski",
-    "clubs": [
-      "FC Köln"
     ]
   },
   {
@@ -27663,12 +27592,6 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Anto Grgic",
-    "clubs": [
-      "VfB Stuttgart"
-    ]
-  },
-  {
     "name": "Anto Grgić",
     "clubs": [
       "VfB Stuttgart"
@@ -28420,17 +28343,12 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Antonio Aparicio",
-    "clubs": [
-      "Levante",
-      "Valencia"
-    ]
-  },
-  {
     "name": "António Aparício",
     "clubs": [
       "Braga",
-      "Nacional"
+      "Levante",
+      "Nacional",
+      "Valencia"
     ]
   },
   {
@@ -28848,15 +28766,10 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Antonio Colak",
-    "clubs": [
-      "TSG Hoffenheim"
-    ]
-  },
-  {
     "name": "Antonio Čolak",
     "clubs": [
-      "Parma"
+      "Parma",
+      "TSG Hoffenheim"
     ]
   },
   {
@@ -31050,14 +30963,8 @@ export const PLAYERS = [
     "name": "Arijon Ibrahimovic",
     "clubs": [
       "Bayern Munich",
-      "Lazio",
-      "Heidenheim"
-    ]
-  },
-  {
-    "name": "Arijon Ibrahimović",
-    "clubs": [
-      "Heidenheim"
+      "Heidenheim",
+      "Lazio"
     ]
   },
   {
@@ -33621,15 +33528,8 @@ export const PLAYERS = [
   {
     "name": "Artjoms Rudnevs",
     "clubs": [
-      "Hamburger SV",
-      "FC Köln"
-    ]
-  },
-  {
-    "name": "Artjoms Rudņevs",
-    "clubs": [
-      "Hamburger SV",
-      "FC Köln"
+      "FC Köln",
+      "Hamburger SV"
     ]
   },
   {
@@ -37649,12 +37549,6 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Bartol Franjic",
-    "clubs": [
-      "VfL Wolfsburg"
-    ]
-  },
-  {
     "name": "Bartol Franjić",
     "clubs": [
       "VfL Wolfsburg"
@@ -39040,15 +38934,10 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Bené",
-    "clubs": [
-      "FC Porto"
-    ]
-  },
-  {
     "name": "Benê",
     "clubs": [
-      "Barcelona"
+      "Barcelona",
+      "FC Porto"
     ]
   },
   {
@@ -39762,12 +39651,6 @@ export const PLAYERS = [
     "name": "Benjamin Schüßler",
     "clubs": [
       "Borussia Mönchengladbach"
-    ]
-  },
-  {
-    "name": "Benjamin Sesko",
-    "clubs": [
-      "RB Leipzig"
     ]
   },
   {
@@ -47317,12 +47200,6 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Bojan Krkić",
-    "clubs": [
-      "FSV Mainz 05"
-    ]
-  },
-  {
     "name": "Bojan Miovski",
     "clubs": [
       "Girona"
@@ -47585,30 +47462,17 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Boris Vukcevic",
-    "clubs": [
-      "TSG Hoffenheim"
-    ]
-  },
-  {
     "name": "Boris Vukčević",
     "clubs": [
       "TSG Hoffenheim"
     ]
   },
   {
-    "name": "Boris Zivkovic",
-    "clubs": [
-      "VfB Stuttgart",
-      "FC Köln"
-    ]
-  },
-  {
     "name": "Boris Živković",
     "clubs": [
+      "FC Köln",
       "Leverkusen",
-      "VfB Stuttgart",
-      "FC Köln"
+      "VfB Stuttgart"
     ]
   },
   {
@@ -47979,13 +47843,8 @@ export const PLAYERS = [
     "name": "Boubacar Traoré",
     "clubs": [
       "FC Metz",
+      "Torino",
       "Wolves"
-    ]
-  },
-  {
-    "name": "Boubacar Traorè",
-    "clubs": [
-      "Torino"
     ]
   },
   {
@@ -52233,24 +52092,17 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Cafu",
+    "name": "Cafú",
     "clubs": [
       "AC Milan",
       "AS Roma",
-      "Kasımpaşa",
-      "Nottingham"
-    ]
-  },
-  {
-    "name": "Cafú",
-    "clubs": [
       "Estoril",
       "FC Lorient",
       "FC Metz",
       "Kasımpaşa",
       "Nottingham",
-      "Vitória SC",
-      "SC Freiburg"
+      "SC Freiburg",
+      "Vitória SC"
     ]
   },
   {
@@ -55539,15 +55391,10 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Cascavel",
-    "clubs": [
-      "Vitória SC"
-    ]
-  },
-  {
     "name": "Cascavél",
     "clubs": [
-      "Moreirense"
+      "Moreirense",
+      "Vitória SC"
     ]
   },
   {
@@ -56908,7 +56755,8 @@ export const PLAYERS = [
       "E. Frankfurt",
       "Everton",
       "Fenerbahçe",
-      "Kasımpaşa"
+      "Kasımpaşa",
+      "Gaziantep FK"
     ]
   },
   {
@@ -58196,12 +58044,6 @@ export const PLAYERS = [
   },
   {
     "name": "Charles-Elie Laprévotte",
-    "clubs": [
-      "SC Freiburg"
-    ]
-  },
-  {
-    "name": "Charles-Élie Laprevotte",
     "clubs": [
       "SC Freiburg"
     ]
@@ -61290,12 +61132,6 @@ export const PLAYERS = [
     "name": "Christian Damiano",
     "clubs": [
       "Nice"
-    ]
-  },
-  {
-    "name": "Christian Demirtas",
-    "clubs": [
-      "FSV Mainz 05"
     ]
   },
   {
@@ -69229,12 +69065,6 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Damir Vrancic",
-    "clubs": [
-      "FSV Mainz 05"
-    ]
-  },
-  {
     "name": "Damir Vrančić",
     "clubs": [
       "FSV Mainz 05"
@@ -72213,15 +72043,10 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Danijel Milicevic",
-    "clubs": [
-      "FC Metz"
-    ]
-  },
-  {
     "name": "Danijel Milićević",
     "clubs": [
       "Charleroi",
+      "FC Metz",
       "Gent"
     ]
   },
@@ -73733,16 +73558,10 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Dario Kresic",
-    "clubs": [
-      "FSV Mainz 05"
-    ]
-  },
-  {
     "name": "Dario Krešić",
     "clubs": [
-      "Leverkusen",
-      "FSV Mainz 05"
+      "FSV Mainz 05",
+      "Leverkusen"
     ]
   },
   {
@@ -79940,12 +79759,6 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Dejan Ljubicic",
-    "clubs": [
-      "FC Köln"
-    ]
-  },
-  {
     "name": "Dejan Ljubičić",
     "clubs": [
       "FC Köln"
@@ -80062,12 +79875,6 @@ export const PLAYERS = [
     "name": "Dejan Stefanović",
     "clubs": [
       "Fulham"
-    ]
-  },
-  {
-    "name": "Dejan Stojanovic",
-    "clubs": [
-      "FC St. Pauli"
     ]
   },
   {
@@ -80465,12 +80272,7 @@ export const PLAYERS = [
     "name": "Deni Milosevic",
     "clubs": [
       "Antalyaspor",
-      "Konyaspor"
-    ]
-  },
-  {
-    "name": "Deni Milošević",
-    "clubs": [
+      "Konyaspor",
       "Standard Liège"
     ]
   },
@@ -80676,12 +80478,6 @@ export const PLAYERS = [
     "name": "Denis Hunt",
     "clubs": [
       "Brentford"
-    ]
-  },
-  {
-    "name": "Denis Huseinbasic",
-    "clubs": [
-      "FC Köln"
     ]
   },
   {
@@ -81259,16 +81055,10 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Dennis Hadzikadunic",
-    "clubs": [
-      "Hamburger SV"
-    ]
-  },
-  {
     "name": "Dennis Hadžikadunić",
     "clubs": [
-      "RCD Mallorca",
-      "Hamburger SV"
+      "Hamburger SV",
+      "RCD Mallorca"
     ]
   },
   {
@@ -82740,12 +82530,6 @@ export const PLAYERS = [
     "name": "Diadié Diarra",
     "clubs": [
       "AJ Auxerre"
-    ]
-  },
-  {
-    "name": "Diadie Samassékou",
-    "clubs": [
-      "TSG Hoffenheim"
     ]
   },
   {
@@ -88906,12 +88690,6 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Dragan Paljić",
-    "clubs": [
-      "TSG Hoffenheim"
-    ]
-  },
-  {
     "name": "Dragan Stevanović",
     "clubs": [
       "VfL Wolfsburg",
@@ -89633,12 +89411,6 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Duško Tošić",
-    "clubs": [
-      "Werder Bremen"
-    ]
-  },
-  {
     "name": "Dustin Heun",
     "clubs": [
       "Union Berlin"
@@ -89981,12 +89753,6 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Dzenan Pejcinovic",
-    "clubs": [
-      "VfL Wolfsburg"
-    ]
-  },
-  {
     "name": "Dženan Pejčinović",
     "clubs": [
       "Bayern Munich",
@@ -89995,18 +89761,11 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Dzenis Burnic",
-    "clubs": [
-      "VfB Stuttgart",
-      "Heidenheim"
-    ]
-  },
-  {
     "name": "Dženis Burnić",
     "clubs": [
       "Borussia Dortmund",
-      "VfB Stuttgart",
-      "Heidenheim"
+      "Heidenheim",
+      "VfB Stuttgart"
     ]
   },
   {
@@ -90845,13 +90604,8 @@ export const PLAYERS = [
     "name": "Eder",
     "clubs": [
       "Braga",
+      "Inter",
       "LOSC Lille"
-    ]
-  },
-  {
-    "name": "Éder",
-    "clubs": [
-      "Inter"
     ]
   },
   {
@@ -91275,16 +91029,6 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Edin Dzeko",
-    "clubs": [
-      "AS Roma",
-      "Fenerbahçe",
-      "Fiorentina",
-      "Inter",
-      "Manchester City"
-    ]
-  },
-  {
     "name": "Edin Džeko",
     "clubs": [
       "AS Roma",
@@ -91374,20 +91118,15 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Edmilson",
-    "clubs": [
-      "Vitória SC"
-    ]
-  },
-  {
     "name": "Edmílson",
     "clubs": [
       "Barcelona",
       "Braga",
       "Nacional",
       "Olympique Lyon",
+      "Standard Liège",
       "Villarreal",
-      "Standard Liège"
+      "Vitória SC"
     ]
   },
   {
@@ -91988,12 +91727,6 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Edu",
-    "clubs": [
-      "FSV Mainz 05"
-    ]
-  },
-  {
     "name": "Edú",
     "clubs": [
       "Arsenal",
@@ -92002,9 +91735,9 @@ export const PLAYERS = [
       "Braga",
       "Celta Vigo",
       "Estrela Amadora",
+      "FSV Mainz 05",
       "Gil Vicente",
-      "Valencia",
-      "FSV Mainz 05"
+      "Valencia"
     ]
   },
   {
@@ -94310,17 +94043,12 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Eloi",
-    "clubs": [
-      "FC Porto",
-      "Genoa"
-    ]
-  },
-  {
     "name": "Elói",
     "clubs": [
       "Benfica",
-      "Estoril"
+      "Estoril",
+      "FC Porto",
+      "Genoa"
     ]
   },
   {
@@ -94645,14 +94373,6 @@ export const PLAYERS = [
       "Feyenoord",
       "Gençlerbirliği",
       "Go Ahead Eagles"
-    ]
-  },
-  {
-    "name": "Elvis Rexhbecaj",
-    "clubs": [
-      "FC Augsburg",
-      "FC Köln",
-      "VfL Wolfsburg"
     ]
   },
   {
@@ -95076,14 +94796,6 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Émerson",
-    "clubs": [
-      "Union Berlin",
-      "Hamburger SV",
-      "FC St. Pauli"
-    ]
-  },
-  {
     "name": "Emerson Carioca",
     "clubs": [
       "Alverca"
@@ -95434,12 +95146,6 @@ export const PLAYERS = [
     "clubs": [
       "Le Havre AC",
       "Vitória SC"
-    ]
-  },
-  {
-    "name": "Emile Mpenza",
-    "clubs": [
-      "Hamburger SV"
     ]
   },
   {
@@ -95982,17 +95688,11 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Emir Spahic",
-    "clubs": [
-      "Hamburger SV"
-    ]
-  },
-  {
     "name": "Emir Spahić",
     "clubs": [
+      "Hamburger SV",
       "Leverkusen",
-      "Sevilla",
-      "Hamburger SV"
+      "Sevilla"
     ]
   },
   {
@@ -99769,12 +99469,6 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Erik Jendrisek",
-    "clubs": [
-      "SC Freiburg"
-    ]
-  },
-  {
     "name": "Erik Jendrišek",
     "clubs": [
       "SC Freiburg"
@@ -100228,20 +99922,12 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Ermedin Demirovic",
-    "clubs": [
-      "VfB Stuttgart",
-      "SC Freiburg",
-      "FC Augsburg"
-    ]
-  },
-  {
     "name": "Ermedin Demirović",
     "clubs": [
       "Alaves",
-      "VfB Stuttgart",
+      "FC Augsburg",
       "SC Freiburg",
-      "FC Augsburg"
+      "VfB Stuttgart"
     ]
   },
   {
@@ -100267,17 +99953,10 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Ermin Bicakcic",
-    "clubs": [
-      "VfB Stuttgart",
-      "TSG Hoffenheim"
-    ]
-  },
-  {
     "name": "Ermin Bičakčić",
     "clubs": [
-      "VfB Stuttgart",
-      "TSG Hoffenheim"
+      "TSG Hoffenheim",
+      "VfB Stuttgart"
     ]
   },
   {
@@ -101461,15 +101140,10 @@ export const PLAYERS = [
     "clubs": [
       "AS Roma",
       "Atalanta",
-      "Genoa",
-      "Karagümrük"
-    ]
-  },
-  {
-    "name": "Ervin Zukanović",
-    "clubs": [
       "Dender EH",
-      "Gent"
+      "Genoa",
+      "Gent",
+      "Karagümrük"
     ]
   },
   {
@@ -102576,14 +102250,9 @@ export const PLAYERS = [
     "clubs": [
       "Atletico Madrid",
       "Barcelona",
-      "Celta Vigo"
-    ]
-  },
-  {
-    "name": "Eusébio",
-    "clubs": [
       "Benfica",
-      "Braga"
+      "Braga",
+      "Celta Vigo"
     ]
   },
   {
@@ -102755,13 +102424,8 @@ export const PLAYERS = [
     "name": "Evanilson",
     "clubs": [
       "Bournemouth",
+      "FC Köln",
       "FC Porto"
-    ]
-  },
-  {
-    "name": "Evanílson",
-    "clubs": [
-      "FC Köln"
     ]
   },
   {
@@ -104341,16 +104005,10 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Fabio Luciano",
-    "clubs": [
-      "FC Köln"
-    ]
-  },
-  {
     "name": "Fábio Luciano",
     "clubs": [
-      "Fenerbahçe",
-      "FC Köln"
+      "FC Köln",
+      "Fenerbahçe"
     ]
   },
   {
@@ -109257,14 +108915,9 @@ export const PLAYERS = [
   {
     "name": "Filip Benkovic",
     "clubs": [
+      "OH Leuven",
       "Trabzonspor",
       "Udinese"
-    ]
-  },
-  {
-    "name": "Filip Benković",
-    "clubs": [
-      "OH Leuven"
     ]
   },
   {
@@ -109432,12 +109085,6 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Filip Malbasic",
-    "clubs": [
-      "TSG Hoffenheim"
-    ]
-  },
-  {
     "name": "Filip Malbašić",
     "clubs": [
       "TSG Hoffenheim"
@@ -109463,16 +109110,10 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Filip Mladenovic",
-    "clubs": [
-      "FC Köln"
-    ]
-  },
-  {
     "name": "Filip Mladenović",
     "clubs": [
-      "Karagümrük",
       "FC Köln",
+      "Karagümrük",
       "Standard Liège"
     ]
   },
@@ -119463,12 +119104,6 @@ export const PLAYERS = [
     "clubs": [
       "Getafe",
       "RCD Mallorca"
-    ]
-  },
-  {
-    "name": "Gabriel Vidovic",
-    "clubs": [
-      "FSV Mainz 05"
     ]
   },
   {
@@ -131941,13 +131576,6 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Gojko Kacar",
-    "clubs": [
-      "FC Augsburg",
-      "Hamburger SV"
-    ]
-  },
-  {
     "name": "Gojko Kačar",
     "clubs": [
       "FC Augsburg",
@@ -132588,12 +132216,6 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Goran Sukalo",
-    "clubs": [
-      "FC Augsburg"
-    ]
-  },
-  {
     "name": "Goran Šukalo",
     "clubs": [
       "FC Augsburg"
@@ -133031,17 +132653,10 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Gotoku Sakai",
-    "clubs": [
-      "VfB Stuttgart",
-      "Hamburger SV"
-    ]
-  },
-  {
     "name": "Gōtoku Sakai",
     "clubs": [
-      "VfB Stuttgart",
-      "Hamburger SV"
+      "Hamburger SV",
+      "VfB Stuttgart"
     ]
   },
   {
@@ -138554,17 +138169,10 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Haris Tabakovic",
-    "clubs": [
-      "TSG Hoffenheim",
-      "Borussia Mönchengladbach"
-    ]
-  },
-  {
     "name": "Haris Tabaković",
     "clubs": [
-      "TSG Hoffenheim",
-      "Borussia Mönchengladbach"
+      "Borussia Mönchengladbach",
+      "TSG Hoffenheim"
     ]
   },
   {
@@ -140756,15 +140364,8 @@ export const PLAYERS = [
     "name": "Hasan Salihamidzic",
     "clubs": [
       "Bayern Munich",
+      "Hamburger SV",
       "Juventus",
-      "Hamburger SV",
-      "VfL Wolfsburg"
-    ]
-  },
-  {
-    "name": "Hasan Salihamidžić",
-    "clubs": [
-      "Hamburger SV",
       "VfL Wolfsburg"
     ]
   },
@@ -140994,12 +140595,6 @@ export const PLAYERS = [
   },
   {
     "name": "Havard Nielsen",
-    "clubs": [
-      "SC Freiburg"
-    ]
-  },
-  {
-    "name": "Håvard Nielsen",
     "clubs": [
       "SC Freiburg"
     ]
@@ -143839,13 +143434,6 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Hernani",
-    "clubs": [
-      "Genoa",
-      "Parma"
-    ]
-  },
-  {
     "name": "Hernâni",
     "clubs": [
       "Arouca",
@@ -144379,12 +143967,6 @@ export const PLAYERS = [
     "name": "Hiram Boateng",
     "clubs": [
       "Crystal Palace"
-    ]
-  },
-  {
-    "name": "Hiroki Ito",
-    "clubs": [
-      "VfB Stuttgart"
     ]
   },
   {
@@ -148258,12 +147840,6 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Ignace Van Der Brempt",
-    "clubs": [
-      "Hamburger SV"
-    ]
-  },
-  {
     "name": "Ignacio Achúcarro",
     "clubs": [
       "Sevilla"
@@ -148660,18 +148236,11 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Igor Matanovic",
-    "clubs": [
-      "SC Freiburg",
-      "FC St. Pauli"
-    ]
-  },
-  {
     "name": "Igor Matanović",
     "clubs": [
       "E. Frankfurt",
-      "SC Freiburg",
-      "FC St. Pauli"
+      "FC St. Pauli",
+      "SC Freiburg"
     ]
   },
   {
@@ -149458,12 +149027,6 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Imad Rondic",
-    "clubs": [
-      "FC Köln"
-    ]
-  },
-  {
     "name": "Imad Rondić",
     "clubs": [
       "FC Köln"
@@ -149561,12 +149124,6 @@ export const PLAYERS = [
     "name": "Immanuel Höhn",
     "clubs": [
       "SC Freiburg"
-    ]
-  },
-  {
-    "name": "Immanuel Pherai",
-    "clubs": [
-      "Hamburger SV"
     ]
   },
   {
@@ -152070,17 +151627,9 @@ export const PLAYERS = [
     "name": "Ivan Klasnic",
     "clubs": [
       "FC Nantes",
+      "FC St. Pauli",
       "FSV Mainz 05",
-      "Werder Bremen",
-      "FC St. Pauli"
-    ]
-  },
-  {
-    "name": "Ivan Klasnić",
-    "clubs": [
-      "FSV Mainz 05",
-      "Werder Bremen",
-      "FC St. Pauli"
+      "Werder Bremen"
     ]
   },
   {
@@ -152260,14 +151809,9 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Ivan Pavlic",
-    "clubs": [
-      "Estoril"
-    ]
-  },
-  {
     "name": "Ivan Pavlić",
     "clubs": [
+      "Estoril",
       "Royal Antwerp",
       "Union SG"
     ]
@@ -152555,12 +152099,6 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Ivan Vukomanovic",
-    "clubs": [
-      "FC Köln"
-    ]
-  },
-  {
     "name": "Ivan Vukomanović",
     "clubs": [
       "FC Köln",
@@ -152751,13 +152289,6 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Ivica Banovic",
-    "clubs": [
-      "SC Freiburg",
-      "Werder Bremen"
-    ]
-  },
-  {
     "name": "Ivica Banović",
     "clubs": [
       "SC Freiburg",
@@ -152770,12 +152301,6 @@ export const PLAYERS = [
       "Sevilla",
       "Gent",
       "Standard Liège"
-    ]
-  },
-  {
-    "name": "Ivica Grlic",
-    "clubs": [
-      "FC Köln"
     ]
   },
   {
@@ -152903,12 +152428,6 @@ export const PLAYERS = [
       "Karagümrük",
       "LOSC Lille",
       "Rizespor"
-    ]
-  },
-  {
-    "name": "Ivo Ilicevic",
-    "clubs": [
-      "Hamburger SV"
     ]
   },
   {
@@ -153087,12 +152606,6 @@ export const PLAYERS = [
     "name": "Izak Akakpo",
     "clubs": [
       "FC Lorient"
-    ]
-  },
-  {
-    "name": "Izet Hajrovic",
-    "clubs": [
-      "Werder Bremen"
     ]
   },
   {
@@ -153754,12 +153267,6 @@ export const PLAYERS = [
     "name": "Jacek Kazimierski",
     "clubs": [
       "Gent"
-    ]
-  },
-  {
-    "name": "Jacek Krzynowek",
-    "clubs": [
-      "VfL Wolfsburg"
     ]
   },
   {
@@ -157023,12 +156530,7 @@ export const PLAYERS = [
       "Braga",
       "Celta Vigo",
       "Fenerbahçe",
-      "Tondela"
-    ]
-  },
-  {
-    "name": "Jaílson",
-    "clubs": [
+      "Tondela",
       "Vitória SC"
     ]
   },
@@ -157703,12 +157205,6 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Jakov Medic",
-    "clubs": [
-      "FC St. Pauli"
-    ]
-  },
-  {
     "name": "Jakov Medić",
     "clubs": [
       "Ajax",
@@ -157758,13 +157254,6 @@ export const PLAYERS = [
     "clubs": [
       "Antalyaspor",
       "Başakşehir"
-    ]
-  },
-  {
-    "name": "Jakub Kaminski",
-    "clubs": [
-      "FC Köln",
-      "VfL Wolfsburg"
     ]
   },
   {
@@ -160344,12 +159833,6 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Jan Moravek",
-    "clubs": [
-      "FC Augsburg"
-    ]
-  },
-  {
     "name": "Jan Morávek",
     "clubs": [
       "FC Augsburg"
@@ -160542,18 +160025,11 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Jan Simak",
-    "clubs": [
-      "VfB Stuttgart",
-      "FSV Mainz 05"
-    ]
-  },
-  {
     "name": "Jan Šimák",
     "clubs": [
+      "FSV Mainz 05",
       "Leverkusen",
-      "VfB Stuttgart",
-      "FSV Mainz 05"
+      "VfB Stuttgart"
     ]
   },
   {
@@ -160561,12 +160037,6 @@ export const PLAYERS = [
     "clubs": [
       "Club Brugge",
       "Cercle Brugge"
-    ]
-  },
-  {
-    "name": "Jan Simunek",
-    "clubs": [
-      "VfL Wolfsburg"
     ]
   },
   {
@@ -167141,13 +166611,6 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Jérome Polenz",
-    "clubs": [
-      "Union Berlin",
-      "Werder Bremen"
-    ]
-  },
-  {
     "name": "Jérôme Polenz",
     "clubs": [
       "Union Berlin",
@@ -170565,12 +170028,6 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Jiri Balcarek",
-    "clubs": [
-      "Union Berlin"
-    ]
-  },
-  {
     "name": "Jiří Balcárek",
     "clubs": [
       "Union Berlin"
@@ -170594,12 +170051,6 @@ export const PLAYERS = [
     "name": "Jiří Letáček",
     "clubs": [
       "Getafe"
-    ]
-  },
-  {
-    "name": "Jiri Pavlenka",
-    "clubs": [
-      "Werder Bremen"
     ]
   },
   {
@@ -183765,17 +183216,12 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "José Antonio",
-    "clubs": [
-      "Elche",
-      "Getafe"
-    ]
-  },
-  {
     "name": "José António",
     "clubs": [
       "Benfica",
-      "Estoril"
+      "Elche",
+      "Estoril",
+      "Getafe"
     ]
   },
   {
@@ -184828,14 +184274,9 @@ export const PLAYERS = [
   {
     "name": "José Luis",
     "clubs": [
+      "Benfica",
       "Rayo Vallecano",
       "Real Madrid"
-    ]
-  },
-  {
-    "name": "José Luís",
-    "clubs": [
-      "Benfica"
     ]
   },
   {
@@ -187580,18 +187021,11 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Josip Drmic",
-    "clubs": [
-      "Borussia Mönchengladbach",
-      "Hamburger SV"
-    ]
-  },
-  {
     "name": "Josip Drmić",
     "clubs": [
-      "Leverkusen",
       "Borussia Mönchengladbach",
-      "Hamburger SV"
+      "Hamburger SV",
+      "Leverkusen"
     ]
   },
   {
@@ -187605,12 +187039,6 @@ export const PLAYERS = [
     "clubs": [
       "Atalanta",
       "Fiorentina"
-    ]
-  },
-  {
-    "name": "Josip Juranovic",
-    "clubs": [
-      "Union Berlin"
     ]
   },
   {
@@ -187668,17 +187096,10 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Josip Simunic",
-    "clubs": [
-      "TSG Hoffenheim",
-      "Hamburger SV"
-    ]
-  },
-  {
     "name": "Josip Šimunić",
     "clubs": [
-      "TSG Hoffenheim",
-      "Hamburger SV"
+      "Hamburger SV",
+      "TSG Hoffenheim"
     ]
   },
   {
@@ -187743,12 +187164,6 @@ export const PLAYERS = [
     "clubs": [
       "Ajax",
       "Go Ahead Eagles"
-    ]
-  },
-  {
-    "name": "Josko Gvardiol",
-    "clubs": [
-      "RB Leipzig"
     ]
   },
   {
@@ -187941,13 +187356,6 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Jovan Milosevic",
-    "clubs": [
-      "VfB Stuttgart",
-      "Werder Bremen"
-    ]
-  },
-  {
     "name": "Jovan Milošević",
     "clubs": [
       "VfB Stuttgart",
@@ -188067,12 +187475,6 @@ export const PLAYERS = [
     "clubs": [
       "FC Volendam",
       "Rayo Vallecano"
-    ]
-  },
-  {
-    "name": "Jozo Stanic",
-    "clubs": [
-      "FC Augsburg"
     ]
   },
   {
@@ -191928,12 +191330,7 @@ export const PLAYERS = [
     "name": "Junior Pius",
     "clubs": [
       "Royal Antwerp",
-      "Sint-Truiden"
-    ]
-  },
-  {
-    "name": "Júnior Pius",
-    "clubs": [
+      "Sint-Truiden",
       "Tondela"
     ]
   },
@@ -192084,13 +191481,6 @@ export const PLAYERS = [
       "AZ Alkmaar",
       "Cercle Brugge",
       "Westerlo"
-    ]
-  },
-  {
-    "name": "Jurica Vranjes",
-    "clubs": [
-      "VfB Stuttgart",
-      "Werder Bremen"
     ]
   },
   {
@@ -192403,12 +191793,6 @@ export const PLAYERS = [
     "name": "Justo Villar",
     "clubs": [
       "Nacional"
-    ]
-  },
-  {
-    "name": "Jusuf Gazibegovic",
-    "clubs": [
-      "FC Köln"
     ]
   },
   {
@@ -192939,13 +192323,8 @@ export const PLAYERS = [
     "clubs": [
       "Alverca",
       "Braga",
+      "FC Porto",
       "Göztepe"
-    ]
-  },
-  {
-    "name": "Kadú",
-    "clubs": [
-      "FC Porto"
     ]
   },
   {
@@ -193164,12 +192543,6 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Kaishu Sano",
-    "clubs": [
-      "FSV Mainz 05"
-    ]
-  },
-  {
     "name": "Kaishū Sano",
     "clubs": [
       "FSV Mainz 05"
@@ -193237,12 +192610,7 @@ export const PLAYERS = [
       "Braga",
       "Nacional",
       "Real Madrid",
-      "Tondela"
-    ]
-  },
-  {
-    "name": "Káká",
-    "clubs": [
+      "Tondela",
       "Vitória SC"
     ]
   },
@@ -193716,16 +193084,10 @@ export const PLAYERS = [
   {
     "name": "Kanu",
     "clubs": [
-      "Vitória SC",
       "Anderlecht",
       "Cercle Brugge",
       "OH Leuven",
-      "Standard Liège"
-    ]
-  },
-  {
-    "name": "Kanú",
-    "clubs": [
+      "Standard Liège",
       "Vitória SC"
     ]
   },
@@ -195378,12 +194740,6 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Keita Endo",
-    "clubs": [
-      "Union Berlin"
-    ]
-  },
-  {
     "name": "Keita Endō",
     "clubs": [
       "Union Berlin"
@@ -196613,19 +195969,8 @@ export const PLAYERS = [
     "name": "Kenan Piric",
     "clubs": [
       "Antalyaspor",
+      "Gent",
       "Göztepe"
-    ]
-  },
-  {
-    "name": "Kenan Pirić",
-    "clubs": [
-      "Gent"
-    ]
-  },
-  {
-    "name": "Kenan Sahin",
-    "clubs": [
-      "Union Berlin"
     ]
   },
   {
@@ -198167,17 +197512,10 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Kevin Kuranyi",
-    "clubs": [
-      "VfB Stuttgart",
-      "TSG Hoffenheim"
-    ]
-  },
-  {
     "name": "Kevin Kurányi",
     "clubs": [
-      "VfB Stuttgart",
-      "TSG Hoffenheim"
+      "TSG Hoffenheim",
+      "VfB Stuttgart"
     ]
   },
   {
@@ -200557,15 +199895,9 @@ export const PLAYERS = [
     "name": "Ko Itakura",
     "clubs": [
       "Ajax",
+      "Borussia Mönchengladbach",
       "FC Groningen",
-      "Manchester City",
-      "Borussia Mönchengladbach"
-    ]
-  },
-  {
-    "name": "Kō Itakura",
-    "clubs": [
-      "Borussia Mönchengladbach"
+      "Manchester City"
     ]
   },
   {
@@ -200855,12 +200187,6 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Koki Machida",
-    "clubs": [
-      "TSG Hoffenheim"
-    ]
-  },
-  {
     "name": "Kōki Machida",
     "clubs": [
       "TSG Hoffenheim",
@@ -200898,7 +200224,8 @@ export const PLAYERS = [
       "AZ Alkmaar",
       "Ajax",
       "FC Nantes",
-      "Galatasaray"
+      "Galatasaray",
+      "Borussia Dortmund"
     ]
   },
   {
@@ -201282,12 +200609,6 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Kosta Nedeljkovic",
-    "clubs": [
-      "RB Leipzig"
-    ]
-  },
-  {
     "name": "Kosta Nedeljković",
     "clubs": [
       "RB Leipzig"
@@ -201613,12 +200934,6 @@ export const PLAYERS = [
     "name": "Kristijan Đorđević",
     "clubs": [
       "VfB Stuttgart"
-    ]
-  },
-  {
-    "name": "Kristijan Jakic",
-    "clubs": [
-      "FC Augsburg"
     ]
   },
   {
@@ -204222,12 +203537,6 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Lazar Jovanović",
-    "clubs": [
-      "VfB Stuttgart"
-    ]
-  },
-  {
     "name": "Lazar Jovišić",
     "clubs": [
       "Nacional"
@@ -204248,6 +203557,7 @@ export const PLAYERS = [
   {
     "name": "Lazar Markovic",
     "clubs": [
+      "Anderlecht",
       "Benfica",
       "Fenerbahçe",
       "Fulham",
@@ -204255,12 +203565,6 @@ export const PLAYERS = [
       "Liverpool",
       "Sporting CP",
       "Trabzonspor"
-    ]
-  },
-  {
-    "name": "Lazar Marković",
-    "clubs": [
-      "Anderlecht"
     ]
   },
   {
@@ -211264,13 +210568,8 @@ export const PLAYERS = [
   {
     "name": "Lovre Kalinic",
     "clubs": [
+      "Gent",
       "Toulouse"
-    ]
-  },
-  {
-    "name": "Lovre Kalinić",
-    "clubs": [
-      "Gent"
     ]
   },
   {
@@ -215202,14 +214501,9 @@ export const PLAYERS = [
   {
     "name": "Luis Felipe",
     "clubs": [
+      "Benfica",
       "Famalicão",
       "PSV"
-    ]
-  },
-  {
-    "name": "Luís Felipe",
-    "clubs": [
-      "Benfica"
     ]
   },
   {
@@ -215227,13 +214521,8 @@ export const PLAYERS = [
   {
     "name": "Luis Fernandez",
     "clubs": [
+      "Betis",
       "PSG"
-    ]
-  },
-  {
-    "name": "Luis Fernández",
-    "clubs": [
-      "Betis"
     ]
   },
   {
@@ -215638,16 +214927,11 @@ export const PLAYERS = [
   {
     "name": "Luis Oliveira",
     "clubs": [
+      "Anderlecht",
       "Bologna",
       "Cagliari",
       "Como",
       "Fiorentina"
-    ]
-  },
-  {
-    "name": "Luís Oliveira",
-    "clubs": [
-      "Anderlecht"
     ]
   },
   {
@@ -215824,14 +215108,9 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Luis Silva",
-    "clubs": [
-      "Athletic Bilbao"
-    ]
-  },
-  {
     "name": "Luís Silva",
     "clubs": [
+      "Athletic Bilbao",
       "Avs FS",
       "Braga",
       "Gil Vicente",
@@ -216316,12 +215595,6 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Luka Vuskovic",
-    "clubs": [
-      "Hamburger SV"
-    ]
-  },
-  {
     "name": "Luka Vušković",
     "clubs": [
       "Hamburger SV",
@@ -216349,12 +215622,6 @@ export const PLAYERS = [
   },
   {
     "name": "Lukas Ambros",
-    "clubs": [
-      "VfL Wolfsburg"
-    ]
-  },
-  {
-    "name": "Lukáš Ambros",
     "clubs": [
       "VfL Wolfsburg"
     ]
@@ -216513,15 +215780,10 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Lukas Marecek",
-    "clubs": [
-      "Heerenveen"
-    ]
-  },
-  {
     "name": "Lukáš Mareček",
     "clubs": [
-      "Anderlecht"
+      "Anderlecht",
+      "Heerenveen"
     ]
   },
   {
@@ -219701,16 +218963,11 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Manu",
-    "clubs": [
-      "Elche"
-    ]
-  },
-  {
     "name": "Manú",
     "clubs": [
       "Alverca",
       "Benfica",
+      "Elche",
       "Estrela Amadora"
     ]
   },
@@ -222716,12 +221973,6 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Marcin Kaminski",
-    "clubs": [
-      "VfB Stuttgart"
-    ]
-  },
-  {
     "name": "Marcin Kamiński",
     "clubs": [
       "VfB Stuttgart"
@@ -222743,12 +221994,6 @@ export const PLAYERS = [
     "name": "Marcin Listkowski",
     "clubs": [
       "Lecce"
-    ]
-  },
-  {
-    "name": "Marcin Mieciel",
-    "clubs": [
-      "Borussia Mönchengladbach"
     ]
   },
   {
@@ -222822,15 +222067,6 @@ export const PLAYERS = [
       "Başakşehir",
       "Braga",
       "Göztepe"
-    ]
-  },
-  {
-    "name": "Márcio Nobre",
-    "clubs": [
-      "Beşiktaş",
-      "Fenerbahçe",
-      "Gençlerbirliği",
-      "Kayserispor"
     ]
   },
   {
@@ -224727,12 +223963,7 @@ export const PLAYERS = [
       "AJ Auxerre",
       "Estoril",
       "FC Porto",
-      "Gil Vicente"
-    ]
-  },
-  {
-    "name": "Marcos Antônio",
-    "clubs": [
+      "Gil Vicente",
       "Lazio"
     ]
   },
@@ -225393,12 +224624,6 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Marek Suchý",
-    "clubs": [
-      "FC Augsburg"
-    ]
-  },
-  {
     "name": "Marek Szmid",
     "clubs": [
       "Manchester United"
@@ -225685,17 +224910,10 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Marijan Kovacevic",
-    "clubs": [
-      "Hamburger SV",
-      "VfL Wolfsburg"
-    ]
-  },
-  {
     "name": "Marijan Kovačević",
     "clubs": [
-      "VfB Stuttgart",
       "Hamburger SV",
+      "VfB Stuttgart",
       "VfL Wolfsburg"
     ]
   },
@@ -225749,29 +224967,17 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Marin Ljubicic",
-    "clubs": [
-      "Union Berlin"
-    ]
-  },
-  {
     "name": "Marin Ljubičić",
     "clubs": [
       "Union Berlin"
     ]
   },
   {
-    "name": "Marin Pongracic",
+    "name": "Marin Pongračić",
     "clubs": [
       "Borussia Dortmund",
       "Fiorentina",
       "Lecce",
-      "VfL Wolfsburg"
-    ]
-  },
-  {
-    "name": "Marin Pongračić",
-    "clubs": [
       "VfL Wolfsburg"
     ]
   },
@@ -225797,12 +225003,6 @@ export const PLAYERS = [
     "name": "Marinko Miletić",
     "clubs": [
       "FC St. Pauli"
-    ]
-  },
-  {
-    "name": "Marino Biliskov",
-    "clubs": [
-      "VfL Wolfsburg"
     ]
   },
   {
@@ -226303,16 +225503,10 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Mario Gavranovic",
-    "clubs": [
-      "FSV Mainz 05"
-    ]
-  },
-  {
     "name": "Mario Gavranović",
     "clubs": [
-      "Kayserispor",
-      "FSV Mainz 05"
+      "FSV Mainz 05",
+      "Kayserispor"
     ]
   },
   {
@@ -226700,16 +225894,6 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Mario Pasalić",
-    "clubs": [
-      "AC Milan",
-      "Atalanta",
-      "Chelsea",
-      "Elche",
-      "Monaco"
-    ]
-  },
-  {
     "name": "Mario Pašalić",
     "clubs": [
       "AC Milan",
@@ -227008,23 +226192,11 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Mario Vrančić",
-    "clubs": [
-      "FSV Mainz 05"
-    ]
-  },
-  {
-    "name": "Mario Vuskovic",
-    "clubs": [
-      "Hamburger SV"
-    ]
-  },
-  {
     "name": "Mario Vušković",
     "clubs": [
       "Go Ahead Eagles",
-      "Heerenveen",
-      "Hamburger SV"
+      "Hamburger SV",
+      "Heerenveen"
     ]
   },
   {
@@ -227348,12 +226520,6 @@ export const PLAYERS = [
       "FC Nantes",
       "Hellas Verona",
       "Lecce"
-    ]
-  },
-  {
-    "name": "Marjan Petkovic",
-    "clubs": [
-      "TSG Hoffenheim"
     ]
   },
   {
@@ -228536,14 +227702,8 @@ export const PLAYERS = [
       "Bologna",
       "FC Twente",
       "Inter",
-      "West Ham",
-      "Werder Bremen"
-    ]
-  },
-  {
-    "name": "Marko Arnautović",
-    "clubs": [
-      "Werder Bremen"
+      "Werder Bremen",
+      "West Ham"
     ]
   },
   {
@@ -228669,12 +227829,6 @@ export const PLAYERS = [
       "Excelsior",
       "Paris FC",
       "Telstar"
-    ]
-  },
-  {
-    "name": "Marko Maric",
-    "clubs": [
-      "TSG Hoffenheim"
     ]
   },
   {
@@ -228846,12 +228000,6 @@ export const PLAYERS = [
   },
   {
     "name": "Marko Topic",
-    "clubs": [
-      "VfL Wolfsburg"
-    ]
-  },
-  {
-    "name": "Marko Topić",
     "clubs": [
       "VfL Wolfsburg"
     ]
@@ -230176,13 +229324,6 @@ export const PLAYERS = [
     "name": "Martin Klein",
     "clubs": [
       "Konyaspor"
-    ]
-  },
-  {
-    "name": "Martin Kobylanski",
-    "clubs": [
-      "Union Berlin",
-      "Werder Bremen"
     ]
   },
   {
@@ -232006,12 +231147,6 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Matej Delac",
-    "clubs": [
-      "Vitória SC"
-    ]
-  },
-  {
     "name": "Matej Delač",
     "clubs": [
       "Chelsea",
@@ -232182,12 +231317,6 @@ export const PLAYERS = [
     "name": "Mateo Pavlovic",
     "clubs": [
       "Angers SCO",
-      "Werder Bremen"
-    ]
-  },
-  {
-    "name": "Mateo Pavlović",
-    "clubs": [
       "Werder Bremen"
     ]
   },
@@ -233398,12 +232527,6 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Matías Cenci",
-    "clubs": [
-      "FC St. Pauli"
-    ]
-  },
-  {
     "name": "Matías Chiacchio",
     "clubs": [
       "Olympique Lyon"
@@ -233725,12 +232848,6 @@ export const PLAYERS = [
   },
   {
     "name": "Matous Trmal",
-    "clubs": [
-      "Vitória SC"
-    ]
-  },
-  {
-    "name": "Matouš Trmal",
     "clubs": [
       "Vitória SC"
     ]
@@ -239441,12 +238558,6 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Mensur Mujdža",
-    "clubs": [
-      "SC Freiburg"
-    ]
-  },
-  {
     "name": "Mércio",
     "clubs": [
       "Famalicão",
@@ -239460,32 +238571,18 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Mergim Berisha",
-    "clubs": [
-      "TSG Hoffenheim",
-      "FC Augsburg"
-    ]
-  },
-  {
     "name": "Mërgim Berisha",
     "clubs": [
+      "FC Augsburg",
       "Fenerbahçe",
-      "TSG Hoffenheim",
-      "FC Augsburg"
-    ]
-  },
-  {
-    "name": "Mergim Mavraj",
-    "clubs": [
-      "Hamburger SV",
-      "FC Köln"
+      "TSG Hoffenheim"
     ]
   },
   {
     "name": "Mërgim Mavraj",
     "clubs": [
-      "Hamburger SV",
-      "FC Köln"
+      "FC Köln",
+      "Hamburger SV"
     ]
   },
   {
@@ -239633,7 +238730,8 @@ export const PLAYERS = [
     "clubs": [
       "Beşiktaş",
       "Gençlerbirliği",
-      "Kayserispor"
+      "Kayserispor",
+      "Fenerbahçe"
     ]
   },
   {
@@ -242031,27 +241129,22 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Michel",
+    "name": "Míchel",
     "clubs": [
       "Benfica",
       "Braga",
       "Estoril",
       "Estrela Amadora",
-      "Moreirense",
-      "Nacional",
-      "Standard Liège"
-    ]
-  },
-  {
-    "name": "Míchel",
-    "clubs": [
       "Getafe",
       "Levante",
+      "Moreirense",
+      "Nacional",
       "Oviedo",
       "Qarabag FK",
       "Rayo Vallecano",
       "Real Madrid",
       "Sevilla",
+      "Standard Liège",
       "Valencia"
     ]
   },
@@ -244672,12 +243765,6 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Mijat Gacinovic",
-    "clubs": [
-      "TSG Hoffenheim"
-    ]
-  },
-  {
     "name": "Mijat Gaćinović",
     "clubs": [
       "E. Frankfurt",
@@ -246146,12 +245233,6 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Milan Lalkovic",
-    "clubs": [
-      "Vitória SC"
-    ]
-  },
-  {
     "name": "Milan Lalkovič",
     "clubs": [
       "Chelsea",
@@ -246221,12 +245302,6 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Milan Obradovic",
-    "clubs": [
-      "Borussia Mönchengladbach"
-    ]
-  },
-  {
     "name": "Milan Obradović",
     "clubs": [
       "Borussia Mönchengladbach"
@@ -246245,28 +245320,17 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Milan Petrzela",
-    "clubs": [
-      "FC Augsburg"
-    ]
-  },
-  {
     "name": "Milan Petržela",
     "clubs": [
       "FC Augsburg"
     ]
   },
   {
-    "name": "Milan Purovic",
-    "clubs": [
-      "Kayserispor",
-      "Sporting CP"
-    ]
-  },
-  {
     "name": "Milan Purović",
     "clubs": [
-      "Cercle Brugge"
+      "Cercle Brugge",
+      "Kayserispor",
+      "Sporting CP"
     ]
   },
   {
@@ -246523,12 +245587,6 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Milivoje Novakovic",
-    "clubs": [
-      "FC Köln"
-    ]
-  },
-  {
     "name": "Milivoje Novaković",
     "clubs": [
       "FC Köln"
@@ -246541,17 +245599,11 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Miljan Mrdakovic",
-    "clubs": [
-      "Vitória SC"
-    ]
-  },
-  {
     "name": "Miljan Mrdaković",
     "clubs": [
-      "Vitória SC",
       "Anderlecht",
-      "Gent"
+      "Gent",
+      "Vitória SC"
     ]
   },
   {
@@ -246648,12 +245700,6 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Milos Jojic",
-    "clubs": [
-      "FC Köln"
-    ]
-  },
-  {
     "name": "Miloš Jojić",
     "clubs": [
       "Başakşehir",
@@ -246723,12 +245769,6 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Milos Pantovic",
-    "clubs": [
-      "Union Berlin"
-    ]
-  },
-  {
     "name": "Miloš Pantović",
     "clubs": [
       "Bayern Munich",
@@ -246739,12 +245779,6 @@ export const PLAYERS = [
     "name": "Miloš Stamenković",
     "clubs": [
       "Union SG"
-    ]
-  },
-  {
-    "name": "Milos Veljkovic",
-    "clubs": [
-      "Werder Bremen"
     ]
   },
   {
@@ -247398,16 +246432,10 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Miro Varvodic",
-    "clubs": [
-      "FC Köln"
-    ]
-  },
-  {
     "name": "Miro Varvodić",
     "clubs": [
-      "Qarabag FK",
-      "FC Köln"
+      "FC Köln",
+      "Qarabag FK"
     ]
   },
   {
@@ -247618,17 +246646,10 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Miso Brecko",
-    "clubs": [
-      "Hamburger SV",
-      "FC Köln"
-    ]
-  },
-  {
     "name": "Mišo Brečko",
     "clubs": [
-      "Hamburger SV",
-      "FC Köln"
+      "FC Köln",
+      "Hamburger SV"
     ]
   },
   {
@@ -247914,12 +246935,6 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Mladen Krstajic",
-    "clubs": [
-      "Werder Bremen"
-    ]
-  },
-  {
     "name": "Mladen Krstajić",
     "clubs": [
       "Werder Bremen"
@@ -247938,18 +246953,12 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Mladen Petric",
+    "name": "Mladen Petrić",
     "clubs": [
       "Borussia Dortmund",
       "Fulham",
-      "West Ham",
-      "Hamburger SV"
-    ]
-  },
-  {
-    "name": "Mladen Petrić",
-    "clubs": [
-      "Hamburger SV"
+      "Hamburger SV",
+      "West Ham"
     ]
   },
   {
@@ -250651,12 +249660,6 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Muhamed Besic",
-    "clubs": [
-      "Hamburger SV"
-    ]
-  },
-  {
     "name": "Muhamed Bešić",
     "clubs": [
       "Everton",
@@ -251479,17 +250482,11 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Mustafa Dogan",
-    "clubs": [
-      "FC Köln"
-    ]
-  },
-  {
     "name": "Mustafa Doğan",
     "clubs": [
       "Beşiktaş",
-      "Fenerbahçe",
-      "FC Köln"
+      "FC Köln",
+      "Fenerbahçe"
     ]
   },
   {
@@ -251602,12 +250599,6 @@ export const PLAYERS = [
       "Kocaelispor",
       "Konyaspor",
       "Samsunspor"
-    ]
-  },
-  {
-    "name": "Mustafa Kucukovic",
-    "clubs": [
-      "Hamburger SV"
     ]
   },
   {
@@ -254088,12 +253079,6 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Nediljko Labrovic",
-    "clubs": [
-      "FC Augsburg"
-    ]
-  },
-  {
     "name": "Nediljko Labrović",
     "clubs": [
       "FC Augsburg"
@@ -254806,12 +253791,6 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Nelson da Luz",
-    "clubs": [
-      "Vitória SC"
-    ]
-  },
-  {
     "name": "Nélson da Luz",
     "clubs": [
       "Vitória SC"
@@ -255015,17 +253994,6 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Nemanja Matic",
-    "clubs": [
-      "AS Roma",
-      "Benfica",
-      "Chelsea",
-      "Manchester United",
-      "Rennes",
-      "Sassuolo"
-    ]
-  },
-  {
     "name": "Nemanja Matić",
     "clubs": [
       "AS Roma",
@@ -255069,16 +254037,6 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Nemanja Radonjic",
-    "clubs": [
-      "AS Roma",
-      "Benfica",
-      "Marsilya",
-      "RCD Mallorca",
-      "Torino"
-    ]
-  },
-  {
     "name": "Nemanja Radonjić",
     "clubs": [
       "AS Roma",
@@ -255111,12 +254069,6 @@ export const PLAYERS = [
     "clubs": [
       "Inter",
       "Manchester United"
-    ]
-  },
-  {
-    "name": "Nemanja Vucicevic",
-    "clubs": [
-      "FC Köln"
     ]
   },
   {
@@ -255248,21 +254200,6 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Nené",
-    "clubs": [
-      "Alaves",
-      "Cagliari",
-      "Celta Vigo",
-      "Espanyol",
-      "Levante",
-      "Monaco",
-      "PSG",
-      "RCD Mallorca",
-      "Rizespor",
-      "Sporting CP"
-    ]
-  },
-  {
     "name": "Nenê",
     "clubs": [
       "Alaves",
@@ -255273,11 +254210,13 @@ export const PLAYERS = [
       "Espanyol",
       "Famalicão",
       "Hellas Verona",
+      "Levante",
       "Monaco",
       "Moreirense",
       "Nacional",
       "PSG",
       "RCD Mallorca",
+      "Rizespor",
       "Santa Clara",
       "Sporting CP",
       "West Ham"
@@ -255532,20 +254471,12 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Neven Subotic",
-    "clubs": [
-      "FSV Mainz 05",
-      "Union Berlin",
-      "FC Köln"
-    ]
-  },
-  {
     "name": "Neven Subotić",
     "clubs": [
       "Borussia Dortmund",
+      "FC Köln",
       "FSV Mainz 05",
-      "Union Berlin",
-      "FC Köln"
+      "Union Berlin"
     ]
   },
   {
@@ -256621,18 +255552,6 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Nico Gonzalez",
-    "clubs": [
-      "Atletico Madrid",
-      "Barcelona",
-      "FC Porto",
-      "Fiorentina",
-      "Juventus",
-      "Valencia",
-      "VfB Stuttgart"
-    ]
-  },
-  {
     "name": "Nico González",
     "clubs": [
       "Atletico Madrid",
@@ -256641,7 +255560,8 @@ export const PLAYERS = [
       "Fiorentina",
       "Juventus",
       "Manchester City",
-      "Valencia"
+      "Valencia",
+      "VfB Stuttgart"
     ]
   },
   {
@@ -258918,12 +257838,7 @@ export const PLAYERS = [
     "name": "Nikica Jelavic",
     "clubs": [
       "Everton",
-      "West Ham"
-    ]
-  },
-  {
-    "name": "Nikica Jelavić",
-    "clubs": [
+      "West Ham",
       "Zulte Waregem"
     ]
   },
@@ -259611,12 +258526,6 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Nikolce Noveski",
-    "clubs": [
-      "FSV Mainz 05"
-    ]
-  },
-  {
     "name": "Nikolče Noveski",
     "clubs": [
       "FSV Mainz 05"
@@ -259820,16 +258729,11 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Nilson",
-    "clubs": [
-      "Vitória SC"
-    ]
-  },
-  {
     "name": "Nílson",
     "clubs": [
       "Celta Vigo",
-      "Moreirense"
+      "Moreirense",
+      "Vitória SC"
     ]
   },
   {
@@ -259940,16 +258844,11 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Nito",
+    "name": "Ñito",
     "clubs": [
       "Elche",
       "Levante",
-      "Rio Ave"
-    ]
-  },
-  {
-    "name": "Ñito",
-    "clubs": [
+      "Rio Ave",
       "Valencia"
     ]
   },
@@ -265314,14 +264213,6 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Oscar Trejo",
-    "clubs": [
-      "Elche",
-      "RCD Mallorca",
-      "Rayo Vallecano"
-    ]
-  },
-  {
     "name": "Óscar Trejo",
     "clubs": [
       "Elche",
@@ -269966,12 +268857,6 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Patrice Covic",
-    "clubs": [
-      "Werder Bremen"
-    ]
-  },
-  {
     "name": "Patrice Čović",
     "clubs": [
       "Werder Bremen"
@@ -273715,21 +272600,9 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Pavel Kaderabek",
-    "clubs": [
-      "TSG Hoffenheim"
-    ]
-  },
-  {
     "name": "Pavel Kadeřábek",
     "clubs": [
       "TSG Hoffenheim"
-    ]
-  },
-  {
-    "name": "Pavel Krmas",
-    "clubs": [
-      "SC Freiburg"
     ]
   },
   {
@@ -275324,12 +274197,7 @@ export const PLAYERS = [
       "Estoril",
       "FC Porto",
       "Famalicão",
-      "Real Madrid"
-    ]
-  },
-  {
-    "name": "Pêpê",
-    "clubs": [
+      "Real Madrid",
       "Vitória SC"
     ]
   },
@@ -276038,16 +274906,10 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Petar Filipovic",
-    "clubs": [
-      "FC St. Pauli"
-    ]
-  },
-  {
     "name": "Petar Filipović",
     "clubs": [
-      "Konyaspor",
-      "FC St. Pauli"
+      "FC St. Pauli",
+      "Konyaspor"
     ]
   },
   {
@@ -276135,15 +274997,8 @@ export const PLAYERS = [
   {
     "name": "Petar Sliskovic",
     "clubs": [
-      "FSV Mainz 05",
-      "FC St. Pauli"
-    ]
-  },
-  {
-    "name": "Petar Slišković",
-    "clubs": [
-      "FSV Mainz 05",
-      "FC St. Pauli"
+      "FC St. Pauli",
+      "FSV Mainz 05"
     ]
   },
   {
@@ -278118,14 +276973,9 @@ export const PLAYERS = [
   {
     "name": "Peter Zulj",
     "clubs": [
+      "Anderlecht",
       "Başakşehir",
       "Göztepe"
-    ]
-  },
-  {
-    "name": "Peter Žulj",
-    "clubs": [
-      "Anderlecht"
     ]
   },
   {
@@ -281319,14 +280169,6 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Piotr Zielinski",
-    "clubs": [
-      "Inter",
-      "Napoli",
-      "Udinese"
-    ]
-  },
-  {
     "name": "Piotr Zieliński",
     "clubs": [
       "Inter",
@@ -284361,13 +283203,6 @@ export const PLAYERS = [
       "Başakşehir",
       "Göztepe",
       "Kayserispor"
-    ]
-  },
-  {
-    "name": "Rajko Tavcar",
-    "clubs": [
-      "FC Augsburg",
-      "FSV Mainz 05"
     ]
   },
   {
@@ -290446,12 +289281,6 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Ricardo Rodriguez",
-    "clubs": [
-      "VfL Wolfsburg"
-    ]
-  },
-  {
     "name": "Ricardo Rodríguez",
     "clubs": [
       "AC Milan",
@@ -292683,17 +291512,11 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Ritsu Doan",
+    "name": "Ritsu Dōan",
     "clubs": [
       "E. Frankfurt",
       "FC Groningen",
       "PSV",
-      "SC Freiburg"
-    ]
-  },
-  {
-    "name": "Ritsu Dōan",
-    "clubs": [
       "SC Freiburg"
     ]
   },
@@ -294219,12 +293042,6 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Robert Palikuca",
-    "clubs": [
-      "FC St. Pauli"
-    ]
-  },
-  {
     "name": "Robert Palikuča",
     "clubs": [
       "FC St. Pauli"
@@ -294598,12 +293415,6 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Robert Vujevic",
-    "clubs": [
-      "VfB Stuttgart"
-    ]
-  },
-  {
     "name": "Robert Vujević",
     "clubs": [
       "VfB Stuttgart"
@@ -294682,13 +293493,6 @@ export const PLAYERS = [
     "clubs": [
       "Everton",
       "Wolves"
-    ]
-  },
-  {
-    "name": "Robert Zulj",
-    "clubs": [
-      "TSG Hoffenheim",
-      "Union Berlin"
     ]
   },
   {
@@ -295541,12 +294345,6 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Roberto Puncec",
-    "clubs": [
-      "Union Berlin"
-    ]
-  },
-  {
     "name": "Roberto Punčec",
     "clubs": [
       "Union Berlin"
@@ -295924,12 +294722,6 @@ export const PLAYERS = [
     "name": "Robin Hofman",
     "clubs": [
       "Excelsior"
-    ]
-  },
-  {
-    "name": "Robin Hranac",
-    "clubs": [
-      "TSG Hoffenheim"
     ]
   },
   {
@@ -303406,18 +302198,12 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Ryo Miyaichi",
-    "clubs": [
-      "Arsenal",
-      "FC Twente",
-      "Feyenoord",
-      "FC St. Pauli"
-    ]
-  },
-  {
     "name": "Ryō Miyaichi",
     "clubs": [
-      "FC St. Pauli"
+      "Arsenal",
+      "FC St. Pauli",
+      "FC Twente",
+      "Feyenoord"
     ]
   },
   {
@@ -303629,7 +302415,8 @@ export const PLAYERS = [
   {
     "name": "Sabri Sarıoğlu",
     "clubs": [
-      "Galatasaray"
+      "Galatasaray",
+      "Göztepe"
     ]
   },
   {
@@ -303941,12 +302728,6 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Said Husejinovic",
-    "clubs": [
-      "Werder Bremen"
-    ]
-  },
-  {
     "name": "Said Husejinović",
     "clubs": [
       "Werder Bremen"
@@ -304134,17 +302915,12 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Salif Keita",
-    "clubs": [
-      "Union Berlin",
-      "Genk"
-    ]
-  },
-  {
     "name": "Salif Keïta",
     "clubs": [
+      "Genk",
       "Marsilya",
       "Sporting CP",
+      "Union Berlin",
       "Valencia"
     ]
   },
@@ -304929,15 +303705,10 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Sam de Meester",
-    "clubs": [
-      "FC Augsburg"
-    ]
-  },
-  {
     "name": "Sam De Meester",
     "clubs": [
-      "Excelsior"
+      "Excelsior",
+      "FC Augsburg"
     ]
   },
   {
@@ -307985,18 +306756,13 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Sasa Ilic",
+    "name": "Saša Ilić",
     "clubs": [
       "Celta Vigo",
       "Galatasaray",
+      "Hamburger SV",
       "Leeds United",
       "West Ham"
-    ]
-  },
-  {
-    "name": "Saša Ilić",
-    "clubs": [
-      "Hamburger SV"
     ]
   },
   {
@@ -308006,17 +306772,11 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Sasa Kalajdzic",
-    "clubs": [
-      "E. Frankfurt",
-      "Wolves",
-      "VfB Stuttgart"
-    ]
-  },
-  {
     "name": "Saša Kalajdžić",
     "clubs": [
-      "VfB Stuttgart"
+      "E. Frankfurt",
+      "VfB Stuttgart",
+      "Wolves"
     ]
   },
   {
@@ -308295,16 +307055,10 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Sava-Arangel Cestic",
-    "clubs": [
-      "Heracles Almelo",
-      "FC Köln"
-    ]
-  },
-  {
     "name": "Sava-Arangel Čestić",
     "clubs": [
-      "FC Köln"
+      "FC Köln",
+      "Heracles Almelo"
     ]
   },
   {
@@ -310417,17 +309171,10 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Sejad Salihovic",
-    "clubs": [
-      "TSG Hoffenheim",
-      "Hamburger SV"
-    ]
-  },
-  {
     "name": "Sejad Salihović",
     "clubs": [
-      "TSG Hoffenheim",
-      "Hamburger SV"
+      "Hamburger SV",
+      "TSG Hoffenheim"
     ]
   },
   {
@@ -310467,15 +309214,10 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Sekou Baradji",
-    "clubs": [
-      "West Ham"
-    ]
-  },
-  {
     "name": "Sékou Baradji",
     "clubs": [
-      "Elche"
+      "Elche",
+      "West Ham"
     ]
   },
   {
@@ -310847,12 +309589,6 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Semir Telalovic",
-    "clubs": [
-      "Borussia Mönchengladbach"
-    ]
-  },
-  {
     "name": "Semir Telalović",
     "clubs": [
       "Borussia Mönchengladbach"
@@ -310933,16 +309669,11 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Senna Miangue",
-    "clubs": [
-      "Cagliari",
-      "Inter"
-    ]
-  },
-  {
     "name": "Senna Miangué",
     "clubs": [
+      "Cagliari",
       "Cercle Brugge",
+      "Inter",
       "Standard Liège"
     ]
   },
@@ -316939,12 +315670,6 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Slobodan Medojevic",
-    "clubs": [
-      "VfL Wolfsburg"
-    ]
-  },
-  {
     "name": "Slobodan Medojević",
     "clubs": [
       "E. Frankfurt",
@@ -317596,12 +316321,6 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Sota Kawasaki",
-    "clubs": [
-      "FSV Mainz 05"
-    ]
-  },
-  {
     "name": "Sōta Kawasaki",
     "clubs": [
       "FSV Mainz 05"
@@ -318003,17 +316722,10 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Spasoje Bulajic",
-    "clubs": [
-      "FSV Mainz 05",
-      "FC Köln"
-    ]
-  },
-  {
     "name": "Spasoje Bulajič",
     "clubs": [
-      "FSV Mainz 05",
-      "FC Köln"
+      "FC Köln",
+      "FSV Mainz 05"
     ]
   },
   {
@@ -319092,12 +317804,6 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Stefan Drljaca",
-    "clubs": [
-      "VfB Stuttgart"
-    ]
-  },
-  {
     "name": "Stefan Drljača",
     "clubs": [
       "VfB Stuttgart"
@@ -319310,22 +318016,16 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Stefan Mitrovic",
+    "name": "Stefan Mitrović",
     "clubs": [
       "Benfica",
       "Excelsior",
+      "Gent",
       "Getafe",
       "Hellas Verona",
+      "OH Leuven",
       "R. Strasbourg",
       "SC Freiburg"
-    ]
-  },
-  {
-    "name": "Stefan Mitrović",
-    "clubs": [
-      "SC Freiburg",
-      "Gent",
-      "OH Leuven"
     ]
   },
   {
@@ -321492,16 +320192,6 @@ export const PLAYERS = [
       "Crystal Palace",
       "Nottingham",
       "Sunderland"
-    ]
-  },
-  {
-    "name": "Stevan Jovetic",
-    "clubs": [
-      "Fiorentina",
-      "Inter",
-      "Manchester City",
-      "Monaco",
-      "Sevilla"
     ]
   },
   {
@@ -325949,12 +324639,6 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Tatsuya Ito",
-    "clubs": [
-      "Hamburger SV"
-    ]
-  },
-  {
     "name": "Tatsuya Itō",
     "clubs": [
       "Hamburger SV",
@@ -328975,13 +327659,6 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Thomas Brdaric",
-    "clubs": [
-      "VfB Stuttgart",
-      "VfL Wolfsburg"
-    ]
-  },
-  {
     "name": "Thomas Brdarić",
     "clubs": [
       "Leverkusen",
@@ -331213,12 +329890,6 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Tijani Belaid",
-    "clubs": [
-      "Union Berlin"
-    ]
-  },
-  {
     "name": "Tijani Belaïd",
     "clubs": [
       "Inter",
@@ -331622,18 +330293,12 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Tim Matavz",
-    "clubs": [
-      "FC Augsburg"
-    ]
-  },
-  {
     "name": "Tim Matavž",
     "clubs": [
+      "FC Augsburg",
       "FC Groningen",
       "Genoa",
-      "PSV",
-      "FC Augsburg"
+      "PSV"
     ]
   },
   {
@@ -332808,22 +331473,13 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Tolga Cigerci",
-    "clubs": [
-      "Başakşehir",
-      "Fenerbahçe",
-      "Galatasaray",
-      "Sivasspor"
-    ]
-  },
-  {
     "name": "Tolga Ciğerci",
     "clubs": [
       "Başakşehir",
+      "Borussia Mönchengladbach",
       "Fenerbahçe",
       "Galatasaray",
       "Sivasspor",
-      "Borussia Mönchengladbach",
       "VfL Wolfsburg"
     ]
   },
@@ -334542,12 +333198,6 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Tomas Cvancara",
-    "clubs": [
-      "Borussia Mönchengladbach"
-    ]
-  },
-  {
     "name": "Tomáš Čvančara",
     "clubs": [
       "Antalyaspor",
@@ -334662,30 +333312,18 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Tomas Kalas",
-    "clubs": [
-      "Chelsea",
-      "Fulham",
-      "FC Köln"
-    ]
-  },
-  {
     "name": "Tomáš Kalas",
     "clubs": [
-      "FC Köln"
-    ]
-  },
-  {
-    "name": "Tomas Koubek",
-    "clubs": [
-      "FC Augsburg"
+      "Chelsea",
+      "FC Köln",
+      "Fulham"
     ]
   },
   {
     "name": "Tomáš Koubek",
     "clubs": [
-      "Rennes",
-      "FC Augsburg"
+      "FC Augsburg",
+      "Rennes"
     ]
   },
   {
@@ -334740,12 +333378,6 @@ export const PLAYERS = [
     "clubs": [
       "Betis",
       "Levante"
-    ]
-  },
-  {
-    "name": "Tomas Ostrák",
-    "clubs": [
-      "FC Köln"
     ]
   },
   {
@@ -337062,12 +335694,6 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Toni Sunjic",
-    "clubs": [
-      "VfB Stuttgart"
-    ]
-  },
-  {
     "name": "Toni Šunjić",
     "clubs": [
       "VfB Stuttgart"
@@ -338935,18 +337561,13 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Trezeguet",
+    "name": "Trézéguet",
     "clubs": [
+      "Anderlecht",
       "Aston Villa",
       "Başakşehir",
       "Kasımpaşa",
       "Trabzonspor"
-    ]
-  },
-  {
-    "name": "Trézéguet",
-    "clubs": [
-      "Anderlecht"
     ]
   },
   {
@@ -340608,12 +339229,6 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Umaro Embaló",
-    "clubs": [
-      "Vitória SC"
-    ]
-  },
-  {
     "name": "Úmaro Embaló",
     "clubs": [
       "Fortuna Sittard",
@@ -341120,15 +339735,10 @@ export const PLAYERS = [
   {
     "name": "Uros Spajic",
     "clubs": [
+      "Anderlecht",
       "Feyenoord",
       "Kasımpaşa",
       "Toulouse"
-    ]
-  },
-  {
-    "name": "Uroš Spajić",
-    "clubs": [
-      "Anderlecht"
     ]
   },
   {
@@ -341556,18 +340166,12 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Vaclav Cerny",
+    "name": "Václav Černý",
     "clubs": [
       "Ajax",
       "Beşiktaş",
       "FC Twente",
       "FC Utrecht",
-      "VfL Wolfsburg"
-    ]
-  },
-  {
-    "name": "Václav Černý",
-    "clubs": [
       "VfL Wolfsburg"
     ]
   },
@@ -342650,12 +341254,6 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Vasilije Janjicic",
-    "clubs": [
-      "Hamburger SV"
-    ]
-  },
-  {
     "name": "Vasilije Janjičić",
     "clubs": [
       "Hamburger SV"
@@ -342769,18 +341367,11 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Vedad Ibisevic",
-    "clubs": [
-      "VfB Stuttgart",
-      "TSG Hoffenheim"
-    ]
-  },
-  {
     "name": "Vedad Ibišević",
     "clubs": [
       "PSG",
-      "VfB Stuttgart",
-      "TSG Hoffenheim"
+      "TSG Hoffenheim",
+      "VfB Stuttgart"
     ]
   },
   {
@@ -343392,14 +341983,9 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Victor",
-    "clubs": [
-      "Lecce"
-    ]
-  },
-  {
     "name": "Víctor",
     "clubs": [
+      "Lecce",
       "Villarreal"
     ]
   },
@@ -343914,15 +342500,10 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Victor Ramos",
-    "clubs": [
-      "Standard Liège"
-    ]
-  },
-  {
     "name": "Víctor Ramos",
     "clubs": [
-      "FC Nantes"
+      "FC Nantes",
+      "Standard Liège"
     ]
   },
   {
@@ -355862,12 +354443,6 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Yoshito Okubo",
-    "clubs": [
-      "VfL Wolfsburg"
-    ]
-  },
-  {
     "name": "Yoshito Ōkubo",
     "clubs": [
       "RCD Mallorca",
@@ -356475,12 +355050,6 @@ export const PLAYERS = [
     "name": "Yuki Kobayashi",
     "clubs": [
       "Heerenveen"
-    ]
-  },
-  {
-    "name": "Yuki Otsu",
-    "clubs": [
-      "Borussia Mönchengladbach"
     ]
   },
   {
@@ -357967,17 +356536,11 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Zdravko Kuzmanovic",
+    "name": "Zdravko Kuzmanović",
     "clubs": [
       "Fiorentina",
       "Inter",
       "Udinese",
-      "VfB Stuttgart"
-    ]
-  },
-  {
-    "name": "Zdravko Kuzmanović",
-    "clubs": [
       "VfB Stuttgart"
     ]
   },
@@ -358442,16 +357005,11 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Zezinho",
-    "clubs": [
-      "Nacional",
-      "Sporting CP"
-    ]
-  },
-  {
     "name": "Zézinho",
     "clubs": [
-      "Benfica"
+      "Benfica",
+      "Nacional",
+      "Sporting CP"
     ]
   },
   {
@@ -358859,18 +357417,11 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Zlatan Bajramovic",
-    "clubs": [
-      "SC Freiburg",
-      "FC St. Pauli"
-    ]
-  },
-  {
     "name": "Zlatan Bajramović",
     "clubs": [
       "E. Frankfurt",
-      "SC Freiburg",
-      "FC St. Pauli"
+      "FC St. Pauli",
+      "SC Freiburg"
     ]
   },
   {
@@ -358941,12 +357492,6 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Zlatko Junuzovic",
-    "clubs": [
-      "Werder Bremen"
-    ]
-  },
-  {
     "name": "Zlatko Junuzović",
     "clubs": [
       "Werder Bremen"
@@ -358992,17 +357537,11 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Zlatko Zahovic",
+    "name": "Zlatko Zahovič",
     "clubs": [
       "Benfica",
       "FC Porto",
       "Valencia",
-      "Vitória SC"
-    ]
-  },
-  {
-    "name": "Zlatko Zahovič",
-    "clubs": [
       "Vitória SC"
     ]
   },
@@ -359203,16 +357742,10 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Zoran Tosic",
-    "clubs": [
-      "FC Köln"
-    ]
-  },
-  {
     "name": "Zoran Tošić",
     "clubs": [
-      "Manchester United",
-      "FC Köln"
+      "FC Köln",
+      "Manchester United"
     ]
   },
   {
@@ -359329,17 +357862,10 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Zsolt Lőw",
-    "clubs": [
-      "TSG Hoffenheim",
-      "FSV Mainz 05"
-    ]
-  },
-  {
     "name": "Zsolt Löw",
     "clubs": [
-      "TSG Hoffenheim",
-      "FSV Mainz 05"
+      "FSV Mainz 05",
+      "TSG Hoffenheim"
     ]
   },
   {
@@ -359479,12 +358005,6 @@ export const PLAYERS = [
     "name": "Zvonko Monsider",
     "clubs": [
       "Lazio"
-    ]
-  },
-  {
-    "name": "Zvonko Pamic",
-    "clubs": [
-      "SC Freiburg"
     ]
   },
   {
