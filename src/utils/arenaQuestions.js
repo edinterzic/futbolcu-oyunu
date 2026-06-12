@@ -5,6 +5,7 @@
 // Bir soru = (Kulüp A, Kulüp B, Cevap Havuzu).
 
 import { PLAYERS, TEAMS } from "../data/gameData";
+import { TEAM_LOGOS } from "../data/teamLogos";
 import {
   EASY_TEAMS, MEDIUM_TEAMS,
   TIER_WEIGHTS_BY_MODE,
@@ -23,10 +24,25 @@ function isPairInArenaDifficulty(clubA, clubB, difficulty) {
   return true; // hard = tüm havuz
 }
 
-// Arena tier ağırlığı — App.jsx ile aynı tier matrisini kullanır
-// (./data/tiers.js'ten gelir). Arena aynı-ülke boost'u eklemiyor.
+// App.jsx ile parite: aynı ülke derbileri (FB-GS, El Clásico, Manchester,
+// Milano…) eşit tier ağırlığında pratikte "asla gelmiyor" hissi veriyordu.
+// 3x boost ile bu kıymetli çiftler görünür sıklığa çıkar. App.jsx'teki
+// SAME_COUNTRY_BOOST = 3 ile birebir aynı.
+const SAME_COUNTRY_BOOST = 3;
+
+function isSameCountryArenaPair(clubA, clubB) {
+  const ca = TEAM_LOGOS[clubA]?.country;
+  const cb = TEAM_LOGOS[clubB]?.country;
+  return Boolean(ca) && ca === cb;
+}
+
+// Arena tier ağırlığı — App.jsx ile aynı tier matrisini (./data/tiers.js) ve
+// aynı same-country boost'u kullanır. Böylece "orta zorlukta tier 1 ile tier 2
+// daha çok eşleşir" mantığı Arena'da da (custom mod dahil) birebir çalışır.
 function getArenaPairWeight(clubA, clubB, difficulty) {
-  return getTierWeight(clubA, clubB, difficulty);
+  let w = getTierWeight(clubA, clubB, difficulty);
+  if (w > 0 && isSameCountryArenaPair(clubA, clubB)) w *= SAME_COUNTRY_BOOST;
+  return w;
 }
 
 // Weighted random pick — pool boş veya total weight 0 ise uniform fallback
@@ -87,13 +103,17 @@ function getSortedPlayers() {
   return cachedSortedPlayers;
 }
 
-// Input için suggestion oyuncuları döner (top 6)
+// Input için suggestion oyuncuları döner.
+// Limit 30: App.jsx'teki getPlayerSuggestions ile parite. "dembele" gibi
+// soyadlarda 3-4 farklı oyuncu (Ousmane, Mousa, Moussa, Bingourou…) olabiliyor;
+// 6'lık eski limit alfabetik sırada sonda kalanları kesip Arena'da bulunmaz
+// yapıyordu. 30 hem tüm varyantları kapsar hem render performansı için makul.
 export function getArenaSuggestions(userInput) {
   const query = normalizeAnswer(userInput);
   if (query.length < 1) return [];
   return getSortedPlayers()
     .filter((p) => p.suggestionTokens.some((t) => t.startsWith(query)))
-    .slice(0, 6);
+    .slice(0, 30);
 }
 
 // Bir kez build edilir: tüm geçerli kulüp çiftlerini ve cevaplarını çıkarır
@@ -129,27 +149,48 @@ function buildArenaPairs() {
   return valid;
 }
 
-// n adet rastgele, tekrar etmeyen soru üretir
+// n adet rastgele, tekrar etmeyen soru üretir.
 // difficulty: "easy" | "medium" | "hard" (default: medium)
+// leagueTeams: opsiyonel Set<string> — verilirse SADECE her iki kulübü de bu
+//   sette olan çiftler havuza girer (Arena "özel mod" lig filtresi). null/boş
+//   ise tüm havuz kullanılır.
+//
+// ÖNEMLİ (custom mod başlatma bug fix): Eskiden custom mod difficulty="hard"
+// ile çağırıp dönen sonucu JS tarafında lig filtresinden geçiriyordu. Dar lig
+// seçimlerinde overshoot yetmiyor → ya "filtre çok dar" hatası ya da binlerce
+// çift arasından tekrarsız seçim yavaşlıyordu ("başlamıyor/geç başlıyor").
+// Şimdi lig filtresi havuza ÖNCE uygulanıyor; weighted seçim zaten daralmış
+// havuzda yapılıyor, overshoot/discard yok. Tier ağırlığı (orta zorlukta
+// tier1↔tier2 yoğunluğu) tüm modlarda — custom dahil — aynı çalışır.
+//
 // Easy modunda ilk 3 soru en yüksek ortak-oyuncu çiftlerinden gelir (herkes 3'ü
 // garanti yapsın diye). Geri kalan sorular tier-bilinçli weighted random.
-export function generateArenaQuestions(count, difficulty = "medium") {
+export function generateArenaQuestions(count, difficulty = "medium", leagueTeams = null) {
   const allPairs = buildArenaPairs();
   if (allPairs.length === 0) return [];
 
-  // Difficulty filtresi
-  const filtered = allPairs.filter((p) =>
+  const hasLeagueFilter = leagueTeams instanceof Set && leagueTeams.size > 0;
+
+  // 1) Önce lig filtresi (varsa), sonra difficulty filtresi.
+  const inLeague = hasLeagueFilter
+    ? allPairs.filter((p) => leagueTeams.has(p.clubA) && leagueTeams.has(p.clubB))
+    : allPairs;
+
+  const filtered = inLeague.filter((p) =>
     isPairInArenaDifficulty(p.clubA, p.clubB, difficulty)
   );
 
-  // Filtre sonrası hiç çift yoksa, sessizce tüm havuza düş
-  const pool = filtered.length > 0 ? filtered : allPairs;
+  // Difficulty filtresi havuzu boşaltırsa, lig içinde kalarak difficulty'yi
+  // gevşet (custom modda dar lig + zorluk kombinasyonu kilitlenmesin).
+  let pool = filtered;
+  if (pool.length === 0) pool = inLeague;
+  // Lig filtresi bile çift bırakmadıysa son çare tüm havuz (yine de soru üretilsin).
+  if (pool.length === 0) pool = allPairs;
 
-  if (filtered.length === 0 && difficulty !== "hard") {
-    console.warn(`[Arena] '${difficulty}' havuzunda çift bulunamadı, tüm havuza geri dönüldü.`);
-  } else {
-    console.log(`[Arena] '${difficulty}' havuzu: ${filtered.length} çift (toplam ${allPairs.length}).`);
-  }
+  console.log(
+    `[Arena] havuz: lig=${hasLeagueFilter ? leagueTeams.size + " takım" : "tümü"}, ` +
+    `'${difficulty}' sonrası ${filtered.length} çift (kullanılan ${pool.length}).`
+  );
 
   const safe = Math.min(count, pool.length);
   const result = [];
@@ -171,7 +212,7 @@ export function generateArenaQuestions(count, difficulty = "medium") {
     }
   }
 
-  // ── Geri kalan sorular: tier-weighted random ──
+  // ── Geri kalan sorular: tier-weighted random (App.jsx ile aynı matris+boost) ──
   const remaining = pool.filter((p) => !usedKeys.has(keyOf(p)));
   while (result.length < safe && remaining.length > 0) {
     const weights = remaining.map((p) => getArenaPairWeight(p.clubA, p.clubB, difficulty));

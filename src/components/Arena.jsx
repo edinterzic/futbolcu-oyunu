@@ -29,6 +29,16 @@ const QUESTION_DURATION_MS = 20000;
 const LEADERBOARD_DURATION_MS = 10000;
 const MAX_PLAYERS_PER_ROOM = 50;
 
+// i18n güvenli çağrı: locale dosyalarına henüz eklenmemiş bir key için t()
+// çoğu kurulumda key'in kendisini geri döner. Böyle durumda kullanıcıya çıplak
+// "arena_diff_custom_hint" göstermek yerine verilen yedek metni gösterir.
+// (arena_diff_custom_hint tr.js/en.js'e eklendiğinde otomatik onu kullanır.)
+function tWithFallback(key, fallback) {
+  const val = t(key);
+  if (!val || val === key) return fallback;
+  return val;
+}
+
 // =================== LİG FİLTRESİ ===================
 // App.jsx ile aynı semantik; takım sayısına göre sıralanır.
 const LEAGUES = (() => {
@@ -574,38 +584,38 @@ export default function Arena({ supabase, onExit, selectedLeagues = [], onLeague
     setError(null);
 
     // "difficulty" modunda lig filtresi uygulanmaz; "custom" modunda uygulanır.
+    // Lig filtresi artık generatörün İÇİNE geçiyor — JS tarafında overshoot edip
+    // sonra atmak yerine, weighted seçim doğrudan daralmış havuzda yapılıyor.
+    // Bu, dar lig seçiminde "başlamıyor / geç başlıyor" sorununu çözer.
     const allowedTeams = arenaMatchModeRef.current === "custom"
       ? buildAllowedTeamsLocal(selectedLeagues)
       : null;
-    const overshoot = allowedTeams ? 8 : 1;
+
     const rawQuestions = generateArenaQuestions(
-      room.total_rounds * overshoot,
-      room.difficulty || "medium"
+      room.total_rounds,
+      room.difficulty || "medium",
+      allowedTeams
     );
 
-    let questions;
-    if (allowedTeams) {
-      questions = rawQuestions
-        .filter((q) => allowedTeams.has(q.clubA) && allowedTeams.has(q.clubB))
-        .slice(0, room.total_rounds);
-      if (questions.length < room.total_rounds) {
-        // TODO: i18n → arena_err_filter_too_narrow
-        setError(t("arena_err_filter_too_narrow", { found: questions.length, total: room.total_rounds }));
-        return;
-      }
-    } else {
-      questions = rawQuestions.slice(0, room.total_rounds);
-    }
+    const questions = rawQuestions.slice(0, room.total_rounds);
 
     if (questions.length === 0) {
       setError(t("arena_err_no_questions"));
       return;
     }
+    // Lig çok darsa istenen tur sayısına ulaşılamayabilir — yine de elde
+    // edilen kadarıyla başlat (oyuncuları boş ekranda bekletmektense).
+    if (questions.length < room.total_rounds) {
+      console.warn(
+        `[Arena] İstenen ${room.total_rounds} tur, üretilen ${questions.length}. ` +
+        `Lig filtresi dar; mevcut sorularla başlatılıyor.`
+      );
+    }
 
     await startNextRound(1, questions[0]);
 
     track("arena_game_started", {
-      total_rounds: room.total_rounds,
+      total_rounds: questions.length,
       difficulty: room.difficulty,
       players_at_start: players.length,
       match_mode: arenaMatchModeRef.current,
@@ -891,6 +901,7 @@ export default function Arena({ supabase, onExit, selectedLeagues = [], onLeague
 // ArenaSetup
 // =============================================
 function ArenaSetup({ setupMode, setSetupMode, onCreate, onJoin, onExit, error, selectedLeagues = [], onLeaguesChange }) {
+  const [lang] = useLang();
   const [hostName, setHostName] = useState(() => localStorage.getItem("pairfc_player_name") || "");
   const [totalRounds, setTotalRounds] = useState(10);
   const [difficulty, setDifficulty] = useState(() => localStorage.getItem("pairfc_arena_difficulty") || "medium");
@@ -1014,24 +1025,35 @@ function ArenaSetup({ setupMode, setSetupMode, onCreate, onJoin, onExit, error, 
             </small>
           </label>
 
-          {matchMode === "difficulty" && (
-            <label className="arena-label">
-              <span>{t("arena_difficulty_label")}</span>
-              <div className="arena-rounds-row">
-                {["easy", "medium", "hard"].map((d) => (
-                  <button
-                    key={d}
-                    type="button"
-                    onClick={() => setDifficulty(d)}
-                    className={`arena-round-chip arena-diff-chip arena-diff-chip--${d} ${difficulty === d ? "active" : ""}`}
-                  >
-                    {t(`diff_${d}`)}
-                  </button>
-                ))}
-              </div>
-              <small className="arena-diff-hint">{t(`arena_diff_${difficulty}_hint`, { n: Object.keys(TEAM_LOGOS).length })}</small>
-            </label>
-          )}
+          {/* Zorluk seçimi her iki modda da görünür.
+              - difficulty modu: zorluk tüm havuza uygulanır (easy/medium/hard).
+              - custom modu: seçilen ligler içinde tier ağırlığını belirler
+                (örn. medium → tier1↔tier2 daha sık). App.jsx ile aynı mantık. */}
+          <label className="arena-label">
+            <span>{t("arena_difficulty_label")}</span>
+            <div className="arena-rounds-row">
+              {["easy", "medium", "hard"].map((d) => (
+                <button
+                  key={d}
+                  type="button"
+                  onClick={() => setDifficulty(d)}
+                  className={`arena-round-chip arena-diff-chip arena-diff-chip--${d} ${difficulty === d ? "active" : ""}`}
+                >
+                  {t(`diff_${d}`)}
+                </button>
+              ))}
+            </div>
+            <small className="arena-diff-hint">
+              {matchMode === "custom"
+                ? tWithFallback(
+                    "arena_diff_custom_hint",
+                    lang === "en"
+                      ? "Difficulty shapes matchups within your selected leagues (e.g. Medium pairs stronger clubs more often)."
+                      : "Zorluk, seçtiğin ligler içindeki eşleşmeleri belirler (örn. Orta: güçlü takımlar daha sık)."
+                  )
+                : t(`arena_diff_${difficulty}_hint`, { n: Object.keys(TEAM_LOGOS).length })}
+            </small>
+          </label>
 
           {matchMode === "custom" && onLeaguesChange && (
             <LeagueFilter
@@ -1048,11 +1070,11 @@ function ArenaSetup({ setupMode, setSetupMode, onCreate, onJoin, onExit, error, 
               if (hostName.trim()) {
                 localStorage.setItem("pairfc_player_name", hostName.trim());
               }
-              // Custom modda zorluk filtresi devre dışı; DB'ye de "hard" yazıyoruz
-              // ki Lobby göstergesi ve sonraki sorgular tutarlı olsun.
-              const effectiveDifficulty = matchMode === "custom" ? "hard" : difficulty;
-              try { localStorage.setItem("pairfc_arena_difficulty", effectiveDifficulty); } catch (e) {}
-              onCreate(hostName, totalRounds, effectiveDifficulty, matchMode);
+              // Zorluk artık her iki modda da kullanıcının seçimi. Custom modda
+              // bu, seçilen ligler içinde tier ağırlığını belirler (medium →
+              // tier1↔tier2 yoğun). Lobby göstergesi de bu değeri kullanır.
+              try { localStorage.setItem("pairfc_arena_difficulty", difficulty); } catch (e) {}
+              onCreate(hostName, totalRounds, difficulty, matchMode);
             }}
             disabled={!hostName.trim()}
             className="arena-cta"
@@ -1145,7 +1167,7 @@ function ArenaLobby({ room, players, isHost, userId, onStart, onLeave, matchMode
           <strong className="arena-pin-value">{room.pin}</strong>
           <small>
             {t("arena_n_questions", { n: room.total_rounds })}
-            {matchMode !== "custom" && ` · ${t(`diff_${room.difficulty || "medium"}`)}`}
+            {` · ${t(`diff_${room.difficulty || "medium"}`)}`}
           </small>
           {isHost && matchMode === "custom" && (
             <small style={{ color: "#fcd34d", fontWeight: 700, marginTop: 2 }}>

@@ -10074,10 +10074,16 @@ button:focus-visible {
   background: #1a1a2e;
   border: 1px solid rgba(255,255,255,0.10);
   border-radius: 10px;
-  overflow: hidden;
   z-index: 50;
-  max-height: 240px;
+  /* App.jsx .suggestions ile parite: klavye açıkken visualViewport yüksekliğine
+     göre küçülür, böylece 30 maddelik liste klavyenin arkasında kalmaz, scroll
+     edilebilir kalır. JS desteklemeyen tarayıcıda 100dvh fallback. */
+  max-height: min(360px, calc(var(--vv-height, 100dvh) - 200px));
   overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+  /* Son madde sıkışmasın, yukarı scroll edilebilsin diye nefes alanı. */
+  padding-bottom: 72px;
   box-shadow: 0 8px 24px rgba(0,0,0,0.45);
 }
 .arena-suggestions button {
