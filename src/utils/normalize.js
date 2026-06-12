@@ -49,6 +49,23 @@ export function getNameTokens(name) {
     .filter(Boolean);
 }
 
+// Çok parçalı soyadları yakalamak için "trailing suffix" birleşik token'ları.
+// "Robin van Persie" → kelime token'ları [robin, van, persie] tek başına
+// "van persie" (→ "vanpersie") yazımını YAKALAYAMAZ çünkü normalizeText
+// boşlukları siler. Bu fonksiyon sondan başlayan her bitişik grubu birleştirir:
+//   [robin, van, persie] → [robin, van, persie, vanpersie, robinvanpersie]
+// Böylece "de gea" → "degea", "van der sar" → "dersar"/"vandersar",
+// "de bruyne" → "debruyne" hepsi eşleşir. Sabit "van/de/von" listesi gerekmez.
+export function getNameMatchTokens(name) {
+  const words = getNameTokens(name);
+  const set = new Set(words);
+  // Sondan birleşik suffix'ler (en az 2 kelimelik gruplar — tek kelime zaten var)
+  for (let start = words.length - 2; start >= 0; start--) {
+    set.add(words.slice(start).join(""));
+  }
+  return Array.from(set);
+}
+
 // answerName ('David Beckham') ile userInput ('Beckham' veya 'David Beckham')
 // eşleşiyor mu kontrol et.
 // Soyad eşleşmesi sadece o tur'daki TEK cevap aynı soyadı taşıyorsa kabul
@@ -61,10 +78,13 @@ export function answerNameMatchesInput(answerName, userInput, answersForRound = 
   const normalizedAnswer = normalizeText(answerName);
   if (normalizedAnswer === normalizedInput) return true;
 
-  const tokens = getNameTokens(answerName);
+  const tokens = getNameMatchTokens(answerName);
   if (!tokens.includes(normalizedInput)) return false;
 
-  const sameTokenMatches = answersForRound.filter((answer) => getNameTokens(answer).includes(normalizedInput));
+  // Aynı token o tur'da birden fazla cevaba aitse ayırt edilemez → reddet.
+  // (örn. iki "David" varsa "david" yazımı belirsiz). Birleşik suffix token'lar
+  // da bu kontrole dahil — "degea" tek bir cevaba aitse kabul.
+  const sameTokenMatches = answersForRound.filter((answer) => getNameMatchTokens(answer).includes(normalizedInput));
   return sameTokenMatches.length === 1;
 }
 
@@ -80,12 +100,8 @@ export function buildSuggestionSearchTokens(player) {
 
     tokenSet.add(normalizeText(text));
 
-    text
-      .replaceAll("-", " ")
-      .split(" ")
-      .map((part) => normalizeText(part))
-      .filter(Boolean)
-      .forEach((part) => tokenSet.add(part));
+    // Tek tek kelimeler + sondan birleşik suffix'ler ("van persie"→"vanpersie")
+    getNameMatchTokens(text).forEach((tok) => tokenSet.add(tok));
   });
 
   return Array.from(tokenSet);

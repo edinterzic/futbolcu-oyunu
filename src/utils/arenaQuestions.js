@@ -73,7 +73,8 @@ export function normalizeAnswer(value) {
     .trim();
 }
 
-// Bir oyuncunun suggestion token'larını çıkar (isim + alias + her bir kelime)
+// Bir oyuncunun suggestion token'larını çıkar (isim + alias + her kelime +
+// çok parçalı soyad birleşik suffix'leri: "van persie"→"vanpersie")
 function buildSuggestionTokens(player) {
   const rawValues = [player.name, ...(player.aliases || [])];
   const tokenSet = new Set();
@@ -81,11 +82,15 @@ function buildSuggestionTokens(player) {
     const text = String(value || "").trim();
     if (!text) return;
     tokenSet.add(normalizeAnswer(text));
-    text.replaceAll("-", " ")
+    const words = text.replaceAll("-", " ")
       .split(" ")
       .map((part) => normalizeAnswer(part))
-      .filter(Boolean)
-      .forEach((part) => tokenSet.add(part));
+      .filter(Boolean);
+    words.forEach((part) => tokenSet.add(part));
+    // Sondan birleşik suffix'ler (≥2 kelime)
+    for (let start = words.length - 2; start >= 0; start--) {
+      tokenSet.add(words.slice(start).join(""));
+    }
   });
   return Array.from(tokenSet);
 }
@@ -229,15 +234,23 @@ export function generateArenaQuestions(count, difficulty = "medium", leagueTeams
   }));
 }
 
-// Bir tahmin doğru mu? Hem tam isim hem soyad eşleşmesi kabul
+// Bir tahmin doğru mu? Tam isim, tek soyad VE çok parçalı soyad ("van persie",
+// "de gea") kabul edilir. Eskiden sadece son kelimeye bakıyordu → "van persie"
+// yazımı "persie" dışında çalışmıyordu.
 export function checkArenaAnswer(guess, correctAnswers) {
   const normalized = normalizeAnswer(guess);
   if (!normalized) return false;
   return correctAnswers.some((ans) => {
     const fullNorm = normalizeAnswer(ans);
     if (fullNorm === normalized) return true;
-    const lastWord = ans.split(/\s+/).slice(-1)[0];
-    return normalizeAnswer(lastWord) === normalized;
+    const words = ans.replaceAll("-", " ").split(/\s+/)
+      .map((w) => normalizeAnswer(w)).filter(Boolean);
+    if (words.includes(normalized)) return true;
+    // Sondan birleşik suffix'ler: [robin,van,persie]→vanpersie, robinvanpersie
+    for (let start = words.length - 2; start >= 0; start--) {
+      if (words.slice(start).join("") === normalized) return true;
+    }
+    return false;
   });
 }
 

@@ -467,6 +467,11 @@ function runSelfTests() {
   console.assert(normalizeText("Łukasz") === normalizeText("Lukasz"), "ł → l normalization failed");
   console.assert(normalizeText("Đorđević") === normalizeText("Djordjevic"), "đ → dj normalization failed");
   console.assert(getPlayerSuggestions("xzy").length === 0, "Suggestions should be empty when there is no match");
+  // Çok parçalı soyad eşleşmesi (van Persie, de Gea regresyonu)
+  console.assert(answerNameMatchesInput("Robin van Persie", "van persie", ["Robin van Persie"]), "Multi-word surname 'van persie' should match");
+  console.assert(answerNameMatchesInput("Robin van Persie", "vanpersie", ["Robin van Persie"]), "Joined surname 'vanpersie' should match");
+  console.assert(answerNameMatchesInput("David de Gea", "de gea", ["David de Gea"]), "Multi-word surname 'de gea' should match");
+  console.assert(answerNameMatchesInput("Robin van Persie", "persie", ["Robin van Persie"]), "Last word 'persie' should still match");
   console.assert(getPlayableTeamPairs().length > 0 && getPlayableTeamPairs().length <= Object.keys(ANSWER_INDEX).length, "Playable pairs subset of ANSWER_INDEX");
   console.assert(getPlayableTeamPairs().length > 0, "There should be playable team pairs");
 
@@ -3415,7 +3420,7 @@ export default function App() {
   const isArena = screen === "arena";
 
   return (
-    <div className={`app-shell ${isHome ? `home-screen home-tab-${mainTab}` : "play-screen"}`}>
+    <div className={`app-shell ${isHome ? `home-screen home-tab-${mainTab}${showOnlineSetup ? " online-setup-open" : ""}` : "play-screen"}`}>
       {showOnboarding && <OnboardingOverlay onClose={dismissOnboarding} />}
       <style>{css}</style>
 
@@ -5075,16 +5080,23 @@ button:focus-visible {
 }
 
 /* Anasayfa HOME tab'ı: içerik tek viewport'a sığar, scroll yok.
-   LEADERBOARD tab'ı: liste uzun, normal scroll açık kalır. */
-.home-screen.home-tab-home {
+   LEADERBOARD tab'ı: liste uzun, normal scroll açık kalır.
+   AMA Düello online setup (showOnlineSetup) açıkken kilit kalkar — özel mod lig
+   filtresi açılınca form viewport'u aşıyor ve "Oda Kur" butonuna ulaşılamıyordu. */
+.home-screen.home-tab-home:not(.online-setup-open) {
   height: 100vh;
   height: 100dvh;
   overflow: hidden;
   overscroll-behavior: none;
 }
-.home-screen.home-tab-home .app-frame {
+.home-screen.home-tab-home:not(.online-setup-open) .app-frame {
   max-height: 100%;
   overflow: hidden;
+}
+.home-screen.home-tab-home.online-setup-open {
+  min-height: 100dvh;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .app-frame {
