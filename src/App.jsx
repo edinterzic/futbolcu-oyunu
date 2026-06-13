@@ -5099,6 +5099,20 @@ button:focus-visible {
   -webkit-overflow-scrolling: touch;
 }
 
+/* "Tek viewport'a sığsın, scroll yok" kilidi sadece MOBİLDE anlamlı (telefonda
+   tek ekran güzel durur). Masaüstünde içerik bazen viewport'a sığmıyor; kilit
+   ya kartları sıkıştırıyor ya da çirkin iç-scrollbar çıkarıyordu. Geniş ekranda
+   kilidi kaldırıyoruz: sayfa doğal akar, kartlar tam boyunda, gerekirse normal
+   sayfa kaydırması olur (iç-scrollbar değil), sığıyorsa hiç kaymaz. */
+@media (min-width: 768px) {
+  .home-screen.home-tab-home:not(.online-setup-open),
+  .home-screen.home-tab-home:not(.online-setup-open) .app-frame {
+    height: auto;
+    max-height: none;
+    overflow: visible;
+  }
+}
+
 .app-frame {
   width: 100%;
   max-width: 920px;
@@ -5362,17 +5376,8 @@ button:focus-visible {
   min-height: 0;
 }
 
-/* Home kartları (Maraton hero, Günlük, Düello/Arena, install) bir flex sütunun
-   çocukları. Home tab'ı "tek viewport'a sığsın, scroll yok" diye overflow:hidden.
-   Ama içerik viewport'tan uzunsa flex çocukları SIKIŞIP iç metinlerini (başlık,
-   alt yazı, CTA) kırpıyordu — ekranda Maraton/Günlük tek satırlık banda dönüyordu.
-   Çözüm: çocuklar küçülmesin (flex-shrink:0), içerik sığmazsa home-content kendi
-   içinde scroll etsin. Böylece kartlar tam boyunda görünür. */
+/* Home kartları sıkışıp iç metnini kırpmasın. */
 .home-content > * { flex-shrink: 0; }
-.home-screen.home-tab-home:not(.online-setup-open) .home-content {
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
-}
 
 .mode-grid {
   display: grid;
