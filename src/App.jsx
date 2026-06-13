@@ -5108,6 +5108,14 @@ button:focus-visible {
   min-height: calc(100dvh - 24px);
 }
 
+/* Mobile-first tek sütun tasarım masaüstünde 920px'e gerilince kartlar yatayda
+   esneyip içerik sola yapışıyor, sağda kocaman boşluk kalıyordu. Home ekranında
+   frame'i telefona yakın bir sütuna sabitliyoruz; topbar, kartlar ve alt sekmeler
+   aynı dar sütunda hizalı durur. Oyun ekranları (play-screen) etkilenmez. */
+.home-screen .app-frame {
+  max-width: 560px;
+}
+
 .app-main {
   flex: 1;
   display: flex;
