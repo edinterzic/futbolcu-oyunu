@@ -5127,7 +5127,7 @@ button:focus-visible {
    frame'i telefona yakın bir sütuna sabitliyoruz; topbar, kartlar ve alt sekmeler
    aynı dar sütunda hizalı durur. Oyun ekranları (play-screen) etkilenmez. */
 .home-screen .app-frame {
-  max-width: 560px;
+  max-width: 720px;
 }
 
 .app-main {
