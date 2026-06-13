@@ -5362,6 +5362,18 @@ button:focus-visible {
   min-height: 0;
 }
 
+/* Home kartları (Maraton hero, Günlük, Düello/Arena, install) bir flex sütunun
+   çocukları. Home tab'ı "tek viewport'a sığsın, scroll yok" diye overflow:hidden.
+   Ama içerik viewport'tan uzunsa flex çocukları SIKIŞIP iç metinlerini (başlık,
+   alt yazı, CTA) kırpıyordu — ekranda Maraton/Günlük tek satırlık banda dönüyordu.
+   Çözüm: çocuklar küçülmesin (flex-shrink:0), içerik sığmazsa home-content kendi
+   içinde scroll etsin. Böylece kartlar tam boyunda görünür. */
+.home-content > * { flex-shrink: 0; }
+.home-screen.home-tab-home:not(.online-setup-open) .home-content {
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
 .mode-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
