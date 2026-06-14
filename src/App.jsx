@@ -30,7 +30,7 @@ import { initAnalytics, track, startTimer, endTimer, identify } from "./analytic
 import { isPushSupported, getNotificationPermission, subscribeToPush, unsubscribeFromPush } from "./pwa";
 import AdminPanel from "./admin/AdminPanel";
 import Arena from "./components/Arena";
-import { fetchProfileByClientId, isNicknameAvailable, registerNickname, addXp } from "./auth";
+import { fetchProfileByClientId, isNicknameAvailable, registerNickname, addXp, fetchLeaderboard as fetchXpLeaderboard } from "./auth";
 
 const WINNING_SCORE = 3;
 const ROUND_SECONDS = 20;
@@ -1210,6 +1210,10 @@ export default function App() {
   const [lbPeriod, setLbPeriod] = useState("today");
   const [lbLoading, setLbLoading] = useState(false);
   const [scoreSaved, setScoreSaved] = useState(false);
+  // XP sıralaması (Sürüm 3): haftalık + tüm zamanlar, user_xp'den
+  const [xpScope, setXpScope] = useState("weekly"); // "weekly" | "total"
+  const [xpData, setXpData] = useState([]);
+  const [xpLoading, setXpLoading] = useState(false);
   const [soundEnabled, setSoundEnabled] = useState(() => window.localStorage.getItem("footballGameMuted") !== "true");
   const [connectionStatus, setConnectionStatus] = useState("offline");
   const [playerName, setPlayerName] = useState("Oyuncu");
@@ -1699,6 +1703,17 @@ export default function App() {
     });
     return () => { cancelled = true; };
   }, [mainTab, lbDifficulty, lbPeriod]);
+
+  // XP sıralamasını yükle (Sürüm 3) — Liderlik sekmesi açıkken / scope değişince
+  useEffect(() => {
+    if (mainTab !== "leaderboard") return;
+    let cancelled = false;
+    setXpLoading(true);
+    fetchXpLeaderboard(supabase, xpScope, 100).then((data) => {
+      if (!cancelled) { setXpData(data); setXpLoading(false); }
+    });
+    return () => { cancelled = true; };
+  }, [mainTab, xpScope]);
 
   // Challenge skoru kaydet
   const handleSaveScore = async () => {
@@ -3900,59 +3915,51 @@ export default function App() {
                 <div className="leaderboard-page">
                   <div className="lb-header">
                     <h2>{t("lb_title")}</h2>
-                    <p className="lb-subtitle">{t("lb_subtitle")}</p>
+                    <p className="lb-subtitle">{t("xp_lb_subtitle")}</p>
                   </div>
 
                   <div className="lb-filters">
-                    <div className="lb-difficulty-tabs">
-                      {[
-                        { key: "easy", label: t("diff_easy"), emoji: "🟢" },
-                        { key: "medium", label: t("diff_medium"), emoji: "🟡" },
-                        { key: "hard", label: t("diff_hard"), emoji: "🔴" }
-                      ].map((d) => (
-                        <button
-                          key={d.key}
-                          type="button"
-                          className={`lb-tab ${lbDifficulty === d.key ? "active" : ""}`}
-                          onClick={() => setLbDifficulty(d.key)}
-                        >
-                          {d.emoji} {d.label}
-                        </button>
-                      ))}
-                    </div>
                     <div className="lb-period-toggle">
                       <button
                         type="button"
-                        className={`lb-period-btn ${lbPeriod === "today" ? "active" : ""}`}
-                        onClick={() => setLbPeriod("today")}
-                      >{t("lb_period_today")}</button>
+                        className={`lb-period-btn ${xpScope === "weekly" ? "active" : ""}`}
+                        onClick={() => setXpScope("weekly")}
+                      >{t("xp_lb_weekly")}</button>
                       <button
                         type="button"
-                        className={`lb-period-btn ${lbPeriod === "alltime" ? "active" : ""}`}
-                        onClick={() => setLbPeriod("alltime")}
-                      >{t("lb_period_alltime")}</button>
+                        className={`lb-period-btn ${xpScope === "total" ? "active" : ""}`}
+                        onClick={() => setXpScope("total")}
+                      >{t("xp_lb_alltime")}</button>
                     </div>
                   </div>
 
-                  {lbLoading ? (
+                  {xpLoading ? (
                     <div className="lb-loading">{t("lb_loading")}</div>
-                  ) : lbData.length === 0 ? (
+                  ) : xpData.length === 0 ? (
                     <div className="lb-empty">
                       <span className="lb-empty-icon">🏟️</span>
-                      <p>{t("lb_empty")}</p>
+                      <p>{t("xp_lb_empty")}</p>
                     </div>
                   ) : (
-                    <div className="lb-list">
-                      {lbData.map((entry, i) => (
-                        <div key={entry.id} className={`lb-row ${i < 3 ? "lb-row-top" : ""}`}>
-                          <span className="lb-rank">
-                            {i === 0 ? "🥇" : i === 1 ? "🥈" : i === 2 ? "🥉" : `${i + 1}`}
-                          </span>
-                          <span className="lb-name">{entry.player_name}</span>
-                          <strong className="lb-score">{entry.score}</strong>
-                        </div>
-                      ))}
-                    </div>
+                    <>
+                      <div className="lb-list">
+                        {xpData.map((entry, i) => {
+                          const isMe = profileNickname && entry.nickname === profileNickname;
+                          return (
+                            <div key={`${entry.nickname}-${i}`} className={`lb-row ${i < 3 ? "lb-row-top" : ""} ${isMe ? "lb-row-me" : ""}`}>
+                              <span className="lb-rank">
+                                {i === 0 ? "🥇" : i === 1 ? "🥈" : i === 2 ? "🥉" : `${i + 1}`}
+                              </span>
+                              <span className="lb-name">{entry.nickname}{isMe ? ` ${t("xp_lb_you")}` : ""}</span>
+                              <strong className="lb-score">{entry.xp} XP</strong>
+                            </div>
+                          );
+                        })}
+                      </div>
+                      {profileNickname && !xpData.some((e) => e.nickname === profileNickname) && (
+                        <p className="xp-lb-self-note">{t("xp_lb_not_ranked")}</p>
+                      )}
+                    </>
                   )}
                 </div>
               )}
@@ -9528,6 +9535,16 @@ button:focus-visible {
   flex-shrink: 0;
 }
 .lb-row-top .lb-rank { color: var(--text); }
+.lb-row-me {
+  border-color: rgba(155, 45, 255, 0.55);
+  background: linear-gradient(135deg, rgba(155, 45, 255, 0.16), var(--surface));
+}
+.xp-lb-self-note {
+  margin: 12px 4px 0;
+  text-align: center;
+  font-size: 12.5px;
+  color: var(--text-muted);
+}
 .lb-name {
   flex: 1;
   font-size: 13.5px;
