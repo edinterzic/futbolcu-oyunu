@@ -30,7 +30,7 @@ import { initAnalytics, track, startTimer, endTimer, identify } from "./analytic
 import { isPushSupported, getNotificationPermission, subscribeToPush, unsubscribeFromPush } from "./pwa";
 import AdminPanel from "./admin/AdminPanel";
 import Arena from "./components/Arena";
-import { fetchProfileByClientId, isNicknameAvailable, registerNickname } from "./auth";
+import { fetchProfileByClientId, isNicknameAvailable, registerNickname, addXp } from "./auth";
 
 const WINNING_SCORE = 3;
 const ROUND_SECONDS = 20;
@@ -1587,6 +1587,21 @@ export default function App() {
   // Nickname ekranı: profil kontrolü bitti VE nickname yoksa göster (zorunlu).
   const needsNickname = profileChecked && !profileNickname && !!supabase;
 
+  // XP ekle (oyun sonlarında çağrılır). Sadece nickname'i olan kullanıcıya.
+  // add_xp tek çağrıda max 500 kabul eder; daha büyük toplamı parçalara böl.
+  const awardXp = async (amount) => {
+    const total = Math.round(amount || 0);
+    if (!supabase || !profileNickname || total <= 0) return;
+    let remaining = total;
+    while (remaining > 0) {
+      const chunk = Math.min(500, remaining);
+      // eslint-disable-next-line no-await-in-loop
+      await addXp(supabase, clientIdRef.current, chunk);
+      remaining -= chunk;
+    }
+    try { track("xp_awarded", { amount: total }); } catch (e) {}
+  };
+
 
   // =================== DAILY PUZZLE STATE ===================
   const [dailyHistory, setDailyHistory] = useState(() => {
@@ -1779,6 +1794,9 @@ export default function App() {
         target_score: targetScore,
         duration_seconds: endTimer("online_match")
       });
+      // XP: galibiyet 15 / mağlubiyet 2. (Bu effect her cihazda kendi
+      // playerIndex'iyle bir kez çalışır → her oyuncu kendi XP'sini alır.)
+      awardXp(winner === playerIndex ? 15 : 2);
     }
   }, [screen, winner, playerIndex]);
 
@@ -2865,6 +2883,8 @@ export default function App() {
     if (isLast) {
       // Oyun bitti, kaydet
       const today = getTodayKey();
+      // XP yalnızca bugün İLK kez tamamlanıyorsa verilir (tekrar oynayınca değil)
+      const alreadyCompletedToday = !!(dailyHistory[today] && dailyHistory[today].completed);
       const newHistory = {
         ...dailyHistory,
         [today]: { attempts: newResults, completed: true, finishedAt: Date.now() }
@@ -2873,10 +2893,16 @@ export default function App() {
       window.localStorage.setItem("pairfc_daily_history", JSON.stringify(newHistory));
       setDailyDone(true);
       const correctCount = newResults.filter((r) => r === "correct").length;
+      const streakNow = calculateStreak(newHistory);
+      if (!alreadyCompletedToday) {
+        // her doğru 3 + tamamlama 10 + seri bonusu (2 × seri günü)
+        const dailyXp = correctCount * 3 + 10 + Math.max(0, streakNow) * 2;
+        awardXp(dailyXp);
+      }
       track("daily_completed", {
         correct: correctCount,
         total: newResults.length,
-        streak: calculateStreak(newHistory),
+        streak: streakNow,
         duration_seconds: endTimer("daily"),
         date: today
       });
@@ -3173,6 +3199,10 @@ export default function App() {
     setChallengeLastScore(finalScore);
     setChallengeBest(nextBest);
     window.localStorage.setItem("footballChallengeBest", String(nextBest));
+
+    // XP: her doğru cevap kolay 1 / orta 2 / zor 5. finalScore = doğru sayısı.
+    const xpPerCorrect = diff === "hard" ? 5 : diff === "medium" ? 2 : 1;
+    awardXp(finalScore * xpPerCorrect);
     track("challenge_finished", {
       score: finalScore,
       is_new_best: finalScore > challengeBest,
@@ -4642,6 +4672,7 @@ export default function App() {
                 }}
                 selectedLeagues={selectedLeagues}
                 onLeaguesChange={persistLeagues}
+                onAwardXp={awardXp}
               />
             </section>
           )}

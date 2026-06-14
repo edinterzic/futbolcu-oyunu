@@ -237,7 +237,7 @@ function formatMs(ms) {
 // =============================================
 // Ana Arena bileşeni
 // =============================================
-export default function Arena({ supabase, onExit, selectedLeagues = [], onLeaguesChange }) {
+export default function Arena({ supabase, onExit, selectedLeagues = [], onLeaguesChange, onAwardXp }) {
   // Subscribe to lang so that all sub-renders pick up t() updates
   // eslint-disable-next-line no-unused-vars
   const [lang] = useLang();
@@ -882,6 +882,22 @@ export default function Arena({ supabase, onExit, selectedLeagues = [], onLeague
       />
     );
   }
+
+  // Arena XP: oyun bitince yerel oyuncunun sırasına göre bir kez ödül ver.
+  // 1.→25, 2.→18, 3.→12, kalan 5. Anti-abuse: oda en az 3 kişi olmalı.
+  const arenaXpAwardedRef = useRef(false);
+  useEffect(() => {
+    if (room?.status !== "finished") { arenaXpAwardedRef.current = false; return; }
+    if (arenaXpAwardedRef.current) return;
+    if (!onAwardXp) return;
+    if (!players || players.length < 3) return; // ≥3 kişi şartı
+    const sorted = [...players].sort((a, b) => b.total_score - a.total_score);
+    const myRank = sorted.findIndex((p) => p.user_id === userIdRef.current);
+    if (myRank < 0) return;
+    const xp = myRank === 0 ? 25 : myRank === 1 ? 18 : myRank === 2 ? 12 : 5;
+    arenaXpAwardedRef.current = true;
+    onAwardXp(xp);
+  }, [room?.status, players, onAwardXp]);
 
   if (room.status === "finished") {
     return (
