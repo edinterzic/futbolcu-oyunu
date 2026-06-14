@@ -1,114 +1,105 @@
 // =============================================
-// PairFC Auth Helper — Supabase Auth (Google OAuth) — Sürüm 1a
+// PairFC Nickname/XP Helper — Supabase (OAuth YOK)
 // =============================================
-// İsteğe bağlı giriş: oyun girişsiz de oynanır. Giriş, kalıcı XP + sıralama
-// içindir. Bu modül auth çağrılarını tek yerde toplar; App.jsx sadece çağırır.
-// 1a kapsamı: giriş başlat / çıkış / oturum al / profil çek.
-// (Kullanıcı adı seçme + hesap silme 1b'de eklenecek.)
+// OAuth denendi ama PWABuilder iOS WKWebView'de Google girişi çalışmadı.
+// KARAR: kimlik = mevcut anonim client_id + benzersiz nickname. Email toplanmaz.
+// Bu modül profil (nickname) ve XP ile ilgili tüm Supabase çağrılarını toplar.
 
 import { logSwallowed } from "./utils/errors";
 
-// Google ile giriş başlat. Supabase kullanıcıyı Google'a yönlendirir; giriş
-// bitince redirectTo (mevcut origin = pairfc.com) adresine geri döner.
-//
-// iOS WKWebView SORUNU: Google, uygulama-içi webview'lerde OAuth'u reddeder
-// (disallowed_useragent). PWABuilder iOS paketi WKWebView kullandığı için
-// normal redirect "yükleniyor → hata → geri dön" yapıyor. Çözüm: iOS'ta girişi
-// SİSTEM Safari'sinde aç (skipBrowserRedirect + window.open). Kullanıcı Safari'de
-// giriş yapar, pairfc.com'a döner; oturum oradaki URL'den (detectSessionInUrl)
-// okunur. NOT: WKWebView çerez izolasyonu nedeniyle bu yöntem PWABuilder'da
-// her zaman tam çalışmayabilir — test edip karar vereceğiz.
-function isIOSWebView() {
-  if (typeof navigator === "undefined") return false;
-  const ua = navigator.userAgent || "";
-  const isIOS = /iphone|ipad|ipod/i.test(ua);
-  // Safari'nin kendisi değil ama iOS WebKit ise (uygulama-içi webview)
-  const isStandaloneWebView = isIOS && !/safari/i.test(ua);
-  // PWA standalone modu da webview gibi davranır
-  const isStandalone = typeof window !== "undefined" &&
-    (window.navigator.standalone === true ||
-     (window.matchMedia && window.matchMedia("(display-mode: standalone)").matches));
-  return isIOS && (isStandaloneWebView || isStandalone);
+// Bu client_id'ye ait profil (nickname) var mı? Açılışta çağrılır.
+export async function fetchProfileByClientId(supabase, clientId) {
+  if (!supabase || !clientId) return null;
+  try {
+    const { data, error } = await supabase
+      .from("profiles")
+      .select("client_id, nickname, created_at")
+      .eq("client_id", clientId)
+      .maybeSingle();
+    if (error) { logSwallowed("nick_fetch_profile", error); return null; }
+    return data || null;
+  } catch (e) {
+    logSwallowed("nick_fetch_profile_throw", e);
+    return null;
+  }
 }
 
-export async function signInWithGoogle(supabase) {
-  if (!supabase) return { error: "no_client" };
+// Nickname müsait mi? (anlık UI uyarısı için)
+export async function isNicknameAvailable(supabase, nickname) {
+  if (!supabase || !nickname) return false;
   try {
-    const redirectTo = typeof window !== "undefined" ? window.location.origin : undefined;
-
-    // iOS webview/standalone: girişi sistem tarayıcısında aç
-    if (isIOSWebView()) {
-      const { data, error } = await supabase.auth.signInWithOAuth({
-        provider: "google",
-        options: { redirectTo, skipBrowserRedirect: true }
-      });
-      if (error) {
-        logSwallowed("auth_google_signin_ios", error);
-        return { error: error.message };
-      }
-      if (data?.url) {
-        // _blank → iOS bunu sistem Safari'sinde açar (webview içinde değil)
-        window.open(data.url, "_blank");
-        return { ok: true, external: true };
-      }
-      return { error: "no_oauth_url" };
-    }
-
-    // Web + Android: normal redirect (çalışıyor)
-    const { error } = await supabase.auth.signInWithOAuth({
-      provider: "google",
-      options: { redirectTo }
-    });
-    if (error) {
-      logSwallowed("auth_google_signin", error);
-      return { error: error.message };
-    }
-    return { ok: true };
+    const { data, error } = await supabase
+      .from("profiles")
+      .select("client_id")
+      .eq("nickname", nickname)
+      .limit(1);
+    if (error) { logSwallowed("nick_check", error); return false; }
+    return !data || data.length === 0;
   } catch (e) {
-    logSwallowed("auth_google_signin_throw", e);
+    logSwallowed("nick_check_throw", e);
+    return false;
+  }
+}
+
+// Nickname kaydet (yeni profil oluştur) + user_xp satırını başlat.
+// Benzersizlik DB unique constraint ile garanti; çakışırsa { error: "taken" }.
+export async function registerNickname(supabase, clientId, nickname) {
+  if (!supabase || !clientId) return { error: "no_client" };
+  const clean = String(nickname || "").trim();
+  if (clean.length < 3) return { error: "too_short" };
+  if (clean.length > 20) return { error: "too_long" };
+
+  try {
+    const { error: pErr } = await supabase
+      .from("profiles")
+      .insert([{ client_id: clientId, nickname: clean }]);
+    if (pErr) {
+      if (pErr.code === "23505") return { error: "taken" }; // unique violation
+      logSwallowed("nick_register_profile", pErr);
+      return { error: pErr.message };
+    }
+    // XP satırını oluştur (best-effort; profil önemli olan)
+    const { error: xErr } = await supabase
+      .from("user_xp")
+      .insert([{ client_id: clientId, nickname: clean, total_xp: 0, weekly_xp: 0 }]);
+    if (xErr && xErr.code !== "23505") logSwallowed("nick_register_xp", xErr);
+
+    return { ok: true, nickname: clean };
+  } catch (e) {
+    logSwallowed("nick_register_throw", e);
     return { error: String(e?.message || e) };
   }
 }
 
-// Çıkış yap
-export async function signOut(supabase) {
-  if (!supabase) return;
+// XP ekle — Supabase add_xp fonksiyonunu çağırır (atomik + haftalık reset).
+// delta: bu oyunda kazanılan XP. Sürüm 2'de oyun sonlarına bağlanacak.
+export async function addXp(supabase, clientId, delta) {
+  if (!supabase || !clientId || !delta || delta <= 0) return;
   try {
-    await supabase.auth.signOut();
+    const { error } = await supabase.rpc("add_xp", {
+      p_client_id: clientId,
+      p_delta: Math.round(delta)
+    });
+    if (error) logSwallowed("nick_add_xp", error);
   } catch (e) {
-    logSwallowed("auth_signout", e);
+    logSwallowed("nick_add_xp_throw", e);
   }
 }
 
-// Mevcut oturumu al (uygulama açılışında)
-export async function getSession(supabase) {
-  if (!supabase) return null;
-  try {
-    const { data } = await supabase.auth.getSession();
-    return data?.session || null;
-  } catch (e) {
-    logSwallowed("auth_get_session", e);
-    return null;
-  }
-}
-
-// Bir kullanıcının profilini (username) çek. 1a'da sadece "var mı / username
-// set edilmiş mi" diye bakmak için; 1b'de username picker bunu kullanacak.
-export async function fetchProfile(supabase, userId) {
-  if (!supabase || !userId) return null;
+// Sıralama çek. scope: "total" | "weekly". Sürüm 3'te sıralama ekranı kullanacak.
+export async function fetchLeaderboard(supabase, scope = "total", limit = 100) {
+  if (!supabase) return [];
+  const col = scope === "weekly" ? "weekly_xp" : "total_xp";
   try {
     const { data, error } = await supabase
-      .from("profiles")
-      .select("id, username, created_at")
-      .eq("id", userId)
-      .single();
-    if (error) {
-      if (error.code !== "PGRST116") logSwallowed("auth_fetch_profile", error);
-      return null;
-    }
-    return data;
+      .from("user_xp")
+      .select(`nickname, ${col}`)
+      .order(col, { ascending: false })
+      .limit(limit);
+    if (error) { logSwallowed("nick_leaderboard", error); return []; }
+    return (data || []).map((r) => ({ nickname: r.nickname, xp: r[col] || 0 }));
   } catch (e) {
-    logSwallowed("auth_fetch_profile_throw", e);
-    return null;
+    logSwallowed("nick_leaderboard_throw", e);
+    return [];
   }
 }

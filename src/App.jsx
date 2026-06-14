@@ -10,7 +10,7 @@ import {
   isPairInDifficulty as isPairInDifficultyFromTiers,
   getTierWeight
 } from "./data/tiers";
-import { cleanDisplayName } from "./utils/sanitize";
+import { cleanDisplayName, containsProfanity } from "./utils/sanitize";
 import { logSwallowed } from "./utils/errors";
 import {
   normalizeText,
@@ -30,7 +30,7 @@ import { initAnalytics, track, startTimer, endTimer, identify } from "./analytic
 import { isPushSupported, getNotificationPermission, subscribeToPush, unsubscribeFromPush } from "./pwa";
 import AdminPanel from "./admin/AdminPanel";
 import Arena from "./components/Arena";
-import { signInWithGoogle, signOut, getSession, fetchProfile } from "./auth";
+import { fetchProfileByClientId, isNicknameAvailable, registerNickname } from "./auth";
 
 const WINNING_SCORE = 3;
 const ROUND_SECONDS = 20;
@@ -738,34 +738,64 @@ function WrongExplanationCard({ report, onReport }) {
 // ve dahili drawBrandMark/drawWordmarkLockup/drawGlassCTA/roundRectPath) ./utils/canvas.js
 // modülüne taşındı. ~240 satır azalma, hala aynı görseli üretir.
 
-function WelcomeOverlay({ onGoogle, onContinue, busy }) {
+// İlk açılışta ZORUNLU nickname ekranı. Nickname girilmeden geçilemez.
+// Benzersizlik DB'de kontrol edilir; doluysa uyarır. OAuth yok.
+function NicknameOverlay({ onSubmit, supabase }) {
+  const [value, setValue] = useState("");
+  const [status, setStatus] = useState(null); // null | "checking" | "taken" | "ok" | "error"
+  const [busy, setBusy] = useState(false);
+
+  const clean = value.trim();
+  const tooShort = clean.length > 0 && clean.length < 3;
+  const tooLong = clean.length > 20;
+  const valid = clean.length >= 3 && clean.length <= 20 && !containsProfanity(clean);
+
+  const submit = async () => {
+    if (!valid || busy) return;
+    setBusy(true);
+    setStatus("checking");
+    const res = await onSubmit(clean);
+    if (res?.error === "taken") { setStatus("taken"); setBusy(false); }
+    else if (res?.error) { setStatus("error"); setBusy(false); }
+    // başarılıysa overlay zaten kapanır (parent state)
+  };
+
   return (
-    <div style={{ position: "fixed", inset: 0, zIndex: 1001, background: "rgba(8,8,16,0.85)", backdropFilter: "blur(6px)", WebkitBackdropFilter: "blur(6px)", display: "flex", alignItems: "center", justifyContent: "center", padding: 20 }}>
+    <div style={{ position: "fixed", inset: 0, zIndex: 1001, background: "rgba(8,8,16,0.92)", backdropFilter: "blur(6px)", WebkitBackdropFilter: "blur(6px)", display: "flex", alignItems: "center", justifyContent: "center", padding: 20 }}>
       <div style={{ width: "100%", maxWidth: 400, background: "linear-gradient(160deg,#1d1430,#241a3e)", border: "1px solid rgba(255,255,255,0.12)", borderRadius: 24, padding: "30px 24px", textAlign: "center", boxShadow: "0 20px 60px rgba(0,0,0,0.5)", color: "#fff" }}>
         <div style={{ fontSize: 44, marginBottom: 8 }}>⚽</div>
-        <h2 style={{ margin: "0 0 8px", fontSize: 22, fontWeight: 800 }}>{t("welcome_title")}</h2>
-        <p style={{ margin: "0 0 24px", fontSize: 14.5, lineHeight: 1.55, color: "rgba(255,255,255,0.7)" }}>
-          {t("welcome_sub")}
+        <h2 style={{ margin: "0 0 8px", fontSize: 22, fontWeight: 800 }}>{t("nick_title")}</h2>
+        <p style={{ margin: "0 0 22px", fontSize: 14.5, lineHeight: 1.55, color: "rgba(255,255,255,0.7)" }}>
+          {t("nick_sub")}
         </p>
+        <input
+          type="text"
+          value={value}
+          onChange={(e) => { setValue(e.target.value); setStatus(null); }}
+          onKeyDown={(e) => { if (e.key === "Enter") submit(); }}
+          placeholder={t("nick_placeholder")}
+          maxLength={20}
+          autoFocus
+          style={{ width: "100%", padding: "14px 16px", borderRadius: 14, border: "1px solid rgba(255,255,255,0.2)", background: "rgba(255,255,255,0.06)", color: "#fff", fontSize: 16, textAlign: "center", fontWeight: 700, boxSizing: "border-box" }}
+        />
+        <div style={{ minHeight: 20, margin: "8px 0 0", fontSize: 12.5, color: status === "taken" || status === "error" || tooLong || (clean.length > 0 && !valid) ? "#ff8080" : "rgba(255,255,255,0.5)" }}>
+          {status === "taken" ? t("nick_taken")
+            : status === "error" ? t("nick_error")
+            : tooShort ? t("nick_too_short")
+            : tooLong ? t("nick_too_long")
+            : clean.length > 0 && containsProfanity(clean) ? t("nick_invalid")
+            : t("nick_hint")}
+        </div>
         <button
           type="button"
-          onClick={onGoogle}
-          disabled={busy}
-          style={{ width: "100%", padding: 14, borderRadius: 14, border: "none", background: "#fff", color: "#1a1a1a", fontSize: 15.5, fontWeight: 700, cursor: busy ? "default" : "pointer", display: "flex", alignItems: "center", justifyContent: "center", gap: 10, opacity: busy ? 0.7 : 1 }}
+          onClick={submit}
+          disabled={!valid || busy}
+          style={{ width: "100%", marginTop: 14, padding: 14, borderRadius: 14, border: "none", background: valid && !busy ? "#aa3bff" : "rgba(255,255,255,0.12)", color: "#fff", fontSize: 16, fontWeight: 800, cursor: valid && !busy ? "pointer" : "default" }}
         >
-          <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path fill="#4285F4" d="M17.64 9.2c0-.64-.06-1.25-.16-1.84H9v3.48h4.84a4.14 4.14 0 0 1-1.8 2.72v2.26h2.92c1.7-1.57 2.68-3.88 2.68-6.62z"/><path fill="#34A853" d="M9 18c2.43 0 4.47-.8 5.96-2.18l-2.92-2.26c-.8.54-1.84.86-3.04.86-2.34 0-4.32-1.58-5.02-3.7H.96v2.34A9 9 0 0 0 9 18z"/><path fill="#FBBC05" d="M3.98 10.72a5.4 5.4 0 0 1 0-3.44V4.94H.96a9 9 0 0 0 0 8.12l3.02-2.34z"/><path fill="#EA4335" d="M9 3.58c1.32 0 2.5.46 3.44 1.35l2.58-2.58A9 9 0 0 0 .96 4.94l3.02 2.34C4.68 5.16 6.66 3.58 9 3.58z"/></svg>
-          {busy ? t("welcome_redirecting") : t("welcome_google")}
+          {busy ? t("nick_saving") : t("nick_start")}
         </button>
-        <button
-          type="button"
-          onClick={onContinue}
-          disabled={busy}
-          style={{ width: "100%", marginTop: 12, padding: 13, borderRadius: 14, border: "1px solid rgba(255,255,255,0.18)", background: "transparent", color: "rgba(255,255,255,0.85)", fontSize: 14.5, fontWeight: 600, cursor: busy ? "default" : "pointer" }}
-        >
-          {t("welcome_continue")}
-        </button>
-        <p style={{ margin: "18px 0 0", fontSize: 11.5, lineHeight: 1.5, color: "rgba(255,255,255,0.4)" }}>
-          {t("welcome_note")}
+        <p style={{ margin: "16px 0 0", fontSize: 11.5, lineHeight: 1.5, color: "rgba(255,255,255,0.4)" }}>
+          {t("nick_note")}
         </p>
       </div>
     </div>
@@ -1521,66 +1551,41 @@ export default function App() {
     try { track("onboarding_done"); } catch (e) {}
   };
 
-  // =================== AUTH STATE (Sürüm 1a) ===================
-  // İsteğe bağlı giriş. session null = anonim. Karşılama ekranı sadece bir kez
-  // gösterilir (pairfc_welcome_seen). "Giriş yapmadan devam" da bu flag'i set eder.
-  const [authSession, setAuthSession] = useState(null);
-  const [authProfile, setAuthProfile] = useState(null);
-  const [authBusy, setAuthBusy] = useState(false);
-  const [showWelcome, setShowWelcome] = useState(() => {
-    try { return !window.localStorage.getItem("pairfc_welcome_seen"); } catch (e) { return false; }
-  });
-  const [showProfilePanel, setShowProfilePanel] = useState(false);
+  // =================== NICKNAME STATE (OAuth yok) ===================
+  // İlk açılışta zorunlu nickname. Kimlik = clientId + benzersiz nickname.
+  // profileNickname null + profileChecked true = nickname ekranı göster.
+  const [profileNickname, setProfileNickname] = useState(null);
+  const [profileChecked, setProfileChecked] = useState(false);
 
-  const dismissWelcome = () => {
-    try { window.localStorage.setItem("pairfc_welcome_seen", "1"); } catch (e) {}
-    setShowWelcome(false);
-  };
-
-  // Oturumu açılışta al + değişiklikleri dinle (giriş/çıkış/redirect dönüşü)
+  // Açılışta bu clientId'nin nickname'i var mı diye bak
   useEffect(() => {
-    if (!supabase) return;
+    if (!supabase || !clientIdRef.current) { setProfileChecked(true); return; }
     let active = true;
     (async () => {
-      const session = await getSession(supabase);
+      const prof = await fetchProfileByClientId(supabase, clientIdRef.current);
       if (!active) return;
-      setAuthSession(session);
-      if (session?.user?.id) {
-        const prof = await fetchProfile(supabase, session.user.id);
-        if (active) setAuthProfile(prof);
+      if (prof?.nickname) {
+        setProfileNickname(prof.nickname);
+        try { window.localStorage.setItem("pairfc_player_name", prof.nickname); } catch (e) {}
       }
+      setProfileChecked(true);
     })();
-    const { data: sub } = supabase.auth.onAuthStateChange((_event, session) => {
-      setAuthSession(session);
-      if (session?.user?.id) {
-        // Giriş gerçekleşti — karşılama ekranını kapat, profili çek
-        try { window.localStorage.setItem("pairfc_welcome_seen", "1"); } catch (e) {}
-        setShowWelcome(false);
-        fetchProfile(supabase, session.user.id).then((p) => setAuthProfile(p));
-        try { track("auth_signed_in"); } catch (e) {}
-      } else {
-        setAuthProfile(null);
-      }
-    });
-    return () => { active = false; sub?.subscription?.unsubscribe?.(); };
+    return () => { active = false; };
   }, []);
 
-  const handleGoogleSignIn = async () => {
-    if (authBusy) return;
-    setAuthBusy(true);
-    try { track("auth_google_click"); } catch (e) {}
-    const res = await signInWithGoogle(supabase);
-    // signInWithOAuth tarayıcıyı yönlendirir; hata olursa burada yakalanır.
-    // iOS'ta giriş harici Safari'de açılır (external) — busy'yi temizle.
-    if (res?.error || res?.external) setAuthBusy(false);
+  // Nickname kaydet (NicknameOverlay'den çağrılır)
+  const handleRegisterNickname = async (nickname) => {
+    const res = await registerNickname(supabase, clientIdRef.current, nickname);
+    if (res?.ok) {
+      setProfileNickname(res.nickname);
+      try { window.localStorage.setItem("pairfc_player_name", res.nickname); } catch (e) {}
+      try { track("nickname_registered"); } catch (e) {}
+    }
+    return res;
   };
 
-  const handleSignOut = async () => {
-    await signOut(supabase);
-    setAuthProfile(null);
-    setShowProfilePanel(false);
-    try { track("auth_signed_out"); } catch (e) {}
-  };
+  // Nickname ekranı: profil kontrolü bitti VE nickname yoksa göster (zorunlu).
+  const needsNickname = profileChecked && !profileNickname && !!supabase;
 
 
   // =================== DAILY PUZZLE STATE ===================
@@ -3518,14 +3523,10 @@ export default function App() {
 
   return (
     <div className={`app-shell ${isHome ? `home-screen home-tab-${mainTab}${showOnlineSetup ? " online-setup-open" : ""}` : "play-screen"}`}>
-      {showWelcome && supabase && (
-        <WelcomeOverlay
-          onGoogle={handleGoogleSignIn}
-          onContinue={dismissWelcome}
-          busy={authBusy}
-        />
+      {needsNickname && (
+        <NicknameOverlay onSubmit={handleRegisterNickname} supabase={supabase} />
       )}
-      {!showWelcome && showOnboarding && <OnboardingOverlay onClose={dismissOnboarding} />}
+      {!needsNickname && showOnboarding && <OnboardingOverlay onClose={dismissOnboarding} />}
       <style>{css}</style>
 
       {isOffline && (
@@ -3701,35 +3702,15 @@ export default function App() {
                 {pushOn ? "🔔" : "🔕"}
               </button>
             )}
-            {supabase && (
-              <div style={{ position: "relative" }}>
-                <button
-                  type="button"
-                  onClick={() => {
-                    if (authSession) setShowProfilePanel((o) => !o);
-                    else { setShowWelcome(true); }
-                  }}
-                  className="icon-button"
-                  aria-label={authSession ? t("profile_menu") : t("welcome_google")}
-                  title={authSession ? t("profile_menu") : t("welcome_google")}
-                >
-                  {authSession ? "👤" : "🔑"}
-                </button>
-                {showProfilePanel && authSession && (
-                  <div role="menu" style={{ position: "absolute", right: 0, top: "calc(100% + 6px)", minWidth: 200, background: "#1a1a2e", border: "1px solid rgba(255,255,255,0.12)", borderRadius: 12, padding: 12, zIndex: 60, boxShadow: "0 8px 24px rgba(0,0,0,0.45)" }}>
-                    <div style={{ fontSize: 13, color: "rgba(255,255,255,0.6)", marginBottom: 2 }}>{t("profile_signed_in_as")}</div>
-                    <div style={{ fontSize: 14.5, fontWeight: 700, color: "#fff", marginBottom: 12, wordBreak: "break-word" }}>
-                      {authProfile?.username || authSession.user?.email || t("profile_account")}
-                    </div>
-                    <button
-                      type="button"
-                      onClick={handleSignOut}
-                      style={{ width: "100%", padding: 10, borderRadius: 10, border: "1px solid rgba(255,255,255,0.18)", background: "transparent", color: "rgba(255,255,255,0.85)", fontSize: 13.5, fontWeight: 600, cursor: "pointer" }}
-                    >
-                      {t("profile_signout")}
-                    </button>
-                  </div>
-                )}
+            {supabase && profileNickname && (
+              <div
+                className="icon-button"
+                title={profileNickname}
+                aria-label={profileNickname}
+                style={{ width: "auto", padding: "0 12px", fontSize: 13, fontWeight: 800, maxWidth: 120, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap", display: "inline-flex", alignItems: "center", gap: 5 }}
+              >
+                <span aria-hidden="true">👤</span>
+                <span style={{ overflow: "hidden", textOverflow: "ellipsis" }}>{profileNickname}</span>
               </div>
             )}
           </div>
