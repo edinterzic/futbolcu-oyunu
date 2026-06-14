@@ -1570,8 +1570,9 @@ export default function App() {
     setAuthBusy(true);
     try { track("auth_google_click"); } catch (e) {}
     const res = await signInWithGoogle(supabase);
-    // signInWithOAuth tarayıcıyı yönlendirir; hata olursa burada yakalanır
-    if (res?.error) setAuthBusy(false);
+    // signInWithOAuth tarayıcıyı yönlendirir; hata olursa burada yakalanır.
+    // iOS'ta giriş harici Safari'de açılır (external) — busy'yi temizle.
+    if (res?.error || res?.external) setAuthBusy(false);
   };
 
   const handleSignOut = async () => {

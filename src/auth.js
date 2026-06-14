@@ -10,10 +10,51 @@ import { logSwallowed } from "./utils/errors";
 
 // Google ile giriş başlat. Supabase kullanıcıyı Google'a yönlendirir; giriş
 // bitince redirectTo (mevcut origin = pairfc.com) adresine geri döner.
+//
+// iOS WKWebView SORUNU: Google, uygulama-içi webview'lerde OAuth'u reddeder
+// (disallowed_useragent). PWABuilder iOS paketi WKWebView kullandığı için
+// normal redirect "yükleniyor → hata → geri dön" yapıyor. Çözüm: iOS'ta girişi
+// SİSTEM Safari'sinde aç (skipBrowserRedirect + window.open). Kullanıcı Safari'de
+// giriş yapar, pairfc.com'a döner; oturum oradaki URL'den (detectSessionInUrl)
+// okunur. NOT: WKWebView çerez izolasyonu nedeniyle bu yöntem PWABuilder'da
+// her zaman tam çalışmayabilir — test edip karar vereceğiz.
+function isIOSWebView() {
+  if (typeof navigator === "undefined") return false;
+  const ua = navigator.userAgent || "";
+  const isIOS = /iphone|ipad|ipod/i.test(ua);
+  // Safari'nin kendisi değil ama iOS WebKit ise (uygulama-içi webview)
+  const isStandaloneWebView = isIOS && !/safari/i.test(ua);
+  // PWA standalone modu da webview gibi davranır
+  const isStandalone = typeof window !== "undefined" &&
+    (window.navigator.standalone === true ||
+     (window.matchMedia && window.matchMedia("(display-mode: standalone)").matches));
+  return isIOS && (isStandaloneWebView || isStandalone);
+}
+
 export async function signInWithGoogle(supabase) {
   if (!supabase) return { error: "no_client" };
   try {
     const redirectTo = typeof window !== "undefined" ? window.location.origin : undefined;
+
+    // iOS webview/standalone: girişi sistem tarayıcısında aç
+    if (isIOSWebView()) {
+      const { data, error } = await supabase.auth.signInWithOAuth({
+        provider: "google",
+        options: { redirectTo, skipBrowserRedirect: true }
+      });
+      if (error) {
+        logSwallowed("auth_google_signin_ios", error);
+        return { error: error.message };
+      }
+      if (data?.url) {
+        // _blank → iOS bunu sistem Safari'sinde açar (webview içinde değil)
+        window.open(data.url, "_blank");
+        return { ok: true, external: true };
+      }
+      return { error: "no_oauth_url" };
+    }
+
+    // Web + Android: normal redirect (çalışıyor)
     const { error } = await supabase.auth.signInWithOAuth({
       provider: "google",
       options: { redirectTo }
