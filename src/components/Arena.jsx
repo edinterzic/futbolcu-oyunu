@@ -237,7 +237,7 @@ function formatMs(ms) {
 // =============================================
 // Ana Arena bileşeni
 // =============================================
-export default function Arena({ supabase, onExit, selectedLeagues = [], onLeaguesChange, onAwardXp }) {
+export default function Arena({ supabase, onExit, selectedLeagues = [], onLeaguesChange, onAwardXp, xpResult }) {
   // Subscribe to lang so that all sub-renders pick up t() updates
   // eslint-disable-next-line no-unused-vars
   const [lang] = useLang();
@@ -906,6 +906,7 @@ export default function Arena({ supabase, onExit, selectedLeagues = [], onLeague
         players={players}
         userId={userIdRef.current}
         onExit={leaveRoom}
+        xpResult={xpResult}
       />
     );
   }
@@ -1435,7 +1436,7 @@ function ArenaLeaderboard({ room, players, question, answers, myAnswer, userId, 
 // =============================================
 // ArenaFinal
 // =============================================
-function ArenaFinal({ room, players, userId, onExit }) {
+function ArenaFinal({ room, players, userId, onExit, xpResult }) {
   const sorted = [...players].sort((a, b) => b.total_score - a.total_score);
   const winner = sorted[0];
   const myRank = sorted.findIndex((p) => p.user_id === userId) + 1;
@@ -1474,6 +1475,20 @@ function ArenaFinal({ room, players, userId, onExit }) {
       <small className="arena-final-sub">
         {t("arena_final_summary", { rounds: room.total_rounds, players: players.length, rank: myRank })}
       </small>
+
+      {xpResult && (
+        <div style={{ margin: "12px auto 0", maxWidth: 340, padding: "12px 16px", borderRadius: 14, background: "linear-gradient(135deg, rgba(155,45,255,0.16), rgba(155,45,255,0.06))", border: "1px solid rgba(155,45,255,0.4)", display: "flex", alignItems: "center", justifyContent: "center", gap: 14, flexWrap: "wrap" }}>
+          <span style={{ fontSize: 15, fontWeight: 800, color: "#d9b3ff" }}>+{xpResult.gained} XP</span>
+          <span style={{ opacity: 0.4 }}>·</span>
+          <span style={{ fontSize: 14, fontWeight: 700, color: "#fff" }}>{t("xp_result_rank", { n: xpResult.rank })}</span>
+          {xpResult.delta > 0 && (
+            <span style={{ fontSize: 13, fontWeight: 800, color: "#34d399" }}>↑{xpResult.delta} {t("xp_result_up")}</span>
+          )}
+          {xpResult.delta < 0 && (
+            <span style={{ fontSize: 13, fontWeight: 700, color: "rgba(255,255,255,0.5)" }}>↓{Math.abs(xpResult.delta)} {t("xp_result_down")}</span>
+          )}
+        </div>
+      )}
 
       <div className="arena-leaderboard-list">
         {sorted.slice(0, 10).map((p, i) => (

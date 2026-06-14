@@ -30,7 +30,7 @@ import { initAnalytics, track, startTimer, endTimer, identify } from "./analytic
 import { isPushSupported, getNotificationPermission, subscribeToPush, unsubscribeFromPush } from "./pwa";
 import AdminPanel from "./admin/AdminPanel";
 import Arena from "./components/Arena";
-import { fetchProfileByClientId, isNicknameAvailable, registerNickname, addXp, fetchLeaderboard as fetchXpLeaderboard } from "./auth";
+import { fetchProfileByClientId, isNicknameAvailable, registerNickname, addXp, fetchLeaderboard as fetchXpLeaderboard, fetchMyRank } from "./auth";
 
 const WINNING_SCORE = 3;
 const ROUND_SECONDS = 20;
@@ -738,6 +738,26 @@ function WrongExplanationCard({ report, onReport }) {
 // ve dahili drawBrandMark/drawWordmarkLockup/drawGlassCTA/roundRectPath) ./utils/canvas.js
 // modülüne taşındı. ~240 satır azalma, hala aynı görseli üretir.
 
+// Oyun sonu XP özeti: kazanılan XP + haftalık sıra + değişim.
+// result: { gained, rank, delta } | null
+function XpResultBanner({ result }) {
+  if (!result) return null;
+  const { gained, rank, delta } = result;
+  return (
+    <div style={{ margin: "12px auto 0", maxWidth: 340, padding: "12px 16px", borderRadius: 14, background: "linear-gradient(135deg, rgba(155,45,255,0.16), rgba(155,45,255,0.06))", border: "1px solid rgba(155,45,255,0.4)", display: "flex", alignItems: "center", justifyContent: "center", gap: 14, flexWrap: "wrap" }}>
+      <span style={{ fontSize: 15, fontWeight: 800, color: "#d9b3ff" }}>+{gained} XP</span>
+      <span style={{ opacity: 0.4 }}>·</span>
+      <span style={{ fontSize: 14, fontWeight: 700, color: "#fff" }}>{t("xp_result_rank", { n: rank })}</span>
+      {delta > 0 && (
+        <span style={{ fontSize: 13, fontWeight: 800, color: "#34d399" }}>↑{delta} {t("xp_result_up")}</span>
+      )}
+      {delta < 0 && (
+        <span style={{ fontSize: 13, fontWeight: 700, color: "rgba(255,255,255,0.5)" }}>↓{Math.abs(delta)} {t("xp_result_down")}</span>
+      )}
+    </div>
+  );
+}
+
 // İlk açılışta ZORUNLU nickname ekranı. Nickname girilmeden geçilemez.
 // Benzersizlik DB'de kontrol edilir; doluysa uyarır. OAuth yok.
 function NicknameOverlay({ onSubmit, supabase }) {
@@ -1214,6 +1234,8 @@ export default function App() {
   const [xpScope, setXpScope] = useState("weekly"); // "weekly" | "total"
   const [xpData, setXpData] = useState([]);
   const [xpLoading, setXpLoading] = useState(false);
+  // Oyun sonu XP özeti: { gained, rank, delta } | null
+  const [xpResult, setXpResult] = useState(null);
   const [soundEnabled, setSoundEnabled] = useState(() => window.localStorage.getItem("footballGameMuted") !== "true");
   const [connectionStatus, setConnectionStatus] = useState("offline");
   const [playerName, setPlayerName] = useState("Oyuncu");
@@ -1593,9 +1615,15 @@ export default function App() {
 
   // XP ekle (oyun sonlarında çağrılır). Sadece nickname'i olan kullanıcıya.
   // add_xp tek çağrıda max 500 kabul eder; daha büyük toplamı parçalara böl.
+  // Ödülden ÖNCE ve SONRA haftalık sırayı çeker → oyun sonu ekranında
+  // "+XP · #sıra · ↑değişim" göstermek için xpResult'a yazar.
   const awardXp = async (amount) => {
     const total = Math.round(amount || 0);
     if (!supabase || !profileNickname || total <= 0) return;
+
+    // Ödül öncesi haftalık sıra (değişim hesabı için)
+    const before = await fetchMyRank(supabase, clientIdRef.current, "weekly");
+
     let remaining = total;
     while (remaining > 0) {
       const chunk = Math.min(500, remaining);
@@ -1604,6 +1632,14 @@ export default function App() {
       remaining -= chunk;
     }
     try { track("xp_awarded", { amount: total }); } catch (e) {}
+
+    // Ödül sonrası sıra
+    const after = await fetchMyRank(supabase, clientIdRef.current, "weekly");
+    if (after) {
+      // delta > 0 = yükseldi (sıra küçüldü). before yoksa değişim gösterme.
+      const delta = before && before.rank ? before.rank - after.rank : 0;
+      setXpResult({ gained: total, rank: after.rank, delta });
+    }
   };
 
 
@@ -2446,6 +2482,7 @@ export default function App() {
   }, [teamPicks, screen, playerIndex]);
 
   const resetGame = async () => {
+    setXpResult(null);
     const firstRound = getRandomRound([], effectiveOnlineDifficulty, effectiveOnlineAllowedTeams) || { teams: ["Fenerbahçe", "Galatasaray"] };
     const nextState = {
       screen: "game", playerNames,
@@ -2822,6 +2859,7 @@ export default function App() {
     setChallengeDifficulty(effectiveDifficulty);
     setChallengeEffectiveDifficulty(effectiveDifficulty);
     setScoreSaved(false);
+    setXpResult(null);
     setShowChallengeStartScreen(false);
     const firstRound = getRandomRound([], effectiveDifficulty, filterTeams) || { teams: ["Fenerbahçe", "Galatasaray"] };
     setChallengeScore(0);
@@ -2883,6 +2921,7 @@ export default function App() {
     setDailyAcceptedThisRound([]);
     setDailyShowAnswers(false);
     setDailyFeedback(null);
+    setXpResult(null);
     setScreen("daily");
     track("mode_started", { mode: "daily", already_completed: !!(existingToday && existingToday.completed) });
     startTimer("daily");
@@ -3453,6 +3492,7 @@ export default function App() {
   };
 
   const startRematch = async () => {
+    setXpResult(null);
     const next = getRandomRound([], effectiveOnlineDifficulty, effectiveOnlineAllowedTeams) || { teams: ["Fenerbahçe", "Galatasaray"] };
     const nextState = {
       screen: "game",
@@ -4354,6 +4394,7 @@ export default function App() {
                   </div>
 
                   {challengeRoundLocked ? (
+                    <>
                     <ChallengeGameOver
                       score={challengeLastScore ?? 0}
                       best={challengeBest}
@@ -4403,6 +4444,8 @@ export default function App() {
                         });
                       }}
                     />
+                    <XpResultBanner result={xpResult} />
+                    </>
                   ) : (
                     <>
                       {challengeLastAction && challengeLastAction.type === "correct" && (
@@ -4614,6 +4657,8 @@ export default function App() {
                     </div>
                   </div>
 
+                  <XpResultBanner result={xpResult} />
+
                   <div className="gameover-section">
                     <span className="gameover-label">{t("daily_grid_label")}</span>
                     <div className="daily-grid-emoji">
@@ -4680,6 +4725,7 @@ export default function App() {
                 selectedLeagues={selectedLeagues}
                 onLeaguesChange={persistLeagues}
                 onAwardXp={awardXp}
+                xpResult={xpResult}
               />
             </section>
           )}
@@ -4894,6 +4940,8 @@ export default function App() {
                     seriesWins={seriesWins}
                     currentCorrectRounds={correctRounds}
                   />
+
+                  <XpResultBanner result={xpResult} />
 
                   <div className="winner-actions">
                     <button type="button" onClick={startRematch} className="primary-button big">

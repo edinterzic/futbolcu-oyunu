@@ -103,3 +103,33 @@ export async function fetchLeaderboard(supabase, scope = "total", limit = 100) {
     return [];
   }
 }
+
+// Kullanıcının kendi sırasını + XP'sini çek. scope: "weekly" | "total".
+// Sıra = "benden yüksek XP'li kaç kişi var" + 1. Oyun sonu ekranında kullanılır.
+// Döner: { rank, xp } | null
+export async function fetchMyRank(supabase, clientId, scope = "weekly") {
+  if (!supabase || !clientId) return null;
+  const col = scope === "weekly" ? "weekly_xp" : "total_xp";
+  try {
+    // Önce kendi XP'mi al
+    const { data: me, error: meErr } = await supabase
+      .from("user_xp")
+      .select(`${col}`)
+      .eq("client_id", clientId)
+      .maybeSingle();
+    if (meErr) { logSwallowed("rank_me", meErr); return null; }
+    const myXp = me ? (me[col] || 0) : 0;
+
+    // Benden kesinlikle yüksek XP'li kaç kişi var → sıram = o sayı + 1
+    const { count, error: cErr } = await supabase
+      .from("user_xp")
+      .select("client_id", { count: "exact", head: true })
+      .gt(col, myXp);
+    if (cErr) { logSwallowed("rank_count", cErr); return null; }
+
+    return { rank: (count || 0) + 1, xp: myXp };
+  } catch (e) {
+    logSwallowed("rank_throw", e);
+    return null;
+  }
+}
