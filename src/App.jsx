@@ -30,6 +30,7 @@ import { initAnalytics, track, startTimer, endTimer, identify } from "./analytic
 import { isPushSupported, getNotificationPermission, subscribeToPush, unsubscribeFromPush } from "./pwa";
 import AdminPanel from "./admin/AdminPanel";
 import Arena from "./components/Arena";
+import { signInWithGoogle, signOut, getSession, fetchProfile } from "./auth";
 
 const WINNING_SCORE = 3;
 const ROUND_SECONDS = 20;
@@ -736,6 +737,40 @@ function WrongExplanationCard({ report, onReport }) {
 // Paylaşım canvas yardımcıları (drawScoreShareCard, shareScoreImage, drawDailyShareCard,
 // ve dahili drawBrandMark/drawWordmarkLockup/drawGlassCTA/roundRectPath) ./utils/canvas.js
 // modülüne taşındı. ~240 satır azalma, hala aynı görseli üretir.
+
+function WelcomeOverlay({ onGoogle, onContinue, busy }) {
+  return (
+    <div style={{ position: "fixed", inset: 0, zIndex: 1001, background: "rgba(8,8,16,0.85)", backdropFilter: "blur(6px)", WebkitBackdropFilter: "blur(6px)", display: "flex", alignItems: "center", justifyContent: "center", padding: 20 }}>
+      <div style={{ width: "100%", maxWidth: 400, background: "linear-gradient(160deg,#1d1430,#241a3e)", border: "1px solid rgba(255,255,255,0.12)", borderRadius: 24, padding: "30px 24px", textAlign: "center", boxShadow: "0 20px 60px rgba(0,0,0,0.5)", color: "#fff" }}>
+        <div style={{ fontSize: 44, marginBottom: 8 }}>⚽</div>
+        <h2 style={{ margin: "0 0 8px", fontSize: 22, fontWeight: 800 }}>{t("welcome_title")}</h2>
+        <p style={{ margin: "0 0 24px", fontSize: 14.5, lineHeight: 1.55, color: "rgba(255,255,255,0.7)" }}>
+          {t("welcome_sub")}
+        </p>
+        <button
+          type="button"
+          onClick={onGoogle}
+          disabled={busy}
+          style={{ width: "100%", padding: 14, borderRadius: 14, border: "none", background: "#fff", color: "#1a1a1a", fontSize: 15.5, fontWeight: 700, cursor: busy ? "default" : "pointer", display: "flex", alignItems: "center", justifyContent: "center", gap: 10, opacity: busy ? 0.7 : 1 }}
+        >
+          <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path fill="#4285F4" d="M17.64 9.2c0-.64-.06-1.25-.16-1.84H9v3.48h4.84a4.14 4.14 0 0 1-1.8 2.72v2.26h2.92c1.7-1.57 2.68-3.88 2.68-6.62z"/><path fill="#34A853" d="M9 18c2.43 0 4.47-.8 5.96-2.18l-2.92-2.26c-.8.54-1.84.86-3.04.86-2.34 0-4.32-1.58-5.02-3.7H.96v2.34A9 9 0 0 0 9 18z"/><path fill="#FBBC05" d="M3.98 10.72a5.4 5.4 0 0 1 0-3.44V4.94H.96a9 9 0 0 0 0 8.12l3.02-2.34z"/><path fill="#EA4335" d="M9 3.58c1.32 0 2.5.46 3.44 1.35l2.58-2.58A9 9 0 0 0 .96 4.94l3.02 2.34C4.68 5.16 6.66 3.58 9 3.58z"/></svg>
+          {busy ? t("welcome_redirecting") : t("welcome_google")}
+        </button>
+        <button
+          type="button"
+          onClick={onContinue}
+          disabled={busy}
+          style={{ width: "100%", marginTop: 12, padding: 13, borderRadius: 14, border: "1px solid rgba(255,255,255,0.18)", background: "transparent", color: "rgba(255,255,255,0.85)", fontSize: 14.5, fontWeight: 600, cursor: busy ? "default" : "pointer" }}
+        >
+          {t("welcome_continue")}
+        </button>
+        <p style={{ margin: "18px 0 0", fontSize: 11.5, lineHeight: 1.5, color: "rgba(255,255,255,0.4)" }}>
+          {t("welcome_note")}
+        </p>
+      </div>
+    </div>
+  );
+}
 
 function OnboardingOverlay({ onClose }) {
   const chip = { padding: "8px 14px", borderRadius: 12, background: "rgba(255,255,255,0.08)", fontWeight: 700, fontSize: 14 };
@@ -1485,6 +1520,67 @@ export default function App() {
     setShowOnboarding(false);
     try { track("onboarding_done"); } catch (e) {}
   };
+
+  // =================== AUTH STATE (Sürüm 1a) ===================
+  // İsteğe bağlı giriş. session null = anonim. Karşılama ekranı sadece bir kez
+  // gösterilir (pairfc_welcome_seen). "Giriş yapmadan devam" da bu flag'i set eder.
+  const [authSession, setAuthSession] = useState(null);
+  const [authProfile, setAuthProfile] = useState(null);
+  const [authBusy, setAuthBusy] = useState(false);
+  const [showWelcome, setShowWelcome] = useState(() => {
+    try { return !window.localStorage.getItem("pairfc_welcome_seen"); } catch (e) { return false; }
+  });
+  const [showProfilePanel, setShowProfilePanel] = useState(false);
+
+  const dismissWelcome = () => {
+    try { window.localStorage.setItem("pairfc_welcome_seen", "1"); } catch (e) {}
+    setShowWelcome(false);
+  };
+
+  // Oturumu açılışta al + değişiklikleri dinle (giriş/çıkış/redirect dönüşü)
+  useEffect(() => {
+    if (!supabase) return;
+    let active = true;
+    (async () => {
+      const session = await getSession(supabase);
+      if (!active) return;
+      setAuthSession(session);
+      if (session?.user?.id) {
+        const prof = await fetchProfile(supabase, session.user.id);
+        if (active) setAuthProfile(prof);
+      }
+    })();
+    const { data: sub } = supabase.auth.onAuthStateChange((_event, session) => {
+      setAuthSession(session);
+      if (session?.user?.id) {
+        // Giriş gerçekleşti — karşılama ekranını kapat, profili çek
+        try { window.localStorage.setItem("pairfc_welcome_seen", "1"); } catch (e) {}
+        setShowWelcome(false);
+        fetchProfile(supabase, session.user.id).then((p) => setAuthProfile(p));
+        try { track("auth_signed_in"); } catch (e) {}
+      } else {
+        setAuthProfile(null);
+      }
+    });
+    return () => { active = false; sub?.subscription?.unsubscribe?.(); };
+  }, []);
+
+  const handleGoogleSignIn = async () => {
+    if (authBusy) return;
+    setAuthBusy(true);
+    try { track("auth_google_click"); } catch (e) {}
+    const res = await signInWithGoogle(supabase);
+    // signInWithOAuth tarayıcıyı yönlendirir; hata olursa burada yakalanır
+    if (res?.error) setAuthBusy(false);
+  };
+
+  const handleSignOut = async () => {
+    await signOut(supabase);
+    setAuthProfile(null);
+    setShowProfilePanel(false);
+    try { track("auth_signed_out"); } catch (e) {}
+  };
+
 
   // =================== DAILY PUZZLE STATE ===================
   const [dailyHistory, setDailyHistory] = useState(() => {
@@ -3421,7 +3517,14 @@ export default function App() {
 
   return (
     <div className={`app-shell ${isHome ? `home-screen home-tab-${mainTab}${showOnlineSetup ? " online-setup-open" : ""}` : "play-screen"}`}>
-      {showOnboarding && <OnboardingOverlay onClose={dismissOnboarding} />}
+      {showWelcome && supabase && (
+        <WelcomeOverlay
+          onGoogle={handleGoogleSignIn}
+          onContinue={dismissWelcome}
+          busy={authBusy}
+        />
+      )}
+      {!showWelcome && showOnboarding && <OnboardingOverlay onClose={dismissOnboarding} />}
       <style>{css}</style>
 
       {isOffline && (
@@ -3596,6 +3699,37 @@ export default function App() {
               >
                 {pushOn ? "🔔" : "🔕"}
               </button>
+            )}
+            {supabase && (
+              <div style={{ position: "relative" }}>
+                <button
+                  type="button"
+                  onClick={() => {
+                    if (authSession) setShowProfilePanel((o) => !o);
+                    else { setShowWelcome(true); }
+                  }}
+                  className="icon-button"
+                  aria-label={authSession ? t("profile_menu") : t("welcome_google")}
+                  title={authSession ? t("profile_menu") : t("welcome_google")}
+                >
+                  {authSession ? "👤" : "🔑"}
+                </button>
+                {showProfilePanel && authSession && (
+                  <div role="menu" style={{ position: "absolute", right: 0, top: "calc(100% + 6px)", minWidth: 200, background: "#1a1a2e", border: "1px solid rgba(255,255,255,0.12)", borderRadius: 12, padding: 12, zIndex: 60, boxShadow: "0 8px 24px rgba(0,0,0,0.45)" }}>
+                    <div style={{ fontSize: 13, color: "rgba(255,255,255,0.6)", marginBottom: 2 }}>{t("profile_signed_in_as")}</div>
+                    <div style={{ fontSize: 14.5, fontWeight: 700, color: "#fff", marginBottom: 12, wordBreak: "break-word" }}>
+                      {authProfile?.username || authSession.user?.email || t("profile_account")}
+                    </div>
+                    <button
+                      type="button"
+                      onClick={handleSignOut}
+                      style={{ width: "100%", padding: 10, borderRadius: 10, border: "1px solid rgba(255,255,255,0.18)", background: "transparent", color: "rgba(255,255,255,0.85)", fontSize: 13.5, fontWeight: 600, cursor: "pointer" }}
+                    >
+                      {t("profile_signout")}
+                    </button>
+                  </div>
+                )}
+              </div>
             )}
           </div>
         </header>
