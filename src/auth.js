@@ -71,6 +71,40 @@ export async function registerNickname(supabase, clientId, nickname) {
   }
 }
 
+// Nickname GÜNCELLE — profiles + user_xp tablolarındaki nickname'i değiştir.
+// Benzersizlik DB unique constraint ile garanti; çakışırsa { error: "taken" }.
+// user_xp'deki nickname'i de günceller ki sıralamada yeni ad görünsün.
+export async function updateNickname(supabase, clientId, nickname) {
+  if (!supabase || !clientId) return { error: "no_client" };
+  const clean = String(nickname || "").trim();
+  if (clean.length < 3) return { error: "too_short" };
+  if (clean.length > 20) return { error: "too_long" };
+
+  try {
+    // Önce profiles'ı güncelle (unique constraint burada tetiklenir)
+    const { error: pErr } = await supabase
+      .from("profiles")
+      .update({ nickname: clean })
+      .eq("client_id", clientId);
+    if (pErr) {
+      if (pErr.code === "23505") return { error: "taken" }; // unique violation
+      logSwallowed("nick_update_profile", pErr);
+      return { error: pErr.message };
+    }
+    // user_xp satırındaki nickname'i de güncelle (sıralama tutarlılığı)
+    const { error: xErr } = await supabase
+      .from("user_xp")
+      .update({ nickname: clean })
+      .eq("client_id", clientId);
+    if (xErr) logSwallowed("nick_update_xp", xErr);
+
+    return { ok: true, nickname: clean };
+  } catch (e) {
+    logSwallowed("nick_update_throw", e);
+    return { error: String(e?.message || e) };
+  }
+}
+
 // XP ekle — Supabase add_xp fonksiyonunu çağırır (atomik + haftalık reset).
 // delta: bu oyunda kazanılan XP. Sürüm 2'de oyun sonlarına bağlanacak.
 export async function addXp(supabase, clientId, delta) {

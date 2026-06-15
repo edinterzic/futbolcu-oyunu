@@ -30,7 +30,7 @@ import { initAnalytics, track, startTimer, endTimer, identify } from "./analytic
 import { isPushSupported, getNotificationPermission, subscribeToPush, unsubscribeFromPush } from "./pwa";
 import AdminPanel from "./admin/AdminPanel";
 import Arena from "./components/Arena";
-import { fetchProfileByClientId, isNicknameAvailable, registerNickname, addXp, fetchLeaderboard as fetchXpLeaderboard, fetchMyRank } from "./auth";
+import { fetchProfileByClientId, isNicknameAvailable, registerNickname, updateNickname, addXp, fetchLeaderboard as fetchXpLeaderboard, fetchMyRank } from "./auth";
 
 const WINNING_SCORE = 3;
 const ROUND_SECONDS = 20;
@@ -742,17 +742,24 @@ function WrongExplanationCard({ report, onReport }) {
 // result: { gained, rank, delta } | null
 function XpResultBanner({ result }) {
   if (!result) return null;
-  const { gained, rank, delta } = result;
+  const { gained, rank, delta, note } = result;
   return (
-    <div style={{ margin: "12px auto 0", maxWidth: 340, padding: "12px 16px", borderRadius: 14, background: "linear-gradient(135deg, rgba(155,45,255,0.16), rgba(155,45,255,0.06))", border: "1px solid rgba(155,45,255,0.4)", display: "flex", alignItems: "center", justifyContent: "center", gap: 14, flexWrap: "wrap" }}>
-      <span style={{ fontSize: 15, fontWeight: 800, color: "#d9b3ff" }}>+{gained} XP</span>
-      <span style={{ opacity: 0.4 }}>·</span>
-      <span style={{ fontSize: 14, fontWeight: 700, color: "#fff" }}>{t("xp_result_rank", { n: rank })}</span>
-      {delta > 0 && (
-        <span style={{ fontSize: 13, fontWeight: 800, color: "#34d399" }}>↑{delta} {t("xp_result_up")}</span>
-      )}
-      {delta < 0 && (
-        <span style={{ fontSize: 13, fontWeight: 700, color: "rgba(255,255,255,0.5)" }}>↓{Math.abs(delta)} {t("xp_result_down")}</span>
+    <div style={{ margin: "12px auto 0", maxWidth: 340, padding: "12px 16px", borderRadius: 14, background: "linear-gradient(135deg, rgba(155,45,255,0.16), rgba(155,45,255,0.06))", border: "1px solid rgba(155,45,255,0.4)" }}>
+      <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 14, flexWrap: "wrap" }}>
+        <span style={{ fontSize: 15, fontWeight: 800, color: "#d9b3ff" }}>+{gained} XP</span>
+        <span style={{ opacity: 0.4 }}>·</span>
+        <span style={{ fontSize: 14, fontWeight: 700, color: "#fff" }}>{t("xp_result_rank", { n: rank })}</span>
+        {delta > 0 && (
+          <span style={{ fontSize: 13, fontWeight: 800, color: "#34d399" }}>↑{delta} {t("xp_result_up")}</span>
+        )}
+        {delta < 0 && (
+          <span style={{ fontSize: 13, fontWeight: 700, color: "rgba(255,255,255,0.5)" }}>↓{Math.abs(delta)} {t("xp_result_down")}</span>
+        )}
+      </div>
+      {note && (
+        <div style={{ marginTop: 7, textAlign: "center", fontSize: 11.5, fontWeight: 600, color: "rgba(255,255,255,0.5)" }}>
+          {note}
+        </div>
       )}
     </div>
   );
@@ -822,6 +829,78 @@ function NicknameOverlay({ onSubmit, supabase }) {
   );
 }
 
+// Profil/nickname düzenleme ekranı. Üst bardaki 👤 nickname'e tıklayınca açılır.
+// Mevcut nickname'i gösterir, değiştirme imkânı verir. OAuth yok.
+function ProfileOverlay({ currentNickname, onUpdate, onClose }) {
+  const [value, setValue] = useState(currentNickname || "");
+  const [status, setStatus] = useState(null); // null | "checking" | "taken" | "ok" | "error"
+  const [busy, setBusy] = useState(false);
+
+  const clean = value.trim();
+  const tooShort = clean.length > 0 && clean.length < 3;
+  const tooLong = clean.length > 20;
+  const unchanged = clean === (currentNickname || "");
+  const valid = clean.length >= 3 && clean.length <= 20 && !containsProfanity(clean) && !unchanged;
+
+  const submit = async () => {
+    if (!valid || busy) return;
+    setBusy(true);
+    setStatus("checking");
+    const res = await onUpdate(clean);
+    if (res?.error === "taken") { setStatus("taken"); setBusy(false); }
+    else if (res?.error) { setStatus("error"); setBusy(false); }
+    else { setStatus("ok"); setBusy(false); onClose(); }
+  };
+
+  return (
+    <div onClick={onClose} style={{ position: "fixed", inset: 0, zIndex: 1002, background: "rgba(8,8,16,0.92)", backdropFilter: "blur(6px)", WebkitBackdropFilter: "blur(6px)", display: "flex", alignItems: "center", justifyContent: "center", padding: 20 }}>
+      <div onClick={(e) => e.stopPropagation()} style={{ width: "100%", maxWidth: 400, background: "linear-gradient(160deg,#1d1430,#241a3e)", border: "1px solid rgba(255,255,255,0.12)", borderRadius: 24, padding: "28px 24px", textAlign: "center", boxShadow: "0 20px 60px rgba(0,0,0,0.5)", color: "#fff" }}>
+        <div style={{ fontSize: 40, marginBottom: 6 }}>👤</div>
+        <h2 style={{ margin: "0 0 6px", fontSize: 21, fontWeight: 800 }}>{t("profile_title")}</h2>
+        <p style={{ margin: "0 0 20px", fontSize: 14, lineHeight: 1.5, color: "rgba(255,255,255,0.7)" }}>
+          {t("profile_sub")}
+        </p>
+        <input
+          type="text"
+          value={value}
+          onChange={(e) => { setValue(e.target.value); setStatus(null); }}
+          onKeyDown={(e) => { if (e.key === "Enter") submit(); }}
+          placeholder={t("nick_placeholder")}
+          maxLength={20}
+          autoFocus
+          style={{ width: "100%", padding: "14px 16px", borderRadius: 14, border: "1px solid rgba(255,255,255,0.2)", background: "rgba(255,255,255,0.06)", color: "#fff", fontSize: 16, textAlign: "center", fontWeight: 700, boxSizing: "border-box" }}
+        />
+        <div style={{ minHeight: 20, margin: "8px 0 0", fontSize: 12.5, color: status === "taken" || status === "error" || tooLong || (clean.length > 0 && containsProfanity(clean)) ? "#ff8080" : "rgba(255,255,255,0.5)" }}>
+          {status === "taken" ? t("nick_taken")
+            : status === "error" ? t("nick_error")
+            : tooShort ? t("nick_too_short")
+            : tooLong ? t("nick_too_long")
+            : clean.length > 0 && containsProfanity(clean) ? t("nick_invalid")
+            : t("nick_hint")}
+        </div>
+        <button
+          type="button"
+          onClick={submit}
+          disabled={!valid || busy}
+          style={{ width: "100%", marginTop: 14, padding: 14, borderRadius: 14, border: "none", background: valid && !busy ? "#aa3bff" : "rgba(255,255,255,0.12)", color: "#fff", fontSize: 16, fontWeight: 800, cursor: valid && !busy ? "pointer" : "default" }}
+        >
+          {busy ? t("nick_saving") : t("profile_save")}
+        </button>
+        <button
+          type="button"
+          onClick={onClose}
+          style={{ width: "100%", marginTop: 10, padding: 12, borderRadius: 14, border: "1px solid rgba(255,255,255,0.15)", background: "transparent", color: "rgba(255,255,255,0.7)", fontSize: 14, fontWeight: 700, cursor: "pointer" }}
+        >
+          {t("profile_cancel")}
+        </button>
+        <p style={{ margin: "16px 0 0", fontSize: 11.5, lineHeight: 1.5, color: "rgba(255,255,255,0.4)" }}>
+          {t("nick_note")}
+        </p>
+      </div>
+    </div>
+  );
+}
+
 function OnboardingOverlay({ onClose }) {
   const chip = { padding: "8px 14px", borderRadius: 12, background: "rgba(255,255,255,0.08)", fontWeight: 700, fontSize: 14 };
   return (
@@ -867,11 +946,72 @@ function OnboardingOverlay({ onClose }) {
   );
 }
 
+// "XP nasıl kazanılır?" açıklama modalı. Liderlik sekmesindeki ℹ️ ile açılır.
+// Onaylı formül: Maraton 1/2/5 · Günlük 3+10+seri · Düello 15/5/2 · Arena 25/18/12/5.
+function XpInfoOverlay({ onClose }) {
+  const row = { display: "flex", justifyContent: "space-between", alignItems: "flex-start", gap: 12, padding: "11px 0", borderBottom: "1px solid rgba(255,255,255,0.08)", textAlign: "left" };
+  const modeName = { fontSize: 14.5, fontWeight: 800, color: "#fff" };
+  const modeDesc = { fontSize: 12.5, fontWeight: 600, color: "rgba(255,255,255,0.55)", marginTop: 2, lineHeight: 1.4 };
+  const modeVal = { fontSize: 13, fontWeight: 800, color: "#d9b3ff", whiteSpace: "nowrap", flexShrink: 0, textAlign: "right" };
+  return (
+    <div onClick={onClose} style={{ position: "fixed", inset: 0, zIndex: 1002, background: "rgba(8,8,16,0.92)", backdropFilter: "blur(6px)", WebkitBackdropFilter: "blur(6px)", display: "flex", alignItems: "center", justifyContent: "center", padding: 20 }}>
+      <div onClick={(e) => e.stopPropagation()} style={{ width: "100%", maxWidth: 420, maxHeight: "85vh", overflowY: "auto", background: "linear-gradient(160deg,#1d1430,#241a3e)", border: "1px solid rgba(255,255,255,0.12)", borderRadius: 24, padding: "26px 22px", boxShadow: "0 20px 60px rgba(0,0,0,0.5)", color: "#fff" }}>
+        <div style={{ textAlign: "center", marginBottom: 18 }}>
+          <div style={{ fontSize: 38, marginBottom: 6 }}>⭐</div>
+          <h2 style={{ margin: "0 0 6px", fontSize: 21, fontWeight: 800 }}>{t("xp_info_title")}</h2>
+          <p style={{ margin: 0, fontSize: 13.5, lineHeight: 1.5, color: "rgba(255,255,255,0.7)" }}>{t("xp_info_sub")}</p>
+        </div>
+
+        <div style={row}>
+          <div>
+            <div style={modeName}>🏃 {t("xp_info_marathon_name")}</div>
+            <div style={modeDesc}>{t("xp_info_marathon_desc")}</div>
+          </div>
+          <div style={modeVal}>{t("xp_info_marathon_val")}</div>
+        </div>
+        <div style={row}>
+          <div>
+            <div style={modeName}>📅 {t("xp_info_daily_name")}</div>
+            <div style={modeDesc}>{t("xp_info_daily_desc")}</div>
+          </div>
+          <div style={modeVal}>{t("xp_info_daily_val")}</div>
+        </div>
+        <div style={row}>
+          <div>
+            <div style={modeName}>⚔️ {t("xp_info_duel_name")}</div>
+            <div style={modeDesc}>{t("xp_info_duel_desc")}</div>
+          </div>
+          <div style={modeVal}>{t("xp_info_duel_val")}</div>
+        </div>
+        <div style={{ ...row, borderBottom: "none" }}>
+          <div>
+            <div style={modeName}>🏟️ {t("xp_info_arena_name")}</div>
+            <div style={modeDesc}>{t("xp_info_arena_desc")}</div>
+          </div>
+          <div style={modeVal}>{t("xp_info_arena_val")}</div>
+        </div>
+
+        <div style={{ marginTop: 14, padding: "11px 14px", borderRadius: 12, background: "rgba(255,255,255,0.05)", fontSize: 12.5, lineHeight: 1.5, color: "rgba(255,255,255,0.6)" }}>
+          {t("xp_info_footer")}
+        </div>
+
+        <button
+          type="button"
+          onClick={onClose}
+          style={{ width: "100%", marginTop: 16, padding: 14, borderRadius: 14, border: "none", background: "#aa3bff", color: "#fff", fontSize: 16, fontWeight: 800, cursor: "pointer" }}
+        >
+          {t("xp_info_close")}
+        </button>
+      </div>
+    </div>
+  );
+}
+
 function ChallengeGameOver({
   score, best, isNewBest, lastWrongAnswer, correctPlayers,
   teamA, teamB, wrongReport, reportStatus,
   onSubmitWrongReport, onReportAcceptedPlayer, onRestart,
-  onSaveScore, scoreSaved, playerName, onPlayerNameChange, difficulty, onShare, nearMiss
+  difficulty, onShare, nearMiss
 }) {
   const showWrongReport = wrongReport && lastWrongAnswer;
   const playerCount = correctPlayers?.length || 0;
@@ -927,29 +1067,6 @@ function ChallengeGameOver({
           }}
         >
           {nearMiss.text}
-        </div>
-      )}
-
-      {/* Skor kaydetme */}
-      {score >= 1 && (
-        <div className="gameover-section score-save-section">
-          {!scoreSaved ? (
-            <>
-              <input
-                type="text"
-                className="score-name-input"
-                placeholder={t("gover_name_placeholder")}
-                value={playerName}
-                onChange={(e) => onPlayerNameChange(e.target.value)}
-                maxLength={30}
-              />
-              <button type="button" onClick={onSaveScore} className="primary-button save-score-btn">
-                {t("gover_save_score")}
-              </button>
-            </>
-          ) : (
-            <div className="score-saved-msg">{t("gover_score_saved")}</div>
-          )}
         </div>
       )}
 
@@ -1236,9 +1353,14 @@ export default function App() {
   const [xpLoading, setXpLoading] = useState(false);
   // Oyun sonu XP özeti: { gained, rank, delta } | null
   const [xpResult, setXpResult] = useState(null);
+  const [profileEditOpen, setProfileEditOpen] = useState(false);
+  const [xpInfoOpen, setXpInfoOpen] = useState(false);
   const [soundEnabled, setSoundEnabled] = useState(() => window.localStorage.getItem("footballGameMuted") !== "true");
   const [connectionStatus, setConnectionStatus] = useState("offline");
-  const [playerName, setPlayerName] = useState("Oyuncu");
+  const [playerName, setPlayerName] = useState(() => {
+    try { return window.localStorage.getItem("pairfc_player_name") || ""; }
+    catch (e) { return ""; }
+  });
   const [roomInput, setRoomInput] = useState("");
   const [roomCode, setRoomCode] = useState("");
   const [playerIndex, setPlayerIndex] = useState(null);
@@ -1592,6 +1714,7 @@ export default function App() {
       if (!active) return;
       if (prof?.nickname) {
         setProfileNickname(prof.nickname);
+        setPlayerName(prof.nickname);
         try { window.localStorage.setItem("pairfc_player_name", prof.nickname); } catch (e) {}
       }
       setProfileChecked(true);
@@ -1604,8 +1727,28 @@ export default function App() {
     const res = await registerNickname(supabase, clientIdRef.current, nickname);
     if (res?.ok) {
       setProfileNickname(res.nickname);
+      setPlayerName(res.nickname);
       try { window.localStorage.setItem("pairfc_player_name", res.nickname); } catch (e) {}
       try { track("nickname_registered"); } catch (e) {}
+    }
+    return res;
+  };
+
+  // Nickname değiştir (ProfileOverlay'den çağrılır). profiles + user_xp güncellenir.
+  const handleUpdateNickname = async (nickname) => {
+    const res = await updateNickname(supabase, clientIdRef.current, nickname);
+    if (res?.ok) {
+      setProfileNickname(res.nickname);
+      setPlayerName(res.nickname);
+      try { window.localStorage.setItem("pairfc_player_name", res.nickname); } catch (e) {}
+      try { track("nickname_updated"); } catch (e) {}
+      // Liderlikte yeni ad görünsün
+      if (mainTab === "leaderboard") {
+        try {
+          const data = await fetchXpLeaderboard(supabase, xpScope);
+          setXpData(data);
+        } catch (e) {}
+      }
     }
     return res;
   };
@@ -1617,7 +1760,7 @@ export default function App() {
   // add_xp tek çağrıda max 500 kabul eder; daha büyük toplamı parçalara böl.
   // Ödülden ÖNCE ve SONRA haftalık sırayı çeker → oyun sonu ekranında
   // "+XP · #sıra · ↑değişim" göstermek için xpResult'a yazar.
-  const awardXp = async (amount) => {
+  const awardXp = async (amount, note = null) => {
     const total = Math.round(amount || 0);
     if (!supabase || !profileNickname || total <= 0) return;
 
@@ -1638,7 +1781,7 @@ export default function App() {
     if (after) {
       // delta > 0 = yükseldi (sıra küçüldü). before yoksa değişim gösterme.
       const delta = before && before.rank ? before.rank - after.rank : 0;
-      setXpResult({ gained: total, rank: after.rank, delta });
+      setXpResult({ gained: total, rank: after.rank, delta, note });
     }
   };
 
@@ -1847,7 +1990,7 @@ export default function App() {
       });
       // XP: galibiyet 15 / mağlubiyet 2. (Bu effect her cihazda kendi
       // playerIndex'iyle bir kez çalışır → her oyuncu kendi XP'sini alır.)
-      awardXp(winner === playerIndex ? 15 : 2);
+      awardXp(winner === playerIndex ? 15 : 2, winner === playerIndex ? t("xp_note_duel_win") : t("xp_note_duel_loss"));
     }
   }, [screen, winner, playerIndex]);
 
@@ -2951,7 +3094,7 @@ export default function App() {
       if (!alreadyCompletedToday) {
         // her doğru 3 + tamamlama 10 + seri bonusu (2 × seri günü)
         const dailyXp = correctCount * 3 + 10 + Math.max(0, streakNow) * 2;
-        awardXp(dailyXp);
+        awardXp(dailyXp, t("xp_note_daily", { correct: correctCount, streak: Math.max(0, streakNow) }));
       }
       track("daily_completed", {
         correct: correctCount,
@@ -3256,7 +3399,7 @@ export default function App() {
 
     // XP: her doğru cevap kolay 1 / orta 2 / zor 5. finalScore = doğru sayısı.
     const xpPerCorrect = diff === "hard" ? 5 : diff === "medium" ? 2 : 1;
-    awardXp(finalScore * xpPerCorrect);
+    awardXp(finalScore * xpPerCorrect, t("xp_note_marathon", { n: finalScore, per: xpPerCorrect }));
     track("challenge_finished", {
       score: finalScore,
       is_new_best: finalScore > challengeBest,
@@ -3611,6 +3754,14 @@ export default function App() {
       {needsNickname && (
         <NicknameOverlay onSubmit={handleRegisterNickname} supabase={supabase} />
       )}
+      {profileEditOpen && profileNickname && (
+        <ProfileOverlay
+          currentNickname={profileNickname}
+          onUpdate={handleUpdateNickname}
+          onClose={() => setProfileEditOpen(false)}
+        />
+      )}
+      {xpInfoOpen && <XpInfoOverlay onClose={() => setXpInfoOpen(false)} />}
       {!needsNickname && showOnboarding && <OnboardingOverlay onClose={dismissOnboarding} />}
       <style>{css}</style>
 
@@ -3788,15 +3939,17 @@ export default function App() {
               </button>
             )}
             {supabase && profileNickname && (
-              <div
+              <button
+                type="button"
                 className="icon-button"
-                title={profileNickname}
-                aria-label={profileNickname}
-                style={{ width: "auto", padding: "0 12px", fontSize: 13, fontWeight: 800, maxWidth: 120, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap", display: "inline-flex", alignItems: "center", gap: 5 }}
+                onClick={() => setProfileEditOpen(true)}
+                title={t("profile_edit_tooltip")}
+                aria-label={t("profile_edit_tooltip")}
+                style={{ width: "auto", padding: "0 12px", fontSize: 13, fontWeight: 800, maxWidth: 120, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap", display: "inline-flex", alignItems: "center", gap: 5, cursor: "pointer" }}
               >
                 <span aria-hidden="true">👤</span>
                 <span style={{ overflow: "hidden", textOverflow: "ellipsis" }}>{profileNickname}</span>
-              </div>
+              </button>
             )}
           </div>
         </header>
@@ -3957,6 +4110,18 @@ export default function App() {
                     <h2>{t("lb_title")}</h2>
                     <p className="lb-subtitle">{t("xp_lb_subtitle")}</p>
                   </div>
+
+                  <button
+                    type="button"
+                    onClick={() => setXpInfoOpen(true)}
+                    style={{ width: "100%", margin: "0 0 14px", padding: "12px 16px", borderRadius: 14, border: "1px solid rgba(155,45,255,0.35)", background: "linear-gradient(135deg, rgba(155,45,255,0.14), rgba(155,45,255,0.05))", color: "#fff", display: "flex", alignItems: "center", justifyContent: "space-between", gap: 10, cursor: "pointer", textAlign: "left" }}
+                  >
+                    <span style={{ display: "flex", alignItems: "center", gap: 9 }}>
+                      <span style={{ fontSize: 18 }} aria-hidden="true">⭐</span>
+                      <span style={{ fontSize: 13.5, fontWeight: 700, lineHeight: 1.35 }}>{t("xp_lb_howto")}</span>
+                    </span>
+                    <span style={{ fontSize: 12.5, fontWeight: 800, color: "#d9b3ff", whiteSpace: "nowrap" }}>{t("xp_lb_howto_cta")} ›</span>
+                  </button>
 
                   <div className="lb-filters">
                     <div className="lb-period-toggle">
@@ -4421,10 +4586,6 @@ export default function App() {
                           startChallenge();
                         }
                       }}
-                      onSaveScore={handleSaveScore}
-                      scoreSaved={scoreSaved}
-                      playerName={lbPlayerName}
-                      onPlayerNameChange={setLbPlayerName}
                       difficulty={challengeDifficulty}
                       onShare={() => {
                         const diffLabel = challengeDifficulty === "easy" ? t("diff_easy") : challengeDifficulty === "hard" ? t("diff_hard") : t("diff_medium");
