@@ -30,7 +30,7 @@ import { initAnalytics, track, startTimer, endTimer, identify } from "./analytic
 import { isPushSupported, getNotificationPermission, subscribeToPush, unsubscribeFromPush } from "./pwa";
 import AdminPanel from "./admin/AdminPanel";
 import Arena from "./components/Arena";
-import { fetchProfileByClientId, isNicknameAvailable, registerNickname, updateNickname, addXp, fetchLeaderboard as fetchXpLeaderboard, fetchMyRank } from "./auth";
+import { fetchProfileByClientId, isNicknameAvailable, registerNickname, updateNickname, addXp, fetchLeaderboard as fetchXpLeaderboard, fetchMyRank, fetchRaceStatus } from "./auth";
 
 const WINNING_SCORE = 3;
 const ROUND_SECONDS = 20;
@@ -740,26 +740,91 @@ function WrongExplanationCard({ report, onReport }) {
 
 // Oyun sonu XP özeti: kazanılan XP + haftalık sıra + değişim.
 // result: { gained, rank, delta } | null
-function XpResultBanner({ result }) {
+function XpResultBanner({ result, onGoToLeaderboard }) {
   if (!result) return null;
-  const { gained, rank, delta, note } = result;
+  const { gained, rank, delta, note, totalPlayers, ahead, chaser, isTop } = result;
+
+  // İlerleme çubuğu: bir üstteki rakibe ne kadar yakınım?
+  // ahead.gap büyükse bar boş, küçükse dolu. Referans: kazandığım XP'ye oranla.
+  let progressPct = 0;
+  if (ahead && ahead.gap > 0) {
+    // Bu oyunda kazandığım XP, kalan farkın ne kadarını kapatıyor → momentum hissi
+    progressPct = Math.min(95, Math.max(8, Math.round((gained / (gained + ahead.gap)) * 100)));
+  } else if (isTop) {
+    progressPct = 100;
+  }
+
   return (
-    <div style={{ margin: "12px auto 0", maxWidth: 340, padding: "12px 16px", borderRadius: 14, background: "linear-gradient(135deg, rgba(155,45,255,0.16), rgba(155,45,255,0.06))", border: "1px solid rgba(155,45,255,0.4)" }}>
-      <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 14, flexWrap: "wrap" }}>
-        <span style={{ fontSize: 15, fontWeight: 800, color: "#d9b3ff" }}>+{gained} XP</span>
-        <span style={{ opacity: 0.4 }}>·</span>
-        <span style={{ fontSize: 14, fontWeight: 700, color: "#fff" }}>{t("xp_result_rank", { n: rank })}</span>
-        {delta > 0 && (
-          <span style={{ fontSize: 13, fontWeight: 800, color: "#34d399" }}>↑{delta} {t("xp_result_up")}</span>
-        )}
-        {delta < 0 && (
-          <span style={{ fontSize: 13, fontWeight: 700, color: "rgba(255,255,255,0.5)" }}>↓{Math.abs(delta)} {t("xp_result_down")}</span>
+    <div style={{ margin: "0 auto 16px", maxWidth: 360, padding: "16px 18px", borderRadius: 18, background: "linear-gradient(150deg, rgba(155,45,255,0.22), rgba(155,45,255,0.07))", border: "1px solid rgba(155,45,255,0.45)", boxShadow: "0 8px 28px rgba(120,30,200,0.18)" }}>
+
+      {/* Kazanılan XP — büyük ve kutlamalı */}
+      <div style={{ textAlign: "center" }}>
+        <div style={{ fontSize: 30, fontWeight: 900, color: "#e0c2ff", lineHeight: 1.05, letterSpacing: -0.5 }}>
+          +{gained} <span style={{ fontSize: 18, fontWeight: 800 }}>XP</span>
+        </div>
+        {note && (
+          <div style={{ marginTop: 2, fontSize: 11.5, fontWeight: 600, color: "rgba(255,255,255,0.5)" }}>{note}</div>
         )}
       </div>
-      {note && (
-        <div style={{ marginTop: 7, textAlign: "center", fontSize: 11.5, fontWeight: 600, color: "rgba(255,255,255,0.5)" }}>
-          {note}
+
+      {/* Sıra — tam cümle + değişim rozeti */}
+      <div style={{ marginTop: 12, display: "flex", alignItems: "center", justifyContent: "center", gap: 8, flexWrap: "wrap" }}>
+        <span style={{ fontSize: 15, fontWeight: 800, color: "#fff" }}>
+          {t("race_rank_line", { rank, total: totalPlayers })}
+        </span>
+        {delta > 0 && (
+          <span style={{ fontSize: 12, fontWeight: 900, color: "#34d399", background: "rgba(52,211,153,0.16)", padding: "2px 8px", borderRadius: 20 }}>
+            ↑{delta}
+          </span>
+        )}
+        {delta < 0 && (
+          <span style={{ fontSize: 12, fontWeight: 800, color: "rgba(255,255,255,0.5)", background: "rgba(255,255,255,0.08)", padding: "2px 8px", borderRadius: 20 }}>
+            ↓{Math.abs(delta)}
+          </span>
+        )}
+      </div>
+
+      {/* Av hedefi — bir üstteki rakip + ilerleme çubuğu */}
+      {ahead && (
+        <div style={{ marginTop: 14 }}>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: 6, gap: 8 }}>
+            <span style={{ fontSize: 13, fontWeight: 700, color: "rgba(255,255,255,0.8)", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
+              🎯 {t("race_target_name", { name: ahead.nickname, rank: rank - 1 })}
+            </span>
+            <span style={{ fontSize: 13, fontWeight: 900, color: "#ffd84d", whiteSpace: "nowrap", flexShrink: 0 }}>
+              {t("race_gap", { n: ahead.gap })}
+            </span>
+          </div>
+          <div style={{ height: 7, borderRadius: 20, background: "rgba(255,255,255,0.1)", overflow: "hidden" }}>
+            <div style={{ width: `${progressPct}%`, height: "100%", borderRadius: 20, background: "linear-gradient(90deg,#aa3bff,#ffd84d)", transition: "width 0.6s ease" }} />
+          </div>
+          <div style={{ marginTop: 7, textAlign: "center", fontSize: 12, fontWeight: 700, color: "#d9b3ff" }}>
+            {t("race_keep_playing")}
+          </div>
         </div>
+      )}
+
+      {/* 1.'yim → savunma hissi */}
+      {isTop && (
+        <div style={{ marginTop: 14, padding: "10px 14px", borderRadius: 12, background: "rgba(255,216,77,0.12)", border: "1px solid rgba(255,216,77,0.3)", textAlign: "center" }}>
+          <div style={{ fontSize: 14, fontWeight: 900, color: "#ffd84d" }}>👑 {t("race_top_title")}</div>
+          {chaser && (
+            <div style={{ marginTop: 4, fontSize: 12.5, fontWeight: 600, color: "rgba(255,255,255,0.7)" }}>
+              {t("race_chaser", { name: chaser.nickname, n: chaser.gap })}
+            </div>
+          )}
+        </div>
+      )}
+
+      {/* Sıralamaya git */}
+      {onGoToLeaderboard && (
+        <button
+          type="button"
+          onClick={onGoToLeaderboard}
+          style={{ width: "100%", marginTop: 14, padding: "10px", borderRadius: 12, border: "1px solid rgba(255,255,255,0.18)", background: "rgba(255,255,255,0.06)", color: "#fff", fontSize: 13.5, fontWeight: 800, cursor: "pointer" }}
+        >
+          {t("race_see_leaderboard")} ›
+        </button>
       )}
     </div>
   );
@@ -1776,12 +1841,21 @@ export default function App() {
     }
     try { track("xp_awarded", { amount: total }); } catch (e) {}
 
-    // Ödül sonrası sıra
-    const after = await fetchMyRank(supabase, clientIdRef.current, "weekly");
-    if (after) {
+    // Ödül sonrası zengin yarış durumu (sıra + bir üstteki rakip + fark)
+    const race = await fetchRaceStatus(supabase, clientIdRef.current, "weekly");
+    if (race) {
       // delta > 0 = yükseldi (sıra küçüldü). before yoksa değişim gösterme.
-      const delta = before && before.rank ? before.rank - after.rank : 0;
-      setXpResult({ gained: total, rank: after.rank, delta, note });
+      const delta = before && before.rank ? before.rank - race.rank : 0;
+      setXpResult({
+        gained: total,
+        rank: race.rank,
+        delta,
+        note,
+        totalPlayers: race.totalPlayers,
+        ahead: race.ahead,
+        chaser: race.chaser,
+        isTop: race.isTop
+      });
     }
   };
 
@@ -4560,6 +4634,10 @@ export default function App() {
 
                   {challengeRoundLocked ? (
                     <>
+                    <XpResultBanner
+                      result={xpResult}
+                      onGoToLeaderboard={() => { setScreen("home"); setMainTab("leaderboard"); }}
+                    />
                     <ChallengeGameOver
                       score={challengeLastScore ?? 0}
                       best={challengeBest}
@@ -4605,7 +4683,6 @@ export default function App() {
                         });
                       }}
                     />
-                    <XpResultBanner result={xpResult} />
                     </>
                   ) : (
                     <>
@@ -4818,7 +4895,10 @@ export default function App() {
                     </div>
                   </div>
 
-                  <XpResultBanner result={xpResult} />
+                  <XpResultBanner
+                    result={xpResult}
+                    onGoToLeaderboard={() => { setScreen("home"); setMainTab("leaderboard"); }}
+                  />
 
                   <div className="gameover-section">
                     <span className="gameover-label">{t("daily_grid_label")}</span>
@@ -5102,7 +5182,10 @@ export default function App() {
                     currentCorrectRounds={correctRounds}
                   />
 
-                  <XpResultBanner result={xpResult} />
+                  <XpResultBanner
+                    result={xpResult}
+                    onGoToLeaderboard={() => { setScreen("home"); setMainTab("leaderboard"); }}
+                  />
 
                   <div className="winner-actions">
                     <button type="button" onClick={startRematch} className="primary-button big">

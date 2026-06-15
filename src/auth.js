@@ -167,3 +167,82 @@ export async function fetchMyRank(supabase, clientId, scope = "weekly") {
     return null;
   }
 }
+
+// Oyun sonu "yarış kartı" için zengin sıralama bilgisi.
+// Kendi sıram + XP'm + bir üstteki rakibin adı/farkı + (1.'ysem) beni kovalayanın farkı.
+// scope: "weekly" | "total". Döner:
+// {
+//   rank, xp, totalPlayers,
+//   ahead: { nickname, xp, gap } | null,   // bir üstteki rakip (gap = onu geçmek için gereken XP)
+//   chaser: { nickname, xp, gap } | null,  // sadece 1.'yken: beni kovalayan (gap = aramdaki fark)
+//   isTop: bool
+// } | null
+export async function fetchRaceStatus(supabase, clientId, scope = "weekly") {
+  if (!supabase || !clientId) return null;
+  const col = scope === "weekly" ? "weekly_xp" : "total_xp";
+  try {
+    // Kendi XP'm
+    const { data: me, error: meErr } = await supabase
+      .from("user_xp")
+      .select(`${col}`)
+      .eq("client_id", clientId)
+      .maybeSingle();
+    if (meErr) { logSwallowed("race_me", meErr); return null; }
+    const myXp = me ? (me[col] || 0) : 0;
+
+    // Toplam sıralanan oyuncu sayısı (XP > 0). "X kişi arasında" demek için.
+    const { count: total, error: tErr } = await supabase
+      .from("user_xp")
+      .select("client_id", { count: "exact", head: true })
+      .gt(col, 0);
+    if (tErr) logSwallowed("race_total", tErr);
+
+    // Benden yüksek XP'li kaç kişi → sıram
+    const { count: above, error: aErr } = await supabase
+      .from("user_xp")
+      .select("client_id", { count: "exact", head: true })
+      .gt(col, myXp);
+    if (aErr) { logSwallowed("race_above", aErr); return null; }
+    const rank = (above || 0) + 1;
+    const isTop = rank === 1;
+
+    let ahead = null;
+    let chaser = null;
+
+    if (!isTop) {
+      // Bir üstteki rakip = benden yüksek XP'liler arasında EN DÜŞÜK XP'li olan.
+      // (XP asc + benden büyük → ilk satır en yakın üst.)
+      const { data: aboveRows, error: abErr } = await supabase
+        .from("user_xp")
+        .select(`nickname, ${col}`)
+        .gt(col, myXp)
+        .order(col, { ascending: true })
+        .limit(1);
+      if (abErr) logSwallowed("race_ahead", abErr);
+      const a = aboveRows && aboveRows[0];
+      if (a) {
+        const aXp = a[col] || 0;
+        ahead = { nickname: a.nickname, xp: aXp, gap: Math.max(1, aXp - myXp + 1) };
+      }
+    } else {
+      // 1.'yim → beni kovalayan = benden düşük XP'liler arasında EN YÜKSEK XP'li.
+      const { data: belowRows, error: bErr } = await supabase
+        .from("user_xp")
+        .select(`nickname, ${col}`)
+        .lt(col, myXp)
+        .order(col, { ascending: false })
+        .limit(1);
+      if (bErr) logSwallowed("race_chaser", bErr);
+      const b = belowRows && belowRows[0];
+      if (b) {
+        const bXp = b[col] || 0;
+        chaser = { nickname: b.nickname, xp: bXp, gap: Math.max(1, myXp - bXp) };
+      }
+    }
+
+    return { rank, xp: myXp, totalPlayers: total || rank, ahead, chaser, isTop };
+  } catch (e) {
+    logSwallowed("race_throw", e);
+    return null;
+  }
+}
