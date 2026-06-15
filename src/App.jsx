@@ -1092,8 +1092,8 @@ function ChallengeGameOver({
         <div
           className="gameover-nearmiss"
           style={{
-            margin: "2px 0 14px",
-            padding: "11px 16px",
+            margin: "0 0 4px",
+            padding: "10px 14px",
             borderRadius: "14px",
             fontWeight: 600,
             fontSize: "15px",
@@ -3429,8 +3429,6 @@ export default function App() {
         nm = { tone: "today", text: t("near_today_best", { diff: diffLabel }) + (prevOverall > 0 ? t("near_today_rec", { n: prevOverall }) : "") };
       } else if (prevToday - finalScore <= 2 && prevToday > 0) {
         nm = { tone: "close", text: t("near_close_today", { diff: diffLabel, prev: prevToday, n: prevToday - finalScore }) };
-      } else {
-        nm = { tone: "info", text: t("near_info", { diff: diffLabel, today: prevToday, best: prevOverall }) };
       }
     }
     setChallengeNearMiss(nm);
@@ -7607,12 +7605,12 @@ button:focus-visible {
   border: 1px solid var(--border);
   border-radius: var(--radius-xl);
   box-shadow: var(--shadow);
-  padding: 18px;
+  padding: 14px;
   flex: 1;
   min-height: 0;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 9px;
 }
 
 .waiting-panel {
@@ -8863,8 +8861,8 @@ button:focus-visible {
 .challenge-gameover {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  padding: 14px;
+  gap: 8px;
+  padding: 12px;
   background: linear-gradient(135deg, var(--surface-strong) 0%, var(--surface) 100%);
   border: 1px solid var(--border);
   border-radius: var(--radius);
@@ -8878,8 +8876,10 @@ button:focus-visible {
 
 .gameover-header {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 10px;
+  text-align: center;
+  gap: 4px;
 }
 
 .gameover-icon {
@@ -8901,9 +8901,10 @@ button:focus-visible {
 .gameover-headline {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 2px;
   min-width: 0;
-  flex: 1;
+  width: 100%;
 }
 
 .gameover-headline h3 {
