@@ -1652,6 +1652,13 @@ export default function App() {
   }, []);
 
   const triggerInstall = async () => {
+    const isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent || "");
+    if (isIOS) {
+      // iOS → doğrudan App Store'a yönlendir
+      track("app_store_redirect", { platform: "ios" });
+      window.location.href = "https://apps.apple.com/tr/app/pairfc/id6774353978?l=tr";
+      return;
+    }
     if (deferredInstallPrompt) {
       deferredInstallPrompt.prompt();
       const { outcome } = await deferredInstallPrompt.userChoice;
@@ -1660,7 +1667,7 @@ export default function App() {
       setDeferredInstallPrompt(null);
       setShowInstallModal(false);
     } else {
-      // iOS Safari veya destek yoksa modal göster
+      // Android'de prompt henüz hazır değilse / desteklenmiyorsa modal göster
       setShowInstallModal(true);
     }
   };
