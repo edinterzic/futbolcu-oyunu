@@ -1,5 +1,5 @@
 // Auto-generated from admin panel
-// Generated: 2026-06-12T12:46:19.122Z
+// Generated: 2026-08-23T20:54:27.648Z
 
 export const PLAYERS = [
   {
@@ -14810,7 +14810,8 @@ export const PLAYERS = [
     "clubs": [
       "Bayern Munich",
       "Monaco",
-      "VfB Stuttgart"
+      "VfB Stuttgart",
+      "Beşiktaş"
     ]
   },
   {
@@ -56735,7 +56736,8 @@ export const PLAYERS = [
       "Olympique Lyon",
       "Valencia",
       "FC Köln",
-      "OH Leuven"
+      "OH Leuven",
+      "Trabzonspor"
     ]
   },
   {
@@ -86785,7 +86787,8 @@ export const PLAYERS = [
     "clubs": [
       "Başakşehir",
       "Kayserispor",
-      "Rennes"
+      "Rennes",
+      "Beşiktaş"
     ]
   },
   {
@@ -89390,7 +89393,8 @@ export const PLAYERS = [
     "name": "Dušan Vlahović",
     "clubs": [
       "Fiorentina",
-      "Juventus"
+      "Juventus",
+      "Beşiktaş"
     ]
   },
   {
@@ -194172,7 +194176,8 @@ export const PLAYERS = [
   {
     "name": "Kassoum Ouattara",
     "clubs": [
-      "Monaco"
+      "Monaco",
+      "Beşiktaş"
     ]
   },
   {
@@ -204063,7 +204068,8 @@ export const PLAYERS = [
       "Brighton",
       "Genk",
       "OH Leuven",
-      "Westerlo"
+      "Westerlo",
+      "Beşiktaş"
     ]
   },
   {
@@ -207126,7 +207132,8 @@ export const PLAYERS = [
     "clubs": [
       "Burnley",
       "Chelsea",
-      "Rennes"
+      "Rennes",
+      "Galatasaray"
     ]
   },
   {
@@ -230415,7 +230422,8 @@ export const PLAYERS = [
     "clubs": [
       "Getafe",
       "Manchester United",
-      "Marsilya"
+      "Marsilya",
+      "Fenerbahçe"
     ]
   },
   {
@@ -238963,7 +238971,8 @@ export const PLAYERS = [
     "name": "Metehan Mimaroğlu",
     "clubs": [
       "Eyüpspor",
-      "Gençlerbirliği"
+      "Gençlerbirliği",
+      "Trabzonspor"
     ]
   },
   {
@@ -247689,7 +247698,8 @@ export const PLAYERS = [
       "AS Roma",
       "Chelsea",
       "Fiorentina",
-      "Liverpool"
+      "Liverpool",
+      "Trabzonspor"
     ]
   },
   {
@@ -252172,7 +252182,8 @@ export const PLAYERS = [
     "clubs": [
       "Bournemouth",
       "Chelsea",
-      "Manchester City"
+      "Manchester City",
+      "Fenerbahçe"
     ]
   },
   {
@@ -259172,7 +259183,8 @@ export const PLAYERS = [
   {
     "name": "Noah Saviolo",
     "clubs": [
-      "Vitória SC"
+      "Vitória SC",
+      "Trabzonspor"
     ]
   },
   {
@@ -287968,7 +287980,8 @@ export const PLAYERS = [
   {
     "name": "René Mitongo",
     "clubs": [
-      "Standard Liège"
+      "Standard Liège",
+      "Trabzonspor"
     ]
   },
   {
@@ -297602,7 +297615,8 @@ export const PLAYERS = [
       "Inter",
       "Manchester United",
       "Napoli",
-      "Anderlecht"
+      "Anderlecht",
+      "Fenerbahçe"
     ]
   },
   {
@@ -301250,7 +301264,8 @@ export const PLAYERS = [
       "Atalanta",
       "Genoa",
       "Marsilya",
-      "Genk"
+      "Genk",
+      "Trabzonspor"
     ]
   },
   {
@@ -302958,7 +302973,8 @@ export const PLAYERS = [
     "clubs": [
       "Borussia Dortmund",
       "FC Köln",
-      "VfL Wolfsburg"
+      "VfL Wolfsburg",
+      "Beşiktaş"
     ]
   },
   {
@@ -304343,7 +304359,8 @@ export const PLAYERS = [
     "name": "Samet Akaydin",
     "clubs": [
       "Fenerbahçe",
-      "Rizespor"
+      "Rizespor",
+      "Trabzonspor"
     ]
   },
   {
@@ -313261,7 +313278,8 @@ export const PLAYERS = [
     "name": "Sidny Lopes Cabral",
     "clubs": [
       "Benfica",
-      "Estrela Amadora"
+      "Estrela Amadora",
+      "Trabzonspor"
     ]
   },
   {
@@ -347564,7 +347582,8 @@ export const PLAYERS = [
       "Ajax",
       "Galatasaray",
       "Inter",
-      "Nice"
+      "Nice",
+      "Real Madrid"
     ]
   },
   {
