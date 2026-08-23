@@ -1,5 +1,5 @@
 // Auto-generated from admin panel
-// Generated: 2026-08-23T20:54:27.648Z
+// Generated: 2026-08-23T21:07:27.317Z
 
 export const PLAYERS = [
   {
@@ -96294,7 +96294,8 @@ export const PLAYERS = [
       "Alanyaspor",
       "Antalyaspor",
       "Eyüpspor",
-      "Galatasaray"
+      "Galatasaray",
+      "Karagümrük"
     ]
   },
   {
@@ -108608,7 +108609,8 @@ export const PLAYERS = [
     "clubs": [
       "Barcelona",
       "Manchester City",
-      "Valencia"
+      "Valencia",
+      "PSG"
     ]
   },
   {
@@ -193275,7 +193277,8 @@ export const PLAYERS = [
   {
     "name": "Karim Adeyemi",
     "clubs": [
-      "Borussia Dortmund"
+      "Borussia Dortmund",
+      "Barcelona"
     ]
   },
   {
@@ -247020,12 +247023,6 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Mo Salah",
-    "clubs": [
-      "Union SG"
-    ]
-  },
-  {
     "name": "Moacir",
     "clubs": [
       "Atletico Madrid",
@@ -298394,21 +298391,6 @@ export const PLAYERS = [
     ]
   },
   {
-    "name": "Ronaldo",
-    "clubs": [
-      "AC Milan",
-      "Barcelona",
-      "Benfica",
-      "Beşiktaş",
-      "Inter",
-      "Lazio",
-      "PSV",
-      "Real Madrid",
-      "Rio Ave",
-      "Santa Clara"
-    ]
-  },
-  {
     "name": "Ronaldo Conceição",
     "clubs": [
       "Nacional"
@@ -298431,6 +298413,16 @@ export const PLAYERS = [
     "name": "Ronaldo Nájera",
     "clubs": [
       "Atletico Madrid"
+    ]
+  },
+  {
+    "name": "Ronaldo Nazario",
+    "clubs": [
+      "AC Milan",
+      "Barcelona",
+      "Inter",
+      "PSV",
+      "Real Madrid"
     ]
   },
   {
@@ -356814,7 +356806,8 @@ export const PLAYERS = [
     "name": "Zeki Çelik",
     "clubs": [
       "AS Roma",
-      "LOSC Lille"
+      "LOSC Lille",
+      "Juventus"
     ]
   },
   {
